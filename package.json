@@ -1,0 +1,29 @@
+{
+  "name": "@kubevirt-ui/kubevirt-api",
+  "version": "1.0.2",
+  "description": "kubevirt OpenAPI automation for TypeScript",
+  "main": "generated/index.js",
+  "scripts": {
+    "update": "curl https://raw.githubusercontent.com/kubevirt/kubevirt/master/api/openapi-spec/swagger.json -o swagger.json",
+    "generate": "openapi-generator-cli generate -i swagger.json -g typescript -o ./generated/ --skip-validate-spec",
+    "clean": "rm -rf ./generated",
+    "test": "echo \"It's all OK\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kubevirt-ui/kubevirt-api.git"
+  },
+  "dependencies": {},
+  "keywords": [
+    "kubevirt",
+    "openapi",
+    "typescript"
+  ],
+  "author": "Yaacov Zamir <yzamir@redhat.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/kubevirt-ui/kubevirt-api/issues"
+  },
+  "homepage": "https://github.com/kubevirt-ui/kubevirt-api#readme",
+  "devDependencies": {}
+}

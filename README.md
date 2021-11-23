@@ -1,3 +1,5 @@
+[![NPM Version](https://img.shields.io/npm/v/gm.svg?style=flat)](https://www.npmjs.org/package/@kubevirt-ui/kubevirt-api)
+
 # kubevirt-api
 kubevirt OpenAPI automation for TypeScript types
 

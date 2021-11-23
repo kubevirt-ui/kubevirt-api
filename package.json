@@ -1,6 +1,6 @@
 {
   "name": "@kubevirt-ui/kubevirt-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "kubevirt OpenAPI automation for TypeScript",
   "main": "./generated/models/index.js",
   "exports": {

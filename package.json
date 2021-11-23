@@ -1,8 +1,11 @@
 {
   "name": "@kubevirt-ui/kubevirt-api",
-  "version": "1.0.2",
+  "version": "0.0.1",
   "description": "kubevirt OpenAPI automation for TypeScript",
-  "main": "generated/index.js",
+  "main": "./index.js",
+  "exports": {
+    "./": "./generated/models"
+  },
   "scripts": {
     "update": "curl https://raw.githubusercontent.com/kubevirt/kubevirt/master/api/openapi-spec/swagger.json -o swagger.json",
     "generate": "openapi-generator-cli generate -i swagger.json -g typescript -o ./generated/ --skip-validate-spec",

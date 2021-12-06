@@ -11,7 +11,6 @@
  */
 
 import { V1KernelBootContainer } from './V1KernelBootContainer';
-import { HttpFile } from '../http/http';
 
 /**
 * Represents the firmware blob used to assist in the kernel boot process. Used for setting the kernel, initrd and command line arguments

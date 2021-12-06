@@ -11,7 +11,6 @@
  */
 
 import { K8sIoApimachineryPkgApisMetaV1Preconditions } from './K8sIoApimachineryPkgApisMetaV1Preconditions';
-import { HttpFile } from '../http/http';
 
 /**
 * DeleteOptions may be provided when deleting an API object.

@@ -12,7 +12,6 @@
 
 import { V1alpha1Condition } from './V1alpha1Condition';
 import { V1alpha1VolumeRestore } from './V1alpha1VolumeRestore';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineRestoreStatus is the spec for a VirtualMachineRestoreresource

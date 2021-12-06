@@ -15,7 +15,6 @@ import { V1beta1DataVolumeCheckpoint } from './V1beta1DataVolumeCheckpoint';
 import { V1beta1DataVolumeSource } from './V1beta1DataVolumeSource';
 import { V1beta1DataVolumeSourceRef } from './V1beta1DataVolumeSourceRef';
 import { V1beta1StorageSpec } from './V1beta1StorageSpec';
-import { HttpFile } from '../http/http';
 
 /**
 * DataVolumeSpec defines the DataVolume type specification

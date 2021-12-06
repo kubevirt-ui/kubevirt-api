@@ -11,7 +11,6 @@
  */
 
 import { V1beta1CertConfig } from './V1beta1CertConfig';
-import { HttpFile } from '../http/http';
 
 /**
 * CDICertConfig has the CertConfigs for CDI

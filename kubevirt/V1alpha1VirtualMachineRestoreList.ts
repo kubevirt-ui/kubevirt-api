@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import { V1alpha1VirtualMachineRestore } from './V1alpha1VirtualMachineRestore';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineRestoreList is a list of VirtualMachineRestore resources

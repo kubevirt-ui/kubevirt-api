@@ -13,7 +13,6 @@
 import { V1ObjectMeta } from './V1ObjectMeta';
 import { V1beta1UploadTokenRequestSpec } from './V1beta1UploadTokenRequestSpec';
 import { V1beta1UploadTokenRequestStatus } from './V1beta1UploadTokenRequestStatus';
-import { HttpFile } from '../http/http';
 
 /**
 * UploadTokenRequest is the CR used to initiate a CDI upload

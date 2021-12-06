@@ -13,7 +13,6 @@
 import { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import { V1VirtualMachineInstanceMigrationSpec } from './V1VirtualMachineInstanceMigrationSpec';
 import { V1VirtualMachineInstanceMigrationStatus } from './V1VirtualMachineInstanceMigrationStatus';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineInstanceMigration represents the object tracking a VMI's migration to another host in the cluster

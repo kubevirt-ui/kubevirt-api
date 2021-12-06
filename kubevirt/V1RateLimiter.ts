@@ -11,7 +11,6 @@
  */
 
 import { V1TokenBucketRateLimiter } from './V1TokenBucketRateLimiter';
-import { HttpFile } from '../http/http';
 
 export class V1RateLimiter {
     'tokenBucketRateLimiter'?: V1TokenBucketRateLimiter;

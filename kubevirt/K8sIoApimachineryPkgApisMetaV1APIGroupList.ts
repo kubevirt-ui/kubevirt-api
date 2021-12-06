@@ -11,7 +11,6 @@
  */
 
 import { K8sIoApimachineryPkgApisMetaV1APIGroup } from './K8sIoApimachineryPkgApisMetaV1APIGroup';
-import { HttpFile } from '../http/http';
 
 /**
 * APIGroupList is a list of APIGroup, to allow clients to discover the API at /apis.

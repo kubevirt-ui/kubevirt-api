@@ -11,7 +11,6 @@
  */
 
 import { K8sIoApiCoreV1DownwardAPIVolumeFile } from './K8sIoApiCoreV1DownwardAPIVolumeFile';
-import { HttpFile } from '../http/http';
 
 /**
 * DownwardAPIVolumeSource represents a volume containing downward API info.

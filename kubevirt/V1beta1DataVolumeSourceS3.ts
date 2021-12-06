@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * DataVolumeSourceS3 provides the parameters to create a Data Volume from an S3 source

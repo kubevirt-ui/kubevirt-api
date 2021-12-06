@@ -13,7 +13,6 @@
 import { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import { V1VirtualMachineInstanceSpec } from './V1VirtualMachineInstanceSpec';
 import { V1VirtualMachineInstanceStatus } from './V1VirtualMachineInstanceStatus';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineInstance is *the* VirtualMachineInstance Definition. It represents a virtual machine in the runtime environment of kubernetes.

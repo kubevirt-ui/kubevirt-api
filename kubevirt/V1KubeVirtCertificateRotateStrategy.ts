@@ -11,7 +11,6 @@
  */
 
 import { V1KubeVirtSelfSignConfiguration } from './V1KubeVirtSelfSignConfiguration';
-import { HttpFile } from '../http/http';
 
 export class V1KubeVirtCertificateRotateStrategy {
     'selfSigned'?: V1KubeVirtSelfSignConfiguration;

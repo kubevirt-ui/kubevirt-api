@@ -12,7 +12,6 @@
 
 import { V1DHCPOptions } from './V1DHCPOptions';
 import { V1Port } from './V1Port';
-import { HttpFile } from '../http/http';
 
 export class V1Interface {
     /**

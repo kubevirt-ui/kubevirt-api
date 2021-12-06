@@ -12,7 +12,6 @@
 
 import { K8sIoApiCoreV1PersistentVolumeClaimSpec } from './K8sIoApiCoreV1PersistentVolumeClaimSpec';
 import { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
-import { HttpFile } from '../http/http';
 
 export class V1alpha1PersistentVolumeClaim {
     'metadata'?: K8sIoApimachineryPkgApisMetaV1ObjectMeta;

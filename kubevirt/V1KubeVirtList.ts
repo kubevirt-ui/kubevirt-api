@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import { V1KubeVirt } from './V1KubeVirt';
-import { HttpFile } from '../http/http';
 
 /**
 * KubeVirtList is a list of KubeVirts

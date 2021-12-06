@@ -11,7 +11,6 @@
  */
 
 import { V1I6300ESBWatchdog } from './V1I6300ESBWatchdog';
-import { HttpFile } from '../http/http';
 
 /**
 * Named watchdog device.

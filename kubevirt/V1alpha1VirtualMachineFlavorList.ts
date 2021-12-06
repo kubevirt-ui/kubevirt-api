@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import { V1alpha1VirtualMachineFlavor } from './V1alpha1VirtualMachineFlavor';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineFlavorList is a list of VirtualMachineFlavor resources.

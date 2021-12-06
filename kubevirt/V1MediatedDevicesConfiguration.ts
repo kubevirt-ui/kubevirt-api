@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * MediatedDevicesConfiguration holds inforamtion about MDEV types to be defined, if available

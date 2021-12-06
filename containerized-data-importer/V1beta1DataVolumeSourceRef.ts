@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * DataVolumeSourceRef defines an indirect reference to the source of data for the DataVolume

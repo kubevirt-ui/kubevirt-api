@@ -12,7 +12,6 @@
 
 import { V1CustomizeComponentsPatch } from './V1CustomizeComponentsPatch';
 import { V1Flags } from './V1Flags';
-import { HttpFile } from '../http/http';
 
 export class V1CustomizeComponents {
     'flags'?: V1Flags;

@@ -13,7 +13,6 @@
 import { K8sIoApiCoreV1ExecAction } from './K8sIoApiCoreV1ExecAction';
 import { K8sIoApiCoreV1HTTPGetAction } from './K8sIoApiCoreV1HTTPGetAction';
 import { K8sIoApiCoreV1TCPSocketAction } from './K8sIoApiCoreV1TCPSocketAction';
-import { HttpFile } from '../http/http';
 
 /**
 * Probe describes a health check to be performed against a VirtualMachineInstance to determine whether it is alive or ready to receive traffic.

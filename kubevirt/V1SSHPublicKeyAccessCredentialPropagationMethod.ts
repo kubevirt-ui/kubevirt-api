@@ -11,7 +11,6 @@
  */
 
 import { V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation } from './V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation';
-import { HttpFile } from '../http/http';
 
 /**
 * SSHPublicKeyAccessCredentialPropagationMethod represents the method used to inject a ssh public key into the vm guest. Only one of its members may be specified.

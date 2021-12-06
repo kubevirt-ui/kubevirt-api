@@ -11,7 +11,6 @@
  */
 
 import { V1NodePlacement } from './V1NodePlacement';
-import { HttpFile } from '../http/http';
 
 export class V1ComponentConfig {
     'nodePlacement'?: V1NodePlacement;

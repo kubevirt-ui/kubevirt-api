@@ -13,7 +13,6 @@
 import { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import { V1alpha1VirtualMachineRestoreSpec } from './V1alpha1VirtualMachineRestoreSpec';
 import { V1alpha1VirtualMachineRestoreStatus } from './V1alpha1VirtualMachineRestoreStatus';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineRestore defines the operation of restoring a VM

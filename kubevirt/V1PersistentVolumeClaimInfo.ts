@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * PersistentVolumeClaimInfo contains the relavant information virt-handler needs cached about a PVC

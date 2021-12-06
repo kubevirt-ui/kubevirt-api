@@ -11,7 +11,6 @@
  */
 
 import { V1RESTClientConfiguration } from './V1RESTClientConfiguration';
-import { HttpFile } from '../http/http';
 
 /**
 * ReloadableComponentConfiguration holds all generic k8s configuration options which can be reloaded by components without requiring a restart.

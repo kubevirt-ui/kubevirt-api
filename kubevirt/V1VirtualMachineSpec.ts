@@ -13,7 +13,6 @@
 import { V1DataVolumeTemplateSpec } from './V1DataVolumeTemplateSpec';
 import { V1FlavorMatcher } from './V1FlavorMatcher';
 import { V1VirtualMachineInstanceTemplateSpec } from './V1VirtualMachineInstanceTemplateSpec';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineSpec describes how the proper VirtualMachine should look like

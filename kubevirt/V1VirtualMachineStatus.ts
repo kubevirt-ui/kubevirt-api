@@ -15,7 +15,6 @@ import { V1VirtualMachineStartFailure } from './V1VirtualMachineStartFailure';
 import { V1VirtualMachineStateChangeRequest } from './V1VirtualMachineStateChangeRequest';
 import { V1VirtualMachineVolumeRequest } from './V1VirtualMachineVolumeRequest';
 import { V1VolumeSnapshotStatus } from './V1VolumeSnapshotStatus';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineStatus represents the status returned by the controller to describe how the VirtualMachine is doing

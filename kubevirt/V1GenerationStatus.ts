@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * GenerationStatus keeps track of the generation for a given resource so that decisions about forced updates can be made.

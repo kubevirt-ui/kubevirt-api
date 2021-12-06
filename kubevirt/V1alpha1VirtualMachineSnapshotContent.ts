@@ -13,7 +13,6 @@
 import { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import { V1alpha1VirtualMachineSnapshotContentSpec } from './V1alpha1VirtualMachineSnapshotContentSpec';
 import { V1alpha1VirtualMachineSnapshotContentStatus } from './V1alpha1VirtualMachineSnapshotContentStatus';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineSnapshotContent contains the snapshot data

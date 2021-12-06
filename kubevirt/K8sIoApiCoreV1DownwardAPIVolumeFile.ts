@@ -12,7 +12,6 @@
 
 import { K8sIoApiCoreV1ObjectFieldSelector } from './K8sIoApiCoreV1ObjectFieldSelector';
 import { K8sIoApiCoreV1ResourceFieldSelector } from './K8sIoApiCoreV1ResourceFieldSelector';
-import { HttpFile } from '../http/http';
 
 /**
 * DownwardAPIVolumeFile represents information to create the file containing the pod field

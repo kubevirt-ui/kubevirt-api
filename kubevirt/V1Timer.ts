@@ -15,7 +15,6 @@ import { V1HypervTimer } from './V1HypervTimer';
 import { V1KVMTimer } from './V1KVMTimer';
 import { V1PITTimer } from './V1PITTimer';
 import { V1RTCTimer } from './V1RTCTimer';
-import { HttpFile } from '../http/http';
 
 /**
 * Represents all available timers in a vmi.

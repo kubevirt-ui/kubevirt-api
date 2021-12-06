@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * CustomBlockSize represents the desired logical and physical block size for a VM disk.

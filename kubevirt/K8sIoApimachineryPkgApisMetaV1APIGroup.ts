@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery } from './K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery';
 import { K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR } from './K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR';
-import { HttpFile } from '../http/http';
 
 /**
 * APIGroup contains the name, the supported versions, and the preferred version of a group.

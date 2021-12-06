@@ -13,7 +13,6 @@
 import { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import { V1KubeVirtSpec } from './V1KubeVirtSpec';
 import { V1KubeVirtStatus } from './V1KubeVirtStatus';
-import { HttpFile } from '../http/http';
 
 /**
 * KubeVirt represents the object deploying all KubeVirt resources

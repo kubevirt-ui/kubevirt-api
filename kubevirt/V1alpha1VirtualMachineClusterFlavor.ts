@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import { V1alpha1VirtualMachineFlavorProfile } from './V1alpha1VirtualMachineFlavorProfile';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineClusterFlavor is a cluster scoped version of VirtualMachineFlavor resource.

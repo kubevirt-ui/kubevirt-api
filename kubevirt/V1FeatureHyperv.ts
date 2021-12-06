@@ -14,7 +14,6 @@ import { V1FeatureSpinlocks } from './V1FeatureSpinlocks';
 import { V1FeatureState } from './V1FeatureState';
 import { V1FeatureVendorID } from './V1FeatureVendorID';
 import { V1SyNICTimer } from './V1SyNICTimer';
-import { HttpFile } from '../http/http';
 
 /**
 * Hyperv specific features.

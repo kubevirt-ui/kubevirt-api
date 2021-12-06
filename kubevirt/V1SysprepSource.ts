@@ -11,7 +11,6 @@
  */
 
 import { K8sIoApiCoreV1LocalObjectReference } from './K8sIoApiCoreV1LocalObjectReference';
-import { HttpFile } from '../http/http';
 
 /**
 * Represents a Sysprep volume source.

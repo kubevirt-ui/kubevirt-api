@@ -11,7 +11,6 @@
  */
 
 import { V1AccessCredentialSecretSource } from './V1AccessCredentialSecretSource';
-import { HttpFile } from '../http/http';
 
 /**
 * SSHPublicKeyAccessCredentialSource represents where to retrieve the ssh key credentials Only one of its members may be specified.

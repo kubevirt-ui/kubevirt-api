@@ -12,7 +12,6 @@
 
 import { V1BIOS } from './V1BIOS';
 import { V1EFI } from './V1EFI';
-import { HttpFile } from '../http/http';
 
 /**
 * Represents the firmware blob used to assist in the domain creation process. Used for setting the QEMU BIOS file path for the libvirt domain.

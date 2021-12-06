@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import { V1VirtualMachineInstanceFileSystem } from './V1VirtualMachineInstanceFileSystem';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineInstanceFileSystemList comprises the list of all filesystems on guest machine

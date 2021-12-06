@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * FilesystemOverhead defines the reserved size for PVCs with VolumeMode: Filesystem

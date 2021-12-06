@@ -11,7 +11,6 @@
  */
 
 import { V1alpha1PersistentVolumeClaim } from './V1alpha1PersistentVolumeClaim';
-import { HttpFile } from '../http/http';
 
 /**
 * VolumeBackup contains the data neeed to restore a PVC

@@ -25,3 +25,8 @@ cp -rf ./generated/containerized-data-importer/${CDI_RELEASE}/models/* ./contain
 # Create model indexes
 cp ./kubevirt/all.ts ./kubevirt/index.ts
 cp ./containerized-data-importer/all.ts ./containerized-data-importer/index.ts
+
+# Hack: remove `import { HttpFile } from '../http/http';` lines
+#       a bug in openapi-generator-cli 5.3.0 generates this lines and we need to remove them manually.
+sed -i "/^import [{] HttpFile [}] from '..\/http\/http';$/d" ./kubevirt/* 
+sed -i "/^import [{] HttpFile [}] from '..\/http\/http';$/d" ./containerized-data-importer/* 

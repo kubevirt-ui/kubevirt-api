@@ -12,7 +12,6 @@
 
 import { V1ListMeta } from './V1ListMeta';
 import { V1beta1CDI } from './V1beta1CDI';
-import { HttpFile } from '../http/http';
 
 /**
 * CDIList provides the needed parameters to do request a list of CDIs from the system

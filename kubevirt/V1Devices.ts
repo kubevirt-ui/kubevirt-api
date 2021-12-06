@@ -17,7 +17,6 @@ import { V1HostDevice } from './V1HostDevice';
 import { V1Input } from './V1Input';
 import { V1Interface } from './V1Interface';
 import { V1Watchdog } from './V1Watchdog';
-import { HttpFile } from '../http/http';
 
 export class V1Devices {
     /**

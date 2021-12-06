@@ -11,7 +11,6 @@
  */
 
 import { K8sIoApiCoreV1PodAffinityTerm } from './K8sIoApiCoreV1PodAffinityTerm';
-import { HttpFile } from '../http/http';
 
 /**
 * The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)

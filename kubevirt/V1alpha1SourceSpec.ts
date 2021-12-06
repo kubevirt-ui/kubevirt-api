@@ -11,7 +11,6 @@
  */
 
 import { V1VirtualMachine } from './V1VirtualMachine';
-import { HttpFile } from '../http/http';
 
 /**
 * SourceSpec contains the appropriate spec for the resource being snapshotted

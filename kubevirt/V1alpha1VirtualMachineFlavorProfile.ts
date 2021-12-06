@@ -11,7 +11,6 @@
  */
 
 import { V1CPU } from './V1CPU';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineFlavorProfile contains definitions that will be applied to VirtualMachine.

@@ -12,7 +12,6 @@
 
 import { V1GenerationStatus } from './V1GenerationStatus';
 import { V1KubeVirtCondition } from './V1KubeVirtCondition';
-import { HttpFile } from '../http/http';
 
 /**
 * KubeVirtStatus represents information pertaining to a KubeVirt deployment.

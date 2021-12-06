@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.

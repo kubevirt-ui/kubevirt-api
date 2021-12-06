@@ -13,7 +13,6 @@
 import { V1NodeAffinity } from './V1NodeAffinity';
 import { V1PodAffinity } from './V1PodAffinity';
 import { V1PodAntiAffinity } from './V1PodAntiAffinity';
-import { HttpFile } from '../http/http';
 
 /**
 * Affinity is a group of affinity scheduling rules.

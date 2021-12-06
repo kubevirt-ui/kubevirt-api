@@ -12,7 +12,6 @@
 
 import { V1Affinity } from './V1Affinity';
 import { V1Toleration } from './V1Toleration';
-import { HttpFile } from '../http/http';
 
 /**
 * NodePlacement describes node scheduling configuration.

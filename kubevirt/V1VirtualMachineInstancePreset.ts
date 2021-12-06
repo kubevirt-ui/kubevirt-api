@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import { V1VirtualMachineInstancePresetSpec } from './V1VirtualMachineInstancePresetSpec';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineInstancePreset defines a VMI spec.domain to be applied to all VMIs that match the provided label selector More info: https://kubevirt.io/user-guide/virtual_machines/presets/#overrides

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * ServiceAccountVolumeSource adapts a ServiceAccount into a volume.

@@ -13,7 +13,6 @@
 import { V1ObjectMeta } from './V1ObjectMeta';
 import { V1beta1CDISpec } from './V1beta1CDISpec';
 import { V1beta1CDIStatus } from './V1beta1CDIStatus';
-import { HttpFile } from '../http/http';
 
 /**
 * CDI is the CDI Operator CRD

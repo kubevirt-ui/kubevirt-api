@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * TypedLocalObjectReference contains enough information to let you locate the typed referenced object inside the same namespace.

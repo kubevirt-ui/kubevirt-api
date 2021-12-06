@@ -12,7 +12,6 @@
 
 import { V1Disk } from './V1Disk';
 import { V1HotplugVolumeSource } from './V1HotplugVolumeSource';
-import { HttpFile } from '../http/http';
 
 /**
 * AddVolumeOptions is provided when dynamically hot plugging a volume and disk

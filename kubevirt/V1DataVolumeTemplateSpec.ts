@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import { V1beta1DataVolumeSpec } from './V1beta1DataVolumeSpec';
-import { HttpFile } from '../http/http';
 
 export class V1DataVolumeTemplateSpec {
     /**

@@ -11,7 +11,6 @@
  */
 
 import { V1VirtualMachineInstanceMigrationCondition } from './V1VirtualMachineInstanceMigrationCondition';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineInstanceMigration reprents information pertaining to a VMI's migration.

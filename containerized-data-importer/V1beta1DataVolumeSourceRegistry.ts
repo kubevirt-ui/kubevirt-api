@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * DataVolumeSourceRegistry provides the parameters to create a Data Volume from an registry source

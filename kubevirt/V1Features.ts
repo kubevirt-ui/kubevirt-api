@@ -14,7 +14,6 @@ import { V1FeatureAPIC } from './V1FeatureAPIC';
 import { V1FeatureHyperv } from './V1FeatureHyperv';
 import { V1FeatureKVM } from './V1FeatureKVM';
 import { V1FeatureState } from './V1FeatureState';
-import { HttpFile } from '../http/http';
 
 export class V1Features {
     'acpi'?: V1FeatureState;

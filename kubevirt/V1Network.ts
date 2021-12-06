@@ -12,7 +12,6 @@
 
 import { V1MultusNetwork } from './V1MultusNetwork';
 import { V1PodNetwork } from './V1PodNetwork';
-import { HttpFile } from '../http/http';
 
 /**
 * Network represents a network type and a resource that should be connected to the vm.

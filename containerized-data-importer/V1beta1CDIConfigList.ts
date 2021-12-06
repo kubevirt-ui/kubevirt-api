@@ -12,7 +12,6 @@
 
 import { V1ListMeta } from './V1ListMeta';
 import { V1beta1CDIConfig } from './V1beta1CDIConfig';
-import { HttpFile } from '../http/http';
 
 /**
 * CDIConfigList provides the needed parameters to do request a list of CDIConfigs from the system

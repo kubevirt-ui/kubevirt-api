@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * Hugepages allow to use hugepages for the VirtualMachineInstance instead of regular memory.

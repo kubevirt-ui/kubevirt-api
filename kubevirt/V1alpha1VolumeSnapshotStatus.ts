@@ -11,7 +11,6 @@
  */
 
 import { V1alpha1Error } from './V1alpha1Error';
-import { HttpFile } from '../http/http';
 
 /**
 * VolumeSnapshotStatus is the status of a VolumeSnapshot

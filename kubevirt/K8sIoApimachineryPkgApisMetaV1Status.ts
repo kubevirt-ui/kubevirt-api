@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import { K8sIoApimachineryPkgApisMetaV1StatusDetails } from './K8sIoApimachineryPkgApisMetaV1StatusDetails';
-import { HttpFile } from '../http/http';
 
 /**
 * Status is a return value for calls that don't return other objects.

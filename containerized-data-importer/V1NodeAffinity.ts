@@ -12,7 +12,6 @@
 
 import { V1NodeSelector } from './V1NodeSelector';
 import { V1PreferredSchedulingTerm } from './V1PreferredSchedulingTerm';
-import { HttpFile } from '../http/http';
 
 /**
 * Node affinity is a group of node affinity scheduling rules.

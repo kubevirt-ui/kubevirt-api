@@ -12,7 +12,6 @@
 
 import { V1AddVolumeOptions } from './V1AddVolumeOptions';
 import { V1RemoveVolumeOptions } from './V1RemoveVolumeOptions';
-import { HttpFile } from '../http/http';
 
 export class V1VirtualMachineVolumeRequest {
     'addVolumeOptions'?: V1AddVolumeOptions;

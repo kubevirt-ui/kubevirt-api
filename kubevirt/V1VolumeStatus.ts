@@ -12,7 +12,6 @@
 
 import { V1HotplugVolumeStatus } from './V1HotplugVolumeStatus';
 import { V1PersistentVolumeClaimInfo } from './V1PersistentVolumeClaimInfo';
-import { HttpFile } from '../http/http';
 
 /**
 * VolumeStatus represents information about the status of volumes attached to the VirtualMachineInstance.

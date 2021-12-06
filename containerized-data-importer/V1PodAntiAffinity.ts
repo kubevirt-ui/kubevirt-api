@@ -12,7 +12,6 @@
 
 import { V1PodAffinityTerm } from './V1PodAffinityTerm';
 import { V1WeightedPodAffinityTerm } from './V1WeightedPodAffinityTerm';
-import { HttpFile } from '../http/http';
 
 /**
 * Pod anti affinity is a group of inter pod anti affinity scheduling rules.

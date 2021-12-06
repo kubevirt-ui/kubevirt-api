@@ -13,7 +13,6 @@
 import { V1ObjectMeta } from './V1ObjectMeta';
 import { V1beta1CDIConfigSpec } from './V1beta1CDIConfigSpec';
 import { V1beta1CDIConfigStatus } from './V1beta1CDIConfigStatus';
-import { HttpFile } from '../http/http';
 
 /**
 * CDIConfig provides a user configuration for CDI

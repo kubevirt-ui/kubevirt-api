@@ -17,7 +17,6 @@ import { V1NetworkConfiguration } from './V1NetworkConfiguration';
 import { V1PermittedHostDevices } from './V1PermittedHostDevices';
 import { V1ReloadableComponentConfiguration } from './V1ReloadableComponentConfiguration';
 import { V1SMBiosConfiguration } from './V1SMBiosConfiguration';
-import { HttpFile } from '../http/http';
 
 /**
 * KubeVirtConfiguration holds all kubevirt configurations

@@ -11,7 +11,6 @@
  */
 
 import { V1VirtualMachineInstanceReplicaSetCondition } from './V1VirtualMachineInstanceReplicaSetCondition';
-import { HttpFile } from '../http/http';
 
 export class V1VirtualMachineInstanceReplicaSetStatus {
     'conditions'?: Array<V1VirtualMachineInstanceReplicaSetCondition>;

@@ -14,7 +14,6 @@ import { V1GuestAgentCommandInfo } from './V1GuestAgentCommandInfo';
 import { V1VirtualMachineInstanceFileSystemInfo } from './V1VirtualMachineInstanceFileSystemInfo';
 import { V1VirtualMachineInstanceGuestOSInfo } from './V1VirtualMachineInstanceGuestOSInfo';
 import { V1VirtualMachineInstanceGuestOSUser } from './V1VirtualMachineInstanceGuestOSUser';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineInstanceGuestAgentInfo represents information from the installed guest agent

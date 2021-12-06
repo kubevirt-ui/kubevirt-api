@@ -13,7 +13,6 @@
 import { K8sIoApiCoreV1NodeAffinity } from './K8sIoApiCoreV1NodeAffinity';
 import { K8sIoApiCoreV1PodAffinity } from './K8sIoApiCoreV1PodAffinity';
 import { K8sIoApiCoreV1PodAntiAffinity } from './K8sIoApiCoreV1PodAntiAffinity';
-import { HttpFile } from '../http/http';
 
 /**
 * Affinity is a group of affinity scheduling rules.

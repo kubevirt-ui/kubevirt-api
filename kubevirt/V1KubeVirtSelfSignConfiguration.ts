@@ -11,7 +11,6 @@
  */
 
 import { V1CertConfig } from './V1CertConfig';
-import { HttpFile } from '../http/http';
 
 export class V1KubeVirtSelfSignConfiguration {
     'ca'?: V1CertConfig;

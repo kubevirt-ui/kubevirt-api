@@ -11,7 +11,6 @@
  */
 
 import { K8sIoApiCoreV1HTTPHeader } from './K8sIoApiCoreV1HTTPHeader';
-import { HttpFile } from '../http/http';
 
 /**
 * HTTPGetAction describes an action based on HTTP Get requests.

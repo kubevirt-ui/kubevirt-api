@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * FlavorMatcher references a flavor that is used to fill fields in the VMI template.

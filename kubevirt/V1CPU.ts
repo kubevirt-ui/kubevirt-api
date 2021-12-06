@@ -13,7 +13,6 @@
 import { V1CPUFeature } from './V1CPUFeature';
 import { V1NUMA } from './V1NUMA';
 import { V1Realtime } from './V1Realtime';
-import { HttpFile } from '../http/http';
 
 /**
 * CPU allows specifying the CPU topology.

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineStartFailure tracks VMIs which failed to transition successfully to running using the VM status

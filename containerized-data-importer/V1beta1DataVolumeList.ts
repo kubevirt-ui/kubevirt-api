@@ -12,7 +12,6 @@
 
 import { V1ListMeta } from './V1ListMeta';
 import { V1beta1DataVolume } from './V1beta1DataVolume';
-import { HttpFile } from '../http/http';
 
 /**
 * DataVolumeList provides the needed parameters to do request a list of Data Volumes from the system

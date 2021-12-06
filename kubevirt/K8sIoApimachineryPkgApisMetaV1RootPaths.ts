@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * RootPaths lists the paths available at root. For example: \"/healthz\", \"/apis\".

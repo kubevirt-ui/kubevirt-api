@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry } from './K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry';
 import { K8sIoApimachineryPkgApisMetaV1OwnerReference } from './K8sIoApimachineryPkgApisMetaV1OwnerReference';
-import { HttpFile } from '../http/http';
 
 /**
 * ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.

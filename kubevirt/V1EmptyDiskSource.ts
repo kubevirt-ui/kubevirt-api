@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * EmptyDisk represents a temporary disk which shares the vmis lifecycle.

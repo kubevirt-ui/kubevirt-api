@@ -13,7 +13,6 @@
 import { V1ObjectMeta } from './V1ObjectMeta';
 import { V1beta1DataVolumeSpec } from './V1beta1DataVolumeSpec';
 import { V1beta1DataVolumeStatus } from './V1beta1DataVolumeStatus';
-import { HttpFile } from '../http/http';
 
 /**
 * DataVolume is an abstraction on top of PersistentVolumeClaims to allow easy population of those PersistentVolumeClaims with relation to VirtualMachines

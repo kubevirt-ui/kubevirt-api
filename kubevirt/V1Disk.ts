@@ -15,7 +15,6 @@ import { V1CDRomTarget } from './V1CDRomTarget';
 import { V1DiskTarget } from './V1DiskTarget';
 import { V1FloppyTarget } from './V1FloppyTarget';
 import { V1LunTarget } from './V1LunTarget';
-import { HttpFile } from '../http/http';
 
 export class V1Disk {
     'blockSize'?: V1BlockSize;

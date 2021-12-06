@@ -12,7 +12,6 @@
 
 import { V1DataVolumeSource } from './V1DataVolumeSource';
 import { V1PersistentVolumeClaimVolumeSource } from './V1PersistentVolumeClaimVolumeSource';
-import { HttpFile } from '../http/http';
 
 /**
 * HotplugVolumeSource Represents the source of a volume to mount which are capable of being hotplugged on a live running VMI. Only one of its members may be specified.

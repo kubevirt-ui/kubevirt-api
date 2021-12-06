@@ -19,7 +19,6 @@ import { V1Firmware } from './V1Firmware';
 import { V1Machine } from './V1Machine';
 import { V1Memory } from './V1Memory';
 import { V1ResourceRequirements } from './V1ResourceRequirements';
-import { HttpFile } from '../http/http';
 
 export class V1DomainSpec {
     'chassis'?: V1Chassis;

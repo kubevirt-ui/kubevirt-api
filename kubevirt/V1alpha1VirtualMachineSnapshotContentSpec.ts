@@ -12,7 +12,6 @@
 
 import { V1alpha1SourceSpec } from './V1alpha1SourceSpec';
 import { V1alpha1VolumeBackup } from './V1alpha1VolumeBackup';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineSnapshotContentSpec is the spec for a VirtualMachineSnapshotContent resource

@@ -12,7 +12,6 @@
 
 import { V1UserPasswordAccessCredentialPropagationMethod } from './V1UserPasswordAccessCredentialPropagationMethod';
 import { V1UserPasswordAccessCredentialSource } from './V1UserPasswordAccessCredentialSource';
-import { HttpFile } from '../http/http';
 
 /**
 * UserPasswordAccessCredential represents a source and propagation method for injecting user passwords into a vm guest Only one of its members may be specified.

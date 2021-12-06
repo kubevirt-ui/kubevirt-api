@@ -17,7 +17,6 @@ import { V1VirtualMachineInstanceMigrationState } from './V1VirtualMachineInstan
 import { V1VirtualMachineInstanceNetworkInterface } from './V1VirtualMachineInstanceNetworkInterface';
 import { V1VirtualMachineInstancePhaseTransitionTimestamp } from './V1VirtualMachineInstancePhaseTransitionTimestamp';
 import { V1VolumeStatus } from './V1VolumeStatus';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineInstanceStatus represents information about the status of a VirtualMachineInstance. Status may trail the actual state of a system.

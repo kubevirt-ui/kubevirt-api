@@ -12,7 +12,6 @@
 
 import { V1ClockOffsetUTC } from './V1ClockOffsetUTC';
 import { V1Timer } from './V1Timer';
-import { HttpFile } from '../http/http';
 
 /**
 * Represents the clock and timers of a vmi.

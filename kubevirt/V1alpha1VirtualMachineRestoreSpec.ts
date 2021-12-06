@@ -11,7 +11,6 @@
  */
 
 import { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineRestoreSpec is the spec for a VirtualMachineRestoreresource

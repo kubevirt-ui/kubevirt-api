@@ -12,7 +12,6 @@
 
 import { V1GroupVersionForDiscovery } from './V1GroupVersionForDiscovery';
 import { V1ServerAddressByClientCIDR } from './V1ServerAddressByClientCIDR';
-import { HttpFile } from '../http/http';
 
 /**
 * APIGroup contains the name, the supported versions, and the preferred version of a group.

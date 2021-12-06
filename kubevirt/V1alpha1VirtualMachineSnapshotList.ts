@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import { V1alpha1VirtualMachineSnapshot } from './V1alpha1VirtualMachineSnapshot';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineSnapshotList is a list of VirtualMachineSnapshot resources

@@ -12,7 +12,6 @@
 
 import { K8sIoApiCoreV1Affinity } from './K8sIoApiCoreV1Affinity';
 import { K8sIoApiCoreV1Toleration } from './K8sIoApiCoreV1Toleration';
-import { HttpFile } from '../http/http';
 
 /**
 * NodePlacement describes node scheduling configuration.

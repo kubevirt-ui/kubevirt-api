@@ -12,7 +12,6 @@
 
 import { V1CustomBlockSize } from './V1CustomBlockSize';
 import { V1FeatureState } from './V1FeatureState';
-import { HttpFile } from '../http/http';
 
 /**
 * BlockSize provides the option to change the block size presented to the VM for a disk. Only one of its members may be specified.

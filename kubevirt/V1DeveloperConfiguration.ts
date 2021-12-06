@@ -12,7 +12,6 @@
 
 import { V1DiskVerification } from './V1DiskVerification';
 import { V1LogVerbosity } from './V1LogVerbosity';
-import { HttpFile } from '../http/http';
 
 /**
 * DeveloperConfiguration holds developer options

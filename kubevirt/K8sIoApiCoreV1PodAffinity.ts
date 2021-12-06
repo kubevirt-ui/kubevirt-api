@@ -12,7 +12,6 @@
 
 import { K8sIoApiCoreV1PodAffinityTerm } from './K8sIoApiCoreV1PodAffinityTerm';
 import { K8sIoApiCoreV1WeightedPodAffinityTerm } from './K8sIoApiCoreV1WeightedPodAffinityTerm';
-import { HttpFile } from '../http/http';
 
 /**
 * Pod affinity is a group of inter pod affinity scheduling rules.

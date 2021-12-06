@@ -18,7 +18,6 @@ import { V1DomainSpec } from './V1DomainSpec';
 import { V1Network } from './V1Network';
 import { V1Probe } from './V1Probe';
 import { V1Volume } from './V1Volume';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineInstanceSpec is a description of a VirtualMachineInstance.

@@ -12,7 +12,6 @@
 
 import { V1MediatedHostDevice } from './V1MediatedHostDevice';
 import { V1PciHostDevice } from './V1PciHostDevice';
-import { HttpFile } from '../http/http';
 
 /**
 * PermittedHostDevices holds inforamtion about devices allowed for passthrough

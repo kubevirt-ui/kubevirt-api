@@ -11,7 +11,6 @@
  */
 
 import { V1FeatureState } from './V1FeatureState';
-import { HttpFile } from '../http/http';
 
 export class V1SyNICTimer {
     'direct'?: V1FeatureState;

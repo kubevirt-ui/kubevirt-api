@@ -11,7 +11,6 @@
  */
 
 import { V1beta1DataVolumeCondition } from './V1beta1DataVolumeCondition';
-import { HttpFile } from '../http/http';
 
 /**
 * DataVolumeStatus contains the current status of the DataVolume

@@ -12,7 +12,6 @@
 
 import { V1SSHPublicKeyAccessCredential } from './V1SSHPublicKeyAccessCredential';
 import { V1UserPasswordAccessCredential } from './V1UserPasswordAccessCredential';
-import { HttpFile } from '../http/http';
 
 /**
 * AccessCredential represents a credential source that can be used to authorize remote access to the vm guest Only one of its members may be specified.

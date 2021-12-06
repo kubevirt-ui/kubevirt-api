@@ -13,7 +13,6 @@
 import { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import { V1alpha1VirtualMachineSnapshotSpec } from './V1alpha1VirtualMachineSnapshotSpec';
 import { V1alpha1VirtualMachineSnapshotStatus } from './V1alpha1VirtualMachineSnapshotStatus';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineSnapshot defines the operation of snapshotting a VM

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * MediatedHostDevice represents a host mediated device allowed for passthrough

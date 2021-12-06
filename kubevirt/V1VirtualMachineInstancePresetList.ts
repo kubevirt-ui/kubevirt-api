@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import { V1VirtualMachineInstancePreset } from './V1VirtualMachineInstancePreset';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineInstancePresetList is a list of VirtualMachinePresets

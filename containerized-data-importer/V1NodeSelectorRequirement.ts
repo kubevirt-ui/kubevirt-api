@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.

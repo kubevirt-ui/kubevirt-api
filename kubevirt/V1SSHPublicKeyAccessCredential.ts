@@ -12,7 +12,6 @@
 
 import { V1SSHPublicKeyAccessCredentialPropagationMethod } from './V1SSHPublicKeyAccessCredentialPropagationMethod';
 import { V1SSHPublicKeyAccessCredentialSource } from './V1SSHPublicKeyAccessCredentialSource';
-import { HttpFile } from '../http/http';
 
 /**
 * SSHPublicKeyAccessCredential represents a source and propagation method for injecting ssh public keys into a vm guest

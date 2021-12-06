@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import { V1alpha1VirtualMachineFlavorProfile } from './V1alpha1VirtualMachineFlavorProfile';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineFlavor resource contains common VirtualMachine configuration that can be used by multiple VirtualMachine resources.

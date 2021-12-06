@@ -11,7 +11,6 @@
  */
 
 import { K8sIoApiCoreV1LocalObjectReference } from './K8sIoApiCoreV1LocalObjectReference';
-import { HttpFile } from '../http/http';
 
 /**
 * Represents a cloud-init config drive user data source. More info: https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html

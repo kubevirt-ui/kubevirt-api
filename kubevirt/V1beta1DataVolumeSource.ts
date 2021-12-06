@@ -16,7 +16,6 @@ import { V1beta1DataVolumeSourcePVC } from './V1beta1DataVolumeSourcePVC';
 import { V1beta1DataVolumeSourceRegistry } from './V1beta1DataVolumeSourceRegistry';
 import { V1beta1DataVolumeSourceS3 } from './V1beta1DataVolumeSourceS3';
 import { V1beta1DataVolumeSourceVDDK } from './V1beta1DataVolumeSourceVDDK';
-import { HttpFile } from '../http/http';
 
 /**
 * DataVolumeSource represents the source for our Data Volume, this can be HTTP, Imageio, S3, Registry or an existing PVC

@@ -11,7 +11,6 @@
  */
 
 import { V1VirtualMachineInstanceFileSystem } from './V1VirtualMachineInstanceFileSystem';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineInstanceFileSystemInfo represents information regarding single guest os filesystem

@@ -12,7 +12,6 @@
 
 import { V1alpha1Condition } from './V1alpha1Condition';
 import { V1alpha1Error } from './V1alpha1Error';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineSnapshotStatus is the status for a VirtualMachineSnapshot resource

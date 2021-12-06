@@ -12,7 +12,6 @@
 
 import { V1ManagedFieldsEntry } from './V1ManagedFieldsEntry';
 import { V1OwnerReference } from './V1OwnerReference';
-import { HttpFile } from '../http/http';
 
 /**
 * ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.

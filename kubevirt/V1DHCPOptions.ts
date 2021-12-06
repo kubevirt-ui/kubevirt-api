@@ -11,7 +11,6 @@
  */
 
 import { V1DHCPPrivateOptions } from './V1DHCPPrivateOptions';
-import { HttpFile } from '../http/http';
 
 /**
 * Extra DHCP options to use in the interface.

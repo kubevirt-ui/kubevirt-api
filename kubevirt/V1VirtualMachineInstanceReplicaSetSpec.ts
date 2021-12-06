@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 import { V1VirtualMachineInstanceTemplateSpec } from './V1VirtualMachineInstanceTemplateSpec';
-import { HttpFile } from '../http/http';
 
 export class V1VirtualMachineInstanceReplicaSetSpec {
     /**

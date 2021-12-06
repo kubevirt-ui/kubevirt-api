@@ -13,7 +13,6 @@
 import { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import { V1VirtualMachineSpec } from './V1VirtualMachineSpec';
 import { V1VirtualMachineStatus } from './V1VirtualMachineStatus';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachine handles the VirtualMachines that are not running or are in a stopped state The VirtualMachine contains the template to create the VirtualMachineInstance. It also mirrors the running state of the created VirtualMachineInstance in its status.

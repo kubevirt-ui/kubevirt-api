@@ -11,7 +11,6 @@
  */
 
 import { V1RateLimiter } from './V1RateLimiter';
-import { HttpFile } from '../http/http';
 
 /**
 * RESTClientConfiguration allows configuring certain aspects of the k8s rest client.

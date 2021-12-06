@@ -12,7 +12,6 @@
 
 import { K8sIoApiCoreV1NodeSelector } from './K8sIoApiCoreV1NodeSelector';
 import { K8sIoApiCoreV1PreferredSchedulingTerm } from './K8sIoApiCoreV1PreferredSchedulingTerm';
-import { HttpFile } from '../http/http';
 
 /**
 * Node affinity is a group of node affinity scheduling rules.

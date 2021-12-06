@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * Port repesents a port to expose from the virtual machine. Default protocol TCP. The port field is mandatory

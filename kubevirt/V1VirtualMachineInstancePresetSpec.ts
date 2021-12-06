@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 import { V1DomainSpec } from './V1DomainSpec';
-import { HttpFile } from '../http/http';
 
 export class V1VirtualMachineInstancePresetSpec {
     'domain'?: V1DomainSpec;

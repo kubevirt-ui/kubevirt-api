@@ -12,7 +12,6 @@
 
 import { V1alpha1Error } from './V1alpha1Error';
 import { V1alpha1VolumeSnapshotStatus } from './V1alpha1VolumeSnapshotStatus';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineSnapshotContentStatus is the status for a VirtualMachineSnapshotStatus resource

@@ -15,7 +15,6 @@ import { V1CustomizeComponents } from './V1CustomizeComponents';
 import { V1KubeVirtCertificateRotateStrategy } from './V1KubeVirtCertificateRotateStrategy';
 import { V1KubeVirtConfiguration } from './V1KubeVirtConfiguration';
 import { V1KubeVirtWorkloadUpdateStrategy } from './V1KubeVirtWorkloadUpdateStrategy';
-import { HttpFile } from '../http/http';
 
 export class V1KubeVirtSpec {
     'certificateRotateStrategy'?: V1KubeVirtCertificateRotateStrategy;

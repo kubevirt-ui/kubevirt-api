@@ -13,7 +13,6 @@
 import { V1ResourceRequirements } from './V1ResourceRequirements';
 import { V1beta1FilesystemOverhead } from './V1beta1FilesystemOverhead';
 import { V1beta1ImportProxy } from './V1beta1ImportProxy';
-import { HttpFile } from '../http/http';
 
 /**
 * CDIConfigSpec defines specification for user configuration

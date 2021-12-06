@@ -11,7 +11,6 @@
  */
 
 import { K8sIoApiCoreV1PersistentVolumeClaimVolumeSource } from './K8sIoApiCoreV1PersistentVolumeClaimVolumeSource';
-import { HttpFile } from '../http/http';
 
 export class V1EphemeralVolumeSource {
     'persistentVolumeClaim'?: K8sIoApiCoreV1PersistentVolumeClaimVolumeSource;

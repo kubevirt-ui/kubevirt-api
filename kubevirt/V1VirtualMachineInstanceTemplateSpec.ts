@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import { V1VirtualMachineInstanceSpec } from './V1VirtualMachineInstanceSpec';
-import { HttpFile } from '../http/http';
 
 export class V1VirtualMachineInstanceTemplateSpec {
     'metadata'?: K8sIoApimachineryPkgApisMetaV1ObjectMeta;

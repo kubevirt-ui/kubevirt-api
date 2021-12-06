@@ -23,7 +23,6 @@ import { V1PersistentVolumeClaimVolumeSource } from './V1PersistentVolumeClaimVo
 import { V1SecretVolumeSource } from './V1SecretVolumeSource';
 import { V1ServiceAccountVolumeSource } from './V1ServiceAccountVolumeSource';
 import { V1SysprepSource } from './V1SysprepSource';
-import { HttpFile } from '../http/http';
 
 /**
 * Volume represents a named volume in a vmi.

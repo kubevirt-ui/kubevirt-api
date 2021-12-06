@@ -13,7 +13,6 @@
 import { ApiNodePlacement } from './ApiNodePlacement';
 import { V1beta1CDICertConfig } from './V1beta1CDICertConfig';
 import { V1beta1CDIConfigSpec } from './V1beta1CDIConfigSpec';
-import { HttpFile } from '../http/http';
 
 /**
 * CDISpec defines our specification for the CDI installation

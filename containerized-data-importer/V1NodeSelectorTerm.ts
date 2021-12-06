@@ -11,7 +11,6 @@
  */
 
 import { V1NodeSelectorRequirement } from './V1NodeSelectorRequirement';
-import { HttpFile } from '../http/http';
 
 /**
 * A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.

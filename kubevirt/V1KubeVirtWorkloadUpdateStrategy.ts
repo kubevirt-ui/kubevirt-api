@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * KubeVirtWorkloadUpdateStrategy defines options related to updating a KubeVirt install

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.

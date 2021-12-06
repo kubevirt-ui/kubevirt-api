@@ -12,7 +12,6 @@
 
 import { V1ListMeta } from './V1ListMeta';
 import { V1StatusDetails } from './V1StatusDetails';
-import { HttpFile } from '../http/http';
 
 /**
 * Status is a return value for calls that don't return other objects.

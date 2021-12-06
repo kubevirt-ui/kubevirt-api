@@ -11,7 +11,6 @@
  */
 
 import { K8sIoApiCoreV1PodDNSConfigOption } from './K8sIoApiCoreV1PodDNSConfigOption';
-import { HttpFile } from '../http/http';
 
 /**
 * PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.

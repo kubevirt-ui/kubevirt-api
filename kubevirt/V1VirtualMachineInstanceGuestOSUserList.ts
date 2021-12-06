@@ -12,7 +12,6 @@
 
 import { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import { V1VirtualMachineInstanceGuestOSUser } from './V1VirtualMachineInstanceGuestOSUser';
-import { HttpFile } from '../http/http';
 
 /**
 * VirtualMachineInstanceGuestOSUserList comprises the list of all active users on guest machine

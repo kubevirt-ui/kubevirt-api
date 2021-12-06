@@ -11,7 +11,6 @@
  */
 
 import { V1Condition } from './V1Condition';
-import { HttpFile } from '../http/http';
 
 /**
 * CDIStatus defines the status of the installation

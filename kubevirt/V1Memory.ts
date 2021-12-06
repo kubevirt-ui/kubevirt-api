@@ -11,7 +11,6 @@
  */
 
 import { V1Hugepages } from './V1Hugepages';
-import { HttpFile } from '../http/http';
 
 /**
 * Memory allows specifying the VirtualMachineInstance memory features.

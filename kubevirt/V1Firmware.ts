@@ -12,7 +12,6 @@
 
 import { V1Bootloader } from './V1Bootloader';
 import { V1KernelBoot } from './V1KernelBoot';
-import { HttpFile } from '../http/http';
 
 export class V1Firmware {
     'bootloader'?: V1Bootloader;

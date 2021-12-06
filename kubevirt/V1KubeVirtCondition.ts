@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { HttpFile } from '../http/http';
 
 /**
 * KubeVirtCondition represents a condition of a KubeVirt deployment

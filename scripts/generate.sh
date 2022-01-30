@@ -22,7 +22,3 @@ mkdir -p ./containerized-data-importer
 # Copy models to dist folder
 cp -rf ./generated/kubevirt/${KUBEVIRT_RELEASE}/models/* ./kubevirt/
 cp -rf ./generated/containerized-data-importer/${CDI_RELEASE}/models/* ./containerized-data-importer/
-
-# Create model indexes
-cp ./kubevirt/all.ts ./kubevirt/index.ts
-cp ./containerized-data-importer/all.ts ./containerized-data-importer/index.ts

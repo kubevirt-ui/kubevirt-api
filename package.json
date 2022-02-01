@@ -19,7 +19,19 @@
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.4.25",
-    "@openshift-console/dynamic-plugin-sdk": "^0.0.3"
+    "@openshift-console/dynamic-plugin-sdk": "^0.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "@typescript-eslint/parser": "^5.10.2",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-chai-friendly": "^0.7.2",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0"
   },
   "keywords": [
     "kubevirt",

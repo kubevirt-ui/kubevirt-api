@@ -21,6 +21,9 @@ yarn add @kubevirt-ui/kubevirt-api
 // Import examples
 import { V1VirtualMachine } from '@kubevirt-ui/kubevirt-api/kubevirt'
 import { V1beta1DataVolume } from '@kubevirt-ui/kubevirt-api/containerized-data-importer'
+
+import { VirtualMachineModelGroupVersionKind } from '@kubevirt-ui/kubevirt-api/console/models'
+import VirtualMachineModel from '@kubevirt-ui/kubevirt-api/console/models/VirtualMachineModel'
 ```
 ## Download swagger CLI tools
 

@@ -21,16 +21,16 @@ import { exists, mapValues } from '../runtime';
 export interface V1beta1DataVolumeCondition {
     /**
      * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-     * @type {Date}
+     * @type {string}
      * @memberof V1beta1DataVolumeCondition
      */
-    lastHeartbeatTime?: Date;
+    lastHeartbeatTime?: string;
     /**
      * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-     * @type {Date}
+     * @type {string}
      * @memberof V1beta1DataVolumeCondition
      */
-    lastTransitionTime?: Date;
+    lastTransitionTime?: string;
     /**
      * 
      * @type {string}

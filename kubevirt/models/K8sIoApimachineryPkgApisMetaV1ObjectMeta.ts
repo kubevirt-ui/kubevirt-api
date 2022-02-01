@@ -43,6 +43,12 @@ export interface K8sIoApimachineryPkgApisMetaV1ObjectMeta {
      */
     clusterName?: string;
     /**
+     * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+     * @type {string}
+     * @memberof K8sIoApimachineryPkgApisMetaV1ObjectMeta
+     */
+    creationTimestamp?: string;
+    /**
      * Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only.
      * @type {number}
      * @memberof K8sIoApimachineryPkgApisMetaV1ObjectMeta
@@ -50,10 +56,10 @@ export interface K8sIoApimachineryPkgApisMetaV1ObjectMeta {
     deletionGracePeriodSeconds?: number;
     /**
      * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-     * @type {Date}
+     * @type {string}
      * @memberof K8sIoApimachineryPkgApisMetaV1ObjectMeta
      */
-    deletionTimestamp?: Date;
+    deletionTimestamp?: string;
     /**
      * Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list.
      * @type {Array<string>}
@@ -146,8 +152,9 @@ export function K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped(json: any,
         
         'annotations': !exists(json, 'annotations') ? undefined : json['annotations'],
         'clusterName': !exists(json, 'clusterName') ? undefined : json['clusterName'],
+        'creationTimestamp': !exists(json, 'creationTimestamp') ? undefined : json['creationTimestamp'],
         'deletionGracePeriodSeconds': !exists(json, 'deletionGracePeriodSeconds') ? undefined : json['deletionGracePeriodSeconds'],
-        'deletionTimestamp': !exists(json, 'deletionTimestamp') ? undefined : (new Date(json['deletionTimestamp'])),
+        'deletionTimestamp': !exists(json, 'deletionTimestamp') ? undefined : json['deletionTimestamp'],
         'finalizers': !exists(json, 'finalizers') ? undefined : json['finalizers'],
         'generateName': !exists(json, 'generateName') ? undefined : json['generateName'],
         'generation': !exists(json, 'generation') ? undefined : json['generation'],
@@ -173,8 +180,9 @@ export function K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value?: K8sIoApim
         
         'annotations': value.annotations,
         'clusterName': value.clusterName,
+        'creationTimestamp': value.creationTimestamp === undefined ? undefined : value.creationTimestamp,
         'deletionGracePeriodSeconds': value.deletionGracePeriodSeconds,
-        'deletionTimestamp': value.deletionTimestamp === undefined ? undefined : (value.deletionTimestamp.toISOString()),
+        'deletionTimestamp': value.deletionTimestamp === undefined ? undefined : value.deletionTimestamp,
         'finalizers': value.finalizers,
         'generateName': value.generateName,
         'generation': value.generation,

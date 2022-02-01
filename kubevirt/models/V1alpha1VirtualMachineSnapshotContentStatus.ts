@@ -32,10 +32,10 @@ import {
 export interface V1alpha1VirtualMachineSnapshotContentStatus {
     /**
      * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-     * @type {Date}
+     * @type {string}
      * @memberof V1alpha1VirtualMachineSnapshotContentStatus
      */
-    creationTime?: Date;
+    creationTime?: string;
     /**
      * 
      * @type {V1alpha1Error}

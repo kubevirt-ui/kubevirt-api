@@ -55,10 +55,10 @@ export interface K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry {
     operation?: string;
     /**
      * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-     * @type {Date}
+     * @type {string}
      * @memberof K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry
      */
-    time?: Date;
+    time?: string;
 }
 
 export function K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry {

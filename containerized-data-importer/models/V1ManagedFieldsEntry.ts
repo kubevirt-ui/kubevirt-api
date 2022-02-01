@@ -61,10 +61,10 @@ export interface V1ManagedFieldsEntry {
     subresource?: string;
     /**
      * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-     * @type {Date}
+     * @type {string}
      * @memberof V1ManagedFieldsEntry
      */
-    time?: Date;
+    time?: string;
 }
 
 export function V1ManagedFieldsEntryFromJSON(json: any): V1ManagedFieldsEntry {

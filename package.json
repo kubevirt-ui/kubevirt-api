@@ -4,7 +4,8 @@
   "description": "kubevirt OpenAPI automation for TypeScript",
   "files": [
     "containerized-data-importer/*",
-    "kubevirt/*"
+    "kubevirt/*",
+    "console/*"
   ],
   "scripts": {
     "generate": "bash ./scripts/generate.sh",
@@ -17,7 +18,8 @@
     "url": "git+https://github.com/kubevirt-ui/kubevirt-api.git"
   },
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "^2.4.25"
+    "@openapitools/openapi-generator-cli": "^2.4.25",
+    "@openshift-console/dynamic-plugin-sdk": "^0.0.3"
   },
   "keywords": [
     "kubevirt",

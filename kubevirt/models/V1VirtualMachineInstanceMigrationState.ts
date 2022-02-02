@@ -158,7 +158,7 @@ export function V1VirtualMachineInstanceMigrationStateFromJSONTyped(
     abortRequested: !exists(json, 'abortRequested') ? undefined : json['abortRequested'],
     abortStatus: !exists(json, 'abortStatus') ? undefined : json['abortStatus'],
     completed: !exists(json, 'completed') ? undefined : json['completed'],
-    endTimestamp: !exists(json, 'endTimestamp') ? undefined : new Date(json['endTimestamp']),
+    endTimestamp: !exists(json, 'endTimestamp') ? undefined : endTimestamp,
     failed: !exists(json, 'failed') ? undefined : json['failed'],
     migrationConfiguration: !exists(json, 'migrationConfiguration')
       ? undefined
@@ -169,7 +169,7 @@ export function V1VirtualMachineInstanceMigrationStateFromJSONTyped(
     migrationUid: !exists(json, 'migrationUid') ? undefined : json['migrationUid'],
     mode: !exists(json, 'mode') ? undefined : json['mode'],
     sourceNode: !exists(json, 'sourceNode') ? undefined : json['sourceNode'],
-    startTimestamp: !exists(json, 'startTimestamp') ? undefined : new Date(json['startTimestamp']),
+    startTimestamp: !exists(json, 'startTimestamp') ? undefined : startTimestamp,
     targetAttachmentPodUID: !exists(json, 'targetAttachmentPodUID')
       ? undefined
       : json['targetAttachmentPodUID'],
@@ -202,15 +202,14 @@ export function V1VirtualMachineInstanceMigrationStateToJSON(
     abortRequested: value.abortRequested,
     abortStatus: value.abortStatus,
     completed: value.completed,
-    endTimestamp: value.endTimestamp === undefined ? undefined : value.endTimestamp.toISOString(),
+    endTimestamp: value.endTimestamp === undefined ? undefined : value.endTimestamp,
     failed: value.failed,
     migrationConfiguration: V1MigrationConfigurationToJSON(value.migrationConfiguration),
     migrationPolicyName: value.migrationPolicyName,
     migrationUid: value.migrationUid,
     mode: value.mode,
     sourceNode: value.sourceNode,
-    startTimestamp:
-      value.startTimestamp === undefined ? undefined : value.startTimestamp.toISOString(),
+    startTimestamp: value.startTimestamp === undefined ? undefined : value.startTimestamp,
     targetAttachmentPodUID: value.targetAttachmentPodUID,
     targetCPUSet: value.targetCPUSet,
     targetDirectMigrationNodePorts: value.targetDirectMigrationNodePorts,

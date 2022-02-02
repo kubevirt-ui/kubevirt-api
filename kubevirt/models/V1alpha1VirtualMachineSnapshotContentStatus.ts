@@ -68,7 +68,7 @@ export function V1alpha1VirtualMachineSnapshotContentStatusFromJSONTyped(
     return json;
   }
   return {
-    creationTime: !exists(json, 'creationTime') ? undefined : new Date(json['creationTime']),
+    creationTime: !exists(json, 'creationTime') ? undefined : creationTime,
     error: !exists(json, 'error') ? undefined : V1alpha1ErrorFromJSON(json['error']),
     readyToUse: !exists(json, 'readyToUse') ? undefined : json['readyToUse'],
     volumeSnapshotStatus: !exists(json, 'volumeSnapshotStatus')
@@ -87,7 +87,7 @@ export function V1alpha1VirtualMachineSnapshotContentStatusToJSON(
     return null;
   }
   return {
-    creationTime: value.creationTime === undefined ? undefined : value.creationTime.toISOString(),
+    creationTime: value.creationTime === undefined ? undefined : value.creationTime,
     error: V1alpha1ErrorToJSON(value.error),
     readyToUse: value.readyToUse,
     volumeSnapshotStatus:

@@ -69,12 +69,8 @@ export function V1beta1DataVolumeConditionFromJSONTyped(
     return json;
   }
   return {
-    lastHeartbeatTime: !exists(json, 'lastHeartbeatTime')
-      ? undefined
-      : new Date(json['lastHeartbeatTime']),
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : new Date(json['lastTransitionTime']),
+    lastHeartbeatTime: !exists(json, 'lastHeartbeatTime') ? undefined : lastHeartbeatTime,
+    lastTransitionTime: !exists(json, 'lastTransitionTime') ? undefined : lastTransitionTime,
     message: !exists(json, 'message') ? undefined : json['message'],
     reason: !exists(json, 'reason') ? undefined : json['reason'],
     status: json['status'],
@@ -90,10 +86,9 @@ export function V1beta1DataVolumeConditionToJSON(value?: V1beta1DataVolumeCondit
     return null;
   }
   return {
-    lastHeartbeatTime:
-      value.lastHeartbeatTime === undefined ? undefined : value.lastHeartbeatTime.toISOString(),
+    lastHeartbeatTime: value.lastHeartbeatTime === undefined ? undefined : value.lastHeartbeatTime,
     lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime.toISOString(),
+      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
     message: value.message,
     reason: value.reason,
     status: value.status,

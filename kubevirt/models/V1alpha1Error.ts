@@ -46,7 +46,7 @@ export function V1alpha1ErrorFromJSONTyped(
   }
   return {
     message: !exists(json, 'message') ? undefined : json['message'],
-    time: !exists(json, 'time') ? undefined : new Date(json['time']),
+    time: !exists(json, 'time') ? undefined : time,
   };
 }
 
@@ -59,6 +59,6 @@ export function V1alpha1ErrorToJSON(value?: V1alpha1Error | null): any {
   }
   return {
     message: value.message,
-    time: value.time === undefined ? undefined : value.time.toISOString(),
+    time: value.time === undefined ? undefined : value.time,
   };
 }

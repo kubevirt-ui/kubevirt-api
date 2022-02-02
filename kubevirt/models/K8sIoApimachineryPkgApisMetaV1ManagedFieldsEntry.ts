@@ -80,7 +80,7 @@ export function K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSONTyped(
     fieldsV1: !exists(json, 'fieldsV1') ? undefined : json['fieldsV1'],
     manager: !exists(json, 'manager') ? undefined : json['manager'],
     operation: !exists(json, 'operation') ? undefined : json['operation'],
-    time: !exists(json, 'time') ? undefined : new Date(json['time']),
+    time: !exists(json, 'time') ? undefined : time,
   };
 }
 
@@ -99,6 +99,6 @@ export function K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryToJSON(
     fieldsV1: value.fieldsV1,
     manager: value.manager,
     operation: value.operation,
-    time: value.time === undefined ? undefined : value.time.toISOString(),
+    time: value.time === undefined ? undefined : value.time,
   };
 }

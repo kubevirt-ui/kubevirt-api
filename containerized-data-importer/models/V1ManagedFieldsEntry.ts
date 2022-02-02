@@ -85,7 +85,7 @@ export function V1ManagedFieldsEntryFromJSONTyped(
     manager: !exists(json, 'manager') ? undefined : json['manager'],
     operation: !exists(json, 'operation') ? undefined : json['operation'],
     subresource: !exists(json, 'subresource') ? undefined : json['subresource'],
-    time: !exists(json, 'time') ? undefined : new Date(json['time']),
+    time: !exists(json, 'time') ? undefined : time,
   };
 }
 
@@ -103,6 +103,6 @@ export function V1ManagedFieldsEntryToJSON(value?: V1ManagedFieldsEntry | null):
     manager: value.manager,
     operation: value.operation,
     subresource: value.subresource,
-    time: value.time === undefined ? undefined : value.time.toISOString(),
+    time: value.time === undefined ? undefined : value.time,
   };
 }

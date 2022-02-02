@@ -66,12 +66,8 @@ export function V1ConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolea
     return json;
   }
   return {
-    lastHeartbeatTime: !exists(json, 'lastHeartbeatTime')
-      ? undefined
-      : new Date(json['lastHeartbeatTime']),
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : new Date(json['lastTransitionTime']),
+    lastHeartbeatTime: !exists(json, 'lastHeartbeatTime') ? undefined : lastHeartbeatTime,
+    lastTransitionTime: !exists(json, 'lastTransitionTime') ? undefined : lastTransitionTime,
     message: !exists(json, 'message') ? undefined : json['message'],
     reason: !exists(json, 'reason') ? undefined : json['reason'],
     status: json['status'],
@@ -87,10 +83,9 @@ export function V1ConditionToJSON(value?: V1Condition | null): any {
     return null;
   }
   return {
-    lastHeartbeatTime:
-      value.lastHeartbeatTime === undefined ? undefined : value.lastHeartbeatTime.toISOString(),
+    lastHeartbeatTime: value.lastHeartbeatTime === undefined ? undefined : value.lastHeartbeatTime,
     lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime.toISOString(),
+      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
     message: value.message,
     reason: value.reason,
     status: value.status,

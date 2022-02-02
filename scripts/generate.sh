@@ -40,4 +40,10 @@ git apply ./scripts/globalFetchFix.patch
 sed -i "s/ignoreDiscriminator/_ignoreDiscriminator/g" ./kubevirt/models/* 
 sed -i "s/ignoreDiscriminator/_ignoreDiscriminator/g" ./containerized-data-importer/models/*
 
+# Patch Data type to steing conversion
+sed -i "s/.toISOString()//g" ./kubevirt/models/*
+sed -E -i "s/new Date\(json\['(.*)'\]\)/\1/g" ./kubevirt/models/*
+sed -i "s/.toISOString()//g" ./containerized-data-importer/models/*
+sed -E -i "s/new Date\(json\['(.*)'\]\)/\1/g" ./containerized-data-importer/models/*
+
 yarn lint:fix

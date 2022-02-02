@@ -55,9 +55,7 @@ export function V1VirtualMachineStartFailureFromJSONTyped(
       ? undefined
       : json['consecutiveFailCount'],
     lastFailedVMIUID: !exists(json, 'lastFailedVMIUID') ? undefined : json['lastFailedVMIUID'],
-    retryAfterTimestamp: !exists(json, 'retryAfterTimestamp')
-      ? undefined
-      : new Date(json['retryAfterTimestamp']),
+    retryAfterTimestamp: !exists(json, 'retryAfterTimestamp') ? undefined : retryAfterTimestamp,
   };
 }
 
@@ -74,6 +72,6 @@ export function V1VirtualMachineStartFailureToJSON(
     consecutiveFailCount: value.consecutiveFailCount,
     lastFailedVMIUID: value.lastFailedVMIUID,
     retryAfterTimestamp:
-      value.retryAfterTimestamp === undefined ? undefined : value.retryAfterTimestamp.toISOString(),
+      value.retryAfterTimestamp === undefined ? undefined : value.retryAfterTimestamp,
   };
 }

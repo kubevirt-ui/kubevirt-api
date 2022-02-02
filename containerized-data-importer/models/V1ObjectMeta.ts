@@ -149,15 +149,11 @@ export function V1ObjectMetaFromJSONTyped(json: any, _ignoreDiscriminator: boole
   return {
     annotations: !exists(json, 'annotations') ? undefined : json['annotations'],
     clusterName: !exists(json, 'clusterName') ? undefined : json['clusterName'],
-    creationTimestamp: !exists(json, 'creationTimestamp')
-      ? undefined
-      : new Date(json['creationTimestamp']),
+    creationTimestamp: !exists(json, 'creationTimestamp') ? undefined : creationTimestamp,
     deletionGracePeriodSeconds: !exists(json, 'deletionGracePeriodSeconds')
       ? undefined
       : json['deletionGracePeriodSeconds'],
-    deletionTimestamp: !exists(json, 'deletionTimestamp')
-      ? undefined
-      : new Date(json['deletionTimestamp']),
+    deletionTimestamp: !exists(json, 'deletionTimestamp') ? undefined : deletionTimestamp,
     finalizers: !exists(json, 'finalizers') ? undefined : json['finalizers'],
     generateName: !exists(json, 'generateName') ? undefined : json['generateName'],
     generation: !exists(json, 'generation') ? undefined : json['generation'],
@@ -186,11 +182,9 @@ export function V1ObjectMetaToJSON(value?: V1ObjectMeta | null): any {
   return {
     annotations: value.annotations,
     clusterName: value.clusterName,
-    creationTimestamp:
-      value.creationTimestamp === undefined ? undefined : value.creationTimestamp.toISOString(),
+    creationTimestamp: value.creationTimestamp === undefined ? undefined : value.creationTimestamp,
     deletionGracePeriodSeconds: value.deletionGracePeriodSeconds,
-    deletionTimestamp:
-      value.deletionTimestamp === undefined ? undefined : value.deletionTimestamp.toISOString(),
+    deletionTimestamp: value.deletionTimestamp === undefined ? undefined : value.deletionTimestamp,
     finalizers: value.finalizers,
     generateName: value.generateName,
     generation: value.generation,

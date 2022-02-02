@@ -12,78 +12,78 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * ImportProxy provides the information on how to configure the importer pod proxy.
  * @export
  * @interface V1beta1ImportProxy
  */
 export interface V1beta1ImportProxy {
-    /**
-     * HTTPProxy is the URL http://<username>:<pswd>@<ip>:<port> of the import proxy for HTTP requests.  Empty means unset and will not result in the import pod env var.
-     * @type {string}
-     * @memberof V1beta1ImportProxy
-     */
-    hTTPProxy?: string;
-    /**
-     * HTTPSProxy is the URL https://<username>:<pswd>@<ip>:<port> of the import proxy for HTTPS requests.  Empty means unset and will not result in the import pod env var.
-     * @type {string}
-     * @memberof V1beta1ImportProxy
-     */
-    hTTPSProxy?: string;
-    /**
-     * NoProxy is a comma-separated list of hostnames and/or CIDRs for which the proxy should not be used. Empty means unset and will not result in the import pod env var.
-     * @type {string}
-     * @memberof V1beta1ImportProxy
-     */
-    noProxy?: string;
-    /**
-     * TrustedCAProxy is the name of a ConfigMap in the cdi namespace that contains a user-provided trusted certificate authority (CA) bundle. The TrustedCAProxy field is consumed by the import controller that is resposible for coping it to a config map named trusted-ca-proxy-bundle-cm in the cdi namespace. Here is an example of the ConfigMap (in yaml):
-     * 
-     * apiVersion: v1 kind: ConfigMap metadata:
-     *   name: trusted-ca-proxy-bundle-cm
-     *   namespace: cdi
-     * data:
-     *   ca.pem: |
-     *     -----BEGIN CERTIFICATE-----
-     * 	   ... <base64 encoded cert> ...
-     * 	   -----END CERTIFICATE-----
-     * @type {string}
-     * @memberof V1beta1ImportProxy
-     */
-    trustedCAProxy?: string;
+  /**
+   * HTTPProxy is the URL http://<username>:<pswd>@<ip>:<port> of the import proxy for HTTP requests.  Empty means unset and will not result in the import pod env var.
+   * @type {string}
+   * @memberof V1beta1ImportProxy
+   */
+  hTTPProxy?: string;
+  /**
+   * HTTPSProxy is the URL https://<username>:<pswd>@<ip>:<port> of the import proxy for HTTPS requests.  Empty means unset and will not result in the import pod env var.
+   * @type {string}
+   * @memberof V1beta1ImportProxy
+   */
+  hTTPSProxy?: string;
+  /**
+   * NoProxy is a comma-separated list of hostnames and/or CIDRs for which the proxy should not be used. Empty means unset and will not result in the import pod env var.
+   * @type {string}
+   * @memberof V1beta1ImportProxy
+   */
+  noProxy?: string;
+  /**
+   * TrustedCAProxy is the name of a ConfigMap in the cdi namespace that contains a user-provided trusted certificate authority (CA) bundle. The TrustedCAProxy field is consumed by the import controller that is resposible for coping it to a config map named trusted-ca-proxy-bundle-cm in the cdi namespace. Here is an example of the ConfigMap (in yaml):
+   *
+   * apiVersion: v1 kind: ConfigMap metadata:
+   *   name: trusted-ca-proxy-bundle-cm
+   *   namespace: cdi
+   * data:
+   *   ca.pem: |
+   *     -----BEGIN CERTIFICATE-----
+   * 	   ... <base64 encoded cert> ...
+   * 	   -----END CERTIFICATE-----
+   * @type {string}
+   * @memberof V1beta1ImportProxy
+   */
+  trustedCAProxy?: string;
 }
 
 export function V1beta1ImportProxyFromJSON(json: any): V1beta1ImportProxy {
-    return V1beta1ImportProxyFromJSONTyped(json, false);
+  return V1beta1ImportProxyFromJSONTyped(json, false);
 }
 
-export function V1beta1ImportProxyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1ImportProxy {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'hTTPProxy': !exists(json, 'HTTPProxy') ? undefined : json['HTTPProxy'],
-        'hTTPSProxy': !exists(json, 'HTTPSProxy') ? undefined : json['HTTPSProxy'],
-        'noProxy': !exists(json, 'noProxy') ? undefined : json['noProxy'],
-        'trustedCAProxy': !exists(json, 'trustedCAProxy') ? undefined : json['trustedCAProxy'],
-    };
+export function V1beta1ImportProxyFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1beta1ImportProxy {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    hTTPProxy: !exists(json, 'HTTPProxy') ? undefined : json['HTTPProxy'],
+    hTTPSProxy: !exists(json, 'HTTPSProxy') ? undefined : json['HTTPSProxy'],
+    noProxy: !exists(json, 'noProxy') ? undefined : json['noProxy'],
+    trustedCAProxy: !exists(json, 'trustedCAProxy') ? undefined : json['trustedCAProxy'],
+  };
 }
 
 export function V1beta1ImportProxyToJSON(value?: V1beta1ImportProxy | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'HTTPProxy': value.hTTPProxy,
-        'HTTPSProxy': value.hTTPSProxy,
-        'noProxy': value.noProxy,
-        'trustedCAProxy': value.trustedCAProxy,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    HTTPProxy: value.hTTPProxy,
+    HTTPSProxy: value.hTTPSProxy,
+    noProxy: value.noProxy,
+    trustedCAProxy: value.trustedCAProxy,
+  };
 }
-

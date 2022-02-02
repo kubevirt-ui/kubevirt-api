@@ -1,0 +1,31 @@
+diff --git a/containerized-data-importer/runtime.ts b/containerized-data-importer/runtime.ts
+index 3d1737b..f0c4141 100644
+--- a/containerized-data-importer/runtime.ts
++++ b/containerized-data-importer/runtime.ts
+@@ -12,6 +12,10 @@
+  * Do not edit the class manually.
+  */
+ 
++/**
++ * Add missing GlobalFetch type
++ */
++type GlobalFetch = any;
+ 
+ export const BASE_PATH = "http://localhost".replace(/\/+$/, "");
+ 
+diff --git a/kubevirt/runtime.ts b/kubevirt/runtime.ts
+index c7e4aa5..799f1e1 100644
+--- a/kubevirt/runtime.ts
++++ b/kubevirt/runtime.ts
+@@ -13,6 +13,11 @@
+  */
+ 
+ 
++/**
++ * Add missing GlobalFetch type
++ */
++type GlobalFetch = any;
++
+ export const BASE_PATH = "http://localhost".replace(/\/+$/, "");
+ 
+ const isBlob = (value: any) => typeof Blob !== 'undefined' && value instanceof Blob;

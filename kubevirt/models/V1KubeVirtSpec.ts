@@ -12,180 +12,187 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1ComponentConfig,
-    V1ComponentConfigFromJSON,
-    V1ComponentConfigFromJSONTyped,
-    V1ComponentConfigToJSON,
-    V1CustomizeComponents,
-    V1CustomizeComponentsFromJSON,
-    V1CustomizeComponentsFromJSONTyped,
-    V1CustomizeComponentsToJSON,
-    V1KubeVirtCertificateRotateStrategy,
-    V1KubeVirtCertificateRotateStrategyFromJSON,
-    V1KubeVirtCertificateRotateStrategyFromJSONTyped,
-    V1KubeVirtCertificateRotateStrategyToJSON,
-    V1KubeVirtConfiguration,
-    V1KubeVirtConfigurationFromJSON,
-    V1KubeVirtConfigurationFromJSONTyped,
-    V1KubeVirtConfigurationToJSON,
-    V1KubeVirtWorkloadUpdateStrategy,
-    V1KubeVirtWorkloadUpdateStrategyFromJSON,
-    V1KubeVirtWorkloadUpdateStrategyFromJSONTyped,
-    V1KubeVirtWorkloadUpdateStrategyToJSON,
+  V1ComponentConfig,
+  V1ComponentConfigFromJSON,
+  V1ComponentConfigToJSON,
+  V1CustomizeComponents,
+  V1CustomizeComponentsFromJSON,
+  V1CustomizeComponentsToJSON,
+  V1KubeVirtCertificateRotateStrategy,
+  V1KubeVirtCertificateRotateStrategyFromJSON,
+  V1KubeVirtCertificateRotateStrategyToJSON,
+  V1KubeVirtConfiguration,
+  V1KubeVirtConfigurationFromJSON,
+  V1KubeVirtConfigurationToJSON,
+  V1KubeVirtWorkloadUpdateStrategy,
+  V1KubeVirtWorkloadUpdateStrategyFromJSON,
+  V1KubeVirtWorkloadUpdateStrategyToJSON,
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1KubeVirtSpec
  */
 export interface V1KubeVirtSpec {
-    /**
-     * 
-     * @type {V1KubeVirtCertificateRotateStrategy}
-     * @memberof V1KubeVirtSpec
-     */
-    certificateRotateStrategy?: V1KubeVirtCertificateRotateStrategy;
-    /**
-     * 
-     * @type {V1KubeVirtConfiguration}
-     * @memberof V1KubeVirtSpec
-     */
-    _configuration?: V1KubeVirtConfiguration;
-    /**
-     * 
-     * @type {V1CustomizeComponents}
-     * @memberof V1KubeVirtSpec
-     */
-    customizeComponents?: V1CustomizeComponents;
-    /**
-     * The ImagePullPolicy to use.
-     * @type {string}
-     * @memberof V1KubeVirtSpec
-     */
-    imagePullPolicy?: string;
-    /**
-     * The image registry to pull the container images from Defaults to the same registry the operator's container image is pulled from.
-     * @type {string}
-     * @memberof V1KubeVirtSpec
-     */
-    imageRegistry?: string;
-    /**
-     * The image tag to use for the continer images installed. Defaults to the same tag as the operator's container image.
-     * @type {string}
-     * @memberof V1KubeVirtSpec
-     */
-    imageTag?: string;
-    /**
-     * 
-     * @type {V1ComponentConfig}
-     * @memberof V1KubeVirtSpec
-     */
-    infra?: V1ComponentConfig;
-    /**
-     * The name of the Prometheus service account that needs read-access to KubeVirt endpoints Defaults to prometheus-k8s
-     * @type {string}
-     * @memberof V1KubeVirtSpec
-     */
-    monitorAccount?: string;
-    /**
-     * The namespace Prometheus is deployed in Defaults to openshift-monitor
-     * @type {string}
-     * @memberof V1KubeVirtSpec
-     */
-    monitorNamespace?: string;
-    /**
-     * Designate the apps.kubevirt.io/component label for KubeVirt components. Useful if KubeVirt is included as part of a product. If ProductComponent is not specified, the component label default value is kubevirt.
-     * @type {string}
-     * @memberof V1KubeVirtSpec
-     */
-    productComponent?: string;
-    /**
-     * Designate the apps.kubevirt.io/part-of label for KubeVirt components. Useful if KubeVirt is included as part of a product. If ProductName is not specified, the part-of label will be omitted.
-     * @type {string}
-     * @memberof V1KubeVirtSpec
-     */
-    productName?: string;
-    /**
-     * Designate the apps.kubevirt.io/version label for KubeVirt components. Useful if KubeVirt is included as part of a product. If ProductVersion is not specified, KubeVirt's version will be used.
-     * @type {string}
-     * @memberof V1KubeVirtSpec
-     */
-    productVersion?: string;
-    /**
-     * Specifies if kubevirt can be deleted if workloads are still present. This is mainly a precaution to avoid accidental data loss
-     * @type {string}
-     * @memberof V1KubeVirtSpec
-     */
-    uninstallStrategy?: string;
-    /**
-     * 
-     * @type {V1KubeVirtWorkloadUpdateStrategy}
-     * @memberof V1KubeVirtSpec
-     */
-    workloadUpdateStrategy?: V1KubeVirtWorkloadUpdateStrategy;
-    /**
-     * 
-     * @type {V1ComponentConfig}
-     * @memberof V1KubeVirtSpec
-     */
-    workloads?: V1ComponentConfig;
+  /**
+   *
+   * @type {V1KubeVirtCertificateRotateStrategy}
+   * @memberof V1KubeVirtSpec
+   */
+  certificateRotateStrategy?: V1KubeVirtCertificateRotateStrategy;
+  /**
+   *
+   * @type {V1KubeVirtConfiguration}
+   * @memberof V1KubeVirtSpec
+   */
+  _configuration?: V1KubeVirtConfiguration;
+  /**
+   *
+   * @type {V1CustomizeComponents}
+   * @memberof V1KubeVirtSpec
+   */
+  customizeComponents?: V1CustomizeComponents;
+  /**
+   * The ImagePullPolicy to use.
+   * @type {string}
+   * @memberof V1KubeVirtSpec
+   */
+  imagePullPolicy?: string;
+  /**
+   * The image registry to pull the container images from Defaults to the same registry the operator's container image is pulled from.
+   * @type {string}
+   * @memberof V1KubeVirtSpec
+   */
+  imageRegistry?: string;
+  /**
+   * The image tag to use for the continer images installed. Defaults to the same tag as the operator's container image.
+   * @type {string}
+   * @memberof V1KubeVirtSpec
+   */
+  imageTag?: string;
+  /**
+   *
+   * @type {V1ComponentConfig}
+   * @memberof V1KubeVirtSpec
+   */
+  infra?: V1ComponentConfig;
+  /**
+   * The name of the Prometheus service account that needs read-access to KubeVirt endpoints Defaults to prometheus-k8s
+   * @type {string}
+   * @memberof V1KubeVirtSpec
+   */
+  monitorAccount?: string;
+  /**
+   * The namespace Prometheus is deployed in Defaults to openshift-monitor
+   * @type {string}
+   * @memberof V1KubeVirtSpec
+   */
+  monitorNamespace?: string;
+  /**
+   * Designate the apps.kubevirt.io/component label for KubeVirt components. Useful if KubeVirt is included as part of a product. If ProductComponent is not specified, the component label default value is kubevirt.
+   * @type {string}
+   * @memberof V1KubeVirtSpec
+   */
+  productComponent?: string;
+  /**
+   * Designate the apps.kubevirt.io/part-of label for KubeVirt components. Useful if KubeVirt is included as part of a product. If ProductName is not specified, the part-of label will be omitted.
+   * @type {string}
+   * @memberof V1KubeVirtSpec
+   */
+  productName?: string;
+  /**
+   * Designate the apps.kubevirt.io/version label for KubeVirt components. Useful if KubeVirt is included as part of a product. If ProductVersion is not specified, KubeVirt's version will be used.
+   * @type {string}
+   * @memberof V1KubeVirtSpec
+   */
+  productVersion?: string;
+  /**
+   * Specifies if kubevirt can be deleted if workloads are still present. This is mainly a precaution to avoid accidental data loss
+   * @type {string}
+   * @memberof V1KubeVirtSpec
+   */
+  uninstallStrategy?: string;
+  /**
+   *
+   * @type {V1KubeVirtWorkloadUpdateStrategy}
+   * @memberof V1KubeVirtSpec
+   */
+  workloadUpdateStrategy?: V1KubeVirtWorkloadUpdateStrategy;
+  /**
+   *
+   * @type {V1ComponentConfig}
+   * @memberof V1KubeVirtSpec
+   */
+  workloads?: V1ComponentConfig;
 }
 
 export function V1KubeVirtSpecFromJSON(json: any): V1KubeVirtSpec {
-    return V1KubeVirtSpecFromJSONTyped(json, false);
+  return V1KubeVirtSpecFromJSONTyped(json, false);
 }
 
-export function V1KubeVirtSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KubeVirtSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'certificateRotateStrategy': !exists(json, 'certificateRotateStrategy') ? undefined : V1KubeVirtCertificateRotateStrategyFromJSON(json['certificateRotateStrategy']),
-        '_configuration': !exists(json, 'configuration') ? undefined : V1KubeVirtConfigurationFromJSON(json['configuration']),
-        'customizeComponents': !exists(json, 'customizeComponents') ? undefined : V1CustomizeComponentsFromJSON(json['customizeComponents']),
-        'imagePullPolicy': !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
-        'imageRegistry': !exists(json, 'imageRegistry') ? undefined : json['imageRegistry'],
-        'imageTag': !exists(json, 'imageTag') ? undefined : json['imageTag'],
-        'infra': !exists(json, 'infra') ? undefined : V1ComponentConfigFromJSON(json['infra']),
-        'monitorAccount': !exists(json, 'monitorAccount') ? undefined : json['monitorAccount'],
-        'monitorNamespace': !exists(json, 'monitorNamespace') ? undefined : json['monitorNamespace'],
-        'productComponent': !exists(json, 'productComponent') ? undefined : json['productComponent'],
-        'productName': !exists(json, 'productName') ? undefined : json['productName'],
-        'productVersion': !exists(json, 'productVersion') ? undefined : json['productVersion'],
-        'uninstallStrategy': !exists(json, 'uninstallStrategy') ? undefined : json['uninstallStrategy'],
-        'workloadUpdateStrategy': !exists(json, 'workloadUpdateStrategy') ? undefined : V1KubeVirtWorkloadUpdateStrategyFromJSON(json['workloadUpdateStrategy']),
-        'workloads': !exists(json, 'workloads') ? undefined : V1ComponentConfigFromJSON(json['workloads']),
-    };
+export function V1KubeVirtSpecFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1KubeVirtSpec {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    certificateRotateStrategy: !exists(json, 'certificateRotateStrategy')
+      ? undefined
+      : V1KubeVirtCertificateRotateStrategyFromJSON(json['certificateRotateStrategy']),
+    _configuration: !exists(json, 'configuration')
+      ? undefined
+      : V1KubeVirtConfigurationFromJSON(json['configuration']),
+    customizeComponents: !exists(json, 'customizeComponents')
+      ? undefined
+      : V1CustomizeComponentsFromJSON(json['customizeComponents']),
+    imagePullPolicy: !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
+    imageRegistry: !exists(json, 'imageRegistry') ? undefined : json['imageRegistry'],
+    imageTag: !exists(json, 'imageTag') ? undefined : json['imageTag'],
+    infra: !exists(json, 'infra') ? undefined : V1ComponentConfigFromJSON(json['infra']),
+    monitorAccount: !exists(json, 'monitorAccount') ? undefined : json['monitorAccount'],
+    monitorNamespace: !exists(json, 'monitorNamespace') ? undefined : json['monitorNamespace'],
+    productComponent: !exists(json, 'productComponent') ? undefined : json['productComponent'],
+    productName: !exists(json, 'productName') ? undefined : json['productName'],
+    productVersion: !exists(json, 'productVersion') ? undefined : json['productVersion'],
+    uninstallStrategy: !exists(json, 'uninstallStrategy') ? undefined : json['uninstallStrategy'],
+    workloadUpdateStrategy: !exists(json, 'workloadUpdateStrategy')
+      ? undefined
+      : V1KubeVirtWorkloadUpdateStrategyFromJSON(json['workloadUpdateStrategy']),
+    workloads: !exists(json, 'workloads')
+      ? undefined
+      : V1ComponentConfigFromJSON(json['workloads']),
+  };
 }
 
 export function V1KubeVirtSpecToJSON(value?: V1KubeVirtSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'certificateRotateStrategy': V1KubeVirtCertificateRotateStrategyToJSON(value.certificateRotateStrategy),
-        'configuration': V1KubeVirtConfigurationToJSON(value._configuration),
-        'customizeComponents': V1CustomizeComponentsToJSON(value.customizeComponents),
-        'imagePullPolicy': value.imagePullPolicy,
-        'imageRegistry': value.imageRegistry,
-        'imageTag': value.imageTag,
-        'infra': V1ComponentConfigToJSON(value.infra),
-        'monitorAccount': value.monitorAccount,
-        'monitorNamespace': value.monitorNamespace,
-        'productComponent': value.productComponent,
-        'productName': value.productName,
-        'productVersion': value.productVersion,
-        'uninstallStrategy': value.uninstallStrategy,
-        'workloadUpdateStrategy': V1KubeVirtWorkloadUpdateStrategyToJSON(value.workloadUpdateStrategy),
-        'workloads': V1ComponentConfigToJSON(value.workloads),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    certificateRotateStrategy: V1KubeVirtCertificateRotateStrategyToJSON(
+      value.certificateRotateStrategy,
+    ),
+    configuration: V1KubeVirtConfigurationToJSON(value._configuration),
+    customizeComponents: V1CustomizeComponentsToJSON(value.customizeComponents),
+    imagePullPolicy: value.imagePullPolicy,
+    imageRegistry: value.imageRegistry,
+    imageTag: value.imageTag,
+    infra: V1ComponentConfigToJSON(value.infra),
+    monitorAccount: value.monitorAccount,
+    monitorNamespace: value.monitorNamespace,
+    productComponent: value.productComponent,
+    productName: value.productName,
+    productVersion: value.productVersion,
+    uninstallStrategy: value.uninstallStrategy,
+    workloadUpdateStrategy: V1KubeVirtWorkloadUpdateStrategyToJSON(value.workloadUpdateStrategy),
+    workloads: V1ComponentConfigToJSON(value.workloads),
+  };
 }
-

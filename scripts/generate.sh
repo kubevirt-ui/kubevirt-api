@@ -26,5 +26,18 @@ mkdir -p ./containerized-data-importer
 cp -rf ./generated/kubevirt/${KUBEVIRT_RELEASE}/* ./kubevirt/
 cp -rf ./generated/containerized-data-importer/${CDI_RELEASE}/* ./containerized-data-importer/
 
+## -----------------------------------------------------------
+## Fixes for bad generated code from typescript-fetch generator
+## Specific for 0.49 release
+
 # Patch missing creationTimestamp in generated files
 git apply ./scripts/creationTimestampGenereted.patch
+
+# Add missing fetch type
+git apply ./scripts/globalFetchFix.patch
+
+# Patch ignoreDiscriminator
+sed -i "s/ignoreDiscriminator/_ignoreDiscriminator/g" ./kubevirt/models/* 
+sed -i "s/ignoreDiscriminator/_ignoreDiscriminator/g" ./containerized-data-importer/models/*
+
+yarn lint:fix

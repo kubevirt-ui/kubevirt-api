@@ -12,168 +12,159 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1CPU,
-    V1CPUFromJSON,
-    V1CPUFromJSONTyped,
-    V1CPUToJSON,
-    V1Chassis,
-    V1ChassisFromJSON,
-    V1ChassisFromJSONTyped,
-    V1ChassisToJSON,
-    V1Clock,
-    V1ClockFromJSON,
-    V1ClockFromJSONTyped,
-    V1ClockToJSON,
-    V1Devices,
-    V1DevicesFromJSON,
-    V1DevicesFromJSONTyped,
-    V1DevicesToJSON,
-    V1Features,
-    V1FeaturesFromJSON,
-    V1FeaturesFromJSONTyped,
-    V1FeaturesToJSON,
-    V1Firmware,
-    V1FirmwareFromJSON,
-    V1FirmwareFromJSONTyped,
-    V1FirmwareToJSON,
-    V1LaunchSecurity,
-    V1LaunchSecurityFromJSON,
-    V1LaunchSecurityFromJSONTyped,
-    V1LaunchSecurityToJSON,
-    V1Machine,
-    V1MachineFromJSON,
-    V1MachineFromJSONTyped,
-    V1MachineToJSON,
-    V1Memory,
-    V1MemoryFromJSON,
-    V1MemoryFromJSONTyped,
-    V1MemoryToJSON,
-    V1ResourceRequirements,
-    V1ResourceRequirementsFromJSON,
-    V1ResourceRequirementsFromJSONTyped,
-    V1ResourceRequirementsToJSON,
+  V1CPU,
+  V1CPUFromJSON,
+  V1CPUToJSON,
+  V1Chassis,
+  V1ChassisFromJSON,
+  V1ChassisToJSON,
+  V1Clock,
+  V1ClockFromJSON,
+  V1ClockToJSON,
+  V1Devices,
+  V1DevicesFromJSON,
+  V1DevicesToJSON,
+  V1Features,
+  V1FeaturesFromJSON,
+  V1FeaturesToJSON,
+  V1Firmware,
+  V1FirmwareFromJSON,
+  V1FirmwareToJSON,
+  V1LaunchSecurity,
+  V1LaunchSecurityFromJSON,
+  V1LaunchSecurityToJSON,
+  V1Machine,
+  V1MachineFromJSON,
+  V1MachineToJSON,
+  V1Memory,
+  V1MemoryFromJSON,
+  V1MemoryToJSON,
+  V1ResourceRequirements,
+  V1ResourceRequirementsFromJSON,
+  V1ResourceRequirementsToJSON,
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1DomainSpec
  */
 export interface V1DomainSpec {
-    /**
-     * 
-     * @type {V1Chassis}
-     * @memberof V1DomainSpec
-     */
-    chassis?: V1Chassis;
-    /**
-     * 
-     * @type {V1Clock}
-     * @memberof V1DomainSpec
-     */
-    clock?: V1Clock;
-    /**
-     * 
-     * @type {V1CPU}
-     * @memberof V1DomainSpec
-     */
-    cpu?: V1CPU;
-    /**
-     * 
-     * @type {V1Devices}
-     * @memberof V1DomainSpec
-     */
-    devices: V1Devices;
-    /**
-     * 
-     * @type {V1Features}
-     * @memberof V1DomainSpec
-     */
-    features?: V1Features;
-    /**
-     * 
-     * @type {V1Firmware}
-     * @memberof V1DomainSpec
-     */
-    firmware?: V1Firmware;
-    /**
-     * Controls whether or not disks will share IOThreads. Omitting IOThreadsPolicy disables use of IOThreads. One of: shared, auto
-     * @type {string}
-     * @memberof V1DomainSpec
-     */
-    ioThreadsPolicy?: string;
-    /**
-     * 
-     * @type {V1LaunchSecurity}
-     * @memberof V1DomainSpec
-     */
-    launchSecurity?: V1LaunchSecurity;
-    /**
-     * 
-     * @type {V1Machine}
-     * @memberof V1DomainSpec
-     */
-    machine?: V1Machine;
-    /**
-     * 
-     * @type {V1Memory}
-     * @memberof V1DomainSpec
-     */
-    memory?: V1Memory;
-    /**
-     * 
-     * @type {V1ResourceRequirements}
-     * @memberof V1DomainSpec
-     */
-    resources?: V1ResourceRequirements;
+  /**
+   *
+   * @type {V1Chassis}
+   * @memberof V1DomainSpec
+   */
+  chassis?: V1Chassis;
+  /**
+   *
+   * @type {V1Clock}
+   * @memberof V1DomainSpec
+   */
+  clock?: V1Clock;
+  /**
+   *
+   * @type {V1CPU}
+   * @memberof V1DomainSpec
+   */
+  cpu?: V1CPU;
+  /**
+   *
+   * @type {V1Devices}
+   * @memberof V1DomainSpec
+   */
+  devices: V1Devices;
+  /**
+   *
+   * @type {V1Features}
+   * @memberof V1DomainSpec
+   */
+  features?: V1Features;
+  /**
+   *
+   * @type {V1Firmware}
+   * @memberof V1DomainSpec
+   */
+  firmware?: V1Firmware;
+  /**
+   * Controls whether or not disks will share IOThreads. Omitting IOThreadsPolicy disables use of IOThreads. One of: shared, auto
+   * @type {string}
+   * @memberof V1DomainSpec
+   */
+  ioThreadsPolicy?: string;
+  /**
+   *
+   * @type {V1LaunchSecurity}
+   * @memberof V1DomainSpec
+   */
+  launchSecurity?: V1LaunchSecurity;
+  /**
+   *
+   * @type {V1Machine}
+   * @memberof V1DomainSpec
+   */
+  machine?: V1Machine;
+  /**
+   *
+   * @type {V1Memory}
+   * @memberof V1DomainSpec
+   */
+  memory?: V1Memory;
+  /**
+   *
+   * @type {V1ResourceRequirements}
+   * @memberof V1DomainSpec
+   */
+  resources?: V1ResourceRequirements;
 }
 
 export function V1DomainSpecFromJSON(json: any): V1DomainSpec {
-    return V1DomainSpecFromJSONTyped(json, false);
+  return V1DomainSpecFromJSONTyped(json, false);
 }
 
-export function V1DomainSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DomainSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'chassis': !exists(json, 'chassis') ? undefined : V1ChassisFromJSON(json['chassis']),
-        'clock': !exists(json, 'clock') ? undefined : V1ClockFromJSON(json['clock']),
-        'cpu': !exists(json, 'cpu') ? undefined : V1CPUFromJSON(json['cpu']),
-        'devices': V1DevicesFromJSON(json['devices']),
-        'features': !exists(json, 'features') ? undefined : V1FeaturesFromJSON(json['features']),
-        'firmware': !exists(json, 'firmware') ? undefined : V1FirmwareFromJSON(json['firmware']),
-        'ioThreadsPolicy': !exists(json, 'ioThreadsPolicy') ? undefined : json['ioThreadsPolicy'],
-        'launchSecurity': !exists(json, 'launchSecurity') ? undefined : V1LaunchSecurityFromJSON(json['launchSecurity']),
-        'machine': !exists(json, 'machine') ? undefined : V1MachineFromJSON(json['machine']),
-        'memory': !exists(json, 'memory') ? undefined : V1MemoryFromJSON(json['memory']),
-        'resources': !exists(json, 'resources') ? undefined : V1ResourceRequirementsFromJSON(json['resources']),
-    };
+export function V1DomainSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1DomainSpec {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    chassis: !exists(json, 'chassis') ? undefined : V1ChassisFromJSON(json['chassis']),
+    clock: !exists(json, 'clock') ? undefined : V1ClockFromJSON(json['clock']),
+    cpu: !exists(json, 'cpu') ? undefined : V1CPUFromJSON(json['cpu']),
+    devices: V1DevicesFromJSON(json['devices']),
+    features: !exists(json, 'features') ? undefined : V1FeaturesFromJSON(json['features']),
+    firmware: !exists(json, 'firmware') ? undefined : V1FirmwareFromJSON(json['firmware']),
+    ioThreadsPolicy: !exists(json, 'ioThreadsPolicy') ? undefined : json['ioThreadsPolicy'],
+    launchSecurity: !exists(json, 'launchSecurity')
+      ? undefined
+      : V1LaunchSecurityFromJSON(json['launchSecurity']),
+    machine: !exists(json, 'machine') ? undefined : V1MachineFromJSON(json['machine']),
+    memory: !exists(json, 'memory') ? undefined : V1MemoryFromJSON(json['memory']),
+    resources: !exists(json, 'resources')
+      ? undefined
+      : V1ResourceRequirementsFromJSON(json['resources']),
+  };
 }
 
 export function V1DomainSpecToJSON(value?: V1DomainSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'chassis': V1ChassisToJSON(value.chassis),
-        'clock': V1ClockToJSON(value.clock),
-        'cpu': V1CPUToJSON(value.cpu),
-        'devices': V1DevicesToJSON(value.devices),
-        'features': V1FeaturesToJSON(value.features),
-        'firmware': V1FirmwareToJSON(value.firmware),
-        'ioThreadsPolicy': value.ioThreadsPolicy,
-        'launchSecurity': V1LaunchSecurityToJSON(value.launchSecurity),
-        'machine': V1MachineToJSON(value.machine),
-        'memory': V1MemoryToJSON(value.memory),
-        'resources': V1ResourceRequirementsToJSON(value.resources),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    chassis: V1ChassisToJSON(value.chassis),
+    clock: V1ClockToJSON(value.clock),
+    cpu: V1CPUToJSON(value.cpu),
+    devices: V1DevicesToJSON(value.devices),
+    features: V1FeaturesToJSON(value.features),
+    firmware: V1FirmwareToJSON(value.firmware),
+    ioThreadsPolicy: value.ioThreadsPolicy,
+    launchSecurity: V1LaunchSecurityToJSON(value.launchSecurity),
+    machine: V1MachineToJSON(value.machine),
+    memory: V1MemoryToJSON(value.memory),
+    resources: V1ResourceRequirementsToJSON(value.resources),
+  };
 }
-

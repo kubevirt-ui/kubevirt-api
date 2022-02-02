@@ -12,53 +12,57 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * ObjectFieldSelector selects an APIVersioned field of an object.
  * @export
  * @interface K8sIoApiCoreV1ObjectFieldSelector
  */
 export interface K8sIoApiCoreV1ObjectFieldSelector {
-    /**
-     * Version of the schema the FieldPath is written in terms of, defaults to "v1".
-     * @type {string}
-     * @memberof K8sIoApiCoreV1ObjectFieldSelector
-     */
-    apiVersion?: string;
-    /**
-     * Path of the field to select in the specified API version.
-     * @type {string}
-     * @memberof K8sIoApiCoreV1ObjectFieldSelector
-     */
-    fieldPath: string;
+  /**
+   * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+   * @type {string}
+   * @memberof K8sIoApiCoreV1ObjectFieldSelector
+   */
+  apiVersion?: string;
+  /**
+   * Path of the field to select in the specified API version.
+   * @type {string}
+   * @memberof K8sIoApiCoreV1ObjectFieldSelector
+   */
+  fieldPath: string;
 }
 
-export function K8sIoApiCoreV1ObjectFieldSelectorFromJSON(json: any): K8sIoApiCoreV1ObjectFieldSelector {
-    return K8sIoApiCoreV1ObjectFieldSelectorFromJSONTyped(json, false);
+export function K8sIoApiCoreV1ObjectFieldSelectorFromJSON(
+  json: any,
+): K8sIoApiCoreV1ObjectFieldSelector {
+  return K8sIoApiCoreV1ObjectFieldSelectorFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1ObjectFieldSelectorFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1ObjectFieldSelector {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'fieldPath': json['fieldPath'],
-    };
+export function K8sIoApiCoreV1ObjectFieldSelectorFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): K8sIoApiCoreV1ObjectFieldSelector {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+    fieldPath: json['fieldPath'],
+  };
 }
 
-export function K8sIoApiCoreV1ObjectFieldSelectorToJSON(value?: K8sIoApiCoreV1ObjectFieldSelector | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'fieldPath': value.fieldPath,
-    };
+export function K8sIoApiCoreV1ObjectFieldSelectorToJSON(
+  value?: K8sIoApiCoreV1ObjectFieldSelector | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    apiVersion: value.apiVersion,
+    fieldPath: value.fieldPath,
+  };
 }
-

@@ -12,16 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1DiskVerification,
-    V1DiskVerificationFromJSON,
-    V1DiskVerificationFromJSONTyped,
-    V1DiskVerificationToJSON,
-    V1LogVerbosity,
-    V1LogVerbosityFromJSON,
-    V1LogVerbosityFromJSONTyped,
-    V1LogVerbosityToJSON,
+  V1DiskVerification,
+  V1DiskVerificationFromJSON,
+  V1DiskVerificationToJSON,
+  V1LogVerbosity,
+  V1LogVerbosityFromJSON,
+  V1LogVerbosityToJSON,
 } from './';
 
 /**
@@ -30,110 +28,122 @@ import {
  * @interface V1DeveloperConfiguration
  */
 export interface V1DeveloperConfiguration {
-    /**
-     * 
-     * @type {number}
-     * @memberof V1DeveloperConfiguration
-     */
-    cpuAllocationRatio?: number;
-    /**
-     * 
-     * @type {V1DiskVerification}
-     * @memberof V1DeveloperConfiguration
-     */
-    diskVerification?: V1DiskVerification;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1DeveloperConfiguration
-     */
-    featureGates?: Array<string>;
-    /**
-     * 
-     * @type {V1LogVerbosity}
-     * @memberof V1DeveloperConfiguration
-     */
-    logVerbosity?: V1LogVerbosity;
-    /**
-     * 
-     * @type {number}
-     * @memberof V1DeveloperConfiguration
-     */
-    memoryOvercommit?: number;
-    /**
-     * Allow overriding the automatically determined minimum TSC frequency of the cluster and fixate the minimum to this frequency.
-     * @type {number}
-     * @memberof V1DeveloperConfiguration
-     */
-    minimumClusterTSCFrequency?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof V1DeveloperConfiguration
-     */
-    minimumReservePVCBytes?: number;
-    /**
-     * 
-     * @type {{ [key: string]: string; }}
-     * @memberof V1DeveloperConfiguration
-     */
-    nodeSelectors?: { [key: string]: string; };
-    /**
-     * 
-     * @type {number}
-     * @memberof V1DeveloperConfiguration
-     */
-    pvcTolerateLessSpaceUpToPercent?: number;
-    /**
-     * UseEmulation can be set to true to allow fallback to software emulation in case hardware-assisted emulation is not available.
-     * @type {boolean}
-     * @memberof V1DeveloperConfiguration
-     */
-    useEmulation?: boolean;
+  /**
+   *
+   * @type {number}
+   * @memberof V1DeveloperConfiguration
+   */
+  cpuAllocationRatio?: number;
+  /**
+   *
+   * @type {V1DiskVerification}
+   * @memberof V1DeveloperConfiguration
+   */
+  diskVerification?: V1DiskVerification;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1DeveloperConfiguration
+   */
+  featureGates?: Array<string>;
+  /**
+   *
+   * @type {V1LogVerbosity}
+   * @memberof V1DeveloperConfiguration
+   */
+  logVerbosity?: V1LogVerbosity;
+  /**
+   *
+   * @type {number}
+   * @memberof V1DeveloperConfiguration
+   */
+  memoryOvercommit?: number;
+  /**
+   * Allow overriding the automatically determined minimum TSC frequency of the cluster and fixate the minimum to this frequency.
+   * @type {number}
+   * @memberof V1DeveloperConfiguration
+   */
+  minimumClusterTSCFrequency?: number;
+  /**
+   *
+   * @type {number}
+   * @memberof V1DeveloperConfiguration
+   */
+  minimumReservePVCBytes?: number;
+  /**
+   *
+   * @type {{ [key: string]: string; }}
+   * @memberof V1DeveloperConfiguration
+   */
+  nodeSelectors?: { [key: string]: string };
+  /**
+   *
+   * @type {number}
+   * @memberof V1DeveloperConfiguration
+   */
+  pvcTolerateLessSpaceUpToPercent?: number;
+  /**
+   * UseEmulation can be set to true to allow fallback to software emulation in case hardware-assisted emulation is not available.
+   * @type {boolean}
+   * @memberof V1DeveloperConfiguration
+   */
+  useEmulation?: boolean;
 }
 
 export function V1DeveloperConfigurationFromJSON(json: any): V1DeveloperConfiguration {
-    return V1DeveloperConfigurationFromJSONTyped(json, false);
+  return V1DeveloperConfigurationFromJSONTyped(json, false);
 }
 
-export function V1DeveloperConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DeveloperConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'cpuAllocationRatio': !exists(json, 'cpuAllocationRatio') ? undefined : json['cpuAllocationRatio'],
-        'diskVerification': !exists(json, 'diskVerification') ? undefined : V1DiskVerificationFromJSON(json['diskVerification']),
-        'featureGates': !exists(json, 'featureGates') ? undefined : json['featureGates'],
-        'logVerbosity': !exists(json, 'logVerbosity') ? undefined : V1LogVerbosityFromJSON(json['logVerbosity']),
-        'memoryOvercommit': !exists(json, 'memoryOvercommit') ? undefined : json['memoryOvercommit'],
-        'minimumClusterTSCFrequency': !exists(json, 'minimumClusterTSCFrequency') ? undefined : json['minimumClusterTSCFrequency'],
-        'minimumReservePVCBytes': !exists(json, 'minimumReservePVCBytes') ? undefined : json['minimumReservePVCBytes'],
-        'nodeSelectors': !exists(json, 'nodeSelectors') ? undefined : json['nodeSelectors'],
-        'pvcTolerateLessSpaceUpToPercent': !exists(json, 'pvcTolerateLessSpaceUpToPercent') ? undefined : json['pvcTolerateLessSpaceUpToPercent'],
-        'useEmulation': !exists(json, 'useEmulation') ? undefined : json['useEmulation'],
-    };
+export function V1DeveloperConfigurationFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1DeveloperConfiguration {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    cpuAllocationRatio: !exists(json, 'cpuAllocationRatio')
+      ? undefined
+      : json['cpuAllocationRatio'],
+    diskVerification: !exists(json, 'diskVerification')
+      ? undefined
+      : V1DiskVerificationFromJSON(json['diskVerification']),
+    featureGates: !exists(json, 'featureGates') ? undefined : json['featureGates'],
+    logVerbosity: !exists(json, 'logVerbosity')
+      ? undefined
+      : V1LogVerbosityFromJSON(json['logVerbosity']),
+    memoryOvercommit: !exists(json, 'memoryOvercommit') ? undefined : json['memoryOvercommit'],
+    minimumClusterTSCFrequency: !exists(json, 'minimumClusterTSCFrequency')
+      ? undefined
+      : json['minimumClusterTSCFrequency'],
+    minimumReservePVCBytes: !exists(json, 'minimumReservePVCBytes')
+      ? undefined
+      : json['minimumReservePVCBytes'],
+    nodeSelectors: !exists(json, 'nodeSelectors') ? undefined : json['nodeSelectors'],
+    pvcTolerateLessSpaceUpToPercent: !exists(json, 'pvcTolerateLessSpaceUpToPercent')
+      ? undefined
+      : json['pvcTolerateLessSpaceUpToPercent'],
+    useEmulation: !exists(json, 'useEmulation') ? undefined : json['useEmulation'],
+  };
 }
 
 export function V1DeveloperConfigurationToJSON(value?: V1DeveloperConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'cpuAllocationRatio': value.cpuAllocationRatio,
-        'diskVerification': V1DiskVerificationToJSON(value.diskVerification),
-        'featureGates': value.featureGates,
-        'logVerbosity': V1LogVerbosityToJSON(value.logVerbosity),
-        'memoryOvercommit': value.memoryOvercommit,
-        'minimumClusterTSCFrequency': value.minimumClusterTSCFrequency,
-        'minimumReservePVCBytes': value.minimumReservePVCBytes,
-        'nodeSelectors': value.nodeSelectors,
-        'pvcTolerateLessSpaceUpToPercent': value.pvcTolerateLessSpaceUpToPercent,
-        'useEmulation': value.useEmulation,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    cpuAllocationRatio: value.cpuAllocationRatio,
+    diskVerification: V1DiskVerificationToJSON(value.diskVerification),
+    featureGates: value.featureGates,
+    logVerbosity: V1LogVerbosityToJSON(value.logVerbosity),
+    memoryOvercommit: value.memoryOvercommit,
+    minimumClusterTSCFrequency: value.minimumClusterTSCFrequency,
+    minimumReservePVCBytes: value.minimumReservePVCBytes,
+    nodeSelectors: value.nodeSelectors,
+    pvcTolerateLessSpaceUpToPercent: value.pvcTolerateLessSpaceUpToPercent,
+    useEmulation: value.useEmulation,
+  };
 }
-

@@ -12,61 +12,58 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1Input
  */
 export interface V1Input {
-    /**
-     * Bus indicates the bus of input device to emulate. Supported values: virtio, usb.
-     * @type {string}
-     * @memberof V1Input
-     */
-    bus?: string;
-    /**
-     * Name is the device name
-     * @type {string}
-     * @memberof V1Input
-     */
-    name: string;
-    /**
-     * Type indicated the type of input device. Supported values: tablet.
-     * @type {string}
-     * @memberof V1Input
-     */
-    type: string;
+  /**
+   * Bus indicates the bus of input device to emulate. Supported values: virtio, usb.
+   * @type {string}
+   * @memberof V1Input
+   */
+  bus?: string;
+  /**
+   * Name is the device name
+   * @type {string}
+   * @memberof V1Input
+   */
+  name: string;
+  /**
+   * Type indicated the type of input device. Supported values: tablet.
+   * @type {string}
+   * @memberof V1Input
+   */
+  type: string;
 }
 
 export function V1InputFromJSON(json: any): V1Input {
-    return V1InputFromJSONTyped(json, false);
+  return V1InputFromJSONTyped(json, false);
 }
 
-export function V1InputFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Input {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'bus': !exists(json, 'bus') ? undefined : json['bus'],
-        'name': json['name'],
-        'type': json['type'],
-    };
+export function V1InputFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Input {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    bus: !exists(json, 'bus') ? undefined : json['bus'],
+    name: json['name'],
+    type: json['type'],
+  };
 }
 
 export function V1InputToJSON(value?: V1Input | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'bus': value.bus,
-        'name': value.name,
-        'type': value.type,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    bus: value.bus,
+    name: value.name,
+    type: value.type,
+  };
 }
-

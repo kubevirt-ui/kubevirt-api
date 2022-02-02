@@ -12,104 +12,99 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1FeatureAPIC,
-    V1FeatureAPICFromJSON,
-    V1FeatureAPICFromJSONTyped,
-    V1FeatureAPICToJSON,
-    V1FeatureHyperv,
-    V1FeatureHypervFromJSON,
-    V1FeatureHypervFromJSONTyped,
-    V1FeatureHypervToJSON,
-    V1FeatureKVM,
-    V1FeatureKVMFromJSON,
-    V1FeatureKVMFromJSONTyped,
-    V1FeatureKVMToJSON,
-    V1FeatureState,
-    V1FeatureStateFromJSON,
-    V1FeatureStateFromJSONTyped,
-    V1FeatureStateToJSON,
+  V1FeatureAPIC,
+  V1FeatureAPICFromJSON,
+  V1FeatureAPICToJSON,
+  V1FeatureHyperv,
+  V1FeatureHypervFromJSON,
+  V1FeatureHypervToJSON,
+  V1FeatureKVM,
+  V1FeatureKVMFromJSON,
+  V1FeatureKVMToJSON,
+  V1FeatureState,
+  V1FeatureStateFromJSON,
+  V1FeatureStateToJSON,
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1Features
  */
 export interface V1Features {
-    /**
-     * 
-     * @type {V1FeatureState}
-     * @memberof V1Features
-     */
-    acpi?: V1FeatureState;
-    /**
-     * 
-     * @type {V1FeatureAPIC}
-     * @memberof V1Features
-     */
-    apic?: V1FeatureAPIC;
-    /**
-     * 
-     * @type {V1FeatureHyperv}
-     * @memberof V1Features
-     */
-    hyperv?: V1FeatureHyperv;
-    /**
-     * 
-     * @type {V1FeatureKVM}
-     * @memberof V1Features
-     */
-    kvm?: V1FeatureKVM;
-    /**
-     * 
-     * @type {V1FeatureState}
-     * @memberof V1Features
-     */
-    pvspinlock?: V1FeatureState;
-    /**
-     * 
-     * @type {V1FeatureState}
-     * @memberof V1Features
-     */
-    smm?: V1FeatureState;
+  /**
+   *
+   * @type {V1FeatureState}
+   * @memberof V1Features
+   */
+  acpi?: V1FeatureState;
+  /**
+   *
+   * @type {V1FeatureAPIC}
+   * @memberof V1Features
+   */
+  apic?: V1FeatureAPIC;
+  /**
+   *
+   * @type {V1FeatureHyperv}
+   * @memberof V1Features
+   */
+  hyperv?: V1FeatureHyperv;
+  /**
+   *
+   * @type {V1FeatureKVM}
+   * @memberof V1Features
+   */
+  kvm?: V1FeatureKVM;
+  /**
+   *
+   * @type {V1FeatureState}
+   * @memberof V1Features
+   */
+  pvspinlock?: V1FeatureState;
+  /**
+   *
+   * @type {V1FeatureState}
+   * @memberof V1Features
+   */
+  smm?: V1FeatureState;
 }
 
 export function V1FeaturesFromJSON(json: any): V1Features {
-    return V1FeaturesFromJSONTyped(json, false);
+  return V1FeaturesFromJSONTyped(json, false);
 }
 
-export function V1FeaturesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Features {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'acpi': !exists(json, 'acpi') ? undefined : V1FeatureStateFromJSON(json['acpi']),
-        'apic': !exists(json, 'apic') ? undefined : V1FeatureAPICFromJSON(json['apic']),
-        'hyperv': !exists(json, 'hyperv') ? undefined : V1FeatureHypervFromJSON(json['hyperv']),
-        'kvm': !exists(json, 'kvm') ? undefined : V1FeatureKVMFromJSON(json['kvm']),
-        'pvspinlock': !exists(json, 'pvspinlock') ? undefined : V1FeatureStateFromJSON(json['pvspinlock']),
-        'smm': !exists(json, 'smm') ? undefined : V1FeatureStateFromJSON(json['smm']),
-    };
+export function V1FeaturesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Features {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    acpi: !exists(json, 'acpi') ? undefined : V1FeatureStateFromJSON(json['acpi']),
+    apic: !exists(json, 'apic') ? undefined : V1FeatureAPICFromJSON(json['apic']),
+    hyperv: !exists(json, 'hyperv') ? undefined : V1FeatureHypervFromJSON(json['hyperv']),
+    kvm: !exists(json, 'kvm') ? undefined : V1FeatureKVMFromJSON(json['kvm']),
+    pvspinlock: !exists(json, 'pvspinlock')
+      ? undefined
+      : V1FeatureStateFromJSON(json['pvspinlock']),
+    smm: !exists(json, 'smm') ? undefined : V1FeatureStateFromJSON(json['smm']),
+  };
 }
 
 export function V1FeaturesToJSON(value?: V1Features | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'acpi': V1FeatureStateToJSON(value.acpi),
-        'apic': V1FeatureAPICToJSON(value.apic),
-        'hyperv': V1FeatureHypervToJSON(value.hyperv),
-        'kvm': V1FeatureKVMToJSON(value.kvm),
-        'pvspinlock': V1FeatureStateToJSON(value.pvspinlock),
-        'smm': V1FeatureStateToJSON(value.smm),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    acpi: V1FeatureStateToJSON(value.acpi),
+    apic: V1FeatureAPICToJSON(value.apic),
+    hyperv: V1FeatureHypervToJSON(value.hyperv),
+    kvm: V1FeatureKVMToJSON(value.kvm),
+    pvspinlock: V1FeatureStateToJSON(value.pvspinlock),
+    smm: V1FeatureStateToJSON(value.smm),
+  };
 }
-

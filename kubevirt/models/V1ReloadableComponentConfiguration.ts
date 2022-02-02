@@ -12,12 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1RESTClientConfiguration,
-    V1RESTClientConfigurationFromJSON,
-    V1RESTClientConfigurationFromJSONTyped,
-    V1RESTClientConfigurationToJSON,
+  V1RESTClientConfiguration,
+  V1RESTClientConfigurationFromJSON,
+  V1RESTClientConfigurationToJSON,
 } from './';
 
 /**
@@ -26,38 +25,44 @@ import {
  * @interface V1ReloadableComponentConfiguration
  */
 export interface V1ReloadableComponentConfiguration {
-    /**
-     * 
-     * @type {V1RESTClientConfiguration}
-     * @memberof V1ReloadableComponentConfiguration
-     */
-    restClient?: V1RESTClientConfiguration;
+  /**
+   *
+   * @type {V1RESTClientConfiguration}
+   * @memberof V1ReloadableComponentConfiguration
+   */
+  restClient?: V1RESTClientConfiguration;
 }
 
-export function V1ReloadableComponentConfigurationFromJSON(json: any): V1ReloadableComponentConfiguration {
-    return V1ReloadableComponentConfigurationFromJSONTyped(json, false);
+export function V1ReloadableComponentConfigurationFromJSON(
+  json: any,
+): V1ReloadableComponentConfiguration {
+  return V1ReloadableComponentConfigurationFromJSONTyped(json, false);
 }
 
-export function V1ReloadableComponentConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ReloadableComponentConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'restClient': !exists(json, 'restClient') ? undefined : V1RESTClientConfigurationFromJSON(json['restClient']),
-    };
+export function V1ReloadableComponentConfigurationFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1ReloadableComponentConfiguration {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    restClient: !exists(json, 'restClient')
+      ? undefined
+      : V1RESTClientConfigurationFromJSON(json['restClient']),
+  };
 }
 
-export function V1ReloadableComponentConfigurationToJSON(value?: V1ReloadableComponentConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'restClient': V1RESTClientConfigurationToJSON(value.restClient),
-    };
+export function V1ReloadableComponentConfigurationToJSON(
+  value?: V1ReloadableComponentConfiguration | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    restClient: V1RESTClientConfigurationToJSON(value.restClient),
+  };
 }
-

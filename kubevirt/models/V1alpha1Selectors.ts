@@ -12,60 +12,65 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    K8sIoApimachineryPkgApisMetaV1LabelSelector,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
+  K8sIoApimachineryPkgApisMetaV1LabelSelector,
+  K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
+  K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1alpha1Selectors
  */
 export interface V1alpha1Selectors {
-    /**
-     * 
-     * @type {K8sIoApimachineryPkgApisMetaV1LabelSelector}
-     * @memberof V1alpha1Selectors
-     */
-    namespaceSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
-    /**
-     * 
-     * @type {K8sIoApimachineryPkgApisMetaV1LabelSelector}
-     * @memberof V1alpha1Selectors
-     */
-    virtualMachineInstanceSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
+  /**
+   *
+   * @type {K8sIoApimachineryPkgApisMetaV1LabelSelector}
+   * @memberof V1alpha1Selectors
+   */
+  namespaceSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
+  /**
+   *
+   * @type {K8sIoApimachineryPkgApisMetaV1LabelSelector}
+   * @memberof V1alpha1Selectors
+   */
+  virtualMachineInstanceSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
 }
 
 export function V1alpha1SelectorsFromJSON(json: any): V1alpha1Selectors {
-    return V1alpha1SelectorsFromJSONTyped(json, false);
+  return V1alpha1SelectorsFromJSONTyped(json, false);
 }
 
-export function V1alpha1SelectorsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1Selectors {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'namespaceSelector': !exists(json, 'namespaceSelector') ? undefined : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['namespaceSelector']),
-        'virtualMachineInstanceSelector': !exists(json, 'virtualMachineInstanceSelector') ? undefined : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['virtualMachineInstanceSelector']),
-    };
+export function V1alpha1SelectorsFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1alpha1Selectors {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    namespaceSelector: !exists(json, 'namespaceSelector')
+      ? undefined
+      : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['namespaceSelector']),
+    virtualMachineInstanceSelector: !exists(json, 'virtualMachineInstanceSelector')
+      ? undefined
+      : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['virtualMachineInstanceSelector']),
+  };
 }
 
 export function V1alpha1SelectorsToJSON(value?: V1alpha1Selectors | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'namespaceSelector': K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.namespaceSelector),
-        'virtualMachineInstanceSelector': K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.virtualMachineInstanceSelector),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    namespaceSelector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.namespaceSelector),
+    virtualMachineInstanceSelector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(
+      value.virtualMachineInstanceSelector,
+    ),
+  };
 }
-

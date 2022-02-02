@@ -12,53 +12,49 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1HostDevice
  */
 export interface V1HostDevice {
-    /**
-     * DeviceName is the resource name of the host device exposed by a device plugin
-     * @type {string}
-     * @memberof V1HostDevice
-     */
-    deviceName: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1HostDevice
-     */
-    name: string;
+  /**
+   * DeviceName is the resource name of the host device exposed by a device plugin
+   * @type {string}
+   * @memberof V1HostDevice
+   */
+  deviceName: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1HostDevice
+   */
+  name: string;
 }
 
 export function V1HostDeviceFromJSON(json: any): V1HostDevice {
-    return V1HostDeviceFromJSONTyped(json, false);
+  return V1HostDeviceFromJSONTyped(json, false);
 }
 
-export function V1HostDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1HostDevice {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'deviceName': json['deviceName'],
-        'name': json['name'],
-    };
+export function V1HostDeviceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1HostDevice {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    deviceName: json['deviceName'],
+    name: json['name'],
+  };
 }
 
 export function V1HostDeviceToJSON(value?: V1HostDevice | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'deviceName': value.deviceName,
-        'name': value.name,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    deviceName: value.deviceName,
+    name: value.name,
+  };
 }
-

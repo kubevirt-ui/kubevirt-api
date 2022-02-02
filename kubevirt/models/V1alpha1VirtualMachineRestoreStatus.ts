@@ -12,16 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1alpha1Condition,
-    V1alpha1ConditionFromJSON,
-    V1alpha1ConditionFromJSONTyped,
-    V1alpha1ConditionToJSON,
-    V1alpha1VolumeRestore,
-    V1alpha1VolumeRestoreFromJSON,
-    V1alpha1VolumeRestoreFromJSONTyped,
-    V1alpha1VolumeRestoreToJSON,
+  V1alpha1Condition,
+  V1alpha1ConditionFromJSON,
+  V1alpha1ConditionToJSON,
+  V1alpha1VolumeRestore,
+  V1alpha1VolumeRestoreFromJSON,
+  V1alpha1VolumeRestoreToJSON,
 } from './';
 
 /**
@@ -30,70 +28,86 @@ import {
  * @interface V1alpha1VirtualMachineRestoreStatus
  */
 export interface V1alpha1VirtualMachineRestoreStatus {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof V1alpha1VirtualMachineRestoreStatus
-     */
-    complete?: boolean;
-    /**
-     * 
-     * @type {Array<V1alpha1Condition>}
-     * @memberof V1alpha1VirtualMachineRestoreStatus
-     */
-    conditions?: Array<V1alpha1Condition>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1alpha1VirtualMachineRestoreStatus
-     */
-    deletedDataVolumes?: Array<string>;
-    /**
-     * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-     * @type {string}
-     * @memberof V1alpha1VirtualMachineRestoreStatus
-     */
-    restoreTime?: string;
-    /**
-     * 
-     * @type {Array<V1alpha1VolumeRestore>}
-     * @memberof V1alpha1VirtualMachineRestoreStatus
-     */
-    restores?: Array<V1alpha1VolumeRestore>;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1alpha1VirtualMachineRestoreStatus
+   */
+  complete?: boolean;
+  /**
+   *
+   * @type {Array<V1alpha1Condition>}
+   * @memberof V1alpha1VirtualMachineRestoreStatus
+   */
+  conditions?: Array<V1alpha1Condition>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1alpha1VirtualMachineRestoreStatus
+   */
+  deletedDataVolumes?: Array<string>;
+  /**
+   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+   * @type {string}
+   * @memberof V1alpha1VirtualMachineRestoreStatus
+   */
+  restoreTime?: string;
+  /**
+   *
+   * @type {Array<V1alpha1VolumeRestore>}
+   * @memberof V1alpha1VirtualMachineRestoreStatus
+   */
+  restores?: Array<V1alpha1VolumeRestore>;
 }
 
-export function V1alpha1VirtualMachineRestoreStatusFromJSON(json: any): V1alpha1VirtualMachineRestoreStatus {
-    return V1alpha1VirtualMachineRestoreStatusFromJSONTyped(json, false);
+export function V1alpha1VirtualMachineRestoreStatusFromJSON(
+  json: any,
+): V1alpha1VirtualMachineRestoreStatus {
+  return V1alpha1VirtualMachineRestoreStatusFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachineRestoreStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachineRestoreStatus {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'complete': !exists(json, 'complete') ? undefined : json['complete'],
-        'conditions': !exists(json, 'conditions') ? undefined : ((json['conditions'] as Array<any>).map(V1alpha1ConditionFromJSON)),
-        'deletedDataVolumes': !exists(json, 'deletedDataVolumes') ? undefined : json['deletedDataVolumes'],
-        'restoreTime': !exists(json, 'restoreTime') ? undefined : (new Date(json['restoreTime'])),
-        'restores': !exists(json, 'restores') ? undefined : ((json['restores'] as Array<any>).map(V1alpha1VolumeRestoreFromJSON)),
-    };
+export function V1alpha1VirtualMachineRestoreStatusFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1alpha1VirtualMachineRestoreStatus {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    complete: !exists(json, 'complete') ? undefined : json['complete'],
+    conditions: !exists(json, 'conditions')
+      ? undefined
+      : (json['conditions'] as Array<any>).map(V1alpha1ConditionFromJSON),
+    deletedDataVolumes: !exists(json, 'deletedDataVolumes')
+      ? undefined
+      : json['deletedDataVolumes'],
+    restoreTime: !exists(json, 'restoreTime') ? undefined : new Date(json['restoreTime']),
+    restores: !exists(json, 'restores')
+      ? undefined
+      : (json['restores'] as Array<any>).map(V1alpha1VolumeRestoreFromJSON),
+  };
 }
 
-export function V1alpha1VirtualMachineRestoreStatusToJSON(value?: V1alpha1VirtualMachineRestoreStatus | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'complete': value.complete,
-        'conditions': value.conditions === undefined ? undefined : ((value.conditions as Array<any>).map(V1alpha1ConditionToJSON)),
-        'deletedDataVolumes': value.deletedDataVolumes,
-        'restoreTime': value.restoreTime === undefined ? undefined : (value.restoreTime.toISOString()),
-        'restores': value.restores === undefined ? undefined : ((value.restores as Array<any>).map(V1alpha1VolumeRestoreToJSON)),
-    };
+export function V1alpha1VirtualMachineRestoreStatusToJSON(
+  value?: V1alpha1VirtualMachineRestoreStatus | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    complete: value.complete,
+    conditions:
+      value.conditions === undefined
+        ? undefined
+        : (value.conditions as Array<any>).map(V1alpha1ConditionToJSON),
+    deletedDataVolumes: value.deletedDataVolumes,
+    restoreTime: value.restoreTime === undefined ? undefined : value.restoreTime.toISOString(),
+    restores:
+      value.restores === undefined
+        ? undefined
+        : (value.restores as Array<any>).map(V1alpha1VolumeRestoreToJSON),
+  };
 }
-

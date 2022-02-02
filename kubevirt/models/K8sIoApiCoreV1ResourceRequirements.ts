@@ -12,53 +12,57 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * ResourceRequirements describes the compute resource requirements.
  * @export
  * @interface K8sIoApiCoreV1ResourceRequirements
  */
 export interface K8sIoApiCoreV1ResourceRequirements {
-    /**
-     * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-     * @type {{ [key: string]: string; }}
-     * @memberof K8sIoApiCoreV1ResourceRequirements
-     */
-    limits?: { [key: string]: string; };
-    /**
-     * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-     * @type {{ [key: string]: string; }}
-     * @memberof K8sIoApiCoreV1ResourceRequirements
-     */
-    requests?: { [key: string]: string; };
+  /**
+   * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+   * @type {{ [key: string]: string; }}
+   * @memberof K8sIoApiCoreV1ResourceRequirements
+   */
+  limits?: { [key: string]: string };
+  /**
+   * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+   * @type {{ [key: string]: string; }}
+   * @memberof K8sIoApiCoreV1ResourceRequirements
+   */
+  requests?: { [key: string]: string };
 }
 
-export function K8sIoApiCoreV1ResourceRequirementsFromJSON(json: any): K8sIoApiCoreV1ResourceRequirements {
-    return K8sIoApiCoreV1ResourceRequirementsFromJSONTyped(json, false);
+export function K8sIoApiCoreV1ResourceRequirementsFromJSON(
+  json: any,
+): K8sIoApiCoreV1ResourceRequirements {
+  return K8sIoApiCoreV1ResourceRequirementsFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1ResourceRequirementsFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1ResourceRequirements {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'limits': !exists(json, 'limits') ? undefined : json['limits'],
-        'requests': !exists(json, 'requests') ? undefined : json['requests'],
-    };
+export function K8sIoApiCoreV1ResourceRequirementsFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): K8sIoApiCoreV1ResourceRequirements {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    limits: !exists(json, 'limits') ? undefined : json['limits'],
+    requests: !exists(json, 'requests') ? undefined : json['requests'],
+  };
 }
 
-export function K8sIoApiCoreV1ResourceRequirementsToJSON(value?: K8sIoApiCoreV1ResourceRequirements | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'limits': value.limits,
-        'requests': value.requests,
-    };
+export function K8sIoApiCoreV1ResourceRequirementsToJSON(
+  value?: K8sIoApiCoreV1ResourceRequirements | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    limits: value.limits,
+    requests: value.requests,
+  };
 }
-

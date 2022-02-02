@@ -12,16 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1MediatedHostDevice,
-    V1MediatedHostDeviceFromJSON,
-    V1MediatedHostDeviceFromJSONTyped,
-    V1MediatedHostDeviceToJSON,
-    V1PciHostDevice,
-    V1PciHostDeviceFromJSON,
-    V1PciHostDeviceFromJSONTyped,
-    V1PciHostDeviceToJSON,
+  V1MediatedHostDevice,
+  V1MediatedHostDeviceFromJSON,
+  V1MediatedHostDeviceToJSON,
+  V1PciHostDevice,
+  V1PciHostDeviceFromJSON,
+  V1PciHostDeviceToJSON,
 } from './';
 
 /**
@@ -30,46 +28,56 @@ import {
  * @interface V1PermittedHostDevices
  */
 export interface V1PermittedHostDevices {
-    /**
-     * 
-     * @type {Array<V1MediatedHostDevice>}
-     * @memberof V1PermittedHostDevices
-     */
-    mediatedDevices?: Array<V1MediatedHostDevice>;
-    /**
-     * 
-     * @type {Array<V1PciHostDevice>}
-     * @memberof V1PermittedHostDevices
-     */
-    pciHostDevices?: Array<V1PciHostDevice>;
+  /**
+   *
+   * @type {Array<V1MediatedHostDevice>}
+   * @memberof V1PermittedHostDevices
+   */
+  mediatedDevices?: Array<V1MediatedHostDevice>;
+  /**
+   *
+   * @type {Array<V1PciHostDevice>}
+   * @memberof V1PermittedHostDevices
+   */
+  pciHostDevices?: Array<V1PciHostDevice>;
 }
 
 export function V1PermittedHostDevicesFromJSON(json: any): V1PermittedHostDevices {
-    return V1PermittedHostDevicesFromJSONTyped(json, false);
+  return V1PermittedHostDevicesFromJSONTyped(json, false);
 }
 
-export function V1PermittedHostDevicesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PermittedHostDevices {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'mediatedDevices': !exists(json, 'mediatedDevices') ? undefined : ((json['mediatedDevices'] as Array<any>).map(V1MediatedHostDeviceFromJSON)),
-        'pciHostDevices': !exists(json, 'pciHostDevices') ? undefined : ((json['pciHostDevices'] as Array<any>).map(V1PciHostDeviceFromJSON)),
-    };
+export function V1PermittedHostDevicesFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1PermittedHostDevices {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    mediatedDevices: !exists(json, 'mediatedDevices')
+      ? undefined
+      : (json['mediatedDevices'] as Array<any>).map(V1MediatedHostDeviceFromJSON),
+    pciHostDevices: !exists(json, 'pciHostDevices')
+      ? undefined
+      : (json['pciHostDevices'] as Array<any>).map(V1PciHostDeviceFromJSON),
+  };
 }
 
 export function V1PermittedHostDevicesToJSON(value?: V1PermittedHostDevices | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'mediatedDevices': value.mediatedDevices === undefined ? undefined : ((value.mediatedDevices as Array<any>).map(V1MediatedHostDeviceToJSON)),
-        'pciHostDevices': value.pciHostDevices === undefined ? undefined : ((value.pciHostDevices as Array<any>).map(V1PciHostDeviceToJSON)),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    mediatedDevices:
+      value.mediatedDevices === undefined
+        ? undefined
+        : (value.mediatedDevices as Array<any>).map(V1MediatedHostDeviceToJSON),
+    pciHostDevices:
+      value.pciHostDevices === undefined
+        ? undefined
+        : (value.pciHostDevices as Array<any>).map(V1PciHostDeviceToJSON),
+  };
 }
-

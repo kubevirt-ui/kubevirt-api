@@ -12,52 +12,55 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    K8sIoApiCoreV1PersistentVolumeClaimVolumeSource,
-    K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceFromJSON,
-    K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceFromJSONTyped,
-    K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceToJSON,
+  K8sIoApiCoreV1PersistentVolumeClaimVolumeSource,
+  K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceFromJSON,
+  K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceToJSON,
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1EphemeralVolumeSource
  */
 export interface V1EphemeralVolumeSource {
-    /**
-     * 
-     * @type {K8sIoApiCoreV1PersistentVolumeClaimVolumeSource}
-     * @memberof V1EphemeralVolumeSource
-     */
-    persistentVolumeClaim?: K8sIoApiCoreV1PersistentVolumeClaimVolumeSource;
+  /**
+   *
+   * @type {K8sIoApiCoreV1PersistentVolumeClaimVolumeSource}
+   * @memberof V1EphemeralVolumeSource
+   */
+  persistentVolumeClaim?: K8sIoApiCoreV1PersistentVolumeClaimVolumeSource;
 }
 
 export function V1EphemeralVolumeSourceFromJSON(json: any): V1EphemeralVolumeSource {
-    return V1EphemeralVolumeSourceFromJSONTyped(json, false);
+  return V1EphemeralVolumeSourceFromJSONTyped(json, false);
 }
 
-export function V1EphemeralVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1EphemeralVolumeSource {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'persistentVolumeClaim': !exists(json, 'persistentVolumeClaim') ? undefined : K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceFromJSON(json['persistentVolumeClaim']),
-    };
+export function V1EphemeralVolumeSourceFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1EphemeralVolumeSource {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    persistentVolumeClaim: !exists(json, 'persistentVolumeClaim')
+      ? undefined
+      : K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceFromJSON(json['persistentVolumeClaim']),
+  };
 }
 
 export function V1EphemeralVolumeSourceToJSON(value?: V1EphemeralVolumeSource | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'persistentVolumeClaim': K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceToJSON(value.persistentVolumeClaim),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    persistentVolumeClaim: K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceToJSON(
+      value.persistentVolumeClaim,
+    ),
+  };
 }
-

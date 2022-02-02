@@ -12,60 +12,57 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
-import {
-    V1NodePlacement,
-    V1NodePlacementFromJSON,
-    V1NodePlacementFromJSONTyped,
-    V1NodePlacementToJSON,
-} from './';
+import { exists } from '../runtime';
+import { V1NodePlacement, V1NodePlacementFromJSON, V1NodePlacementToJSON } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1ComponentConfig
  */
 export interface V1ComponentConfig {
-    /**
-     * 
-     * @type {V1NodePlacement}
-     * @memberof V1ComponentConfig
-     */
-    nodePlacement?: V1NodePlacement;
-    /**
-     * replicas indicates how many replicas should be created for each KubeVirt infrastructure component (like virt-api or virt-controller). Defaults to 2.
-     * @type {number}
-     * @memberof V1ComponentConfig
-     */
-    replicas?: number;
+  /**
+   *
+   * @type {V1NodePlacement}
+   * @memberof V1ComponentConfig
+   */
+  nodePlacement?: V1NodePlacement;
+  /**
+   * replicas indicates how many replicas should be created for each KubeVirt infrastructure component (like virt-api or virt-controller). Defaults to 2.
+   * @type {number}
+   * @memberof V1ComponentConfig
+   */
+  replicas?: number;
 }
 
 export function V1ComponentConfigFromJSON(json: any): V1ComponentConfig {
-    return V1ComponentConfigFromJSONTyped(json, false);
+  return V1ComponentConfigFromJSONTyped(json, false);
 }
 
-export function V1ComponentConfigFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ComponentConfig {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'nodePlacement': !exists(json, 'nodePlacement') ? undefined : V1NodePlacementFromJSON(json['nodePlacement']),
-        'replicas': !exists(json, 'replicas') ? undefined : json['replicas'],
-    };
+export function V1ComponentConfigFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1ComponentConfig {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    nodePlacement: !exists(json, 'nodePlacement')
+      ? undefined
+      : V1NodePlacementFromJSON(json['nodePlacement']),
+    replicas: !exists(json, 'replicas') ? undefined : json['replicas'],
+  };
 }
 
 export function V1ComponentConfigToJSON(value?: V1ComponentConfig | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'nodePlacement': V1NodePlacementToJSON(value.nodePlacement),
-        'replicas': value.replicas,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    nodePlacement: V1NodePlacementToJSON(value.nodePlacement),
+    replicas: value.replicas,
+  };
 }
-

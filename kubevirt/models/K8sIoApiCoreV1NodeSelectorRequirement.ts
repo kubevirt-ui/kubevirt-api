@@ -12,61 +12,65 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
  * @export
  * @interface K8sIoApiCoreV1NodeSelectorRequirement
  */
 export interface K8sIoApiCoreV1NodeSelectorRequirement {
-    /**
-     * The label key that the selector applies to.
-     * @type {string}
-     * @memberof K8sIoApiCoreV1NodeSelectorRequirement
-     */
-    key: string;
-    /**
-     * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
-     * @type {string}
-     * @memberof K8sIoApiCoreV1NodeSelectorRequirement
-     */
-    operator: string;
-    /**
-     * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
-     * @type {Array<string>}
-     * @memberof K8sIoApiCoreV1NodeSelectorRequirement
-     */
-    values?: Array<string>;
+  /**
+   * The label key that the selector applies to.
+   * @type {string}
+   * @memberof K8sIoApiCoreV1NodeSelectorRequirement
+   */
+  key: string;
+  /**
+   * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+   * @type {string}
+   * @memberof K8sIoApiCoreV1NodeSelectorRequirement
+   */
+  operator: string;
+  /**
+   * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+   * @type {Array<string>}
+   * @memberof K8sIoApiCoreV1NodeSelectorRequirement
+   */
+  values?: Array<string>;
 }
 
-export function K8sIoApiCoreV1NodeSelectorRequirementFromJSON(json: any): K8sIoApiCoreV1NodeSelectorRequirement {
-    return K8sIoApiCoreV1NodeSelectorRequirementFromJSONTyped(json, false);
+export function K8sIoApiCoreV1NodeSelectorRequirementFromJSON(
+  json: any,
+): K8sIoApiCoreV1NodeSelectorRequirement {
+  return K8sIoApiCoreV1NodeSelectorRequirementFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1NodeSelectorRequirementFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1NodeSelectorRequirement {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'key': json['key'],
-        'operator': json['operator'],
-        'values': !exists(json, 'values') ? undefined : json['values'],
-    };
+export function K8sIoApiCoreV1NodeSelectorRequirementFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): K8sIoApiCoreV1NodeSelectorRequirement {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    key: json['key'],
+    operator: json['operator'],
+    values: !exists(json, 'values') ? undefined : json['values'],
+  };
 }
 
-export function K8sIoApiCoreV1NodeSelectorRequirementToJSON(value?: K8sIoApiCoreV1NodeSelectorRequirement | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'key': value.key,
-        'operator': value.operator,
-        'values': value.values,
-    };
+export function K8sIoApiCoreV1NodeSelectorRequirementToJSON(
+  value?: K8sIoApiCoreV1NodeSelectorRequirement | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    key: value.key,
+    operator: value.operator,
+    values: value.values,
+  };
 }
-

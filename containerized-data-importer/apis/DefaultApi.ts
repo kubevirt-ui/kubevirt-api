@@ -12,2174 +12,2748 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
 import {
-    V1APIGroup,
-    V1APIGroupFromJSON,
-    V1APIGroupToJSON,
-    V1APIGroupList,
-    V1APIGroupListFromJSON,
-    V1APIGroupListToJSON,
-    V1APIResourceList,
-    V1APIResourceListFromJSON,
-    V1APIResourceListToJSON,
-    V1DeleteOptions,
-    V1DeleteOptionsFromJSON,
-    V1DeleteOptionsToJSON,
-    V1RootPaths,
-    V1RootPathsFromJSON,
-    V1RootPathsToJSON,
-    V1Status,
-    V1StatusFromJSON,
-    V1StatusToJSON,
-    V1WatchEvent,
-    V1WatchEventFromJSON,
-    V1WatchEventToJSON,
-    V1beta1CDI,
-    V1beta1CDIFromJSON,
-    V1beta1CDIToJSON,
-    V1beta1CDIConfig,
-    V1beta1CDIConfigFromJSON,
-    V1beta1CDIConfigToJSON,
-    V1beta1CDIConfigList,
-    V1beta1CDIConfigListFromJSON,
-    V1beta1CDIConfigListToJSON,
-    V1beta1CDIList,
-    V1beta1CDIListFromJSON,
-    V1beta1CDIListToJSON,
-    V1beta1DataVolume,
-    V1beta1DataVolumeFromJSON,
-    V1beta1DataVolumeToJSON,
-    V1beta1DataVolumeList,
-    V1beta1DataVolumeListFromJSON,
-    V1beta1DataVolumeListToJSON,
-    V1beta1UploadTokenRequest,
-    V1beta1UploadTokenRequestFromJSON,
-    V1beta1UploadTokenRequestToJSON,
+  V1APIGroup,
+  V1APIGroupFromJSON,
+  V1APIGroupList,
+  V1APIGroupListFromJSON,
+  V1APIResourceList,
+  V1APIResourceListFromJSON,
+  V1DeleteOptions,
+  V1DeleteOptionsToJSON,
+  V1RootPaths,
+  V1RootPathsFromJSON,
+  V1Status,
+  V1StatusFromJSON,
+  V1WatchEvent,
+  V1WatchEventFromJSON,
+  V1beta1CDI,
+  V1beta1CDIConfig,
+  V1beta1CDIConfigFromJSON,
+  V1beta1CDIConfigList,
+  V1beta1CDIConfigListFromJSON,
+  V1beta1CDIConfigToJSON,
+  V1beta1CDIFromJSON,
+  V1beta1CDIList,
+  V1beta1CDIListFromJSON,
+  V1beta1CDIToJSON,
+  V1beta1DataVolume,
+  V1beta1DataVolumeFromJSON,
+  V1beta1DataVolumeList,
+  V1beta1DataVolumeListFromJSON,
+  V1beta1DataVolumeToJSON,
+  V1beta1UploadTokenRequest,
+  V1beta1UploadTokenRequestFromJSON,
+  V1beta1UploadTokenRequestToJSON,
 } from '../models';
 
 export interface CreateNamespacedCDIRequest {
-    namespace: string;
-    body: V1beta1CDI;
+  namespace: string;
+  body: V1beta1CDI;
 }
 
 export interface CreateNamespacedCDIConfigRequest {
-    namespace: string;
-    body: V1beta1CDIConfig;
+  namespace: string;
+  body: V1beta1CDIConfig;
 }
 
 export interface CreateNamespacedDataVolumeRequest {
-    namespace: string;
-    body: V1beta1DataVolume;
+  namespace: string;
+  body: V1beta1DataVolume;
 }
 
 export interface CreateNamespacedUploadTokenRequestV1alpha1Request {
-    namespace: string;
-    body: V1beta1UploadTokenRequest;
+  namespace: string;
+  body: V1beta1UploadTokenRequest;
 }
 
 export interface CreateNamespacedUploadTokenRequestV1beta1Request {
-    namespace: string;
-    body: V1beta1UploadTokenRequest;
+  namespace: string;
+  body: V1beta1UploadTokenRequest;
 }
 
 export interface DeleteCollectionNamespacedCDIRequest {
-    _continue?: string;
-    fieldSelector?: string;
-    includeUninitialized?: boolean;
-    labelSelector?: string;
-    limit?: number;
-    resourceVersion?: string;
-    timeoutSeconds?: number;
-    watch?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface DeleteCollectionNamespacedCDIConfigRequest {
-    _continue?: string;
-    fieldSelector?: string;
-    includeUninitialized?: boolean;
-    labelSelector?: string;
-    limit?: number;
-    resourceVersion?: string;
-    timeoutSeconds?: number;
-    watch?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface DeleteCollectionNamespacedDataVolumeRequest {
-    _continue?: string;
-    fieldSelector?: string;
-    includeUninitialized?: boolean;
-    labelSelector?: string;
-    limit?: number;
-    resourceVersion?: string;
-    timeoutSeconds?: number;
-    watch?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface DeleteNamespacedCDIRequest {
-    name: string;
-    namespace: string;
-    body: V1DeleteOptions;
-    gracePeriodSeconds?: number;
-    orphanDependents?: boolean;
-    propagationPolicy?: string;
+  name: string;
+  namespace: string;
+  body: V1DeleteOptions;
+  gracePeriodSeconds?: number;
+  orphanDependents?: boolean;
+  propagationPolicy?: string;
 }
 
 export interface DeleteNamespacedCDIConfigRequest {
-    name: string;
-    namespace: string;
-    body: V1DeleteOptions;
-    gracePeriodSeconds?: number;
-    orphanDependents?: boolean;
-    propagationPolicy?: string;
+  name: string;
+  namespace: string;
+  body: V1DeleteOptions;
+  gracePeriodSeconds?: number;
+  orphanDependents?: boolean;
+  propagationPolicy?: string;
 }
 
 export interface DeleteNamespacedDataVolumeRequest {
-    name: string;
-    namespace: string;
-    body: V1DeleteOptions;
-    gracePeriodSeconds?: number;
-    orphanDependents?: boolean;
-    propagationPolicy?: string;
+  name: string;
+  namespace: string;
+  body: V1DeleteOptions;
+  gracePeriodSeconds?: number;
+  orphanDependents?: boolean;
+  propagationPolicy?: string;
 }
 
 export interface ListCDIConfigForAllNamespacesRequest {
-    _continue?: string;
-    fieldSelector?: string;
-    includeUninitialized?: boolean;
-    labelSelector?: string;
-    limit?: number;
-    resourceVersion?: string;
-    timeoutSeconds?: number;
-    watch?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface ListCDIForAllNamespacesRequest {
-    _continue?: string;
-    fieldSelector?: string;
-    includeUninitialized?: boolean;
-    labelSelector?: string;
-    limit?: number;
-    resourceVersion?: string;
-    timeoutSeconds?: number;
-    watch?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface ListDataVolumeForAllNamespacesRequest {
-    _continue?: string;
-    fieldSelector?: string;
-    includeUninitialized?: boolean;
-    labelSelector?: string;
-    limit?: number;
-    resourceVersion?: string;
-    timeoutSeconds?: number;
-    watch?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface ListNamespacedCDIRequest {
-    namespace: string;
-    _continue?: string;
-    fieldSelector?: string;
-    includeUninitialized?: boolean;
-    labelSelector?: string;
-    limit?: number;
-    resourceVersion?: string;
-    timeoutSeconds?: number;
-    watch?: boolean;
+  namespace: string;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface ListNamespacedCDIConfigRequest {
-    namespace: string;
-    _continue?: string;
-    fieldSelector?: string;
-    includeUninitialized?: boolean;
-    labelSelector?: string;
-    limit?: number;
-    resourceVersion?: string;
-    timeoutSeconds?: number;
-    watch?: boolean;
+  namespace: string;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface ListNamespacedDataVolumeRequest {
-    namespace: string;
-    _continue?: string;
-    fieldSelector?: string;
-    includeUninitialized?: boolean;
-    labelSelector?: string;
-    limit?: number;
-    resourceVersion?: string;
-    timeoutSeconds?: number;
-    watch?: boolean;
+  namespace: string;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface PatchNamespacedCDIRequest {
-    name: string;
-    namespace: string;
-    body: object;
+  name: string;
+  namespace: string;
+  body: object;
 }
 
 export interface PatchNamespacedCDIConfigRequest {
-    name: string;
-    namespace: string;
-    body: object;
+  name: string;
+  namespace: string;
+  body: object;
 }
 
 export interface PatchNamespacedDataVolumeRequest {
-    name: string;
-    namespace: string;
-    body: object;
+  name: string;
+  namespace: string;
+  body: object;
 }
 
 export interface ReadNamespacedCDIRequest {
-    name: string;
-    namespace: string;
-    exact?: boolean;
-    _export?: boolean;
+  name: string;
+  namespace: string;
+  exact?: boolean;
+  _export?: boolean;
 }
 
 export interface ReadNamespacedCDIConfigRequest {
-    name: string;
-    namespace: string;
-    exact?: boolean;
-    _export?: boolean;
+  name: string;
+  namespace: string;
+  exact?: boolean;
+  _export?: boolean;
 }
 
 export interface ReadNamespacedDataVolumeRequest {
-    name: string;
-    namespace: string;
-    exact?: boolean;
-    _export?: boolean;
+  name: string;
+  namespace: string;
+  exact?: boolean;
+  _export?: boolean;
 }
 
 export interface ReplaceNamespacedCDIRequest {
-    name: string;
-    namespace: string;
-    body: V1beta1CDI;
+  name: string;
+  namespace: string;
+  body: V1beta1CDI;
 }
 
 export interface ReplaceNamespacedCDIConfigRequest {
-    name: string;
-    namespace: string;
-    body: V1beta1CDIConfig;
+  name: string;
+  namespace: string;
+  body: V1beta1CDIConfig;
 }
 
 export interface ReplaceNamespacedDataVolumeRequest {
-    name: string;
-    namespace: string;
-    body: V1beta1DataVolume;
+  name: string;
+  namespace: string;
+  body: V1beta1DataVolume;
 }
 
 export interface WatchCDIConfigListForAllNamespacesRequest {
-    _continue?: string;
-    fieldSelector?: string;
-    includeUninitialized?: boolean;
-    labelSelector?: string;
-    limit?: number;
-    resourceVersion?: string;
-    timeoutSeconds?: number;
-    watch?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface WatchCDIListForAllNamespacesRequest {
-    _continue?: string;
-    fieldSelector?: string;
-    includeUninitialized?: boolean;
-    labelSelector?: string;
-    limit?: number;
-    resourceVersion?: string;
-    timeoutSeconds?: number;
-    watch?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface WatchDataVolumeListForAllNamespacesRequest {
-    _continue?: string;
-    fieldSelector?: string;
-    includeUninitialized?: boolean;
-    labelSelector?: string;
-    limit?: number;
-    resourceVersion?: string;
-    timeoutSeconds?: number;
-    watch?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface WatchNamespacedCDIRequest {
-    namespace: string;
-    _continue?: string;
-    fieldSelector?: string;
-    includeUninitialized?: boolean;
-    labelSelector?: string;
-    limit?: number;
-    resourceVersion?: string;
-    timeoutSeconds?: number;
-    watch?: boolean;
+  namespace: string;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface WatchNamespacedCDIConfigRequest {
-    namespace: string;
-    _continue?: string;
-    fieldSelector?: string;
-    includeUninitialized?: boolean;
-    labelSelector?: string;
-    limit?: number;
-    resourceVersion?: string;
-    timeoutSeconds?: number;
-    watch?: boolean;
+  namespace: string;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface WatchNamespacedDataVolumeRequest {
-    namespace: string;
-    _continue?: string;
-    fieldSelector?: string;
-    includeUninitialized?: boolean;
-    labelSelector?: string;
-    limit?: number;
-    resourceVersion?: string;
-    timeoutSeconds?: number;
-    watch?: boolean;
+  namespace: string;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 /**
- * 
+ *
  */
 export class DefaultApi extends runtime.BaseAPI {
-
-    /**
-     * Create a CDI object.
-     */
-    async createNamespacedCDIRaw(requestParameters: CreateNamespacedCDIRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1CDI>> {
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedCDI.');
-        }
-
-        if (requestParameters.body === null || requestParameters.body === undefined) {
-            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling createNamespacedCDI.');
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V1beta1CDIToJSON(requestParameters.body),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIFromJSON(jsonValue));
-    }
-
-    /**
-     * Create a CDI object.
-     */
-    async createNamespacedCDI(requestParameters: CreateNamespacedCDIRequest, initOverrides?: RequestInit): Promise<V1beta1CDI> {
-        const response = await this.createNamespacedCDIRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Create a CDIConfig object.
-     */
-    async createNamespacedCDIConfigRaw(requestParameters: CreateNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1CDIConfig>> {
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedCDIConfig.');
-        }
-
-        if (requestParameters.body === null || requestParameters.body === undefined) {
-            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling createNamespacedCDIConfig.');
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V1beta1CDIConfigToJSON(requestParameters.body),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIConfigFromJSON(jsonValue));
-    }
-
-    /**
-     * Create a CDIConfig object.
-     */
-    async createNamespacedCDIConfig(requestParameters: CreateNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<V1beta1CDIConfig> {
-        const response = await this.createNamespacedCDIConfigRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Create a DataVolume object.
-     */
-    async createNamespacedDataVolumeRaw(requestParameters: CreateNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1DataVolume>> {
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedDataVolume.');
-        }
-
-        if (requestParameters.body === null || requestParameters.body === undefined) {
-            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling createNamespacedDataVolume.');
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V1beta1DataVolumeToJSON(requestParameters.body),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1DataVolumeFromJSON(jsonValue));
-    }
-
-    /**
-     * Create a DataVolume object.
-     */
-    async createNamespacedDataVolume(requestParameters: CreateNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<V1beta1DataVolume> {
-        const response = await this.createNamespacedDataVolumeRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Create an UploadTokenRequest object.
-     */
-    async createNamespacedUploadTokenRequestV1alpha1Raw(requestParameters: CreateNamespacedUploadTokenRequestV1alpha1Request, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1UploadTokenRequest>> {
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedUploadTokenRequestV1alpha1.');
-        }
-
-        if (requestParameters.body === null || requestParameters.body === undefined) {
-            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling createNamespacedUploadTokenRequestV1alpha1.');
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/apis/upload.cdi.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/uploadtokenrequests`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V1beta1UploadTokenRequestToJSON(requestParameters.body),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1UploadTokenRequestFromJSON(jsonValue));
-    }
-
-    /**
-     * Create an UploadTokenRequest object.
-     */
-    async createNamespacedUploadTokenRequestV1alpha1(requestParameters: CreateNamespacedUploadTokenRequestV1alpha1Request, initOverrides?: RequestInit): Promise<V1beta1UploadTokenRequest> {
-        const response = await this.createNamespacedUploadTokenRequestV1alpha1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Create an UploadTokenRequest object.
-     */
-    async createNamespacedUploadTokenRequestV1beta1Raw(requestParameters: CreateNamespacedUploadTokenRequestV1beta1Request, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1UploadTokenRequest>> {
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedUploadTokenRequestV1beta1.');
-        }
-
-        if (requestParameters.body === null || requestParameters.body === undefined) {
-            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling createNamespacedUploadTokenRequestV1beta1.');
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/apis/upload.cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/uploadtokenrequests`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V1beta1UploadTokenRequestToJSON(requestParameters.body),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1UploadTokenRequestFromJSON(jsonValue));
-    }
-
-    /**
-     * Create an UploadTokenRequest object.
-     */
-    async createNamespacedUploadTokenRequestV1beta1(requestParameters: CreateNamespacedUploadTokenRequestV1beta1Request, initOverrides?: RequestInit): Promise<V1beta1UploadTokenRequest> {
-        const response = await this.createNamespacedUploadTokenRequestV1beta1Raw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Delete a collection of CDI objects.
-     */
-    async deleteCollectionNamespacedCDIRaw(requestParameters: DeleteCollectionNamespacedCDIRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Status>> {
-        const queryParameters: any = {};
-
-        if (requestParameters._continue !== undefined) {
-            queryParameters['continue'] = requestParameters._continue;
-        }
-
-        if (requestParameters.fieldSelector !== undefined) {
-            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
-        }
-
-        if (requestParameters.includeUninitialized !== undefined) {
-            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
-        }
-
-        if (requestParameters.labelSelector !== undefined) {
-            queryParameters['labelSelector'] = requestParameters.labelSelector;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.resourceVersion !== undefined) {
-            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
-        }
-
-        if (requestParameters.timeoutSeconds !== undefined) {
-            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
-        }
-
-        if (requestParameters.watch !== undefined) {
-            queryParameters['watch'] = requestParameters.watch;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis`,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
-    }
-
-    /**
-     * Delete a collection of CDI objects.
-     */
-    async deleteCollectionNamespacedCDI(requestParameters: DeleteCollectionNamespacedCDIRequest, initOverrides?: RequestInit): Promise<V1Status> {
-        const response = await this.deleteCollectionNamespacedCDIRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Delete a collection of CDIConfig objects.
-     */
-    async deleteCollectionNamespacedCDIConfigRaw(requestParameters: DeleteCollectionNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Status>> {
-        const queryParameters: any = {};
-
-        if (requestParameters._continue !== undefined) {
-            queryParameters['continue'] = requestParameters._continue;
-        }
-
-        if (requestParameters.fieldSelector !== undefined) {
-            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
-        }
-
-        if (requestParameters.includeUninitialized !== undefined) {
-            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
-        }
-
-        if (requestParameters.labelSelector !== undefined) {
-            queryParameters['labelSelector'] = requestParameters.labelSelector;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.resourceVersion !== undefined) {
-            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
-        }
-
-        if (requestParameters.timeoutSeconds !== undefined) {
-            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
-        }
-
-        if (requestParameters.watch !== undefined) {
-            queryParameters['watch'] = requestParameters.watch;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs`,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
-    }
-
-    /**
-     * Delete a collection of CDIConfig objects.
-     */
-    async deleteCollectionNamespacedCDIConfig(requestParameters: DeleteCollectionNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<V1Status> {
-        const response = await this.deleteCollectionNamespacedCDIConfigRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Delete a collection of DataVolume objects.
-     */
-    async deleteCollectionNamespacedDataVolumeRaw(requestParameters: DeleteCollectionNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Status>> {
-        const queryParameters: any = {};
-
-        if (requestParameters._continue !== undefined) {
-            queryParameters['continue'] = requestParameters._continue;
-        }
-
-        if (requestParameters.fieldSelector !== undefined) {
-            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
-        }
-
-        if (requestParameters.includeUninitialized !== undefined) {
-            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
-        }
-
-        if (requestParameters.labelSelector !== undefined) {
-            queryParameters['labelSelector'] = requestParameters.labelSelector;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.resourceVersion !== undefined) {
-            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
-        }
-
-        if (requestParameters.timeoutSeconds !== undefined) {
-            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
-        }
-
-        if (requestParameters.watch !== undefined) {
-            queryParameters['watch'] = requestParameters.watch;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes`,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
-    }
-
-    /**
-     * Delete a collection of DataVolume objects.
-     */
-    async deleteCollectionNamespacedDataVolume(requestParameters: DeleteCollectionNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<V1Status> {
-        const response = await this.deleteCollectionNamespacedDataVolumeRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Delete a CDI object.
-     */
-    async deleteNamespacedCDIRaw(requestParameters: DeleteNamespacedCDIRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Status>> {
-        if (requestParameters.name === null || requestParameters.name === undefined) {
-            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedCDI.');
-        }
-
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling deleteNamespacedCDI.');
-        }
-
-        if (requestParameters.body === null || requestParameters.body === undefined) {
-            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling deleteNamespacedCDI.');
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters.gracePeriodSeconds !== undefined) {
-            queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
-        }
-
-        if (requestParameters.orphanDependents !== undefined) {
-            queryParameters['orphanDependents'] = requestParameters.orphanDependents;
-        }
-
-        if (requestParameters.propagationPolicy !== undefined) {
-            queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis/{name:[a-z0-9][a-z0-9\-]*}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V1DeleteOptionsToJSON(requestParameters.body),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
-    }
-
-    /**
-     * Delete a CDI object.
-     */
-    async deleteNamespacedCDI(requestParameters: DeleteNamespacedCDIRequest, initOverrides?: RequestInit): Promise<V1Status> {
-        const response = await this.deleteNamespacedCDIRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Delete a CDIConfig object.
-     */
-    async deleteNamespacedCDIConfigRaw(requestParameters: DeleteNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Status>> {
-        if (requestParameters.name === null || requestParameters.name === undefined) {
-            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedCDIConfig.');
-        }
-
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling deleteNamespacedCDIConfig.');
-        }
-
-        if (requestParameters.body === null || requestParameters.body === undefined) {
-            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling deleteNamespacedCDIConfig.');
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters.gracePeriodSeconds !== undefined) {
-            queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
-        }
-
-        if (requestParameters.orphanDependents !== undefined) {
-            queryParameters['orphanDependents'] = requestParameters.orphanDependents;
-        }
-
-        if (requestParameters.propagationPolicy !== undefined) {
-            queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs/{name:[a-z0-9][a-z0-9\-]*}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V1DeleteOptionsToJSON(requestParameters.body),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
-    }
-
-    /**
-     * Delete a CDIConfig object.
-     */
-    async deleteNamespacedCDIConfig(requestParameters: DeleteNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<V1Status> {
-        const response = await this.deleteNamespacedCDIConfigRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Delete a DataVolume object.
-     */
-    async deleteNamespacedDataVolumeRaw(requestParameters: DeleteNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1Status>> {
-        if (requestParameters.name === null || requestParameters.name === undefined) {
-            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedDataVolume.');
-        }
-
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling deleteNamespacedDataVolume.');
-        }
-
-        if (requestParameters.body === null || requestParameters.body === undefined) {
-            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling deleteNamespacedDataVolume.');
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters.gracePeriodSeconds !== undefined) {
-            queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
-        }
-
-        if (requestParameters.orphanDependents !== undefined) {
-            queryParameters['orphanDependents'] = requestParameters.orphanDependents;
-        }
-
-        if (requestParameters.propagationPolicy !== undefined) {
-            queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes/{name:[a-z0-9][a-z0-9\-]*}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V1DeleteOptionsToJSON(requestParameters.body),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
-    }
-
-    /**
-     * Delete a DataVolume object.
-     */
-    async deleteNamespacedDataVolume(requestParameters: DeleteNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<V1Status> {
-        const response = await this.deleteNamespacedDataVolumeRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async func5Raw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/openapi/v2`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     */
-    async func5(initOverrides?: RequestInit): Promise<void> {
-        await this.func5Raw(initOverrides);
-    }
-
-    /**
-     * Get a KubeVirt CDI API group
-     */
-    async getAPIGroupCdiKubevirtIoRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1APIGroup>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1APIGroupFromJSON(jsonValue));
-    }
-
-    /**
-     * Get a KubeVirt CDI API group
-     */
-    async getAPIGroupCdiKubevirtIo(initOverrides?: RequestInit): Promise<V1APIGroup> {
-        const response = await this.getAPIGroupCdiKubevirtIoRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get KubeVirt API Resources
-     */
-    async getAPIResourcesCdiKubevirtIoV1beta1Raw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1APIResourceList>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1APIResourceListFromJSON(jsonValue));
-    }
-
-    /**
-     * Get KubeVirt API Resources
-     */
-    async getAPIResourcesCdiKubevirtIoV1beta1(initOverrides?: RequestInit): Promise<V1APIResourceList> {
-        const response = await this.getAPIResourcesCdiKubevirtIoV1beta1Raw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get a CDI API resources
-     */
-    async getAPIResourcesV1alpha1Raw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1APIResourceList>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/upload.cdi.kubevirt.io/v1alpha1/`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1APIResourceListFromJSON(jsonValue));
-    }
-
-    /**
-     * Get a CDI API resources
-     */
-    async getAPIResourcesV1alpha1(initOverrides?: RequestInit): Promise<V1APIResourceList> {
-        const response = await this.getAPIResourcesV1alpha1Raw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get a CDI API resources
-     */
-    async getAPIResourcesV1beta1Raw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1APIResourceList>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/upload.cdi.kubevirt.io/v1beta1/`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1APIResourceListFromJSON(jsonValue));
-    }
-
-    /**
-     * Get a CDI API resources
-     */
-    async getAPIResourcesV1beta1(initOverrides?: RequestInit): Promise<V1APIResourceList> {
-        const response = await this.getAPIResourcesV1beta1Raw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get a CDI API Group
-     */
-    async getUploadAPIGroupRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1APIGroup>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/upload.cdi.kubevirt.io`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1APIGroupFromJSON(jsonValue));
-    }
-
-    /**
-     * Get a CDI API Group
-     */
-    async getUploadAPIGroup(initOverrides?: RequestInit): Promise<V1APIGroup> {
-        const response = await this.getUploadAPIGroupRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get a CDI API GroupList
-     */
-    async getUploadAPIsRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1APIGroupList>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1APIGroupListFromJSON(jsonValue));
-    }
-
-    /**
-     * Get a CDI API GroupList
-     */
-    async getUploadAPIs(initOverrides?: RequestInit): Promise<V1APIGroupList> {
-        const response = await this.getUploadAPIsRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get a CDI API root paths
-     */
-    async getUploadRootPathsRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1RootPaths>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1RootPathsFromJSON(jsonValue));
-    }
-
-    /**
-     * Get a CDI API root paths
-     */
-    async getUploadRootPaths(initOverrides?: RequestInit): Promise<V1RootPaths> {
-        const response = await this.getUploadRootPathsRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async healthzHandlerRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/healthz`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     */
-    async healthzHandler(initOverrides?: RequestInit): Promise<void> {
-        await this.healthzHandlerRaw(initOverrides);
-    }
-
-    /**
-     * Get a list of all CDIConfig objects.
-     */
-    async listCDIConfigForAllNamespacesRaw(requestParameters: ListCDIConfigForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1CDIConfigList>> {
-        const queryParameters: any = {};
-
-        if (requestParameters._continue !== undefined) {
-            queryParameters['continue'] = requestParameters._continue;
-        }
-
-        if (requestParameters.fieldSelector !== undefined) {
-            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
-        }
-
-        if (requestParameters.includeUninitialized !== undefined) {
-            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
-        }
-
-        if (requestParameters.labelSelector !== undefined) {
-            queryParameters['labelSelector'] = requestParameters.labelSelector;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.resourceVersion !== undefined) {
-            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
-        }
-
-        if (requestParameters.timeoutSeconds !== undefined) {
-            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
-        }
-
-        if (requestParameters.watch !== undefined) {
-            queryParameters['watch'] = requestParameters.watch;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/cdiconfigs`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIConfigListFromJSON(jsonValue));
-    }
-
-    /**
-     * Get a list of all CDIConfig objects.
-     */
-    async listCDIConfigForAllNamespaces(requestParameters: ListCDIConfigForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1beta1CDIConfigList> {
-        const response = await this.listCDIConfigForAllNamespacesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get a list of all CDI objects.
-     */
-    async listCDIForAllNamespacesRaw(requestParameters: ListCDIForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1CDIList>> {
-        const queryParameters: any = {};
-
-        if (requestParameters._continue !== undefined) {
-            queryParameters['continue'] = requestParameters._continue;
-        }
-
-        if (requestParameters.fieldSelector !== undefined) {
-            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
-        }
-
-        if (requestParameters.includeUninitialized !== undefined) {
-            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
-        }
-
-        if (requestParameters.labelSelector !== undefined) {
-            queryParameters['labelSelector'] = requestParameters.labelSelector;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.resourceVersion !== undefined) {
-            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
-        }
-
-        if (requestParameters.timeoutSeconds !== undefined) {
-            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
-        }
-
-        if (requestParameters.watch !== undefined) {
-            queryParameters['watch'] = requestParameters.watch;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/cdis`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIListFromJSON(jsonValue));
-    }
-
-    /**
-     * Get a list of all CDI objects.
-     */
-    async listCDIForAllNamespaces(requestParameters: ListCDIForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1beta1CDIList> {
-        const response = await this.listCDIForAllNamespacesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get a list of all DataVolume objects.
-     */
-    async listDataVolumeForAllNamespacesRaw(requestParameters: ListDataVolumeForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1DataVolumeList>> {
-        const queryParameters: any = {};
-
-        if (requestParameters._continue !== undefined) {
-            queryParameters['continue'] = requestParameters._continue;
-        }
-
-        if (requestParameters.fieldSelector !== undefined) {
-            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
-        }
-
-        if (requestParameters.includeUninitialized !== undefined) {
-            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
-        }
-
-        if (requestParameters.labelSelector !== undefined) {
-            queryParameters['labelSelector'] = requestParameters.labelSelector;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.resourceVersion !== undefined) {
-            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
-        }
-
-        if (requestParameters.timeoutSeconds !== undefined) {
-            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
-        }
-
-        if (requestParameters.watch !== undefined) {
-            queryParameters['watch'] = requestParameters.watch;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/datavolumes`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1DataVolumeListFromJSON(jsonValue));
-    }
-
-    /**
-     * Get a list of all DataVolume objects.
-     */
-    async listDataVolumeForAllNamespaces(requestParameters: ListDataVolumeForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1beta1DataVolumeList> {
-        const response = await this.listDataVolumeForAllNamespacesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get a list of CDI objects.
-     */
-    async listNamespacedCDIRaw(requestParameters: ListNamespacedCDIRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1CDIList>> {
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedCDI.');
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters._continue !== undefined) {
-            queryParameters['continue'] = requestParameters._continue;
-        }
-
-        if (requestParameters.fieldSelector !== undefined) {
-            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
-        }
-
-        if (requestParameters.includeUninitialized !== undefined) {
-            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
-        }
-
-        if (requestParameters.labelSelector !== undefined) {
-            queryParameters['labelSelector'] = requestParameters.labelSelector;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.resourceVersion !== undefined) {
-            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
-        }
-
-        if (requestParameters.timeoutSeconds !== undefined) {
-            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
-        }
-
-        if (requestParameters.watch !== undefined) {
-            queryParameters['watch'] = requestParameters.watch;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIListFromJSON(jsonValue));
-    }
-
-    /**
-     * Get a list of CDI objects.
-     */
-    async listNamespacedCDI(requestParameters: ListNamespacedCDIRequest, initOverrides?: RequestInit): Promise<V1beta1CDIList> {
-        const response = await this.listNamespacedCDIRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get a list of CDIConfig objects.
-     */
-    async listNamespacedCDIConfigRaw(requestParameters: ListNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1CDIConfigList>> {
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedCDIConfig.');
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters._continue !== undefined) {
-            queryParameters['continue'] = requestParameters._continue;
-        }
-
-        if (requestParameters.fieldSelector !== undefined) {
-            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
-        }
-
-        if (requestParameters.includeUninitialized !== undefined) {
-            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
-        }
-
-        if (requestParameters.labelSelector !== undefined) {
-            queryParameters['labelSelector'] = requestParameters.labelSelector;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.resourceVersion !== undefined) {
-            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
-        }
-
-        if (requestParameters.timeoutSeconds !== undefined) {
-            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
-        }
-
-        if (requestParameters.watch !== undefined) {
-            queryParameters['watch'] = requestParameters.watch;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIConfigListFromJSON(jsonValue));
-    }
-
-    /**
-     * Get a list of CDIConfig objects.
-     */
-    async listNamespacedCDIConfig(requestParameters: ListNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<V1beta1CDIConfigList> {
-        const response = await this.listNamespacedCDIConfigRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get a list of DataVolume objects.
-     */
-    async listNamespacedDataVolumeRaw(requestParameters: ListNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1DataVolumeList>> {
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedDataVolume.');
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters._continue !== undefined) {
-            queryParameters['continue'] = requestParameters._continue;
-        }
-
-        if (requestParameters.fieldSelector !== undefined) {
-            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
-        }
-
-        if (requestParameters.includeUninitialized !== undefined) {
-            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
-        }
-
-        if (requestParameters.labelSelector !== undefined) {
-            queryParameters['labelSelector'] = requestParameters.labelSelector;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.resourceVersion !== undefined) {
-            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
-        }
-
-        if (requestParameters.timeoutSeconds !== undefined) {
-            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
-        }
-
-        if (requestParameters.watch !== undefined) {
-            queryParameters['watch'] = requestParameters.watch;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1DataVolumeListFromJSON(jsonValue));
-    }
-
-    /**
-     * Get a list of DataVolume objects.
-     */
-    async listNamespacedDataVolume(requestParameters: ListNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<V1beta1DataVolumeList> {
-        const response = await this.listNamespacedDataVolumeRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Patch a CDI object.
-     */
-    async patchNamespacedCDIRaw(requestParameters: PatchNamespacedCDIRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1CDI>> {
-        if (requestParameters.name === null || requestParameters.name === undefined) {
-            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedCDI.');
-        }
-
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling patchNamespacedCDI.');
-        }
-
-        if (requestParameters.body === null || requestParameters.body === undefined) {
-            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling patchNamespacedCDI.');
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json-patch+json';
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis/{name:[a-z0-9][a-z0-9\-]*}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters.body as any,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIFromJSON(jsonValue));
-    }
-
-    /**
-     * Patch a CDI object.
-     */
-    async patchNamespacedCDI(requestParameters: PatchNamespacedCDIRequest, initOverrides?: RequestInit): Promise<V1beta1CDI> {
-        const response = await this.patchNamespacedCDIRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Patch a CDIConfig object.
-     */
-    async patchNamespacedCDIConfigRaw(requestParameters: PatchNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1CDIConfig>> {
-        if (requestParameters.name === null || requestParameters.name === undefined) {
-            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedCDIConfig.');
-        }
-
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling patchNamespacedCDIConfig.');
-        }
-
-        if (requestParameters.body === null || requestParameters.body === undefined) {
-            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling patchNamespacedCDIConfig.');
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json-patch+json';
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs/{name:[a-z0-9][a-z0-9\-]*}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters.body as any,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIConfigFromJSON(jsonValue));
-    }
-
-    /**
-     * Patch a CDIConfig object.
-     */
-    async patchNamespacedCDIConfig(requestParameters: PatchNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<V1beta1CDIConfig> {
-        const response = await this.patchNamespacedCDIConfigRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Patch a DataVolume object.
-     */
-    async patchNamespacedDataVolumeRaw(requestParameters: PatchNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1DataVolume>> {
-        if (requestParameters.name === null || requestParameters.name === undefined) {
-            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedDataVolume.');
-        }
-
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling patchNamespacedDataVolume.');
-        }
-
-        if (requestParameters.body === null || requestParameters.body === undefined) {
-            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling patchNamespacedDataVolume.');
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json-patch+json';
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes/{name:[a-z0-9][a-z0-9\-]*}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters.body as any,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1DataVolumeFromJSON(jsonValue));
-    }
-
-    /**
-     * Patch a DataVolume object.
-     */
-    async patchNamespacedDataVolume(requestParameters: PatchNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<V1beta1DataVolume> {
-        const response = await this.patchNamespacedDataVolumeRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get a CDI object.
-     */
-    async readNamespacedCDIRaw(requestParameters: ReadNamespacedCDIRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1CDI>> {
-        if (requestParameters.name === null || requestParameters.name === undefined) {
-            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedCDI.');
-        }
-
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling readNamespacedCDI.');
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters.exact !== undefined) {
-            queryParameters['exact'] = requestParameters.exact;
-        }
-
-        if (requestParameters._export !== undefined) {
-            queryParameters['export'] = requestParameters._export;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis/{name:[a-z0-9][a-z0-9\-]*}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIFromJSON(jsonValue));
-    }
-
-    /**
-     * Get a CDI object.
-     */
-    async readNamespacedCDI(requestParameters: ReadNamespacedCDIRequest, initOverrides?: RequestInit): Promise<V1beta1CDI> {
-        const response = await this.readNamespacedCDIRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get a CDIConfig object.
-     */
-    async readNamespacedCDIConfigRaw(requestParameters: ReadNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1CDIConfig>> {
-        if (requestParameters.name === null || requestParameters.name === undefined) {
-            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedCDIConfig.');
-        }
-
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling readNamespacedCDIConfig.');
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters.exact !== undefined) {
-            queryParameters['exact'] = requestParameters.exact;
-        }
-
-        if (requestParameters._export !== undefined) {
-            queryParameters['export'] = requestParameters._export;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs/{name:[a-z0-9][a-z0-9\-]*}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIConfigFromJSON(jsonValue));
-    }
-
-    /**
-     * Get a CDIConfig object.
-     */
-    async readNamespacedCDIConfig(requestParameters: ReadNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<V1beta1CDIConfig> {
-        const response = await this.readNamespacedCDIConfigRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get a DataVolume object.
-     */
-    async readNamespacedDataVolumeRaw(requestParameters: ReadNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1DataVolume>> {
-        if (requestParameters.name === null || requestParameters.name === undefined) {
-            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedDataVolume.');
-        }
-
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling readNamespacedDataVolume.');
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters.exact !== undefined) {
-            queryParameters['exact'] = requestParameters.exact;
-        }
-
-        if (requestParameters._export !== undefined) {
-            queryParameters['export'] = requestParameters._export;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes/{name:[a-z0-9][a-z0-9\-]*}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1DataVolumeFromJSON(jsonValue));
-    }
-
-    /**
-     * Get a DataVolume object.
-     */
-    async readNamespacedDataVolume(requestParameters: ReadNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<V1beta1DataVolume> {
-        const response = await this.readNamespacedDataVolumeRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Update a CDI object.
-     */
-    async replaceNamespacedCDIRaw(requestParameters: ReplaceNamespacedCDIRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1CDI>> {
-        if (requestParameters.name === null || requestParameters.name === undefined) {
-            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedCDI.');
-        }
-
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling replaceNamespacedCDI.');
-        }
-
-        if (requestParameters.body === null || requestParameters.body === undefined) {
-            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling replaceNamespacedCDI.');
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis/{name:[a-z0-9][a-z0-9\-]*}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V1beta1CDIToJSON(requestParameters.body),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIFromJSON(jsonValue));
-    }
-
-    /**
-     * Update a CDI object.
-     */
-    async replaceNamespacedCDI(requestParameters: ReplaceNamespacedCDIRequest, initOverrides?: RequestInit): Promise<V1beta1CDI> {
-        const response = await this.replaceNamespacedCDIRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Update a CDIConfig object.
-     */
-    async replaceNamespacedCDIConfigRaw(requestParameters: ReplaceNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1CDIConfig>> {
-        if (requestParameters.name === null || requestParameters.name === undefined) {
-            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedCDIConfig.');
-        }
-
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling replaceNamespacedCDIConfig.');
-        }
-
-        if (requestParameters.body === null || requestParameters.body === undefined) {
-            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling replaceNamespacedCDIConfig.');
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs/{name:[a-z0-9][a-z0-9\-]*}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V1beta1CDIConfigToJSON(requestParameters.body),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIConfigFromJSON(jsonValue));
-    }
-
-    /**
-     * Update a CDIConfig object.
-     */
-    async replaceNamespacedCDIConfig(requestParameters: ReplaceNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<V1beta1CDIConfig> {
-        const response = await this.replaceNamespacedCDIConfigRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Update a DataVolume object.
-     */
-    async replaceNamespacedDataVolumeRaw(requestParameters: ReplaceNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1DataVolume>> {
-        if (requestParameters.name === null || requestParameters.name === undefined) {
-            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedDataVolume.');
-        }
-
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling replaceNamespacedDataVolume.');
-        }
-
-        if (requestParameters.body === null || requestParameters.body === undefined) {
-            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling replaceNamespacedDataVolume.');
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes/{name:[a-z0-9][a-z0-9\-]*}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: V1beta1DataVolumeToJSON(requestParameters.body),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1DataVolumeFromJSON(jsonValue));
-    }
-
-    /**
-     * Update a DataVolume object.
-     */
-    async replaceNamespacedDataVolume(requestParameters: ReplaceNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<V1beta1DataVolume> {
-        const response = await this.replaceNamespacedDataVolumeRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Watch a CDIConfigList object.
-     */
-    async watchCDIConfigListForAllNamespacesRaw(requestParameters: WatchCDIConfigListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1WatchEvent>> {
-        const queryParameters: any = {};
-
-        if (requestParameters._continue !== undefined) {
-            queryParameters['continue'] = requestParameters._continue;
-        }
-
-        if (requestParameters.fieldSelector !== undefined) {
-            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
-        }
-
-        if (requestParameters.includeUninitialized !== undefined) {
-            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
-        }
-
-        if (requestParameters.labelSelector !== undefined) {
-            queryParameters['labelSelector'] = requestParameters.labelSelector;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.resourceVersion !== undefined) {
-            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
-        }
-
-        if (requestParameters.timeoutSeconds !== undefined) {
-            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
-        }
-
-        if (requestParameters.watch !== undefined) {
-            queryParameters['watch'] = requestParameters.watch;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/watch/cdiconfigs`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
-    }
-
-    /**
-     * Watch a CDIConfigList object.
-     */
-    async watchCDIConfigListForAllNamespaces(requestParameters: WatchCDIConfigListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1WatchEvent> {
-        const response = await this.watchCDIConfigListForAllNamespacesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Watch a CDIList object.
-     */
-    async watchCDIListForAllNamespacesRaw(requestParameters: WatchCDIListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1WatchEvent>> {
-        const queryParameters: any = {};
-
-        if (requestParameters._continue !== undefined) {
-            queryParameters['continue'] = requestParameters._continue;
-        }
-
-        if (requestParameters.fieldSelector !== undefined) {
-            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
-        }
-
-        if (requestParameters.includeUninitialized !== undefined) {
-            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
-        }
-
-        if (requestParameters.labelSelector !== undefined) {
-            queryParameters['labelSelector'] = requestParameters.labelSelector;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.resourceVersion !== undefined) {
-            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
-        }
-
-        if (requestParameters.timeoutSeconds !== undefined) {
-            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
-        }
-
-        if (requestParameters.watch !== undefined) {
-            queryParameters['watch'] = requestParameters.watch;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/watch/cdis`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
-    }
-
-    /**
-     * Watch a CDIList object.
-     */
-    async watchCDIListForAllNamespaces(requestParameters: WatchCDIListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1WatchEvent> {
-        const response = await this.watchCDIListForAllNamespacesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Watch a DataVolumeList object.
-     */
-    async watchDataVolumeListForAllNamespacesRaw(requestParameters: WatchDataVolumeListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1WatchEvent>> {
-        const queryParameters: any = {};
-
-        if (requestParameters._continue !== undefined) {
-            queryParameters['continue'] = requestParameters._continue;
-        }
-
-        if (requestParameters.fieldSelector !== undefined) {
-            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
-        }
-
-        if (requestParameters.includeUninitialized !== undefined) {
-            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
-        }
-
-        if (requestParameters.labelSelector !== undefined) {
-            queryParameters['labelSelector'] = requestParameters.labelSelector;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.resourceVersion !== undefined) {
-            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
-        }
-
-        if (requestParameters.timeoutSeconds !== undefined) {
-            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
-        }
-
-        if (requestParameters.watch !== undefined) {
-            queryParameters['watch'] = requestParameters.watch;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/watch/datavolumes`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
-    }
-
-    /**
-     * Watch a DataVolumeList object.
-     */
-    async watchDataVolumeListForAllNamespaces(requestParameters: WatchDataVolumeListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1WatchEvent> {
-        const response = await this.watchDataVolumeListForAllNamespacesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Watch a CDI object.
-     */
-    async watchNamespacedCDIRaw(requestParameters: WatchNamespacedCDIRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1WatchEvent>> {
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedCDI.');
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters._continue !== undefined) {
-            queryParameters['continue'] = requestParameters._continue;
-        }
-
-        if (requestParameters.fieldSelector !== undefined) {
-            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
-        }
-
-        if (requestParameters.includeUninitialized !== undefined) {
-            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
-        }
-
-        if (requestParameters.labelSelector !== undefined) {
-            queryParameters['labelSelector'] = requestParameters.labelSelector;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.resourceVersion !== undefined) {
-            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
-        }
-
-        if (requestParameters.timeoutSeconds !== undefined) {
-            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
-        }
-
-        if (requestParameters.watch !== undefined) {
-            queryParameters['watch'] = requestParameters.watch;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
-    }
-
-    /**
-     * Watch a CDI object.
-     */
-    async watchNamespacedCDI(requestParameters: WatchNamespacedCDIRequest, initOverrides?: RequestInit): Promise<V1WatchEvent> {
-        const response = await this.watchNamespacedCDIRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Watch a CDIConfig object.
-     */
-    async watchNamespacedCDIConfigRaw(requestParameters: WatchNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1WatchEvent>> {
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedCDIConfig.');
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters._continue !== undefined) {
-            queryParameters['continue'] = requestParameters._continue;
-        }
-
-        if (requestParameters.fieldSelector !== undefined) {
-            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
-        }
-
-        if (requestParameters.includeUninitialized !== undefined) {
-            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
-        }
-
-        if (requestParameters.labelSelector !== undefined) {
-            queryParameters['labelSelector'] = requestParameters.labelSelector;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.resourceVersion !== undefined) {
-            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
-        }
-
-        if (requestParameters.timeoutSeconds !== undefined) {
-            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
-        }
-
-        if (requestParameters.watch !== undefined) {
-            queryParameters['watch'] = requestParameters.watch;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
-    }
-
-    /**
-     * Watch a CDIConfig object.
-     */
-    async watchNamespacedCDIConfig(requestParameters: WatchNamespacedCDIConfigRequest, initOverrides?: RequestInit): Promise<V1WatchEvent> {
-        const response = await this.watchNamespacedCDIConfigRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Watch a DataVolume object.
-     */
-    async watchNamespacedDataVolumeRaw(requestParameters: WatchNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1WatchEvent>> {
-        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedDataVolume.');
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters._continue !== undefined) {
-            queryParameters['continue'] = requestParameters._continue;
-        }
-
-        if (requestParameters.fieldSelector !== undefined) {
-            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
-        }
-
-        if (requestParameters.includeUninitialized !== undefined) {
-            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
-        }
-
-        if (requestParameters.labelSelector !== undefined) {
-            queryParameters['labelSelector'] = requestParameters.labelSelector;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.resourceVersion !== undefined) {
-            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
-        }
-
-        if (requestParameters.timeoutSeconds !== undefined) {
-            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
-        }
-
-        if (requestParameters.watch !== undefined) {
-            queryParameters['watch'] = requestParameters.watch;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
-    }
-
-    /**
-     * Watch a DataVolume object.
-     */
-    async watchNamespacedDataVolume(requestParameters: WatchNamespacedDataVolumeRequest, initOverrides?: RequestInit): Promise<V1WatchEvent> {
-        const response = await this.watchNamespacedDataVolumeRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
+  /**
+   * Create a CDI object.
+   */
+  async createNamespacedCDIRaw(
+    requestParameters: CreateNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1CDI>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling createNamespacedCDI.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling createNamespacedCDI.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'POST',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1beta1CDIToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIFromJSON(jsonValue));
+  }
+
+  /**
+   * Create a CDI object.
+   */
+  async createNamespacedCDI(
+    requestParameters: CreateNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1CDI> {
+    const response = await this.createNamespacedCDIRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Create a CDIConfig object.
+   */
+  async createNamespacedCDIConfigRaw(
+    requestParameters: CreateNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1CDIConfig>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling createNamespacedCDIConfig.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling createNamespacedCDIConfig.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'POST',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1beta1CDIConfigToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1CDIConfigFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Create a CDIConfig object.
+   */
+  async createNamespacedCDIConfig(
+    requestParameters: CreateNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1CDIConfig> {
+    const response = await this.createNamespacedCDIConfigRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Create a DataVolume object.
+   */
+  async createNamespacedDataVolumeRaw(
+    requestParameters: CreateNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataVolume>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling createNamespacedDataVolume.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling createNamespacedDataVolume.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'POST',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1beta1DataVolumeToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataVolumeFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Create a DataVolume object.
+   */
+  async createNamespacedDataVolume(
+    requestParameters: CreateNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataVolume> {
+    const response = await this.createNamespacedDataVolumeRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Create an UploadTokenRequest object.
+   */
+  async createNamespacedUploadTokenRequestV1alpha1Raw(
+    requestParameters: CreateNamespacedUploadTokenRequestV1alpha1Request,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1UploadTokenRequest>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling createNamespacedUploadTokenRequestV1alpha1.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling createNamespacedUploadTokenRequestV1alpha1.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/upload.cdi.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/uploadtokenrequests`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'POST',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1beta1UploadTokenRequestToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1UploadTokenRequestFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Create an UploadTokenRequest object.
+   */
+  async createNamespacedUploadTokenRequestV1alpha1(
+    requestParameters: CreateNamespacedUploadTokenRequestV1alpha1Request,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1UploadTokenRequest> {
+    const response = await this.createNamespacedUploadTokenRequestV1alpha1Raw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * Create an UploadTokenRequest object.
+   */
+  async createNamespacedUploadTokenRequestV1beta1Raw(
+    requestParameters: CreateNamespacedUploadTokenRequestV1beta1Request,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1UploadTokenRequest>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling createNamespacedUploadTokenRequestV1beta1.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling createNamespacedUploadTokenRequestV1beta1.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/upload.cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/uploadtokenrequests`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'POST',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1beta1UploadTokenRequestToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1UploadTokenRequestFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Create an UploadTokenRequest object.
+   */
+  async createNamespacedUploadTokenRequestV1beta1(
+    requestParameters: CreateNamespacedUploadTokenRequestV1beta1Request,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1UploadTokenRequest> {
+    const response = await this.createNamespacedUploadTokenRequestV1beta1Raw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * Delete a collection of CDI objects.
+   */
+  async deleteCollectionNamespacedCDIRaw(
+    requestParameters: DeleteCollectionNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1Status>> {
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis`,
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
+  }
+
+  /**
+   * Delete a collection of CDI objects.
+   */
+  async deleteCollectionNamespacedCDI(
+    requestParameters: DeleteCollectionNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1Status> {
+    const response = await this.deleteCollectionNamespacedCDIRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Delete a collection of CDIConfig objects.
+   */
+  async deleteCollectionNamespacedCDIConfigRaw(
+    requestParameters: DeleteCollectionNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1Status>> {
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs`,
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
+  }
+
+  /**
+   * Delete a collection of CDIConfig objects.
+   */
+  async deleteCollectionNamespacedCDIConfig(
+    requestParameters: DeleteCollectionNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1Status> {
+    const response = await this.deleteCollectionNamespacedCDIConfigRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * Delete a collection of DataVolume objects.
+   */
+  async deleteCollectionNamespacedDataVolumeRaw(
+    requestParameters: DeleteCollectionNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1Status>> {
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes`,
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
+  }
+
+  /**
+   * Delete a collection of DataVolume objects.
+   */
+  async deleteCollectionNamespacedDataVolume(
+    requestParameters: DeleteCollectionNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1Status> {
+    const response = await this.deleteCollectionNamespacedDataVolumeRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * Delete a CDI object.
+   */
+  async deleteNamespacedCDIRaw(
+    requestParameters: DeleteNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1Status>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling deleteNamespacedCDI.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling deleteNamespacedCDI.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling deleteNamespacedCDI.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.gracePeriodSeconds !== undefined) {
+      queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.orphanDependents !== undefined) {
+      queryParameters['orphanDependents'] = requestParameters.orphanDependents;
+    }
+
+    if (requestParameters.propagationPolicy !== undefined) {
+      queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1DeleteOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
+  }
+
+  /**
+   * Delete a CDI object.
+   */
+  async deleteNamespacedCDI(
+    requestParameters: DeleteNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1Status> {
+    const response = await this.deleteNamespacedCDIRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Delete a CDIConfig object.
+   */
+  async deleteNamespacedCDIConfigRaw(
+    requestParameters: DeleteNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1Status>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling deleteNamespacedCDIConfig.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling deleteNamespacedCDIConfig.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling deleteNamespacedCDIConfig.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.gracePeriodSeconds !== undefined) {
+      queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.orphanDependents !== undefined) {
+      queryParameters['orphanDependents'] = requestParameters.orphanDependents;
+    }
+
+    if (requestParameters.propagationPolicy !== undefined) {
+      queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1DeleteOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
+  }
+
+  /**
+   * Delete a CDIConfig object.
+   */
+  async deleteNamespacedCDIConfig(
+    requestParameters: DeleteNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1Status> {
+    const response = await this.deleteNamespacedCDIConfigRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Delete a DataVolume object.
+   */
+  async deleteNamespacedDataVolumeRaw(
+    requestParameters: DeleteNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1Status>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling deleteNamespacedDataVolume.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling deleteNamespacedDataVolume.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling deleteNamespacedDataVolume.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.gracePeriodSeconds !== undefined) {
+      queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.orphanDependents !== undefined) {
+      queryParameters['orphanDependents'] = requestParameters.orphanDependents;
+    }
+
+    if (requestParameters.propagationPolicy !== undefined) {
+      queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1DeleteOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
+  }
+
+  /**
+   * Delete a DataVolume object.
+   */
+  async deleteNamespacedDataVolume(
+    requestParameters: DeleteNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1Status> {
+    const response = await this.deleteNamespacedDataVolumeRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   */
+  async func5Raw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/openapi/v2`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.VoidApiResponse(response);
+  }
+
+  /**
+   */
+  async func5(initOverrides?: RequestInit): Promise<void> {
+    await this.func5Raw(initOverrides);
+  }
+
+  /**
+   * Get a KubeVirt CDI API group
+   */
+  async getAPIGroupCdiKubevirtIoRaw(
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1APIGroup>> {
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1APIGroupFromJSON(jsonValue));
+  }
+
+  /**
+   * Get a KubeVirt CDI API group
+   */
+  async getAPIGroupCdiKubevirtIo(initOverrides?: RequestInit): Promise<V1APIGroup> {
+    const response = await this.getAPIGroupCdiKubevirtIoRaw(initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get KubeVirt API Resources
+   */
+  async getAPIResourcesCdiKubevirtIoV1beta1Raw(
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1APIResourceList>> {
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1APIResourceListFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get KubeVirt API Resources
+   */
+  async getAPIResourcesCdiKubevirtIoV1beta1(
+    initOverrides?: RequestInit,
+  ): Promise<V1APIResourceList> {
+    const response = await this.getAPIResourcesCdiKubevirtIoV1beta1Raw(initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a CDI API resources
+   */
+  async getAPIResourcesV1alpha1Raw(
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1APIResourceList>> {
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/upload.cdi.kubevirt.io/v1alpha1/`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1APIResourceListFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get a CDI API resources
+   */
+  async getAPIResourcesV1alpha1(initOverrides?: RequestInit): Promise<V1APIResourceList> {
+    const response = await this.getAPIResourcesV1alpha1Raw(initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a CDI API resources
+   */
+  async getAPIResourcesV1beta1Raw(
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1APIResourceList>> {
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/upload.cdi.kubevirt.io/v1beta1/`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1APIResourceListFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get a CDI API resources
+   */
+  async getAPIResourcesV1beta1(initOverrides?: RequestInit): Promise<V1APIResourceList> {
+    const response = await this.getAPIResourcesV1beta1Raw(initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a CDI API Group
+   */
+  async getUploadAPIGroupRaw(
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1APIGroup>> {
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/upload.cdi.kubevirt.io`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1APIGroupFromJSON(jsonValue));
+  }
+
+  /**
+   * Get a CDI API Group
+   */
+  async getUploadAPIGroup(initOverrides?: RequestInit): Promise<V1APIGroup> {
+    const response = await this.getUploadAPIGroupRaw(initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a CDI API GroupList
+   */
+  async getUploadAPIsRaw(
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1APIGroupList>> {
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1APIGroupListFromJSON(jsonValue));
+  }
+
+  /**
+   * Get a CDI API GroupList
+   */
+  async getUploadAPIs(initOverrides?: RequestInit): Promise<V1APIGroupList> {
+    const response = await this.getUploadAPIsRaw(initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a CDI API root paths
+   */
+  async getUploadRootPathsRaw(
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1RootPaths>> {
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1RootPathsFromJSON(jsonValue));
+  }
+
+  /**
+   * Get a CDI API root paths
+   */
+  async getUploadRootPaths(initOverrides?: RequestInit): Promise<V1RootPaths> {
+    const response = await this.getUploadRootPathsRaw(initOverrides);
+    return await response.value();
+  }
+
+  /**
+   */
+  async healthzHandlerRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/healthz`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.VoidApiResponse(response);
+  }
+
+  /**
+   */
+  async healthzHandler(initOverrides?: RequestInit): Promise<void> {
+    await this.healthzHandlerRaw(initOverrides);
+  }
+
+  /**
+   * Get a list of all CDIConfig objects.
+   */
+  async listCDIConfigForAllNamespacesRaw(
+    requestParameters: ListCDIConfigForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1CDIConfigList>> {
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/cdiconfigs`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1CDIConfigListFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get a list of all CDIConfig objects.
+   */
+  async listCDIConfigForAllNamespaces(
+    requestParameters: ListCDIConfigForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1CDIConfigList> {
+    const response = await this.listCDIConfigForAllNamespacesRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a list of all CDI objects.
+   */
+  async listCDIForAllNamespacesRaw(
+    requestParameters: ListCDIForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1CDIList>> {
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/cdis`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIListFromJSON(jsonValue));
+  }
+
+  /**
+   * Get a list of all CDI objects.
+   */
+  async listCDIForAllNamespaces(
+    requestParameters: ListCDIForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1CDIList> {
+    const response = await this.listCDIForAllNamespacesRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a list of all DataVolume objects.
+   */
+  async listDataVolumeForAllNamespacesRaw(
+    requestParameters: ListDataVolumeForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataVolumeList>> {
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/datavolumes`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataVolumeListFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get a list of all DataVolume objects.
+   */
+  async listDataVolumeForAllNamespaces(
+    requestParameters: ListDataVolumeForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataVolumeList> {
+    const response = await this.listDataVolumeForAllNamespacesRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a list of CDI objects.
+   */
+  async listNamespacedCDIRaw(
+    requestParameters: ListNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1CDIList>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling listNamespacedCDI.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIListFromJSON(jsonValue));
+  }
+
+  /**
+   * Get a list of CDI objects.
+   */
+  async listNamespacedCDI(
+    requestParameters: ListNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1CDIList> {
+    const response = await this.listNamespacedCDIRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a list of CDIConfig objects.
+   */
+  async listNamespacedCDIConfigRaw(
+    requestParameters: ListNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1CDIConfigList>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling listNamespacedCDIConfig.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1CDIConfigListFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get a list of CDIConfig objects.
+   */
+  async listNamespacedCDIConfig(
+    requestParameters: ListNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1CDIConfigList> {
+    const response = await this.listNamespacedCDIConfigRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a list of DataVolume objects.
+   */
+  async listNamespacedDataVolumeRaw(
+    requestParameters: ListNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataVolumeList>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling listNamespacedDataVolume.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataVolumeListFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get a list of DataVolume objects.
+   */
+  async listNamespacedDataVolume(
+    requestParameters: ListNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataVolumeList> {
+    const response = await this.listNamespacedDataVolumeRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Patch a CDI object.
+   */
+  async patchNamespacedCDIRaw(
+    requestParameters: PatchNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1CDI>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling patchNamespacedCDI.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling patchNamespacedCDI.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling patchNamespacedCDI.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json-patch+json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PATCH',
+        headers: headerParameters,
+        query: queryParameters,
+        body: requestParameters.body as any,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIFromJSON(jsonValue));
+  }
+
+  /**
+   * Patch a CDI object.
+   */
+  async patchNamespacedCDI(
+    requestParameters: PatchNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1CDI> {
+    const response = await this.patchNamespacedCDIRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Patch a CDIConfig object.
+   */
+  async patchNamespacedCDIConfigRaw(
+    requestParameters: PatchNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1CDIConfig>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling patchNamespacedCDIConfig.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling patchNamespacedCDIConfig.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling patchNamespacedCDIConfig.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json-patch+json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PATCH',
+        headers: headerParameters,
+        query: queryParameters,
+        body: requestParameters.body as any,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1CDIConfigFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Patch a CDIConfig object.
+   */
+  async patchNamespacedCDIConfig(
+    requestParameters: PatchNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1CDIConfig> {
+    const response = await this.patchNamespacedCDIConfigRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Patch a DataVolume object.
+   */
+  async patchNamespacedDataVolumeRaw(
+    requestParameters: PatchNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataVolume>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling patchNamespacedDataVolume.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling patchNamespacedDataVolume.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling patchNamespacedDataVolume.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json-patch+json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PATCH',
+        headers: headerParameters,
+        query: queryParameters,
+        body: requestParameters.body as any,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataVolumeFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Patch a DataVolume object.
+   */
+  async patchNamespacedDataVolume(
+    requestParameters: PatchNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataVolume> {
+    const response = await this.patchNamespacedDataVolumeRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a CDI object.
+   */
+  async readNamespacedCDIRaw(
+    requestParameters: ReadNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1CDI>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling readNamespacedCDI.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling readNamespacedCDI.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.exact !== undefined) {
+      queryParameters['exact'] = requestParameters.exact;
+    }
+
+    if (requestParameters._export !== undefined) {
+      queryParameters['export'] = requestParameters._export;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIFromJSON(jsonValue));
+  }
+
+  /**
+   * Get a CDI object.
+   */
+  async readNamespacedCDI(
+    requestParameters: ReadNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1CDI> {
+    const response = await this.readNamespacedCDIRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a CDIConfig object.
+   */
+  async readNamespacedCDIConfigRaw(
+    requestParameters: ReadNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1CDIConfig>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling readNamespacedCDIConfig.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling readNamespacedCDIConfig.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.exact !== undefined) {
+      queryParameters['exact'] = requestParameters.exact;
+    }
+
+    if (requestParameters._export !== undefined) {
+      queryParameters['export'] = requestParameters._export;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1CDIConfigFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get a CDIConfig object.
+   */
+  async readNamespacedCDIConfig(
+    requestParameters: ReadNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1CDIConfig> {
+    const response = await this.readNamespacedCDIConfigRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a DataVolume object.
+   */
+  async readNamespacedDataVolumeRaw(
+    requestParameters: ReadNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataVolume>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling readNamespacedDataVolume.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling readNamespacedDataVolume.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.exact !== undefined) {
+      queryParameters['exact'] = requestParameters.exact;
+    }
+
+    if (requestParameters._export !== undefined) {
+      queryParameters['export'] = requestParameters._export;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataVolumeFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get a DataVolume object.
+   */
+  async readNamespacedDataVolume(
+    requestParameters: ReadNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataVolume> {
+    const response = await this.readNamespacedDataVolumeRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Update a CDI object.
+   */
+  async replaceNamespacedCDIRaw(
+    requestParameters: ReplaceNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1CDI>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling replaceNamespacedCDI.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling replaceNamespacedCDI.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling replaceNamespacedCDI.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1beta1CDIToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1CDIFromJSON(jsonValue));
+  }
+
+  /**
+   * Update a CDI object.
+   */
+  async replaceNamespacedCDI(
+    requestParameters: ReplaceNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1CDI> {
+    const response = await this.replaceNamespacedCDIRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Update a CDIConfig object.
+   */
+  async replaceNamespacedCDIConfigRaw(
+    requestParameters: ReplaceNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1CDIConfig>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling replaceNamespacedCDIConfig.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling replaceNamespacedCDIConfig.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling replaceNamespacedCDIConfig.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1beta1CDIConfigToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1CDIConfigFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Update a CDIConfig object.
+   */
+  async replaceNamespacedCDIConfig(
+    requestParameters: ReplaceNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1CDIConfig> {
+    const response = await this.replaceNamespacedCDIConfigRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Update a DataVolume object.
+   */
+  async replaceNamespacedDataVolumeRaw(
+    requestParameters: ReplaceNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataVolume>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling replaceNamespacedDataVolume.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling replaceNamespacedDataVolume.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling replaceNamespacedDataVolume.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1beta1DataVolumeToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataVolumeFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Update a DataVolume object.
+   */
+  async replaceNamespacedDataVolume(
+    requestParameters: ReplaceNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataVolume> {
+    const response = await this.replaceNamespacedDataVolumeRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Watch a CDIConfigList object.
+   */
+  async watchCDIConfigListForAllNamespacesRaw(
+    requestParameters: WatchCDIConfigListForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1WatchEvent>> {
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/watch/cdiconfigs`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
+  }
+
+  /**
+   * Watch a CDIConfigList object.
+   */
+  async watchCDIConfigListForAllNamespaces(
+    requestParameters: WatchCDIConfigListForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1WatchEvent> {
+    const response = await this.watchCDIConfigListForAllNamespacesRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * Watch a CDIList object.
+   */
+  async watchCDIListForAllNamespacesRaw(
+    requestParameters: WatchCDIListForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1WatchEvent>> {
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/watch/cdis`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
+  }
+
+  /**
+   * Watch a CDIList object.
+   */
+  async watchCDIListForAllNamespaces(
+    requestParameters: WatchCDIListForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1WatchEvent> {
+    const response = await this.watchCDIListForAllNamespacesRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Watch a DataVolumeList object.
+   */
+  async watchDataVolumeListForAllNamespacesRaw(
+    requestParameters: WatchDataVolumeListForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1WatchEvent>> {
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/watch/datavolumes`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
+  }
+
+  /**
+   * Watch a DataVolumeList object.
+   */
+  async watchDataVolumeListForAllNamespaces(
+    requestParameters: WatchDataVolumeListForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1WatchEvent> {
+    const response = await this.watchDataVolumeListForAllNamespacesRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * Watch a CDI object.
+   */
+  async watchNamespacedCDIRaw(
+    requestParameters: WatchNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1WatchEvent>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedCDI.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdis`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
+  }
+
+  /**
+   * Watch a CDI object.
+   */
+  async watchNamespacedCDI(
+    requestParameters: WatchNamespacedCDIRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1WatchEvent> {
+    const response = await this.watchNamespacedCDIRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Watch a CDIConfig object.
+   */
+  async watchNamespacedCDIConfigRaw(
+    requestParameters: WatchNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1WatchEvent>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedCDIConfig.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/cdiconfigs`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
+  }
+
+  /**
+   * Watch a CDIConfig object.
+   */
+  async watchNamespacedCDIConfig(
+    requestParameters: WatchNamespacedCDIConfigRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1WatchEvent> {
+    const response = await this.watchNamespacedCDIConfigRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Watch a DataVolume object.
+   */
+  async watchNamespacedDataVolumeRaw(
+    requestParameters: WatchNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1WatchEvent>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedDataVolume.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datavolumes`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
+  }
+
+  /**
+   * Watch a DataVolume object.
+   */
+  async watchNamespacedDataVolume(
+    requestParameters: WatchNamespacedDataVolumeRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1WatchEvent> {
+    const response = await this.watchNamespacedDataVolumeRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
 }

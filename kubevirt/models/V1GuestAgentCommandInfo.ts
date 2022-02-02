@@ -12,53 +12,53 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * List of commands that QEMU guest agent supports
  * @export
  * @interface V1GuestAgentCommandInfo
  */
 export interface V1GuestAgentCommandInfo {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof V1GuestAgentCommandInfo
-     */
-    enabled?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1GuestAgentCommandInfo
-     */
-    name: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1GuestAgentCommandInfo
+   */
+  enabled?: boolean;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GuestAgentCommandInfo
+   */
+  name: string;
 }
 
 export function V1GuestAgentCommandInfoFromJSON(json: any): V1GuestAgentCommandInfo {
-    return V1GuestAgentCommandInfoFromJSONTyped(json, false);
+  return V1GuestAgentCommandInfoFromJSONTyped(json, false);
 }
 
-export function V1GuestAgentCommandInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1GuestAgentCommandInfo {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
-        'name': json['name'],
-    };
+export function V1GuestAgentCommandInfoFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1GuestAgentCommandInfo {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    enabled: !exists(json, 'enabled') ? undefined : json['enabled'],
+    name: json['name'],
+  };
 }
 
 export function V1GuestAgentCommandInfoToJSON(value?: V1GuestAgentCommandInfo | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'enabled': value.enabled,
-        'name': value.name,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    enabled: value.enabled,
+    name: value.name,
+  };
 }
-

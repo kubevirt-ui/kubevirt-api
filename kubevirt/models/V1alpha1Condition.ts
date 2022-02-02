@@ -12,69 +12,69 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * Condition defines conditions
  * @export
  * @interface V1alpha1Condition
  */
 export interface V1alpha1Condition {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1alpha1Condition
-     */
-    message?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1alpha1Condition
-     */
-    reason?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1alpha1Condition
-     */
-    status: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1alpha1Condition
-     */
-    type: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1alpha1Condition
+   */
+  message?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1alpha1Condition
+   */
+  reason?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1alpha1Condition
+   */
+  status: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1alpha1Condition
+   */
+  type: string;
 }
 
 export function V1alpha1ConditionFromJSON(json: any): V1alpha1Condition {
-    return V1alpha1ConditionFromJSONTyped(json, false);
+  return V1alpha1ConditionFromJSONTyped(json, false);
 }
 
-export function V1alpha1ConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1Condition {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'message': !exists(json, 'message') ? undefined : json['message'],
-        'reason': !exists(json, 'reason') ? undefined : json['reason'],
-        'status': json['status'],
-        'type': json['type'],
-    };
+export function V1alpha1ConditionFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1alpha1Condition {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    message: !exists(json, 'message') ? undefined : json['message'],
+    reason: !exists(json, 'reason') ? undefined : json['reason'],
+    status: json['status'],
+    type: json['type'],
+  };
 }
 
 export function V1alpha1ConditionToJSON(value?: V1alpha1Condition | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'message': value.message,
-        'reason': value.reason,
-        'status': value.status,
-        'type': value.type,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    message: value.message,
+    reason: value.reason,
+    status: value.status,
+    type: value.type,
+  };
 }
-

@@ -12,80 +12,75 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1Bootloader,
-    V1BootloaderFromJSON,
-    V1BootloaderFromJSONTyped,
-    V1BootloaderToJSON,
-    V1KernelBoot,
-    V1KernelBootFromJSON,
-    V1KernelBootFromJSONTyped,
-    V1KernelBootToJSON,
+  V1Bootloader,
+  V1BootloaderFromJSON,
+  V1BootloaderToJSON,
+  V1KernelBoot,
+  V1KernelBootFromJSON,
+  V1KernelBootToJSON,
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1Firmware
  */
 export interface V1Firmware {
-    /**
-     * 
-     * @type {V1Bootloader}
-     * @memberof V1Firmware
-     */
-    bootloader?: V1Bootloader;
-    /**
-     * 
-     * @type {V1KernelBoot}
-     * @memberof V1Firmware
-     */
-    kernelBoot?: V1KernelBoot;
-    /**
-     * The system-serial-number in SMBIOS
-     * @type {string}
-     * @memberof V1Firmware
-     */
-    serial?: string;
-    /**
-     * UUID reported by the vmi bios. Defaults to a random generated uid.
-     * @type {string}
-     * @memberof V1Firmware
-     */
-    uuid?: string;
+  /**
+   *
+   * @type {V1Bootloader}
+   * @memberof V1Firmware
+   */
+  bootloader?: V1Bootloader;
+  /**
+   *
+   * @type {V1KernelBoot}
+   * @memberof V1Firmware
+   */
+  kernelBoot?: V1KernelBoot;
+  /**
+   * The system-serial-number in SMBIOS
+   * @type {string}
+   * @memberof V1Firmware
+   */
+  serial?: string;
+  /**
+   * UUID reported by the vmi bios. Defaults to a random generated uid.
+   * @type {string}
+   * @memberof V1Firmware
+   */
+  uuid?: string;
 }
 
 export function V1FirmwareFromJSON(json: any): V1Firmware {
-    return V1FirmwareFromJSONTyped(json, false);
+  return V1FirmwareFromJSONTyped(json, false);
 }
 
-export function V1FirmwareFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Firmware {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'bootloader': !exists(json, 'bootloader') ? undefined : V1BootloaderFromJSON(json['bootloader']),
-        'kernelBoot': !exists(json, 'kernelBoot') ? undefined : V1KernelBootFromJSON(json['kernelBoot']),
-        'serial': !exists(json, 'serial') ? undefined : json['serial'],
-        'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
-    };
+export function V1FirmwareFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Firmware {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    bootloader: !exists(json, 'bootloader') ? undefined : V1BootloaderFromJSON(json['bootloader']),
+    kernelBoot: !exists(json, 'kernelBoot') ? undefined : V1KernelBootFromJSON(json['kernelBoot']),
+    serial: !exists(json, 'serial') ? undefined : json['serial'],
+    uuid: !exists(json, 'uuid') ? undefined : json['uuid'],
+  };
 }
 
 export function V1FirmwareToJSON(value?: V1Firmware | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'bootloader': V1BootloaderToJSON(value.bootloader),
-        'kernelBoot': V1KernelBootToJSON(value.kernelBoot),
-        'serial': value.serial,
-        'uuid': value.uuid,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    bootloader: V1BootloaderToJSON(value.bootloader),
+    kernelBoot: V1KernelBootToJSON(value.kernelBoot),
+    serial: value.serial,
+    uuid: value.uuid,
+  };
 }
-

@@ -12,12 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSON,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementToJSON,
+  K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement,
+  K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSON,
+  K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementToJSON,
 } from './';
 
 /**
@@ -26,46 +25,59 @@ import {
  * @interface K8sIoApimachineryPkgApisMetaV1LabelSelector
  */
 export interface K8sIoApimachineryPkgApisMetaV1LabelSelector {
-    /**
-     * matchExpressions is a list of label selector requirements. The requirements are ANDed.
-     * @type {Array<K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement>}
-     * @memberof K8sIoApimachineryPkgApisMetaV1LabelSelector
-     */
-    matchExpressions?: Array<K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement>;
-    /**
-     * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-     * @type {{ [key: string]: string; }}
-     * @memberof K8sIoApimachineryPkgApisMetaV1LabelSelector
-     */
-    matchLabels?: { [key: string]: string; };
+  /**
+   * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+   * @type {Array<K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement>}
+   * @memberof K8sIoApimachineryPkgApisMetaV1LabelSelector
+   */
+  matchExpressions?: Array<K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement>;
+  /**
+   * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+   * @type {{ [key: string]: string; }}
+   * @memberof K8sIoApimachineryPkgApisMetaV1LabelSelector
+   */
+  matchLabels?: { [key: string]: string };
 }
 
-export function K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1LabelSelector {
-    return K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped(json, false);
+export function K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(
+  json: any,
+): K8sIoApimachineryPkgApisMetaV1LabelSelector {
+  return K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped(json, false);
 }
 
-export function K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1LabelSelector {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'matchExpressions': !exists(json, 'matchExpressions') ? undefined : ((json['matchExpressions'] as Array<any>).map(K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSON)),
-        'matchLabels': !exists(json, 'matchLabels') ? undefined : json['matchLabels'],
-    };
+export function K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): K8sIoApimachineryPkgApisMetaV1LabelSelector {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    matchExpressions: !exists(json, 'matchExpressions')
+      ? undefined
+      : (json['matchExpressions'] as Array<any>).map(
+          K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSON,
+        ),
+    matchLabels: !exists(json, 'matchLabels') ? undefined : json['matchLabels'],
+  };
 }
 
-export function K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value?: K8sIoApimachineryPkgApisMetaV1LabelSelector | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'matchExpressions': value.matchExpressions === undefined ? undefined : ((value.matchExpressions as Array<any>).map(K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementToJSON)),
-        'matchLabels': value.matchLabels,
-    };
+export function K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(
+  value?: K8sIoApimachineryPkgApisMetaV1LabelSelector | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    matchExpressions:
+      value.matchExpressions === undefined
+        ? undefined
+        : (value.matchExpressions as Array<any>).map(
+            K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementToJSON,
+          ),
+    matchLabels: value.matchLabels,
+  };
 }
-

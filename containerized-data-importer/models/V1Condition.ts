@@ -12,85 +12,88 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * Condition represents the state of the operator's reconciliation functionality.
  * @export
  * @interface V1Condition
  */
 export interface V1Condition {
-    /**
-     * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-     * @type {string}
-     * @memberof V1Condition
-     */
-    lastHeartbeatTime?: string;
-    /**
-     * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-     * @type {string}
-     * @memberof V1Condition
-     */
-    lastTransitionTime?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Condition
-     */
-    message?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Condition
-     */
-    reason?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Condition
-     */
-    status: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1Condition
-     */
-    type: string;
+  /**
+   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+   * @type {string}
+   * @memberof V1Condition
+   */
+  lastHeartbeatTime?: string;
+  /**
+   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+   * @type {string}
+   * @memberof V1Condition
+   */
+  lastTransitionTime?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Condition
+   */
+  message?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Condition
+   */
+  reason?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Condition
+   */
+  status: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1Condition
+   */
+  type: string;
 }
 
 export function V1ConditionFromJSON(json: any): V1Condition {
-    return V1ConditionFromJSONTyped(json, false);
+  return V1ConditionFromJSONTyped(json, false);
 }
 
-export function V1ConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Condition {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'lastHeartbeatTime': !exists(json, 'lastHeartbeatTime') ? undefined : (new Date(json['lastHeartbeatTime'])),
-        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : (new Date(json['lastTransitionTime'])),
-        'message': !exists(json, 'message') ? undefined : json['message'],
-        'reason': !exists(json, 'reason') ? undefined : json['reason'],
-        'status': json['status'],
-        'type': json['type'],
-    };
+export function V1ConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Condition {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    lastHeartbeatTime: !exists(json, 'lastHeartbeatTime')
+      ? undefined
+      : new Date(json['lastHeartbeatTime']),
+    lastTransitionTime: !exists(json, 'lastTransitionTime')
+      ? undefined
+      : new Date(json['lastTransitionTime']),
+    message: !exists(json, 'message') ? undefined : json['message'],
+    reason: !exists(json, 'reason') ? undefined : json['reason'],
+    status: json['status'],
+    type: json['type'],
+  };
 }
 
 export function V1ConditionToJSON(value?: V1Condition | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'lastHeartbeatTime': value.lastHeartbeatTime === undefined ? undefined : (value.lastHeartbeatTime.toISOString()),
-        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime.toISOString()),
-        'message': value.message,
-        'reason': value.reason,
-        'status': value.status,
-        'type': value.type,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    lastHeartbeatTime:
+      value.lastHeartbeatTime === undefined ? undefined : value.lastHeartbeatTime.toISOString(),
+    lastTransitionTime:
+      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime.toISOString(),
+    message: value.message,
+    reason: value.reason,
+    status: value.status,
+    type: value.type,
+  };
 }
-

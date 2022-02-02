@@ -12,12 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1VirtualMachineInstanceMigrationCondition,
-    V1VirtualMachineInstanceMigrationConditionFromJSON,
-    V1VirtualMachineInstanceMigrationConditionFromJSONTyped,
-    V1VirtualMachineInstanceMigrationConditionToJSON,
+  V1VirtualMachineInstanceMigrationCondition,
+  V1VirtualMachineInstanceMigrationConditionFromJSON,
+  V1VirtualMachineInstanceMigrationConditionToJSON,
 } from './';
 
 /**
@@ -26,46 +25,55 @@ import {
  * @interface V1VirtualMachineInstanceMigrationStatus
  */
 export interface V1VirtualMachineInstanceMigrationStatus {
-    /**
-     * 
-     * @type {Array<V1VirtualMachineInstanceMigrationCondition>}
-     * @memberof V1VirtualMachineInstanceMigrationStatus
-     */
-    conditions?: Array<V1VirtualMachineInstanceMigrationCondition>;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1VirtualMachineInstanceMigrationStatus
-     */
-    phase?: string;
+  /**
+   *
+   * @type {Array<V1VirtualMachineInstanceMigrationCondition>}
+   * @memberof V1VirtualMachineInstanceMigrationStatus
+   */
+  conditions?: Array<V1VirtualMachineInstanceMigrationCondition>;
+  /**
+   *
+   * @type {string}
+   * @memberof V1VirtualMachineInstanceMigrationStatus
+   */
+  phase?: string;
 }
 
-export function V1VirtualMachineInstanceMigrationStatusFromJSON(json: any): V1VirtualMachineInstanceMigrationStatus {
-    return V1VirtualMachineInstanceMigrationStatusFromJSONTyped(json, false);
+export function V1VirtualMachineInstanceMigrationStatusFromJSON(
+  json: any,
+): V1VirtualMachineInstanceMigrationStatus {
+  return V1VirtualMachineInstanceMigrationStatusFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceMigrationStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationStatus {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'conditions': !exists(json, 'conditions') ? undefined : ((json['conditions'] as Array<any>).map(V1VirtualMachineInstanceMigrationConditionFromJSON)),
-        'phase': !exists(json, 'phase') ? undefined : json['phase'],
-    };
+export function V1VirtualMachineInstanceMigrationStatusFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1VirtualMachineInstanceMigrationStatus {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    conditions: !exists(json, 'conditions')
+      ? undefined
+      : (json['conditions'] as Array<any>).map(V1VirtualMachineInstanceMigrationConditionFromJSON),
+    phase: !exists(json, 'phase') ? undefined : json['phase'],
+  };
 }
 
-export function V1VirtualMachineInstanceMigrationStatusToJSON(value?: V1VirtualMachineInstanceMigrationStatus | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'conditions': value.conditions === undefined ? undefined : ((value.conditions as Array<any>).map(V1VirtualMachineInstanceMigrationConditionToJSON)),
-        'phase': value.phase,
-    };
+export function V1VirtualMachineInstanceMigrationStatusToJSON(
+  value?: V1VirtualMachineInstanceMigrationStatus | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    conditions:
+      value.conditions === undefined
+        ? undefined
+        : (value.conditions as Array<any>).map(V1VirtualMachineInstanceMigrationConditionToJSON),
+    phase: value.phase,
+  };
 }
-

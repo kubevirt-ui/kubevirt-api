@@ -12,13 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
-import {
-    V1CPU,
-    V1CPUFromJSON,
-    V1CPUFromJSONTyped,
-    V1CPUToJSON,
-} from './';
+import { exists } from '../runtime';
+import { V1CPU, V1CPUFromJSON, V1CPUToJSON } from './';
 
 /**
  * VirtualMachineFlavorProfile contains definitions that will be applied to VirtualMachine.
@@ -26,54 +21,58 @@ import {
  * @interface V1alpha1VirtualMachineFlavorProfile
  */
 export interface V1alpha1VirtualMachineFlavorProfile {
-    /**
-     * 
-     * @type {V1CPU}
-     * @memberof V1alpha1VirtualMachineFlavorProfile
-     */
-    cpu?: V1CPU;
-    /**
-     * Default specifies if this VirtualMachineFlavorProfile is the default for the VirtualMachineFlavor. Zero or one profile can be set to default.
-     * @type {boolean}
-     * @memberof V1alpha1VirtualMachineFlavorProfile
-     */
-    _default?: boolean;
-    /**
-     * Name specifies the name of this custom profile.
-     * @type {string}
-     * @memberof V1alpha1VirtualMachineFlavorProfile
-     */
-    name: string;
+  /**
+   *
+   * @type {V1CPU}
+   * @memberof V1alpha1VirtualMachineFlavorProfile
+   */
+  cpu?: V1CPU;
+  /**
+   * Default specifies if this VirtualMachineFlavorProfile is the default for the VirtualMachineFlavor. Zero or one profile can be set to default.
+   * @type {boolean}
+   * @memberof V1alpha1VirtualMachineFlavorProfile
+   */
+  _default?: boolean;
+  /**
+   * Name specifies the name of this custom profile.
+   * @type {string}
+   * @memberof V1alpha1VirtualMachineFlavorProfile
+   */
+  name: string;
 }
 
-export function V1alpha1VirtualMachineFlavorProfileFromJSON(json: any): V1alpha1VirtualMachineFlavorProfile {
-    return V1alpha1VirtualMachineFlavorProfileFromJSONTyped(json, false);
+export function V1alpha1VirtualMachineFlavorProfileFromJSON(
+  json: any,
+): V1alpha1VirtualMachineFlavorProfile {
+  return V1alpha1VirtualMachineFlavorProfileFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachineFlavorProfileFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachineFlavorProfile {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'cpu': !exists(json, 'cpu') ? undefined : V1CPUFromJSON(json['cpu']),
-        '_default': !exists(json, 'default') ? undefined : json['default'],
-        'name': json['name'],
-    };
+export function V1alpha1VirtualMachineFlavorProfileFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1alpha1VirtualMachineFlavorProfile {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    cpu: !exists(json, 'cpu') ? undefined : V1CPUFromJSON(json['cpu']),
+    _default: !exists(json, 'default') ? undefined : json['default'],
+    name: json['name'],
+  };
 }
 
-export function V1alpha1VirtualMachineFlavorProfileToJSON(value?: V1alpha1VirtualMachineFlavorProfile | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'cpu': V1CPUToJSON(value.cpu),
-        'default': value._default,
-        'name': value.name,
-    };
+export function V1alpha1VirtualMachineFlavorProfileToJSON(
+  value?: V1alpha1VirtualMachineFlavorProfile | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    cpu: V1CPUToJSON(value.cpu),
+    default: value._default,
+    name: value.name,
+  };
 }
-

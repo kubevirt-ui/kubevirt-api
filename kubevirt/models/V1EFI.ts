@@ -12,45 +12,42 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * If set, EFI will be used instead of BIOS.
  * @export
  * @interface V1EFI
  */
 export interface V1EFI {
-    /**
-     * If set, SecureBoot will be enabled and the OVMF roms will be swapped for SecureBoot-enabled ones. Requires SMM to be enabled. Defaults to true
-     * @type {boolean}
-     * @memberof V1EFI
-     */
-    secureBoot?: boolean;
+  /**
+   * If set, SecureBoot will be enabled and the OVMF roms will be swapped for SecureBoot-enabled ones. Requires SMM to be enabled. Defaults to true
+   * @type {boolean}
+   * @memberof V1EFI
+   */
+  secureBoot?: boolean;
 }
 
 export function V1EFIFromJSON(json: any): V1EFI {
-    return V1EFIFromJSONTyped(json, false);
+  return V1EFIFromJSONTyped(json, false);
 }
 
-export function V1EFIFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1EFI {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'secureBoot': !exists(json, 'secureBoot') ? undefined : json['secureBoot'],
-    };
+export function V1EFIFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1EFI {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    secureBoot: !exists(json, 'secureBoot') ? undefined : json['secureBoot'],
+  };
 }
 
 export function V1EFIToJSON(value?: V1EFI | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'secureBoot': value.secureBoot,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    secureBoot: value.secureBoot,
+  };
 }
-

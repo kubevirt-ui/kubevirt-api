@@ -12,68 +12,62 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
-import {
-    V1VGPUOptions,
-    V1VGPUOptionsFromJSON,
-    V1VGPUOptionsFromJSONTyped,
-    V1VGPUOptionsToJSON,
-} from './';
+import { exists } from '../runtime';
+import { V1VGPUOptions, V1VGPUOptionsFromJSON, V1VGPUOptionsToJSON } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1GPU
  */
 export interface V1GPU {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1GPU
-     */
-    deviceName: string;
-    /**
-     * Name of the GPU device as exposed by a device plugin
-     * @type {string}
-     * @memberof V1GPU
-     */
-    name: string;
-    /**
-     * 
-     * @type {V1VGPUOptions}
-     * @memberof V1GPU
-     */
-    virtualGPUOptions?: V1VGPUOptions;
+  /**
+   *
+   * @type {string}
+   * @memberof V1GPU
+   */
+  deviceName: string;
+  /**
+   * Name of the GPU device as exposed by a device plugin
+   * @type {string}
+   * @memberof V1GPU
+   */
+  name: string;
+  /**
+   *
+   * @type {V1VGPUOptions}
+   * @memberof V1GPU
+   */
+  virtualGPUOptions?: V1VGPUOptions;
 }
 
 export function V1GPUFromJSON(json: any): V1GPU {
-    return V1GPUFromJSONTyped(json, false);
+  return V1GPUFromJSONTyped(json, false);
 }
 
-export function V1GPUFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1GPU {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'deviceName': json['deviceName'],
-        'name': json['name'],
-        'virtualGPUOptions': !exists(json, 'virtualGPUOptions') ? undefined : V1VGPUOptionsFromJSON(json['virtualGPUOptions']),
-    };
+export function V1GPUFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1GPU {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    deviceName: json['deviceName'],
+    name: json['name'],
+    virtualGPUOptions: !exists(json, 'virtualGPUOptions')
+      ? undefined
+      : V1VGPUOptionsFromJSON(json['virtualGPUOptions']),
+  };
 }
 
 export function V1GPUToJSON(value?: V1GPU | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'deviceName': value.deviceName,
-        'name': value.name,
-        'virtualGPUOptions': V1VGPUOptionsToJSON(value.virtualGPUOptions),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    deviceName: value.deviceName,
+    name: value.name,
+    virtualGPUOptions: V1VGPUOptionsToJSON(value.virtualGPUOptions),
+  };
 }
-

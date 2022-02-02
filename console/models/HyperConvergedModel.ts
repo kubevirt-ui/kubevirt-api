@@ -1,5 +1,3 @@
-import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-types';
-
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
 const HyperConvergedModel = {

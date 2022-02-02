@@ -59,7 +59,7 @@ export function V1alpha1VolumeSnapshotStatusFromJSONTyped(
     return json;
   }
   return {
-    creationTime: !exists(json, 'creationTime') ? undefined : creationTime,
+    creationTime: !exists(json, 'creationTime') ? undefined : json['creationTime'],
     error: !exists(json, 'error') ? undefined : V1alpha1ErrorFromJSON(json['error']),
     readyToUse: !exists(json, 'readyToUse') ? undefined : json['readyToUse'],
     volumeSnapshotName: json['volumeSnapshotName'],

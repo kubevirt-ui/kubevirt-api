@@ -149,11 +149,11 @@ export function V1ObjectMetaFromJSONTyped(json: any, _ignoreDiscriminator: boole
   return {
     annotations: !exists(json, 'annotations') ? undefined : json['annotations'],
     clusterName: !exists(json, 'clusterName') ? undefined : json['clusterName'],
-    creationTimestamp: !exists(json, 'creationTimestamp') ? undefined : creationTimestamp,
+    creationTimestamp: !exists(json, 'creationTimestamp') ? undefined : json['creationTimestamp'],
     deletionGracePeriodSeconds: !exists(json, 'deletionGracePeriodSeconds')
       ? undefined
       : json['deletionGracePeriodSeconds'],
-    deletionTimestamp: !exists(json, 'deletionTimestamp') ? undefined : deletionTimestamp,
+    deletionTimestamp: !exists(json, 'deletionTimestamp') ? undefined : json['deletionTimestamp'],
     finalizers: !exists(json, 'finalizers') ? undefined : json['finalizers'],
     generateName: !exists(json, 'generateName') ? undefined : json['generateName'],
     generation: !exists(json, 'generation') ? undefined : json['generation'],

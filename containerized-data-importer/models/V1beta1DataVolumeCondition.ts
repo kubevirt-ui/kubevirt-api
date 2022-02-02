@@ -69,8 +69,10 @@ export function V1beta1DataVolumeConditionFromJSONTyped(
     return json;
   }
   return {
-    lastHeartbeatTime: !exists(json, 'lastHeartbeatTime') ? undefined : lastHeartbeatTime,
-    lastTransitionTime: !exists(json, 'lastTransitionTime') ? undefined : lastTransitionTime,
+    lastHeartbeatTime: !exists(json, 'lastHeartbeatTime') ? undefined : json['lastHeartbeatTime'],
+    lastTransitionTime: !exists(json, 'lastTransitionTime')
+      ? undefined
+      : json['lastTransitionTime'],
     message: !exists(json, 'message') ? undefined : json['message'],
     reason: !exists(json, 'reason') ? undefined : json['reason'],
     status: json['status'],

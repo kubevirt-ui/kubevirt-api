@@ -95,7 +95,7 @@ export function V1alpha1VirtualMachineSnapshotStatusFromJSONTyped(
     conditions: !exists(json, 'conditions')
       ? undefined
       : (json['conditions'] as Array<any>).map(V1alpha1ConditionFromJSON),
-    creationTime: !exists(json, 'creationTime') ? undefined : creationTime,
+    creationTime: !exists(json, 'creationTime') ? undefined : json['creationTime'],
     error: !exists(json, 'error') ? undefined : V1alpha1ErrorFromJSON(json['error']),
     indications: !exists(json, 'indications') ? undefined : json['indications'],
     phase: !exists(json, 'phase') ? undefined : json['phase'],

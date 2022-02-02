@@ -81,7 +81,7 @@ export function V1alpha1VirtualMachineRestoreStatusFromJSONTyped(
     deletedDataVolumes: !exists(json, 'deletedDataVolumes')
       ? undefined
       : json['deletedDataVolumes'],
-    restoreTime: !exists(json, 'restoreTime') ? undefined : restoreTime,
+    restoreTime: !exists(json, 'restoreTime') ? undefined : json['restoreTime'],
     restores: !exists(json, 'restores')
       ? undefined
       : (json['restores'] as Array<any>).map(V1alpha1VolumeRestoreFromJSON),

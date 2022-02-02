@@ -46,7 +46,7 @@ export function V1alpha1ErrorFromJSONTyped(
   }
   return {
     message: !exists(json, 'message') ? undefined : json['message'],
-    time: !exists(json, 'time') ? undefined : time,
+    time: !exists(json, 'time') ? undefined : json['time'],
   };
 }
 

@@ -55,7 +55,9 @@ export function V1VirtualMachineStartFailureFromJSONTyped(
       ? undefined
       : json['consecutiveFailCount'],
     lastFailedVMIUID: !exists(json, 'lastFailedVMIUID') ? undefined : json['lastFailedVMIUID'],
-    retryAfterTimestamp: !exists(json, 'retryAfterTimestamp') ? undefined : retryAfterTimestamp,
+    retryAfterTimestamp: !exists(json, 'retryAfterTimestamp')
+      ? undefined
+      : json['retryAfterTimestamp'],
   };
 }
 

@@ -85,7 +85,7 @@ export function V1ManagedFieldsEntryFromJSONTyped(
     manager: !exists(json, 'manager') ? undefined : json['manager'],
     operation: !exists(json, 'operation') ? undefined : json['operation'],
     subresource: !exists(json, 'subresource') ? undefined : json['subresource'],
-    time: !exists(json, 'time') ? undefined : time,
+    time: !exists(json, 'time') ? undefined : json['time'],
   };
 }
 

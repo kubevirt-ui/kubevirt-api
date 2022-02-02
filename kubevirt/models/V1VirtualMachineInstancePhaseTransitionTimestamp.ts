@@ -50,7 +50,7 @@ export function V1VirtualMachineInstancePhaseTransitionTimestampFromJSONTyped(
     phase: !exists(json, 'phase') ? undefined : json['phase'],
     phaseTransitionTimestamp: !exists(json, 'phaseTransitionTimestamp')
       ? undefined
-      : phaseTransitionTimestamp,
+      : json['phaseTransitionTimestamp'],
   };
 }
 

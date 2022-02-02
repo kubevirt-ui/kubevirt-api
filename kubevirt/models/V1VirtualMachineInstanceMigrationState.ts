@@ -158,7 +158,7 @@ export function V1VirtualMachineInstanceMigrationStateFromJSONTyped(
     abortRequested: !exists(json, 'abortRequested') ? undefined : json['abortRequested'],
     abortStatus: !exists(json, 'abortStatus') ? undefined : json['abortStatus'],
     completed: !exists(json, 'completed') ? undefined : json['completed'],
-    endTimestamp: !exists(json, 'endTimestamp') ? undefined : endTimestamp,
+    endTimestamp: !exists(json, 'endTimestamp') ? undefined : json['endTimestamp'],
     failed: !exists(json, 'failed') ? undefined : json['failed'],
     migrationConfiguration: !exists(json, 'migrationConfiguration')
       ? undefined
@@ -169,7 +169,7 @@ export function V1VirtualMachineInstanceMigrationStateFromJSONTyped(
     migrationUid: !exists(json, 'migrationUid') ? undefined : json['migrationUid'],
     mode: !exists(json, 'mode') ? undefined : json['mode'],
     sourceNode: !exists(json, 'sourceNode') ? undefined : json['sourceNode'],
-    startTimestamp: !exists(json, 'startTimestamp') ? undefined : startTimestamp,
+    startTimestamp: !exists(json, 'startTimestamp') ? undefined : json['startTimestamp'],
     targetAttachmentPodUID: !exists(json, 'targetAttachmentPodUID')
       ? undefined
       : json['targetAttachmentPodUID'],

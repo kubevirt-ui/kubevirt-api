@@ -42,8 +42,8 @@ sed -i "s/ignoreDiscriminator/_ignoreDiscriminator/g" ./containerized-data-impor
 
 # Patch Data type to steing conversion
 sed -i "s/.toISOString()//g" ./kubevirt/models/*
-sed -E -i "s/new Date\(json\['(.*)'\]\)/\1/g" ./kubevirt/models/*
+sed -E -i "s/new Date\((json\['.*'\])\)/\1/g" ./kubevirt/models/*
 sed -i "s/.toISOString()//g" ./containerized-data-importer/models/*
-sed -E -i "s/new Date\(json\['(.*)'\]\)/\1/g" ./containerized-data-importer/models/*
+sed -E -i "s/new Date\((json\['.*'\])\)/\1/g" ./containerized-data-importer/models/*
 
 yarn lint:fix

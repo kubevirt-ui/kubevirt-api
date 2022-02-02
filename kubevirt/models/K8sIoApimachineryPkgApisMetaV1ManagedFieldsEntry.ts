@@ -80,7 +80,7 @@ export function K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSONTyped(
     fieldsV1: !exists(json, 'fieldsV1') ? undefined : json['fieldsV1'],
     manager: !exists(json, 'manager') ? undefined : json['manager'],
     operation: !exists(json, 'operation') ? undefined : json['operation'],
-    time: !exists(json, 'time') ? undefined : time,
+    time: !exists(json, 'time') ? undefined : json['time'],
   };
 }
 

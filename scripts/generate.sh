@@ -10,6 +10,9 @@ OPENSHIFT_CONSOLE_RELEASE=release-4.11
 
 GENERATOR=typescript-fetch
 
+## -----------------------------------------------------------
+## Fetch OpenAPI decleration files and proccess them
+
 # Download swagger openapi specs
 curl https://raw.githubusercontent.com/kubevirt/kubevirt/${KUBEVIRT_RELEASE}/api/openapi-spec/swagger.json -o swagger-kubevirt.json
 curl https://raw.githubusercontent.com/kubevirt/containerized-data-importer/${CDI_RELEASE}/api/openapi-spec/swagger.json -o swagger-containerized-data-importer.json
@@ -36,7 +39,7 @@ cp -rf ./generated/kubernetes/${KUBERNETES_RELEASE}/* ./kubernetes/
 
 ## -----------------------------------------------------------
 ## Fixes for bad generated code from typescript-fetch generator
-## Specific for 0.49 release
+## Specific for current releases
 
 # Patch missing globalFetch type in generated files
 git apply ./scripts/globalFetchFix.patch
@@ -62,4 +65,10 @@ git apply ./scripts/coreModelsUseSDK.patch
 # Fix broken comments
 git apply ./scripts/fixGeneratedCommentsInK8s.patch
 
+## -----------------------------------------------------------
+## Run linter
 yarn lint:fix
+
+# -----------------------------------------------------------
+## Generate docs
+yarn generate:docs

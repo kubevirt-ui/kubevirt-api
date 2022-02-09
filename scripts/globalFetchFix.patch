@@ -1,5 +1,5 @@
 diff --git a/containerized-data-importer/runtime.ts b/containerized-data-importer/runtime.ts
-index 3d1737b..58cdf91 100644
+index 3d1737b..f0c4141 100644
 --- a/containerized-data-importer/runtime.ts
 +++ b/containerized-data-importer/runtime.ts
 @@ -12,6 +12,10 @@
@@ -9,12 +9,12 @@ index 3d1737b..58cdf91 100644
 +/**
 + * Add missing GlobalFetch type
 + */
-+ type GlobalFetch = any;
++type GlobalFetch = any;
  
  export const BASE_PATH = "http://localhost".replace(/\/+$/, "");
  
 diff --git a/kubernetes/runtime.ts b/kubernetes/runtime.ts
-index 5b9306c..4d8c122 100644
+index 5b9306c..651d2e9 100644
 --- a/kubernetes/runtime.ts
 +++ b/kubernetes/runtime.ts
 @@ -12,6 +12,10 @@
@@ -24,12 +24,12 @@ index 5b9306c..4d8c122 100644
 +/**
 + * Add missing GlobalFetch type
 + */
-+ type GlobalFetch = any;
++type GlobalFetch = any;
  
  export const BASE_PATH = "http://localhost".replace(/\/+$/, "");
  
 diff --git a/kubevirt/runtime.ts b/kubevirt/runtime.ts
-index c7e4aa5..37cfc27 100644
+index c7e4aa5..d15324c 100644
 --- a/kubevirt/runtime.ts
 +++ b/kubevirt/runtime.ts
 @@ -12,6 +12,10 @@
@@ -39,6 +39,7 @@ index c7e4aa5..37cfc27 100644
 +/**
 + * Add missing GlobalFetch type
 + */
-+ type GlobalFetch = any;
++type GlobalFetch = any;
  
  export const BASE_PATH = "http://localhost".replace(/\/+$/, "");
+ 

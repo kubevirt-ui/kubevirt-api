@@ -12,6 +12,6 @@
     "experimentalDecorators": true,
     "sourceMap": true,
   },
-  "include": ["./kubevirt", "./console", "./containerized-data-importer"],
+  "include": ["./kubevirt", "./console", "./kubernetes", "./containerized-data-importer"],
   "exclude": ["**/node_modules", "**/dist"]
 }

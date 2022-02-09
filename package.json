@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "generate": "bash ./scripts/generate.sh",
-    "generate:docs": "typedoc --out docs/ --readme none --entryPoints \"kubevirt/models/index.ts\" \"kubernetes/models/index.ts\" \"containerized-data-importer/models/index.ts\" \"console/index.ts\"  --plugin typedoc-plugin-reference-excluder --excludedFunctionOrMethod \".*\" ",
+    "generate:docs": "typedoc --out docs/  --gitRevision main --readme none --entryPoints \"kubevirt/models/index.ts\" \"kubernetes/models/index.ts\" \"containerized-data-importer/models/index.ts\" \"console/index.ts\"  --plugin typedoc-plugin-reference-excluder --excludedFunctionOrMethod \".*\" ",
     "clean": "rm -rf ./generated",
     "clean:all": "rm -rf ./docs ./generated ./kubevirt ./containerized-data-importer ./console/core ./console-core-models.ts ./kubernetes swagger-*.json",
     "lint": "eslint console kubevirt kubernetes containerized-data-importer --color --no-inline-config",

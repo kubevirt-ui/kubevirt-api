@@ -1,0 +1,26 @@
+diff --git a/kubernetes/models/IoK8sApiAdmissionregistrationV1RuleWithOperations.ts b/kubernetes/models/IoK8sApiAdmissionregistrationV1RuleWithOperations.ts
+index 2cfdb15..b087576 100644
+--- a/kubernetes/models/IoK8sApiAdmissionregistrationV1RuleWithOperations.ts
++++ b/kubernetes/models/IoK8sApiAdmissionregistrationV1RuleWithOperations.ts
+@@ -40,7 +40,7 @@ export interface IoK8sApiAdmissionregistrationV1RuleWithOperations {
+     /**
+      * Resources is a list of resources this rule applies to.
+      * 
+-     * For example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources.
++     * For example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. 'scale' means all scale subresources. '*' means all resources and their subresources.
+      * 
+      * If wildcard is present, the validation rule will ensure resources do not overlap with each other.
+      * 
+diff --git a/kubernetes/models/IoK8sApiAuthorizationV1ResourceRule.ts b/kubernetes/models/IoK8sApiAuthorizationV1ResourceRule.ts
+index 852334c..05cdbca 100644
+--- a/kubernetes/models/IoK8sApiAuthorizationV1ResourceRule.ts
++++ b/kubernetes/models/IoK8sApiAuthorizationV1ResourceRule.ts
+@@ -33,7 +33,7 @@ export interface IoK8sApiAuthorizationV1ResourceRule {
+     resourceNames?: Array<string>;
+     /**
+      * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+-     *  "*/foo" represents the subresource 'foo' for all resources in the specified apiGroups.
++     *  "foo" represents the subresource 'foo' for all resources in the specified apiGroups.
+      * @type {Array<string>}
+      * @memberof IoK8sApiAuthorizationV1ResourceRule
+      */

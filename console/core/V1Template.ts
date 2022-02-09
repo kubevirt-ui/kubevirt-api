@@ -9,7 +9,7 @@ export type TemplateParameter = {
   required?: boolean;
 };
 
-export type TemplateKind = {
+export type V1Template = {
   message?: string;
   objects: any[];
   parameters: TemplateParameter[];

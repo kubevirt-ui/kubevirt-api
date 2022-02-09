@@ -1,10 +1,20 @@
 [![NPM Version](https://img.shields.io/npm/v/gm.svg?style=flat)](https://www.npmjs.org/package/@kubevirt-ui/kubevirt-api)
 
 # kubevirt-api
+
+![alt gopher network](https://raw.githubusercontent.com/kubevirt-ui/kubevirt-api/main/images/logos.png)
+
 kubevirt OpenAPI automation for TypeScript types
 
-Generate TypeScript types for:
-- kubevirt - https://github.com/kubevirt/kubevirt
+## Documentation
+
+Auto generated docs for [KubeVirt API Docs](https://kubevirt-ui.github.io/kubevirt-api/)
+
+## Auto generated using OpenAPI sources:
+
+- Openshift Console - https://github.com/openshift/console
+- Kubevirt - https://github.com/kubevirt/kubevirt
+- Kubernetes - https://github.com/kubernetes/kubernetes
 - Containerized data importer (CDI) - https://github.com/kubevirt/containerized-data-importer
 
 kubevirt API reference:
@@ -19,6 +29,7 @@ yarn add @kubevirt-ui/kubevirt-api
 
 ``` typescript
 // Import examples
+import { IoK8sApiCoreV1Pod } from '@kubevirt-ui/kubevirt-api/kubernetes'
 import { V1VirtualMachine } from '@kubevirt-ui/kubevirt-api/kubevirt'
 import { V1beta1DataVolume } from '@kubevirt-ui/kubevirt-api/containerized-data-importer'
 

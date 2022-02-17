@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "generate": "bash ./scripts/generate.sh",
-    "generate:docs": "typedoc --out docs/  --gitRevision main --readme none --entryPoints \"kubevirt/models/index.ts\" \"kubernetes/models/index.ts\" \"containerized-data-importer/models/index.ts\" \"console/index.ts\"  --plugin typedoc-plugin-reference-excluder --excludedFunctionOrMethod \".*\" ",
+    "generate:docs": "typedoc --out docs/  --gitRevision main --gitRemote upstream --readme none --entryPoints \"kubevirt/models/index.ts\" \"kubernetes/models/index.ts\" \"containerized-data-importer/models/index.ts\" \"console/index.ts\"  --plugin typedoc-plugin-reference-excluder --excludedFunctionOrMethod \".*\" ",
     "clean": "rm -rf ./generated",
     "clean:all": "rm -rf ./docs ./generated ./kubevirt ./containerized-data-importer ./console/core/index.ts ./console-core-models.ts ./kubernetes swagger-*.json",
     "lint": "eslint console kubevirt kubernetes containerized-data-importer --color --no-inline-config",
@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.4.25",
-    "@openshift-console/dynamic-plugin-sdk": "^0.0.3",
+    "@openshift-console/dynamic-plugin-sdk": "^0.0.5",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.10.2",
     "eslint": "^8.8.0",

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -eu
 
 OPENAPI_GENERATOR_CLI=./node_modules/.bin/openapi-generator-cli
 

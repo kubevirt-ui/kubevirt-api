@@ -1,0 +1,16 @@
+component: Kubevirt UI shared API
+
+approvers:
+  - tnisan
+  - yaacov
+  - vojtechszocs
+reviewers:
+  - tnisan
+  - yaacov
+  - glekner
+  - metalice
+  - pcbailey
+  - avivtur
+  - vojtechszocs
+  - hstastna
+  - upalatucci

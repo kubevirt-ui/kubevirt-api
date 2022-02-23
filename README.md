@@ -46,6 +46,13 @@ yarn
 ``` bash
 yarn generate
 ```
+
+## Run linter
+
+``` bash
+yarn lint
+```
+
 ## Update upstream versions
 
 Edit the versions in `./scripts/generate.sh`

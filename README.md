@@ -56,3 +56,5 @@ yarn lint
 ## Update upstream versions
 
 Edit the versions in `./scripts/generate.sh`
+
+Each new versions may need different patchs, look for errors while running the generate script after each update.

@@ -1,0 +1,42 @@
+name: Add first comment to a new PR
+on:
+  pull_request_target:
+    types:
+      - opened
+permissions: write-all
+jobs:
+  welcome-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Parse OWNERS
+        id: owners
+        uses: upalatucci/get-owners-action@v2.2
+        with:
+          auto-add-reviewers: true
+          n-random-reviewers: 2
+          token: ${{ secrets.BOT_PAT }}
+
+      - name: Add welcome comment - none owner
+        if: |
+          !(
+            contains(steps.owners.outputs.approvers, github.event.pull_request.user.login || 'null') ||
+            contains(steps.owners.outputs.reviewers, github.event.pull_request.user.login || 'null')
+          )
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: '${{ secrets.BOT_PAT }}'
+          message: |
+            Hi, welcome to kubevirt ui, thank you this pull request 💖✨
+
+      - name: Add welcome comment - owner
+        if: |
+          contains(steps.owners.outputs.approvers, github.event.pull_request.user.login || 'null') ||
+          contains(steps.owners.outputs.reviewers, github.event.pull_request.user.login || 'null')
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: '${{ secrets.BOT_PAT }}'
+          message: |
+            ${{ github.event.pull_request.user.login }} hi, great to see you.

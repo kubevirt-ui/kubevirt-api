@@ -5,7 +5,7 @@ OPENAPI_GENERATOR_CLI=./node_modules/.bin/openapi-generator-cli
 
 # Use released versions
 KUBEVIRT_RELEASE=release-0.49
-CDI_RELEASE=release-v1.44
+CDI_RELEASE=main
 KUBERNETES_RELEASE=release-1.23
 OPENSHIFT_CONSOLE_RELEASE=release-4.11
 

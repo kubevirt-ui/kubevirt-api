@@ -1,6 +1,6 @@
 {
   "name": "@kubevirt-ui/kubevirt-api",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "description": "kubevirt OpenAPI automation for TypeScript",
   "files": [
     "containerized-data-importer/*",

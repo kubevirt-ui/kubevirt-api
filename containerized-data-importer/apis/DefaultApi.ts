@@ -38,6 +38,16 @@ import {
   V1beta1CDIList,
   V1beta1CDIListFromJSON,
   V1beta1CDIToJSON,
+  V1beta1DataImportCron,
+  V1beta1DataImportCronFromJSON,
+  V1beta1DataImportCronList,
+  V1beta1DataImportCronListFromJSON,
+  V1beta1DataImportCronToJSON,
+  V1beta1DataSource,
+  V1beta1DataSourceFromJSON,
+  V1beta1DataSourceList,
+  V1beta1DataSourceListFromJSON,
+  V1beta1DataSourceToJSON,
   V1beta1DataVolume,
   V1beta1DataVolumeFromJSON,
   V1beta1DataVolumeList,
@@ -56,6 +66,16 @@ export interface CreateNamespacedCDIRequest {
 export interface CreateNamespacedCDIConfigRequest {
   namespace: string;
   body: V1beta1CDIConfig;
+}
+
+export interface CreateNamespacedDataImportCronRequest {
+  namespace: string;
+  body: V1beta1DataImportCron;
+}
+
+export interface CreateNamespacedDataSourceRequest {
+  namespace: string;
+  body: V1beta1DataSource;
 }
 
 export interface CreateNamespacedDataVolumeRequest {
@@ -95,6 +115,28 @@ export interface DeleteCollectionNamespacedCDIConfigRequest {
   watch?: boolean;
 }
 
+export interface DeleteCollectionNamespacedDataImportCronRequest {
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface DeleteCollectionNamespacedDataSourceRequest {
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
 export interface DeleteCollectionNamespacedDataVolumeRequest {
   _continue?: string;
   fieldSelector?: string;
@@ -124,6 +166,24 @@ export interface DeleteNamespacedCDIConfigRequest {
   propagationPolicy?: string;
 }
 
+export interface DeleteNamespacedDataImportCronRequest {
+  name: string;
+  namespace: string;
+  body: V1DeleteOptions;
+  gracePeriodSeconds?: number;
+  orphanDependents?: boolean;
+  propagationPolicy?: string;
+}
+
+export interface DeleteNamespacedDataSourceRequest {
+  name: string;
+  namespace: string;
+  body: V1DeleteOptions;
+  gracePeriodSeconds?: number;
+  orphanDependents?: boolean;
+  propagationPolicy?: string;
+}
+
 export interface DeleteNamespacedDataVolumeRequest {
   name: string;
   namespace: string;
@@ -145,6 +205,28 @@ export interface ListCDIConfigForAllNamespacesRequest {
 }
 
 export interface ListCDIForAllNamespacesRequest {
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface ListDataImportCronForAllNamespacesRequest {
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface ListDataSourceForAllNamespacesRequest {
   _continue?: string;
   fieldSelector?: string;
   includeUninitialized?: boolean;
@@ -190,6 +272,30 @@ export interface ListNamespacedCDIConfigRequest {
   watch?: boolean;
 }
 
+export interface ListNamespacedDataImportCronRequest {
+  namespace: string;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface ListNamespacedDataSourceRequest {
+  namespace: string;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
 export interface ListNamespacedDataVolumeRequest {
   namespace: string;
   _continue?: string;
@@ -209,6 +315,18 @@ export interface PatchNamespacedCDIRequest {
 }
 
 export interface PatchNamespacedCDIConfigRequest {
+  name: string;
+  namespace: string;
+  body: object;
+}
+
+export interface PatchNamespacedDataImportCronRequest {
+  name: string;
+  namespace: string;
+  body: object;
+}
+
+export interface PatchNamespacedDataSourceRequest {
   name: string;
   namespace: string;
   body: object;
@@ -234,6 +352,20 @@ export interface ReadNamespacedCDIConfigRequest {
   _export?: boolean;
 }
 
+export interface ReadNamespacedDataImportCronRequest {
+  name: string;
+  namespace: string;
+  exact?: boolean;
+  _export?: boolean;
+}
+
+export interface ReadNamespacedDataSourceRequest {
+  name: string;
+  namespace: string;
+  exact?: boolean;
+  _export?: boolean;
+}
+
 export interface ReadNamespacedDataVolumeRequest {
   name: string;
   namespace: string;
@@ -251,6 +383,18 @@ export interface ReplaceNamespacedCDIConfigRequest {
   name: string;
   namespace: string;
   body: V1beta1CDIConfig;
+}
+
+export interface ReplaceNamespacedDataImportCronRequest {
+  name: string;
+  namespace: string;
+  body: V1beta1DataImportCron;
+}
+
+export interface ReplaceNamespacedDataSourceRequest {
+  name: string;
+  namespace: string;
+  body: V1beta1DataSource;
 }
 
 export interface ReplaceNamespacedDataVolumeRequest {
@@ -271,6 +415,28 @@ export interface WatchCDIConfigListForAllNamespacesRequest {
 }
 
 export interface WatchCDIListForAllNamespacesRequest {
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface WatchDataImportCronListForAllNamespacesRequest {
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface WatchDataSourceListForAllNamespacesRequest {
   _continue?: string;
   fieldSelector?: string;
   includeUninitialized?: boolean;
@@ -305,6 +471,30 @@ export interface WatchNamespacedCDIRequest {
 }
 
 export interface WatchNamespacedCDIConfigRequest {
+  namespace: string;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface WatchNamespacedDataImportCronRequest {
+  namespace: string;
+  _continue?: string;
+  fieldSelector?: string;
+  includeUninitialized?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface WatchNamespacedDataSourceRequest {
   namespace: string;
   _continue?: string;
   fieldSelector?: string;
@@ -441,6 +631,120 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<V1beta1CDIConfig> {
     const response = await this.createNamespacedCDIConfigRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Create a DataImportCron object.
+   */
+  async createNamespacedDataImportCronRaw(
+    requestParameters: CreateNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataImportCron>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling createNamespacedDataImportCron.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling createNamespacedDataImportCron.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/dataimportcrons`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'POST',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1beta1DataImportCronToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataImportCronFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Create a DataImportCron object.
+   */
+  async createNamespacedDataImportCron(
+    requestParameters: CreateNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataImportCron> {
+    const response = await this.createNamespacedDataImportCronRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Create a DataSource object.
+   */
+  async createNamespacedDataSourceRaw(
+    requestParameters: CreateNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataSource>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling createNamespacedDataSource.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling createNamespacedDataSource.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datasources`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'POST',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1beta1DataSourceToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataSourceFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Create a DataSource object.
+   */
+  async createNamespacedDataSource(
+    requestParameters: CreateNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataSource> {
+    const response = await this.createNamespacedDataSourceRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -759,6 +1063,146 @@ export class DefaultApi extends runtime.BaseAPI {
   }
 
   /**
+   * Delete a collection of DataImportCron objects.
+   */
+  async deleteCollectionNamespacedDataImportCronRaw(
+    requestParameters: DeleteCollectionNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1Status>> {
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/dataimportcrons`,
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
+  }
+
+  /**
+   * Delete a collection of DataImportCron objects.
+   */
+  async deleteCollectionNamespacedDataImportCron(
+    requestParameters: DeleteCollectionNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1Status> {
+    const response = await this.deleteCollectionNamespacedDataImportCronRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * Delete a collection of DataSource objects.
+   */
+  async deleteCollectionNamespacedDataSourceRaw(
+    requestParameters: DeleteCollectionNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1Status>> {
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datasources`,
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
+  }
+
+  /**
+   * Delete a collection of DataSource objects.
+   */
+  async deleteCollectionNamespacedDataSource(
+    requestParameters: DeleteCollectionNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1Status> {
+    const response = await this.deleteCollectionNamespacedDataSourceRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
    * Delete a collection of DataVolume objects.
    */
   async deleteCollectionNamespacedDataVolumeRaw(
@@ -971,6 +1415,152 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<V1Status> {
     const response = await this.deleteNamespacedCDIConfigRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Delete a DataImportCron object.
+   */
+  async deleteNamespacedDataImportCronRaw(
+    requestParameters: DeleteNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1Status>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling deleteNamespacedDataImportCron.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling deleteNamespacedDataImportCron.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling deleteNamespacedDataImportCron.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.gracePeriodSeconds !== undefined) {
+      queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.orphanDependents !== undefined) {
+      queryParameters['orphanDependents'] = requestParameters.orphanDependents;
+    }
+
+    if (requestParameters.propagationPolicy !== undefined) {
+      queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/dataimportcrons/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1DeleteOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
+  }
+
+  /**
+   * Delete a DataImportCron object.
+   */
+  async deleteNamespacedDataImportCron(
+    requestParameters: DeleteNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1Status> {
+    const response = await this.deleteNamespacedDataImportCronRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Delete a DataSource object.
+   */
+  async deleteNamespacedDataSourceRaw(
+    requestParameters: DeleteNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1Status>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling deleteNamespacedDataSource.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling deleteNamespacedDataSource.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling deleteNamespacedDataSource.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.gracePeriodSeconds !== undefined) {
+      queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.orphanDependents !== undefined) {
+      queryParameters['orphanDependents'] = requestParameters.orphanDependents;
+    }
+
+    if (requestParameters.propagationPolicy !== undefined) {
+      queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datasources/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1DeleteOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1StatusFromJSON(jsonValue));
+  }
+
+  /**
+   * Delete a DataSource object.
+   */
+  async deleteNamespacedDataSource(
+    requestParameters: DeleteNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1Status> {
+    const response = await this.deleteNamespacedDataSourceRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -1461,6 +2051,147 @@ export class DefaultApi extends runtime.BaseAPI {
   }
 
   /**
+   * Get a list of all DataImportCron objects.
+   */
+  async listDataImportCronForAllNamespacesRaw(
+    requestParameters: ListDataImportCronForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataImportCronList>> {
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/dataimportcrons`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataImportCronListFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get a list of all DataImportCron objects.
+   */
+  async listDataImportCronForAllNamespaces(
+    requestParameters: ListDataImportCronForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataImportCronList> {
+    const response = await this.listDataImportCronForAllNamespacesRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * Get a list of all DataSource objects.
+   */
+  async listDataSourceForAllNamespacesRaw(
+    requestParameters: ListDataSourceForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataSourceList>> {
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/datasources`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataSourceListFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get a list of all DataSource objects.
+   */
+  async listDataSourceForAllNamespaces(
+    requestParameters: ListDataSourceForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataSourceList> {
+    const response = await this.listDataSourceForAllNamespacesRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
    * Get a list of all DataVolume objects.
    */
   async listDataVolumeForAllNamespacesRaw(
@@ -1686,6 +2417,164 @@ export class DefaultApi extends runtime.BaseAPI {
   }
 
   /**
+   * Get a list of DataImportCron objects.
+   */
+  async listNamespacedDataImportCronRaw(
+    requestParameters: ListNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataImportCronList>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling listNamespacedDataImportCron.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/dataimportcrons`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataImportCronListFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get a list of DataImportCron objects.
+   */
+  async listNamespacedDataImportCron(
+    requestParameters: ListNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataImportCronList> {
+    const response = await this.listNamespacedDataImportCronRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a list of DataSource objects.
+   */
+  async listNamespacedDataSourceRaw(
+    requestParameters: ListNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataSourceList>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling listNamespacedDataSource.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datasources`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataSourceListFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get a list of DataSource objects.
+   */
+  async listNamespacedDataSource(
+    requestParameters: ListNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataSourceList> {
+    const response = await this.listNamespacedDataSourceRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
    * Get a list of DataVolume objects.
    */
   async listNamespacedDataVolumeRaw(
@@ -1889,6 +2778,132 @@ export class DefaultApi extends runtime.BaseAPI {
   }
 
   /**
+   * Patch a DataImportCron object.
+   */
+  async patchNamespacedDataImportCronRaw(
+    requestParameters: PatchNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataImportCron>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling patchNamespacedDataImportCron.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling patchNamespacedDataImportCron.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling patchNamespacedDataImportCron.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json-patch+json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/dataimportcrons/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PATCH',
+        headers: headerParameters,
+        query: queryParameters,
+        body: requestParameters.body as any,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataImportCronFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Patch a DataImportCron object.
+   */
+  async patchNamespacedDataImportCron(
+    requestParameters: PatchNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataImportCron> {
+    const response = await this.patchNamespacedDataImportCronRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Patch a DataSource object.
+   */
+  async patchNamespacedDataSourceRaw(
+    requestParameters: PatchNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataSource>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling patchNamespacedDataSource.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling patchNamespacedDataSource.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling patchNamespacedDataSource.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json-patch+json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datasources/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PATCH',
+        headers: headerParameters,
+        query: queryParameters,
+        body: requestParameters.body as any,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataSourceFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Patch a DataSource object.
+   */
+  async patchNamespacedDataSource(
+    requestParameters: PatchNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataSource> {
+    const response = await this.patchNamespacedDataSourceRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
    * Patch a DataVolume object.
    */
   async patchNamespacedDataVolumeRaw(
@@ -2068,6 +3083,128 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<V1beta1CDIConfig> {
     const response = await this.readNamespacedCDIConfigRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a DataImportCron object.
+   */
+  async readNamespacedDataImportCronRaw(
+    requestParameters: ReadNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataImportCron>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling readNamespacedDataImportCron.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling readNamespacedDataImportCron.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.exact !== undefined) {
+      queryParameters['exact'] = requestParameters.exact;
+    }
+
+    if (requestParameters._export !== undefined) {
+      queryParameters['export'] = requestParameters._export;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/dataimportcrons/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataImportCronFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get a DataImportCron object.
+   */
+  async readNamespacedDataImportCron(
+    requestParameters: ReadNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataImportCron> {
+    const response = await this.readNamespacedDataImportCronRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get a DataSource object.
+   */
+  async readNamespacedDataSourceRaw(
+    requestParameters: ReadNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataSource>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling readNamespacedDataSource.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling readNamespacedDataSource.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.exact !== undefined) {
+      queryParameters['exact'] = requestParameters.exact;
+    }
+
+    if (requestParameters._export !== undefined) {
+      queryParameters['export'] = requestParameters._export;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datasources/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataSourceFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get a DataSource object.
+   */
+  async readNamespacedDataSource(
+    requestParameters: ReadNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataSource> {
+    const response = await this.readNamespacedDataSourceRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -2253,6 +3390,135 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<V1beta1CDIConfig> {
     const response = await this.replaceNamespacedCDIConfigRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Update a DataImportCron object.
+   */
+  async replaceNamespacedDataImportCronRaw(
+    requestParameters: ReplaceNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataImportCron>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling replaceNamespacedDataImportCron.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling replaceNamespacedDataImportCron.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling replaceNamespacedDataImportCron.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/dataimportcrons/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1beta1DataImportCronToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataImportCronFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Update a DataImportCron object.
+   */
+  async replaceNamespacedDataImportCron(
+    requestParameters: ReplaceNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataImportCron> {
+    const response = await this.replaceNamespacedDataImportCronRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * Update a DataSource object.
+   */
+  async replaceNamespacedDataSourceRaw(
+    requestParameters: ReplaceNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1beta1DataSource>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling replaceNamespacedDataSource.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling replaceNamespacedDataSource.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling replaceNamespacedDataSource.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datasources/{name:[a-z0-9][a-z0-9\-]*}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1beta1DataSourceToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1beta1DataSourceFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Update a DataSource object.
+   */
+  async replaceNamespacedDataSource(
+    requestParameters: ReplaceNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1beta1DataSource> {
+    const response = await this.replaceNamespacedDataSourceRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -2453,6 +3719,146 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<V1WatchEvent> {
     const response = await this.watchCDIListForAllNamespacesRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Watch a DataImportCronList object.
+   */
+  async watchDataImportCronListForAllNamespacesRaw(
+    requestParameters: WatchDataImportCronListForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1WatchEvent>> {
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/watch/dataimportcrons`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
+  }
+
+  /**
+   * Watch a DataImportCronList object.
+   */
+  async watchDataImportCronListForAllNamespaces(
+    requestParameters: WatchDataImportCronListForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1WatchEvent> {
+    const response = await this.watchDataImportCronListForAllNamespacesRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * Watch a DataSourceList object.
+   */
+  async watchDataSourceListForAllNamespacesRaw(
+    requestParameters: WatchDataSourceListForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1WatchEvent>> {
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/watch/datasources`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
+  }
+
+  /**
+   * Watch a DataSourceList object.
+   */
+  async watchDataSourceListForAllNamespaces(
+    requestParameters: WatchDataSourceListForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1WatchEvent> {
+    const response = await this.watchDataSourceListForAllNamespacesRaw(
+      requestParameters,
+      initOverrides,
+    );
     return await response.value();
   }
 
@@ -2677,6 +4083,160 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<V1WatchEvent> {
     const response = await this.watchNamespacedCDIConfigRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Watch a DataImportCron object.
+   */
+  async watchNamespacedDataImportCronRaw(
+    requestParameters: WatchNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1WatchEvent>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedDataImportCron.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/dataimportcrons`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
+  }
+
+  /**
+   * Watch a DataImportCron object.
+   */
+  async watchNamespacedDataImportCron(
+    requestParameters: WatchNamespacedDataImportCronRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1WatchEvent> {
+    const response = await this.watchNamespacedDataImportCronRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Watch a DataSource object.
+   */
+  async watchNamespacedDataSourceRaw(
+    requestParameters: WatchNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1WatchEvent>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedDataSource.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.includeUninitialized !== undefined) {
+      queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/cdi.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/datasources`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => V1WatchEventFromJSON(jsonValue));
+  }
+
+  /**
+   * Watch a DataSource object.
+   */
+  async watchNamespacedDataSource(
+    requestParameters: WatchNamespacedDataSourceRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1WatchEvent> {
+    const response = await this.watchNamespacedDataSourceRaw(requestParameters, initOverrides);
     return await response.value();
   }
 

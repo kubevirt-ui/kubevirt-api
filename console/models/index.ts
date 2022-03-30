@@ -1,9 +1,12 @@
 /* tslint:disable */
 /* eslint-disable */
+export * from './CatalogSourceModel';
+export * from './ClusterServiceVersionModel';
 export * from './CDIConfigModel';
 export * from './DataSourceModel';
 export * from './DataVolumeModel';
 export * from './HyperConvergedModel';
+export * from './InstallPlanModel';
 export * from './KubeDeschedulerModel';
 export * from './NetworkAddonsConfigModel';
 export * from './NetworkAttachmentDefinitionModel';

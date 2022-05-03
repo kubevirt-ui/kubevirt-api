@@ -6,6 +6,7 @@ export type TemplateParameter = {
   displayName?: string;
   description?: string;
   generate?: string;
+  from?: string;
   required?: boolean;
 };
 

@@ -3,6 +3,7 @@
 export * from './CatalogSourceModel';
 export * from './ClusterServiceVersionModel';
 export * from './CDIConfigModel';
+export * from './ConsoleQuickStartModel';
 export * from './DataSourceModel';
 export * from './DataVolumeModel';
 export * from './HyperConvergedModel';

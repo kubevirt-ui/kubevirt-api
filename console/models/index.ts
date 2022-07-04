@@ -5,6 +5,7 @@ export * from './ClusterServiceVersionModel';
 export * from './CDIConfigModel';
 export * from './ConsoleQuickStartModel';
 export * from './DataSourceModel';
+export * from './DataImportCronModel';
 export * from './DataVolumeModel';
 export * from './HyperConvergedModel';
 export * from './InstallPlanModel';

@@ -61,25 +61,10 @@ export interface IoK8sApiCertificatesV1CertificateSigningRequestCondition {
      * Approved and Denied conditions are mutually exclusive. Approved, Denied, and Failed conditions cannot be removed once added.
      * 
      * Only one condition of a given type is allowed.
-     * 
-     * Possible enum values:
-     *  - `"Approved"` Approved indicates the request was approved and should be issued by the signer.
-     *  - `"Denied"` Denied indicates the request was denied and should not be issued by the signer.
-     *  - `"Failed"` Failed indicates the signer failed to issue the certificate.
      * @type {string}
      * @memberof IoK8sApiCertificatesV1CertificateSigningRequestCondition
      */
-    type: IoK8sApiCertificatesV1CertificateSigningRequestConditionTypeEnum;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiCertificatesV1CertificateSigningRequestConditionTypeEnum {
-    Approved = 'Approved',
-    Denied = 'Denied',
-    Failed = 'Failed'
+    type: string;
 }
 
 export function IoK8sApiCertificatesV1CertificateSigningRequestConditionFromJSON(json: any): IoK8sApiCertificatesV1CertificateSigningRequestCondition {

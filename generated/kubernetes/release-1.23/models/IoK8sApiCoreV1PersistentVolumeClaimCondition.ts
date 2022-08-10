@@ -51,24 +51,10 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimCondition {
     status: string;
     /**
      * 
-     * 
-     * 
-     * Possible enum values:
-     *  - `"FileSystemResizePending"` - controller resize is finished and a file system resize is pending on node
-     *  - `"Resizing"` - a user trigger resize of pvc has been started
      * @type {string}
      * @memberof IoK8sApiCoreV1PersistentVolumeClaimCondition
      */
-    type: IoK8sApiCoreV1PersistentVolumeClaimConditionTypeEnum;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiCoreV1PersistentVolumeClaimConditionTypeEnum {
-    FileSystemResizePending = 'FileSystemResizePending',
-    Resizing = 'Resizing'
+    type: string;
 }
 
 export function IoK8sApiCoreV1PersistentVolumeClaimConditionFromJSON(json: any): IoK8sApiCoreV1PersistentVolumeClaimCondition {

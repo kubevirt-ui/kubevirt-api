@@ -51,27 +51,10 @@ export interface IoK8sApiCoreV1PodCondition {
     status: string;
     /**
      * Type is the type of the condition. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions
-     * 
-     * Possible enum values:
-     *  - `"ContainersReady"` indicates whether all containers in the pod are ready.
-     *  - `"Initialized"` means that all init containers in the pod have started successfully.
-     *  - `"PodScheduled"` represents status of the scheduling process for this pod.
-     *  - `"Ready"` means the pod is able to service requests and should be added to the load balancing pools of all matching services.
      * @type {string}
      * @memberof IoK8sApiCoreV1PodCondition
      */
-    type: IoK8sApiCoreV1PodConditionTypeEnum;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiCoreV1PodConditionTypeEnum {
-    ContainersReady = 'ContainersReady',
-    Initialized = 'Initialized',
-    PodScheduled = 'PodScheduled',
-    Ready = 'Ready'
+    type: string;
 }
 
 export function IoK8sApiCoreV1PodConditionFromJSON(json: any): IoK8sApiCoreV1PodCondition {

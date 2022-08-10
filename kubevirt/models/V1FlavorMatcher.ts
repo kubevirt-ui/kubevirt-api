@@ -32,11 +32,11 @@ export interface V1FlavorMatcher {
    */
   name: string;
   /**
-   * Profile is the name of a custom profile in the flavor. If left empty, the default profile is used.
+   * RevisionName specifies a ControllerRevision containing a specific copy of the VirtualMachineFlavor or VirtualMachineClusterFlavor to be used. This is initially captured the first time the flavor is applied to the VirtualMachineInstance.
    * @type {string}
    * @memberof V1FlavorMatcher
    */
-  profile?: string;
+  revisionName?: string;
 }
 
 export function V1FlavorMatcherFromJSON(json: any): V1FlavorMatcher {
@@ -53,7 +53,7 @@ export function V1FlavorMatcherFromJSONTyped(
   return {
     kind: !exists(json, 'kind') ? undefined : json['kind'],
     name: json['name'],
-    profile: !exists(json, 'profile') ? undefined : json['profile'],
+    revisionName: !exists(json, 'revisionName') ? undefined : json['revisionName'],
   };
 }
 
@@ -67,6 +67,6 @@ export function V1FlavorMatcherToJSON(value?: V1FlavorMatcher | null): any {
   return {
     kind: value.kind,
     name: value.name,
-    profile: value.profile,
+    revisionName: value.revisionName,
   };
 }

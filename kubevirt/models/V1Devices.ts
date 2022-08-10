@@ -91,7 +91,7 @@ export interface V1Devices {
    */
   disableHotplug?: boolean;
   /**
-   * Disks describes disks, cdroms, floppy and luns which are connected to the vmi.
+   * Disks describes disks, cdroms and luns which are connected to the vmi.
    * @type {Array<V1Disk>}
    * @memberof V1Devices
    */
@@ -144,6 +144,12 @@ export interface V1Devices {
    * @memberof V1Devices
    */
   sound?: V1SoundDevice;
+  /**
+   *
+   * @type {object}
+   * @memberof V1Devices
+   */
+  tpm?: object;
   /**
    * Fall back to legacy virtio 0.9 support if virtio bus is selected on devices. This is helpful for old machines like CentOS6 or RHEL6 which do not understand virtio_non_transitional (virtio 1.0).
    * @type {boolean}
@@ -201,6 +207,7 @@ export function V1DevicesFromJSONTyped(json: any, _ignoreDiscriminator: boolean)
       : json['networkInterfaceMultiqueue'],
     rng: !exists(json, 'rng') ? undefined : json['rng'],
     sound: !exists(json, 'sound') ? undefined : V1SoundDeviceFromJSON(json['sound']),
+    tpm: !exists(json, 'tpm') ? undefined : json['tpm'],
     useVirtioTransitional: !exists(json, 'useVirtioTransitional')
       ? undefined
       : json['useVirtioTransitional'],
@@ -242,6 +249,7 @@ export function V1DevicesToJSON(value?: V1Devices | null): any {
     networkInterfaceMultiqueue: value.networkInterfaceMultiqueue,
     rng: value.rng,
     sound: V1SoundDeviceToJSON(value.sound),
+    tpm: value.tpm,
     useVirtioTransitional: value.useVirtioTransitional,
     watchdog: V1WatchdogToJSON(value.watchdog),
   };

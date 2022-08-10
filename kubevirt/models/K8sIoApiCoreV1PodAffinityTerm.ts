@@ -32,7 +32,13 @@ export interface K8sIoApiCoreV1PodAffinityTerm {
    */
   labelSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
   /**
-   * namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means "this pod's namespace"
+   *
+   * @type {K8sIoApimachineryPkgApisMetaV1LabelSelector}
+   * @memberof K8sIoApiCoreV1PodAffinityTerm
+   */
+  namespaceSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
+  /**
+   * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace"
    * @type {Array<string>}
    * @memberof K8sIoApiCoreV1PodAffinityTerm
    */
@@ -60,6 +66,9 @@ export function K8sIoApiCoreV1PodAffinityTermFromJSONTyped(
     labelSelector: !exists(json, 'labelSelector')
       ? undefined
       : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['labelSelector']),
+    namespaceSelector: !exists(json, 'namespaceSelector')
+      ? undefined
+      : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['namespaceSelector']),
     namespaces: !exists(json, 'namespaces') ? undefined : json['namespaces'],
     topologyKey: json['topologyKey'],
   };
@@ -76,6 +85,7 @@ export function K8sIoApiCoreV1PodAffinityTermToJSON(
   }
   return {
     labelSelector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.labelSelector),
+    namespaceSelector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.namespaceSelector),
     namespaces: value.namespaces,
     topologyKey: value.topologyKey,
   };

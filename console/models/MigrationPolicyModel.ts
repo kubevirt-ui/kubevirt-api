@@ -17,8 +17,7 @@ const MigrationPolicyModel: K8sModel = {
   crd: true,
 };
 
-export const MigrationPolicyModelGroupVersionKind =
-    modelToGroupVersionKind(MigrationPolicyModel);
+export const MigrationPolicyModelGroupVersionKind = modelToGroupVersionKind(MigrationPolicyModel);
 export const MigrationPolicyModelRef = modelToRef(MigrationPolicyModel);
 
 export default MigrationPolicyModel;

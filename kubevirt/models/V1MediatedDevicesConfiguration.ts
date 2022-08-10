@@ -20,7 +20,7 @@ import {
 } from './';
 
 /**
- * MediatedDevicesConfiguration holds inforamtion about MDEV types to be defined, if available
+ * MediatedDevicesConfiguration holds information about MDEV types to be defined, if available
  * @export
  * @interface V1MediatedDevicesConfiguration
  */

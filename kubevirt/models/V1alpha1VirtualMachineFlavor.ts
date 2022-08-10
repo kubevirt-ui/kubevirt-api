@@ -17,13 +17,13 @@ import {
   K8sIoApimachineryPkgApisMetaV1ObjectMeta,
   K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
   K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-  V1alpha1VirtualMachineFlavorProfile,
-  V1alpha1VirtualMachineFlavorProfileFromJSON,
-  V1alpha1VirtualMachineFlavorProfileToJSON,
+  V1alpha1VirtualMachineFlavorSpec,
+  V1alpha1VirtualMachineFlavorSpecFromJSON,
+  V1alpha1VirtualMachineFlavorSpecToJSON,
 } from './';
 
 /**
- * VirtualMachineFlavor resource contains common VirtualMachine configuration that can be used by multiple VirtualMachine resources.
+ * VirtualMachineFlavor resource contains quantitative and resource related VirtualMachine configuration that can be used by multiple VirtualMachine resources.
  * @export
  * @interface V1alpha1VirtualMachineFlavor
  */
@@ -48,10 +48,10 @@ export interface V1alpha1VirtualMachineFlavor {
   metadata?: K8sIoApimachineryPkgApisMetaV1ObjectMeta;
   /**
    *
-   * @type {Array<V1alpha1VirtualMachineFlavorProfile>}
+   * @type {V1alpha1VirtualMachineFlavorSpec}
    * @memberof V1alpha1VirtualMachineFlavor
    */
-  profiles: Array<V1alpha1VirtualMachineFlavorProfile>;
+  spec: V1alpha1VirtualMachineFlavorSpec;
 }
 
 export function V1alpha1VirtualMachineFlavorFromJSON(json: any): V1alpha1VirtualMachineFlavor {
@@ -71,7 +71,7 @@ export function V1alpha1VirtualMachineFlavorFromJSONTyped(
     metadata: !exists(json, 'metadata')
       ? undefined
       : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    profiles: (json['profiles'] as Array<any>).map(V1alpha1VirtualMachineFlavorProfileFromJSON),
+    spec: V1alpha1VirtualMachineFlavorSpecFromJSON(json['spec']),
   };
 }
 
@@ -88,6 +88,6 @@ export function V1alpha1VirtualMachineFlavorToJSON(
     apiVersion: value.apiVersion,
     kind: value.kind,
     metadata: K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    profiles: (value.profiles as Array<any>).map(V1alpha1VirtualMachineFlavorProfileToJSON),
+    spec: V1alpha1VirtualMachineFlavorSpecToJSON(value.spec),
   };
 }

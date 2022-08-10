@@ -34,23 +34,10 @@ export interface IoK8sApiAppsV1DaemonSetUpdateStrategy {
     rollingUpdate?: IoK8sApiAppsV1RollingUpdateDaemonSet;
     /**
      * Type of daemon set update. Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
-     * 
-     * Possible enum values:
-     *  - `"OnDelete"` Replace the old daemons only when it's killed
-     *  - `"RollingUpdate"` Replace the old daemons by new ones using rolling update i.e replace them on each node one after the other.
      * @type {string}
      * @memberof IoK8sApiAppsV1DaemonSetUpdateStrategy
      */
-    type?: IoK8sApiAppsV1DaemonSetUpdateStrategyTypeEnum;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiAppsV1DaemonSetUpdateStrategyTypeEnum {
-    OnDelete = 'OnDelete',
-    RollingUpdate = 'RollingUpdate'
+    type?: string;
 }
 
 export function IoK8sApiAppsV1DaemonSetUpdateStrategyFromJSON(json: any): IoK8sApiAppsV1DaemonSetUpdateStrategy {

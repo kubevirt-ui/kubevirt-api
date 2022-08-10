@@ -15,7 +15,8 @@ const ConsoleQuickStartModel: K8sModel = {
   propagationPolicy: 'Background',
 };
 
-export const ConsoleQuickStartModelGroupVersionKind = modelToGroupVersionKind(ConsoleQuickStartModel);
+export const ConsoleQuickStartModelGroupVersionKind =
+  modelToGroupVersionKind(ConsoleQuickStartModel);
 export const ConsoleQuickStartModelRef = modelToRef(ConsoleQuickStartModel);
 
 export default ConsoleQuickStartModel;

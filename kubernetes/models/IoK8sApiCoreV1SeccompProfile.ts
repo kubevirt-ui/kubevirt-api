@@ -29,25 +29,10 @@ export interface IoK8sApiCoreV1SeccompProfile {
    * type indicates which kind of seccomp profile will be applied. Valid options are:
    *
    * Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.
-   *
-   * Possible enum values:
-   *  - `"Localhost"` indicates a profile defined in a file on the node should be used. The file's location relative to <kubelet-root-dir>/seccomp.
-   *  - `"RuntimeDefault"` represents the default container runtime seccomp profile.
-   *  - `"Unconfined"` indicates no seccomp profile is applied (A.K.A. unconfined).
    * @type {string}
    * @memberof IoK8sApiCoreV1SeccompProfile
    */
-  type: IoK8sApiCoreV1SeccompProfileTypeEnum;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1SeccompProfileTypeEnum {
-  Localhost = 'Localhost',
-  RuntimeDefault = 'RuntimeDefault',
-  Unconfined = 'Unconfined',
+  type: string;
 }
 
 export function IoK8sApiCoreV1SeccompProfileFromJSON(json: any): IoK8sApiCoreV1SeccompProfile {

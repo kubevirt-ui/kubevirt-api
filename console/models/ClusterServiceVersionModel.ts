@@ -18,7 +18,9 @@ const ClusterServiceVersionModel: K8sModel = {
   legacyPluralURL: true,
 };
 
-export const ClusterServiceVersionModelGroupVersionKind = modelToGroupVersionKind(ClusterServiceVersionModel);
+export const ClusterServiceVersionModelGroupVersionKind = modelToGroupVersionKind(
+  ClusterServiceVersionModel,
+);
 export const ClusterServiceVersionModelRef = modelToRef(ClusterServiceVersionModel);
 
 export default ClusterServiceVersionModel;

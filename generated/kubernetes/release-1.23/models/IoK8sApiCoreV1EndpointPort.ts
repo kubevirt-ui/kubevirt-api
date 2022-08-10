@@ -39,25 +39,10 @@ export interface IoK8sApiCoreV1EndpointPort {
     port: number;
     /**
      * The IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.
-     * 
-     * Possible enum values:
-     *  - `"SCTP"` is the SCTP protocol.
-     *  - `"TCP"` is the TCP protocol.
-     *  - `"UDP"` is the UDP protocol.
      * @type {string}
      * @memberof IoK8sApiCoreV1EndpointPort
      */
-    protocol?: IoK8sApiCoreV1EndpointPortProtocolEnum;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiCoreV1EndpointPortProtocolEnum {
-    Sctp = 'SCTP',
-    Tcp = 'TCP',
-    Udp = 'UDP'
+    protocol?: string;
 }
 
 export function IoK8sApiCoreV1EndpointPortFromJSON(json: any): IoK8sApiCoreV1EndpointPort {

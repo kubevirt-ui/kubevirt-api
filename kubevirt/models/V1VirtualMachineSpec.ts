@@ -20,6 +20,9 @@ import {
   V1FlavorMatcher,
   V1FlavorMatcherFromJSON,
   V1FlavorMatcherToJSON,
+  V1PreferenceMatcher,
+  V1PreferenceMatcherFromJSON,
+  V1PreferenceMatcherToJSON,
   V1VirtualMachineInstanceTemplateSpec,
   V1VirtualMachineInstanceTemplateSpecFromJSON,
   V1VirtualMachineInstanceTemplateSpecToJSON,
@@ -43,6 +46,12 @@ export interface V1VirtualMachineSpec {
    * @memberof V1VirtualMachineSpec
    */
   flavor?: V1FlavorMatcher;
+  /**
+   *
+   * @type {V1PreferenceMatcher}
+   * @memberof V1VirtualMachineSpec
+   */
+  preference?: V1PreferenceMatcher;
   /**
    * Running state indicates the requested running state of the VirtualMachineInstance mutually exclusive with Running
    * @type {string}
@@ -79,6 +88,9 @@ export function V1VirtualMachineSpecFromJSONTyped(
       ? undefined
       : (json['dataVolumeTemplates'] as Array<any>).map(V1DataVolumeTemplateSpecFromJSON),
     flavor: !exists(json, 'flavor') ? undefined : V1FlavorMatcherFromJSON(json['flavor']),
+    preference: !exists(json, 'preference')
+      ? undefined
+      : V1PreferenceMatcherFromJSON(json['preference']),
     runStrategy: !exists(json, 'runStrategy') ? undefined : json['runStrategy'],
     running: !exists(json, 'running') ? undefined : json['running'],
     template: V1VirtualMachineInstanceTemplateSpecFromJSON(json['template']),
@@ -98,6 +110,7 @@ export function V1VirtualMachineSpecToJSON(value?: V1VirtualMachineSpec | null):
         ? undefined
         : (value.dataVolumeTemplates as Array<any>).map(V1DataVolumeTemplateSpecToJSON),
     flavor: V1FlavorMatcherToJSON(value.flavor),
+    preference: V1PreferenceMatcherToJSON(value.preference),
     runStrategy: value.runStrategy,
     running: value.running,
     template: V1VirtualMachineInstanceTemplateSpecToJSON(value.template),

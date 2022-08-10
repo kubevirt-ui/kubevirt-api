@@ -54,6 +54,12 @@ export interface K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry {
    */
   operation?: string;
   /**
+   * Subresource is the name of the subresource used to update that object, or empty string if the object was updated through the main resource. The value of this field is used to distinguish between managers, even if they share the same name. For example, a status update will be distinct from a regular update using the same manager name. Note that the APIVersion field is not related to the Subresource field and it always corresponds to the version of the main resource.
+   * @type {string}
+   * @memberof K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry
+   */
+  subresource?: string;
+  /**
    * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
    * @type {string}
    * @memberof K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry
@@ -80,6 +86,7 @@ export function K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSONTyped(
     fieldsV1: !exists(json, 'fieldsV1') ? undefined : json['fieldsV1'],
     manager: !exists(json, 'manager') ? undefined : json['manager'],
     operation: !exists(json, 'operation') ? undefined : json['operation'],
+    subresource: !exists(json, 'subresource') ? undefined : json['subresource'],
     time: !exists(json, 'time') ? undefined : json['time'],
   };
 }
@@ -99,6 +106,7 @@ export function K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryToJSON(
     fieldsV1: value.fieldsV1,
     manager: value.manager,
     operation: value.operation,
+    subresource: value.subresource,
     time: value.time === undefined ? undefined : value.time,
   };
 }

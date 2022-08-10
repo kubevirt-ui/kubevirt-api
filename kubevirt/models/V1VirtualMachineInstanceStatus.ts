@@ -134,6 +134,12 @@ export interface V1VirtualMachineInstanceStatus {
    */
   reason?: string;
   /**
+   * RuntimeUser is used to determine what user will be used in launcher
+   * @type {number}
+   * @memberof V1VirtualMachineInstanceStatus
+   */
+  runtimeUser?: number;
+  /**
    *
    * @type {V1TopologyHints}
    * @memberof V1VirtualMachineInstanceStatus
@@ -198,6 +204,7 @@ export function V1VirtualMachineInstanceStatusFromJSONTyped(
         ),
     qosClass: !exists(json, 'qosClass') ? undefined : json['qosClass'],
     reason: !exists(json, 'reason') ? undefined : json['reason'],
+    runtimeUser: !exists(json, 'runtimeUser') ? undefined : json['runtimeUser'],
     topologyHints: !exists(json, 'topologyHints')
       ? undefined
       : V1TopologyHintsFromJSON(json['topologyHints']),
@@ -246,6 +253,7 @@ export function V1VirtualMachineInstanceStatusToJSON(
           ),
     qosClass: value.qosClass,
     reason: value.reason,
+    runtimeUser: value.runtimeUser,
     topologyHints: V1TopologyHintsToJSON(value.topologyHints),
     virtualMachineRevisionName: value.virtualMachineRevisionName,
     volumeStatus:

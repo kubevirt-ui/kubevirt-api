@@ -34,23 +34,10 @@ export interface IoK8sApiAppsV1DeploymentStrategy {
     rollingUpdate?: IoK8sApiAppsV1RollingUpdateDeployment;
     /**
      * Type of deployment. Can be "Recreate" or "RollingUpdate". Default is RollingUpdate.
-     * 
-     * Possible enum values:
-     *  - `"Recreate"` Kill all existing pods before creating new ones.
-     *  - `"RollingUpdate"` Replace the old ReplicaSets by new one using rolling update i.e gradually scale down the old ReplicaSets and scale up the new one.
      * @type {string}
      * @memberof IoK8sApiAppsV1DeploymentStrategy
      */
-    type?: IoK8sApiAppsV1DeploymentStrategyTypeEnum;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiAppsV1DeploymentStrategyTypeEnum {
-    Recreate = 'Recreate',
-    RollingUpdate = 'RollingUpdate'
+    type?: string;
 }
 
 export function IoK8sApiAppsV1DeploymentStrategyFromJSON(json: any): IoK8sApiAppsV1DeploymentStrategy {

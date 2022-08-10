@@ -102,16 +102,10 @@ export interface IoK8sApiCoreV1PodSpec {
     dnsConfig?: IoK8sApiCoreV1PodDNSConfig;
     /**
      * Set DNS policy for the pod. Defaults to "ClusterFirst". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.
-     * 
-     * Possible enum values:
-     *  - `"ClusterFirst"` indicates that the pod should use cluster DNS first unless hostNetwork is true, if it is available, then fall back on the default (as determined by kubelet) DNS settings.
-     *  - `"ClusterFirstWithHostNet"` indicates that the pod should use cluster DNS first, if it is available, then fall back on the default (as determined by kubelet) DNS settings.
-     *  - `"Default"` indicates that the pod should use the default (as determined by kubelet) DNS settings.
-     *  - `"None"` indicates that the pod should use empty DNS settings. DNS parameters such as nameservers and search paths should be defined via DNSConfig.
      * @type {string}
      * @memberof IoK8sApiCoreV1PodSpec
      */
-    dnsPolicy?: IoK8sApiCoreV1PodSpecDnsPolicyEnum;
+    dnsPolicy?: string;
     /**
      * EnableServiceLinks indicates whether information about services should be injected into pod's environment variables, matching the syntax of Docker links. Optional: Defaults to true.
      * @type {boolean}
@@ -216,15 +210,10 @@ export interface IoK8sApiCoreV1PodSpec {
     readinessGates?: Array<IoK8sApiCoreV1PodReadinessGate>;
     /**
      * Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy
-     * 
-     * Possible enum values:
-     *  - `"Always"`
-     *  - `"Never"`
-     *  - `"OnFailure"`
      * @type {string}
      * @memberof IoK8sApiCoreV1PodSpec
      */
-    restartPolicy?: IoK8sApiCoreV1PodSpecRestartPolicyEnum;
+    restartPolicy?: string;
     /**
      * RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the "legacy" RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class This is a beta feature as of Kubernetes v1.14.
      * @type {string}
@@ -297,25 +286,6 @@ export interface IoK8sApiCoreV1PodSpec {
      * @memberof IoK8sApiCoreV1PodSpec
      */
     volumes?: Array<IoK8sApiCoreV1Volume>;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiCoreV1PodSpecDnsPolicyEnum {
-    ClusterFirst = 'ClusterFirst',
-    ClusterFirstWithHostNet = 'ClusterFirstWithHostNet',
-    Default = 'Default',
-    None = 'None'
-}/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiCoreV1PodSpecRestartPolicyEnum {
-    Always = 'Always',
-    Never = 'Never',
-    OnFailure = 'OnFailure'
 }
 
 export function IoK8sApiCoreV1PodSpecFromJSON(json: any): IoK8sApiCoreV1PodSpec {

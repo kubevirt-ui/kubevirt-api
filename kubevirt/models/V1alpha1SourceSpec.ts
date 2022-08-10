@@ -13,7 +13,11 @@
  */
 
 import { exists } from '../runtime';
-import { V1VirtualMachine, V1VirtualMachineFromJSON, V1VirtualMachineToJSON } from './';
+import {
+  V1alpha1VirtualMachine,
+  V1alpha1VirtualMachineFromJSON,
+  V1alpha1VirtualMachineToJSON,
+} from './';
 
 /**
  * SourceSpec contains the appropriate spec for the resource being snapshotted
@@ -23,10 +27,10 @@ import { V1VirtualMachine, V1VirtualMachineFromJSON, V1VirtualMachineToJSON } fr
 export interface V1alpha1SourceSpec {
   /**
    *
-   * @type {V1VirtualMachine}
+   * @type {V1alpha1VirtualMachine}
    * @memberof V1alpha1SourceSpec
    */
-  virtualMachine?: V1VirtualMachine;
+  virtualMachine?: V1alpha1VirtualMachine;
 }
 
 export function V1alpha1SourceSpecFromJSON(json: any): V1alpha1SourceSpec {
@@ -43,7 +47,7 @@ export function V1alpha1SourceSpecFromJSONTyped(
   return {
     virtualMachine: !exists(json, 'virtualMachine')
       ? undefined
-      : V1VirtualMachineFromJSON(json['virtualMachine']),
+      : V1alpha1VirtualMachineFromJSON(json['virtualMachine']),
   };
 }
 
@@ -55,6 +59,6 @@ export function V1alpha1SourceSpecToJSON(value?: V1alpha1SourceSpec | null): any
     return null;
   }
   return {
-    virtualMachine: V1VirtualMachineToJSON(value.virtualMachine),
+    virtualMachine: V1alpha1VirtualMachineToJSON(value.virtualMachine),
   };
 }

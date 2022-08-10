@@ -54,6 +54,12 @@ export interface V1KubeVirtStatus {
   observedDeploymentID?: string;
   /**
    *
+   * @type {number}
+   * @memberof V1KubeVirtStatus
+   */
+  observedGeneration?: number;
+  /**
+   *
    * @type {string}
    * @memberof V1KubeVirtStatus
    */
@@ -132,6 +138,9 @@ export function V1KubeVirtStatusFromJSONTyped(
     observedDeploymentID: !exists(json, 'observedDeploymentID')
       ? undefined
       : json['observedDeploymentID'],
+    observedGeneration: !exists(json, 'observedGeneration')
+      ? undefined
+      : json['observedGeneration'],
     observedKubeVirtRegistry: !exists(json, 'observedKubeVirtRegistry')
       ? undefined
       : json['observedKubeVirtRegistry'],
@@ -179,6 +188,7 @@ export function V1KubeVirtStatusToJSON(value?: V1KubeVirtStatus | null): any {
         : (value.generations as Array<any>).map(V1GenerationStatusToJSON),
     observedDeploymentConfig: value.observedDeploymentConfig,
     observedDeploymentID: value.observedDeploymentID,
+    observedGeneration: value.observedGeneration,
     observedKubeVirtRegistry: value.observedKubeVirtRegistry,
     observedKubeVirtVersion: value.observedKubeVirtVersion,
     operatorVersion: value.operatorVersion,

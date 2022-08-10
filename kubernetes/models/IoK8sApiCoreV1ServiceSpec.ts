@@ -62,14 +62,10 @@ export interface IoK8sApiCoreV1ServiceSpec {
   externalName?: string;
   /**
    * externalTrafficPolicy denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints. "Local" preserves the client source IP and avoids a second hop for LoadBalancer and Nodeport type services, but risks potentially imbalanced traffic spreading. "Cluster" obscures the client source IP and may cause a second hop to another node, but should have good overall load-spreading.
-   *
-   * Possible enum values:
-   *  - `"Cluster"` specifies node-global (legacy) behavior.
-   *  - `"Local"` specifies node-local endpoints behavior.
    * @type {string}
    * @memberof IoK8sApiCoreV1ServiceSpec
    */
-  externalTrafficPolicy?: IoK8sApiCoreV1ServiceSpecExternalTrafficPolicyEnum;
+  externalTrafficPolicy?: string;
   /**
    * healthCheckNodePort specifies the healthcheck nodePort for the service. This only applies when type is set to LoadBalancer and externalTrafficPolicy is set to Local. If a value is specified, is in-range, and is not in use, it will be used.  If not specified, a value will be automatically allocated.  External systems (e.g. load-balancers) can use this port to determine if a given node holds endpoints for this service or not.  If this field is specified when creating a Service which does not need it, creation will fail. This field will be wiped when updating a Service to no longer need it (e.g. changing type).
    * @type {number}
@@ -134,14 +130,10 @@ export interface IoK8sApiCoreV1ServiceSpec {
   selector?: { [key: string]: string };
   /**
    * Supports "ClientIP" and "None". Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
-   *
-   * Possible enum values:
-   *  - `"ClientIP"` is the Client IP based.
-   *  - `"None"` - no session affinity.
    * @type {string}
    * @memberof IoK8sApiCoreV1ServiceSpec
    */
-  sessionAffinity?: IoK8sApiCoreV1ServiceSpecSessionAffinityEnum;
+  sessionAffinity?: string;
   /**
    *
    * @type {IoK8sApiCoreV1SessionAffinityConfig}
@@ -150,43 +142,10 @@ export interface IoK8sApiCoreV1ServiceSpec {
   sessionAffinityConfig?: IoK8sApiCoreV1SessionAffinityConfig;
   /**
    * type determines how the Service is exposed. Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. "ClusterIP" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object or EndpointSlice objects. If clusterIP is "None", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a virtual IP. "NodePort" builds on ClusterIP and allocates a port on every node which routes to the same endpoints as the clusterIP. "LoadBalancer" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the same endpoints as the clusterIP. "ExternalName" aliases this service to the specified externalName. Several other fields do not apply to ExternalName services. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
-   *
-   * Possible enum values:
-   *  - `"ClusterIP"` means a service will only be accessible inside the cluster, via the cluster IP.
-   *  - `"ExternalName"` means a service consists of only a reference to an external name that kubedns or equivalent will return as a CNAME record, with no exposing or proxying of any pods involved.
-   *  - `"LoadBalancer"` means a service will be exposed via an external load balancer (if the cloud provider supports it), in addition to 'NodePort' type.
-   *  - `"NodePort"` means a service will be exposed on one port of every node, in addition to 'ClusterIP' type.
    * @type {string}
    * @memberof IoK8sApiCoreV1ServiceSpec
    */
-  type?: IoK8sApiCoreV1ServiceSpecTypeEnum;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1ServiceSpecExternalTrafficPolicyEnum {
-  Cluster = 'Cluster',
-  Local = 'Local',
-}
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1ServiceSpecSessionAffinityEnum {
-  ClientIp = 'ClientIP',
-  None = 'None',
-}
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1ServiceSpecTypeEnum {
-  ClusterIp = 'ClusterIP',
-  ExternalName = 'ExternalName',
-  LoadBalancer = 'LoadBalancer',
-  NodePort = 'NodePort',
+  type?: string;
 }
 
 export function IoK8sApiCoreV1ServiceSpecFromJSON(json: any): IoK8sApiCoreV1ServiceSpec {

@@ -26,6 +26,18 @@ export interface V1beta1DataVolumeSourceHTTP {
    */
   certConfigMap?: string;
   /**
+   * ExtraHeaders is a list of strings containing extra headers to include with HTTP transfer requests
+   * @type {Array<string>}
+   * @memberof V1beta1DataVolumeSourceHTTP
+   */
+  extraHeaders?: Array<string>;
+  /**
+   * SecretExtraHeaders is a list of Secret references, each containing an extra HTTP header that may include sensitive information
+   * @type {Array<string>}
+   * @memberof V1beta1DataVolumeSourceHTTP
+   */
+  secretExtraHeaders?: Array<string>;
+  /**
    * SecretRef A Secret reference, the secret should contain accessKeyId (user name) base64 encoded, and secretKey (password) also base64 encoded
    * @type {string}
    * @memberof V1beta1DataVolumeSourceHTTP
@@ -52,6 +64,10 @@ export function V1beta1DataVolumeSourceHTTPFromJSONTyped(
   }
   return {
     certConfigMap: !exists(json, 'certConfigMap') ? undefined : json['certConfigMap'],
+    extraHeaders: !exists(json, 'extraHeaders') ? undefined : json['extraHeaders'],
+    secretExtraHeaders: !exists(json, 'secretExtraHeaders')
+      ? undefined
+      : json['secretExtraHeaders'],
     secretRef: !exists(json, 'secretRef') ? undefined : json['secretRef'],
     url: json['url'],
   };
@@ -66,6 +82,8 @@ export function V1beta1DataVolumeSourceHTTPToJSON(value?: V1beta1DataVolumeSourc
   }
   return {
     certConfigMap: value.certConfigMap,
+    extraHeaders: value.extraHeaders,
+    secretExtraHeaders: value.secretExtraHeaders,
     secretRef: value.secretRef,
     url: value.url,
   };

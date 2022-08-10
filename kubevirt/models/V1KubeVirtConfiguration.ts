@@ -116,6 +116,12 @@ export interface V1KubeVirtConfiguration {
    */
   emulatedMachines?: Array<string>;
   /**
+   * EvictionStrategy defines at the cluster level if the VirtualMachineInstance should be migrated instead of shut-off in case of a node drain. If the VirtualMachineInstance specific field is set it overrides the cluster level one.
+   * @type {string}
+   * @memberof V1KubeVirtConfiguration
+   */
+  evictionStrategy?: string;
+  /**
    *
    * @type {V1ReloadableComponentConfiguration}
    * @memberof V1KubeVirtConfiguration
@@ -240,6 +246,7 @@ export function V1KubeVirtConfigurationFromJSONTyped(
       ? undefined
       : V1DeveloperConfigurationFromJSON(json['developerConfiguration']),
     emulatedMachines: !exists(json, 'emulatedMachines') ? undefined : json['emulatedMachines'],
+    evictionStrategy: !exists(json, 'evictionStrategy') ? undefined : json['evictionStrategy'],
     handlerConfiguration: !exists(json, 'handlerConfiguration')
       ? undefined
       : V1ReloadableComponentConfigurationFromJSON(json['handlerConfiguration']),
@@ -294,6 +301,7 @@ export function V1KubeVirtConfigurationToJSON(value?: V1KubeVirtConfiguration | 
     defaultRuntimeClass: value.defaultRuntimeClass,
     developerConfiguration: V1DeveloperConfigurationToJSON(value.developerConfiguration),
     emulatedMachines: value.emulatedMachines,
+    evictionStrategy: value.evictionStrategy,
     handlerConfiguration: V1ReloadableComponentConfigurationToJSON(value.handlerConfiguration),
     imagePullPolicy: value.imagePullPolicy,
     machineType: value.machineType,

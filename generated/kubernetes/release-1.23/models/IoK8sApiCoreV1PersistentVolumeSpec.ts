@@ -240,15 +240,10 @@ export interface IoK8sApiCoreV1PersistentVolumeSpec {
     nodeAffinity?: IoK8sApiCoreV1VolumeNodeAffinity;
     /**
      * What happens to a persistent volume when released from its claim. Valid options are Retain (default for manually created PersistentVolumes), Delete (default for dynamically provisioned PersistentVolumes), and Recycle (deprecated). Recycle must be supported by the volume plugin underlying this PersistentVolume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#reclaiming
-     * 
-     * Possible enum values:
-     *  - `"Delete"` means the volume will be deleted from Kubernetes on release from its claim. The volume plugin must support Deletion.
-     *  - `"Recycle"` means the volume will be recycled back into the pool of unbound persistent volumes on release from its claim. The volume plugin must support Recycling.
-     *  - `"Retain"` means the volume will be left in its current phase (Released) for manual reclamation by the administrator. The default policy is Retain.
      * @type {string}
      * @memberof IoK8sApiCoreV1PersistentVolumeSpec
      */
-    persistentVolumeReclaimPolicy?: IoK8sApiCoreV1PersistentVolumeSpecPersistentVolumeReclaimPolicyEnum;
+    persistentVolumeReclaimPolicy?: string;
     /**
      * 
      * @type {IoK8sApiCoreV1PhotonPersistentDiskVolumeSource}
@@ -303,16 +298,6 @@ export interface IoK8sApiCoreV1PersistentVolumeSpec {
      * @memberof IoK8sApiCoreV1PersistentVolumeSpec
      */
     vsphereVolume?: IoK8sApiCoreV1VsphereVirtualDiskVolumeSource;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiCoreV1PersistentVolumeSpecPersistentVolumeReclaimPolicyEnum {
-    Delete = 'Delete',
-    Recycle = 'Recycle',
-    Retain = 'Retain'
 }
 
 export function IoK8sApiCoreV1PersistentVolumeSpecFromJSON(json: any): IoK8sApiCoreV1PersistentVolumeSpec {

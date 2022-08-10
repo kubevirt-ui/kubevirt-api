@@ -100,15 +100,10 @@ export interface IoK8sApiCoreV1NodeStatus {
     nodeInfo?: IoK8sApiCoreV1NodeSystemInfo;
     /**
      * NodePhase is the recently observed lifecycle phase of the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#phase The field is never populated, and now is deprecated.
-     * 
-     * Possible enum values:
-     *  - `"Pending"` means the node has been created/added by the system, but not configured.
-     *  - `"Running"` means the node has been configured and has Kubernetes components running.
-     *  - `"Terminated"` means the node has been removed from the cluster.
      * @type {string}
      * @memberof IoK8sApiCoreV1NodeStatus
      */
-    phase?: IoK8sApiCoreV1NodeStatusPhaseEnum;
+    phase?: string;
     /**
      * List of volumes that are attached to the node.
      * @type {Array<IoK8sApiCoreV1AttachedVolume>}
@@ -121,16 +116,6 @@ export interface IoK8sApiCoreV1NodeStatus {
      * @memberof IoK8sApiCoreV1NodeStatus
      */
     volumesInUse?: Array<string>;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiCoreV1NodeStatusPhaseEnum {
-    Pending = 'Pending',
-    Running = 'Running',
-    Terminated = 'Terminated'
 }
 
 export function IoK8sApiCoreV1NodeStatusFromJSON(json: any): IoK8sApiCoreV1NodeStatus {

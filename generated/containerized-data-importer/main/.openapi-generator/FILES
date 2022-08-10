@@ -8,6 +8,7 @@ models/V1APIResource.ts
 models/V1APIResourceList.ts
 models/V1Affinity.ts
 models/V1Condition.ts
+models/V1CustomTLSProfile.ts
 models/V1DeleteOptions.ts
 models/V1GroupVersionForDiscovery.ts
 models/V1LabelSelector.ts
@@ -32,6 +33,7 @@ models/V1ServerAddressByClientCIDR.ts
 models/V1Status.ts
 models/V1StatusCause.ts
 models/V1StatusDetails.ts
+models/V1TLSSecurityProfile.ts
 models/V1Toleration.ts
 models/V1TypedLocalObjectReference.ts
 models/V1WatchEvent.ts

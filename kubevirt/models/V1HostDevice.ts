@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+import { exists } from '../runtime';
 /**
  *
  * @export
@@ -30,6 +31,12 @@ export interface V1HostDevice {
    * @memberof V1HostDevice
    */
   name: string;
+  /**
+   * If specified, the virtual network interface address and its tag will be provided to the guest via config drive
+   * @type {string}
+   * @memberof V1HostDevice
+   */
+  tag?: string;
 }
 
 export function V1HostDeviceFromJSON(json: any): V1HostDevice {
@@ -43,6 +50,7 @@ export function V1HostDeviceFromJSONTyped(json: any, _ignoreDiscriminator: boole
   return {
     deviceName: json['deviceName'],
     name: json['name'],
+    tag: !exists(json, 'tag') ? undefined : json['tag'],
   };
 }
 
@@ -56,5 +64,6 @@ export function V1HostDeviceToJSON(value?: V1HostDevice | null): any {
   return {
     deviceName: value.deviceName,
     name: value.name,
+    tag: value.tag,
   };
 }

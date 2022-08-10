@@ -110,6 +110,14 @@ export interface V1KubeVirtSpec {
    */
   productVersion?: string;
   /**
+   * The namespace the service monitor will be deployed
+   *  When ServiceMonitorNamespace is set, then we'll install the service monitor object in that namespace
+   * otherwise we will use the monitoring namespace.
+   * @type {string}
+   * @memberof V1KubeVirtSpec
+   */
+  serviceMonitorNamespace?: string;
+  /**
    * Specifies if kubevirt can be deleted if workloads are still present. This is mainly a precaution to avoid accidental data loss
    * @type {string}
    * @memberof V1KubeVirtSpec
@@ -159,6 +167,9 @@ export function V1KubeVirtSpecFromJSONTyped(
     productComponent: !exists(json, 'productComponent') ? undefined : json['productComponent'],
     productName: !exists(json, 'productName') ? undefined : json['productName'],
     productVersion: !exists(json, 'productVersion') ? undefined : json['productVersion'],
+    serviceMonitorNamespace: !exists(json, 'serviceMonitorNamespace')
+      ? undefined
+      : json['serviceMonitorNamespace'],
     uninstallStrategy: !exists(json, 'uninstallStrategy') ? undefined : json['uninstallStrategy'],
     workloadUpdateStrategy: !exists(json, 'workloadUpdateStrategy')
       ? undefined
@@ -191,6 +202,7 @@ export function V1KubeVirtSpecToJSON(value?: V1KubeVirtSpec | null): any {
     productComponent: value.productComponent,
     productName: value.productName,
     productVersion: value.productVersion,
+    serviceMonitorNamespace: value.serviceMonitorNamespace,
     uninstallStrategy: value.uninstallStrategy,
     workloadUpdateStrategy: V1KubeVirtWorkloadUpdateStrategyToJSON(value.workloadUpdateStrategy),
     workloads: V1ComponentConfigToJSON(value.workloads),

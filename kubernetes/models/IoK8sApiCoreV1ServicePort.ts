@@ -45,31 +45,16 @@ export interface IoK8sApiCoreV1ServicePort {
   port: number;
   /**
    * The IP protocol for this port. Supports "TCP", "UDP", and "SCTP". Default is TCP.
-   *
-   * Possible enum values:
-   *  - `"SCTP"` is the SCTP protocol.
-   *  - `"TCP"` is the TCP protocol.
-   *  - `"UDP"` is the UDP protocol.
    * @type {string}
    * @memberof IoK8sApiCoreV1ServicePort
    */
-  protocol?: IoK8sApiCoreV1ServicePortProtocolEnum;
+  protocol?: string;
   /**
    * IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.
    * @type {string}
    * @memberof IoK8sApiCoreV1ServicePort
    */
   targetPort?: string;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1ServicePortProtocolEnum {
-  Sctp = 'SCTP',
-  Tcp = 'TCP',
-  Udp = 'UDP',
 }
 
 export function IoK8sApiCoreV1ServicePortFromJSON(json: any): IoK8sApiCoreV1ServicePort {

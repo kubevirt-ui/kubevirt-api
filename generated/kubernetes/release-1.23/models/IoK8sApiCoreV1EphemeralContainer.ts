@@ -94,15 +94,10 @@ export interface IoK8sApiCoreV1EphemeralContainer {
     image?: string;
     /**
      * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
-     * 
-     * Possible enum values:
-     *  - `"Always"` means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.
-     *  - `"IfNotPresent"` means that kubelet pulls if the image isn't present on disk. Container will fail if the image isn't present and the pull fails.
-     *  - `"Never"` means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn't present
      * @type {string}
      * @memberof IoK8sApiCoreV1EphemeralContainer
      */
-    imagePullPolicy?: IoK8sApiCoreV1EphemeralContainerImagePullPolicyEnum;
+    imagePullPolicy?: string;
     /**
      * 
      * @type {IoK8sApiCoreV1Lifecycle}
@@ -179,14 +174,10 @@ export interface IoK8sApiCoreV1EphemeralContainer {
     terminationMessagePath?: string;
     /**
      * Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
-     * 
-     * Possible enum values:
-     *  - `"FallbackToLogsOnError"` will read the most recent contents of the container logs for the container status message when the container exits with an error and the terminationMessagePath has no contents.
-     *  - `"File"` is the default behavior and will set the container status message to the contents of the container's terminationMessagePath when the container exits.
      * @type {string}
      * @memberof IoK8sApiCoreV1EphemeralContainer
      */
-    terminationMessagePolicy?: IoK8sApiCoreV1EphemeralContainerTerminationMessagePolicyEnum;
+    terminationMessagePolicy?: string;
     /**
      * Whether this container should allocate a TTY for itself, also requires 'stdin' to be true. Default is false.
      * @type {boolean}
@@ -211,23 +202,6 @@ export interface IoK8sApiCoreV1EphemeralContainer {
      * @memberof IoK8sApiCoreV1EphemeralContainer
      */
     workingDir?: string;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiCoreV1EphemeralContainerImagePullPolicyEnum {
-    Always = 'Always',
-    IfNotPresent = 'IfNotPresent',
-    Never = 'Never'
-}/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiCoreV1EphemeralContainerTerminationMessagePolicyEnum {
-    FallbackToLogsOnError = 'FallbackToLogsOnError',
-    File = 'File'
 }
 
 export function IoK8sApiCoreV1EphemeralContainerFromJSON(json: any): IoK8sApiCoreV1EphemeralContainer {

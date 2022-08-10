@@ -51,25 +51,10 @@ export interface IoK8sApiBatchV1JobCondition {
   status: string;
   /**
    * Type of job condition, Complete or Failed.
-   *
-   * Possible enum values:
-   *  - `"Complete"` means the job has completed its execution.
-   *  - `"Failed"` means the job has failed its execution.
-   *  - `"Suspended"` means the job has been suspended.
    * @type {string}
    * @memberof IoK8sApiBatchV1JobCondition
    */
-  type: IoK8sApiBatchV1JobConditionTypeEnum;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiBatchV1JobConditionTypeEnum {
-  Complete = 'Complete',
-  Failed = 'Failed',
-  Suspended = 'Suspended',
+  type: string;
 }
 
 export function IoK8sApiBatchV1JobConditionFromJSON(json: any): IoK8sApiBatchV1JobCondition {

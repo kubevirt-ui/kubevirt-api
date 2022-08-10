@@ -4,10 +4,11 @@ set -eu
 OPENAPI_GENERATOR_CLI=./node_modules/.bin/openapi-generator-cli
 
 # Use released versions
-KUBEVIRT_RELEASE=release-0.49
+KUBEVIRT_RELEASE=release-0.55
 CDI_RELEASE=main
 KUBERNETES_RELEASE=release-1.23
-OPENSHIFT_CONSOLE_RELEASE=release-4.11
+# openshift console release 4.12 commit hash
+OPENSHIFT_CONSOLE_COMMIT=90d92f9e83e650d0d163bf29e9c30bd6fbc5190d
 
 GENERATOR=typescript-fetch
 
@@ -18,7 +19,7 @@ GENERATOR=typescript-fetch
 curl https://raw.githubusercontent.com/kubevirt/kubevirt/${KUBEVIRT_RELEASE}/api/openapi-spec/swagger.json -o swagger-kubevirt.json
 curl https://raw.githubusercontent.com/kubevirt/containerized-data-importer/${CDI_RELEASE}/api/openapi-spec/swagger.json -o swagger-containerized-data-importer.json
 curl https://raw.githubusercontent.com/kubernetes/kubernetes/${KUBERNETES_RELEASE}/api/openapi-spec/swagger.json -o swagger-kubernetes.json
-curl https://raw.githubusercontent.com/openshift/console/${OPENSHIFT_CONSOLE_RELEASE}/frontend/public/models/index.ts -o console-core-models.ts
+curl https://raw.githubusercontent.com/openshift/console/${OPENSHIFT_CONSOLE_COMMIT}/frontend/public/models/index.ts -o console-core-models.ts
 
 # Patch missing creationTimestamp in swagger file
 git apply ./scripts/creationTimestamp.patch

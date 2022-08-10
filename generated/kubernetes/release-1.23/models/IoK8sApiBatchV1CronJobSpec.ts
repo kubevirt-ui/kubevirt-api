@@ -28,15 +28,10 @@ import {
 export interface IoK8sApiBatchV1CronJobSpec {
     /**
      * Specifies how to treat concurrent executions of a Job. Valid values are: - "Allow" (default): allows CronJobs to run concurrently; - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet; - "Replace": cancels currently running job and replaces it with a new one
-     * 
-     * Possible enum values:
-     *  - `"Allow"` allows CronJobs to run concurrently.
-     *  - `"Forbid"` forbids concurrent runs, skipping next run if previous hasn't finished yet.
-     *  - `"Replace"` cancels currently running job and replaces it with a new one.
      * @type {string}
      * @memberof IoK8sApiBatchV1CronJobSpec
      */
-    concurrencyPolicy?: IoK8sApiBatchV1CronJobSpecConcurrencyPolicyEnum;
+    concurrencyPolicy?: string;
     /**
      * The number of failed finished jobs to retain. Value must be non-negative integer. Defaults to 1.
      * @type {number}
@@ -73,16 +68,6 @@ export interface IoK8sApiBatchV1CronJobSpec {
      * @memberof IoK8sApiBatchV1CronJobSpec
      */
     suspend?: boolean;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiBatchV1CronJobSpecConcurrencyPolicyEnum {
-    Allow = 'Allow',
-    Forbid = 'Forbid',
-    Replace = 'Replace'
 }
 
 export function IoK8sApiBatchV1CronJobSpecFromJSON(json: any): IoK8sApiBatchV1CronJobSpec {

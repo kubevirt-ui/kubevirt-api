@@ -17,6 +17,9 @@ import {
   V1ResourceRequirements,
   V1ResourceRequirementsFromJSON,
   V1ResourceRequirementsToJSON,
+  V1TLSSecurityProfile,
+  V1TLSSecurityProfileFromJSON,
+  V1TLSSecurityProfileToJSON,
   V1beta1FilesystemOverhead,
   V1beta1FilesystemOverheadFromJSON,
   V1beta1FilesystemOverheadToJSON,
@@ -31,6 +34,12 @@ import {
  * @interface V1beta1CDIConfigSpec
  */
 export interface V1beta1CDIConfigSpec {
+  /**
+   * dataVolumeTTLSeconds is the time in seconds after DataVolume completion it can be garbage collected.
+   * @type {number}
+   * @memberof V1beta1CDIConfigSpec
+   */
+  dataVolumeTTLSeconds?: number;
   /**
    * FeatureGates are a list of specific enabled feature gates
    * @type {Array<string>}
@@ -74,6 +83,12 @@ export interface V1beta1CDIConfigSpec {
    */
   scratchSpaceStorageClass?: string;
   /**
+   *
+   * @type {V1TLSSecurityProfile}
+   * @memberof V1beta1CDIConfigSpec
+   */
+  tlsSecurityProfile?: V1TLSSecurityProfile;
+  /**
    * Override the URL used when uploading to a DataVolume
    * @type {string}
    * @memberof V1beta1CDIConfigSpec
@@ -93,6 +108,9 @@ export function V1beta1CDIConfigSpecFromJSONTyped(
     return json;
   }
   return {
+    dataVolumeTTLSeconds: !exists(json, 'dataVolumeTTLSeconds')
+      ? undefined
+      : json['dataVolumeTTLSeconds'],
     featureGates: !exists(json, 'featureGates') ? undefined : json['featureGates'],
     filesystemOverhead: !exists(json, 'filesystemOverhead')
       ? undefined
@@ -110,6 +128,9 @@ export function V1beta1CDIConfigSpecFromJSONTyped(
     scratchSpaceStorageClass: !exists(json, 'scratchSpaceStorageClass')
       ? undefined
       : json['scratchSpaceStorageClass'],
+    tlsSecurityProfile: !exists(json, 'tlsSecurityProfile')
+      ? undefined
+      : V1TLSSecurityProfileFromJSON(json['tlsSecurityProfile']),
     uploadProxyURLOverride: !exists(json, 'uploadProxyURLOverride')
       ? undefined
       : json['uploadProxyURLOverride'],
@@ -124,6 +145,7 @@ export function V1beta1CDIConfigSpecToJSON(value?: V1beta1CDIConfigSpec | null):
     return null;
   }
   return {
+    dataVolumeTTLSeconds: value.dataVolumeTTLSeconds,
     featureGates: value.featureGates,
     filesystemOverhead: V1beta1FilesystemOverheadToJSON(value.filesystemOverhead),
     importProxy: V1beta1ImportProxyToJSON(value.importProxy),
@@ -131,6 +153,7 @@ export function V1beta1CDIConfigSpecToJSON(value?: V1beta1CDIConfigSpec | null):
     podResourceRequirements: V1ResourceRequirementsToJSON(value.podResourceRequirements),
     preallocation: value.preallocation,
     scratchSpaceStorageClass: value.scratchSpaceStorageClass,
+    tlsSecurityProfile: V1TLSSecurityProfileToJSON(value.tlsSecurityProfile),
     uploadProxyURLOverride: value.uploadProxyURLOverride,
   };
 }

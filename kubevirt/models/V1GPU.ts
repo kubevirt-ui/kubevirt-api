@@ -34,6 +34,12 @@ export interface V1GPU {
    */
   name: string;
   /**
+   * If specified, the virtual network interface address and its tag will be provided to the guest via config drive
+   * @type {string}
+   * @memberof V1GPU
+   */
+  tag?: string;
+  /**
    *
    * @type {V1VGPUOptions}
    * @memberof V1GPU
@@ -52,6 +58,7 @@ export function V1GPUFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1
   return {
     deviceName: json['deviceName'],
     name: json['name'],
+    tag: !exists(json, 'tag') ? undefined : json['tag'],
     virtualGPUOptions: !exists(json, 'virtualGPUOptions')
       ? undefined
       : V1VGPUOptionsFromJSON(json['virtualGPUOptions']),
@@ -68,6 +75,7 @@ export function V1GPUToJSON(value?: V1GPU | null): any {
   return {
     deviceName: value.deviceName,
     name: value.name,
+    tag: value.tag,
     virtualGPUOptions: V1VGPUOptionsToJSON(value.virtualGPUOptions),
   };
 }

@@ -21,27 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface IoK8sApiCoreV1PodReadinessGate {
     /**
      * ConditionType refers to a condition in the pod's condition list with matching type.
-     * 
-     * Possible enum values:
-     *  - `"ContainersReady"` indicates whether all containers in the pod are ready.
-     *  - `"Initialized"` means that all init containers in the pod have started successfully.
-     *  - `"PodScheduled"` represents status of the scheduling process for this pod.
-     *  - `"Ready"` means the pod is able to service requests and should be added to the load balancing pools of all matching services.
      * @type {string}
      * @memberof IoK8sApiCoreV1PodReadinessGate
      */
-    conditionType: IoK8sApiCoreV1PodReadinessGateConditionTypeEnum;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiCoreV1PodReadinessGateConditionTypeEnum {
-    ContainersReady = 'ContainersReady',
-    Initialized = 'Initialized',
-    PodScheduled = 'PodScheduled',
-    Ready = 'Ready'
+    conditionType: string;
 }
 
 export function IoK8sApiCoreV1PodReadinessGateFromJSON(json: any): IoK8sApiCoreV1PodReadinessGate {

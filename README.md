@@ -47,6 +47,29 @@ yarn
 yarn generate
 ```
 
+### NOTE
+it usefull to clean all before starting a new generate with 
+
+``` bash
+yarn clean:all
+```
+
+## Generating patch
+
+we adding to git the generated API, and than we need to commit it,
+we want to create a new patch file to replace the old one. 
+
+``` bash
+git diff -P <file_path_to_diff> > <file_path_to_copy>
+```
+
+### NOTE
+if a patch was replaced, we need to run again:
+
+``` bash
+yarn generate
+```
+
 ## Run linter
 
 ``` bash

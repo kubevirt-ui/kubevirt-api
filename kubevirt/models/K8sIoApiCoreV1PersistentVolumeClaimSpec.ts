@@ -45,6 +45,12 @@ export interface K8sIoApiCoreV1PersistentVolumeClaimSpec {
   dataSource?: K8sIoApiCoreV1TypedLocalObjectReference;
   /**
    *
+   * @type {K8sIoApiCoreV1TypedLocalObjectReference}
+   * @memberof K8sIoApiCoreV1PersistentVolumeClaimSpec
+   */
+  dataSourceRef?: K8sIoApiCoreV1TypedLocalObjectReference;
+  /**
+   *
    * @type {K8sIoApiCoreV1ResourceRequirements}
    * @memberof K8sIoApiCoreV1PersistentVolumeClaimSpec
    */
@@ -93,6 +99,9 @@ export function K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSONTyped(
     dataSource: !exists(json, 'dataSource')
       ? undefined
       : K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['dataSource']),
+    dataSourceRef: !exists(json, 'dataSourceRef')
+      ? undefined
+      : K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['dataSourceRef']),
     resources: !exists(json, 'resources')
       ? undefined
       : K8sIoApiCoreV1ResourceRequirementsFromJSON(json['resources']),
@@ -117,6 +126,7 @@ export function K8sIoApiCoreV1PersistentVolumeClaimSpecToJSON(
   return {
     accessModes: value.accessModes,
     dataSource: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.dataSource),
+    dataSourceRef: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.dataSourceRef),
     resources: K8sIoApiCoreV1ResourceRequirementsToJSON(value.resources),
     selector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
     storageClassName: value.storageClassName,

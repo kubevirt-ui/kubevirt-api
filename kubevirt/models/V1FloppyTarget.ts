@@ -39,7 +39,7 @@ export function V1FloppyTargetFromJSON(json: any): V1FloppyTarget {
 
 export function V1FloppyTargetFromJSONTyped(
   json: any,
-  _ignoreDiscriminator: boolean,
+  __ignoreDiscriminator: boolean,
 ): V1FloppyTarget {
   if (json === undefined || json === null) {
     return json;

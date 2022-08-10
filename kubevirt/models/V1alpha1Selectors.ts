@@ -13,12 +13,6 @@
  */
 
 import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1LabelSelector,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './';
-
 /**
  *
  * @export
@@ -27,16 +21,16 @@ import {
 export interface V1alpha1Selectors {
   /**
    *
-   * @type {K8sIoApimachineryPkgApisMetaV1LabelSelector}
+   * @type {{ [key: string]: string; }}
    * @memberof V1alpha1Selectors
    */
-  namespaceSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
+  namespaceSelector?: { [key: string]: string };
   /**
    *
-   * @type {K8sIoApimachineryPkgApisMetaV1LabelSelector}
+   * @type {{ [key: string]: string; }}
    * @memberof V1alpha1Selectors
    */
-  virtualMachineInstanceSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
+  virtualMachineInstanceSelector?: { [key: string]: string };
 }
 
 export function V1alpha1SelectorsFromJSON(json: any): V1alpha1Selectors {
@@ -51,12 +45,10 @@ export function V1alpha1SelectorsFromJSONTyped(
     return json;
   }
   return {
-    namespaceSelector: !exists(json, 'namespaceSelector')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['namespaceSelector']),
+    namespaceSelector: !exists(json, 'namespaceSelector') ? undefined : json['namespaceSelector'],
     virtualMachineInstanceSelector: !exists(json, 'virtualMachineInstanceSelector')
       ? undefined
-      : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['virtualMachineInstanceSelector']),
+      : json['virtualMachineInstanceSelector'],
   };
 }
 
@@ -68,9 +60,7 @@ export function V1alpha1SelectorsToJSON(value?: V1alpha1Selectors | null): any {
     return null;
   }
   return {
-    namespaceSelector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.namespaceSelector),
-    virtualMachineInstanceSelector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(
-      value.virtualMachineInstanceSelector,
-    ),
+    namespaceSelector: value.namespaceSelector,
+    virtualMachineInstanceSelector: value.virtualMachineInstanceSelector,
   };
 }

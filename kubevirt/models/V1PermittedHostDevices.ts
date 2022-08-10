@@ -23,7 +23,7 @@ import {
 } from './';
 
 /**
- * PermittedHostDevices holds inforamtion about devices allowed for passthrough
+ * PermittedHostDevices holds information about devices allowed for passthrough
  * @export
  * @interface V1PermittedHostDevices
  */

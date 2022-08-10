@@ -33,23 +33,10 @@ export interface IoK8sApiCoreV1NamespaceStatus {
   conditions?: Array<IoK8sApiCoreV1NamespaceCondition>;
   /**
    * Phase is the current lifecycle phase of the namespace. More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
-   *
-   * Possible enum values:
-   *  - `"Active"` means the namespace is available for use in the system
-   *  - `"Terminating"` means the namespace is undergoing graceful termination
    * @type {string}
    * @memberof IoK8sApiCoreV1NamespaceStatus
    */
-  phase?: IoK8sApiCoreV1NamespaceStatusPhaseEnum;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1NamespaceStatusPhaseEnum {
-  Active = 'Active',
-  Terminating = 'Terminating',
+  phase?: string;
 }
 
 export function IoK8sApiCoreV1NamespaceStatusFromJSON(json: any): IoK8sApiCoreV1NamespaceStatus {

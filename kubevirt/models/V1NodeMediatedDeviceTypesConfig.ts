@@ -13,7 +13,7 @@
  */
 
 /**
- * NodeMediatedDeviceTypesConfig holds inforamtion about MDEV types to be defined in a specifc node that matches the NodeSelector field.
+ * NodeMediatedDeviceTypesConfig holds information about MDEV types to be defined in a specifc node that matches the NodeSelector field.
  * @export
  * @interface V1NodeMediatedDeviceTypesConfig
  */

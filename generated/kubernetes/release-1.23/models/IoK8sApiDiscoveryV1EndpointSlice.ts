@@ -36,15 +36,10 @@ import {
 export interface IoK8sApiDiscoveryV1EndpointSlice {
     /**
      * addressType specifies the type of address carried by this EndpointSlice. All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.
-     * 
-     * Possible enum values:
-     *  - `"FQDN"` represents a FQDN.
-     *  - `"IPv4"` represents an IPv4 Address.
-     *  - `"IPv6"` represents an IPv6 Address.
      * @type {string}
      * @memberof IoK8sApiDiscoveryV1EndpointSlice
      */
-    addressType: IoK8sApiDiscoveryV1EndpointSliceAddressTypeEnum;
+    addressType: string;
     /**
      * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
      * @type {string}
@@ -75,16 +70,6 @@ export interface IoK8sApiDiscoveryV1EndpointSlice {
      * @memberof IoK8sApiDiscoveryV1EndpointSlice
      */
     ports?: Array<IoK8sApiDiscoveryV1EndpointPort>;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiDiscoveryV1EndpointSliceAddressTypeEnum {
-    Fqdn = 'FQDN',
-    Ipv4 = 'IPv4',
-    Ipv6 = 'IPv6'
 }
 
 export function IoK8sApiDiscoveryV1EndpointSliceFromJSON(json: any): IoK8sApiDiscoveryV1EndpointSlice {

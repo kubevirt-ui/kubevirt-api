@@ -49,7 +49,7 @@ export function V1alpha1VirtualMachineFlavorProfileFromJSON(
 
 export function V1alpha1VirtualMachineFlavorProfileFromJSONTyped(
   json: any,
-  _ignoreDiscriminator: boolean,
+  __ignoreDiscriminator: boolean,
 ): V1alpha1VirtualMachineFlavorProfile {
   if (json === undefined || json === null) {
     return json;

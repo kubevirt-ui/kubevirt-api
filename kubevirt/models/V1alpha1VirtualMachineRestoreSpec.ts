@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+import { exists } from '../runtime';
 import {
   K8sIoApiCoreV1TypedLocalObjectReference,
   K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
@@ -24,6 +25,14 @@ import {
  * @interface V1alpha1VirtualMachineRestoreSpec
  */
 export interface V1alpha1VirtualMachineRestoreSpec {
+  /**
+   * If the target for the restore does not exist, it will be created. Patches holds JSON patches that would be applied to the target manifest before it's created. Patches should fit the target's Kind.
+   *
+   * Example for a patch: {"op": "replace", "path": "/metadata/name", "value": "new-vm-name"}
+   * @type {Array<string>}
+   * @memberof V1alpha1VirtualMachineRestoreSpec
+   */
+  patches?: Array<string>;
   /**
    *
    * @type {K8sIoApiCoreV1TypedLocalObjectReference}
@@ -52,6 +61,7 @@ export function V1alpha1VirtualMachineRestoreSpecFromJSONTyped(
     return json;
   }
   return {
+    patches: !exists(json, 'patches') ? undefined : json['patches'],
     target: K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['target']),
     virtualMachineSnapshotName: json['virtualMachineSnapshotName'],
   };
@@ -67,6 +77,7 @@ export function V1alpha1VirtualMachineRestoreSpecToJSON(
     return null;
   }
   return {
+    patches: value.patches,
     target: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.target),
     virtualMachineSnapshotName: value.virtualMachineSnapshotName,
   };

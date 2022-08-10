@@ -21,59 +21,22 @@ import { exists } from '../runtime';
 export interface IoK8sApiCoreV1ScopedResourceSelectorRequirement {
   /**
    * Represents a scope's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist.
-   *
-   * Possible enum values:
-   *  - `"DoesNotExist"`
-   *  - `"Exists"`
-   *  - `"In"`
-   *  - `"NotIn"`
    * @type {string}
    * @memberof IoK8sApiCoreV1ScopedResourceSelectorRequirement
    */
-  operator: IoK8sApiCoreV1ScopedResourceSelectorRequirementOperatorEnum;
+  operator: string;
   /**
    * The name of the scope that the selector applies to.
-   *
-   * Possible enum values:
-   *  - `"BestEffort"` Match all pod objects that have best effort quality of service
-   *  - `"CrossNamespacePodAffinity"` Match all pod objects that have cross-namespace pod (anti)affinity mentioned. This is a beta feature enabled by the PodAffinityNamespaceSelector feature flag.
-   *  - `"NotBestEffort"` Match all pod objects that do not have best effort quality of service
-   *  - `"NotTerminating"` Match all pod objects where spec.activeDeadlineSeconds is nil
-   *  - `"PriorityClass"` Match all pod objects that have priority class mentioned
-   *  - `"Terminating"` Match all pod objects where spec.activeDeadlineSeconds >=0
    * @type {string}
    * @memberof IoK8sApiCoreV1ScopedResourceSelectorRequirement
    */
-  scopeName: IoK8sApiCoreV1ScopedResourceSelectorRequirementScopeNameEnum;
+  scopeName: string;
   /**
    * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
    * @type {Array<string>}
    * @memberof IoK8sApiCoreV1ScopedResourceSelectorRequirement
    */
   values?: Array<string>;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1ScopedResourceSelectorRequirementOperatorEnum {
-  DoesNotExist = 'DoesNotExist',
-  Exists = 'Exists',
-  In = 'In',
-  NotIn = 'NotIn',
-}
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1ScopedResourceSelectorRequirementScopeNameEnum {
-  BestEffort = 'BestEffort',
-  CrossNamespacePodAffinity = 'CrossNamespacePodAffinity',
-  NotBestEffort = 'NotBestEffort',
-  NotTerminating = 'NotTerminating',
-  PriorityClass = 'PriorityClass',
-  Terminating = 'Terminating',
 }
 
 export function IoK8sApiCoreV1ScopedResourceSelectorRequirementFromJSON(

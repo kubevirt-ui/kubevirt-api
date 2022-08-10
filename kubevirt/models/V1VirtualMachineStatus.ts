@@ -17,6 +17,9 @@ import {
   V1VirtualMachineCondition,
   V1VirtualMachineConditionFromJSON,
   V1VirtualMachineConditionToJSON,
+  V1VirtualMachineMemoryDumpRequest,
+  V1VirtualMachineMemoryDumpRequestFromJSON,
+  V1VirtualMachineMemoryDumpRequestToJSON,
   V1VirtualMachineStartFailure,
   V1VirtualMachineStartFailureFromJSON,
   V1VirtualMachineStartFailureToJSON,
@@ -49,6 +52,12 @@ export interface V1VirtualMachineStatus {
    * @memberof V1VirtualMachineStatus
    */
   created?: boolean;
+  /**
+   *
+   * @type {V1VirtualMachineMemoryDumpRequest}
+   * @memberof V1VirtualMachineStatus
+   */
+  memoryDumpRequest?: V1VirtualMachineMemoryDumpRequest;
   /**
    * PrintableStatus is a human readable, high-level representation of the status of the virtual machine
    * @type {string}
@@ -115,6 +124,9 @@ export function V1VirtualMachineStatusFromJSONTyped(
       ? undefined
       : (json['conditions'] as Array<any>).map(V1VirtualMachineConditionFromJSON),
     created: !exists(json, 'created') ? undefined : json['created'],
+    memoryDumpRequest: !exists(json, 'memoryDumpRequest')
+      ? undefined
+      : V1VirtualMachineMemoryDumpRequestFromJSON(json['memoryDumpRequest']),
     printableStatus: !exists(json, 'printableStatus') ? undefined : json['printableStatus'],
     ready: !exists(json, 'ready') ? undefined : json['ready'],
     restoreInProgress: !exists(json, 'restoreInProgress') ? undefined : json['restoreInProgress'],
@@ -149,6 +161,7 @@ export function V1VirtualMachineStatusToJSON(value?: V1VirtualMachineStatus | nu
         ? undefined
         : (value.conditions as Array<any>).map(V1VirtualMachineConditionToJSON),
     created: value.created,
+    memoryDumpRequest: V1VirtualMachineMemoryDumpRequestToJSON(value.memoryDumpRequest),
     printableStatus: value.printableStatus,
     ready: value.ready,
     restoreInProgress: value.restoreInProgress,

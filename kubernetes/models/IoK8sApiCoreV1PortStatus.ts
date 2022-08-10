@@ -36,25 +36,10 @@ export interface IoK8sApiCoreV1PortStatus {
   port: number;
   /**
    * Protocol is the protocol of the service port of which status is recorded here The supported values are: "TCP", "UDP", "SCTP"
-   *
-   * Possible enum values:
-   *  - `"SCTP"` is the SCTP protocol.
-   *  - `"TCP"` is the TCP protocol.
-   *  - `"UDP"` is the UDP protocol.
    * @type {string}
    * @memberof IoK8sApiCoreV1PortStatus
    */
-  protocol: IoK8sApiCoreV1PortStatusProtocolEnum;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1PortStatusProtocolEnum {
-  Sctp = 'SCTP',
-  Tcp = 'TCP',
-  Udp = 'UDP',
+  protocol: string;
 }
 
 export function IoK8sApiCoreV1PortStatusFromJSON(json: any): IoK8sApiCoreV1PortStatus {

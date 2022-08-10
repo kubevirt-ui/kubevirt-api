@@ -17,6 +17,9 @@ import {
   V1VirtualMachineInstanceMigrationCondition,
   V1VirtualMachineInstanceMigrationConditionFromJSON,
   V1VirtualMachineInstanceMigrationConditionToJSON,
+  V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp,
+  V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSON,
+  V1VirtualMachineInstanceMigrationPhaseTransitionTimestampToJSON,
 } from './';
 
 /**
@@ -37,6 +40,12 @@ export interface V1VirtualMachineInstanceMigrationStatus {
    * @memberof V1VirtualMachineInstanceMigrationStatus
    */
   phase?: string;
+  /**
+   * PhaseTransitionTimestamp is the timestamp of when the last phase change occurred
+   * @type {Array<V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp>}
+   * @memberof V1VirtualMachineInstanceMigrationStatus
+   */
+  phaseTransitionTimestamps?: Array<V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp>;
 }
 
 export function V1VirtualMachineInstanceMigrationStatusFromJSON(
@@ -57,6 +66,11 @@ export function V1VirtualMachineInstanceMigrationStatusFromJSONTyped(
       ? undefined
       : (json['conditions'] as Array<any>).map(V1VirtualMachineInstanceMigrationConditionFromJSON),
     phase: !exists(json, 'phase') ? undefined : json['phase'],
+    phaseTransitionTimestamps: !exists(json, 'phaseTransitionTimestamps')
+      ? undefined
+      : (json['phaseTransitionTimestamps'] as Array<any>).map(
+          V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSON,
+        ),
   };
 }
 
@@ -75,5 +89,11 @@ export function V1VirtualMachineInstanceMigrationStatusToJSON(
         ? undefined
         : (value.conditions as Array<any>).map(V1VirtualMachineInstanceMigrationConditionToJSON),
     phase: value.phase,
+    phaseTransitionTimestamps:
+      value.phaseTransitionTimestamps === undefined
+        ? undefined
+        : (value.phaseTransitionTimestamps as Array<any>).map(
+            V1VirtualMachineInstanceMigrationPhaseTransitionTimestampToJSON,
+          ),
   };
 }

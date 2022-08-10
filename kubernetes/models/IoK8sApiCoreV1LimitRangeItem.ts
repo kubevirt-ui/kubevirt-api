@@ -51,25 +51,10 @@ export interface IoK8sApiCoreV1LimitRangeItem {
   min?: { [key: string]: string };
   /**
    * Type of resource that this limit applies to.
-   *
-   * Possible enum values:
-   *  - `"Container"` Limit that applies to all containers in a namespace
-   *  - `"PersistentVolumeClaim"` Limit that applies to all persistent volume claims in a namespace
-   *  - `"Pod"` Limit that applies to all pods in a namespace
    * @type {string}
    * @memberof IoK8sApiCoreV1LimitRangeItem
    */
-  type: IoK8sApiCoreV1LimitRangeItemTypeEnum;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1LimitRangeItemTypeEnum {
-  Container = 'Container',
-  PersistentVolumeClaim = 'PersistentVolumeClaim',
-  Pod = 'Pod',
+  type: string;
 }
 
 export function IoK8sApiCoreV1LimitRangeItemFromJSON(json: any): IoK8sApiCoreV1LimitRangeItem {

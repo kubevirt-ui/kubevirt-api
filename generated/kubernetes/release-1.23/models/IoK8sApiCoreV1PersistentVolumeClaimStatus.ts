@@ -52,31 +52,16 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimStatus {
     conditions?: Array<IoK8sApiCoreV1PersistentVolumeClaimCondition>;
     /**
      * Phase represents the current phase of PersistentVolumeClaim.
-     * 
-     * Possible enum values:
-     *  - `"Bound"` used for PersistentVolumeClaims that are bound
-     *  - `"Lost"` used for PersistentVolumeClaims that lost their underlying PersistentVolume. The claim was bound to a PersistentVolume and this volume does not exist any longer and all data on it was lost.
-     *  - `"Pending"` used for PersistentVolumeClaims that are not yet bound
      * @type {string}
      * @memberof IoK8sApiCoreV1PersistentVolumeClaimStatus
      */
-    phase?: IoK8sApiCoreV1PersistentVolumeClaimStatusPhaseEnum;
+    phase?: string;
     /**
      * ResizeStatus stores status of resize operation. ResizeStatus is not set by default but when expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.
      * @type {string}
      * @memberof IoK8sApiCoreV1PersistentVolumeClaimStatus
      */
     resizeStatus?: string;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiCoreV1PersistentVolumeClaimStatusPhaseEnum {
-    Bound = 'Bound',
-    Lost = 'Lost',
-    Pending = 'Pending'
 }
 
 export function IoK8sApiCoreV1PersistentVolumeClaimStatusFromJSON(json: any): IoK8sApiCoreV1PersistentVolumeClaimStatus {

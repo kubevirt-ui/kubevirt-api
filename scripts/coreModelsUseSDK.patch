@@ -1,5 +1,5 @@
 diff --git a/console/core/index.ts b/console/core/index.ts
-index 91d737b..742e9e1 100644
+index 3d4e4be..2f15c42 100644
 --- a/console/core/index.ts
 +++ b/console/core/index.ts
 @@ -1,6 +1,6 @@
@@ -33,30 +33,12 @@ index 91d737b..742e9e1 100644
    propagationPolicy: 'Foreground',
  };
  
--export const ChargebackReportModel: K8sKind = {
-+export const ChargebackReportModel: K8sModel = {
-   kind: 'Report',
-   label: 'Report',
-   // t('public~Report')
-@@ -67,7 +67,7 @@ export const ChargebackReportModel: K8sKind = {
-   namespaced: true,
- };
- 
--export const ReportQueryModel: K8sKind = {
-+export const ReportQueryModel: K8sModel = {
-   kind: 'ReportQuery',
-   label: 'ReportQuery',
-   // t('public~ReportQuery')
-@@ -83,7 +83,7 @@ export const ReportQueryModel: K8sKind = {
-   namespaced: true,
- };
- 
 -export const ServiceModel: K8sKind = {
 +export const ServiceModel: K8sModel = {
    apiVersion: 'v1',
    label: 'Service',
    // t('public~Service')
-@@ -98,7 +98,7 @@ export const ServiceModel: K8sKind = {
+@@ -66,7 +66,7 @@ export const ServiceModel: K8sKind = {
    labelPluralKey: 'public~Services',
  };
  
@@ -65,7 +47,7 @@ index 91d737b..742e9e1 100644
    apiVersion: 'v1',
    label: 'Pod',
    // t('public~Pod')
-@@ -113,7 +113,7 @@ export const PodModel: K8sKind = {
+@@ -81,7 +81,7 @@ export const PodModel: K8sKind = {
    labelPluralKey: 'public~Pods',
  };
  
@@ -74,7 +56,7 @@ index 91d737b..742e9e1 100644
    apiVersion: 'v1',
    label: 'Container',
    // t('public~Container')
-@@ -127,7 +127,7 @@ export const ContainerModel: K8sKind = {
+@@ -95,7 +95,7 @@ export const ContainerModel: K8sKind = {
    labelPluralKey: 'public~Containers',
  };
  
@@ -83,7 +65,7 @@ index 91d737b..742e9e1 100644
    label: 'DaemonSet',
    // t('public~DaemonSet')
    labelKey: 'public~DaemonSet',
-@@ -144,7 +144,7 @@ export const DaemonSetModel: K8sKind = {
+@@ -112,7 +112,7 @@ export const DaemonSetModel: K8sKind = {
    labelPluralKey: 'public~DaemonSets',
  };
  
@@ -92,7 +74,7 @@ index 91d737b..742e9e1 100644
    apiVersion: 'v1',
    label: 'ReplicationController',
    // t('public~ReplicationController')
-@@ -160,7 +160,7 @@ export const ReplicationControllerModel: K8sKind = {
+@@ -128,7 +128,7 @@ export const ReplicationControllerModel: K8sKind = {
    labelPluralKey: 'public~ReplicationControllers',
  };
  
@@ -101,7 +83,7 @@ index 91d737b..742e9e1 100644
    label: 'HorizontalPodAutoscaler',
    // t('public~HorizontalPodAutoscaler')
    labelKey: 'public~HorizontalPodAutoscaler',
-@@ -176,7 +176,7 @@ export const HorizontalPodAutoscalerModel: K8sKind = {
+@@ -144,7 +144,7 @@ export const HorizontalPodAutoscalerModel: K8sKind = {
    labelPluralKey: 'public~HorizontalPodAutoscalers',
  };
  
@@ -110,7 +92,7 @@ index 91d737b..742e9e1 100644
    apiVersion: 'v1',
    label: 'ServiceAccount',
    // t('public~ServiceAccount')
-@@ -191,7 +191,7 @@ export const ServiceAccountModel: K8sKind = {
+@@ -159,7 +159,7 @@ export const ServiceAccountModel: K8sKind = {
    labelPluralKey: 'public~ServiceAccounts',
  };
  
@@ -119,7 +101,7 @@ index 91d737b..742e9e1 100644
    label: 'ReplicaSet',
    // t('public~ReplicaSet')
    labelKey: 'public~ReplicaSet',
-@@ -208,7 +208,7 @@ export const ReplicaSetModel: K8sKind = {
+@@ -176,7 +176,7 @@ export const ReplicaSetModel: K8sKind = {
    labelPluralKey: 'public~ReplicaSets',
  };
  
@@ -128,7 +110,7 @@ index 91d737b..742e9e1 100644
    label: 'Deployment',
    // t('public~Deployment')
    labelKey: 'public~Deployment',
-@@ -225,7 +225,7 @@ export const DeploymentModel: K8sKind = {
+@@ -193,7 +193,7 @@ export const DeploymentModel: K8sKind = {
    labelPluralKey: 'public~Deployments',
  };
  
@@ -137,7 +119,7 @@ index 91d737b..742e9e1 100644
    label: 'DeploymentConfig',
    // t('public~DeploymentConfig')
    labelKey: 'public~DeploymentConfig',
-@@ -242,7 +242,7 @@ export const DeploymentConfigModel: K8sKind = {
+@@ -210,7 +210,7 @@ export const DeploymentConfigModel: K8sKind = {
    labelPluralKey: 'public~DeploymentConfigs',
  };
  
@@ -146,7 +128,7 @@ index 91d737b..742e9e1 100644
    label: 'BuildConfig',
    // t('public~BuildConfig')
    labelKey: 'public~BuildConfig',
-@@ -259,7 +259,7 @@ export const BuildConfigModel: K8sKind = {
+@@ -227,7 +227,7 @@ export const BuildConfigModel: K8sKind = {
    labelPluralKey: 'public~BuildConfigs',
  };
  
@@ -155,7 +137,7 @@ index 91d737b..742e9e1 100644
    label: 'Build',
    // t('public~Build')
    labelKey: 'public~Build',
-@@ -276,7 +276,7 @@ export const BuildModel: K8sKind = {
+@@ -244,7 +244,7 @@ export const BuildModel: K8sKind = {
    labelPluralKey: 'public~Builds',
  };
  
@@ -164,7 +146,7 @@ index 91d737b..742e9e1 100644
    label: 'Template',
    // t('public~Template')
    labelKey: 'public~Template',
-@@ -293,7 +293,7 @@ export const TemplateModel: K8sKind = {
+@@ -261,7 +261,7 @@ export const TemplateModel: K8sKind = {
    labelPluralKey: 'public~Templates',
  };
  
@@ -173,7 +155,7 @@ index 91d737b..742e9e1 100644
    label: 'Template Instance',
    apiVersion: 'v1',
    apiGroup: 'template.openshift.io',
-@@ -305,7 +305,7 @@ export const TemplateInstanceModel: K8sKind = {
+@@ -273,7 +273,7 @@ export const TemplateInstanceModel: K8sKind = {
    labelPlural: 'Template Instances',
  };
  
@@ -182,7 +164,7 @@ index 91d737b..742e9e1 100644
    label: 'ImageStream',
    // t('public~ImageStream')
    labelKey: 'public~ImageStream',
-@@ -322,7 +322,7 @@ export const ImageStreamModel: K8sKind = {
+@@ -290,7 +290,7 @@ export const ImageStreamModel: K8sKind = {
    labelPluralKey: 'public~ImageStreams',
  };
  
@@ -191,7 +173,7 @@ index 91d737b..742e9e1 100644
    label: 'ImageStreamTag',
    // t('public~ImageStreamTag')
    labelKey: 'public~ImageStreamTag',
-@@ -339,7 +339,7 @@ export const ImageStreamTagModel: K8sKind = {
+@@ -307,7 +307,7 @@ export const ImageStreamTagModel: K8sKind = {
    labelPluralKey: 'public~ImageStreamTags',
  };
  
@@ -200,7 +182,7 @@ index 91d737b..742e9e1 100644
    label: 'ImageStreamImport',
    // t('public~ImageStreamImport')
    labelKey: 'public~ImageStreamImport',
-@@ -355,7 +355,7 @@ export const ImageStreamImportsModel: K8sKind = {
+@@ -323,7 +323,7 @@ export const ImageStreamImportsModel: K8sKind = {
    labelPluralKey: 'ImageStreamImports',
  };
  
@@ -209,7 +191,7 @@ index 91d737b..742e9e1 100644
    label: 'Job',
    // t('public~Job')
    labelKey: 'public~Job',
-@@ -372,7 +372,7 @@ export const JobModel: K8sKind = {
+@@ -340,7 +340,7 @@ export const JobModel: K8sKind = {
    labelPluralKey: 'public~Jobs',
  };
  
@@ -218,7 +200,7 @@ index 91d737b..742e9e1 100644
    apiVersion: 'v1',
    label: 'Node',
    // t('public~Node')
-@@ -386,7 +386,7 @@ export const NodeModel: K8sKind = {
+@@ -354,7 +354,7 @@ export const NodeModel: K8sKind = {
    labelPluralKey: 'public~Nodes',
  };
  
@@ -227,7 +209,7 @@ index 91d737b..742e9e1 100644
    apiVersion: 'v1',
    apiGroup: 'certificates.k8s.io',
    label: 'CertificateSigningRequest',
-@@ -401,7 +401,7 @@ export const CertificateSigningRequestModel: K8sKind = {
+@@ -369,7 +369,7 @@ export const CertificateSigningRequestModel: K8sKind = {
    labelPluralKey: 'public~CertificateSigningRequests',
  };
  
@@ -236,7 +218,7 @@ index 91d737b..742e9e1 100644
    apiVersion: 'v1',
    label: 'Event',
    // t('public~Event')
-@@ -416,7 +416,7 @@ export const EventModel: K8sKind = {
+@@ -384,7 +384,7 @@ export const EventModel: K8sKind = {
    labelPluralKey: 'public~Events',
  };
  
@@ -245,7 +227,7 @@ index 91d737b..742e9e1 100644
    apiVersion: 'v1',
    label: 'ComponentStatus',
    // t('public~ComponentStatus')
-@@ -430,7 +430,7 @@ export const ComponentStatusModel: K8sKind = {
+@@ -398,7 +398,7 @@ export const ComponentStatusModel: K8sKind = {
    id: 'componentstatus',
  };
  
@@ -254,7 +236,7 @@ index 91d737b..742e9e1 100644
    apiVersion: 'v1',
    label: 'Namespace',
    // t('public~Namespace')
-@@ -444,7 +444,7 @@ export const NamespaceModel: K8sKind = {
+@@ -412,7 +412,7 @@ export const NamespaceModel: K8sKind = {
    labelPluralKey: 'public~Namespaces',
  };
  
@@ -263,7 +245,7 @@ index 91d737b..742e9e1 100644
    apiVersion: 'v1',
    apiGroup: 'project.openshift.io',
    label: 'Project',
-@@ -459,7 +459,7 @@ export const ProjectModel: K8sKind = {
+@@ -427,7 +427,7 @@ export const ProjectModel: K8sKind = {
    labelPluralKey: 'public~Projects',
  };
  
@@ -272,7 +254,7 @@ index 91d737b..742e9e1 100644
    apiVersion: 'v1',
    apiGroup: 'project.openshift.io',
    label: 'ProjectRequest',
-@@ -474,7 +474,7 @@ export const ProjectRequestModel: K8sKind = {
+@@ -442,7 +442,7 @@ export const ProjectRequestModel: K8sKind = {
    labelPluralKey: 'public~ProjectRequests',
  };
  
@@ -281,7 +263,7 @@ index 91d737b..742e9e1 100644
    label: 'Ingress',
    // t('public~Ingress')
    labelKey: 'public~Ingress',
-@@ -490,7 +490,7 @@ export const IngressModel: K8sKind = {
+@@ -458,7 +458,7 @@ export const IngressModel: K8sKind = {
    id: 'ingress',
  };
  
@@ -290,7 +272,7 @@ index 91d737b..742e9e1 100644
    label: 'Route',
    // t('public~Route')
    labelKey: 'public~Route',
-@@ -506,7 +506,7 @@ export const RouteModel: K8sKind = {
+@@ -474,7 +474,7 @@ export const RouteModel: K8sKind = {
    id: 'route',
  };
  
@@ -299,7 +281,7 @@ index 91d737b..742e9e1 100644
    apiVersion: 'v1',
    label: 'ConfigMap',
    // t('public~ConfigMap')
-@@ -521,7 +521,7 @@ export const ConfigMapModel: K8sKind = {
+@@ -489,7 +489,7 @@ export const ConfigMapModel: K8sKind = {
    labelPluralKey: 'public~ConfigMaps',
  };
  
@@ -308,7 +290,7 @@ index 91d737b..742e9e1 100644
    apiVersion: 'v1',
    label: 'Secret',
    // t('public~Secret')
-@@ -536,7 +536,7 @@ export const SecretModel: K8sKind = {
+@@ -504,7 +504,7 @@ export const SecretModel: K8sKind = {
    labelPluralKey: 'public~Secrets',
  };
  
@@ -317,7 +299,7 @@ index 91d737b..742e9e1 100644
    label: 'ClusterRoleBinding',
    // t('public~ClusterRoleBinding')
    labelKey: 'public~ClusterRoleBinding',
-@@ -551,7 +551,7 @@ export const ClusterRoleBindingModel: K8sKind = {
+@@ -519,7 +519,7 @@ export const ClusterRoleBindingModel: K8sKind = {
    labelPluralKey: 'public~ClusterRoleBindings',
  };
  
@@ -326,7 +308,7 @@ index 91d737b..742e9e1 100644
    label: 'ClusterRole',
    // t('public~ClusterRole')
    labelKey: 'public~ClusterRole',
-@@ -566,7 +566,7 @@ export const ClusterRoleModel: K8sKind = {
+@@ -534,7 +534,7 @@ export const ClusterRoleModel: K8sKind = {
    labelPluralKey: 'public~ClusterRoles',
  };
  
@@ -335,7 +317,7 @@ index 91d737b..742e9e1 100644
    label: 'RoleBinding',
    // t('public~RoleBinding')
    labelKey: 'public~RoleBinding',
-@@ -582,7 +582,7 @@ export const RoleBindingModel: K8sKind = {
+@@ -550,7 +550,7 @@ export const RoleBindingModel: K8sKind = {
    labelPluralKey: 'public~RoleBindings',
  };
  
@@ -344,7 +326,7 @@ index 91d737b..742e9e1 100644
    label: 'Role',
    // t('public~Role')
    labelKey: 'public~Role',
-@@ -598,7 +598,7 @@ export const RoleModel: K8sKind = {
+@@ -566,7 +566,7 @@ export const RoleModel: K8sKind = {
    labelPluralKey: 'public~Roles',
  };
  
@@ -353,7 +335,7 @@ index 91d737b..742e9e1 100644
    label: 'SelfSubjectAccessReview',
    // t('public~SelfSubjectAccessReview')
    labelKey: 'public~SelfSubjectAccessReview',
-@@ -614,7 +614,7 @@ export const SelfSubjectAccessReviewModel: K8sKind = {
+@@ -582,7 +582,7 @@ export const SelfSubjectAccessReviewModel: K8sKind = {
    labelPluralKey: 'public~SelfSubjectAccessReviews',
  };
  
@@ -362,7 +344,7 @@ index 91d737b..742e9e1 100644
    label: 'ResourceAccessReview',
    // t('public~ResourceAccessReview')
    labelKey: 'public~ResourceAccessReview',
-@@ -630,7 +630,7 @@ export const ResourceAccessReviewsModel: K8sKind = {
+@@ -598,7 +598,7 @@ export const ResourceAccessReviewsModel: K8sKind = {
    labelPluralKey: 'public~ResourceAccessReviews',
  };
  
@@ -371,7 +353,7 @@ index 91d737b..742e9e1 100644
    label: 'LocalResourceAccessReview',
    // t('public~LocalResourceAccessReview')
    labelKey: 'public~LocalResourceAccessReview',
-@@ -646,7 +646,7 @@ export const LocalResourceAccessReviewsModel: K8sKind = {
+@@ -614,7 +614,7 @@ export const LocalResourceAccessReviewsModel: K8sKind = {
    labelPluralKey: 'public~LocalResourceAccessReviews',
  };
  
@@ -380,7 +362,7 @@ index 91d737b..742e9e1 100644
    label: 'PersistentVolume',
    // t('public~PersistentVolume')
    labelKey: 'public~PersistentVolume',
-@@ -660,7 +660,7 @@ export const PersistentVolumeModel: K8sKind = {
+@@ -628,7 +628,7 @@ export const PersistentVolumeModel: K8sKind = {
    labelPluralKey: 'public~PersistentVolumes',
  };
  
@@ -389,7 +371,7 @@ index 91d737b..742e9e1 100644
    label: 'PersistentVolumeClaim',
    // t('public~PersistentVolumeClaim')
    labelKey: 'public~PersistentVolumeClaim',
-@@ -675,7 +675,7 @@ export const PersistentVolumeClaimModel: K8sKind = {
+@@ -643,7 +643,7 @@ export const PersistentVolumeClaimModel: K8sKind = {
    labelPluralKey: 'public~PersistentVolumeClaims',
  };
  
@@ -398,7 +380,7 @@ index 91d737b..742e9e1 100644
    label: 'StatefulSet',
    // t('public~StatefulSet')
    labelKey: 'public~StatefulSet',
-@@ -692,7 +692,7 @@ export const StatefulSetModel: K8sKind = {
+@@ -660,7 +660,7 @@ export const StatefulSetModel: K8sKind = {
    labelPluralKey: 'public~StatefulSets',
  };
  
@@ -407,7 +389,7 @@ index 91d737b..742e9e1 100644
    label: 'ResourceQuota',
    // t('public~ResourceQuota')
    labelKey: 'public~ResourceQuota',
-@@ -707,7 +707,7 @@ export const ResourceQuotaModel: K8sKind = {
+@@ -675,7 +675,7 @@ export const ResourceQuotaModel: K8sKind = {
    labelPluralKey: 'public~ResourceQuotas',
  };
  
@@ -416,7 +398,7 @@ index 91d737b..742e9e1 100644
    label: 'ClusterResourceQuota',
    // t('public~ClusterResourceQuota')
    labelKey: 'public~ClusterResourceQuota',
-@@ -724,7 +724,7 @@ export const ClusterResourceQuotaModel: K8sKind = {
+@@ -692,7 +692,7 @@ export const ClusterResourceQuotaModel: K8sKind = {
    crd: true,
  };
  
@@ -425,7 +407,7 @@ index 91d737b..742e9e1 100644
    label: 'AppliedClusterResourceQuota',
    // t('public~AppliedClusterResourceQuota')
    labelKey: 'public~AppliedClusterResourceQuota',
-@@ -741,7 +741,7 @@ export const AppliedClusterResourceQuotaModel: K8sKind = {
+@@ -709,7 +709,7 @@ export const AppliedClusterResourceQuotaModel: K8sKind = {
    crd: true,
  };
  
@@ -434,7 +416,7 @@ index 91d737b..742e9e1 100644
    label: 'NetworkPolicy',
    // t('public~NetworkPolicy')
    labelKey: 'public~NetworkPolicy',
-@@ -757,7 +757,7 @@ export const NetworkPolicyModel: K8sKind = {
+@@ -725,7 +725,7 @@ export const NetworkPolicyModel: K8sKind = {
    id: 'networkpolicy',
  };
  
@@ -443,7 +425,7 @@ index 91d737b..742e9e1 100644
    label: 'CustomResourceDefinition',
    // t('public~CustomResourceDefinition')
    labelKey: 'public~CustomResourceDefinition',
-@@ -773,7 +773,7 @@ export const CustomResourceDefinitionModel: K8sKind = {
+@@ -741,7 +741,7 @@ export const CustomResourceDefinitionModel: K8sKind = {
    labelPluralKey: 'public~CustomResourceDefinitions',
  };
  
@@ -452,7 +434,7 @@ index 91d737b..742e9e1 100644
    label: 'CronJob',
    // t('public~CronJob')
    labelKey: 'public~CronJob',
-@@ -790,7 +790,7 @@ export const CronJobModel: K8sKind = {
+@@ -758,7 +758,7 @@ export const CronJobModel: K8sKind = {
    propagationPolicy: 'Foreground',
  };
  
@@ -461,53 +443,8 @@ index 91d737b..742e9e1 100644
    label: 'StorageClass',
    // t('public~StorageClass')
    labelKey: 'public~StorageClass',
-@@ -806,7 +806,7 @@ export const StorageClassModel: K8sKind = {
+@@ -774,7 +774,7 @@ export const StorageClassModel: K8sKind = {
    id: 'storageclass',
- };
- 
--export const ClusterServiceBrokerModel: K8sKind = {
-+export const ClusterServiceBrokerModel: K8sModel = {
-   label: 'ClusterServiceBroker',
-   // t('public~ClusterServiceBroker')
-   labelKey: 'public~ClusterServiceBroker',
-@@ -823,7 +823,7 @@ export const ClusterServiceBrokerModel: K8sKind = {
-   crd: true,
- };
- 
--export const ClusterServiceClassModel: K8sKind = {
-+export const ClusterServiceClassModel: K8sModel = {
-   label: 'ClusterServiceClass',
-   // t('public~ClusterServiceClass')
-   labelKey: 'public~ClusterServiceClass',
-@@ -840,7 +840,7 @@ export const ClusterServiceClassModel: K8sKind = {
-   crd: true,
- };
- 
--export const ClusterServicePlanModel: K8sKind = {
-+export const ClusterServicePlanModel: K8sModel = {
-   label: 'ClusterServicePlan',
-   // t('public~ClusterServicePlan')
-   labelKey: 'public~ClusterServicePlan',
-@@ -857,7 +857,7 @@ export const ClusterServicePlanModel: K8sKind = {
-   crd: true,
- };
- 
--export const ServiceInstanceModel: K8sKind = {
-+export const ServiceInstanceModel: K8sModel = {
-   label: 'ServiceInstance',
-   // t('public~ServiceInstance')
-   labelKey: 'public~ServiceInstance',
-@@ -874,7 +874,7 @@ export const ServiceInstanceModel: K8sKind = {
-   crd: true,
- };
- 
--export const ServiceBindingModel: K8sKind = {
-+export const ServiceBindingModel: K8sModel = {
-   label: 'ServiceBinding',
-   // t('public~ServiceBinding')
-   labelKey: 'public~ServiceBinding',
-@@ -891,7 +891,7 @@ export const ServiceBindingModel: K8sKind = {
-   crd: true,
  };
  
 -export const LimitRangeModel: K8sKind = {
@@ -515,7 +452,7 @@ index 91d737b..742e9e1 100644
    label: 'LimitRange',
    // t('public~LimitRange')
    labelKey: 'public~LimitRange',
-@@ -906,7 +906,7 @@ export const LimitRangeModel: K8sKind = {
+@@ -789,7 +789,7 @@ export const LimitRangeModel: K8sKind = {
    labelPluralKey: 'public~LimitRanges',
  };
  
@@ -524,7 +461,7 @@ index 91d737b..742e9e1 100644
    label: 'APIService',
    // t('public~APIService')
    labelKey: 'public~APIService',
-@@ -923,7 +923,7 @@ export const APIServiceModel: K8sKind = {
+@@ -806,7 +806,7 @@ export const APIServiceModel: K8sKind = {
    crd: true,
  };
  
@@ -533,7 +470,7 @@ index 91d737b..742e9e1 100644
    label: 'User',
    // t('public~User')
    labelKey: 'public~User',
-@@ -940,7 +940,7 @@ export const UserModel: K8sKind = {
+@@ -823,7 +823,7 @@ export const UserModel: K8sKind = {
    crd: true,
  };
  
@@ -542,7 +479,7 @@ index 91d737b..742e9e1 100644
    label: 'Group',
    // t('public~Group')
    labelKey: 'public~Group',
-@@ -959,7 +959,7 @@ export const GroupModel: K8sKind = {
+@@ -842,7 +842,7 @@ export const GroupModel: K8sKind = {
  
  // Cluster API resources
  // https://github.com/openshift/cluster-api
@@ -551,7 +488,7 @@ index 91d737b..742e9e1 100644
    label: 'Machine',
    // t('public~Machine')
    labelKey: 'public~Machine',
-@@ -976,7 +976,7 @@ export const MachineModel: K8sKind = {
+@@ -859,7 +859,7 @@ export const MachineModel: K8sKind = {
    crd: true,
  };
  
@@ -560,7 +497,7 @@ index 91d737b..742e9e1 100644
    label: 'MachineSet',
    // t('public~MachineSet')
    labelKey: 'public~MachineSet',
-@@ -993,7 +993,7 @@ export const MachineSetModel: K8sKind = {
+@@ -876,7 +876,7 @@ export const MachineSetModel: K8sKind = {
    crd: true,
  };
  
@@ -569,7 +506,7 @@ index 91d737b..742e9e1 100644
    label: 'MachineDeployment',
    // t('public~MachineDeployment')
    labelKey: 'public~MachineDeployment',
-@@ -1010,7 +1010,7 @@ export const MachineDeploymentModel: K8sKind = {
+@@ -893,7 +893,7 @@ export const MachineDeploymentModel: K8sKind = {
    crd: true,
  };
  
@@ -578,7 +515,7 @@ index 91d737b..742e9e1 100644
    label: 'MachineConfigPool',
    // t('public~MachineConfigPool')
    labelKey: 'public~MachineConfigPool',
-@@ -1027,7 +1027,7 @@ export const MachineConfigPoolModel: K8sKind = {
+@@ -910,7 +910,7 @@ export const MachineConfigPoolModel: K8sKind = {
    crd: true,
  };
  
@@ -587,7 +524,7 @@ index 91d737b..742e9e1 100644
    label: 'MachineConfig',
    // t('public~MachineConfig')
    labelKey: 'public~MachineConfig',
-@@ -1044,7 +1044,7 @@ export const MachineConfigModel: K8sKind = {
+@@ -927,7 +927,7 @@ export const MachineConfigModel: K8sKind = {
    crd: true,
  };
  
@@ -596,7 +533,7 @@ index 91d737b..742e9e1 100644
    label: 'MachineAutoscaler',
    // t('public~MachineAutoscaler')
    labelKey: 'public~MachineAutoscaler',
-@@ -1061,7 +1061,7 @@ export const MachineAutoscalerModel: K8sKind = {
+@@ -944,7 +944,7 @@ export const MachineAutoscalerModel: K8sKind = {
    crd: true,
  };
  
@@ -605,7 +542,7 @@ index 91d737b..742e9e1 100644
    label: 'MachineHealthCheck',
    // t('public~MachineHealthCheck')
    labelKey: 'public~MachineHealthCheck',
-@@ -1079,7 +1079,7 @@ export const MachineHealthCheckModel: K8sKind = {
+@@ -962,7 +962,7 @@ export const MachineHealthCheckModel: K8sKind = {
  };
  
  // Openshift cluster resources
@@ -614,7 +551,7 @@ index 91d737b..742e9e1 100644
    label: 'ClusterOperator',
    // t('public~ClusterOperator')
    labelKey: 'public~ClusterOperator',
-@@ -1096,7 +1096,7 @@ export const ClusterOperatorModel: K8sKind = {
+@@ -979,7 +979,7 @@ export const ClusterOperatorModel: K8sKind = {
    crd: true,
  };
  
@@ -623,7 +560,7 @@ index 91d737b..742e9e1 100644
    label: 'ClusterVersion',
    // t('public~ClusterVersion')
    labelKey: 'public~ClusterVersion',
-@@ -1113,7 +1113,7 @@ export const ClusterVersionModel: K8sKind = {
+@@ -996,7 +996,7 @@ export const ClusterVersionModel: K8sKind = {
    crd: true,
  };
  
@@ -632,7 +569,7 @@ index 91d737b..742e9e1 100644
    label: 'CSIDriver',
    // t('public~CSIDriver')
    labelKey: 'public~CSIDriver',
-@@ -1130,7 +1130,7 @@ export const CSIDriverModel: K8sKind = {
+@@ -1013,7 +1013,7 @@ export const CSIDriverModel: K8sKind = {
    crd: true,
  };
  
@@ -641,7 +578,7 @@ index 91d737b..742e9e1 100644
    label: 'ClusterAutoscaler',
    // t('public~ClusterAutoscaler')
    labelKey: 'public~ClusterAutoscaler',
-@@ -1148,7 +1148,7 @@ export const ClusterAutoscalerModel: K8sKind = {
+@@ -1031,7 +1031,7 @@ export const ClusterAutoscalerModel: K8sKind = {
  };
  
  // OpenShift global configuration
@@ -650,7 +587,7 @@ index 91d737b..742e9e1 100644
    label: 'OAuth',
    // t('public~OAuth')
    labelKey: 'public~OAuth',
-@@ -1165,7 +1165,7 @@ export const OAuthModel: K8sKind = {
+@@ -1048,7 +1048,7 @@ export const OAuthModel: K8sKind = {
    crd: true,
  };
  
@@ -659,7 +596,7 @@ index 91d737b..742e9e1 100644
    label: 'Infrastructure',
    // t('public~Infrastructure')
    labelKey: 'public~Infrastructure',
-@@ -1182,7 +1182,7 @@ export const InfrastructureModel: K8sKind = {
+@@ -1065,7 +1065,7 @@ export const InfrastructureModel: K8sKind = {
    crd: true,
  };
  
@@ -668,7 +605,7 @@ index 91d737b..742e9e1 100644
    label: 'Network',
    labelPlural: 'Networks',
    apiVersion: 'v1',
-@@ -1195,7 +1195,7 @@ export const NetworkOperatorConfigModel: K8sKind = {
+@@ -1078,7 +1078,7 @@ export const NetworkOperatorConfigModel: K8sKind = {
    crd: true,
  };
  
@@ -677,7 +614,7 @@ index 91d737b..742e9e1 100644
    label: 'Console',
    labelPlural: 'Consoles',
    apiVersion: 'v1',
-@@ -1208,7 +1208,7 @@ export const ConsoleOperatorConfigModel: K8sKind = {
+@@ -1091,7 +1091,7 @@ export const ConsoleOperatorConfigModel: K8sKind = {
    crd: true,
  };
  
@@ -686,7 +623,7 @@ index 91d737b..742e9e1 100644
    label: 'ConsoleLink',
    // t('public~ConsoleLink')
    labelKey: 'public~ConsoleLink',
-@@ -1225,7 +1225,7 @@ export const ConsoleLinkModel: K8sKind = {
+@@ -1108,7 +1108,7 @@ export const ConsoleLinkModel: K8sKind = {
    crd: true,
  };
  
@@ -695,7 +632,7 @@ index 91d737b..742e9e1 100644
    label: 'ConsoleCLIDownload',
    // t('public~ConsoleCLIDownload')
    labelKey: 'public~ConsoleCLIDownload',
-@@ -1242,7 +1242,7 @@ export const ConsoleCLIDownloadModel: K8sKind = {
+@@ -1125,7 +1125,7 @@ export const ConsoleCLIDownloadModel: K8sKind = {
    crd: true,
  };
  
@@ -704,7 +641,7 @@ index 91d737b..742e9e1 100644
    label: 'ConsoleNotification',
    // t('public~ConsoleNotification')
    labelKey: 'public~ConsoleNotification',
-@@ -1259,7 +1259,7 @@ export const ConsoleNotificationModel: K8sKind = {
+@@ -1142,7 +1142,7 @@ export const ConsoleNotificationModel: K8sKind = {
    crd: true,
  };
  
@@ -713,7 +650,7 @@ index 91d737b..742e9e1 100644
    label: 'ConsoleExternalLogLink',
    // t('public~ConsoleExternalLogLink')
    labelKey: 'public~ConsoleExternalLogLink',
-@@ -1276,7 +1276,7 @@ export const ConsoleExternalLogLinkModel: K8sKind = {
+@@ -1159,7 +1159,7 @@ export const ConsoleExternalLogLinkModel: K8sKind = {
    crd: true,
  };
  
@@ -722,7 +659,7 @@ index 91d737b..742e9e1 100644
    label: 'ConsoleYAMLSample',
    // t('public~ConsoleYAMLSample')
    labelKey: 'public~ConsoleYAMLSample',
-@@ -1293,7 +1293,7 @@ export const ConsoleYAMLSampleModel: K8sKind = {
+@@ -1176,7 +1176,7 @@ export const ConsoleYAMLSampleModel: K8sKind = {
    crd: true,
  };
  
@@ -731,7 +668,7 @@ index 91d737b..742e9e1 100644
    label: 'VolumeSnapshot',
    // t('public~VolumeSnapshot')
    labelKey: 'public~VolumeSnapshot',
-@@ -1310,7 +1310,7 @@ export const VolumeSnapshotModel: K8sKind = {
+@@ -1193,7 +1193,7 @@ export const VolumeSnapshotModel: K8sKind = {
    crd: true,
  };
  
@@ -740,7 +677,7 @@ index 91d737b..742e9e1 100644
    label: 'VolumeSnapshotClass',
    // t('public~VolumeSnapshotClass')
    labelKey: 'public~VolumeSnapshotClass',
-@@ -1327,7 +1327,7 @@ export const VolumeSnapshotClassModel: K8sKind = {
+@@ -1210,7 +1210,7 @@ export const VolumeSnapshotClassModel: K8sKind = {
    crd: true,
  };
  
@@ -749,7 +686,7 @@ index 91d737b..742e9e1 100644
    label: 'VolumeSnapshotContent',
    // t('public~VolumeSnapshotContent')
    labelKey: 'public~VolumeSnapshotContent',
-@@ -1344,7 +1344,7 @@ export const VolumeSnapshotContentModel: K8sKind = {
+@@ -1227,7 +1227,7 @@ export const VolumeSnapshotContentModel: K8sKind = {
    crd: true,
  };
  

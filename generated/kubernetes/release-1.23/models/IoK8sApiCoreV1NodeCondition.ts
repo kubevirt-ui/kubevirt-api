@@ -51,29 +51,10 @@ export interface IoK8sApiCoreV1NodeCondition {
     status: string;
     /**
      * Type of node condition.
-     * 
-     * Possible enum values:
-     *  - `"DiskPressure"` means the kubelet is under pressure due to insufficient available disk.
-     *  - `"MemoryPressure"` means the kubelet is under pressure due to insufficient available memory.
-     *  - `"NetworkUnavailable"` means that network for the node is not correctly configured.
-     *  - `"PIDPressure"` means the kubelet is under pressure due to insufficient available PID.
-     *  - `"Ready"` means kubelet is healthy and ready to accept pods.
      * @type {string}
      * @memberof IoK8sApiCoreV1NodeCondition
      */
-    type: IoK8sApiCoreV1NodeConditionTypeEnum;
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum IoK8sApiCoreV1NodeConditionTypeEnum {
-    DiskPressure = 'DiskPressure',
-    MemoryPressure = 'MemoryPressure',
-    NetworkUnavailable = 'NetworkUnavailable',
-    PidPressure = 'PIDPressure',
-    Ready = 'Ready'
+    type: string;
 }
 
 export function IoK8sApiCoreV1NodeConditionFromJSON(json: any): IoK8sApiCoreV1NodeCondition {

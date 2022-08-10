@@ -14,6 +14,9 @@
 
 import { exists } from '../runtime';
 import {
+  V1DomainMemoryDumpInfo,
+  V1DomainMemoryDumpInfoFromJSON,
+  V1DomainMemoryDumpInfoToJSON,
   V1HotplugVolumeStatus,
   V1HotplugVolumeStatusFromJSON,
   V1HotplugVolumeStatusToJSON,
@@ -34,6 +37,12 @@ export interface V1VolumeStatus {
    * @memberof V1VolumeStatus
    */
   hotplugVolume?: V1HotplugVolumeStatus;
+  /**
+   *
+   * @type {V1DomainMemoryDumpInfo}
+   * @memberof V1VolumeStatus
+   */
+  memoryDumpVolume?: V1DomainMemoryDumpInfo;
   /**
    * Message is a detailed message about the current hotplug volume phase
    * @type {string}
@@ -93,6 +102,9 @@ export function V1VolumeStatusFromJSONTyped(
     hotplugVolume: !exists(json, 'hotplugVolume')
       ? undefined
       : V1HotplugVolumeStatusFromJSON(json['hotplugVolume']),
+    memoryDumpVolume: !exists(json, 'memoryDumpVolume')
+      ? undefined
+      : V1DomainMemoryDumpInfoFromJSON(json['memoryDumpVolume']),
     message: !exists(json, 'message') ? undefined : json['message'],
     name: json['name'],
     persistentVolumeClaimInfo: !exists(json, 'persistentVolumeClaimInfo')
@@ -114,6 +126,7 @@ export function V1VolumeStatusToJSON(value?: V1VolumeStatus | null): any {
   }
   return {
     hotplugVolume: V1HotplugVolumeStatusToJSON(value.hotplugVolume),
+    memoryDumpVolume: V1DomainMemoryDumpInfoToJSON(value.memoryDumpVolume),
     message: value.message,
     name: value.name,
     persistentVolumeClaimInfo: V1PersistentVolumeClaimInfoToJSON(value.persistentVolumeClaimInfo),

@@ -33,23 +33,10 @@ export interface IoK8sApiAppsV1StatefulSetUpdateStrategy {
   rollingUpdate?: IoK8sApiAppsV1RollingUpdateStatefulSetStrategy;
   /**
    * Type indicates the type of the StatefulSetUpdateStrategy. Default is RollingUpdate.
-   *
-   * Possible enum values:
-   *  - `"OnDelete"` triggers the legacy behavior. Version tracking and ordered rolling restarts are disabled. Pods are recreated from the StatefulSetSpec when they are manually deleted. When a scale operation is performed with this strategy,specification version indicated by the StatefulSet's currentRevision.
-   *  - `"RollingUpdate"` indicates that update will be applied to all Pods in the StatefulSet with respect to the StatefulSet ordering constraints. When a scale operation is performed with this strategy, new Pods will be created from the specification version indicated by the StatefulSet's updateRevision.
    * @type {string}
    * @memberof IoK8sApiAppsV1StatefulSetUpdateStrategy
    */
-  type?: IoK8sApiAppsV1StatefulSetUpdateStrategyTypeEnum;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiAppsV1StatefulSetUpdateStrategyTypeEnum {
-  OnDelete = 'OnDelete',
-  RollingUpdate = 'RollingUpdate',
+  type?: string;
 }
 
 export function IoK8sApiAppsV1StatefulSetUpdateStrategyFromJSON(

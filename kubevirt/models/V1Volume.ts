@@ -41,6 +41,9 @@ import {
   V1HostDisk,
   V1HostDiskFromJSON,
   V1HostDiskToJSON,
+  V1MemoryDumpVolumeSource,
+  V1MemoryDumpVolumeSourceFromJSON,
+  V1MemoryDumpVolumeSourceToJSON,
   V1PersistentVolumeClaimVolumeSource,
   V1PersistentVolumeClaimVolumeSourceFromJSON,
   V1PersistentVolumeClaimVolumeSourceToJSON,
@@ -122,6 +125,12 @@ export interface V1Volume {
    */
   hostDisk?: V1HostDisk;
   /**
+   *
+   * @type {V1MemoryDumpVolumeSource}
+   * @memberof V1Volume
+   */
+  memoryDump?: V1MemoryDumpVolumeSource;
+  /**
    * Volume's name. Must be a DNS_LABEL and unique within the vmi. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @type {string}
    * @memberof V1Volume
@@ -188,6 +197,9 @@ export function V1VolumeFromJSONTyped(json: any, _ignoreDiscriminator: boolean):
       ? undefined
       : V1EphemeralVolumeSourceFromJSON(json['ephemeral']),
     hostDisk: !exists(json, 'hostDisk') ? undefined : V1HostDiskFromJSON(json['hostDisk']),
+    memoryDump: !exists(json, 'memoryDump')
+      ? undefined
+      : V1MemoryDumpVolumeSourceFromJSON(json['memoryDump']),
     name: json['name'],
     persistentVolumeClaim: !exists(json, 'persistentVolumeClaim')
       ? undefined
@@ -218,6 +230,7 @@ export function V1VolumeToJSON(value?: V1Volume | null): any {
     emptyDisk: V1EmptyDiskSourceToJSON(value.emptyDisk),
     ephemeral: V1EphemeralVolumeSourceToJSON(value.ephemeral),
     hostDisk: V1HostDiskToJSON(value.hostDisk),
+    memoryDump: V1MemoryDumpVolumeSourceToJSON(value.memoryDump),
     name: value.name,
     persistentVolumeClaim: V1PersistentVolumeClaimVolumeSourceToJSON(value.persistentVolumeClaim),
     secret: V1SecretVolumeSourceToJSON(value.secret),

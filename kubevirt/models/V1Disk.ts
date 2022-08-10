@@ -23,9 +23,6 @@ import {
   V1DiskTarget,
   V1DiskTargetFromJSON,
   V1DiskTargetToJSON,
-  V1FloppyTarget,
-  V1FloppyTargetFromJSON,
-  V1FloppyTargetToJSON,
   V1LunTarget,
   V1LunTargetFromJSON,
   V1LunTargetToJSON,
@@ -74,12 +71,6 @@ export interface V1Disk {
    */
   disk?: V1DiskTarget;
   /**
-   *
-   * @type {V1FloppyTarget}
-   * @memberof V1Disk
-   */
-  floppy?: V1FloppyTarget;
-  /**
    * IO specifies which QEMU disk IO mode should be used. Supported values are: native, default, threads.
    * @type {string}
    * @memberof V1Disk
@@ -104,6 +95,12 @@ export interface V1Disk {
    */
   serial?: string;
   /**
+   * If specified the disk is made sharable and multiple write from different VMs are permitted
+   * @type {boolean}
+   * @memberof V1Disk
+   */
+  shareable?: boolean;
+  /**
    * If specified, disk address and its tag will be provided to the guest via config drive metadata
    * @type {string}
    * @memberof V1Disk
@@ -126,11 +123,11 @@ export function V1DiskFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V
     cdrom: !exists(json, 'cdrom') ? undefined : V1CDRomTargetFromJSON(json['cdrom']),
     dedicatedIOThread: !exists(json, 'dedicatedIOThread') ? undefined : json['dedicatedIOThread'],
     disk: !exists(json, 'disk') ? undefined : V1DiskTargetFromJSON(json['disk']),
-    floppy: !exists(json, 'floppy') ? undefined : V1FloppyTargetFromJSON(json['floppy']),
     io: !exists(json, 'io') ? undefined : json['io'],
     lun: !exists(json, 'lun') ? undefined : V1LunTargetFromJSON(json['lun']),
     name: json['name'],
     serial: !exists(json, 'serial') ? undefined : json['serial'],
+    shareable: !exists(json, 'shareable') ? undefined : json['shareable'],
     tag: !exists(json, 'tag') ? undefined : json['tag'],
   };
 }
@@ -149,11 +146,11 @@ export function V1DiskToJSON(value?: V1Disk | null): any {
     cdrom: V1CDRomTargetToJSON(value.cdrom),
     dedicatedIOThread: value.dedicatedIOThread,
     disk: V1DiskTargetToJSON(value.disk),
-    floppy: V1FloppyTargetToJSON(value.floppy),
     io: value.io,
     lun: V1LunTargetToJSON(value.lun),
     name: value.name,
     serial: value.serial,
+    shareable: value.shareable,
     tag: value.tag,
   };
 }

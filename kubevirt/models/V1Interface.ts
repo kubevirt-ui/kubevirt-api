@@ -35,7 +35,7 @@ export interface V1Interface {
    */
   bootOrder?: number;
   /**
-   *
+   * InterfaceBridge connects to a given network via a linux bridge.
    * @type {object}
    * @memberof V1Interface
    */
@@ -53,13 +53,13 @@ export interface V1Interface {
    */
   macAddress?: string;
   /**
-   *
+   * InterfaceMacvtap connects to a given network by extending the Kubernetes node's L2 networks via a macvtap interface.
    * @type {object}
    * @memberof V1Interface
    */
   macvtap?: object;
   /**
-   *
+   * InterfaceMasquerade connects to a given network using netfilter rules to nat the traffic.
    * @type {object}
    * @memberof V1Interface
    */
@@ -89,13 +89,13 @@ export interface V1Interface {
    */
   ports?: Array<V1Port>;
   /**
-   *
+   * InterfaceSlirp connects to a given network using QEMU user networking mode.
    * @type {object}
    * @memberof V1Interface
    */
   slirp?: object;
   /**
-   *
+   * InterfaceSRIOV connects to a given network by passing-through an SR-IOV PCI device via vfio.
    * @type {object}
    * @memberof V1Interface
    */

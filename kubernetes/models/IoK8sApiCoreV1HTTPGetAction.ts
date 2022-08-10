@@ -51,23 +51,10 @@ export interface IoK8sApiCoreV1HTTPGetAction {
   port: string;
   /**
    * Scheme to use for connecting to the host. Defaults to HTTP.
-   *
-   * Possible enum values:
-   *  - `"HTTP"` means that the scheme used will be http://
-   *  - `"HTTPS"` means that the scheme used will be https://
    * @type {string}
    * @memberof IoK8sApiCoreV1HTTPGetAction
    */
-  scheme?: IoK8sApiCoreV1HTTPGetActionSchemeEnum;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1HTTPGetActionSchemeEnum {
-  Http = 'HTTP',
-  Https = 'HTTPS',
+  scheme?: string;
 }
 
 export function IoK8sApiCoreV1HTTPGetActionFromJSON(json: any): IoK8sApiCoreV1HTTPGetAction {

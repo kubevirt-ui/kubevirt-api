@@ -26,6 +26,12 @@ export interface V1beta1DataVolumeSourceVDDK {
    */
   backingFile?: string;
   /**
+   * InitImageURL is an optional URL to an image containing an extracted VDDK library, overrides v2v-vmware config map
+   * @type {string}
+   * @memberof V1beta1DataVolumeSourceVDDK
+   */
+  initImageURL?: string;
+  /**
    * SecretRef provides a reference to a secret containing the username and password needed to access the vCenter or ESXi host
    * @type {string}
    * @memberof V1beta1DataVolumeSourceVDDK
@@ -64,6 +70,7 @@ export function V1beta1DataVolumeSourceVDDKFromJSONTyped(
   }
   return {
     backingFile: !exists(json, 'backingFile') ? undefined : json['backingFile'],
+    initImageURL: !exists(json, 'initImageURL') ? undefined : json['initImageURL'],
     secretRef: !exists(json, 'secretRef') ? undefined : json['secretRef'],
     thumbprint: !exists(json, 'thumbprint') ? undefined : json['thumbprint'],
     url: !exists(json, 'url') ? undefined : json['url'],
@@ -80,6 +87,7 @@ export function V1beta1DataVolumeSourceVDDKToJSON(value?: V1beta1DataVolumeSourc
   }
   return {
     backingFile: value.backingFile,
+    initImageURL: value.initImageURL,
     secretRef: value.secretRef,
     thumbprint: value.thumbprint,
     url: value.url,

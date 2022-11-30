@@ -6,7 +6,8 @@
     "containerized-data-importer/*",
     "kubevirt/*",
     "kubernetes/*",
-    "console/*"
+    "console/*",
+    "nmstate/*"
   ],
   "scripts": {
     "generate": "bash ./scripts/generate.sh",

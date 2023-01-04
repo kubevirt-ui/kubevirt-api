@@ -26,7 +26,7 @@ import {
  */
 export interface IoK8sApiAuthenticationV1TokenRequestSpec {
   /**
-   * Audiences are the intendend audiences of the token. A recipient of a token must identitfy themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.
+   * Audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.
    * @type {Array<string>}
    * @memberof IoK8sApiAuthenticationV1TokenRequestSpec
    */

@@ -26,7 +26,7 @@ export interface IoK8sApiAutoscalingV1CrossVersionObjectReference {
    */
   apiVersion?: string;
   /**
-   * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
+   * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @type {string}
    * @memberof IoK8sApiAutoscalingV1CrossVersionObjectReference
    */

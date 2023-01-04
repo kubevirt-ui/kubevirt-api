@@ -20,6 +20,9 @@ import {
   IoK8sApiCoreV1TypedLocalObjectReference,
   IoK8sApiCoreV1TypedLocalObjectReferenceFromJSON,
   IoK8sApiCoreV1TypedLocalObjectReferenceToJSON,
+  IoK8sApiCoreV1TypedObjectReference,
+  IoK8sApiCoreV1TypedObjectReferenceFromJSON,
+  IoK8sApiCoreV1TypedObjectReferenceToJSON,
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
   IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
   IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
@@ -32,7 +35,7 @@ import {
  */
 export interface IoK8sApiCoreV1PersistentVolumeClaimSpec {
   /**
-   * AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+   * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
    * @type {Array<string>}
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimSpec
    */
@@ -45,10 +48,10 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimSpec {
   dataSource?: IoK8sApiCoreV1TypedLocalObjectReference;
   /**
    *
-   * @type {IoK8sApiCoreV1TypedLocalObjectReference}
+   * @type {IoK8sApiCoreV1TypedObjectReference}
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimSpec
    */
-  dataSourceRef?: IoK8sApiCoreV1TypedLocalObjectReference;
+  dataSourceRef?: IoK8sApiCoreV1TypedObjectReference;
   /**
    *
    * @type {IoK8sApiCoreV1ResourceRequirements}
@@ -62,7 +65,7 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimSpec {
    */
   selector?: IoK8sApimachineryPkgApisMetaV1LabelSelector;
   /**
-   * Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+   * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimSpec
    */
@@ -74,7 +77,7 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimSpec {
    */
   volumeMode?: string;
   /**
-   * VolumeName is the binding reference to the PersistentVolume backing this claim.
+   * volumeName is the binding reference to the PersistentVolume backing this claim.
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimSpec
    */
@@ -101,7 +104,7 @@ export function IoK8sApiCoreV1PersistentVolumeClaimSpecFromJSONTyped(
       : IoK8sApiCoreV1TypedLocalObjectReferenceFromJSON(json['dataSource']),
     dataSourceRef: !exists(json, 'dataSourceRef')
       ? undefined
-      : IoK8sApiCoreV1TypedLocalObjectReferenceFromJSON(json['dataSourceRef']),
+      : IoK8sApiCoreV1TypedObjectReferenceFromJSON(json['dataSourceRef']),
     resources: !exists(json, 'resources')
       ? undefined
       : IoK8sApiCoreV1ResourceRequirementsFromJSON(json['resources']),
@@ -126,7 +129,7 @@ export function IoK8sApiCoreV1PersistentVolumeClaimSpecToJSON(
   return {
     accessModes: value.accessModes,
     dataSource: IoK8sApiCoreV1TypedLocalObjectReferenceToJSON(value.dataSource),
-    dataSourceRef: IoK8sApiCoreV1TypedLocalObjectReferenceToJSON(value.dataSourceRef),
+    dataSourceRef: IoK8sApiCoreV1TypedObjectReferenceToJSON(value.dataSourceRef),
     resources: IoK8sApiCoreV1ResourceRequirementsToJSON(value.resources),
     selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
     storageClassName: value.storageClassName,

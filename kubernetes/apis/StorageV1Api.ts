@@ -24,6 +24,11 @@ import {
   IoK8sApiStorageV1CSINodeList,
   IoK8sApiStorageV1CSINodeListFromJSON,
   IoK8sApiStorageV1CSINodeToJSON,
+  IoK8sApiStorageV1CSIStorageCapacity,
+  IoK8sApiStorageV1CSIStorageCapacityFromJSON,
+  IoK8sApiStorageV1CSIStorageCapacityList,
+  IoK8sApiStorageV1CSIStorageCapacityListFromJSON,
+  IoK8sApiStorageV1CSIStorageCapacityToJSON,
   IoK8sApiStorageV1StorageClass,
   IoK8sApiStorageV1StorageClassFromJSON,
   IoK8sApiStorageV1StorageClassList,
@@ -54,6 +59,15 @@ export interface CreateStorageV1CSIDriverRequest {
 
 export interface CreateStorageV1CSINodeRequest {
   body: IoK8sApiStorageV1CSINode;
+  pretty?: string;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
+}
+
+export interface CreateStorageV1NamespacedCSIStorageCapacityRequest {
+  namespace: string;
+  body: IoK8sApiStorageV1CSIStorageCapacity;
   pretty?: string;
   dryRun?: string;
   fieldManager?: string;
@@ -128,6 +142,23 @@ export interface DeleteStorageV1CollectionCSINodeRequest {
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
 
+export interface DeleteStorageV1CollectionNamespacedCSIStorageCapacityRequest {
+  namespace: string;
+  pretty?: string;
+  _continue?: string;
+  dryRun?: string;
+  fieldSelector?: string;
+  gracePeriodSeconds?: number;
+  labelSelector?: string;
+  limit?: number;
+  orphanDependents?: boolean;
+  propagationPolicy?: string;
+  resourceVersion?: string;
+  resourceVersionMatch?: string;
+  timeoutSeconds?: number;
+  body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
+}
+
 export interface DeleteStorageV1CollectionStorageClassRequest {
   pretty?: string;
   _continue?: string;
@@ -157,6 +188,17 @@ export interface DeleteStorageV1CollectionVolumeAttachmentRequest {
   resourceVersion?: string;
   resourceVersionMatch?: string;
   timeoutSeconds?: number;
+  body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
+}
+
+export interface DeleteStorageV1NamespacedCSIStorageCapacityRequest {
+  name: string;
+  namespace: string;
+  pretty?: string;
+  dryRun?: string;
+  gracePeriodSeconds?: number;
+  orphanDependents?: boolean;
+  propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
 
@@ -194,6 +236,33 @@ export interface ListStorageV1CSIDriverRequest {
 }
 
 export interface ListStorageV1CSINodeRequest {
+  pretty?: string;
+  allowWatchBookmarks?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  resourceVersionMatch?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface ListStorageV1CSIStorageCapacityForAllNamespacesRequest {
+  allowWatchBookmarks?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  labelSelector?: string;
+  limit?: number;
+  pretty?: string;
+  resourceVersion?: string;
+  resourceVersionMatch?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface ListStorageV1NamespacedCSIStorageCapacityRequest {
+  namespace: string;
   pretty?: string;
   allowWatchBookmarks?: boolean;
   _continue?: string;
@@ -252,6 +321,17 @@ export interface PatchStorageV1CSINodeRequest {
   force?: boolean;
 }
 
+export interface PatchStorageV1NamespacedCSIStorageCapacityRequest {
+  name: string;
+  namespace: string;
+  body: object;
+  pretty?: string;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
+  force?: boolean;
+}
+
 export interface PatchStorageV1StorageClassRequest {
   name: string;
   body: object;
@@ -292,6 +372,12 @@ export interface ReadStorageV1CSINodeRequest {
   pretty?: string;
 }
 
+export interface ReadStorageV1NamespacedCSIStorageCapacityRequest {
+  name: string;
+  namespace: string;
+  pretty?: string;
+}
+
 export interface ReadStorageV1StorageClassRequest {
   name: string;
   pretty?: string;
@@ -319,6 +405,16 @@ export interface ReplaceStorageV1CSIDriverRequest {
 export interface ReplaceStorageV1CSINodeRequest {
   name: string;
   body: IoK8sApiStorageV1CSINode;
+  pretty?: string;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
+}
+
+export interface ReplaceStorageV1NamespacedCSIStorageCapacityRequest {
+  name: string;
+  namespace: string;
+  body: IoK8sApiStorageV1CSIStorageCapacity;
   pretty?: string;
   dryRun?: string;
   fieldManager?: string;
@@ -394,6 +490,48 @@ export interface WatchStorageV1CSINodeRequest {
 }
 
 export interface WatchStorageV1CSINodeListRequest {
+  allowWatchBookmarks?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  labelSelector?: string;
+  limit?: number;
+  pretty?: string;
+  resourceVersion?: string;
+  resourceVersionMatch?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface WatchStorageV1CSIStorageCapacityListForAllNamespacesRequest {
+  allowWatchBookmarks?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  labelSelector?: string;
+  limit?: number;
+  pretty?: string;
+  resourceVersion?: string;
+  resourceVersionMatch?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface WatchStorageV1NamespacedCSIStorageCapacityRequest {
+  name: string;
+  namespace: string;
+  allowWatchBookmarks?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  labelSelector?: string;
+  limit?: number;
+  pretty?: string;
+  resourceVersion?: string;
+  resourceVersionMatch?: string;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface WatchStorageV1NamespacedCSIStorageCapacityListRequest {
+  namespace: string;
   allowWatchBookmarks?: boolean;
   _continue?: string;
   fieldSelector?: string;
@@ -595,6 +733,86 @@ export class StorageV1Api extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<IoK8sApiStorageV1CSINode> {
     const response = await this.createStorageV1CSINodeRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * create a CSIStorageCapacity
+   */
+  async createStorageV1NamespacedCSIStorageCapacityRaw(
+    requestParameters: CreateStorageV1NamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiStorageV1CSIStorageCapacity>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling createStorageV1NamespacedCSIStorageCapacity.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling createStorageV1NamespacedCSIStorageCapacity.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'POST',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApiStorageV1CSIStorageCapacityToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiStorageV1CSIStorageCapacityFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * create a CSIStorageCapacity
+   */
+  async createStorageV1NamespacedCSIStorageCapacity(
+    requestParameters: CreateStorageV1NamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiStorageV1CSIStorageCapacity> {
+    const response = await this.createStorageV1NamespacedCSIStorageCapacityRaw(
+      requestParameters,
+      initOverrides,
+    );
     return await response.value();
   }
 
@@ -1074,6 +1292,111 @@ export class StorageV1Api extends runtime.BaseAPI {
   }
 
   /**
+   * delete collection of CSIStorageCapacity
+   */
+  async deleteStorageV1CollectionNamespacedCSIStorageCapacityRaw(
+    requestParameters: DeleteStorageV1CollectionNamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1Status>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling deleteStorageV1CollectionNamespacedCSIStorageCapacity.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.gracePeriodSeconds !== undefined) {
+      queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.orphanDependents !== undefined) {
+      queryParameters['orphanDependents'] = requestParameters.orphanDependents;
+    }
+
+    if (requestParameters.propagationPolicy !== undefined) {
+      queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.resourceVersionMatch !== undefined) {
+      queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApimachineryPkgApisMetaV1DeleteOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApimachineryPkgApisMetaV1StatusFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * delete collection of CSIStorageCapacity
+   */
+  async deleteStorageV1CollectionNamespacedCSIStorageCapacity(
+    requestParameters: DeleteStorageV1CollectionNamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApimachineryPkgApisMetaV1Status> {
+    const response = await this.deleteStorageV1CollectionNamespacedCSIStorageCapacityRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
    * delete collection of StorageClass
    */
   async deleteStorageV1CollectionStorageClassRaw(
@@ -1257,6 +1580,89 @@ export class StorageV1Api extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<IoK8sApimachineryPkgApisMetaV1Status> {
     const response = await this.deleteStorageV1CollectionVolumeAttachmentRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * delete a CSIStorageCapacity
+   */
+  async deleteStorageV1NamespacedCSIStorageCapacityRaw(
+    requestParameters: DeleteStorageV1NamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1Status>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling deleteStorageV1NamespacedCSIStorageCapacity.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling deleteStorageV1NamespacedCSIStorageCapacity.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.gracePeriodSeconds !== undefined) {
+      queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.orphanDependents !== undefined) {
+      queryParameters['orphanDependents'] = requestParameters.orphanDependents;
+    }
+
+    if (requestParameters.propagationPolicy !== undefined) {
+      queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities/{name}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApimachineryPkgApisMetaV1DeleteOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApimachineryPkgApisMetaV1StatusFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * delete a CSIStorageCapacity
+   */
+  async deleteStorageV1NamespacedCSIStorageCapacity(
+    requestParameters: DeleteStorageV1NamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApimachineryPkgApisMetaV1Status> {
+    const response = await this.deleteStorageV1NamespacedCSIStorageCapacityRaw(
       requestParameters,
       initOverrides,
     );
@@ -1616,6 +2022,184 @@ export class StorageV1Api extends runtime.BaseAPI {
   }
 
   /**
+   * list or watch objects of kind CSIStorageCapacity
+   */
+  async listStorageV1CSIStorageCapacityForAllNamespacesRaw(
+    requestParameters: ListStorageV1CSIStorageCapacityForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiStorageV1CSIStorageCapacityList>> {
+    const queryParameters: any = {};
+
+    if (requestParameters.allowWatchBookmarks !== undefined) {
+      queryParameters['allowWatchBookmarks'] = requestParameters.allowWatchBookmarks;
+    }
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.resourceVersionMatch !== undefined) {
+      queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/storage.k8s.io/v1/csistoragecapacities`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiStorageV1CSIStorageCapacityListFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * list or watch objects of kind CSIStorageCapacity
+   */
+  async listStorageV1CSIStorageCapacityForAllNamespaces(
+    requestParameters: ListStorageV1CSIStorageCapacityForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiStorageV1CSIStorageCapacityList> {
+    const response = await this.listStorageV1CSIStorageCapacityForAllNamespacesRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * list or watch objects of kind CSIStorageCapacity
+   */
+  async listStorageV1NamespacedCSIStorageCapacityRaw(
+    requestParameters: ListStorageV1NamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiStorageV1CSIStorageCapacityList>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling listStorageV1NamespacedCSIStorageCapacity.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.allowWatchBookmarks !== undefined) {
+      queryParameters['allowWatchBookmarks'] = requestParameters.allowWatchBookmarks;
+    }
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.resourceVersionMatch !== undefined) {
+      queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiStorageV1CSIStorageCapacityListFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * list or watch objects of kind CSIStorageCapacity
+   */
+  async listStorageV1NamespacedCSIStorageCapacity(
+    requestParameters: ListStorageV1NamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiStorageV1CSIStorageCapacityList> {
+    const response = await this.listStorageV1NamespacedCSIStorageCapacityRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
    * list or watch objects of kind StorageClass
    */
   async listStorageV1StorageClassRaw(
@@ -1936,6 +2520,96 @@ export class StorageV1Api extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<IoK8sApiStorageV1CSINode> {
     const response = await this.patchStorageV1CSINodeRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * partially update the specified CSIStorageCapacity
+   */
+  async patchStorageV1NamespacedCSIStorageCapacityRaw(
+    requestParameters: PatchStorageV1NamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiStorageV1CSIStorageCapacity>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling patchStorageV1NamespacedCSIStorageCapacity.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling patchStorageV1NamespacedCSIStorageCapacity.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling patchStorageV1NamespacedCSIStorageCapacity.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    if (requestParameters.force !== undefined) {
+      queryParameters['force'] = requestParameters.force;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json-patch+json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities/{name}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PATCH',
+        headers: headerParameters,
+        query: queryParameters,
+        body: requestParameters.body as any,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiStorageV1CSIStorageCapacityFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * partially update the specified CSIStorageCapacity
+   */
+  async patchStorageV1NamespacedCSIStorageCapacity(
+    requestParameters: PatchStorageV1NamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiStorageV1CSIStorageCapacity> {
+    const response = await this.patchStorageV1NamespacedCSIStorageCapacityRaw(
+      requestParameters,
+      initOverrides,
+    );
     return await response.value();
   }
 
@@ -2296,6 +2970,70 @@ export class StorageV1Api extends runtime.BaseAPI {
   }
 
   /**
+   * read the specified CSIStorageCapacity
+   */
+  async readStorageV1NamespacedCSIStorageCapacityRaw(
+    requestParameters: ReadStorageV1NamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiStorageV1CSIStorageCapacity>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling readStorageV1NamespacedCSIStorageCapacity.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling readStorageV1NamespacedCSIStorageCapacity.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities/{name}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiStorageV1CSIStorageCapacityFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * read the specified CSIStorageCapacity
+   */
+  async readStorageV1NamespacedCSIStorageCapacity(
+    requestParameters: ReadStorageV1NamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiStorageV1CSIStorageCapacity> {
+    const response = await this.readStorageV1NamespacedCSIStorageCapacityRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
    * read the specified StorageClass
    */
   async readStorageV1StorageClassRaw(
@@ -2614,6 +3352,92 @@ export class StorageV1Api extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<IoK8sApiStorageV1CSINode> {
     const response = await this.replaceStorageV1CSINodeRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * replace the specified CSIStorageCapacity
+   */
+  async replaceStorageV1NamespacedCSIStorageCapacityRaw(
+    requestParameters: ReplaceStorageV1NamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiStorageV1CSIStorageCapacity>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling replaceStorageV1NamespacedCSIStorageCapacity.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling replaceStorageV1NamespacedCSIStorageCapacity.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling replaceStorageV1NamespacedCSIStorageCapacity.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/storage.k8s.io/v1/namespaces/{namespace}/csistoragecapacities/{name}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApiStorageV1CSIStorageCapacityToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiStorageV1CSIStorageCapacityFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * replace the specified CSIStorageCapacity
+   */
+  async replaceStorageV1NamespacedCSIStorageCapacity(
+    requestParameters: ReplaceStorageV1NamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiStorageV1CSIStorageCapacity> {
+    const response = await this.replaceStorageV1NamespacedCSIStorageCapacityRaw(
+      requestParameters,
+      initOverrides,
+    );
     return await response.value();
   }
 
@@ -3195,6 +4019,284 @@ export class StorageV1Api extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<IoK8sApimachineryPkgApisMetaV1WatchEvent> {
     const response = await this.watchStorageV1CSINodeListRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * watch individual changes to a list of CSIStorageCapacity. deprecated: use the \'watch\' parameter with a list operation instead.
+   */
+  async watchStorageV1CSIStorageCapacityListForAllNamespacesRaw(
+    requestParameters: WatchStorageV1CSIStorageCapacityListForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1WatchEvent>> {
+    const queryParameters: any = {};
+
+    if (requestParameters.allowWatchBookmarks !== undefined) {
+      queryParameters['allowWatchBookmarks'] = requestParameters.allowWatchBookmarks;
+    }
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.resourceVersionMatch !== undefined) {
+      queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/storage.k8s.io/v1/watch/csistoragecapacities`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApimachineryPkgApisMetaV1WatchEventFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * watch individual changes to a list of CSIStorageCapacity. deprecated: use the \'watch\' parameter with a list operation instead.
+   */
+  async watchStorageV1CSIStorageCapacityListForAllNamespaces(
+    requestParameters: WatchStorageV1CSIStorageCapacityListForAllNamespacesRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApimachineryPkgApisMetaV1WatchEvent> {
+    const response = await this.watchStorageV1CSIStorageCapacityListForAllNamespacesRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * watch changes to an object of kind CSIStorageCapacity. deprecated: use the \'watch\' parameter with a list operation instead, filtered to a single item with the \'fieldSelector\' parameter.
+   */
+  async watchStorageV1NamespacedCSIStorageCapacityRaw(
+    requestParameters: WatchStorageV1NamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1WatchEvent>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling watchStorageV1NamespacedCSIStorageCapacity.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling watchStorageV1NamespacedCSIStorageCapacity.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.allowWatchBookmarks !== undefined) {
+      queryParameters['allowWatchBookmarks'] = requestParameters.allowWatchBookmarks;
+    }
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.resourceVersionMatch !== undefined) {
+      queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/storage.k8s.io/v1/watch/namespaces/{namespace}/csistoragecapacities/{name}`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApimachineryPkgApisMetaV1WatchEventFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * watch changes to an object of kind CSIStorageCapacity. deprecated: use the \'watch\' parameter with a list operation instead, filtered to a single item with the \'fieldSelector\' parameter.
+   */
+  async watchStorageV1NamespacedCSIStorageCapacity(
+    requestParameters: WatchStorageV1NamespacedCSIStorageCapacityRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApimachineryPkgApisMetaV1WatchEvent> {
+    const response = await this.watchStorageV1NamespacedCSIStorageCapacityRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * watch individual changes to a list of CSIStorageCapacity. deprecated: use the \'watch\' parameter with a list operation instead.
+   */
+  async watchStorageV1NamespacedCSIStorageCapacityListRaw(
+    requestParameters: WatchStorageV1NamespacedCSIStorageCapacityListRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1WatchEvent>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling watchStorageV1NamespacedCSIStorageCapacityList.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.allowWatchBookmarks !== undefined) {
+      queryParameters['allowWatchBookmarks'] = requestParameters.allowWatchBookmarks;
+    }
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.resourceVersionMatch !== undefined) {
+      queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/storage.k8s.io/v1/watch/namespaces/{namespace}/csistoragecapacities`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApimachineryPkgApisMetaV1WatchEventFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * watch individual changes to a list of CSIStorageCapacity. deprecated: use the \'watch\' parameter with a list operation instead.
+   */
+  async watchStorageV1NamespacedCSIStorageCapacityList(
+    requestParameters: WatchStorageV1NamespacedCSIStorageCapacityListRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApimachineryPkgApisMetaV1WatchEvent> {
+    const response = await this.watchStorageV1NamespacedCSIStorageCapacityListRaw(
+      requestParameters,
+      initOverrides,
+    );
     return await response.value();
   }
 

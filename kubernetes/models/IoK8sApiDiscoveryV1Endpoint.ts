@@ -32,7 +32,7 @@ import {
  */
 export interface IoK8sApiDiscoveryV1Endpoint {
   /**
-   * addresses of this endpoint. The contents of this field are interpreted according to the corresponding EndpointSlice addressType field. Consumers must handle different types of addresses in the context of their own capabilities. This must contain at least one address but no more than 100.
+   * addresses of this endpoint. The contents of this field are interpreted according to the corresponding EndpointSlice addressType field. Consumers must handle different types of addresses in the context of their own capabilities. This must contain at least one address but no more than 100. These are all assumed to be fungible and clients may choose to only use the first element. Refer to: https://issue.k8s.io/106267
    * @type {Array<string>}
    * @memberof IoK8sApiDiscoveryV1Endpoint
    */
@@ -62,7 +62,7 @@ export interface IoK8sApiDiscoveryV1Endpoint {
    */
   hostname?: string;
   /**
-   * nodeName represents the name of the Node hosting this endpoint. This can be used to determine endpoints local to a Node. This field can be enabled with the EndpointSliceNodeName feature gate.
+   * nodeName represents the name of the Node hosting this endpoint. This can be used to determine endpoints local to a Node.
    * @type {string}
    * @memberof IoK8sApiDiscoveryV1Endpoint
    */

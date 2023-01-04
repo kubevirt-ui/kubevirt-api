@@ -26,13 +26,13 @@ import {
  */
 export interface IoK8sApiCoreV1StorageOSVolumeSource {
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
    * @type {string}
    * @memberof IoK8sApiCoreV1StorageOSVolumeSource
    */
   fsType?: string;
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @type {boolean}
    * @memberof IoK8sApiCoreV1StorageOSVolumeSource
    */
@@ -44,13 +44,13 @@ export interface IoK8sApiCoreV1StorageOSVolumeSource {
    */
   secretRef?: IoK8sApiCoreV1LocalObjectReference;
   /**
-   * VolumeName is the human-readable name of the StorageOS volume.  Volume names are only unique within a namespace.
+   * volumeName is the human-readable name of the StorageOS volume.  Volume names are only unique within a namespace.
    * @type {string}
    * @memberof IoK8sApiCoreV1StorageOSVolumeSource
    */
   volumeName?: string;
   /**
-   * VolumeNamespace specifies the scope of the volume within StorageOS.  If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to "default" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.
+   * volumeNamespace specifies the scope of the volume within StorageOS.  If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to "default" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.
    * @type {string}
    * @memberof IoK8sApiCoreV1StorageOSVolumeSource
    */

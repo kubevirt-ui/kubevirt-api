@@ -20,7 +20,7 @@ import { exists } from '../runtime';
  */
 export interface V1DiskTarget {
   /**
-   * Bus indicates the type of disk device to emulate. supported values: virtio, sata, scsi.
+   * Bus indicates the type of disk device to emulate. supported values: virtio, sata, scsi, usb.
    * @type {string}
    * @memberof V1DiskTarget
    */

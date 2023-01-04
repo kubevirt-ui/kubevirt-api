@@ -3509,90 +3509,6 @@
      }
     }
    },
-   "/apis/upload.cdi.kubevirt.io/v1alpha1/": {
-    "get": {
-     "description": "Get a CDI API resources",
-     "produces": [
-      "application/json"
-     ],
-     "operationId": "getAPIResources-v1alpha1",
-     "responses": {
-      "200": {
-       "description": "OK",
-       "schema": {
-        "$ref": "#/definitions/v1.APIResourceList"
-       }
-      },
-      "401": {
-       "description": "Unauthorized"
-      },
-      "404": {
-       "description": "Not Found",
-       "schema": {
-        "type": "string"
-       }
-      }
-     }
-    }
-   },
-   "/apis/upload.cdi.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/uploadtokenrequests": {
-    "post": {
-     "description": "Create an UploadTokenRequest object.",
-     "consumes": [
-      "application/json"
-     ],
-     "produces": [
-      "application/json"
-     ],
-     "operationId": "createNamespacedUploadTokenRequest-v1alpha1",
-     "parameters": [
-      {
-       "name": "body",
-       "in": "body",
-       "required": true,
-       "schema": {
-        "$ref": "#/definitions/v1beta1.UploadTokenRequest"
-       }
-      }
-     ],
-     "responses": {
-      "200": {
-       "description": "OK",
-       "schema": {
-        "$ref": "#/definitions/v1beta1.UploadTokenRequest"
-       }
-      },
-      "201": {
-       "description": "Created",
-       "schema": {
-        "$ref": "#/definitions/v1beta1.UploadTokenRequest"
-       }
-      },
-      "202": {
-       "description": "Accepted",
-       "schema": {
-        "$ref": "#/definitions/v1beta1.UploadTokenRequest"
-       }
-      },
-      "401": {
-       "description": "Unauthorized",
-       "schema": {
-        "type": "string"
-       }
-      }
-     }
-    },
-    "parameters": [
-     {
-      "uniqueItems": true,
-      "type": "string",
-      "description": "Object name and auth scope, such as for teams and projects",
-      "name": "namespace",
-      "in": "path",
-      "required": true
-     }
-    ]
-   },
    "/apis/upload.cdi.kubevirt.io/v1beta1/": {
     "get": {
      "description": "Get a CDI API resources",
@@ -4961,7 +4877,7 @@
     "type": "object",
     "properties": {
      "dataVolumeTTLSeconds": {
-      "description": "dataVolumeTTLSeconds is the time in seconds after DataVolume completion it can be garbage collected.",
+      "description": "DataVolumeTTLSeconds is the time in seconds after DataVolume completion it can be garbage collected. The default is 0 sec. To disable GC use -1.",
       "type": "integer",
       "format": "int32"
      },
@@ -5901,7 +5817,7 @@
       "type": "string"
      },
      "trustedCAProxy": {
-      "description": "TrustedCAProxy is the name of a ConfigMap in the cdi namespace that contains a user-provided trusted certificate authority (CA) bundle. The TrustedCAProxy field is consumed by the import controller that is resposible for coping it to a config map named trusted-ca-proxy-bundle-cm in the cdi namespace. Here is an example of the ConfigMap (in yaml):\n\napiVersion: v1 kind: ConfigMap metadata:\n  name: trusted-ca-proxy-bundle-cm\n  namespace: cdi\ndata:\n  ca.pem: |\n    -----BEGIN CERTIFICATE-----\n\t   ... \u003cbase64 encoded cert\u003e ...\n\t   -----END CERTIFICATE-----",
+      "description": "TrustedCAProxy is the name of a ConfigMap in the cdi namespace that contains a user-provided trusted certificate authority (CA) bundle. The TrustedCAProxy ConfigMap is consumed by the DataImportCron controller for creating cronjobs, and by the import controller referring a copy of the ConfigMap in the import namespace. Here is an example of the ConfigMap (in yaml):\n\napiVersion: v1 kind: ConfigMap metadata:\n  name: my-ca-proxy-cm\n  namespace: cdi\ndata:\n  ca.pem: |\n    -----BEGIN CERTIFICATE-----\n\t   ... \u003cbase64 encoded cert\u003e ...\n\t   -----END CERTIFICATE-----",
       "type": "string"
      }
     }

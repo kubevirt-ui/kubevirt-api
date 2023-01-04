@@ -95,7 +95,7 @@ import {
  */
 export interface IoK8sApiCoreV1PersistentVolumeSpec {
   /**
-   * AccessModes contains all ways the volume can be mounted. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes
+   * accessModes contains all ways the volume can be mounted. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes
    * @type {Array<string>}
    * @memberof IoK8sApiCoreV1PersistentVolumeSpec
    */
@@ -119,7 +119,7 @@ export interface IoK8sApiCoreV1PersistentVolumeSpec {
    */
   azureFile?: IoK8sApiCoreV1AzureFilePersistentVolumeSource;
   /**
-   * A description of the persistent volume's resources and capacity. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
+   * capacity is the description of the persistent volume's resources and capacity. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
    * @type {{ [key: string]: string; }}
    * @memberof IoK8sApiCoreV1PersistentVolumeSpec
    */
@@ -197,7 +197,7 @@ export interface IoK8sApiCoreV1PersistentVolumeSpec {
    */
   local?: IoK8sApiCoreV1LocalVolumeSource;
   /**
-   * A list of mount options, e.g. ["ro", "soft"]. Not validated - mount will simply fail if one is invalid. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#mount-options
+   * mountOptions is the list of mount options, e.g. ["ro", "soft"]. Not validated - mount will simply fail if one is invalid. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#mount-options
    * @type {Array<string>}
    * @memberof IoK8sApiCoreV1PersistentVolumeSpec
    */
@@ -215,7 +215,7 @@ export interface IoK8sApiCoreV1PersistentVolumeSpec {
    */
   nodeAffinity?: IoK8sApiCoreV1VolumeNodeAffinity;
   /**
-   * What happens to a persistent volume when released from its claim. Valid options are Retain (default for manually created PersistentVolumes), Delete (default for dynamically provisioned PersistentVolumes), and Recycle (deprecated). Recycle must be supported by the volume plugin underlying this PersistentVolume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#reclaiming
+   * persistentVolumeReclaimPolicy defines what happens to a persistent volume when released from its claim. Valid options are Retain (default for manually created PersistentVolumes), Delete (default for dynamically provisioned PersistentVolumes), and Recycle (deprecated). Recycle must be supported by the volume plugin underlying this PersistentVolume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#reclaiming
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeSpec
    */
@@ -251,7 +251,7 @@ export interface IoK8sApiCoreV1PersistentVolumeSpec {
    */
   scaleIO?: IoK8sApiCoreV1ScaleIOPersistentVolumeSource;
   /**
-   * Name of StorageClass to which this persistent volume belongs. Empty value means that this volume does not belong to any StorageClass.
+   * storageClassName is the name of StorageClass to which this persistent volume belongs. Empty value means that this volume does not belong to any StorageClass.
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeSpec
    */

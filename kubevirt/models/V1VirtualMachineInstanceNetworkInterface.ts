@@ -55,6 +55,12 @@ export interface V1VirtualMachineInstanceNetworkInterface {
    * @memberof V1VirtualMachineInstanceNetworkInterface
    */
   name?: string;
+  /**
+   * Specifies how many queues are allocated by MultiQueue
+   * @type {number}
+   * @memberof V1VirtualMachineInstanceNetworkInterface
+   */
+  queueCount?: number;
 }
 
 export function V1VirtualMachineInstanceNetworkInterfaceFromJSON(
@@ -77,6 +83,7 @@ export function V1VirtualMachineInstanceNetworkInterfaceFromJSONTyped(
     ipAddresses: !exists(json, 'ipAddresses') ? undefined : json['ipAddresses'],
     mac: !exists(json, 'mac') ? undefined : json['mac'],
     name: !exists(json, 'name') ? undefined : json['name'],
+    queueCount: !exists(json, 'queueCount') ? undefined : json['queueCount'],
   };
 }
 
@@ -96,5 +103,6 @@ export function V1VirtualMachineInstanceNetworkInterfaceToJSON(
     ipAddresses: value.ipAddresses,
     mac: value.mac,
     name: value.name,
+    queueCount: value.queueCount,
   };
 }

@@ -26,11 +26,11 @@ import {
  */
 export interface IoK8sApiAppsV1StatefulSetStatus {
   /**
-   * Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.
+   * Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset.
    * @type {number}
    * @memberof IoK8sApiAppsV1StatefulSetStatus
    */
-  availableReplicas: number;
+  availableReplicas?: number;
   /**
    * collisionCount is the count of hash collisions for the StatefulSet. The StatefulSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision.
    * @type {number}
@@ -101,7 +101,7 @@ export function IoK8sApiAppsV1StatefulSetStatusFromJSONTyped(
     return json;
   }
   return {
-    availableReplicas: json['availableReplicas'],
+    availableReplicas: !exists(json, 'availableReplicas') ? undefined : json['availableReplicas'],
     collisionCount: !exists(json, 'collisionCount') ? undefined : json['collisionCount'],
     conditions: !exists(json, 'conditions')
       ? undefined

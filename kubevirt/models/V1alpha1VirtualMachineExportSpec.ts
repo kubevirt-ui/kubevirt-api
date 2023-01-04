@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+import { exists } from '../runtime';
 import {
   K8sIoApiCoreV1TypedLocalObjectReference,
   K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
@@ -31,11 +32,17 @@ export interface V1alpha1VirtualMachineExportSpec {
    */
   source: K8sIoApiCoreV1TypedLocalObjectReference;
   /**
-   * TokenSecretRef is the name of the secret that contains the token used by the export server pod
+   * TokenSecretRef is the name of the custom-defined secret that contains the token used by the export server pod
    * @type {string}
    * @memberof V1alpha1VirtualMachineExportSpec
    */
-  tokenSecretRef: string;
+  tokenSecretRef?: string;
+  /**
+   * Duration is a wrapper around time.Duration which supports correct marshaling to YAML and JSON. In particular, it marshals into strings, which can be used as map keys in json.
+   * @type {string}
+   * @memberof V1alpha1VirtualMachineExportSpec
+   */
+  ttlDuration?: string;
 }
 
 export function V1alpha1VirtualMachineExportSpecFromJSON(
@@ -53,7 +60,8 @@ export function V1alpha1VirtualMachineExportSpecFromJSONTyped(
   }
   return {
     source: K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['source']),
-    tokenSecretRef: json['tokenSecretRef'],
+    tokenSecretRef: !exists(json, 'tokenSecretRef') ? undefined : json['tokenSecretRef'],
+    ttlDuration: !exists(json, 'ttlDuration') ? undefined : json['ttlDuration'],
   };
 }
 
@@ -69,5 +77,6 @@ export function V1alpha1VirtualMachineExportSpecToJSON(
   return {
     source: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.source),
     tokenSecretRef: value.tokenSecretRef,
+    ttlDuration: value.ttlDuration,
   };
 }

@@ -50,6 +50,12 @@ export interface V1VirtualMachineMemoryDumpRequest {
    */
   phase: string;
   /**
+   * Remove represents request of dissociating the memory dump pvc
+   * @type {boolean}
+   * @memberof V1VirtualMachineMemoryDumpRequest
+   */
+  remove?: boolean;
+  /**
    * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
    * @type {string}
    * @memberof V1VirtualMachineMemoryDumpRequest
@@ -76,6 +82,7 @@ export function V1VirtualMachineMemoryDumpRequestFromJSONTyped(
     fileName: !exists(json, 'fileName') ? undefined : json['fileName'],
     message: !exists(json, 'message') ? undefined : json['message'],
     phase: json['phase'],
+    remove: !exists(json, 'remove') ? undefined : json['remove'],
     startTimestamp: !exists(json, 'startTimestamp') ? undefined : json['startTimestamp'],
   };
 }
@@ -95,6 +102,7 @@ export function V1VirtualMachineMemoryDumpRequestToJSON(
     fileName: value.fileName,
     message: value.message,
     phase: value.phase,
+    remove: value.remove,
     startTimestamp: value.startTimestamp === undefined ? undefined : value.startTimestamp,
   };
 }

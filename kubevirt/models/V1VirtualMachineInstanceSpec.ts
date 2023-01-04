@@ -23,6 +23,9 @@ import {
   K8sIoApiCoreV1Toleration,
   K8sIoApiCoreV1TolerationFromJSON,
   K8sIoApiCoreV1TolerationToJSON,
+  K8sIoApiCoreV1TopologySpreadConstraint,
+  K8sIoApiCoreV1TopologySpreadConstraintFromJSON,
+  K8sIoApiCoreV1TopologySpreadConstraintToJSON,
   V1AccessCredential,
   V1AccessCredentialFromJSON,
   V1AccessCredentialToJSON,
@@ -149,6 +152,12 @@ export interface V1VirtualMachineInstanceSpec {
    */
   tolerations?: Array<K8sIoApiCoreV1Toleration>;
   /**
+   * TopologySpreadConstraints describes how a group of VMIs will be spread across a given topology domains. K8s scheduler will schedule VMI pods in a way which abides by the constraints.
+   * @type {Array<K8sIoApiCoreV1TopologySpreadConstraint>}
+   * @memberof V1VirtualMachineInstanceSpec
+   */
+  topologySpreadConstraints?: Array<K8sIoApiCoreV1TopologySpreadConstraint>;
+  /**
    * List of volumes that can be mounted by disks belonging to the vmi.
    * @type {Array<V1Volume>}
    * @memberof V1VirtualMachineInstanceSpec
@@ -201,6 +210,11 @@ export function V1VirtualMachineInstanceSpecFromJSONTyped(
     tolerations: !exists(json, 'tolerations')
       ? undefined
       : (json['tolerations'] as Array<any>).map(K8sIoApiCoreV1TolerationFromJSON),
+    topologySpreadConstraints: !exists(json, 'topologySpreadConstraints')
+      ? undefined
+      : (json['topologySpreadConstraints'] as Array<any>).map(
+          K8sIoApiCoreV1TopologySpreadConstraintFromJSON,
+        ),
     volumes: !exists(json, 'volumes')
       ? undefined
       : (json['volumes'] as Array<any>).map(V1VolumeFromJSON),
@@ -243,6 +257,12 @@ export function V1VirtualMachineInstanceSpecToJSON(
       value.tolerations === undefined
         ? undefined
         : (value.tolerations as Array<any>).map(K8sIoApiCoreV1TolerationToJSON),
+    topologySpreadConstraints:
+      value.topologySpreadConstraints === undefined
+        ? undefined
+        : (value.topologySpreadConstraints as Array<any>).map(
+            K8sIoApiCoreV1TopologySpreadConstraintToJSON,
+          ),
     volumes:
       value.volumes === undefined ? undefined : (value.volumes as Array<any>).map(V1VolumeToJSON),
   };

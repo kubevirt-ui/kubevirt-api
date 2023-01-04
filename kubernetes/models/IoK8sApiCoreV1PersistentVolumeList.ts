@@ -35,7 +35,7 @@ export interface IoK8sApiCoreV1PersistentVolumeList {
    */
   apiVersion?: string;
   /**
-   * List of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
+   * items is a list of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
    * @type {Array<IoK8sApiCoreV1PersistentVolume>}
    * @memberof IoK8sApiCoreV1PersistentVolumeList
    */

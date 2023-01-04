@@ -218,7 +218,7 @@ export interface IoK8sApiCoreV1Volume {
    */
   iscsi?: IoK8sApiCoreV1ISCSIVolumeSource;
   /**
-   * Volume's name. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+   * name of the volume. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @type {string}
    * @memberof IoK8sApiCoreV1Volume
    */

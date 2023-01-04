@@ -20,19 +20,19 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1NFSVolumeSource {
   /**
-   * Path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+   * path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    * @type {string}
    * @memberof IoK8sApiCoreV1NFSVolumeSource
    */
   path: string;
   /**
-   * ReadOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+   * readOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    * @type {boolean}
    * @memberof IoK8sApiCoreV1NFSVolumeSource
    */
   readOnly?: boolean;
   /**
-   * Server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+   * server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    * @type {string}
    * @memberof IoK8sApiCoreV1NFSVolumeSource
    */

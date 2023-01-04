@@ -29,7 +29,7 @@ import {
  */
 export interface V1DeveloperConfiguration {
   /**
-   *
+   * For each requested virtual CPU, CPUAllocationRatio defines how much physical CPU to request per VMI from the hosting node. The value is in fraction of a CPU thread (or core on non-hyperthreaded nodes). For example, a value of 1 means 1 physical CPU thread per VMI CPU thread. A value of 100 would be 1% of a physical thread allocated for each requested VMI thread. This option has no effect on VMIs that request dedicated CPUs. More information at: https://kubevirt.io/user-guide/operations/node_overcommit/#node-cpu-allocation-ratio Defaults to 10
    * @type {number}
    * @memberof V1DeveloperConfiguration
    */
@@ -41,7 +41,7 @@ export interface V1DeveloperConfiguration {
    */
   diskVerification?: V1DiskVerification;
   /**
-   *
+   * FeatureGates is the list of experimental features to enable. Defaults to none
    * @type {Array<string>}
    * @memberof V1DeveloperConfiguration
    */
@@ -53,7 +53,7 @@ export interface V1DeveloperConfiguration {
    */
   logVerbosity?: V1LogVerbosity;
   /**
-   *
+   * MemoryOvercommit is the percentage of memory we want to give VMIs compared to the amount given to its parent pod (virt-launcher). For example, a value of 102 means the VMI will "see" 2% more memory than its parent pod. Values under 100 are effectively "undercommits". Overcommits can lead to memory exhaustion, which in turn can lead to crashes. Use carefully. Defaults to 100
    * @type {number}
    * @memberof V1DeveloperConfiguration
    */
@@ -65,25 +65,25 @@ export interface V1DeveloperConfiguration {
    */
   minimumClusterTSCFrequency?: number;
   /**
-   *
+   * MinimumReservePVCBytes is the amount of space, in bytes, to leave unused on disks. Defaults to 131072 (128KiB)
    * @type {number}
    * @memberof V1DeveloperConfiguration
    */
   minimumReservePVCBytes?: number;
   /**
-   *
+   * NodeSelectors allows restricting VMI creation to nodes that match a set of labels. Defaults to none
    * @type {{ [key: string]: string; }}
    * @memberof V1DeveloperConfiguration
    */
   nodeSelectors?: { [key: string]: string };
   /**
-   *
+   * LessPVCSpaceToleration determines how much smaller, in percentage, disk PVCs are allowed to be compared to the requested size (to account for various overheads). Defaults to 10
    * @type {number}
    * @memberof V1DeveloperConfiguration
    */
   pvcTolerateLessSpaceUpToPercent?: number;
   /**
-   * UseEmulation can be set to true to allow fallback to software emulation in case hardware-assisted emulation is not available.
+   * UseEmulation can be set to true to allow fallback to software emulation in case hardware-assisted emulation is not available. Defaults to false
    * @type {boolean}
    * @memberof V1DeveloperConfiguration
    */

@@ -38,7 +38,7 @@ export interface IoK8sApiCoreV1PodAffinityTerm {
    */
   namespaceSelector?: IoK8sApimachineryPkgApisMetaV1LabelSelector;
   /**
-   * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace"
+   * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
    * @type {Array<string>}
    * @memberof IoK8sApiCoreV1PodAffinityTerm
    */

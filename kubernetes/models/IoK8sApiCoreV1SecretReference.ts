@@ -20,13 +20,13 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1SecretReference {
   /**
-   * Name is unique within a namespace to reference a secret resource.
+   * name is unique within a namespace to reference a secret resource.
    * @type {string}
    * @memberof IoK8sApiCoreV1SecretReference
    */
   name?: string;
   /**
-   * Namespace defines the space within which the secret name must be unique.
+   * namespace defines the space within which the secret name must be unique.
    * @type {string}
    * @memberof IoK8sApiCoreV1SecretReference
    */

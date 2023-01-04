@@ -20,7 +20,7 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1ContainerStateTerminated {
   /**
-   * Container's ID in the format 'docker://<container_id>'
+   * Container's ID in the format '<type>://<container_id>'
    * @type {string}
    * @memberof IoK8sApiCoreV1ContainerStateTerminated
    */

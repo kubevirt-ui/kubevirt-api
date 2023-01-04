@@ -35,6 +35,9 @@ import {
   V1SMBiosConfiguration,
   V1SMBiosConfigurationFromJSON,
   V1SMBiosConfigurationToJSON,
+  V1TLSConfiguration,
+  V1TLSConfigurationFromJSON,
+  V1TLSConfigurationToJSON,
 } from './';
 
 /**
@@ -207,6 +210,12 @@ export interface V1KubeVirtConfiguration {
   supportedGuestAgentVersions?: Array<string>;
   /**
    *
+   * @type {V1TLSConfiguration}
+   * @memberof V1KubeVirtConfiguration
+   */
+  tlsConfiguration?: V1TLSConfiguration;
+  /**
+   *
    * @type {number}
    * @memberof V1KubeVirtConfiguration
    */
@@ -275,6 +284,9 @@ export function V1KubeVirtConfigurationFromJSONTyped(
     supportedGuestAgentVersions: !exists(json, 'supportedGuestAgentVersions')
       ? undefined
       : json['supportedGuestAgentVersions'],
+    tlsConfiguration: !exists(json, 'tlsConfiguration')
+      ? undefined
+      : V1TLSConfigurationFromJSON(json['tlsConfiguration']),
     virtualMachineInstancesPerNode: !exists(json, 'virtualMachineInstancesPerNode')
       ? undefined
       : json['virtualMachineInstancesPerNode'],
@@ -318,6 +330,7 @@ export function V1KubeVirtConfigurationToJSON(value?: V1KubeVirtConfiguration | 
     selinuxLauncherType: value.selinuxLauncherType,
     smbios: V1SMBiosConfigurationToJSON(value.smbios),
     supportedGuestAgentVersions: value.supportedGuestAgentVersions,
+    tlsConfiguration: V1TLSConfigurationToJSON(value.tlsConfiguration),
     virtualMachineInstancesPerNode: value.virtualMachineInstancesPerNode,
     webhookConfiguration: V1ReloadableComponentConfigurationToJSON(value.webhookConfiguration),
   };

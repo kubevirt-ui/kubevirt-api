@@ -56,7 +56,7 @@ export interface IoK8sApiSchedulingV1PriorityClass {
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ObjectMeta;
   /**
-   * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+   * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset.
    * @type {string}
    * @memberof IoK8sApiSchedulingV1PriorityClass
    */

@@ -26,55 +26,55 @@ import {
  */
 export interface IoK8sApiCoreV1ISCSIPersistentVolumeSource {
   /**
-   * whether support iSCSI Discovery CHAP authentication
+   * chapAuthDiscovery defines whether support iSCSI Discovery CHAP authentication
    * @type {boolean}
    * @memberof IoK8sApiCoreV1ISCSIPersistentVolumeSource
    */
   chapAuthDiscovery?: boolean;
   /**
-   * whether support iSCSI Session CHAP authentication
+   * chapAuthSession defines whether support iSCSI Session CHAP authentication
    * @type {boolean}
    * @memberof IoK8sApiCoreV1ISCSIPersistentVolumeSource
    */
   chapAuthSession?: boolean;
   /**
-   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi
+   * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi
    * @type {string}
    * @memberof IoK8sApiCoreV1ISCSIPersistentVolumeSource
    */
   fsType?: string;
   /**
-   * Custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.
+   * initiatorName is the custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.
    * @type {string}
    * @memberof IoK8sApiCoreV1ISCSIPersistentVolumeSource
    */
   initiatorName?: string;
   /**
-   * Target iSCSI Qualified Name.
+   * iqn is Target iSCSI Qualified Name.
    * @type {string}
    * @memberof IoK8sApiCoreV1ISCSIPersistentVolumeSource
    */
   iqn: string;
   /**
-   * iSCSI Interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).
+   * iscsiInterface is the interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).
    * @type {string}
    * @memberof IoK8sApiCoreV1ISCSIPersistentVolumeSource
    */
   iscsiInterface?: string;
   /**
-   * iSCSI Target Lun number.
+   * lun is iSCSI Target Lun number.
    * @type {number}
    * @memberof IoK8sApiCoreV1ISCSIPersistentVolumeSource
    */
   lun: number;
   /**
-   * iSCSI Target Portal List. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+   * portals is the iSCSI Target Portal List. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
    * @type {Array<string>}
    * @memberof IoK8sApiCoreV1ISCSIPersistentVolumeSource
    */
   portals?: Array<string>;
   /**
-   * ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.
+   * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.
    * @type {boolean}
    * @memberof IoK8sApiCoreV1ISCSIPersistentVolumeSource
    */
@@ -86,7 +86,7 @@ export interface IoK8sApiCoreV1ISCSIPersistentVolumeSource {
    */
   secretRef?: IoK8sApiCoreV1SecretReference;
   /**
-   * iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+   * targetPortal is iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
    * @type {string}
    * @memberof IoK8sApiCoreV1ISCSIPersistentVolumeSource
    */

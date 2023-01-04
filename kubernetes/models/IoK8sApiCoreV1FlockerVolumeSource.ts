@@ -20,13 +20,13 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1FlockerVolumeSource {
   /**
-   * Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
+   * datasetName is Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
    * @type {string}
    * @memberof IoK8sApiCoreV1FlockerVolumeSource
    */
   datasetName?: string;
   /**
-   * UUID of the dataset. This is unique identifier of a Flocker dataset
+   * datasetUUID is the UUID of the dataset. This is unique identifier of a Flocker dataset
    * @type {string}
    * @memberof IoK8sApiCoreV1FlockerVolumeSource
    */

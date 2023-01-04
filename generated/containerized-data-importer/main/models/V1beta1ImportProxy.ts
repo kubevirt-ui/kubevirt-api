@@ -38,10 +38,10 @@ export interface V1beta1ImportProxy {
      */
     noProxy?: string;
     /**
-     * TrustedCAProxy is the name of a ConfigMap in the cdi namespace that contains a user-provided trusted certificate authority (CA) bundle. The TrustedCAProxy field is consumed by the import controller that is resposible for coping it to a config map named trusted-ca-proxy-bundle-cm in the cdi namespace. Here is an example of the ConfigMap (in yaml):
+     * TrustedCAProxy is the name of a ConfigMap in the cdi namespace that contains a user-provided trusted certificate authority (CA) bundle. The TrustedCAProxy ConfigMap is consumed by the DataImportCron controller for creating cronjobs, and by the import controller referring a copy of the ConfigMap in the import namespace. Here is an example of the ConfigMap (in yaml):
      * 
      * apiVersion: v1 kind: ConfigMap metadata:
-     *   name: trusted-ca-proxy-bundle-cm
+     *   name: my-ca-proxy-cm
      *   namespace: cdi
      * data:
      *   ca.pem: |

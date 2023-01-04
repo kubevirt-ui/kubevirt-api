@@ -13,12 +13,28 @@
  */
 
 import { exists } from '../runtime';
+import {
+  IoK8sApiCoreV1ResourceClaim,
+  IoK8sApiCoreV1ResourceClaimFromJSON,
+  IoK8sApiCoreV1ResourceClaimToJSON,
+} from './';
+
 /**
  * ResourceRequirements describes the compute resource requirements.
  * @export
  * @interface IoK8sApiCoreV1ResourceRequirements
  */
 export interface IoK8sApiCoreV1ResourceRequirements {
+  /**
+   * Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.
+   *
+   * This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.
+   *
+   * This field is immutable.
+   * @type {Array<IoK8sApiCoreV1ResourceClaim>}
+   * @memberof IoK8sApiCoreV1ResourceRequirements
+   */
+  claims?: Array<IoK8sApiCoreV1ResourceClaim>;
   /**
    * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
    * @type {{ [key: string]: string; }}
@@ -47,6 +63,9 @@ export function IoK8sApiCoreV1ResourceRequirementsFromJSONTyped(
     return json;
   }
   return {
+    claims: !exists(json, 'claims')
+      ? undefined
+      : (json['claims'] as Array<any>).map(IoK8sApiCoreV1ResourceClaimFromJSON),
     limits: !exists(json, 'limits') ? undefined : json['limits'],
     requests: !exists(json, 'requests') ? undefined : json['requests'],
   };
@@ -62,6 +81,10 @@ export function IoK8sApiCoreV1ResourceRequirementsToJSON(
     return null;
   }
   return {
+    claims:
+      value.claims === undefined
+        ? undefined
+        : (value.claims as Array<any>).map(IoK8sApiCoreV1ResourceClaimToJSON),
     limits: value.limits,
     requests: value.requests,
   };

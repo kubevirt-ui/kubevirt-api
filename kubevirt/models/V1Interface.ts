@@ -77,6 +77,12 @@ export interface V1Interface {
    */
   name: string;
   /**
+   * InterfacePasst connects to a given network.
+   * @type {object}
+   * @memberof V1Interface
+   */
+  passt?: object;
+  /**
    * If specified, the virtual network interface will be placed on the guests pci address with the specified PCI address. For example: 0000:81:01.10
    * @type {string}
    * @memberof V1Interface
@@ -127,6 +133,7 @@ export function V1InterfaceFromJSONTyped(json: any, _ignoreDiscriminator: boolea
     masquerade: !exists(json, 'masquerade') ? undefined : json['masquerade'],
     model: !exists(json, 'model') ? undefined : json['model'],
     name: json['name'],
+    passt: !exists(json, 'passt') ? undefined : json['passt'],
     pciAddress: !exists(json, 'pciAddress') ? undefined : json['pciAddress'],
     ports: !exists(json, 'ports') ? undefined : (json['ports'] as Array<any>).map(V1PortFromJSON),
     slirp: !exists(json, 'slirp') ? undefined : json['slirp'],
@@ -151,6 +158,7 @@ export function V1InterfaceToJSON(value?: V1Interface | null): any {
     masquerade: value.masquerade,
     model: value.model,
     name: value.name,
+    passt: value.passt,
     pciAddress: value.pciAddress,
     ports: value.ports === undefined ? undefined : (value.ports as Array<any>).map(V1PortToJSON),
     slirp: value.slirp,

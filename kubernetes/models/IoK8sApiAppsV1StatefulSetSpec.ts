@@ -14,6 +14,9 @@
 
 import { exists } from '../runtime';
 import {
+  IoK8sApiAppsV1StatefulSetOrdinals,
+  IoK8sApiAppsV1StatefulSetOrdinalsFromJSON,
+  IoK8sApiAppsV1StatefulSetOrdinalsToJSON,
   IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicy,
   IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyFromJSON,
   IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyToJSON,
@@ -38,11 +41,17 @@ import {
  */
 export interface IoK8sApiAppsV1StatefulSetSpec {
   /**
-   * Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready) This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate.
+   * Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)
    * @type {number}
    * @memberof IoK8sApiAppsV1StatefulSetSpec
    */
   minReadySeconds?: number;
+  /**
+   *
+   * @type {IoK8sApiAppsV1StatefulSetOrdinals}
+   * @memberof IoK8sApiAppsV1StatefulSetSpec
+   */
+  ordinals?: IoK8sApiAppsV1StatefulSetOrdinals;
   /**
    *
    * @type {IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicy}
@@ -112,6 +121,9 @@ export function IoK8sApiAppsV1StatefulSetSpecFromJSONTyped(
   }
   return {
     minReadySeconds: !exists(json, 'minReadySeconds') ? undefined : json['minReadySeconds'],
+    ordinals: !exists(json, 'ordinals')
+      ? undefined
+      : IoK8sApiAppsV1StatefulSetOrdinalsFromJSON(json['ordinals']),
     persistentVolumeClaimRetentionPolicy: !exists(json, 'persistentVolumeClaimRetentionPolicy')
       ? undefined
       : IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyFromJSON(
@@ -149,6 +161,7 @@ export function IoK8sApiAppsV1StatefulSetSpecToJSON(
   }
   return {
     minReadySeconds: value.minReadySeconds,
+    ordinals: IoK8sApiAppsV1StatefulSetOrdinalsToJSON(value.ordinals),
     persistentVolumeClaimRetentionPolicy:
       IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyToJSON(
         value.persistentVolumeClaimRetentionPolicy,

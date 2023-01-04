@@ -20,19 +20,19 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1GlusterfsVolumeSource {
   /**
-   * EndpointsName is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+   * endpoints is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    * @type {string}
    * @memberof IoK8sApiCoreV1GlusterfsVolumeSource
    */
   endpoints: string;
   /**
-   * Path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+   * path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    * @type {string}
    * @memberof IoK8sApiCoreV1GlusterfsVolumeSource
    */
   path: string;
   /**
-   * ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+   * readOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    * @type {boolean}
    * @memberof IoK8sApiCoreV1GlusterfsVolumeSource
    */

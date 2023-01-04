@@ -23,6 +23,8 @@ import {
 } from './';
 
 /**
+ * Deprecated for removal in v2, please use VirtualMachineInstanceType and VirtualMachinePreference instead.
+ *
  * VirtualMachineInstancePreset defines a VMI spec.domain to be applied to all VMIs that match the provided label selector More info: https://kubevirt.io/user-guide/virtual_machines/presets/#overrides
  * @export
  * @interface V1VirtualMachineInstancePreset

@@ -14,9 +14,9 @@
 
 import { exists } from '../runtime';
 import {
-  IoK8sApiCoreV1LoadBalancerStatus,
-  IoK8sApiCoreV1LoadBalancerStatusFromJSON,
-  IoK8sApiCoreV1LoadBalancerStatusToJSON,
+  IoK8sApiNetworkingV1IngressLoadBalancerStatus,
+  IoK8sApiNetworkingV1IngressLoadBalancerStatusFromJSON,
+  IoK8sApiNetworkingV1IngressLoadBalancerStatusToJSON,
 } from './';
 
 /**
@@ -27,10 +27,10 @@ import {
 export interface IoK8sApiNetworkingV1IngressStatus {
   /**
    *
-   * @type {IoK8sApiCoreV1LoadBalancerStatus}
+   * @type {IoK8sApiNetworkingV1IngressLoadBalancerStatus}
    * @memberof IoK8sApiNetworkingV1IngressStatus
    */
-  loadBalancer?: IoK8sApiCoreV1LoadBalancerStatus;
+  loadBalancer?: IoK8sApiNetworkingV1IngressLoadBalancerStatus;
 }
 
 export function IoK8sApiNetworkingV1IngressStatusFromJSON(
@@ -49,7 +49,7 @@ export function IoK8sApiNetworkingV1IngressStatusFromJSONTyped(
   return {
     loadBalancer: !exists(json, 'loadBalancer')
       ? undefined
-      : IoK8sApiCoreV1LoadBalancerStatusFromJSON(json['loadBalancer']),
+      : IoK8sApiNetworkingV1IngressLoadBalancerStatusFromJSON(json['loadBalancer']),
   };
 }
 
@@ -63,6 +63,6 @@ export function IoK8sApiNetworkingV1IngressStatusToJSON(
     return null;
   }
   return {
-    loadBalancer: IoK8sApiCoreV1LoadBalancerStatusToJSON(value.loadBalancer),
+    loadBalancer: IoK8sApiNetworkingV1IngressLoadBalancerStatusToJSON(value.loadBalancer),
   };
 }

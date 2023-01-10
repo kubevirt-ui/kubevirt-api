@@ -22,19 +22,19 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1GitRepoVolumeSource {
   /**
-   * Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+   * directory is the target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
    * @type {string}
    * @memberof IoK8sApiCoreV1GitRepoVolumeSource
    */
   directory?: string;
   /**
-   * Repository URL
+   * repository is the URL
    * @type {string}
    * @memberof IoK8sApiCoreV1GitRepoVolumeSource
    */
   repository: string;
   /**
-   * Commit hash for the specified revision.
+   * revision is the commit hash for the specified revision.
    * @type {string}
    * @memberof IoK8sApiCoreV1GitRepoVolumeSource
    */

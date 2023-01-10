@@ -20,7 +20,7 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1ContainerImage {
   /**
-   * Names by which this image is known. e.g. ["k8s.gcr.io/hyperkube:v1.0.7", "dockerhub.io/google_containers/hyperkube:v1.0.7"]
+   * Names by which this image is known. e.g. ["kubernetes.example/hyperkube:v1.0.7", "cloud-vendor.registry.example/cloud-vendor/hyperkube:v1.0.7"]
    * @type {Array<string>}
    * @memberof IoK8sApiCoreV1ContainerImage
    */

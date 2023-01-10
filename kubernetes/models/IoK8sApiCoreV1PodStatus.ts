@@ -38,13 +38,13 @@ export interface IoK8sApiCoreV1PodStatus {
    */
   conditions?: Array<IoK8sApiCoreV1PodCondition>;
   /**
-   * The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status
+   * The list has one entry per container in the manifest. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status
    * @type {Array<IoK8sApiCoreV1ContainerStatus>}
    * @memberof IoK8sApiCoreV1PodStatus
    */
   containerStatuses?: Array<IoK8sApiCoreV1ContainerStatus>;
   /**
-   * Status for any ephemeral containers that have run in this pod. This field is beta-level and available on clusters that haven't disabled the EphemeralContainers feature gate.
+   * Status for any ephemeral containers that have run in this pod.
    * @type {Array<IoK8sApiCoreV1ContainerStatus>}
    * @memberof IoK8sApiCoreV1PodStatus
    */

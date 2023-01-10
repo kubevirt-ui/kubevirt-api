@@ -20,31 +20,31 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1FCVolumeSource {
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
    * @type {string}
    * @memberof IoK8sApiCoreV1FCVolumeSource
    */
   fsType?: string;
   /**
-   * Optional: FC target lun number
+   * lun is Optional: FC target lun number
    * @type {number}
    * @memberof IoK8sApiCoreV1FCVolumeSource
    */
   lun?: number;
   /**
-   * Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @type {boolean}
    * @memberof IoK8sApiCoreV1FCVolumeSource
    */
   readOnly?: boolean;
   /**
-   * Optional: FC target worldwide names (WWNs)
+   * targetWWNs is Optional: FC target worldwide names (WWNs)
    * @type {Array<string>}
    * @memberof IoK8sApiCoreV1FCVolumeSource
    */
   targetWWNs?: Array<string>;
   /**
-   * Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.
+   * wwids Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.
    * @type {Array<string>}
    * @memberof IoK8sApiCoreV1FCVolumeSource
    */

@@ -20,25 +20,25 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1AzureFilePersistentVolumeSource {
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @type {boolean}
    * @memberof IoK8sApiCoreV1AzureFilePersistentVolumeSource
    */
   readOnly?: boolean;
   /**
-   * the name of secret that contains Azure Storage Account Name and Key
+   * secretName is the name of secret that contains Azure Storage Account Name and Key
    * @type {string}
    * @memberof IoK8sApiCoreV1AzureFilePersistentVolumeSource
    */
   secretName: string;
   /**
-   * the namespace of the secret that contains Azure Storage Account Name and Key default is the same as the Pod
+   * secretNamespace is the namespace of the secret that contains Azure Storage Account Name and Key default is the same as the Pod
    * @type {string}
    * @memberof IoK8sApiCoreV1AzureFilePersistentVolumeSource
    */
   secretNamespace?: string;
   /**
-   * Share Name
+   * shareName is the azure Share Name
    * @type {string}
    * @memberof IoK8sApiCoreV1AzureFilePersistentVolumeSource
    */

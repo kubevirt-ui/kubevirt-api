@@ -35,7 +35,7 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimList {
    */
   apiVersion?: string;
   /**
-   * A list of persistent volume claims. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+   * items is a list of persistent volume claims. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
    * @type {Array<IoK8sApiCoreV1PersistentVolumeClaim>}
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimList
    */

@@ -63,6 +63,18 @@ export interface IoK8sApiStorageV1CSIDriverSpec {
    */
   requiresRepublish?: boolean;
   /**
+   * SELinuxMount specifies if the CSI driver supports "-o context" mount option.
+   *
+   * When "true", the CSI driver must ensure that all volumes provided by this CSI driver can be mounted separately with different `-o context` options. This is typical for storage backends that provide volumes as filesystems on block devices or as independent shared volumes. Kubernetes will call NodeStage / NodePublish with "-o context=xyz" mount option when mounting a ReadWriteOncePod volume used in Pod that has explicitly set SELinux context. In the future, it may be expanded to other volume AccessModes. In any case, Kubernetes will ensure that the volume is mounted only with a single SELinux context.
+   *
+   * When "false", Kubernetes won't pass any special SELinux mount options to the driver. This is typical for volumes that represent subdirectories of a bigger shared filesystem.
+   *
+   * Default is "false".
+   * @type {boolean}
+   * @memberof IoK8sApiStorageV1CSIDriverSpec
+   */
+  seLinuxMount?: boolean;
+  /**
    * If set to true, storageCapacity indicates that the CSI volume driver wants pod scheduling to consider the storage capacity that the driver deployment will report by creating CSIStorageCapacity objects with capacity information.
    *
    * The check can be enabled immediately when deploying a driver. In that case, provisioning new volumes with late binding will pause until the driver deployment has published some suitable CSIStorageCapacity object.
@@ -70,8 +82,6 @@ export interface IoK8sApiStorageV1CSIDriverSpec {
    * Alternatively, the driver can be deployed with the field unset or false and it can be flipped later when storage capacity information has been published.
    *
    * This field was immutable in Kubernetes <= 1.22 and now is mutable.
-   *
-   * This is a beta field and only available when the CSIStorageCapacity feature is enabled. The default is false.
    * @type {boolean}
    * @memberof IoK8sApiStorageV1CSIDriverSpec
    */
@@ -116,6 +126,7 @@ export function IoK8sApiStorageV1CSIDriverSpecFromJSONTyped(
     fsGroupPolicy: !exists(json, 'fsGroupPolicy') ? undefined : json['fsGroupPolicy'],
     podInfoOnMount: !exists(json, 'podInfoOnMount') ? undefined : json['podInfoOnMount'],
     requiresRepublish: !exists(json, 'requiresRepublish') ? undefined : json['requiresRepublish'],
+    seLinuxMount: !exists(json, 'seLinuxMount') ? undefined : json['seLinuxMount'],
     storageCapacity: !exists(json, 'storageCapacity') ? undefined : json['storageCapacity'],
     tokenRequests: !exists(json, 'tokenRequests')
       ? undefined
@@ -140,6 +151,7 @@ export function IoK8sApiStorageV1CSIDriverSpecToJSON(
     fsGroupPolicy: value.fsGroupPolicy,
     podInfoOnMount: value.podInfoOnMount,
     requiresRepublish: value.requiresRepublish,
+    seLinuxMount: value.seLinuxMount,
     storageCapacity: value.storageCapacity,
     tokenRequests:
       value.tokenRequests === undefined

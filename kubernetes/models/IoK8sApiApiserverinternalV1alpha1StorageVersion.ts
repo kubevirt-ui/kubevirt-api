@@ -23,8 +23,7 @@ import {
 } from './';
 
 /**
- *
- *  Storage version of a specific resource.
+ * Storage version of a specific resource.
  * @export
  * @interface IoK8sApiApiserverinternalV1alpha1StorageVersion
  */

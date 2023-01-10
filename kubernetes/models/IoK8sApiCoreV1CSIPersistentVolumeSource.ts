@@ -38,17 +38,23 @@ export interface IoK8sApiCoreV1CSIPersistentVolumeSource {
    */
   controllerPublishSecretRef?: IoK8sApiCoreV1SecretReference;
   /**
-   * Driver is the name of the driver to use for this volume. Required.
+   * driver is the name of the driver to use for this volume. Required.
    * @type {string}
    * @memberof IoK8sApiCoreV1CSIPersistentVolumeSource
    */
   driver: string;
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs".
+   * fsType to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs".
    * @type {string}
    * @memberof IoK8sApiCoreV1CSIPersistentVolumeSource
    */
   fsType?: string;
+  /**
+   *
+   * @type {IoK8sApiCoreV1SecretReference}
+   * @memberof IoK8sApiCoreV1CSIPersistentVolumeSource
+   */
+  nodeExpandSecretRef?: IoK8sApiCoreV1SecretReference;
   /**
    *
    * @type {IoK8sApiCoreV1SecretReference}
@@ -62,19 +68,19 @@ export interface IoK8sApiCoreV1CSIPersistentVolumeSource {
    */
   nodeStageSecretRef?: IoK8sApiCoreV1SecretReference;
   /**
-   * Optional: The value to pass to ControllerPublishVolumeRequest. Defaults to false (read/write).
+   * readOnly value to pass to ControllerPublishVolumeRequest. Defaults to false (read/write).
    * @type {boolean}
    * @memberof IoK8sApiCoreV1CSIPersistentVolumeSource
    */
   readOnly?: boolean;
   /**
-   * Attributes of the volume to publish.
+   * volumeAttributes of the volume to publish.
    * @type {{ [key: string]: string; }}
    * @memberof IoK8sApiCoreV1CSIPersistentVolumeSource
    */
   volumeAttributes?: { [key: string]: string };
   /**
-   * VolumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls. Required.
+   * volumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls. Required.
    * @type {string}
    * @memberof IoK8sApiCoreV1CSIPersistentVolumeSource
    */
@@ -103,6 +109,9 @@ export function IoK8sApiCoreV1CSIPersistentVolumeSourceFromJSONTyped(
       : IoK8sApiCoreV1SecretReferenceFromJSON(json['controllerPublishSecretRef']),
     driver: json['driver'],
     fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
+    nodeExpandSecretRef: !exists(json, 'nodeExpandSecretRef')
+      ? undefined
+      : IoK8sApiCoreV1SecretReferenceFromJSON(json['nodeExpandSecretRef']),
     nodePublishSecretRef: !exists(json, 'nodePublishSecretRef')
       ? undefined
       : IoK8sApiCoreV1SecretReferenceFromJSON(json['nodePublishSecretRef']),
@@ -131,6 +140,7 @@ export function IoK8sApiCoreV1CSIPersistentVolumeSourceToJSON(
     ),
     driver: value.driver,
     fsType: value.fsType,
+    nodeExpandSecretRef: IoK8sApiCoreV1SecretReferenceToJSON(value.nodeExpandSecretRef),
     nodePublishSecretRef: IoK8sApiCoreV1SecretReferenceToJSON(value.nodePublishSecretRef),
     nodeStageSecretRef: IoK8sApiCoreV1SecretReferenceToJSON(value.nodeStageSecretRef),
     readOnly: value.readOnly,

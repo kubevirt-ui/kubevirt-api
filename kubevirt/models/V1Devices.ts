@@ -53,6 +53,12 @@ export interface V1Devices {
    */
   autoattachGraphicsDevice?: boolean;
   /**
+   * Whether to attach an Input Device. Defaults to false.
+   * @type {boolean}
+   * @memberof V1Devices
+   */
+  autoattachInputDevice?: boolean;
+  /**
    * Whether to attach the Memory balloon device with default period. Period can be adjusted in virt-config. Defaults to true.
    * @type {boolean}
    * @memberof V1Devices
@@ -176,6 +182,9 @@ export function V1DevicesFromJSONTyped(json: any, _ignoreDiscriminator: boolean)
     autoattachGraphicsDevice: !exists(json, 'autoattachGraphicsDevice')
       ? undefined
       : json['autoattachGraphicsDevice'],
+    autoattachInputDevice: !exists(json, 'autoattachInputDevice')
+      ? undefined
+      : json['autoattachInputDevice'],
     autoattachMemBalloon: !exists(json, 'autoattachMemBalloon')
       ? undefined
       : json['autoattachMemBalloon'],
@@ -224,6 +233,7 @@ export function V1DevicesToJSON(value?: V1Devices | null): any {
   }
   return {
     autoattachGraphicsDevice: value.autoattachGraphicsDevice,
+    autoattachInputDevice: value.autoattachInputDevice,
     autoattachMemBalloon: value.autoattachMemBalloon,
     autoattachPodInterface: value.autoattachPodInterface,
     autoattachSerialConsole: value.autoattachSerialConsole,

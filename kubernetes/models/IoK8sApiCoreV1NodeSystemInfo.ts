@@ -31,7 +31,7 @@ export interface IoK8sApiCoreV1NodeSystemInfo {
    */
   bootID: string;
   /**
-   * ContainerRuntime Version reported by the node through runtime remote API (e.g. docker://1.5.0).
+   * ContainerRuntime Version reported by the node through runtime remote API (e.g. containerd://1.4.2).
    * @type {string}
    * @memberof IoK8sApiCoreV1NodeSystemInfo
    */

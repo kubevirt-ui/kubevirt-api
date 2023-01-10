@@ -20,19 +20,19 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1PersistentVolumeStatus {
   /**
-   * A human-readable message indicating details about why the volume is in this state.
+   * message is a human-readable message indicating details about why the volume is in this state.
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeStatus
    */
   message?: string;
   /**
-   * Phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase
+   * phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeStatus
    */
   phase?: string;
   /**
-   * Reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.
+   * reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeStatus
    */

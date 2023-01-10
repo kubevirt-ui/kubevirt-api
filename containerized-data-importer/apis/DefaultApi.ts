@@ -83,11 +83,6 @@ export interface CreateNamespacedDataVolumeRequest {
   body: V1beta1DataVolume;
 }
 
-export interface CreateNamespacedUploadTokenRequestV1alpha1Request {
-  namespace: string;
-  body: V1beta1UploadTokenRequest;
-}
-
 export interface CreateNamespacedUploadTokenRequestV1beta1Request {
   namespace: string;
   body: V1beta1UploadTokenRequest;
@@ -802,66 +797,6 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<V1beta1DataVolume> {
     const response = await this.createNamespacedDataVolumeRaw(requestParameters, initOverrides);
-    return await response.value();
-  }
-
-  /**
-   * Create an UploadTokenRequest object.
-   */
-  async createNamespacedUploadTokenRequestV1alpha1Raw(
-    requestParameters: CreateNamespacedUploadTokenRequestV1alpha1Request,
-    initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<V1beta1UploadTokenRequest>> {
-    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-      throw new runtime.RequiredError(
-        'namespace',
-        'Required parameter requestParameters.namespace was null or undefined when calling createNamespacedUploadTokenRequestV1alpha1.',
-      );
-    }
-
-    if (requestParameters.body === null || requestParameters.body === undefined) {
-      throw new runtime.RequiredError(
-        'body',
-        'Required parameter requestParameters.body was null or undefined when calling createNamespacedUploadTokenRequestV1alpha1.',
-      );
-    }
-
-    const queryParameters: any = {};
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    headerParameters['Content-Type'] = 'application/json';
-
-    const response = await this.request(
-      {
-        path: `/apis/upload.cdi.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/uploadtokenrequests`.replace(
-          `{${'namespace'}}`,
-          encodeURIComponent(String(requestParameters.namespace)),
-        ),
-        method: 'POST',
-        headers: headerParameters,
-        query: queryParameters,
-        body: V1beta1UploadTokenRequestToJSON(requestParameters.body),
-      },
-      initOverrides,
-    );
-
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      V1beta1UploadTokenRequestFromJSON(jsonValue),
-    );
-  }
-
-  /**
-   * Create an UploadTokenRequest object.
-   */
-  async createNamespacedUploadTokenRequestV1alpha1(
-    requestParameters: CreateNamespacedUploadTokenRequestV1alpha1Request,
-    initOverrides?: RequestInit,
-  ): Promise<V1beta1UploadTokenRequest> {
-    const response = await this.createNamespacedUploadTokenRequestV1alpha1Raw(
-      requestParameters,
-      initOverrides,
-    );
     return await response.value();
   }
 
@@ -1726,39 +1661,6 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<V1APIResourceList> {
     const response = await this.getAPIResourcesCdiKubevirtIoV1beta1Raw(initOverrides);
-    return await response.value();
-  }
-
-  /**
-   * Get a CDI API resources
-   */
-  async getAPIResourcesV1alpha1Raw(
-    initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<V1APIResourceList>> {
-    const queryParameters: any = {};
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    const response = await this.request(
-      {
-        path: `/apis/upload.cdi.kubevirt.io/v1alpha1/`,
-        method: 'GET',
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides,
-    );
-
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      V1APIResourceListFromJSON(jsonValue),
-    );
-  }
-
-  /**
-   * Get a CDI API resources
-   */
-  async getAPIResourcesV1alpha1(initOverrides?: RequestInit): Promise<V1APIResourceList> {
-    const response = await this.getAPIResourcesV1alpha1Raw(initOverrides);
     return await response.value();
   }
 

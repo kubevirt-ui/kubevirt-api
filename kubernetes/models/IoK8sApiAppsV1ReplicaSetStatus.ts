@@ -56,7 +56,7 @@ export interface IoK8sApiAppsV1ReplicaSetStatus {
    */
   readyReplicas?: number;
   /**
-   * Replicas is the most recently oberved number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller
+   * Replicas is the most recently observed number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller
    * @type {number}
    * @memberof IoK8sApiAppsV1ReplicaSetStatus
    */

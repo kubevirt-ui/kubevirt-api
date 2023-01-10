@@ -14,19 +14,19 @@
 
 import { exists } from '../runtime';
 /**
- * MigrationConfiguration holds migration options
+ * MigrationConfiguration holds migration options. Can be overridden for specific groups of VMs though migration policies. Visit https://kubevirt.io/user-guide/operations/migration_policies/ for more information.
  * @export
  * @interface V1MigrationConfiguration
  */
 export interface V1MigrationConfiguration {
   /**
-   *
+   * AllowAutoConverge allows the platform to compromise performance/availability of VMIs to guarantee successful VMI live migrations. Defaults to false
    * @type {boolean}
    * @memberof V1MigrationConfiguration
    */
   allowAutoConverge?: boolean;
   /**
-   *
+   * AllowPostCopy enables post-copy live migrations. Such migrations allow even the busiest VMIs to successfully live-migrate. However, events like a network failure can cause a VMI crash. If set to true, migrations will still start in pre-copy, but switch to post-copy when CompletionTimeoutPerGiB triggers. Defaults to false
    * @type {boolean}
    * @memberof V1MigrationConfiguration
    */
@@ -68,49 +68,49 @@ export interface V1MigrationConfiguration {
    */
   bandwidthPerMigration?: string;
   /**
-   *
+   * CompletionTimeoutPerGiB is the maximum number of seconds per GiB a migration is allowed to take. If a live-migration takes longer to migrate than this value multiplied by the size of the VMI, the migration will be cancelled, unless AllowPostCopy is true. Defaults to 800
    * @type {number}
    * @memberof V1MigrationConfiguration
    */
   completionTimeoutPerGiB?: number;
   /**
-   *
+   * When set to true, DisableTLS will disable the additional layer of live migration encryption provided by KubeVirt. This is usually a bad idea. Defaults to false
    * @type {boolean}
    * @memberof V1MigrationConfiguration
    */
   disableTLS?: boolean;
   /**
-   *
+   * Network is the name of the CNI network to use for live migrations. By default, migrations go through the pod network.
    * @type {string}
    * @memberof V1MigrationConfiguration
    */
   network?: string;
   /**
-   *
+   * NodeDrainTaintKey defines the taint key that indicates a node should be drained. Note: this option relies on the deprecated node taint feature. Default: kubevirt.io/drain
    * @type {string}
    * @memberof V1MigrationConfiguration
    */
   nodeDrainTaintKey?: string;
   /**
-   *
+   * ParallelMigrationsPerCluster is the total number of concurrent live migrations allowed cluster-wide. Defaults to 5
    * @type {number}
    * @memberof V1MigrationConfiguration
    */
   parallelMigrationsPerCluster?: number;
   /**
-   *
+   * ParallelOutboundMigrationsPerNode is the maximum number of concurrent outgoing live migrations allowed per node. Defaults to 2
    * @type {number}
    * @memberof V1MigrationConfiguration
    */
   parallelOutboundMigrationsPerNode?: number;
   /**
-   *
+   * ProgressTimeout is the maximum number of seconds a live migration is allowed to make no progress. Hitting this timeout means a migration transferred 0 data for that many seconds. The migration is then considered stuck and therefore cancelled. Defaults to 150
    * @type {number}
    * @memberof V1MigrationConfiguration
    */
   progressTimeout?: number;
   /**
-   *
+   * UnsafeMigrationOverride allows live migrations to occur even if the compatibility check indicates the migration will be unsafe to the guest. Defaults to false
    * @type {boolean}
    * @memberof V1MigrationConfiguration
    */

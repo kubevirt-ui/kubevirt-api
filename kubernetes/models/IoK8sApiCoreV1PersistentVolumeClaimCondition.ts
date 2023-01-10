@@ -32,13 +32,13 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimCondition {
    */
   lastTransitionTime?: string;
   /**
-   * Human-readable message indicating details about last transition.
+   * message is the human-readable message indicating details about last transition.
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimCondition
    */
   message?: string;
   /**
-   * Unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports "ResizeStarted" that means the underlying persistent volume is being resized.
+   * reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports "ResizeStarted" that means the underlying persistent volume is being resized.
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimCondition
    */

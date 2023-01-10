@@ -32,7 +32,7 @@ export interface V1PreferenceMatcher {
    */
   name: string;
   /**
-   * RevisionName specifies a ControllerRevision containing a specific copy of the VirtualMachinePreference or VirtualMachineClusterPreference to be used. This is initially captured the first time the flavor is applied to the VirtualMachineInstance.
+   * RevisionName specifies a ControllerRevision containing a specific copy of the VirtualMachinePreference or VirtualMachineClusterPreference to be used. This is initially captured the first time the instancetype is applied to the VirtualMachineInstance.
    * @type {string}
    * @memberof V1PreferenceMatcher
    */

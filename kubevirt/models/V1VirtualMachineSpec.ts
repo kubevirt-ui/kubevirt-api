@@ -17,9 +17,9 @@ import {
   V1DataVolumeTemplateSpec,
   V1DataVolumeTemplateSpecFromJSON,
   V1DataVolumeTemplateSpecToJSON,
-  V1FlavorMatcher,
-  V1FlavorMatcherFromJSON,
-  V1FlavorMatcherToJSON,
+  V1InstancetypeMatcher,
+  V1InstancetypeMatcherFromJSON,
+  V1InstancetypeMatcherToJSON,
   V1PreferenceMatcher,
   V1PreferenceMatcherFromJSON,
   V1PreferenceMatcherToJSON,
@@ -42,10 +42,10 @@ export interface V1VirtualMachineSpec {
   dataVolumeTemplates?: Array<V1DataVolumeTemplateSpec>;
   /**
    *
-   * @type {V1FlavorMatcher}
+   * @type {V1InstancetypeMatcher}
    * @memberof V1VirtualMachineSpec
    */
-  flavor?: V1FlavorMatcher;
+  instancetype?: V1InstancetypeMatcher;
   /**
    *
    * @type {V1PreferenceMatcher}
@@ -87,7 +87,9 @@ export function V1VirtualMachineSpecFromJSONTyped(
     dataVolumeTemplates: !exists(json, 'dataVolumeTemplates')
       ? undefined
       : (json['dataVolumeTemplates'] as Array<any>).map(V1DataVolumeTemplateSpecFromJSON),
-    flavor: !exists(json, 'flavor') ? undefined : V1FlavorMatcherFromJSON(json['flavor']),
+    instancetype: !exists(json, 'instancetype')
+      ? undefined
+      : V1InstancetypeMatcherFromJSON(json['instancetype']),
     preference: !exists(json, 'preference')
       ? undefined
       : V1PreferenceMatcherFromJSON(json['preference']),
@@ -109,7 +111,7 @@ export function V1VirtualMachineSpecToJSON(value?: V1VirtualMachineSpec | null):
       value.dataVolumeTemplates === undefined
         ? undefined
         : (value.dataVolumeTemplates as Array<any>).map(V1DataVolumeTemplateSpecToJSON),
-    flavor: V1FlavorMatcherToJSON(value.flavor),
+    instancetype: V1InstancetypeMatcherToJSON(value.instancetype),
     preference: V1PreferenceMatcherToJSON(value.preference),
     runStrategy: value.runStrategy,
     running: value.running,

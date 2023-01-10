@@ -11,9 +11,9 @@
 <p>NoProxy is a comma-separated list of hostnames and/or CIDRs for which the proxy should not be used. Empty means unset and will not result in the import pod env var.</p>
 </div><dl class="tsd-comment-tags"><dt>memberof</dt><dd><p>V1beta1ImportProxy</p>
 </dd></dl></div></section><section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="trustedCAProxy" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><span class="tsd-flag ts-flagOptional">Optional</span> trustedCAProxy<a href="#trustedCAProxy" aria-label="Permalink" class="tsd-anchor-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></svg></a></h3><div class="tsd-signature tsd-kind-icon">trustedCAProxy<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources"><ul><li>Defined in <a href="https://github.com/kubevirt-ui/kubevirt-api/blob/main/containerized-data-importer/models/V1beta1ImportProxy.ts#L54">containerized-data-importer/models/V1beta1ImportProxy.ts:54</a></li></ul></aside><div class="tsd-comment tsd-typography"><div class="lead">
-<p>TrustedCAProxy is the name of a ConfigMap in the cdi namespace that contains a user-provided trusted certificate authority (CA) bundle. The TrustedCAProxy field is consumed by the import controller that is resposible for coping it to a config map named trusted-ca-proxy-bundle-cm in the cdi namespace. Here is an example of the ConfigMap (in yaml):</p>
+<p>TrustedCAProxy is the name of a ConfigMap in the cdi namespace that contains a user-provided trusted certificate authority (CA) bundle. The TrustedCAProxy ConfigMap is consumed by the DataImportCron controller for creating cronjobs, and by the import controller referring a copy of the ConfigMap in the import namespace. Here is an example of the ConfigMap (in yaml):</p>
 </div><div><p>apiVersion: v1 kind: ConfigMap metadata:
-  name: trusted-ca-proxy-bundle-cm
+  name: my-ca-proxy-cm
   namespace: cdi
 data:
   ca.pem: |

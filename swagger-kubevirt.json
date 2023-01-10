@@ -1320,13 +1320,13 @@
      }
     ]
    },
-   "/apis/flavor.kubevirt.io/": {
+   "/apis/instancetype.kubevirt.io/": {
     "get": {
      "description": "Get a KubeVirt API group",
      "produces": [
       "application/json"
      ],
-     "operationId": "getAPIGroup-flavor.kubevirt.io",
+     "operationId": "getAPIGroup-instancetype.kubevirt.io",
      "responses": {
       "200": {
        "description": "OK",
@@ -1346,13 +1346,13 @@
      }
     }
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/": {
     "get": {
      "description": "Get KubeVirt API Resources",
      "produces": [
       "application/json"
      ],
-     "operationId": "getAPIResources-flavor.kubevirt.io-v1alpha1",
+     "operationId": "getAPIResources-instancetype.kubevirt.io-v1alpha2",
      "responses": {
       "200": {
        "description": "OK",
@@ -1372,15 +1372,15 @@
      }
     }
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineflavors": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstancetypes": {
     "get": {
-     "description": "Get a list of VirtualMachineFlavor objects.",
+     "description": "Get a list of VirtualMachineInstancetype objects.",
      "produces": [
       "application/json",
       "application/yaml",
       "application/json;stream=watch"
      ],
-     "operationId": "listNamespacedVirtualMachineFlavor",
+     "operationId": "listNamespacedVirtualMachineInstancetype",
      "parameters": [
       {
        "uniqueItems": true,
@@ -1451,7 +1451,7 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineFlavorList"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineInstancetypeList"
        }
       },
       "401": {
@@ -1463,7 +1463,7 @@
      }
     },
     "post": {
-     "description": "Create a VirtualMachineFlavor object.",
+     "description": "Create a VirtualMachineInstancetype object.",
      "consumes": [
       "application/json",
       "application/yaml"
@@ -1472,14 +1472,14 @@
       "application/json",
       "application/yaml"
      ],
-     "operationId": "createNamespacedVirtualMachineFlavor",
+     "operationId": "createNamespacedVirtualMachineInstancetype",
      "parameters": [
       {
        "name": "body",
        "in": "body",
        "required": true,
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineInstancetype"
        }
       },
       {
@@ -1495,19 +1495,19 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineInstancetype"
        }
       },
       "201": {
        "description": "Created",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineInstancetype"
        }
       },
       "202": {
        "description": "Accepted",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineInstancetype"
        }
       },
       "401": {
@@ -1519,12 +1519,12 @@
      }
     },
     "delete": {
-     "description": "Delete a collection of VirtualMachineFlavor objects.",
+     "description": "Delete a collection of VirtualMachineInstancetype objects.",
      "produces": [
       "application/json",
       "application/yaml"
      ],
-     "operationId": "deleteCollectionNamespacedVirtualMachineFlavor",
+     "operationId": "deleteCollectionNamespacedVirtualMachineInstancetype",
      "parameters": [
       {
        "uniqueItems": true,
@@ -1599,15 +1599,15 @@
      }
     }
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineflavors/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstancetypes/{name:[a-z0-9][a-z0-9\\-]*}": {
     "get": {
-     "description": "Get a VirtualMachineFlavor object.",
+     "description": "Get a VirtualMachineInstancetype object.",
      "produces": [
       "application/json",
       "application/yaml",
       "application/json;stream=watch"
      ],
-     "operationId": "readNamespacedVirtualMachineFlavor",
+     "operationId": "readNamespacedVirtualMachineInstancetype",
      "parameters": [
       {
        "uniqueItems": true,
@@ -1628,7 +1628,7 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineInstancetype"
        }
       },
       "401": {
@@ -1640,7 +1640,7 @@
      }
     },
     "put": {
-     "description": "Update a VirtualMachineFlavor object.",
+     "description": "Update a VirtualMachineInstancetype object.",
      "consumes": [
       "application/json",
       "application/yaml"
@@ -1649,14 +1649,14 @@
       "application/json",
       "application/yaml"
      ],
-     "operationId": "replaceNamespacedVirtualMachineFlavor",
+     "operationId": "replaceNamespacedVirtualMachineInstancetype",
      "parameters": [
       {
        "name": "body",
        "in": "body",
        "required": true,
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineInstancetype"
        }
       }
      ],
@@ -1664,13 +1664,13 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineInstancetype"
        }
       },
       "201": {
        "description": "Create",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineInstancetype"
        }
       },
       "401": {
@@ -1682,7 +1682,7 @@
      }
     },
     "delete": {
-     "description": "Delete a VirtualMachineFlavor object.",
+     "description": "Delete a VirtualMachineInstancetype object.",
      "consumes": [
       "application/json",
       "application/yaml"
@@ -1691,7 +1691,7 @@
       "application/json",
       "application/yaml"
      ],
-     "operationId": "deleteNamespacedVirtualMachineFlavor",
+     "operationId": "deleteNamespacedVirtualMachineInstancetype",
      "parameters": [
       {
        "name": "body",
@@ -1739,7 +1739,7 @@
      }
     },
     "patch": {
-     "description": "Patch a VirtualMachineFlavor object.",
+     "description": "Patch a VirtualMachineInstancetype object.",
      "consumes": [
       "application/json-patch+json",
       "application/merge-patch+json"
@@ -1747,7 +1747,7 @@
      "produces": [
       "application/json"
      ],
-     "operationId": "patchNamespacedVirtualMachineFlavor",
+     "operationId": "patchNamespacedVirtualMachineInstancetype",
      "parameters": [
       {
        "name": "body",
@@ -1762,7 +1762,7 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineInstancetype"
        }
       },
       "401": {
@@ -1792,7 +1792,7 @@
      }
     ]
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinepreferences": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinepreferences": {
     "get": {
      "description": "Get a list of VirtualMachinePreference objects.",
      "produces": [
@@ -1871,7 +1871,7 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachinePreferenceList"
+        "$ref": "#/definitions/v1alpha2.VirtualMachinePreferenceList"
        }
       },
       "401": {
@@ -1899,7 +1899,7 @@
        "in": "body",
        "required": true,
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachinePreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachinePreference"
        }
       },
       {
@@ -1915,19 +1915,19 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachinePreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachinePreference"
        }
       },
       "201": {
        "description": "Created",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachinePreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachinePreference"
        }
       },
       "202": {
        "description": "Accepted",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachinePreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachinePreference"
        }
       },
       "401": {
@@ -2019,7 +2019,7 @@
      }
     }
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinepreferences/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinepreferences/{name:[a-z0-9][a-z0-9\\-]*}": {
     "get": {
      "description": "Get a VirtualMachinePreference object.",
      "produces": [
@@ -2048,7 +2048,7 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachinePreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachinePreference"
        }
       },
       "401": {
@@ -2076,7 +2076,7 @@
        "in": "body",
        "required": true,
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachinePreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachinePreference"
        }
       }
      ],
@@ -2084,13 +2084,13 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachinePreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachinePreference"
        }
       },
       "201": {
        "description": "Create",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachinePreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachinePreference"
        }
       },
       "401": {
@@ -2182,7 +2182,7 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachinePreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachinePreference"
        }
       },
       "401": {
@@ -2212,15 +2212,15 @@
      }
     ]
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/virtualmachineclusterflavors": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/virtualmachineclusterinstancetypes": {
     "get": {
-     "description": "Get a list of VirtualMachineClusterFlavor objects.",
+     "description": "Get a list of VirtualMachineClusterInstancetype objects.",
      "produces": [
       "application/json",
       "application/yaml",
       "application/json;stream=watch"
      ],
-     "operationId": "listVirtualMachineClusterFlavor",
+     "operationId": "listVirtualMachineClusterInstancetype",
      "parameters": [
       {
        "uniqueItems": true,
@@ -2283,7 +2283,7 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterFlavorList"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterInstancetypeList"
        }
       },
       "401": {
@@ -2295,7 +2295,7 @@
      }
     },
     "post": {
-     "description": "Create a VirtualMachineClusterFlavor object.",
+     "description": "Create a VirtualMachineClusterInstancetype object.",
      "consumes": [
       "application/json",
       "application/yaml"
@@ -2304,14 +2304,14 @@
       "application/json",
       "application/yaml"
      ],
-     "operationId": "createVirtualMachineClusterFlavor",
+     "operationId": "createVirtualMachineClusterInstancetype",
      "parameters": [
       {
        "name": "body",
        "in": "body",
        "required": true,
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterInstancetype"
        }
       }
      ],
@@ -2319,19 +2319,19 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterInstancetype"
        }
       },
       "201": {
        "description": "Created",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterInstancetype"
        }
       },
       "202": {
        "description": "Accepted",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterInstancetype"
        }
       },
       "401": {
@@ -2343,12 +2343,12 @@
      }
     },
     "delete": {
-     "description": "Delete a collection of VirtualMachineClusterFlavor objects.",
+     "description": "Delete a collection of VirtualMachineClusterInstancetype objects.",
      "produces": [
       "application/json",
       "application/yaml"
      ],
-     "operationId": "deleteCollectionVirtualMachineClusterFlavor",
+     "operationId": "deleteCollectionVirtualMachineClusterInstancetype",
      "parameters": [
       {
        "uniqueItems": true,
@@ -2423,15 +2423,15 @@
      }
     }
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/virtualmachineclusterflavors/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/virtualmachineclusterinstancetypes/{name:[a-z0-9][a-z0-9\\-]*}": {
     "get": {
-     "description": "Get a VirtualMachineClusterFlavor object.",
+     "description": "Get a VirtualMachineClusterInstancetype object.",
      "produces": [
       "application/json",
       "application/yaml",
       "application/json;stream=watch"
      ],
-     "operationId": "readVirtualMachineClusterFlavor",
+     "operationId": "readVirtualMachineClusterInstancetype",
      "parameters": [
       {
        "uniqueItems": true,
@@ -2452,7 +2452,7 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterInstancetype"
        }
       },
       "401": {
@@ -2464,7 +2464,7 @@
      }
     },
     "put": {
-     "description": "Update a VirtualMachineClusterFlavor object.",
+     "description": "Update a VirtualMachineClusterInstancetype object.",
      "consumes": [
       "application/json",
       "application/yaml"
@@ -2473,14 +2473,14 @@
       "application/json",
       "application/yaml"
      ],
-     "operationId": "replaceVirtualMachineClusterFlavor",
+     "operationId": "replaceVirtualMachineClusterInstancetype",
      "parameters": [
       {
        "name": "body",
        "in": "body",
        "required": true,
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterInstancetype"
        }
       }
      ],
@@ -2488,13 +2488,13 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterInstancetype"
        }
       },
       "201": {
        "description": "Create",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterInstancetype"
        }
       },
       "401": {
@@ -2506,7 +2506,7 @@
      }
     },
     "delete": {
-     "description": "Delete a VirtualMachineClusterFlavor object.",
+     "description": "Delete a VirtualMachineClusterInstancetype object.",
      "consumes": [
       "application/json",
       "application/yaml"
@@ -2515,7 +2515,7 @@
       "application/json",
       "application/yaml"
      ],
-     "operationId": "deleteVirtualMachineClusterFlavor",
+     "operationId": "deleteVirtualMachineClusterInstancetype",
      "parameters": [
       {
        "name": "body",
@@ -2563,7 +2563,7 @@
      }
     },
     "patch": {
-     "description": "Patch a VirtualMachineClusterFlavor object.",
+     "description": "Patch a VirtualMachineClusterInstancetype object.",
      "consumes": [
       "application/json-patch+json",
       "application/merge-patch+json"
@@ -2571,7 +2571,7 @@
      "produces": [
       "application/json"
      ],
-     "operationId": "patchVirtualMachineClusterFlavor",
+     "operationId": "patchVirtualMachineClusterInstancetype",
      "parameters": [
       {
        "name": "body",
@@ -2586,7 +2586,7 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterFlavor"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterInstancetype"
        }
       },
       "401": {
@@ -2608,7 +2608,7 @@
      }
     ]
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/virtualmachineclusterpreferences": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/virtualmachineclusterpreferences": {
     "get": {
      "description": "Get a list of VirtualMachineClusterPreference objects.",
      "produces": [
@@ -2679,7 +2679,7 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterPreferenceList"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterPreferenceList"
        }
       },
       "401": {
@@ -2707,7 +2707,7 @@
        "in": "body",
        "required": true,
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterPreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterPreference"
        }
       }
      ],
@@ -2715,19 +2715,19 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterPreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterPreference"
        }
       },
       "201": {
        "description": "Created",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterPreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterPreference"
        }
       },
       "202": {
        "description": "Accepted",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterPreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterPreference"
        }
       },
       "401": {
@@ -2819,7 +2819,7 @@
      }
     }
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/virtualmachineclusterpreferences/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/virtualmachineclusterpreferences/{name:[a-z0-9][a-z0-9\\-]*}": {
     "get": {
      "description": "Get a VirtualMachineClusterPreference object.",
      "produces": [
@@ -2848,7 +2848,7 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterPreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterPreference"
        }
       },
       "401": {
@@ -2876,7 +2876,7 @@
        "in": "body",
        "required": true,
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterPreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterPreference"
        }
       }
      ],
@@ -2884,13 +2884,13 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterPreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterPreference"
        }
       },
       "201": {
        "description": "Create",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterPreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterPreference"
        }
       },
       "401": {
@@ -2982,7 +2982,7 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineClusterPreference"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineClusterPreference"
        }
       },
       "401": {
@@ -3004,20 +3004,20 @@
      }
     ]
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/virtualmachineflavors": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/virtualmachineinstancetypes": {
     "get": {
-     "description": "Get a list of all VirtualMachineFlavor objects.",
+     "description": "Get a list of all VirtualMachineInstancetype objects.",
      "produces": [
       "application/json",
       "application/yaml",
       "application/json;stream=watch"
      ],
-     "operationId": "listVirtualMachineFlavorForAllNamespaces",
+     "operationId": "listVirtualMachineInstancetypeForAllNamespaces",
      "responses": {
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachineFlavorList"
+        "$ref": "#/definitions/v1alpha2.VirtualMachineInstancetypeList"
        }
       },
       "401": {
@@ -3087,7 +3087,7 @@
      }
     ]
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/virtualmachinepreferences": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/virtualmachinepreferences": {
     "get": {
      "description": "Get a list of all VirtualMachinePreference objects.",
      "produces": [
@@ -3100,7 +3100,7 @@
       "200": {
        "description": "OK",
        "schema": {
-        "$ref": "#/definitions/v1alpha1.VirtualMachinePreferenceList"
+        "$ref": "#/definitions/v1alpha2.VirtualMachinePreferenceList"
        }
       },
       "401": {
@@ -3170,13 +3170,13 @@
      }
     ]
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineflavors": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstancetypes": {
     "get": {
-     "description": "Watch a VirtualMachineFlavor object.",
+     "description": "Watch a VirtualMachineInstancetype object.",
      "produces": [
       "application/json"
      ],
-     "operationId": "watchNamespacedVirtualMachineFlavor",
+     "operationId": "watchNamespacedVirtualMachineInstancetype",
      "responses": {
       "200": {
        "description": "OK",
@@ -3259,7 +3259,7 @@
      }
     ]
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinepreferences": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinepreferences": {
     "get": {
      "description": "Watch a VirtualMachinePreference object.",
      "produces": [
@@ -3348,13 +3348,13 @@
      }
     ]
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/watch/virtualmachineclusterflavors": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/watch/virtualmachineclusterinstancetypes": {
     "get": {
-     "description": "Watch a VirtualMachineClusterFlavorList object.",
+     "description": "Watch a VirtualMachineClusterInstancetypeList object.",
      "produces": [
       "application/json"
      ],
-     "operationId": "watchVirtualMachineClusterFlavorListForAllNamespaces",
+     "operationId": "watchVirtualMachineClusterInstancetypeListForAllNamespaces",
      "responses": {
       "200": {
        "description": "OK",
@@ -3429,7 +3429,7 @@
      }
     ]
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/watch/virtualmachineclusterpreferences": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/watch/virtualmachineclusterpreferences": {
     "get": {
      "description": "Watch a VirtualMachineClusterPreferenceList object.",
      "produces": [
@@ -3510,13 +3510,13 @@
      }
     ]
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/watch/virtualmachineflavors": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/watch/virtualmachineinstancetypes": {
     "get": {
-     "description": "Watch a VirtualMachineFlavorList object.",
+     "description": "Watch a VirtualMachineInstancetypeList object.",
      "produces": [
       "application/json"
      ],
-     "operationId": "watchVirtualMachineFlavorListForAllNamespaces",
+     "operationId": "watchVirtualMachineInstancetypeListForAllNamespaces",
      "responses": {
       "200": {
        "description": "OK",
@@ -3591,7 +3591,7 @@
      }
     ]
    },
-   "/apis/flavor.kubevirt.io/v1alpha1/watch/virtualmachinepreferences": {
+   "/apis/instancetype.kubevirt.io/v1alpha2/watch/virtualmachinepreferences": {
     "get": {
      "description": "Watch a VirtualMachinePreferenceList object.",
      "produces": [
@@ -11206,6 +11206,41 @@
      }
     }
    },
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/expand-vm-spec": {
+    "put": {
+     "description": "Expands instancetype and preference into the passed VirtualMachine object.",
+     "consumes": [
+      "application/json"
+     ],
+     "produces": [
+      "application/json"
+     ],
+     "operationId": "v1ExpandSpec",
+     "responses": {
+      "200": {
+       "description": "OK",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "400": {
+       "description": "Bad Request",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "401": {
+       "description": "Unauthorized"
+      },
+      "500": {
+       "description": "Internal Server Error",
+       "schema": {
+        "type": "string"
+       }
+      }
+     }
+    }
+   },
    "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/addvolume": {
     "put": {
      "description": "Add a volume and disk to a running Virtual Machine Instance",
@@ -11840,6 +11875,42 @@
      }
     ]
    },
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/vnc/screenshot": {
+    "get": {
+     "description": "Get a PNG VNC screenshot of the specified VirtualMachineInstance.",
+     "operationId": "v1VNCScreenshot",
+     "responses": {
+      "401": {
+       "description": "Unauthorized"
+      }
+     }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "boolean",
+      "description": "Move the cursor on the VNC display to wake up the screen",
+      "name": "moveCursor",
+      "in": "query"
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
+   },
    "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/addvolume": {
     "put": {
      "description": "Add a volume and disk to a running Virtual Machine.",
@@ -11869,6 +11940,56 @@
       },
       "401": {
        "description": "Unauthorized"
+      }
+     }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
+   },
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/expand-spec": {
+    "get": {
+     "description": "Get VirtualMachine object with expanded instancetype and preference.",
+     "produces": [
+      "application/json"
+     ],
+     "operationId": "v1vm-ExpandSpec",
+     "responses": {
+      "200": {
+       "description": "OK",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "401": {
+       "description": "Unauthorized"
+      },
+      "404": {
+       "description": "Not Found",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "500": {
+       "description": "Internal Server Error",
+       "schema": {
+        "type": "string"
+       }
       }
      }
     },
@@ -12467,6 +12588,41 @@
       },
       "500": {
        "description": "Unhealthy",
+       "schema": {
+        "type": "string"
+       }
+      }
+     }
+    }
+   },
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/expand-vm-spec": {
+    "put": {
+     "description": "Expands instancetype and preference into the passed VirtualMachine object.",
+     "consumes": [
+      "application/json"
+     ],
+     "produces": [
+      "application/json"
+     ],
+     "operationId": "v1alpha3ExpandSpec",
+     "responses": {
+      "200": {
+       "description": "OK",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "400": {
+       "description": "Bad Request",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "401": {
+       "description": "Unauthorized"
+      },
+      "500": {
+       "description": "Internal Server Error",
        "schema": {
         "type": "string"
        }
@@ -13108,6 +13264,42 @@
      }
     ]
    },
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/vnc/screenshot": {
+    "get": {
+     "description": "Get a PNG VNC screenshot of the specified VirtualMachineInstance.",
+     "operationId": "v1alpha3VNCScreenshot",
+     "responses": {
+      "401": {
+       "description": "Unauthorized"
+      }
+     }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "boolean",
+      "description": "Move the cursor on the VNC display to wake up the screen",
+      "name": "moveCursor",
+      "in": "query"
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
+   },
    "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/addvolume": {
     "put": {
      "description": "Add a volume and disk to a running Virtual Machine.",
@@ -13137,6 +13329,56 @@
       },
       "401": {
        "description": "Unauthorized"
+      }
+     }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
+   },
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/expand-spec": {
+    "get": {
+     "description": "Get VirtualMachine object with expanded instancetype and preference.",
+     "produces": [
+      "application/json"
+     ],
+     "operationId": "v1alpha3vm-ExpandSpec",
+     "responses": {
+      "200": {
+       "description": "OK",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "401": {
+       "description": "Unauthorized"
+      },
+      "404": {
+       "description": "Not Found",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "500": {
+       "description": "Internal Server Error",
+       "schema": {
+        "type": "string"
+       }
       }
      }
     },
@@ -14195,6 +14437,34 @@
      },
      "value": {
       "description": "Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.",
+      "type": "string"
+     }
+    }
+   },
+   "k8s.io.api.core.v1.TopologySpreadConstraint": {
+    "description": "TopologySpreadConstraint specifies how to spread matching pods among the given topology.",
+    "type": "object",
+    "required": [
+     "maxSkew",
+     "topologyKey",
+     "whenUnsatisfiable"
+    ],
+    "properties": {
+     "labelSelector": {
+      "description": "LabelSelector is used to find matching pods. Pods that match this label selector are counted to determine the number of pods in their corresponding topology domain.",
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector"
+     },
+     "maxSkew": {
+      "description": "MaxSkew describes the degree to which pods may be unevenly distributed. When `whenUnsatisfiable=DoNotSchedule`, it is the maximum permitted difference between the number of matching pods in the target topology and the global minimum. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 1/1/0: | zone1 | zone2 | zone3 | |   P   |   P   |       | - if MaxSkew is 1, incoming pod can only be scheduled to zone3 to become 1/1/1; scheduling it onto zone1(zone2) would make the ActualSkew(2-0) on zone1(zone2) violate MaxSkew(1). - if MaxSkew is 2, incoming pod can be scheduled onto any zone. When `whenUnsatisfiable=ScheduleAnyway`, it is used to give higher precedence to topologies that satisfy it. It's a required field. Default value is 1 and 0 is not allowed.",
+      "type": "integer",
+      "format": "int32"
+     },
+     "topologyKey": {
+      "description": "TopologyKey is the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology. We consider each \u003ckey, value\u003e as a \"bucket\", and try to put balanced number of pods into each bucket. It's a required field.",
+      "type": "string"
+     },
+     "whenUnsatisfiable": {
+      "description": "WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway tells the scheduler to schedule the pod in any location,\n  but giving higher precedence to topologies that would help reduce the\n  skew.\nA constraint is considered \"Unsatisfiable\" for an incoming pod if and only if every possible node assignment for that pod would violate \"MaxSkew\" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field.",
       "type": "string"
      }
     }
@@ -15400,6 +15670,7 @@
     "type": "object",
     "properties": {
      "cpuAllocationRatio": {
+      "description": "For each requested virtual CPU, CPUAllocationRatio defines how much physical CPU to request per VMI from the hosting node. The value is in fraction of a CPU thread (or core on non-hyperthreaded nodes). For example, a value of 1 means 1 physical CPU thread per VMI CPU thread. A value of 100 would be 1% of a physical thread allocated for each requested VMI thread. This option has no effect on VMIs that request dedicated CPUs. More information at: https://kubevirt.io/user-guide/operations/node_overcommit/#node-cpu-allocation-ratio Defaults to 10",
       "type": "integer",
       "format": "int32"
      },
@@ -15407,6 +15678,7 @@
       "$ref": "#/definitions/v1.DiskVerification"
      },
      "featureGates": {
+      "description": "FeatureGates is the list of experimental features to enable. Defaults to none",
       "type": "array",
       "items": {
        "type": "string"
@@ -15416,6 +15688,7 @@
       "$ref": "#/definitions/v1.LogVerbosity"
      },
      "memoryOvercommit": {
+      "description": "MemoryOvercommit is the percentage of memory we want to give VMIs compared to the amount given to its parent pod (virt-launcher). For example, a value of 102 means the VMI will \"see\" 2% more memory than its parent pod. Values under 100 are effectively \"undercommits\". Overcommits can lead to memory exhaustion, which in turn can lead to crashes. Use carefully. Defaults to 100",
       "type": "integer",
       "format": "int32"
      },
@@ -15425,21 +15698,24 @@
       "format": "int64"
      },
      "minimumReservePVCBytes": {
+      "description": "MinimumReservePVCBytes is the amount of space, in bytes, to leave unused on disks. Defaults to 131072 (128KiB)",
       "type": "integer",
       "format": "int64"
      },
      "nodeSelectors": {
+      "description": "NodeSelectors allows restricting VMI creation to nodes that match a set of labels. Defaults to none",
       "type": "object",
       "additionalProperties": {
        "type": "string"
       }
      },
      "pvcTolerateLessSpaceUpToPercent": {
+      "description": "LessPVCSpaceToleration determines how much smaller, in percentage, disk PVCs are allowed to be compared to the requested size (to account for various overheads). Defaults to 10",
       "type": "integer",
       "format": "int32"
      },
      "useEmulation": {
-      "description": "UseEmulation can be set to true to allow fallback to software emulation in case hardware-assisted emulation is not available.",
+      "description": "UseEmulation can be set to true to allow fallback to software emulation in case hardware-assisted emulation is not available. Defaults to false",
       "type": "boolean"
      }
     }
@@ -15449,6 +15725,10 @@
     "properties": {
      "autoattachGraphicsDevice": {
       "description": "Whether to attach the default graphics device or not. VNC will not be available if set to false. Defaults to true.",
+      "type": "boolean"
+     },
+     "autoattachInputDevice": {
+      "description": "Whether to attach an Input Device. Defaults to false.",
       "type": "boolean"
      },
      "autoattachMemBalloon": {
@@ -15607,7 +15887,7 @@
     "type": "object",
     "properties": {
      "bus": {
-      "description": "Bus indicates the type of disk device to emulate. supported values: virtio, sata, scsi.",
+      "description": "Bus indicates the type of disk device to emulate. supported values: virtio, sata, scsi, usb.",
       "type": "string"
      },
      "pciAddress": {
@@ -15974,27 +16254,6 @@
      }
     }
    },
-   "v1.FlavorMatcher": {
-    "description": "FlavorMatcher references a flavor that is used to fill fields in the VMI template.",
-    "type": "object",
-    "required": [
-     "name"
-    ],
-    "properties": {
-     "kind": {
-      "description": "Kind specifies which flavor resource is referenced. Allowed values are: \"VirtualMachineFlavor\" and \"VirtualMachineClusterFlavor\". If not specified, \"VirtualMachineClusterFlavor\" is used by default.",
-      "type": "string"
-     },
-     "name": {
-      "description": "Name is the name of the VirtualMachineFlavor or VirtualMachineClusterFlavor",
-      "type": "string"
-     },
-     "revisionName": {
-      "description": "RevisionName specifies a ControllerRevision containing a specific copy of the VirtualMachineFlavor or VirtualMachineClusterFlavor to be used. This is initially captured the first time the flavor is applied to the VirtualMachineInstance.",
-      "type": "string"
-     }
-    }
-   },
    "v1.FreezeUnfreezeTimeout": {
     "description": "FreezeUnfreezeTimeout represent the time unfreeze will be triggered if guest was not unfrozen by unfreeze command",
     "type": "object",
@@ -16223,6 +16482,27 @@
      }
     }
    },
+   "v1.InstancetypeMatcher": {
+    "description": "InstancetypeMatcher references a instancetype that is used to fill fields in the VMI template.",
+    "type": "object",
+    "required": [
+     "name"
+    ],
+    "properties": {
+     "kind": {
+      "description": "Kind specifies which instancetype resource is referenced. Allowed values are: \"VirtualMachineInstancetype\" and \"VirtualMachineClusterInstancetype\". If not specified, \"VirtualMachineClusterInstancetype\" is used by default.",
+      "type": "string"
+     },
+     "name": {
+      "description": "Name is the name of the VirtualMachineInstancetype or VirtualMachineClusterInstancetype",
+      "type": "string"
+     },
+     "revisionName": {
+      "description": "RevisionName specifies a ControllerRevision containing a specific copy of the VirtualMachineInstancetype or VirtualMachineClusterInstancetype to be used. This is initially captured the first time the instancetype is applied to the VirtualMachineInstance.",
+      "type": "string"
+     }
+    }
+   },
    "v1.Interface": {
     "type": "object",
     "required": [
@@ -16259,6 +16539,9 @@
       "description": "Logical name of the interface as well as a reference to the associated networks. Must match the Name of a Network.",
       "type": "string"
      },
+     "passt": {
+      "$ref": "#/definitions/v1.InterfacePasst"
+     },
      "pciAddress": {
       "description": "If specified, the virtual network interface will be placed on the guests pci address with the specified PCI address. For example: 0000:81:01.10",
       "type": "string"
@@ -16292,6 +16575,10 @@
    },
    "v1.InterfaceMasquerade": {
     "description": "InterfaceMasquerade connects to a given network using netfilter rules to nat the traffic.",
+    "type": "object"
+   },
+   "v1.InterfacePasst": {
+    "description": "InterfacePasst connects to a given network.",
     "type": "object"
    },
    "v1.InterfaceSRIOV": {
@@ -16503,6 +16790,9 @@
       "items": {
        "type": "string"
       }
+     },
+     "tlsConfiguration": {
+      "$ref": "#/definitions/v1.TLSConfiguration"
      },
      "virtualMachineInstancesPerNode": {
       "type": "integer",
@@ -16873,44 +17163,55 @@
     }
    },
    "v1.MigrationConfiguration": {
-    "description": "MigrationConfiguration holds migration options",
+    "description": "MigrationConfiguration holds migration options. Can be overridden for specific groups of VMs though migration policies. Visit https://kubevirt.io/user-guide/operations/migration_policies/ for more information.",
     "type": "object",
     "properties": {
      "allowAutoConverge": {
+      "description": "AllowAutoConverge allows the platform to compromise performance/availability of VMIs to guarantee successful VMI live migrations. Defaults to false",
       "type": "boolean"
      },
      "allowPostCopy": {
+      "description": "AllowPostCopy enables post-copy live migrations. Such migrations allow even the busiest VMIs to successfully live-migrate. However, events like a network failure can cause a VMI crash. If set to true, migrations will still start in pre-copy, but switch to post-copy when CompletionTimeoutPerGiB triggers. Defaults to false",
       "type": "boolean"
      },
      "bandwidthPerMigration": {
+      "description": "BandwidthPerMigration limits the amount of network bandwith live migrations are allowed to use. The value is in quantity per second. Defaults to 0 (no limit)",
       "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
      },
      "completionTimeoutPerGiB": {
+      "description": "CompletionTimeoutPerGiB is the maximum number of seconds per GiB a migration is allowed to take. If a live-migration takes longer to migrate than this value multiplied by the size of the VMI, the migration will be cancelled, unless AllowPostCopy is true. Defaults to 800",
       "type": "integer",
       "format": "int64"
      },
      "disableTLS": {
+      "description": "When set to true, DisableTLS will disable the additional layer of live migration encryption provided by KubeVirt. This is usually a bad idea. Defaults to false",
       "type": "boolean"
      },
      "network": {
+      "description": "Network is the name of the CNI network to use for live migrations. By default, migrations go through the pod network.",
       "type": "string"
      },
      "nodeDrainTaintKey": {
+      "description": "NodeDrainTaintKey defines the taint key that indicates a node should be drained. Note: this option relies on the deprecated node taint feature. Default: kubevirt.io/drain",
       "type": "string"
      },
      "parallelMigrationsPerCluster": {
+      "description": "ParallelMigrationsPerCluster is the total number of concurrent live migrations allowed cluster-wide. Defaults to 5",
       "type": "integer",
       "format": "int64"
      },
      "parallelOutboundMigrationsPerNode": {
+      "description": "ParallelOutboundMigrationsPerNode is the maximum number of concurrent outgoing live migrations allowed per node. Defaults to 2",
       "type": "integer",
       "format": "int64"
      },
      "progressTimeout": {
+      "description": "ProgressTimeout is the maximum number of seconds a live migration is allowed to make no progress. Hitting this timeout means a migration transferred 0 data for that many seconds. The migration is then considered stuck and therefore cancelled. Defaults to 150",
       "type": "integer",
       "format": "int64"
      },
      "unsafeMigrationOverride": {
+      "description": "UnsafeMigrationOverride allows live migrations to occur even if the compatibility check indicates the migration will be unsafe to the guest. Defaults to false",
       "type": "boolean"
      }
     }
@@ -17217,7 +17518,7 @@
       "type": "string"
      },
      "revisionName": {
-      "description": "RevisionName specifies a ControllerRevision containing a specific copy of the VirtualMachinePreference or VirtualMachineClusterPreference to be used. This is initially captured the first time the flavor is applied to the VirtualMachineInstance.",
+      "description": "RevisionName specifies a ControllerRevision containing a specific copy of the VirtualMachinePreference or VirtualMachineClusterPreference to be used. This is initially captured the first time the instancetype is applied to the VirtualMachineInstance.",
       "type": "string"
      }
     }
@@ -17597,6 +17898,23 @@
      "secret": {
       "description": "Secret references a k8s Secret that contains Sysprep answer file named autounattend.xml that should be attached as disk of CDROM type.",
       "$ref": "#/definitions/k8s.io.api.core.v1.LocalObjectReference"
+     }
+    }
+   },
+   "v1.TLSConfiguration": {
+    "description": "TLSConfiguration holds TLS options",
+    "type": "object",
+    "properties": {
+     "ciphers": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "x-kubernetes-list-type": "set"
+     },
+     "minTLSVersion": {
+      "description": "MinTLSVersion is a way to specify the minimum protocol version that is acceptable for TLS connections. Protocol versions are based on the following most common TLS configurations:\n\n  https://ssl-config.mozilla.org/\n\nNote that SSLv3.0 is not a supported protocol version due to well known vulnerabilities such as POODLE: https://en.wikipedia.org/wiki/POODLE",
+      "type": "string"
      }
     }
    },
@@ -18344,6 +18662,11 @@
      "name": {
       "description": "Name of the interface, corresponds to name of the network assigned to the interface",
       "type": "string"
+     },
+     "queueCount": {
+      "description": "Specifies how many queues are allocated by MultiQueue",
+      "type": "integer",
+      "format": "int32"
      }
     }
    },
@@ -18362,7 +18685,7 @@
     }
    },
    "v1.VirtualMachineInstancePreset": {
-    "description": "VirtualMachineInstancePreset defines a VMI spec.domain to be applied to all VMIs that match the provided label selector More info: https://kubevirt.io/user-guide/virtual_machines/presets/#overrides",
+    "description": "Deprecated for removal in v2, please use VirtualMachineInstanceType and VirtualMachinePreference instead.\n\nVirtualMachineInstancePreset defines a VMI spec.domain to be applied to all VMIs that match the provided label selector More info: https://kubevirt.io/user-guide/virtual_machines/presets/#overrides",
     "type": "object",
     "properties": {
      "apiVersion": {
@@ -18652,6 +18975,20 @@
        "$ref": "#/definitions/k8s.io.api.core.v1.Toleration"
       }
      },
+     "topologySpreadConstraints": {
+      "description": "TopologySpreadConstraints describes how a group of VMIs will be spread across a given topology domains. K8s scheduler will schedule VMI pods in a way which abides by the constraints.",
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/k8s.io.api.core.v1.TopologySpreadConstraint"
+      },
+      "x-kubernetes-list-map-keys": [
+       "topologyKey",
+       "whenUnsatisfiable"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "topologyKey",
+      "x-kubernetes-patch-strategy": "merge"
+     },
      "volumes": {
       "description": "List of volumes that can be mounted by disks belonging to the vmi.",
       "type": "array",
@@ -18827,6 +19164,10 @@
       "description": "Phase represents the memory dump phase",
       "type": "string"
      },
+     "remove": {
+      "description": "Remove represents request of dissociating the memory dump pvc",
+      "type": "boolean"
+     },
      "startTimestamp": {
       "description": "StartTimestamp represents the time the memory dump started",
       "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
@@ -18847,9 +19188,9 @@
        "$ref": "#/definitions/v1.DataVolumeTemplateSpec"
       }
      },
-     "flavor": {
-      "description": "FlavorMatcher references a flavor that is used to fill fields in Template",
-      "$ref": "#/definitions/v1.FlavorMatcher"
+     "instancetype": {
+      "description": "InstancetypeMatcher references a instancetype that is used to fill fields in Template",
+      "$ref": "#/definitions/v1.InstancetypeMatcher"
      },
      "preference": {
       "description": "PreferenceMatcher references a set of preference that is used to fill fields in Template",
@@ -19143,64 +19484,6 @@
      }
     }
    },
-   "v1alpha1.CPUFlavor": {
-    "description": "CPUFlavor contains the CPU related configuration of a given VirtualMachineFlavorSpec.\n\nGuest is a required attribute and defines the number of vCPUs to be exposed to the guest by the flavor.",
-    "type": "object",
-    "required": [
-     "guest"
-    ],
-    "properties": {
-     "dedicatedCPUPlacement": {
-      "description": "DedicatedCPUPlacement requests the scheduler to place the VirtualMachineInstance on a node with enough dedicated pCPUs and pin the vCPUs to it.",
-      "type": "boolean"
-     },
-     "guest": {
-      "description": "Required number of vCPUs to expose to the guest.\n\nThe resulting CPU topology being derived from the optional PreferredCPUTopology attribute of CPUPreferences that itself defaults to PreferCores.",
-      "type": "integer",
-      "format": "int64"
-     },
-     "isolateEmulatorThread": {
-      "description": "IsolateEmulatorThread requests one more dedicated pCPU to be allocated for the VMI to place the emulator thread on it.",
-      "type": "boolean"
-     },
-     "model": {
-      "description": "Model specifies the CPU model inside the VMI. List of available models https://github.com/libvirt/libvirt/tree/master/src/cpu_map. It is possible to specify special cases like \"host-passthrough\" to get the same CPU as the node and \"host-model\" to get CPU closest to the node one. Defaults to host-model.",
-      "type": "string"
-     },
-     "numa": {
-      "description": "NUMA allows specifying settings for the guest NUMA topology",
-      "$ref": "#/definitions/v1.NUMA"
-     },
-     "realtime": {
-      "description": "Realtime instructs the virt-launcher to tune the VMI for lower latency, optional for real time workloads",
-      "$ref": "#/definitions/v1.Realtime"
-     }
-    }
-   },
-   "v1alpha1.CPUPreferences": {
-    "description": "CPUPreferences contains various optional CPU preferences.",
-    "type": "object",
-    "properties": {
-     "preferredCPUTopology": {
-      "description": "PreferredCPUTopology optionally defines the preferred guest visible CPU topology, defaults to PreferSockets.",
-      "type": "string"
-     }
-    }
-   },
-   "v1alpha1.ClockPreferences": {
-    "description": "ClockPreferences contains various optional defaults for Clock.",
-    "type": "object",
-    "properties": {
-     "preferredClockOffset": {
-      "description": "ClockOffset allows specifying the UTC offset or the timezone of the guest clock.",
-      "$ref": "#/definitions/v1.ClockOffset"
-     },
-     "preferredTimer": {
-      "description": "Timer specifies whih timers are attached to the vmi.",
-      "$ref": "#/definitions/v1.Timer"
-     }
-    }
-   },
    "v1alpha1.Condition": {
     "description": "Condition defines conditions",
     "type": "object",
@@ -19235,100 +19518,6 @@
      }
     }
    },
-   "v1alpha1.DevicePreferences": {
-    "description": "DevicePreferences contains various optional Device preferences.",
-    "type": "object",
-    "properties": {
-     "preferredAutoattachGraphicsDevice": {
-      "description": "PreferredAutoattachGraphicsDevice optionally defines the preferred value of AutoattachGraphicsDevice",
-      "type": "boolean"
-     },
-     "preferredAutoattachMemBalloon": {
-      "description": "PreferredAutoattachMemBalloon optionally defines the preferred value of AutoattachMemBalloon",
-      "type": "boolean"
-     },
-     "preferredAutoattachPodInterface": {
-      "description": "PreferredAutoattachPodInterface optionally defines the preferred value of AutoattachPodInterface",
-      "type": "boolean"
-     },
-     "preferredAutoattachSerialConsole": {
-      "description": "PreferredAutoattachSerialConsole optionally defines the preferred value of AutoattachSerialConsole",
-      "type": "boolean"
-     },
-     "preferredBlockMultiQueue": {
-      "description": "PreferredBlockMultiQueue optionally enables the vhost multiqueue feature for virtio disks.",
-      "type": "boolean"
-     },
-     "preferredCdromBus": {
-      "description": "PreferredCdromBus optionally defines the preferred bus for Cdrom Disk devices.",
-      "type": "string"
-     },
-     "preferredDisableHotplug": {
-      "description": "PreferredDisableHotplug optionally defines the preferred value of DisableHotplug",
-      "type": "boolean"
-     },
-     "preferredDiskBlockSize": {
-      "description": "PreferredBlockSize optionally defines the block size of Disk devices.",
-      "$ref": "#/definitions/v1.BlockSize"
-     },
-     "preferredDiskBus": {
-      "description": "PreferredDiskBus optionally defines the preferred bus for Disk Disk devices.",
-      "type": "string"
-     },
-     "preferredDiskCache": {
-      "description": "PreferredCache optionally defines the DriverCache to be used by Disk devices.",
-      "type": "string"
-     },
-     "preferredDiskDedicatedIoThread": {
-      "description": "PreferredDedicatedIoThread optionally enables dedicated IO threads for Disk devices.",
-      "type": "boolean"
-     },
-     "preferredDiskIO": {
-      "description": "PreferredIo optionally defines the QEMU disk IO mode to be used by Disk devices.",
-      "type": "string"
-     },
-     "preferredInputBus": {
-      "description": "PreferredInputBus optionally defines the preferred bus for Input devices.",
-      "type": "string"
-     },
-     "preferredInputType": {
-      "description": "PreferredInputType optionally defines the preferred type for Input devices.",
-      "type": "string"
-     },
-     "preferredInterfaceModel": {
-      "description": "PreferredInterfaceModel optionally defines the preferred model to be used by Interface devices.",
-      "type": "string"
-     },
-     "preferredLunBus": {
-      "description": "PreferredLunBus optionally defines the preferred bus for Lun Disk devices.",
-      "type": "string"
-     },
-     "preferredNetworkInterfaceMultiQueue": {
-      "description": "PreferredNetworkInterfaceMultiQueue optionally enables the vhost multiqueue feature for virtio interfaces.",
-      "type": "boolean"
-     },
-     "preferredRng": {
-      "description": "PreferredRng optionally defines the preferred rng device to be used.",
-      "$ref": "#/definitions/v1.Rng"
-     },
-     "preferredSoundModel": {
-      "description": "PreferredSoundModel optionally defines the preferred model for Sound devices.",
-      "type": "string"
-     },
-     "preferredTPM": {
-      "description": "PreferredTPM optionally defines the preferred TPM device to be used.",
-      "$ref": "#/definitions/v1.TPMDevice"
-     },
-     "preferredUseVirtioTransitional": {
-      "description": "PreferredUseVirtioTransitional optionally defines the preferred value of UseVirtioTransitional",
-      "type": "boolean"
-     },
-     "preferredVirtualGPUOptions": {
-      "description": "PreferredVirtualGPUOptions optionally defines the preferred value of VirtualGPUOptions",
-      "$ref": "#/definitions/v1.VGPUOptions"
-     }
-    }
-   },
    "v1alpha1.Error": {
     "description": "Error is the last error encountered during the snapshot/restore",
     "type": "object",
@@ -19338,82 +19527,6 @@
      },
      "time": {
       "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
-     }
-    }
-   },
-   "v1alpha1.FeaturePreferences": {
-    "description": "FeaturePreferences contains various optional defaults for Features.",
-    "type": "object",
-    "properties": {
-     "preferredAcpi": {
-      "description": "PreferredAcpi optionally enables the ACPI feature",
-      "$ref": "#/definitions/v1.FeatureState"
-     },
-     "preferredApic": {
-      "description": "PreferredApic optionally enables and configures the APIC feature",
-      "$ref": "#/definitions/v1.FeatureAPIC"
-     },
-     "preferredHyperv": {
-      "description": "PreferredHyperv optionally enables and configures HyperV features",
-      "$ref": "#/definitions/v1.FeatureHyperv"
-     },
-     "preferredKvm": {
-      "description": "PreferredKvm optionally enables and configures KVM features",
-      "$ref": "#/definitions/v1.FeatureKVM"
-     },
-     "preferredPvspinlock": {
-      "description": "PreferredPvspinlock optionally enables the Pvspinlock feature",
-      "$ref": "#/definitions/v1.FeatureState"
-     },
-     "preferredSmm": {
-      "description": "PreferredSmm optionally enables the SMM feature",
-      "$ref": "#/definitions/v1.FeatureState"
-     }
-    }
-   },
-   "v1alpha1.FirmwarePreferences": {
-    "description": "FirmwarePreferences contains various optional defaults for Firmware.",
-    "type": "object",
-    "properties": {
-     "preferredUseBios": {
-      "description": "PreferredUseBios optionally enables BIOS",
-      "type": "boolean"
-     },
-     "preferredUseBiosSerial": {
-      "description": "PreferredUseBiosSerial optionally transmitts BIOS output over the serial.\n\nRequires PreferredUseBios to be enabled.",
-      "type": "boolean"
-     },
-     "preferredUseEfi": {
-      "description": "PreferredUseEfi optionally enables EFI",
-      "type": "boolean"
-     },
-     "preferredUseSecureBoot": {
-      "description": "PreferredUseSecureBoot optionally enables SecureBoot and the OVMF roms will be swapped for SecureBoot-enabled ones.\n\nRequires PreferredUseEfi and PreferredSmm to be enabled.",
-      "type": "boolean"
-     }
-    }
-   },
-   "v1alpha1.MachinePreferences": {
-    "description": "MachinePreferences contains various optional defaults for Machine.",
-    "type": "object",
-    "properties": {
-     "preferredMachineType": {
-      "description": "PreferredMachineType optionally defines the preferred machine type to use.",
-      "type": "string"
-     }
-    }
-   },
-   "v1alpha1.MemoryFlavor": {
-    "description": "MemoryFlavor contains the Memory related configuration of a given VirtualMachineFlavorSpec.\n\nGuest is a required attribute and defines the amount of RAM to be exposed to the guest by the flavor.",
-    "type": "object",
-    "properties": {
-     "guest": {
-      "description": "Required amount of memory which is visible inside the guest OS.",
-      "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
-     },
-     "hugepages": {
-      "description": "Optionally enables the use of hugepages for the VirtualMachineInstance instead of regular memory.",
-      "$ref": "#/definitions/v1.Hugepages"
      }
     }
    },
@@ -19674,107 +19787,6 @@
      }
     }
    },
-   "v1alpha1.VirtualMachineClusterFlavor": {
-    "description": "VirtualMachineClusterFlavor is a cluster scoped version of VirtualMachineFlavor resource.",
-    "type": "object",
-    "required": [
-     "spec"
-    ],
-    "properties": {
-     "apiVersion": {
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
-      "type": "string"
-     },
-     "kind": {
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
-      "type": "string"
-     },
-     "metadata": {
-      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
-     },
-     "spec": {
-      "description": "Required spec describing the flavor",
-      "$ref": "#/definitions/v1alpha1.VirtualMachineFlavorSpec"
-     }
-    }
-   },
-   "v1alpha1.VirtualMachineClusterFlavorList": {
-    "description": "VirtualMachineClusterFlavorList is a list of VirtualMachineClusterFlavor resources.",
-    "type": "object",
-    "required": [
-     "items"
-    ],
-    "properties": {
-     "apiVersion": {
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
-      "type": "string"
-     },
-     "items": {
-      "type": "array",
-      "items": {
-       "$ref": "#/definitions/v1alpha1.VirtualMachineClusterFlavor"
-      }
-     },
-     "kind": {
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
-      "type": "string"
-     },
-     "metadata": {
-      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
-     }
-    }
-   },
-   "v1alpha1.VirtualMachineClusterPreference": {
-    "description": "VirtualMachineClusterPreference is a cluster scoped version of the VirtualMachinePreference resource.",
-    "type": "object",
-    "required": [
-     "spec"
-    ],
-    "properties": {
-     "apiVersion": {
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
-      "type": "string"
-     },
-     "kind": {
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
-      "type": "string"
-     },
-     "metadata": {
-      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
-     },
-     "spec": {
-      "description": "Required spec describing the preferences",
-      "$ref": "#/definitions/v1alpha1.VirtualMachinePreferenceSpec"
-     }
-    }
-   },
-   "v1alpha1.VirtualMachineClusterPreferenceList": {
-    "description": "VirtualMachineClusterPreferenceList is a list of VirtualMachineClusterPreference resources.",
-    "type": "object",
-    "required": [
-     "items"
-    ],
-    "properties": {
-     "apiVersion": {
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
-      "type": "string"
-     },
-     "items": {
-      "type": "array",
-      "items": {
-       "$ref": "#/definitions/v1alpha1.VirtualMachineClusterPreference"
-      },
-      "x-kubernetes-list-type": "set"
-     },
-     "kind": {
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
-      "type": "string"
-     },
-     "metadata": {
-      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
-     }
-    }
-   },
    "v1alpha1.VirtualMachineExport": {
     "description": "VirtualMachineExport defines the operation of exporting a VM source",
     "type": "object",
@@ -19869,16 +19881,19 @@
     "description": "VirtualMachineExportSpec is the spec for a VirtualMachineExport resource",
     "type": "object",
     "required": [
-     "source",
-     "tokenSecretRef"
+     "source"
     ],
     "properties": {
      "source": {
       "$ref": "#/definitions/k8s.io.api.core.v1.TypedLocalObjectReference"
      },
      "tokenSecretRef": {
-      "description": "TokenSecretRef is the name of the secret that contains the token used by the export server pod",
+      "description": "TokenSecretRef is the name of the custom-defined secret that contains the token used by the export server pod",
       "type": "string"
+     },
+     "ttlDuration": {
+      "description": "ttlDuration limits the lifetime of an export If this field is set, after this duration has passed from counting from CreationTimestamp, the export is eligible to be automatically deleted. If this field is omitted, a reasonable default is applied.",
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Duration"
      }
     }
    },
@@ -19903,6 +19918,14 @@
      "serviceName": {
       "description": "ServiceName is the name of the service created associated with the Virtual Machine export. It will be used to create the internal URLs for downloading the images",
       "type": "string"
+     },
+     "tokenSecretRef": {
+      "description": "TokenSecretRef is the name of the secret that contains the token used by the export server pod",
+      "type": "string"
+     },
+     "ttlExpirationTime": {
+      "description": "The time at which the VM Export will be completely removed according to specified TTL Formula is CreationTimestamp + TTL",
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
      }
     }
    },
@@ -19944,98 +19967,6 @@
      "url": {
       "description": "Url is the url that contains the volume in the format specified",
       "type": "string"
-     }
-    }
-   },
-   "v1alpha1.VirtualMachineFlavor": {
-    "description": "VirtualMachineFlavor resource contains quantitative and resource related VirtualMachine configuration that can be used by multiple VirtualMachine resources.",
-    "type": "object",
-    "required": [
-     "spec"
-    ],
-    "properties": {
-     "apiVersion": {
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
-      "type": "string"
-     },
-     "kind": {
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
-      "type": "string"
-     },
-     "metadata": {
-      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
-     },
-     "spec": {
-      "description": "Required spec describing the flavor",
-      "$ref": "#/definitions/v1alpha1.VirtualMachineFlavorSpec"
-     }
-    }
-   },
-   "v1alpha1.VirtualMachineFlavorList": {
-    "description": "VirtualMachineFlavorList is a list of VirtualMachineFlavor resources.",
-    "type": "object",
-    "required": [
-     "items"
-    ],
-    "properties": {
-     "apiVersion": {
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
-      "type": "string"
-     },
-     "items": {
-      "type": "array",
-      "items": {
-       "$ref": "#/definitions/v1alpha1.VirtualMachineFlavor"
-      }
-     },
-     "kind": {
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
-      "type": "string"
-     },
-     "metadata": {
-      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
-     }
-    }
-   },
-   "v1alpha1.VirtualMachineFlavorSpec": {
-    "description": "VirtualMachineFlavorSpec is a description of the VirtualMachineFlavor or VirtualMachineClusterFlavor.\n\nCPU and Memory are required attributes with both requiring that their Guest attribute is defined, ensuring a number of vCPUs and amount of RAM is always provided by each flavor.",
-    "type": "object",
-    "required": [
-     "cpu",
-     "memory"
-    ],
-    "properties": {
-     "cpu": {
-      "description": "Required CPU related attributes of the flavor.",
-      "$ref": "#/definitions/v1alpha1.CPUFlavor"
-     },
-     "gpus": {
-      "description": "Optionally defines any GPU devices associated with the flavor.",
-      "type": "array",
-      "items": {
-       "$ref": "#/definitions/v1.GPU"
-      },
-      "x-kubernetes-list-type": "atomic"
-     },
-     "hostDevices": {
-      "description": "Optionally defines any HostDevices associated with the flavor.",
-      "type": "array",
-      "items": {
-       "$ref": "#/definitions/v1.HostDevice"
-      },
-      "x-kubernetes-list-type": "atomic"
-     },
-     "ioThreadsPolicy": {
-      "description": "Optionally defines the IOThreadsPolicy to be used by the flavor.",
-      "type": "string"
-     },
-     "launchSecurity": {
-      "description": "Optionally defines the LaunchSecurity to be used by the flavor.",
-      "$ref": "#/definitions/v1.LaunchSecurity"
-     },
-     "memory": {
-      "description": "Required Memory related attributes of the flavor.",
-      "$ref": "#/definitions/v1alpha1.MemoryFlavor"
      }
     }
    },
@@ -20168,87 +20099,6 @@
      "replicas": {
       "type": "integer",
       "format": "int32"
-     }
-    }
-   },
-   "v1alpha1.VirtualMachinePreference": {
-    "description": "VirtualMachinePreference resource contains optional preferences related to the VirtualMachine.",
-    "type": "object",
-    "required": [
-     "spec"
-    ],
-    "properties": {
-     "apiVersion": {
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
-      "type": "string"
-     },
-     "kind": {
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
-      "type": "string"
-     },
-     "metadata": {
-      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
-     },
-     "spec": {
-      "description": "Required spec describing the preferences",
-      "$ref": "#/definitions/v1alpha1.VirtualMachinePreferenceSpec"
-     }
-    }
-   },
-   "v1alpha1.VirtualMachinePreferenceList": {
-    "description": "VirtualMachinePreferenceList is a list of VirtualMachinePreference resources.",
-    "type": "object",
-    "required": [
-     "items"
-    ],
-    "properties": {
-     "apiVersion": {
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
-      "type": "string"
-     },
-     "items": {
-      "type": "array",
-      "items": {
-       "$ref": "#/definitions/v1alpha1.VirtualMachinePreference"
-      },
-      "x-kubernetes-list-type": "set"
-     },
-     "kind": {
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
-      "type": "string"
-     },
-     "metadata": {
-      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
-     }
-    }
-   },
-   "v1alpha1.VirtualMachinePreferenceSpec": {
-    "description": "VirtualMachinePreferenceSpec is a description of the VirtualMachinePreference or VirtualMachineClusterPreference.",
-    "type": "object",
-    "properties": {
-     "clock": {
-      "description": "Clock optionally defines preferences associated with the Clock attribute of a VirtualMachineInstance DomainSpec",
-      "$ref": "#/definitions/v1alpha1.ClockPreferences"
-     },
-     "cpu": {
-      "description": "CPU optionally defines preferences associated with the CPU attribute of a VirtualMachineInstance DomainSpec",
-      "$ref": "#/definitions/v1alpha1.CPUPreferences"
-     },
-     "devices": {
-      "description": "Devices optionally defines preferences associated with the Devices attribute of a VirtualMachineInstance DomainSpec",
-      "$ref": "#/definitions/v1alpha1.DevicePreferences"
-     },
-     "features": {
-      "description": "Features optionally defines preferences associated with the Features attribute of a VirtualMachineInstance DomainSpec",
-      "$ref": "#/definitions/v1alpha1.FeaturePreferences"
-     },
-     "firmware": {
-      "description": "Firmware optionally defines preferences associated with the Firmware attribute of a VirtualMachineInstance DomainSpec",
-      "$ref": "#/definitions/v1alpha1.FirmwarePreferences"
-     },
-     "machine": {
-      "description": "Machine optionally defines preferences associated with the Machine attribute of a VirtualMachineInstance DomainSpec",
-      "$ref": "#/definitions/v1alpha1.MachinePreferences"
      }
     }
    },
@@ -20639,6 +20489,515 @@
      },
      "volumeSnapshotName": {
       "type": "string"
+     }
+    }
+   },
+   "v1alpha2.CPUInstancetype": {
+    "description": "CPUInstancetype contains the CPU related configuration of a given VirtualMachineInstancetypeSpec.\n\nGuest is a required attribute and defines the number of vCPUs to be exposed to the guest by the instancetype.",
+    "type": "object",
+    "required": [
+     "guest"
+    ],
+    "properties": {
+     "dedicatedCPUPlacement": {
+      "description": "DedicatedCPUPlacement requests the scheduler to place the VirtualMachineInstance on a node with enough dedicated pCPUs and pin the vCPUs to it.",
+      "type": "boolean"
+     },
+     "guest": {
+      "description": "Required number of vCPUs to expose to the guest.\n\nThe resulting CPU topology being derived from the optional PreferredCPUTopology attribute of CPUPreferences that itself defaults to PreferCores.",
+      "type": "integer",
+      "format": "int64"
+     },
+     "isolateEmulatorThread": {
+      "description": "IsolateEmulatorThread requests one more dedicated pCPU to be allocated for the VMI to place the emulator thread on it.",
+      "type": "boolean"
+     },
+     "model": {
+      "description": "Model specifies the CPU model inside the VMI. List of available models https://github.com/libvirt/libvirt/tree/master/src/cpu_map. It is possible to specify special cases like \"host-passthrough\" to get the same CPU as the node and \"host-model\" to get CPU closest to the node one. Defaults to host-model.",
+      "type": "string"
+     },
+     "numa": {
+      "description": "NUMA allows specifying settings for the guest NUMA topology",
+      "$ref": "#/definitions/v1.NUMA"
+     },
+     "realtime": {
+      "description": "Realtime instructs the virt-launcher to tune the VMI for lower latency, optional for real time workloads",
+      "$ref": "#/definitions/v1.Realtime"
+     }
+    }
+   },
+   "v1alpha2.CPUPreferences": {
+    "description": "CPUPreferences contains various optional CPU preferences.",
+    "type": "object",
+    "properties": {
+     "preferredCPUTopology": {
+      "description": "PreferredCPUTopology optionally defines the preferred guest visible CPU topology, defaults to PreferSockets.",
+      "type": "string"
+     }
+    }
+   },
+   "v1alpha2.ClockPreferences": {
+    "description": "ClockPreferences contains various optional defaults for Clock.",
+    "type": "object",
+    "properties": {
+     "preferredClockOffset": {
+      "description": "ClockOffset allows specifying the UTC offset or the timezone of the guest clock.",
+      "$ref": "#/definitions/v1.ClockOffset"
+     },
+     "preferredTimer": {
+      "description": "Timer specifies whih timers are attached to the vmi.",
+      "$ref": "#/definitions/v1.Timer"
+     }
+    }
+   },
+   "v1alpha2.DevicePreferences": {
+    "description": "DevicePreferences contains various optional Device preferences.",
+    "type": "object",
+    "properties": {
+     "preferredAutoattachGraphicsDevice": {
+      "description": "PreferredAutoattachGraphicsDevice optionally defines the preferred value of AutoattachGraphicsDevice",
+      "type": "boolean"
+     },
+     "preferredAutoattachInputDevice": {
+      "description": "PreferredAutoattachInputDevice optionally defines the preferred value of AutoattachInputDevice",
+      "type": "boolean"
+     },
+     "preferredAutoattachMemBalloon": {
+      "description": "PreferredAutoattachMemBalloon optionally defines the preferred value of AutoattachMemBalloon",
+      "type": "boolean"
+     },
+     "preferredAutoattachPodInterface": {
+      "description": "PreferredAutoattachPodInterface optionally defines the preferred value of AutoattachPodInterface",
+      "type": "boolean"
+     },
+     "preferredAutoattachSerialConsole": {
+      "description": "PreferredAutoattachSerialConsole optionally defines the preferred value of AutoattachSerialConsole",
+      "type": "boolean"
+     },
+     "preferredBlockMultiQueue": {
+      "description": "PreferredBlockMultiQueue optionally enables the vhost multiqueue feature for virtio disks.",
+      "type": "boolean"
+     },
+     "preferredCdromBus": {
+      "description": "PreferredCdromBus optionally defines the preferred bus for Cdrom Disk devices.",
+      "type": "string"
+     },
+     "preferredDisableHotplug": {
+      "description": "PreferredDisableHotplug optionally defines the preferred value of DisableHotplug",
+      "type": "boolean"
+     },
+     "preferredDiskBlockSize": {
+      "description": "PreferredBlockSize optionally defines the block size of Disk devices.",
+      "$ref": "#/definitions/v1.BlockSize"
+     },
+     "preferredDiskBus": {
+      "description": "PreferredDiskBus optionally defines the preferred bus for Disk Disk devices.",
+      "type": "string"
+     },
+     "preferredDiskCache": {
+      "description": "PreferredCache optionally defines the DriverCache to be used by Disk devices.",
+      "type": "string"
+     },
+     "preferredDiskDedicatedIoThread": {
+      "description": "PreferredDedicatedIoThread optionally enables dedicated IO threads for Disk devices.",
+      "type": "boolean"
+     },
+     "preferredDiskIO": {
+      "description": "PreferredIo optionally defines the QEMU disk IO mode to be used by Disk devices.",
+      "type": "string"
+     },
+     "preferredInputBus": {
+      "description": "PreferredInputBus optionally defines the preferred bus for Input devices.",
+      "type": "string"
+     },
+     "preferredInputType": {
+      "description": "PreferredInputType optionally defines the preferred type for Input devices.",
+      "type": "string"
+     },
+     "preferredInterfaceModel": {
+      "description": "PreferredInterfaceModel optionally defines the preferred model to be used by Interface devices.",
+      "type": "string"
+     },
+     "preferredLunBus": {
+      "description": "PreferredLunBus optionally defines the preferred bus for Lun Disk devices.",
+      "type": "string"
+     },
+     "preferredNetworkInterfaceMultiQueue": {
+      "description": "PreferredNetworkInterfaceMultiQueue optionally enables the vhost multiqueue feature for virtio interfaces.",
+      "type": "boolean"
+     },
+     "preferredRng": {
+      "description": "PreferredRng optionally defines the preferred rng device to be used.",
+      "$ref": "#/definitions/v1.Rng"
+     },
+     "preferredSoundModel": {
+      "description": "PreferredSoundModel optionally defines the preferred model for Sound devices.",
+      "type": "string"
+     },
+     "preferredTPM": {
+      "description": "PreferredTPM optionally defines the preferred TPM device to be used.",
+      "$ref": "#/definitions/v1.TPMDevice"
+     },
+     "preferredUseVirtioTransitional": {
+      "description": "PreferredUseVirtioTransitional optionally defines the preferred value of UseVirtioTransitional",
+      "type": "boolean"
+     },
+     "preferredVirtualGPUOptions": {
+      "description": "PreferredVirtualGPUOptions optionally defines the preferred value of VirtualGPUOptions",
+      "$ref": "#/definitions/v1.VGPUOptions"
+     }
+    }
+   },
+   "v1alpha2.FeaturePreferences": {
+    "description": "FeaturePreferences contains various optional defaults for Features.",
+    "type": "object",
+    "properties": {
+     "preferredAcpi": {
+      "description": "PreferredAcpi optionally enables the ACPI feature",
+      "$ref": "#/definitions/v1.FeatureState"
+     },
+     "preferredApic": {
+      "description": "PreferredApic optionally enables and configures the APIC feature",
+      "$ref": "#/definitions/v1.FeatureAPIC"
+     },
+     "preferredHyperv": {
+      "description": "PreferredHyperv optionally enables and configures HyperV features",
+      "$ref": "#/definitions/v1.FeatureHyperv"
+     },
+     "preferredKvm": {
+      "description": "PreferredKvm optionally enables and configures KVM features",
+      "$ref": "#/definitions/v1.FeatureKVM"
+     },
+     "preferredPvspinlock": {
+      "description": "PreferredPvspinlock optionally enables the Pvspinlock feature",
+      "$ref": "#/definitions/v1.FeatureState"
+     },
+     "preferredSmm": {
+      "description": "PreferredSmm optionally enables the SMM feature",
+      "$ref": "#/definitions/v1.FeatureState"
+     }
+    }
+   },
+   "v1alpha2.FirmwarePreferences": {
+    "description": "FirmwarePreferences contains various optional defaults for Firmware.",
+    "type": "object",
+    "properties": {
+     "preferredUseBios": {
+      "description": "PreferredUseBios optionally enables BIOS",
+      "type": "boolean"
+     },
+     "preferredUseBiosSerial": {
+      "description": "PreferredUseBiosSerial optionally transmitts BIOS output over the serial.\n\nRequires PreferredUseBios to be enabled.",
+      "type": "boolean"
+     },
+     "preferredUseEfi": {
+      "description": "PreferredUseEfi optionally enables EFI",
+      "type": "boolean"
+     },
+     "preferredUseSecureBoot": {
+      "description": "PreferredUseSecureBoot optionally enables SecureBoot and the OVMF roms will be swapped for SecureBoot-enabled ones.\n\nRequires PreferredUseEfi and PreferredSmm to be enabled.",
+      "type": "boolean"
+     }
+    }
+   },
+   "v1alpha2.MachinePreferences": {
+    "description": "MachinePreferences contains various optional defaults for Machine.",
+    "type": "object",
+    "properties": {
+     "preferredMachineType": {
+      "description": "PreferredMachineType optionally defines the preferred machine type to use.",
+      "type": "string"
+     }
+    }
+   },
+   "v1alpha2.MemoryInstancetype": {
+    "description": "MemoryInstancetype contains the Memory related configuration of a given VirtualMachineInstancetypeSpec.\n\nGuest is a required attribute and defines the amount of RAM to be exposed to the guest by the instancetype.",
+    "type": "object",
+    "required": [
+     "guest"
+    ],
+    "properties": {
+     "guest": {
+      "description": "Required amount of memory which is visible inside the guest OS.",
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
+     },
+     "hugepages": {
+      "description": "Optionally enables the use of hugepages for the VirtualMachineInstance instead of regular memory.",
+      "$ref": "#/definitions/v1.Hugepages"
+     }
+    }
+   },
+   "v1alpha2.VirtualMachineClusterInstancetype": {
+    "description": "VirtualMachineClusterInstancetype is a cluster scoped version of VirtualMachineInstancetype resource.",
+    "type": "object",
+    "required": [
+     "spec"
+    ],
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+     },
+     "spec": {
+      "description": "Required spec describing the instancetype",
+      "$ref": "#/definitions/v1alpha2.VirtualMachineInstancetypeSpec"
+     }
+    }
+   },
+   "v1alpha2.VirtualMachineClusterInstancetypeList": {
+    "description": "VirtualMachineClusterInstancetypeList is a list of VirtualMachineClusterInstancetype resources.",
+    "type": "object",
+    "required": [
+     "items"
+    ],
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+     },
+     "items": {
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/v1alpha2.VirtualMachineClusterInstancetype"
+      }
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+     }
+    }
+   },
+   "v1alpha2.VirtualMachineClusterPreference": {
+    "description": "VirtualMachineClusterPreference is a cluster scoped version of the VirtualMachinePreference resource.",
+    "type": "object",
+    "required": [
+     "spec"
+    ],
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+     },
+     "spec": {
+      "description": "Required spec describing the preferences",
+      "$ref": "#/definitions/v1alpha2.VirtualMachinePreferenceSpec"
+     }
+    }
+   },
+   "v1alpha2.VirtualMachineClusterPreferenceList": {
+    "description": "VirtualMachineClusterPreferenceList is a list of VirtualMachineClusterPreference resources.",
+    "type": "object",
+    "required": [
+     "items"
+    ],
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+     },
+     "items": {
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/v1alpha2.VirtualMachineClusterPreference"
+      },
+      "x-kubernetes-list-type": "set"
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+     }
+    }
+   },
+   "v1alpha2.VirtualMachineInstancetype": {
+    "description": "VirtualMachineInstancetype resource contains quantitative and resource related VirtualMachine configuration that can be used by multiple VirtualMachine resources.",
+    "type": "object",
+    "required": [
+     "spec"
+    ],
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+     },
+     "spec": {
+      "description": "Required spec describing the instancetype",
+      "$ref": "#/definitions/v1alpha2.VirtualMachineInstancetypeSpec"
+     }
+    }
+   },
+   "v1alpha2.VirtualMachineInstancetypeList": {
+    "description": "VirtualMachineInstancetypeList is a list of VirtualMachineInstancetype resources.",
+    "type": "object",
+    "required": [
+     "items"
+    ],
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+     },
+     "items": {
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/v1alpha2.VirtualMachineInstancetype"
+      }
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+     }
+    }
+   },
+   "v1alpha2.VirtualMachineInstancetypeSpec": {
+    "description": "VirtualMachineInstancetypeSpec is a description of the VirtualMachineInstancetype or VirtualMachineClusterInstancetype.\n\nCPU and Memory are required attributes with both requiring that their Guest attribute is defined, ensuring a number of vCPUs and amount of RAM is always provided by each instancetype.",
+    "type": "object",
+    "required": [
+     "cpu",
+     "memory"
+    ],
+    "properties": {
+     "cpu": {
+      "description": "Required CPU related attributes of the instancetype.",
+      "$ref": "#/definitions/v1alpha2.CPUInstancetype"
+     },
+     "gpus": {
+      "description": "Optionally defines any GPU devices associated with the instancetype.",
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/v1.GPU"
+      },
+      "x-kubernetes-list-type": "atomic"
+     },
+     "hostDevices": {
+      "description": "Optionally defines any HostDevices associated with the instancetype.",
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/v1.HostDevice"
+      },
+      "x-kubernetes-list-type": "atomic"
+     },
+     "ioThreadsPolicy": {
+      "description": "Optionally defines the IOThreadsPolicy to be used by the instancetype.",
+      "type": "string"
+     },
+     "launchSecurity": {
+      "description": "Optionally defines the LaunchSecurity to be used by the instancetype.",
+      "$ref": "#/definitions/v1.LaunchSecurity"
+     },
+     "memory": {
+      "description": "Required Memory related attributes of the instancetype.",
+      "$ref": "#/definitions/v1alpha2.MemoryInstancetype"
+     }
+    }
+   },
+   "v1alpha2.VirtualMachinePreference": {
+    "description": "VirtualMachinePreference resource contains optional preferences related to the VirtualMachine.",
+    "type": "object",
+    "required": [
+     "spec"
+    ],
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+     },
+     "spec": {
+      "description": "Required spec describing the preferences",
+      "$ref": "#/definitions/v1alpha2.VirtualMachinePreferenceSpec"
+     }
+    }
+   },
+   "v1alpha2.VirtualMachinePreferenceList": {
+    "description": "VirtualMachinePreferenceList is a list of VirtualMachinePreference resources.",
+    "type": "object",
+    "required": [
+     "items"
+    ],
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+     },
+     "items": {
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/v1alpha2.VirtualMachinePreference"
+      },
+      "x-kubernetes-list-type": "set"
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta"
+     }
+    }
+   },
+   "v1alpha2.VirtualMachinePreferenceSpec": {
+    "description": "VirtualMachinePreferenceSpec is a description of the VirtualMachinePreference or VirtualMachineClusterPreference.",
+    "type": "object",
+    "properties": {
+     "clock": {
+      "description": "Clock optionally defines preferences associated with the Clock attribute of a VirtualMachineInstance DomainSpec",
+      "$ref": "#/definitions/v1alpha2.ClockPreferences"
+     },
+     "cpu": {
+      "description": "CPU optionally defines preferences associated with the CPU attribute of a VirtualMachineInstance DomainSpec",
+      "$ref": "#/definitions/v1alpha2.CPUPreferences"
+     },
+     "devices": {
+      "description": "Devices optionally defines preferences associated with the Devices attribute of a VirtualMachineInstance DomainSpec",
+      "$ref": "#/definitions/v1alpha2.DevicePreferences"
+     },
+     "features": {
+      "description": "Features optionally defines preferences associated with the Features attribute of a VirtualMachineInstance DomainSpec",
+      "$ref": "#/definitions/v1alpha2.FeaturePreferences"
+     },
+     "firmware": {
+      "description": "Firmware optionally defines preferences associated with the Firmware attribute of a VirtualMachineInstance DomainSpec",
+      "$ref": "#/definitions/v1alpha2.FirmwarePreferences"
+     },
+     "machine": {
+      "description": "Machine optionally defines preferences associated with the Machine attribute of a VirtualMachineInstance DomainSpec",
+      "$ref": "#/definitions/v1alpha2.MachinePreferences"
      }
     }
    },

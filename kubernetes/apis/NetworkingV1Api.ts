@@ -257,6 +257,17 @@ export interface PatchNetworkingV1NamespacedNetworkPolicyRequest {
   force?: boolean;
 }
 
+export interface PatchNetworkingV1NamespacedNetworkPolicyStatusRequest {
+  name: string;
+  namespace: string;
+  body: object;
+  pretty?: string;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
+  force?: boolean;
+}
+
 export interface ReadNetworkingV1IngressClassRequest {
   name: string;
   pretty?: string;
@@ -275,6 +286,12 @@ export interface ReadNetworkingV1NamespacedIngressStatusRequest {
 }
 
 export interface ReadNetworkingV1NamespacedNetworkPolicyRequest {
+  name: string;
+  namespace: string;
+  pretty?: string;
+}
+
+export interface ReadNetworkingV1NamespacedNetworkPolicyStatusRequest {
   name: string;
   namespace: string;
   pretty?: string;
@@ -310,6 +327,16 @@ export interface ReplaceNetworkingV1NamespacedIngressStatusRequest {
 }
 
 export interface ReplaceNetworkingV1NamespacedNetworkPolicyRequest {
+  name: string;
+  namespace: string;
+  body: IoK8sApiNetworkingV1NetworkPolicy;
+  pretty?: string;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
+}
+
+export interface ReplaceNetworkingV1NamespacedNetworkPolicyStatusRequest {
   name: string;
   namespace: string;
   body: IoK8sApiNetworkingV1NetworkPolicy;
@@ -2034,6 +2061,96 @@ export class NetworkingV1Api extends runtime.BaseAPI {
   }
 
   /**
+   * partially update status of the specified NetworkPolicy
+   */
+  async patchNetworkingV1NamespacedNetworkPolicyStatusRaw(
+    requestParameters: PatchNetworkingV1NamespacedNetworkPolicyStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1NetworkPolicy>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling patchNetworkingV1NamespacedNetworkPolicyStatus.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling patchNetworkingV1NamespacedNetworkPolicyStatus.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling patchNetworkingV1NamespacedNetworkPolicyStatus.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    if (requestParameters.force !== undefined) {
+      queryParameters['force'] = requestParameters.force;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json-patch+json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}/status`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PATCH',
+        headers: headerParameters,
+        query: queryParameters,
+        body: requestParameters.body as any,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1NetworkPolicyFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * partially update status of the specified NetworkPolicy
+   */
+  async patchNetworkingV1NamespacedNetworkPolicyStatus(
+    requestParameters: PatchNetworkingV1NamespacedNetworkPolicyStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1NetworkPolicy> {
+    const response = await this.patchNetworkingV1NamespacedNetworkPolicyStatusRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
    * read the specified IngressClass
    */
   async readNetworkingV1IngressClassRaw(
@@ -2274,6 +2391,70 @@ export class NetworkingV1Api extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<IoK8sApiNetworkingV1NetworkPolicy> {
     const response = await this.readNetworkingV1NamespacedNetworkPolicyRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * read status of the specified NetworkPolicy
+   */
+  async readNetworkingV1NamespacedNetworkPolicyStatusRaw(
+    requestParameters: ReadNetworkingV1NamespacedNetworkPolicyStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1NetworkPolicy>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling readNetworkingV1NamespacedNetworkPolicyStatus.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling readNetworkingV1NamespacedNetworkPolicyStatus.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}/status`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1NetworkPolicyFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * read status of the specified NetworkPolicy
+   */
+  async readNetworkingV1NamespacedNetworkPolicyStatus(
+    requestParameters: ReadNetworkingV1NamespacedNetworkPolicyStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1NetworkPolicy> {
+    const response = await this.readNetworkingV1NamespacedNetworkPolicyStatusRaw(
       requestParameters,
       initOverrides,
     );
@@ -2612,6 +2793,92 @@ export class NetworkingV1Api extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<IoK8sApiNetworkingV1NetworkPolicy> {
     const response = await this.replaceNetworkingV1NamespacedNetworkPolicyRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * replace status of the specified NetworkPolicy
+   */
+  async replaceNetworkingV1NamespacedNetworkPolicyStatusRaw(
+    requestParameters: ReplaceNetworkingV1NamespacedNetworkPolicyStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1NetworkPolicy>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling replaceNetworkingV1NamespacedNetworkPolicyStatus.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling replaceNetworkingV1NamespacedNetworkPolicyStatus.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling replaceNetworkingV1NamespacedNetworkPolicyStatus.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}/status`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApiNetworkingV1NetworkPolicyToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1NetworkPolicyFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * replace status of the specified NetworkPolicy
+   */
+  async replaceNetworkingV1NamespacedNetworkPolicyStatus(
+    requestParameters: ReplaceNetworkingV1NamespacedNetworkPolicyStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1NetworkPolicy> {
+    const response = await this.replaceNetworkingV1NamespacedNetworkPolicyStatusRaw(
       requestParameters,
       initOverrides,
     );

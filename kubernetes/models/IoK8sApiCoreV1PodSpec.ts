@@ -38,6 +38,12 @@ import {
   IoK8sApiCoreV1PodReadinessGate,
   IoK8sApiCoreV1PodReadinessGateFromJSON,
   IoK8sApiCoreV1PodReadinessGateToJSON,
+  IoK8sApiCoreV1PodResourceClaim,
+  IoK8sApiCoreV1PodResourceClaimFromJSON,
+  IoK8sApiCoreV1PodResourceClaimToJSON,
+  IoK8sApiCoreV1PodSchedulingGate,
+  IoK8sApiCoreV1PodSchedulingGateFromJSON,
+  IoK8sApiCoreV1PodSchedulingGateToJSON,
   IoK8sApiCoreV1PodSecurityContext,
   IoK8sApiCoreV1PodSecurityContextFromJSON,
   IoK8sApiCoreV1PodSecurityContextToJSON,
@@ -101,7 +107,7 @@ export interface IoK8sApiCoreV1PodSpec {
    */
   enableServiceLinks?: boolean;
   /**
-   * List of ephemeral containers run in this pod. Ephemeral containers may be run in an existing pod to perform user-initiated actions such as debugging. This list cannot be specified when creating a pod, and it cannot be modified by updating the pod spec. In order to add an ephemeral container to an existing pod, use the pod's ephemeralcontainers subresource. This field is beta-level and available on clusters that haven't disabled the EphemeralContainers feature gate.
+   * List of ephemeral containers run in this pod. Ephemeral containers may be run in an existing pod to perform user-initiated actions such as debugging. This list cannot be specified when creating a pod, and it cannot be modified by updating the pod spec. In order to add an ephemeral container to an existing pod, use the pod's ephemeralcontainers subresource.
    * @type {Array<IoK8sApiCoreV1EphemeralContainer>}
    * @memberof IoK8sApiCoreV1PodSpec
    */
@@ -131,13 +137,19 @@ export interface IoK8sApiCoreV1PodSpec {
    */
   hostPID?: boolean;
   /**
+   * Use the host's user namespace. Optional: Default to true. If set to true or not present, the pod will be run in the host user namespace, useful for when the pod needs a feature only available to the host user namespace, such as loading a kernel module with CAP_SYS_MODULE. When set to false, a new userns is created for the pod. Setting false is useful for mitigating container breakout vulnerabilities even allowing users to run their containers as root without actually having root privileges on the host. This field is alpha-level and is only honored by servers that enable the UserNamespacesSupport feature.
+   * @type {boolean}
+   * @memberof IoK8sApiCoreV1PodSpec
+   */
+  hostUsers?: boolean;
+  /**
    * Specifies the hostname of the Pod If not specified, the pod's hostname will be set to a system-defined value.
    * @type {string}
    * @memberof IoK8sApiCoreV1PodSpec
    */
   hostname?: string;
   /**
-   * ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod
+   * ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod
    * @type {Array<IoK8sApiCoreV1LocalObjectReference>}
    * @memberof IoK8sApiCoreV1PodSpec
    */
@@ -167,13 +179,13 @@ export interface IoK8sApiCoreV1PodSpec {
    */
   os?: IoK8sApiCoreV1PodOS;
   /**
-   * Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. This field will be autopopulated at admission time by the RuntimeClass admission controller. If the RuntimeClass admission controller is enabled, overhead must not be set in Pod create requests. The RuntimeClass admission controller will reject Pod create requests which have the overhead already set. If RuntimeClass is configured and selected in the PodSpec, Overhead will be set to the value defined in the corresponding RuntimeClass, otherwise it will remain unset and treated as zero. More info: https://git.k8s.io/enhancements/keps/sig-node/688-pod-overhead/README.md This field is beta-level as of Kubernetes v1.18, and is only honored by servers that enable the PodOverhead feature.
+   * Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. This field will be autopopulated at admission time by the RuntimeClass admission controller. If the RuntimeClass admission controller is enabled, overhead must not be set in Pod create requests. The RuntimeClass admission controller will reject Pod create requests which have the overhead already set. If RuntimeClass is configured and selected in the PodSpec, Overhead will be set to the value defined in the corresponding RuntimeClass, otherwise it will remain unset and treated as zero. More info: https://git.k8s.io/enhancements/keps/sig-node/688-pod-overhead/README.md
    * @type {{ [key: string]: string; }}
    * @memberof IoK8sApiCoreV1PodSpec
    */
   overhead?: { [key: string]: string };
   /**
-   * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+   * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset.
    * @type {string}
    * @memberof IoK8sApiCoreV1PodSpec
    */
@@ -197,13 +209,23 @@ export interface IoK8sApiCoreV1PodSpec {
    */
   readinessGates?: Array<IoK8sApiCoreV1PodReadinessGate>;
   /**
+   * ResourceClaims defines which ResourceClaims must be allocated and reserved before the Pod is allowed to start. The resources will be made available to those containers which consume them by name.
+   *
+   * This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.
+   *
+   * This field is immutable.
+   * @type {Array<IoK8sApiCoreV1PodResourceClaim>}
+   * @memberof IoK8sApiCoreV1PodSpec
+   */
+  resourceClaims?: Array<IoK8sApiCoreV1PodResourceClaim>;
+  /**
    * Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy
    * @type {string}
    * @memberof IoK8sApiCoreV1PodSpec
    */
   restartPolicy?: string;
   /**
-   * RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the "legacy" RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class This is a beta feature as of Kubernetes v1.14.
+   * RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the "legacy" RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class
    * @type {string}
    * @memberof IoK8sApiCoreV1PodSpec
    */
@@ -214,6 +236,14 @@ export interface IoK8sApiCoreV1PodSpec {
    * @memberof IoK8sApiCoreV1PodSpec
    */
   schedulerName?: string;
+  /**
+   * SchedulingGates is an opaque list of values that if specified will block scheduling the pod. More info:  https://git.k8s.io/enhancements/keps/sig-scheduling/3521-pod-scheduling-readiness.
+   *
+   * This is an alpha-level feature enabled by PodSchedulingReadiness feature gate.
+   * @type {Array<IoK8sApiCoreV1PodSchedulingGate>}
+   * @memberof IoK8sApiCoreV1PodSpec
+   */
+  schedulingGates?: Array<IoK8sApiCoreV1PodSchedulingGate>;
   /**
    *
    * @type {IoK8sApiCoreV1PodSecurityContext}
@@ -314,6 +344,7 @@ export function IoK8sApiCoreV1PodSpecFromJSONTyped(
     hostIPC: !exists(json, 'hostIPC') ? undefined : json['hostIPC'],
     hostNetwork: !exists(json, 'hostNetwork') ? undefined : json['hostNetwork'],
     hostPID: !exists(json, 'hostPID') ? undefined : json['hostPID'],
+    hostUsers: !exists(json, 'hostUsers') ? undefined : json['hostUsers'],
     hostname: !exists(json, 'hostname') ? undefined : json['hostname'],
     imagePullSecrets: !exists(json, 'imagePullSecrets')
       ? undefined
@@ -331,9 +362,15 @@ export function IoK8sApiCoreV1PodSpecFromJSONTyped(
     readinessGates: !exists(json, 'readinessGates')
       ? undefined
       : (json['readinessGates'] as Array<any>).map(IoK8sApiCoreV1PodReadinessGateFromJSON),
+    resourceClaims: !exists(json, 'resourceClaims')
+      ? undefined
+      : (json['resourceClaims'] as Array<any>).map(IoK8sApiCoreV1PodResourceClaimFromJSON),
     restartPolicy: !exists(json, 'restartPolicy') ? undefined : json['restartPolicy'],
     runtimeClassName: !exists(json, 'runtimeClassName') ? undefined : json['runtimeClassName'],
     schedulerName: !exists(json, 'schedulerName') ? undefined : json['schedulerName'],
+    schedulingGates: !exists(json, 'schedulingGates')
+      ? undefined
+      : (json['schedulingGates'] as Array<any>).map(IoK8sApiCoreV1PodSchedulingGateFromJSON),
     securityContext: !exists(json, 'securityContext')
       ? undefined
       : IoK8sApiCoreV1PodSecurityContextFromJSON(json['securityContext']),
@@ -389,6 +426,7 @@ export function IoK8sApiCoreV1PodSpecToJSON(value?: IoK8sApiCoreV1PodSpec | null
     hostIPC: value.hostIPC,
     hostNetwork: value.hostNetwork,
     hostPID: value.hostPID,
+    hostUsers: value.hostUsers,
     hostname: value.hostname,
     imagePullSecrets:
       value.imagePullSecrets === undefined
@@ -409,9 +447,17 @@ export function IoK8sApiCoreV1PodSpecToJSON(value?: IoK8sApiCoreV1PodSpec | null
       value.readinessGates === undefined
         ? undefined
         : (value.readinessGates as Array<any>).map(IoK8sApiCoreV1PodReadinessGateToJSON),
+    resourceClaims:
+      value.resourceClaims === undefined
+        ? undefined
+        : (value.resourceClaims as Array<any>).map(IoK8sApiCoreV1PodResourceClaimToJSON),
     restartPolicy: value.restartPolicy,
     runtimeClassName: value.runtimeClassName,
     schedulerName: value.schedulerName,
+    schedulingGates:
+      value.schedulingGates === undefined
+        ? undefined
+        : (value.schedulingGates as Array<any>).map(IoK8sApiCoreV1PodSchedulingGateToJSON),
     securityContext: IoK8sApiCoreV1PodSecurityContextToJSON(value.securityContext),
     serviceAccount: value.serviceAccount,
     serviceAccountName: value.serviceAccountName,

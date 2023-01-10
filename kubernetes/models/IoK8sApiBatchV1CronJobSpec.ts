@@ -67,6 +67,12 @@ export interface IoK8sApiBatchV1CronJobSpec {
    * @memberof IoK8sApiBatchV1CronJobSpec
    */
   suspend?: boolean;
+  /**
+   * The time zone name for the given schedule, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones. If not specified, this will default to the time zone of the kube-controller-manager process. The set of valid time zone names and the time zone offset is loaded from the system-wide time zone database by the API server during CronJob validation and the controller manager during execution. If no system-wide time zone database can be found a bundled version of the database is used instead. If the time zone name becomes invalid during the lifetime of a CronJob or due to a change in host configuration, the controller will stop creating new new Jobs and will create a system event with the reason UnknownTimeZone. More information can be found in https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#time-zones This is beta field and must be enabled via the `CronJobTimeZone` feature gate.
+   * @type {string}
+   * @memberof IoK8sApiBatchV1CronJobSpec
+   */
+  timeZone?: string;
 }
 
 export function IoK8sApiBatchV1CronJobSpecFromJSON(json: any): IoK8sApiBatchV1CronJobSpec {
@@ -94,6 +100,7 @@ export function IoK8sApiBatchV1CronJobSpecFromJSONTyped(
       ? undefined
       : json['successfulJobsHistoryLimit'],
     suspend: !exists(json, 'suspend') ? undefined : json['suspend'],
+    timeZone: !exists(json, 'timeZone') ? undefined : json['timeZone'],
   };
 }
 
@@ -112,5 +119,6 @@ export function IoK8sApiBatchV1CronJobSpecToJSON(value?: IoK8sApiBatchV1CronJobS
     startingDeadlineSeconds: value.startingDeadlineSeconds,
     successfulJobsHistoryLimit: value.successfulJobsHistoryLimit,
     suspend: value.suspend,
+    timeZone: value.timeZone,
   };
 }

@@ -52,6 +52,18 @@ export interface V1alpha1VirtualMachineExportStatus {
    * @memberof V1alpha1VirtualMachineExportStatus
    */
   serviceName?: string;
+  /**
+   * TokenSecretRef is the name of the secret that contains the token used by the export server pod
+   * @type {string}
+   * @memberof V1alpha1VirtualMachineExportStatus
+   */
+  tokenSecretRef?: string;
+  /**
+   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+   * @type {string}
+   * @memberof V1alpha1VirtualMachineExportStatus
+   */
+  ttlExpirationTime?: string;
 }
 
 export function V1alpha1VirtualMachineExportStatusFromJSON(
@@ -76,6 +88,8 @@ export function V1alpha1VirtualMachineExportStatusFromJSONTyped(
       : V1alpha1VirtualMachineExportLinksFromJSON(json['links']),
     phase: !exists(json, 'phase') ? undefined : json['phase'],
     serviceName: !exists(json, 'serviceName') ? undefined : json['serviceName'],
+    tokenSecretRef: !exists(json, 'tokenSecretRef') ? undefined : json['tokenSecretRef'],
+    ttlExpirationTime: !exists(json, 'ttlExpirationTime') ? undefined : json['ttlExpirationTime'],
   };
 }
 
@@ -96,5 +110,7 @@ export function V1alpha1VirtualMachineExportStatusToJSON(
     links: V1alpha1VirtualMachineExportLinksToJSON(value.links),
     phase: value.phase,
     serviceName: value.serviceName,
+    tokenSecretRef: value.tokenSecretRef,
+    ttlExpirationTime: value.ttlExpirationTime === undefined ? undefined : value.ttlExpirationTime,
   };
 }

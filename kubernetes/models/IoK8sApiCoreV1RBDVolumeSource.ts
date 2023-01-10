@@ -26,37 +26,37 @@ import {
  */
 export interface IoK8sApiCoreV1RBDVolumeSource {
   /**
-   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd
+   * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd
    * @type {string}
    * @memberof IoK8sApiCoreV1RBDVolumeSource
    */
   fsType?: string;
   /**
-   * The rados image name. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * image is the rados image name. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @type {string}
    * @memberof IoK8sApiCoreV1RBDVolumeSource
    */
   image: string;
   /**
-   * Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @type {string}
    * @memberof IoK8sApiCoreV1RBDVolumeSource
    */
   keyring?: string;
   /**
-   * A collection of Ceph monitors. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * monitors is a collection of Ceph monitors. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @type {Array<string>}
    * @memberof IoK8sApiCoreV1RBDVolumeSource
    */
   monitors: Array<string>;
   /**
-   * The rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * pool is the rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @type {string}
    * @memberof IoK8sApiCoreV1RBDVolumeSource
    */
   pool?: string;
   /**
-   * ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @type {boolean}
    * @memberof IoK8sApiCoreV1RBDVolumeSource
    */
@@ -68,7 +68,7 @@ export interface IoK8sApiCoreV1RBDVolumeSource {
    */
   secretRef?: IoK8sApiCoreV1LocalObjectReference;
   /**
-   * The rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+   * user is the rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @type {string}
    * @memberof IoK8sApiCoreV1RBDVolumeSource
    */

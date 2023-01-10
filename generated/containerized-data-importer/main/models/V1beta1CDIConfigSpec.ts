@@ -39,7 +39,7 @@ import {
  */
 export interface V1beta1CDIConfigSpec {
     /**
-     * dataVolumeTTLSeconds is the time in seconds after DataVolume completion it can be garbage collected.
+     * DataVolumeTTLSeconds is the time in seconds after DataVolume completion it can be garbage collected. The default is 0 sec. To disable GC use -1.
      * @type {number}
      * @memberof V1beta1CDIConfigSpec
      */

@@ -18,6 +18,8 @@ export * from './PackageManifestModel';
 export * from './SriovNetworkNodePolicyModel';
 export * from './StorageProfileModel';
 export * from './SubscriptionModel';
+export * from './VirtualMachineClusterInstancetypeModel';
+export * from './VirtualMachineClusterPreferenceModel';
 export * from './VirtualMachineInstanceMigrationModel';
 export * from './VirtualMachineInstanceModel';
 export * from './VirtualMachineModel';

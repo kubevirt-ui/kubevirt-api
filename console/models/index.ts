@@ -12,6 +12,7 @@ export * from './HyperConvergedModel';
 export * from './InstallPlanModel';
 export * from './KubeDeschedulerModel';
 export * from './MigrationPolicyModel';
+export * from './ControllerRevisionModel';
 export * from './NetworkAddonsConfigModel';
 export * from './NetworkAttachmentDefinitionModel';
 export * from './PackageManifestModel';

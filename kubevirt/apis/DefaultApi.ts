@@ -1301,6 +1301,13 @@ export interface V1VNCScreenshotRequest {
   moveCursor?: boolean;
 }
 
+export interface V1VSOCKRequest {
+  name: string;
+  namespace: string;
+  port: number;
+  tls?: boolean;
+}
+
 export interface V1alpha3ConsoleRequest {
   name: string;
   namespace: string;
@@ -1388,6 +1395,13 @@ export interface V1alpha3VNCScreenshotRequest {
   name: string;
   namespace: string;
   moveCursor?: boolean;
+}
+
+export interface V1alpha3VSOCKRequest {
+  name: string;
+  namespace: string;
+  port: number;
+  tls?: boolean;
 }
 
 export interface V1alpha3usbredirRequest {
@@ -12544,6 +12558,68 @@ export class DefaultApi extends runtime.BaseAPI {
   }
 
   /**
+   * Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port via VSOCK.
+   */
+  async v1VSOCKRaw(
+    requestParameters: V1VSOCKRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<void>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1VSOCK.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1VSOCK.',
+      );
+    }
+
+    if (requestParameters.port === null || requestParameters.port === undefined) {
+      throw new runtime.RequiredError(
+        'port',
+        'Required parameter requestParameters.port was null or undefined when calling v1VSOCK.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.port !== undefined) {
+      queryParameters['port'] = requestParameters.port;
+    }
+
+    if (requestParameters.tls !== undefined) {
+      queryParameters['tls'] = requestParameters.tls;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/vsock`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.VoidApiResponse(response);
+  }
+
+  /**
+   * Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port via VSOCK.
+   */
+  async v1VSOCK(requestParameters: V1VSOCKRequest, initOverrides?: RequestInit): Promise<void> {
+    await this.v1VSOCKRaw(requestParameters, initOverrides);
+  }
+
+  /**
    */
   async v1VersionRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
     const queryParameters: any = {};
@@ -13641,6 +13717,71 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<void> {
     await this.v1alpha3VNCScreenshotRaw(requestParameters, initOverrides);
+  }
+
+  /**
+   * Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port via VSOCK.
+   */
+  async v1alpha3VSOCKRaw(
+    requestParameters: V1alpha3VSOCKRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<void>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1alpha3VSOCK.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1alpha3VSOCK.',
+      );
+    }
+
+    if (requestParameters.port === null || requestParameters.port === undefined) {
+      throw new runtime.RequiredError(
+        'port',
+        'Required parameter requestParameters.port was null or undefined when calling v1alpha3VSOCK.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.port !== undefined) {
+      queryParameters['port'] = requestParameters.port;
+    }
+
+    if (requestParameters.tls !== undefined) {
+      queryParameters['tls'] = requestParameters.tls;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/vsock`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.VoidApiResponse(response);
+  }
+
+  /**
+   * Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port via VSOCK.
+   */
+  async v1alpha3VSOCK(
+    requestParameters: V1alpha3VSOCKRequest,
+    initOverrides?: RequestInit,
+  ): Promise<void> {
+    await this.v1alpha3VSOCKRaw(requestParameters, initOverrides);
   }
 
   /**

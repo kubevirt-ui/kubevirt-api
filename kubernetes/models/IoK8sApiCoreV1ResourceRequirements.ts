@@ -30,7 +30,7 @@ export interface IoK8sApiCoreV1ResourceRequirements {
    *
    * This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.
    *
-   * This field is immutable.
+   * This field is immutable. It can only be set for containers.
    * @type {Array<IoK8sApiCoreV1ResourceClaim>}
    * @memberof IoK8sApiCoreV1ResourceRequirements
    */

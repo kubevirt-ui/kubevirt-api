@@ -14,6 +14,9 @@
 
 import { exists } from '../runtime';
 import {
+  K8sIoApiCoreV1LocalObjectReference,
+  K8sIoApiCoreV1LocalObjectReferenceFromJSON,
+  K8sIoApiCoreV1LocalObjectReferenceToJSON,
   V1ComponentConfig,
   V1ComponentConfigFromJSON,
   V1ComponentConfigToJSON,
@@ -61,6 +64,12 @@ export interface V1KubeVirtSpec {
    * @memberof V1KubeVirtSpec
    */
   imagePullPolicy?: string;
+  /**
+   * The imagePullSecrets to pull the container images from Defaults to none
+   * @type {Array<K8sIoApiCoreV1LocalObjectReference>}
+   * @memberof V1KubeVirtSpec
+   */
+  imagePullSecrets?: Array<K8sIoApiCoreV1LocalObjectReference>;
   /**
    * The image registry to pull the container images from Defaults to the same registry the operator's container image is pulled from.
    * @type {string}
@@ -159,6 +168,9 @@ export function V1KubeVirtSpecFromJSONTyped(
       ? undefined
       : V1CustomizeComponentsFromJSON(json['customizeComponents']),
     imagePullPolicy: !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
+    imagePullSecrets: !exists(json, 'imagePullSecrets')
+      ? undefined
+      : (json['imagePullSecrets'] as Array<any>).map(K8sIoApiCoreV1LocalObjectReferenceFromJSON),
     imageRegistry: !exists(json, 'imageRegistry') ? undefined : json['imageRegistry'],
     imageTag: !exists(json, 'imageTag') ? undefined : json['imageTag'],
     infra: !exists(json, 'infra') ? undefined : V1ComponentConfigFromJSON(json['infra']),
@@ -194,6 +206,10 @@ export function V1KubeVirtSpecToJSON(value?: V1KubeVirtSpec | null): any {
     configuration: V1KubeVirtConfigurationToJSON(value._configuration),
     customizeComponents: V1CustomizeComponentsToJSON(value.customizeComponents),
     imagePullPolicy: value.imagePullPolicy,
+    imagePullSecrets:
+      value.imagePullSecrets === undefined
+        ? undefined
+        : (value.imagePullSecrets as Array<any>).map(K8sIoApiCoreV1LocalObjectReferenceToJSON),
     imageRegistry: value.imageRegistry,
     imageTag: value.imageTag,
     infra: V1ComponentConfigToJSON(value.infra),

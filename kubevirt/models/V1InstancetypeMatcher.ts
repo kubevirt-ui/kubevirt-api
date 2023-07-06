@@ -20,6 +20,12 @@ import { exists } from '../runtime';
  */
 export interface V1InstancetypeMatcher {
   /**
+   * InferFromVolume lists the name of a volume that should be used to infer or discover the instancetype to be used through known annotations on the underlying resource. Once applied to the InstancetypeMatcher this field is removed.
+   * @type {string}
+   * @memberof V1InstancetypeMatcher
+   */
+  inferFromVolume?: string;
+  /**
    * Kind specifies which instancetype resource is referenced. Allowed values are: "VirtualMachineInstancetype" and "VirtualMachineClusterInstancetype". If not specified, "VirtualMachineClusterInstancetype" is used by default.
    * @type {string}
    * @memberof V1InstancetypeMatcher
@@ -30,7 +36,7 @@ export interface V1InstancetypeMatcher {
    * @type {string}
    * @memberof V1InstancetypeMatcher
    */
-  name: string;
+  name?: string;
   /**
    * RevisionName specifies a ControllerRevision containing a specific copy of the VirtualMachineInstancetype or VirtualMachineClusterInstancetype to be used. This is initially captured the first time the instancetype is applied to the VirtualMachineInstance.
    * @type {string}
@@ -51,8 +57,9 @@ export function V1InstancetypeMatcherFromJSONTyped(
     return json;
   }
   return {
+    inferFromVolume: !exists(json, 'inferFromVolume') ? undefined : json['inferFromVolume'],
     kind: !exists(json, 'kind') ? undefined : json['kind'],
-    name: json['name'],
+    name: !exists(json, 'name') ? undefined : json['name'],
     revisionName: !exists(json, 'revisionName') ? undefined : json['revisionName'],
   };
 }
@@ -65,6 +72,7 @@ export function V1InstancetypeMatcherToJSON(value?: V1InstancetypeMatcher | null
     return null;
   }
   return {
+    inferFromVolume: value.inferFromVolume,
     kind: value.kind,
     name: value.name,
     revisionName: value.revisionName,

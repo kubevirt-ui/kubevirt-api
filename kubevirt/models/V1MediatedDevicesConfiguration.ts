@@ -30,6 +30,12 @@ export interface V1MediatedDevicesConfiguration {
    * @type {Array<string>}
    * @memberof V1MediatedDevicesConfiguration
    */
+  mediatedDeviceTypes?: Array<string>;
+  /**
+   * Deprecated. Use mediatedDeviceTypes instead.
+   * @type {Array<string>}
+   * @memberof V1MediatedDevicesConfiguration
+   */
   mediatedDevicesTypes?: Array<string>;
   /**
    *
@@ -51,6 +57,9 @@ export function V1MediatedDevicesConfigurationFromJSONTyped(
     return json;
   }
   return {
+    mediatedDeviceTypes: !exists(json, 'mediatedDeviceTypes')
+      ? undefined
+      : json['mediatedDeviceTypes'],
     mediatedDevicesTypes: !exists(json, 'mediatedDevicesTypes')
       ? undefined
       : json['mediatedDevicesTypes'],
@@ -72,6 +81,7 @@ export function V1MediatedDevicesConfigurationToJSON(
     return null;
   }
   return {
+    mediatedDeviceTypes: value.mediatedDeviceTypes,
     mediatedDevicesTypes: value.mediatedDevicesTypes,
     nodeMediatedDeviceTypes:
       value.nodeMediatedDeviceTypes === undefined

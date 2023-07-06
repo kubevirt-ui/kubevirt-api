@@ -42,6 +42,12 @@ export interface V1alpha1VirtualMachinePoolStatus {
    * @type {number}
    * @memberof V1alpha1VirtualMachinePoolStatus
    */
+  readyReplicas?: number;
+  /**
+   *
+   * @type {number}
+   * @memberof V1alpha1VirtualMachinePoolStatus
+   */
   replicas?: number;
 }
 
@@ -63,6 +69,7 @@ export function V1alpha1VirtualMachinePoolStatusFromJSONTyped(
       ? undefined
       : (json['conditions'] as Array<any>).map(V1alpha1VirtualMachinePoolConditionFromJSON),
     labelSelector: !exists(json, 'labelSelector') ? undefined : json['labelSelector'],
+    readyReplicas: !exists(json, 'readyReplicas') ? undefined : json['readyReplicas'],
     replicas: !exists(json, 'replicas') ? undefined : json['replicas'],
   };
 }
@@ -82,6 +89,7 @@ export function V1alpha1VirtualMachinePoolStatusToJSON(
         ? undefined
         : (value.conditions as Array<any>).map(V1alpha1VirtualMachinePoolConditionToJSON),
     labelSelector: value.labelSelector,
+    readyReplicas: value.readyReplicas,
     replicas: value.replicas,
   };
 }

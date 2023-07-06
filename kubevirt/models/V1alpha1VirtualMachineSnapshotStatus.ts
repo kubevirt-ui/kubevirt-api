@@ -20,6 +20,9 @@ import {
   V1alpha1Error,
   V1alpha1ErrorFromJSON,
   V1alpha1ErrorToJSON,
+  V1alpha1SnapshotVolumesLists,
+  V1alpha1SnapshotVolumesListsFromJSON,
+  V1alpha1SnapshotVolumesListsToJSON,
 } from './';
 
 /**
@@ -66,6 +69,12 @@ export interface V1alpha1VirtualMachineSnapshotStatus {
   readyToUse?: boolean;
   /**
    *
+   * @type {V1alpha1SnapshotVolumesLists}
+   * @memberof V1alpha1VirtualMachineSnapshotStatus
+   */
+  snapshotVolumes?: V1alpha1SnapshotVolumesLists;
+  /**
+   *
    * @type {string}
    * @memberof V1alpha1VirtualMachineSnapshotStatus
    */
@@ -100,6 +109,9 @@ export function V1alpha1VirtualMachineSnapshotStatusFromJSONTyped(
     indications: !exists(json, 'indications') ? undefined : json['indications'],
     phase: !exists(json, 'phase') ? undefined : json['phase'],
     readyToUse: !exists(json, 'readyToUse') ? undefined : json['readyToUse'],
+    snapshotVolumes: !exists(json, 'snapshotVolumes')
+      ? undefined
+      : V1alpha1SnapshotVolumesListsFromJSON(json['snapshotVolumes']),
     sourceUID: !exists(json, 'sourceUID') ? undefined : json['sourceUID'],
     virtualMachineSnapshotContentName: !exists(json, 'virtualMachineSnapshotContentName')
       ? undefined
@@ -126,6 +138,7 @@ export function V1alpha1VirtualMachineSnapshotStatusToJSON(
     indications: value.indications,
     phase: value.phase,
     readyToUse: value.readyToUse,
+    snapshotVolumes: V1alpha1SnapshotVolumesListsToJSON(value.snapshotVolumes),
     sourceUID: value.sourceUID,
     virtualMachineSnapshotContentName: value.virtualMachineSnapshotContentName,
   };

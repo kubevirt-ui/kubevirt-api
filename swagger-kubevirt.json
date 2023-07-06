@@ -11911,6 +11911,50 @@
      }
     ]
    },
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/vsock": {
+    "get": {
+     "description": "Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port via VSOCK.",
+     "operationId": "v1VSOCK",
+     "responses": {
+      "401": {
+       "description": "Unauthorized"
+      }
+     }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "integer",
+      "description": "The port which the VSOCK application listens to.",
+      "name": "port",
+      "in": "query",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "boolean",
+      "description": "Weather to request a TLS encrypted session from the VSOCK application.",
+      "name": "tls",
+      "in": "query"
+     }
+    ]
+   },
    "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/addvolume": {
     "put": {
      "description": "Add a volume and disk to a running Virtual Machine.",
@@ -13297,6 +13341,50 @@
       "name": "namespace",
       "in": "path",
       "required": true
+     }
+    ]
+   },
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/vsock": {
+    "get": {
+     "description": "Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port via VSOCK.",
+     "operationId": "v1alpha3VSOCK",
+     "responses": {
+      "401": {
+       "description": "Unauthorized"
+      }
+     }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "integer",
+      "description": "The port which the VSOCK application listens to.",
+      "name": "port",
+      "in": "query",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "boolean",
+      "description": "Weather to request a TLS encrypted session from the VSOCK application.",
+      "name": "tls",
+      "in": "query"
      }
     ]
    },
@@ -15532,6 +15620,17 @@
      }
     }
    },
+   "v1.CustomProfile": {
+    "type": "object",
+    "properties": {
+     "localhostProfile": {
+      "type": "string"
+     },
+     "runtimeDefaultProfile": {
+      "type": "boolean"
+     }
+    }
+   },
    "v1.CustomizeComponents": {
     "type": "object",
     "properties": {
@@ -15629,7 +15728,7 @@
       "type": "boolean"
      },
      "name": {
-      "description": "Name represents the name of the DataVolume in the same namespace",
+      "description": "Name of both the DataVolume and the PVC in the same namespace. After PVC population the DataVolume is garbage collected by default.",
       "type": "string"
      }
     }
@@ -15741,6 +15840,10 @@
      },
      "autoattachSerialConsole": {
       "description": "Whether to attach the default serial console or not. Serial console access will not be available if set to false. Defaults to true.",
+      "type": "boolean"
+     },
+     "autoattachVSOCK": {
+      "description": "Whether to attach the VSOCK CID to the VM or not. VSOCK access will be available if set to true. Defaults to false.",
       "type": "boolean"
      },
      "blockMultiQueue": {
@@ -16485,10 +16588,11 @@
    "v1.InstancetypeMatcher": {
     "description": "InstancetypeMatcher references a instancetype that is used to fill fields in the VMI template.",
     "type": "object",
-    "required": [
-     "name"
-    ],
     "properties": {
+     "inferFromVolume": {
+      "description": "InferFromVolume lists the name of a volume that should be used to infer or discover the instancetype to be used through known annotations on the underlying resource. Once applied to the InstancetypeMatcher this field is removed.",
+      "type": "string"
+     },
      "kind": {
       "description": "Kind specifies which instancetype resource is referenced. Allowed values are: \"VirtualMachineInstancetype\" and \"VirtualMachineClusterInstancetype\". If not specified, \"VirtualMachineClusterInstancetype\" is used by default.",
       "type": "string"
@@ -16509,6 +16613,11 @@
      "name"
     ],
     "properties": {
+     "acpiIndex": {
+      "description": "If specified, the ACPI index is used to provide network interface device naming, that is stable across changes in PCI addresses assigned to the device. This value is required to be unique across all devices and be between 1 and (16*1024-1).",
+      "type": "integer",
+      "format": "int32"
+     },
      "bootOrder": {
       "description": "BootOrder is an integer value \u003e 0, used to determine ordering of boot devices. Lower values take precedence. Each interface or disk that has a boot order must have a unique value. Interfaces without a boot order are not tried.",
       "type": "integer",
@@ -16713,6 +16822,10 @@
     "description": "KubeVirtConfiguration holds all kubevirt configurations",
     "type": "object",
     "properties": {
+     "additionalGuestMemoryOverheadRatio": {
+      "description": "AdditionalGuestMemoryOverheadRatio can be used to increase the virtualization infrastructure overhead. This is useful, since the calculation of this overhead is not accurate and cannot be entirely known in advance. The ratio that is being set determines by which factor to increase the overhead calculated by Kubevirt. A higher ratio means that the VMs would be less compromised by node pressures, but would mean that fewer VMs could be scheduled to a node. If not set, the default is 1.",
+      "type": "string"
+     },
      "apiConfiguration": {
       "$ref": "#/definitions/v1.ReloadableComponentConfiguration"
      },
@@ -16777,6 +16890,9 @@
      },
      "permittedHostDevices": {
       "$ref": "#/definitions/v1.PermittedHostDevices"
+     },
+     "seccompConfiguration": {
+      "$ref": "#/definitions/v1.SeccompConfiguration"
      },
      "selinuxLauncherType": {
       "type": "string"
@@ -16870,6 +16986,14 @@
      "imagePullPolicy": {
       "description": "The ImagePullPolicy to use.",
       "type": "string"
+     },
+     "imagePullSecrets": {
+      "description": "The imagePullSecrets to pull the container images from Defaults to none",
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/k8s.io.api.core.v1.LocalObjectReference"
+      },
+      "x-kubernetes-list-type": "atomic"
      },
      "imageRegistry": {
       "description": "The image registry to pull the container images from Defaults to the same registry the operator's container image is pulled from.",
@@ -17071,7 +17195,15 @@
     "description": "MediatedDevicesConfiguration holds information about MDEV types to be defined, if available",
     "type": "object",
     "properties": {
+     "mediatedDeviceTypes": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "x-kubernetes-list-type": "atomic"
+     },
      "mediatedDevicesTypes": {
+      "description": "Deprecated. Use mediatedDeviceTypes instead.",
       "type": "array",
       "items": {
        "type": "string"
@@ -17284,11 +17416,18 @@
     "description": "NodeMediatedDeviceTypesConfig holds information about MDEV types to be defined in a specifc node that matches the NodeSelector field.",
     "type": "object",
     "required": [
-     "nodeSelector",
-     "mediatedDevicesTypes"
+     "nodeSelector"
     ],
     "properties": {
+     "mediatedDeviceTypes": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "x-kubernetes-list-type": "atomic"
+     },
      "mediatedDevicesTypes": {
+      "description": "Deprecated. Use mediatedDeviceTypes instead.",
       "type": "array",
       "items": {
        "type": "string"
@@ -17505,10 +17644,11 @@
    "v1.PreferenceMatcher": {
     "description": "PreferenceMatcher references a set of preference that is used to fill fields in the VMI template.",
     "type": "object",
-    "required": [
-     "name"
-    ],
     "properties": {
+     "inferFromVolume": {
+      "description": "InferFromVolume lists the name of a volume that should be used to infer or discover the preference to be used through known annotations on the underlying resource. Once applied to the PreferenceMatcher this field is removed.",
+      "type": "string"
+     },
      "kind": {
       "description": "Kind specifies which preference resource is referenced. Allowed values are: \"VirtualMachinePreference\" and \"VirtualMachineClusterPreference\". If not specified, \"VirtualMachineClusterPreference\" is used by default.",
       "type": "string"
@@ -17775,6 +17915,16 @@
      "secret": {
       "description": "Secret means that the access credential is pulled from a kubernetes secret",
       "$ref": "#/definitions/v1.AccessCredentialSecretSource"
+     }
+    }
+   },
+   "v1.SeccompConfiguration": {
+    "description": "SeccompConfiguration holds Seccomp configuration for Kubevirt components",
+    "type": "object",
+    "properties": {
+     "virtualMachineInstanceProfile": {
+      "description": "VirtualMachineInstanceProfile defines what profile should be used with virt-launcher. Defaults to none",
+      "$ref": "#/definitions/v1.VirtualMachineInstanceProfile"
      }
     }
    },
@@ -18620,6 +18770,10 @@
        "$ref": "#/definitions/v1.VirtualMachineInstanceMigrationCondition"
       }
      },
+     "migrationState": {
+      "description": "Represents the status of a live migration",
+      "$ref": "#/definitions/v1.VirtualMachineInstanceMigrationState"
+     },
      "phase": {
       "type": "string"
      },
@@ -18744,6 +18898,15 @@
      "selector": {
       "description": "Selector is a label query over a set of VMIs. Required.",
       "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector"
+     }
+    }
+   },
+   "v1.VirtualMachineInstanceProfile": {
+    "type": "object",
+    "properties": {
+     "customProfile": {
+      "description": "CustomProfile allows to request arbitrary profile for virt-launcher",
+      "$ref": "#/definitions/v1.CustomProfile"
      }
     }
    },
@@ -19003,6 +19166,11 @@
     "type": "object",
     "nullable": true,
     "properties": {
+     "VSOCKCID": {
+      "description": "VSOCKCID is used to track the allocated VSOCK CID in the VM.",
+      "type": "integer",
+      "format": "int64"
+     },
      "activePods": {
       "description": "ActivePods is a mapping of pod UID to node name. It is possible for multiple pods to be running for a single VMI during migration.",
       "type": "object",
@@ -19080,6 +19248,10 @@
       "description": "RuntimeUser is used to determine what user will be used in launcher",
       "type": "integer",
       "format": "int64"
+     },
+     "selinuxContext": {
+      "description": "SELinuxContext is the actual SELinux context of the virt-launcher pod",
+      "type": "string"
      },
      "topologyHints": {
       "$ref": "#/definitions/v1.TopologyHints"
@@ -19641,6 +19813,26 @@
      }
     }
    },
+   "v1alpha1.SnapshotVolumesLists": {
+    "description": "SnapshotVolumesLists includes the list of volumes which were included in the snapshot and volumes which were excluded from the snapshot",
+    "type": "object",
+    "properties": {
+     "excludedVolumes": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "x-kubernetes-list-type": "set"
+     },
+     "includedVolumes": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "x-kubernetes-list-type": "set"
+     }
+    }
+   },
    "v1alpha1.SourceSpec": {
     "description": "SourceSpec contains the appropriate spec for the resource being snapshotted",
     "type": "object",
@@ -19824,6 +20016,17 @@
       "description": "Cert is the public CA certificate base64 encoded",
       "type": "string"
      },
+     "manifests": {
+      "description": "Manifests is a list of available manifests for the export",
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/v1alpha1.VirtualMachineExportManifest"
+      },
+      "x-kubernetes-list-map-keys": [
+       "type"
+      ],
+      "x-kubernetes-list-type": "map"
+     },
      "volumes": {
       "description": "Volumes is a list of available volumes to export",
       "type": "array",
@@ -19877,6 +20080,24 @@
      }
     }
    },
+   "v1alpha1.VirtualMachineExportManifest": {
+    "description": "VirtualMachineExportManifest contains the type and URL of the exported manifest",
+    "type": "object",
+    "required": [
+     "type",
+     "url"
+    ],
+    "properties": {
+     "type": {
+      "description": "Type is the type of manifest returned",
+      "type": "string"
+     },
+     "url": {
+      "description": "Url is the url of the endpoint that returns the manifest",
+      "type": "string"
+     }
+    }
+   },
    "v1alpha1.VirtualMachineExportSpec": {
     "description": "VirtualMachineExportSpec is the spec for a VirtualMachineExport resource",
     "type": "object",
@@ -19926,6 +20147,10 @@
      "ttlExpirationTime": {
       "description": "The time at which the VM Export will be completely removed according to specified TTL Formula is CreationTimestamp + TTL",
       "$ref": "#/definitions/k8s.io.apimachinery.pkg.apis.meta.v1.Time"
+     },
+     "virtualMachineName": {
+      "description": "VirtualMachineName shows the name of the source virtual machine if the source is either a VirtualMachine or a VirtualMachineSnapshot. This is mainly to easily identify the source VirtualMachine in case of a VirtualMachineSnapshot",
+      "type": "string"
      }
     }
    },
@@ -20095,6 +20320,10 @@
      "labelSelector": {
       "description": "Canonical form of the label selector for HPA which consumes it through the scale subresource.",
       "type": "string"
+     },
+     "readyReplicas": {
+      "type": "integer",
+      "format": "int32"
      },
      "replicas": {
       "type": "integer",
@@ -20408,6 +20637,9 @@
      },
      "readyToUse": {
       "type": "boolean"
+     },
+     "snapshotVolumes": {
+      "$ref": "#/definitions/v1alpha1.SnapshotVolumesLists"
      },
      "sourceUID": {
       "type": "string"
@@ -20998,6 +21230,19 @@
      "machine": {
       "description": "Machine optionally defines preferences associated with the Machine attribute of a VirtualMachineInstance DomainSpec",
       "$ref": "#/definitions/v1alpha2.MachinePreferences"
+     },
+     "volumes": {
+      "description": "Volumes optionally defines preferences associated with the Volumes attribute of a VirtualMachineInstace DomainSpec",
+      "$ref": "#/definitions/v1alpha2.VolumePreferences"
+     }
+    }
+   },
+   "v1alpha2.VolumePreferences": {
+    "type": "object",
+    "properties": {
+     "preferredStorageClassName": {
+      "description": "PreffereedStorageClassName optionally defines the preferred storageClass",
+      "type": "string"
      }
     }
    },

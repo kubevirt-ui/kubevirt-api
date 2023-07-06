@@ -32,6 +32,9 @@ import {
   V1alpha2MachinePreferences,
   V1alpha2MachinePreferencesFromJSON,
   V1alpha2MachinePreferencesToJSON,
+  V1alpha2VolumePreferences,
+  V1alpha2VolumePreferencesFromJSON,
+  V1alpha2VolumePreferencesToJSON,
 } from './';
 
 /**
@@ -76,6 +79,12 @@ export interface V1alpha2VirtualMachinePreferenceSpec {
    * @memberof V1alpha2VirtualMachinePreferenceSpec
    */
   machine?: V1alpha2MachinePreferences;
+  /**
+   *
+   * @type {V1alpha2VolumePreferences}
+   * @memberof V1alpha2VirtualMachinePreferenceSpec
+   */
+  volumes?: V1alpha2VolumePreferences;
 }
 
 export function V1alpha2VirtualMachinePreferenceSpecFromJSON(
@@ -106,6 +115,9 @@ export function V1alpha2VirtualMachinePreferenceSpecFromJSONTyped(
     machine: !exists(json, 'machine')
       ? undefined
       : V1alpha2MachinePreferencesFromJSON(json['machine']),
+    volumes: !exists(json, 'volumes')
+      ? undefined
+      : V1alpha2VolumePreferencesFromJSON(json['volumes']),
   };
 }
 
@@ -125,5 +137,6 @@ export function V1alpha2VirtualMachinePreferenceSpecToJSON(
     features: V1alpha2FeaturePreferencesToJSON(value.features),
     firmware: V1alpha2FirmwarePreferencesToJSON(value.firmware),
     machine: V1alpha2MachinePreferencesToJSON(value.machine),
+    volumes: V1alpha2VolumePreferencesToJSON(value.volumes),
   };
 }

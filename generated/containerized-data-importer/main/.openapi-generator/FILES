@@ -14,6 +14,7 @@ models/V1GroupVersionForDiscovery.ts
 models/V1LabelSelector.ts
 models/V1LabelSelectorRequirement.ts
 models/V1ListMeta.ts
+models/V1LocalObjectReference.ts
 models/V1ManagedFieldsEntry.ts
 models/V1NodeAffinity.ts
 models/V1NodeSelector.ts
@@ -27,6 +28,7 @@ models/V1PodAffinityTerm.ts
 models/V1PodAntiAffinity.ts
 models/V1Preconditions.ts
 models/V1PreferredSchedulingTerm.ts
+models/V1ResourceClaim.ts
 models/V1ResourceRequirements.ts
 models/V1RootPaths.ts
 models/V1ServerAddressByClientCIDR.ts
@@ -36,6 +38,7 @@ models/V1StatusDetails.ts
 models/V1TLSSecurityProfile.ts
 models/V1Toleration.ts
 models/V1TypedLocalObjectReference.ts
+models/V1TypedObjectReference.ts
 models/V1WatchEvent.ts
 models/V1WeightedPodAffinityTerm.ts
 models/V1beta1CDI.ts
@@ -64,12 +67,14 @@ models/V1beta1DataVolumeCheckpoint.ts
 models/V1beta1DataVolumeCondition.ts
 models/V1beta1DataVolumeList.ts
 models/V1beta1DataVolumeSource.ts
+models/V1beta1DataVolumeSourceGCS.ts
 models/V1beta1DataVolumeSourceHTTP.ts
 models/V1beta1DataVolumeSourceImageIO.ts
 models/V1beta1DataVolumeSourcePVC.ts
 models/V1beta1DataVolumeSourceRef.ts
 models/V1beta1DataVolumeSourceRegistry.ts
 models/V1beta1DataVolumeSourceS3.ts
+models/V1beta1DataVolumeSourceSnapshot.ts
 models/V1beta1DataVolumeSourceVDDK.ts
 models/V1beta1DataVolumeSpec.ts
 models/V1beta1DataVolumeStatus.ts

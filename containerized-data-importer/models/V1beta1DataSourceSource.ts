@@ -17,6 +17,9 @@ import {
   V1beta1DataVolumeSourcePVC,
   V1beta1DataVolumeSourcePVCFromJSON,
   V1beta1DataVolumeSourcePVCToJSON,
+  V1beta1DataVolumeSourceSnapshot,
+  V1beta1DataVolumeSourceSnapshotFromJSON,
+  V1beta1DataVolumeSourceSnapshotToJSON,
 } from './';
 
 /**
@@ -31,6 +34,12 @@ export interface V1beta1DataSourceSource {
    * @memberof V1beta1DataSourceSource
    */
   pvc?: V1beta1DataVolumeSourcePVC;
+  /**
+   *
+   * @type {V1beta1DataVolumeSourceSnapshot}
+   * @memberof V1beta1DataSourceSource
+   */
+  snapshot?: V1beta1DataVolumeSourceSnapshot;
 }
 
 export function V1beta1DataSourceSourceFromJSON(json: any): V1beta1DataSourceSource {
@@ -46,6 +55,9 @@ export function V1beta1DataSourceSourceFromJSONTyped(
   }
   return {
     pvc: !exists(json, 'pvc') ? undefined : V1beta1DataVolumeSourcePVCFromJSON(json['pvc']),
+    snapshot: !exists(json, 'snapshot')
+      ? undefined
+      : V1beta1DataVolumeSourceSnapshotFromJSON(json['snapshot']),
   };
 }
 
@@ -58,5 +70,6 @@ export function V1beta1DataSourceSourceToJSON(value?: V1beta1DataSourceSource | 
   }
   return {
     pvc: V1beta1DataVolumeSourcePVCToJSON(value.pvc),
+    snapshot: V1beta1DataVolumeSourceSnapshotToJSON(value.snapshot),
   };
 }

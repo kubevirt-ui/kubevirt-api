@@ -77,6 +77,12 @@ export interface V1Devices {
    */
   autoattachSerialConsole?: boolean;
   /**
+   * Whether to attach the VSOCK CID to the VM or not. VSOCK access will be available if set to true. Defaults to false.
+   * @type {boolean}
+   * @memberof V1Devices
+   */
+  autoattachVSOCK?: boolean;
+  /**
    * Whether or not to enable virtio multi-queue for block devices. Defaults to false.
    * @type {boolean}
    * @memberof V1Devices
@@ -194,6 +200,7 @@ export function V1DevicesFromJSONTyped(json: any, _ignoreDiscriminator: boolean)
     autoattachSerialConsole: !exists(json, 'autoattachSerialConsole')
       ? undefined
       : json['autoattachSerialConsole'],
+    autoattachVSOCK: !exists(json, 'autoattachVSOCK') ? undefined : json['autoattachVSOCK'],
     blockMultiQueue: !exists(json, 'blockMultiQueue') ? undefined : json['blockMultiQueue'],
     clientPassthrough: !exists(json, 'clientPassthrough') ? undefined : json['clientPassthrough'],
     disableHotplug: !exists(json, 'disableHotplug') ? undefined : json['disableHotplug'],
@@ -237,6 +244,7 @@ export function V1DevicesToJSON(value?: V1Devices | null): any {
     autoattachMemBalloon: value.autoattachMemBalloon,
     autoattachPodInterface: value.autoattachPodInterface,
     autoattachSerialConsole: value.autoattachSerialConsole,
+    autoattachVSOCK: value.autoattachVSOCK,
     blockMultiQueue: value.blockMultiQueue,
     clientPassthrough: value.clientPassthrough,
     disableHotplug: value.disableHotplug,

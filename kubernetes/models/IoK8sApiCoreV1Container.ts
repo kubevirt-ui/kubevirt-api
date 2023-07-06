@@ -17,6 +17,9 @@ import {
   IoK8sApiCoreV1ContainerPort,
   IoK8sApiCoreV1ContainerPortFromJSON,
   IoK8sApiCoreV1ContainerPortToJSON,
+  IoK8sApiCoreV1ContainerResizePolicy,
+  IoK8sApiCoreV1ContainerResizePolicyFromJSON,
+  IoK8sApiCoreV1ContainerResizePolicyToJSON,
   IoK8sApiCoreV1EnvFromSource,
   IoK8sApiCoreV1EnvFromSourceFromJSON,
   IoK8sApiCoreV1EnvFromSourceToJSON,
@@ -115,6 +118,12 @@ export interface IoK8sApiCoreV1Container {
    * @memberof IoK8sApiCoreV1Container
    */
   readinessProbe?: IoK8sApiCoreV1Probe;
+  /**
+   * Resources resize policy for the container.
+   * @type {Array<IoK8sApiCoreV1ContainerResizePolicy>}
+   * @memberof IoK8sApiCoreV1Container
+   */
+  resizePolicy?: Array<IoK8sApiCoreV1ContainerResizePolicy>;
   /**
    *
    * @type {IoK8sApiCoreV1ResourceRequirements}
@@ -218,6 +227,9 @@ export function IoK8sApiCoreV1ContainerFromJSONTyped(
     readinessProbe: !exists(json, 'readinessProbe')
       ? undefined
       : IoK8sApiCoreV1ProbeFromJSON(json['readinessProbe']),
+    resizePolicy: !exists(json, 'resizePolicy')
+      ? undefined
+      : (json['resizePolicy'] as Array<any>).map(IoK8sApiCoreV1ContainerResizePolicyFromJSON),
     resources: !exists(json, 'resources')
       ? undefined
       : IoK8sApiCoreV1ResourceRequirementsFromJSON(json['resources']),
@@ -274,6 +286,10 @@ export function IoK8sApiCoreV1ContainerToJSON(value?: IoK8sApiCoreV1Container | 
         ? undefined
         : (value.ports as Array<any>).map(IoK8sApiCoreV1ContainerPortToJSON),
     readinessProbe: IoK8sApiCoreV1ProbeToJSON(value.readinessProbe),
+    resizePolicy:
+      value.resizePolicy === undefined
+        ? undefined
+        : (value.resizePolicy as Array<any>).map(IoK8sApiCoreV1ContainerResizePolicyToJSON),
     resources: IoK8sApiCoreV1ResourceRequirementsToJSON(value.resources),
     securityContext: IoK8sApiCoreV1SecurityContextToJSON(value.securityContext),
     startupProbe: IoK8sApiCoreV1ProbeToJSON(value.startupProbe),

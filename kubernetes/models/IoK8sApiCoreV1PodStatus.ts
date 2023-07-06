@@ -96,7 +96,7 @@ export interface IoK8sApiCoreV1PodStatus {
    */
   podIPs?: Array<IoK8sApiCoreV1PodIP>;
   /**
-   * The Quality of Service (QOS) classification assigned to the pod based on resource requirements See PodQOSClass type for available QOS classes More info: https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md
+   * The Quality of Service (QOS) classification assigned to the pod based on resource requirements See PodQOSClass type for available QOS classes More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/#quality-of-service-classes
    * @type {string}
    * @memberof IoK8sApiCoreV1PodStatus
    */
@@ -107,6 +107,12 @@ export interface IoK8sApiCoreV1PodStatus {
    * @memberof IoK8sApiCoreV1PodStatus
    */
   reason?: string;
+  /**
+   * Status of resources resize desired for pod's containers. It is empty if no resources resize is pending. Any changes to container resources will automatically set this to "Proposed"
+   * @type {string}
+   * @memberof IoK8sApiCoreV1PodStatus
+   */
+  resize?: string;
   /**
    * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
    * @type {string}
@@ -151,6 +157,7 @@ export function IoK8sApiCoreV1PodStatusFromJSONTyped(
       : (json['podIPs'] as Array<any>).map(IoK8sApiCoreV1PodIPFromJSON),
     qosClass: !exists(json, 'qosClass') ? undefined : json['qosClass'],
     reason: !exists(json, 'reason') ? undefined : json['reason'],
+    resize: !exists(json, 'resize') ? undefined : json['resize'],
     startTime: !exists(json, 'startTime') ? undefined : json['startTime'],
   };
 }
@@ -190,6 +197,7 @@ export function IoK8sApiCoreV1PodStatusToJSON(value?: IoK8sApiCoreV1PodStatus | 
         : (value.podIPs as Array<any>).map(IoK8sApiCoreV1PodIPToJSON),
     qosClass: value.qosClass,
     reason: value.reason,
+    resize: value.resize,
     startTime: value.startTime === undefined ? undefined : value.startTime,
   };
 }

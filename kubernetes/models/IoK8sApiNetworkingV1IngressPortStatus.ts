@@ -20,7 +20,7 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiNetworkingV1IngressPortStatus {
   /**
-   * Error is to record the problem with the service port The format of the error shall comply with the following rules: - built-in error values shall be specified in this file and those shall use
+   * error is to record the problem with the service port The format of the error shall comply with the following rules: - built-in error values shall be specified in this file and those shall use
    *   CamelCase names
    * - cloud provider specific error values must have names that comply with the
    *   format foo.example.com/CamelCase.
@@ -29,13 +29,13 @@ export interface IoK8sApiNetworkingV1IngressPortStatus {
    */
   error?: string;
   /**
-   * Port is the port number of the ingress port.
+   * port is the port number of the ingress port.
    * @type {number}
    * @memberof IoK8sApiNetworkingV1IngressPortStatus
    */
   port: number;
   /**
-   * Protocol is the protocol of the ingress port. The supported values are: "TCP", "UDP", "SCTP"
+   * protocol is the protocol of the ingress port. The supported values are: "TCP", "UDP", "SCTP"
    * @type {string}
    * @memberof IoK8sApiNetworkingV1IngressPortStatus
    */

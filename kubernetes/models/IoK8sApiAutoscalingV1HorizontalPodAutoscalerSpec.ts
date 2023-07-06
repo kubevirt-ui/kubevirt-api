@@ -26,7 +26,7 @@ import {
  */
 export interface IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpec {
   /**
-   * upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
+   * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
    * @type {number}
    * @memberof IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpec
    */
@@ -44,7 +44,7 @@ export interface IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpec {
    */
   scaleTargetRef: IoK8sApiAutoscalingV1CrossVersionObjectReference;
   /**
-   * target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.
+   * targetCPUUtilizationPercentage is the target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.
    * @type {number}
    * @memberof IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpec
    */

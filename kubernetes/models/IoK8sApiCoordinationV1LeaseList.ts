@@ -35,7 +35,7 @@ export interface IoK8sApiCoordinationV1LeaseList {
    */
   apiVersion?: string;
   /**
-   * Items is a list of schema objects.
+   * items is a list of schema objects.
    * @type {Array<IoK8sApiCoordinationV1Lease>}
    * @memberof IoK8sApiCoordinationV1LeaseList
    */

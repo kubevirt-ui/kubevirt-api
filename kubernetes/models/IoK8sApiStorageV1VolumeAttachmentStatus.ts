@@ -32,13 +32,13 @@ export interface IoK8sApiStorageV1VolumeAttachmentStatus {
    */
   attachError?: IoK8sApiStorageV1VolumeError;
   /**
-   * Indicates the volume is successfully attached. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.
+   * attached indicates the volume is successfully attached. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.
    * @type {boolean}
    * @memberof IoK8sApiStorageV1VolumeAttachmentStatus
    */
   attached: boolean;
   /**
-   * Upon successful attach, this field is populated with any information returned by the attach operation that must be passed into subsequent WaitForAttach or Mount calls. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.
+   * attachmentMetadata is populated with any information returned by the attach operation, upon successful attach, that must be passed into subsequent WaitForAttach or Mount calls. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.
    * @type {{ [key: string]: string; }}
    * @memberof IoK8sApiStorageV1VolumeAttachmentStatus
    */

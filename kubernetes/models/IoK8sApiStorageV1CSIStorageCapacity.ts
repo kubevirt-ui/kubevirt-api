@@ -145,7 +145,7 @@ export interface IoK8sApiStorageV1CSIStorageCapacity {
    */
   nodeTopology?: IoK8sApimachineryPkgApisMetaV1LabelSelector;
   /**
-   * The name of the StorageClass that the reported capacity applies to. It must meet the same requirements as the name of a StorageClass object (non-empty, DNS subdomain). If that object no longer exists, the CSIStorageCapacity object is obsolete and should be removed by its creator. This field is immutable.
+   * storageClassName represents the name of the StorageClass that the reported capacity applies to. It must meet the same requirements as the name of a StorageClass object (non-empty, DNS subdomain). If that object no longer exists, the CSIStorageCapacity object is obsolete and should be removed by its creator. This field is immutable.
    * @type {string}
    * @memberof IoK8sApiStorageV1CSIStorageCapacity
    */

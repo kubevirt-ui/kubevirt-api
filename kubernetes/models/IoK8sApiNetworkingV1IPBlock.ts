@@ -20,13 +20,13 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiNetworkingV1IPBlock {
   /**
-   * CIDR is a string representing the IP Block Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+   * cidr is a string representing the IPBlock Valid examples are "192.168.1.0/24" or "2001:db8::/64"
    * @type {string}
    * @memberof IoK8sApiNetworkingV1IPBlock
    */
   cidr: string;
   /**
-   * Except is a slice of CIDRs that should not be included within an IP Block Valid examples are "192.168.1.0/24" or "2001:db8::/64" Except values will be rejected if they are outside the CIDR range
+   * except is a slice of CIDRs that should not be included within an IPBlock Valid examples are "192.168.1.0/24" or "2001:db8::/64" Except values will be rejected if they are outside the cidr range
    * @type {Array<string>}
    * @memberof IoK8sApiNetworkingV1IPBlock
    */

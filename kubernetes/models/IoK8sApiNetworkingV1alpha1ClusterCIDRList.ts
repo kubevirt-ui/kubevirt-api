@@ -35,7 +35,7 @@ export interface IoK8sApiNetworkingV1alpha1ClusterCIDRList {
    */
   apiVersion?: string;
   /**
-   * Items is the list of ClusterCIDRs.
+   * items is the list of ClusterCIDRs.
    * @type {Array<IoK8sApiNetworkingV1alpha1ClusterCIDR>}
    * @memberof IoK8sApiNetworkingV1alpha1ClusterCIDRList
    */

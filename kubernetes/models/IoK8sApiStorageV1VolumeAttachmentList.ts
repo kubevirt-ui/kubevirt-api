@@ -35,7 +35,7 @@ export interface IoK8sApiStorageV1VolumeAttachmentList {
    */
   apiVersion?: string;
   /**
-   * Items is the list of VolumeAttachments
+   * items is the list of VolumeAttachments
    * @type {Array<IoK8sApiStorageV1VolumeAttachment>}
    * @memberof IoK8sApiStorageV1VolumeAttachmentList
    */

@@ -35,7 +35,7 @@ export interface IoK8sApiDiscoveryV1EndpointSliceList {
    */
   apiVersion?: string;
   /**
-   * List of endpoint slices
+   * items is the list of endpoint slices
    * @type {Array<IoK8sApiDiscoveryV1EndpointSlice>}
    * @memberof IoK8sApiDiscoveryV1EndpointSliceList
    */

@@ -20,13 +20,13 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiStorageV1TokenRequest {
   /**
-   * Audience is the intended audience of the token in "TokenRequestSpec". It will default to the audiences of kube apiserver.
+   * audience is the intended audience of the token in "TokenRequestSpec". It will default to the audiences of kube apiserver.
    * @type {string}
    * @memberof IoK8sApiStorageV1TokenRequest
    */
   audience: string;
   /**
-   * ExpirationSeconds is the duration of validity of the token in "TokenRequestSpec". It has the same default value of "ExpirationSeconds" in "TokenRequestSpec".
+   * expirationSeconds is the duration of validity of the token in "TokenRequestSpec". It has the same default value of "ExpirationSeconds" in "TokenRequestSpec".
    * @type {number}
    * @memberof IoK8sApiStorageV1TokenRequest
    */

@@ -32,7 +32,7 @@ export interface IoK8sApiCoordinationV1LeaseSpec {
    */
   holderIdentity?: string;
   /**
-   * leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measure against time of last observed RenewTime.
+   * leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measure against time of last observed renewTime.
    * @type {number}
    * @memberof IoK8sApiCoordinationV1LeaseSpec
    */

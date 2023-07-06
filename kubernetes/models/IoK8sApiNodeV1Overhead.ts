@@ -20,7 +20,7 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiNodeV1Overhead {
   /**
-   * PodFixed represents the fixed resource overhead associated with running a pod.
+   * podFixed represents the fixed resource overhead associated with running a pod.
    * @type {{ [key: string]: string; }}
    * @memberof IoK8sApiNodeV1Overhead
    */

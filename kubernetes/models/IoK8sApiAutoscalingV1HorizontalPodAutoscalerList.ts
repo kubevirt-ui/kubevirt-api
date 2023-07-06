@@ -35,7 +35,7 @@ export interface IoK8sApiAutoscalingV1HorizontalPodAutoscalerList {
    */
   apiVersion?: string;
   /**
-   * list of horizontal pod autoscaler objects.
+   * items is the list of horizontal pod autoscaler objects.
    * @type {Array<IoK8sApiAutoscalingV1HorizontalPodAutoscaler>}
    * @memberof IoK8sApiAutoscalingV1HorizontalPodAutoscalerList
    */

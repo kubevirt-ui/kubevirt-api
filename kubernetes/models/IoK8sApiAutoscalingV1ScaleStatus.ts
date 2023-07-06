@@ -20,13 +20,13 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiAutoscalingV1ScaleStatus {
   /**
-   * actual number of observed instances of the scaled object.
+   * replicas is the actual number of observed instances of the scaled object.
    * @type {number}
    * @memberof IoK8sApiAutoscalingV1ScaleStatus
    */
   replicas: number;
   /**
-   * label query over pods that should match the replicas count. This is same as the label selector but in the string format to avoid introspection by clients. The string will be in the same format as the query-param syntax. More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors
+   * selector is the label query over pods that should match the replicas count. This is same as the label selector but in the string format to avoid introspection by clients. The string will be in the same format as the query-param syntax. More info about label selectors: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
    * @type {string}
    * @memberof IoK8sApiAutoscalingV1ScaleStatus
    */

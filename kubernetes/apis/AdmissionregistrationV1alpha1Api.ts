@@ -62,6 +62,7 @@ export interface DeleteAdmissionregistrationV1alpha1CollectionValidatingAdmissio
   propagationPolicy?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
@@ -78,6 +79,7 @@ export interface DeleteAdmissionregistrationV1alpha1CollectionValidatingAdmissio
   propagationPolicy?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
@@ -111,6 +113,7 @@ export interface ListAdmissionregistrationV1alpha1ValidatingAdmissionPolicyReque
   limit?: number;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -124,6 +127,7 @@ export interface ListAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindi
   limit?: number;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -148,12 +152,27 @@ export interface PatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBind
   force?: boolean;
 }
 
+export interface PatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest {
+  name: string;
+  body: object;
+  pretty?: string;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
+  force?: boolean;
+}
+
 export interface ReadAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest {
   name: string;
   pretty?: string;
 }
 
 export interface ReadAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest {
+  name: string;
+  pretty?: string;
+}
+
+export interface ReadAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest {
   name: string;
   pretty?: string;
 }
@@ -176,6 +195,15 @@ export interface ReplaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBi
   fieldValidation?: string;
 }
 
+export interface ReplaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest {
+  name: string;
+  body: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy;
+  pretty?: string;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
+}
+
 export interface WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest {
   name: string;
   allowWatchBookmarks?: boolean;
@@ -186,6 +214,7 @@ export interface WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequ
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -200,6 +229,7 @@ export interface WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBind
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -213,6 +243,7 @@ export interface WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBind
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -226,6 +257,7 @@ export interface WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyList
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -434,6 +466,10 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -528,6 +564,10 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -810,6 +850,10 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -894,6 +938,10 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -1112,6 +1160,91 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
+   * partially update status of the specified ValidatingAdmissionPolicy
+   */
+  async patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRaw(
+    requestParameters: PatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    if (requestParameters.force !== undefined) {
+      queryParameters['force'] = requestParameters.force;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json-patch+json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies/{name}/status`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'PATCH',
+        headers: headerParameters,
+        query: queryParameters,
+        body: requestParameters.body as any,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * partially update status of the specified ValidatingAdmissionPolicy
+   */
+  async patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus(
+    requestParameters: PatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy> {
+    const response =
+      await this.patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRaw(
+        requestParameters,
+        initOverrides,
+      );
+    return await response.value();
+  }
+
+  /**
    * read the specified ValidatingAdmissionPolicy
    */
   async readAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
@@ -1227,6 +1360,64 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
         requestParameters,
         initOverrides,
       );
+    return await response.value();
+  }
+
+  /**
+   * read status of the specified ValidatingAdmissionPolicy
+   */
+  async readAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRaw(
+    requestParameters: ReadAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling readAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies/{name}/status`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * read status of the specified ValidatingAdmissionPolicy
+   */
+  async readAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus(
+    requestParameters: ReadAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy> {
+    const response = await this.readAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRaw(
+      requestParameters,
+      initOverrides,
+    );
     return await response.value();
   }
 
@@ -1398,6 +1589,89 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
+   * replace status of the specified ValidatingAdmissionPolicy
+   */
+  async replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRaw(
+    requestParameters: ReplaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies/{name}/status`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyToJSON(
+          requestParameters.body,
+        ),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * replace status of the specified ValidatingAdmissionPolicy
+   */
+  async replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus(
+    requestParameters: ReplaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy> {
+    const response =
+      await this.replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRaw(
+        requestParameters,
+        initOverrides,
+      );
+    return await response.value();
+  }
+
+  /**
    * watch changes to an object of kind ValidatingAdmissionPolicy. deprecated: use the \'watch\' parameter with a list operation instead, filtered to a single item with the \'fieldSelector\' parameter.
    */
   async watchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
@@ -1443,6 +1717,10 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -1539,6 +1817,10 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -1627,6 +1909,10 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -1710,6 +1996,10 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {

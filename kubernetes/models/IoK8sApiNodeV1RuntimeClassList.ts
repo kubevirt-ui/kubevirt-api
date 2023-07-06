@@ -35,7 +35,7 @@ export interface IoK8sApiNodeV1RuntimeClassList {
    */
   apiVersion?: string;
   /**
-   * Items is a list of schema objects.
+   * items is a list of schema objects.
    * @type {Array<IoK8sApiNodeV1RuntimeClass>}
    * @memberof IoK8sApiNodeV1RuntimeClassList
    */

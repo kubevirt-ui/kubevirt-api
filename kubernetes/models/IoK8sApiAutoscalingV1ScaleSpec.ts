@@ -20,7 +20,7 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiAutoscalingV1ScaleSpec {
   /**
-   * desired number of instances for the scaled object.
+   * replicas is the desired number of instances for the scaled object.
    * @type {number}
    * @memberof IoK8sApiAutoscalingV1ScaleSpec
    */

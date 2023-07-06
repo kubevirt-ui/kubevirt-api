@@ -14,7 +14,7 @@
 
 import { exists } from '../runtime';
 /**
- * PersistentVolumeClaimCondition contails details about state of pvc
+ * PersistentVolumeClaimCondition contains details about state of pvc
  * @export
  * @interface IoK8sApiCoreV1PersistentVolumeClaimCondition
  */

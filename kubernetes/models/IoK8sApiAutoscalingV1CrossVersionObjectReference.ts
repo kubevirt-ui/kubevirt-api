@@ -20,19 +20,19 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiAutoscalingV1CrossVersionObjectReference {
   /**
-   * API version of the referent
+   * apiVersion is the API version of the referent
    * @type {string}
    * @memberof IoK8sApiAutoscalingV1CrossVersionObjectReference
    */
   apiVersion?: string;
   /**
-   * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+   * kind is the kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @type {string}
    * @memberof IoK8sApiAutoscalingV1CrossVersionObjectReference
    */
   kind: string;
   /**
-   * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   * name is the name of the referent; More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @type {string}
    * @memberof IoK8sApiAutoscalingV1CrossVersionObjectReference
    */

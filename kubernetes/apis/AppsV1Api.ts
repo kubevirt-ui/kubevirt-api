@@ -110,6 +110,7 @@ export interface DeleteAppsV1CollectionNamespacedControllerRevisionRequest {
   propagationPolicy?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
@@ -127,6 +128,7 @@ export interface DeleteAppsV1CollectionNamespacedDaemonSetRequest {
   propagationPolicy?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
@@ -144,6 +146,7 @@ export interface DeleteAppsV1CollectionNamespacedDeploymentRequest {
   propagationPolicy?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
@@ -161,6 +164,7 @@ export interface DeleteAppsV1CollectionNamespacedReplicaSetRequest {
   propagationPolicy?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
@@ -178,6 +182,7 @@ export interface DeleteAppsV1CollectionNamespacedStatefulSetRequest {
   propagationPolicy?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
@@ -246,6 +251,7 @@ export interface ListAppsV1ControllerRevisionForAllNamespacesRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -259,6 +265,7 @@ export interface ListAppsV1DaemonSetForAllNamespacesRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -272,6 +279,7 @@ export interface ListAppsV1DeploymentForAllNamespacesRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -286,6 +294,7 @@ export interface ListAppsV1NamespacedControllerRevisionRequest {
   limit?: number;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -300,6 +309,7 @@ export interface ListAppsV1NamespacedDaemonSetRequest {
   limit?: number;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -314,6 +324,7 @@ export interface ListAppsV1NamespacedDeploymentRequest {
   limit?: number;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -328,6 +339,7 @@ export interface ListAppsV1NamespacedReplicaSetRequest {
   limit?: number;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -342,6 +354,7 @@ export interface ListAppsV1NamespacedStatefulSetRequest {
   limit?: number;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -355,6 +368,7 @@ export interface ListAppsV1ReplicaSetForAllNamespacesRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -368,6 +382,7 @@ export interface ListAppsV1StatefulSetForAllNamespacesRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -705,6 +720,7 @@ export interface WatchAppsV1ControllerRevisionListForAllNamespacesRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -718,6 +734,7 @@ export interface WatchAppsV1DaemonSetListForAllNamespacesRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -731,6 +748,7 @@ export interface WatchAppsV1DeploymentListForAllNamespacesRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -746,6 +764,7 @@ export interface WatchAppsV1NamespacedControllerRevisionRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -760,6 +779,7 @@ export interface WatchAppsV1NamespacedControllerRevisionListRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -775,6 +795,7 @@ export interface WatchAppsV1NamespacedDaemonSetRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -789,6 +810,7 @@ export interface WatchAppsV1NamespacedDaemonSetListRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -804,6 +826,7 @@ export interface WatchAppsV1NamespacedDeploymentRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -818,6 +841,7 @@ export interface WatchAppsV1NamespacedDeploymentListRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -833,6 +857,7 @@ export interface WatchAppsV1NamespacedReplicaSetRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -847,6 +872,7 @@ export interface WatchAppsV1NamespacedReplicaSetListRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -862,6 +888,7 @@ export interface WatchAppsV1NamespacedStatefulSetRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -876,6 +903,7 @@ export interface WatchAppsV1NamespacedStatefulSetListRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -889,6 +917,7 @@ export interface WatchAppsV1ReplicaSetListForAllNamespacesRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -902,6 +931,7 @@ export interface WatchAppsV1StatefulSetListForAllNamespacesRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -1370,6 +1400,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -1473,6 +1507,10 @@ export class AppsV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -1580,6 +1618,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -1685,6 +1727,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -1788,6 +1834,10 @@ export class AppsV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -2330,6 +2380,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -2414,6 +2468,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -2496,6 +2554,10 @@ export class AppsV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -2587,6 +2649,10 @@ export class AppsV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -2683,6 +2749,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -2772,6 +2842,10 @@ export class AppsV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -2865,6 +2939,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -2956,6 +3034,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -3043,6 +3125,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -3125,6 +3211,10 @@ export class AppsV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -6079,6 +6169,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -6163,6 +6257,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -6245,6 +6343,10 @@ export class AppsV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -6345,6 +6447,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -6436,6 +6542,10 @@ export class AppsV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -6539,6 +6649,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -6627,6 +6741,10 @@ export class AppsV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -6730,6 +6848,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -6821,6 +6943,10 @@ export class AppsV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -6924,6 +7050,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -7015,6 +7145,10 @@ export class AppsV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -7118,6 +7252,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -7211,6 +7349,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -7298,6 +7440,10 @@ export class AppsV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -7380,6 +7526,10 @@ export class AppsV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {

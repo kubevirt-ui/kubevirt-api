@@ -35,7 +35,7 @@ export interface IoK8sApiStorageV1StorageClassList {
    */
   apiVersion?: string;
   /**
-   * Items is the list of StorageClasses
+   * items is the list of StorageClasses
    * @type {Array<IoK8sApiStorageV1StorageClass>}
    * @memberof IoK8sApiStorageV1StorageClassList
    */

@@ -59,6 +59,7 @@ export interface DeleteApiregistrationV1CollectionAPIServiceRequest {
   propagationPolicy?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
@@ -72,6 +73,7 @@ export interface ListApiregistrationV1APIServiceRequest {
   limit?: number;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -134,6 +136,7 @@ export interface WatchApiregistrationV1APIServiceRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -147,6 +150,7 @@ export interface WatchApiregistrationV1APIServiceListRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -355,6 +359,10 @@ export class ApiregistrationV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -475,6 +483,10 @@ export class ApiregistrationV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -1012,6 +1024,10 @@ export class ApiregistrationV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -1097,6 +1113,10 @@ export class ApiregistrationV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {

@@ -20,9 +20,12 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiAdmissionregistrationV1alpha1Validation {
   /**
-   * Expression represents the expression which will be evaluated by CEL. ref: https://github.com/google/cel-spec CEL expressions have access to the contents of the Admission request/response, organized into CEL variables as well as some other useful variables:
+   * Expression represents the expression which will be evaluated by CEL. ref: https://github.com/google/cel-spec CEL expressions have access to the contents of the API request/response, organized into CEL variables as well as some other useful variables:
    *
-   * 'object' - The object from the incoming request. The value is null for DELETE requests. 'oldObject' - The existing object. The value is null for CREATE requests. 'request' - Attributes of the admission request([ref](/pkg/apis/admission/types.go#AdmissionRequest)). 'params' - Parameter resource referred to by the policy binding being evaluated. Only populated if the policy has a ParamKind.
+   * - 'object' - The object from the incoming request. The value is null for DELETE requests. - 'oldObject' - The existing object. The value is null for CREATE requests. - 'request' - Attributes of the API request([ref](/pkg/apis/admission/types.go#AdmissionRequest)). - 'params' - Parameter resource referred to by the policy binding being evaluated. Only populated if the policy has a ParamKind. - 'authorizer' - A CEL Authorizer. May be used to perform authorization checks for the principal (user or service account) of the request.
+   *   See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz
+   * - 'authorizer.requestResource' - A CEL ResourceCheck constructed from the 'authorizer' and configured with the
+   *   request resource.
    *
    * The `apiVersion`, `kind`, `metadata.name` and `metadata.generateName` are always accessible from the root of the object. No other metadata properties are accessible.
    *
@@ -52,6 +55,12 @@ export interface IoK8sApiAdmissionregistrationV1alpha1Validation {
    */
   message?: string;
   /**
+   * messageExpression declares a CEL expression that evaluates to the validation failure message that is returned when this rule fails. Since messageExpression is used as a failure message, it must evaluate to a string. If both message and messageExpression are present on a validation, then messageExpression will be used if validation fails. If messageExpression results in a runtime error, the runtime error is logged, and the validation failure message is produced as if the messageExpression field were unset. If messageExpression evaluates to an empty string, a string with only spaces, or a string that contains line breaks, then the validation failure message will also be produced as if the messageExpression field were unset, and the fact that messageExpression produced an empty string/string with only spaces/string with line breaks will be logged. messageExpression has access to all the same variables as the `expression` except for 'authorizer' and 'authorizer.requestResource'. Example: "object.x must be less than max ("+string(params.max)+")"
+   * @type {string}
+   * @memberof IoK8sApiAdmissionregistrationV1alpha1Validation
+   */
+  messageExpression?: string;
+  /**
    * Reason represents a machine-readable description of why this validation failed. If this is the first validation in the list to fail, this reason, as well as the corresponding HTTP response code, are used in the HTTP response to the client. The currently supported reasons are: "Unauthorized", "Forbidden", "Invalid", "RequestEntityTooLarge". If not set, StatusReasonInvalid is used in the response to the client.
    * @type {string}
    * @memberof IoK8sApiAdmissionregistrationV1alpha1Validation
@@ -75,6 +84,7 @@ export function IoK8sApiAdmissionregistrationV1alpha1ValidationFromJSONTyped(
   return {
     expression: json['expression'],
     message: !exists(json, 'message') ? undefined : json['message'],
+    messageExpression: !exists(json, 'messageExpression') ? undefined : json['messageExpression'],
     reason: !exists(json, 'reason') ? undefined : json['reason'],
   };
 }
@@ -91,6 +101,7 @@ export function IoK8sApiAdmissionregistrationV1alpha1ValidationToJSON(
   return {
     expression: value.expression,
     message: value.message,
+    messageExpression: value.messageExpression,
     reason: value.reason,
   };
 }

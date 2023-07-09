@@ -25,7 +25,7 @@ import {
  */
 export interface IoK8sApiAutoscalingV2ContainerResourceMetricStatus {
   /**
-   * Container is the name of the container in the pods of the scaling target
+   * container is the name of the container in the pods of the scaling target
    * @type {string}
    * @memberof IoK8sApiAutoscalingV2ContainerResourceMetricStatus
    */
@@ -37,7 +37,7 @@ export interface IoK8sApiAutoscalingV2ContainerResourceMetricStatus {
    */
   current: IoK8sApiAutoscalingV2MetricValueStatus;
   /**
-   * Name is the name of the resource in question.
+   * name is the name of the resource in question.
    * @type {string}
    * @memberof IoK8sApiAutoscalingV2ContainerResourceMetricStatus
    */

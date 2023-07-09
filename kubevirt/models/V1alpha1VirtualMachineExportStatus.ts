@@ -64,6 +64,12 @@ export interface V1alpha1VirtualMachineExportStatus {
    * @memberof V1alpha1VirtualMachineExportStatus
    */
   ttlExpirationTime?: string;
+  /**
+   * VirtualMachineName shows the name of the source virtual machine if the source is either a VirtualMachine or a VirtualMachineSnapshot. This is mainly to easily identify the source VirtualMachine in case of a VirtualMachineSnapshot
+   * @type {string}
+   * @memberof V1alpha1VirtualMachineExportStatus
+   */
+  virtualMachineName?: string;
 }
 
 export function V1alpha1VirtualMachineExportStatusFromJSON(
@@ -90,6 +96,9 @@ export function V1alpha1VirtualMachineExportStatusFromJSONTyped(
     serviceName: !exists(json, 'serviceName') ? undefined : json['serviceName'],
     tokenSecretRef: !exists(json, 'tokenSecretRef') ? undefined : json['tokenSecretRef'],
     ttlExpirationTime: !exists(json, 'ttlExpirationTime') ? undefined : json['ttlExpirationTime'],
+    virtualMachineName: !exists(json, 'virtualMachineName')
+      ? undefined
+      : json['virtualMachineName'],
   };
 }
 
@@ -112,5 +121,6 @@ export function V1alpha1VirtualMachineExportStatusToJSON(
     serviceName: value.serviceName,
     tokenSecretRef: value.tokenSecretRef,
     ttlExpirationTime: value.ttlExpirationTime === undefined ? undefined : value.ttlExpirationTime,
+    virtualMachineName: value.virtualMachineName,
   };
 }

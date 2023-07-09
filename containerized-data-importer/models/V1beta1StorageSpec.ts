@@ -23,6 +23,9 @@ import {
   V1TypedLocalObjectReference,
   V1TypedLocalObjectReferenceFromJSON,
   V1TypedLocalObjectReferenceToJSON,
+  V1TypedObjectReference,
+  V1TypedObjectReferenceFromJSON,
+  V1TypedObjectReferenceToJSON,
 } from './';
 
 /**
@@ -43,6 +46,12 @@ export interface V1beta1StorageSpec {
    * @memberof V1beta1StorageSpec
    */
   dataSource?: V1TypedLocalObjectReference;
+  /**
+   *
+   * @type {V1TypedObjectReference}
+   * @memberof V1beta1StorageSpec
+   */
+  dataSourceRef?: V1TypedObjectReference;
   /**
    *
    * @type {V1ResourceRequirements}
@@ -91,6 +100,9 @@ export function V1beta1StorageSpecFromJSONTyped(
     dataSource: !exists(json, 'dataSource')
       ? undefined
       : V1TypedLocalObjectReferenceFromJSON(json['dataSource']),
+    dataSourceRef: !exists(json, 'dataSourceRef')
+      ? undefined
+      : V1TypedObjectReferenceFromJSON(json['dataSourceRef']),
     resources: !exists(json, 'resources')
       ? undefined
       : V1ResourceRequirementsFromJSON(json['resources']),
@@ -111,6 +123,7 @@ export function V1beta1StorageSpecToJSON(value?: V1beta1StorageSpec | null): any
   return {
     accessModes: value.accessModes,
     dataSource: V1TypedLocalObjectReferenceToJSON(value.dataSource),
+    dataSourceRef: V1TypedObjectReferenceToJSON(value.dataSourceRef),
     resources: V1ResourceRequirementsToJSON(value.resources),
     selector: V1LabelSelectorToJSON(value.selector),
     storageClassName: value.storageClassName,

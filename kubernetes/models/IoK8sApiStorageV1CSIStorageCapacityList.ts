@@ -35,7 +35,7 @@ export interface IoK8sApiStorageV1CSIStorageCapacityList {
    */
   apiVersion?: string;
   /**
-   * Items is the list of CSIStorageCapacity objects.
+   * items is the list of CSIStorageCapacity objects.
    * @type {Array<IoK8sApiStorageV1CSIStorageCapacity>}
    * @memberof IoK8sApiStorageV1CSIStorageCapacityList
    */

@@ -34,6 +34,23 @@ export const ServiceMonitorModel: K8sModel = {
   propagationPolicy: 'Foreground',
 };
 
+export const PodMonitorModel: K8sModel = {
+  kind: 'PodMonitor',
+  label: 'PodMonitor',
+  // t('public~PodMonitor')
+  labelKey: 'public~PodMonitor',
+  labelPlural: 'PodMonitors',
+  // t('public~PodMonitors')
+  labelPluralKey: 'public~PodMonitors',
+  apiGroup: 'monitoring.coreos.com',
+  apiVersion: 'v1',
+  abbr: 'PM',
+  namespaced: true,
+  crd: true,
+  plural: 'podmonitors',
+  propagationPolicy: 'Foreground',
+};
+
 export const AlertmanagerModel: K8sModel = {
   kind: 'Alertmanager',
   label: 'Alertmanager',
@@ -133,7 +150,7 @@ export const HorizontalPodAutoscalerModel: K8sModel = {
   // t('public~HorizontalPodAutoscaler')
   labelKey: 'public~HorizontalPodAutoscaler',
   plural: 'horizontalpodautoscalers',
-  apiVersion: 'v2beta2',
+  apiVersion: 'v2',
   apiGroup: 'autoscaling',
   abbr: 'HPA',
   namespaced: true,
@@ -1231,7 +1248,7 @@ export const ConsolePluginModel: K8sModel = {
   label: 'ConsolePlugin',
   // t('public~ConsolePlugin')
   labelKey: 'public~ConsolePlugin',
-  apiVersion: 'v1alpha1',
+  apiVersion: 'v1',
   apiGroup: 'console.openshift.io',
   plural: 'consoleplugins',
   abbr: 'CP',
@@ -1242,4 +1259,24 @@ export const ConsolePluginModel: K8sModel = {
   // t('public~ConsolePlugins')
   labelPluralKey: 'public~ConsolePlugins',
   crd: true,
+};
+
+export const CloudCredentialModel: K8sModel = {
+  kind: 'CloudCredential',
+  label: 'CloudCredential',
+  labelPlural: 'CloudCredentials',
+  apiGroup: 'operator.openshift.io',
+  apiVersion: 'v1',
+  abbr: 'CO',
+  plural: 'cloudcredentials',
+};
+
+export const AuthenticationModel: K8sModel = {
+  kind: 'Authentication',
+  label: 'Authentication',
+  labelPlural: 'Authentications',
+  apiGroup: 'config.openshift.io',
+  apiVersion: 'v1',
+  plural: 'authentications',
+  abbr: 'AU',
 };

@@ -51,6 +51,7 @@ export interface DeleteDiscoveryV1CollectionNamespacedEndpointSliceRequest {
   propagationPolicy?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
@@ -75,6 +76,7 @@ export interface ListDiscoveryV1EndpointSliceForAllNamespacesRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -89,6 +91,7 @@ export interface ListDiscoveryV1NamespacedEndpointSliceRequest {
   limit?: number;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -129,6 +132,7 @@ export interface WatchDiscoveryV1EndpointSliceListForAllNamespacesRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -144,6 +148,7 @@ export interface WatchDiscoveryV1NamespacedEndpointSliceRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -158,6 +163,7 @@ export interface WatchDiscoveryV1NamespacedEndpointSliceListRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -304,6 +310,10 @@ export class DiscoveryV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -514,6 +524,10 @@ export class DiscoveryV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -603,6 +617,10 @@ export class DiscoveryV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -932,6 +950,10 @@ export class DiscoveryV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -1030,6 +1052,10 @@ export class DiscoveryV1Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -1121,6 +1147,10 @@ export class DiscoveryV1Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {

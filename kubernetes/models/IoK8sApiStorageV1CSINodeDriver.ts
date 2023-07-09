@@ -32,7 +32,7 @@ export interface IoK8sApiStorageV1CSINodeDriver {
    */
   allocatable?: IoK8sApiStorageV1VolumeNodeResources;
   /**
-   * This is the name of the CSI driver that this object refers to. This MUST be the same name returned by the CSI GetPluginName() call for that driver.
+   * name represents the name of the CSI driver that this object refers to. This MUST be the same name returned by the CSI GetPluginName() call for that driver.
    * @type {string}
    * @memberof IoK8sApiStorageV1CSINodeDriver
    */

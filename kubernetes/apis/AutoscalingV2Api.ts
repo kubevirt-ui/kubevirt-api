@@ -51,6 +51,7 @@ export interface DeleteAutoscalingV2CollectionNamespacedHorizontalPodAutoscalerR
   propagationPolicy?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
@@ -75,6 +76,7 @@ export interface ListAutoscalingV2HorizontalPodAutoscalerForAllNamespacesRequest
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -89,6 +91,7 @@ export interface ListAutoscalingV2NamespacedHorizontalPodAutoscalerRequest {
   limit?: number;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -156,6 +159,7 @@ export interface WatchAutoscalingV2HorizontalPodAutoscalerListForAllNamespacesRe
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -171,6 +175,7 @@ export interface WatchAutoscalingV2NamespacedHorizontalPodAutoscalerRequest {
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -185,6 +190,7 @@ export interface WatchAutoscalingV2NamespacedHorizontalPodAutoscalerListRequest 
   pretty?: string;
   resourceVersion?: string;
   resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
   timeoutSeconds?: number;
   watch?: boolean;
 }
@@ -331,6 +337,10 @@ export class AutoscalingV2Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -541,6 +551,10 @@ export class AutoscalingV2Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -630,6 +644,10 @@ export class AutoscalingV2Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {
@@ -1199,6 +1217,10 @@ export class AutoscalingV2Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -1297,6 +1319,10 @@ export class AutoscalingV2Api extends runtime.BaseAPI {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
     }
 
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
     if (requestParameters.timeoutSeconds !== undefined) {
       queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
     }
@@ -1388,6 +1414,10 @@ export class AutoscalingV2Api extends runtime.BaseAPI {
 
     if (requestParameters.resourceVersionMatch !== undefined) {
       queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
     }
 
     if (requestParameters.timeoutSeconds !== undefined) {

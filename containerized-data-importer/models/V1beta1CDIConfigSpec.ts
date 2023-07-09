@@ -14,6 +14,9 @@
 
 import { exists } from '../runtime';
 import {
+  V1LocalObjectReference,
+  V1LocalObjectReferenceFromJSON,
+  V1LocalObjectReferenceToJSON,
   V1ResourceRequirements,
   V1ResourceRequirementsFromJSON,
   V1ResourceRequirementsToJSON,
@@ -35,7 +38,7 @@ import {
  */
 export interface V1beta1CDIConfigSpec {
   /**
-   * DataVolumeTTLSeconds is the time in seconds after DataVolume completion it can be garbage collected. The default is 0 sec. To disable GC use -1.
+   * DataVolumeTTLSeconds is the time in seconds after DataVolume completion it can be garbage collected. Disabled by default.
    * @type {number}
    * @memberof V1beta1CDIConfigSpec
    */
@@ -52,6 +55,12 @@ export interface V1beta1CDIConfigSpec {
    * @memberof V1beta1CDIConfigSpec
    */
   filesystemOverhead?: V1beta1FilesystemOverhead;
+  /**
+   * The imagePullSecrets used to pull the container images
+   * @type {Array<V1LocalObjectReference>}
+   * @memberof V1beta1CDIConfigSpec
+   */
+  imagePullSecrets?: Array<V1LocalObjectReference>;
   /**
    *
    * @type {V1beta1ImportProxy}
@@ -115,6 +124,9 @@ export function V1beta1CDIConfigSpecFromJSONTyped(
     filesystemOverhead: !exists(json, 'filesystemOverhead')
       ? undefined
       : V1beta1FilesystemOverheadFromJSON(json['filesystemOverhead']),
+    imagePullSecrets: !exists(json, 'imagePullSecrets')
+      ? undefined
+      : (json['imagePullSecrets'] as Array<any>).map(V1LocalObjectReferenceFromJSON),
     importProxy: !exists(json, 'importProxy')
       ? undefined
       : V1beta1ImportProxyFromJSON(json['importProxy']),
@@ -148,6 +160,10 @@ export function V1beta1CDIConfigSpecToJSON(value?: V1beta1CDIConfigSpec | null):
     dataVolumeTTLSeconds: value.dataVolumeTTLSeconds,
     featureGates: value.featureGates,
     filesystemOverhead: V1beta1FilesystemOverheadToJSON(value.filesystemOverhead),
+    imagePullSecrets:
+      value.imagePullSecrets === undefined
+        ? undefined
+        : (value.imagePullSecrets as Array<any>).map(V1LocalObjectReferenceToJSON),
     importProxy: V1beta1ImportProxyToJSON(value.importProxy),
     insecureRegistries: value.insecureRegistries,
     podResourceRequirements: V1ResourceRequirementsToJSON(value.podResourceRequirements),

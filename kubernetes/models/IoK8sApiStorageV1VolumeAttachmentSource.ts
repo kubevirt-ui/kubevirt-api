@@ -32,7 +32,7 @@ export interface IoK8sApiStorageV1VolumeAttachmentSource {
    */
   inlineVolumeSpec?: IoK8sApiCoreV1PersistentVolumeSpec;
   /**
-   * Name of the persistent volume to attach.
+   * persistentVolumeName represents the name of the persistent volume to attach.
    * @type {string}
    * @memberof IoK8sApiStorageV1VolumeAttachmentSource
    */

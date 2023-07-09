@@ -19,19 +19,19 @@
  */
 export interface IoK8sApiAutoscalingV2HPAScalingPolicy {
   /**
-   * PeriodSeconds specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
+   * periodSeconds specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
    * @type {number}
    * @memberof IoK8sApiAutoscalingV2HPAScalingPolicy
    */
   periodSeconds: number;
   /**
-   * Type is used to specify the scaling policy.
+   * type is used to specify the scaling policy.
    * @type {string}
    * @memberof IoK8sApiAutoscalingV2HPAScalingPolicy
    */
   type: string;
   /**
-   * Value contains the amount of change which is permitted by the policy. It must be greater than zero
+   * value contains the amount of change which is permitted by the policy. It must be greater than zero
    * @type {number}
    * @memberof IoK8sApiAutoscalingV2HPAScalingPolicy
    */

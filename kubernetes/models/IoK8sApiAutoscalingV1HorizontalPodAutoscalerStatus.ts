@@ -20,19 +20,19 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatus {
   /**
-   * current average CPU utilization over all pods, represented as a percentage of requested CPU, e.g. 70 means that an average pod is using now 70% of its requested CPU.
+   * currentCPUUtilizationPercentage is the current average CPU utilization over all pods, represented as a percentage of requested CPU, e.g. 70 means that an average pod is using now 70% of its requested CPU.
    * @type {number}
    * @memberof IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatus
    */
   currentCPUUtilizationPercentage?: number;
   /**
-   * current number of replicas of pods managed by this autoscaler.
+   * currentReplicas is the current number of replicas of pods managed by this autoscaler.
    * @type {number}
    * @memberof IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatus
    */
   currentReplicas: number;
   /**
-   * desired number of replicas of pods managed by this autoscaler.
+   * desiredReplicas is the  desired number of replicas of pods managed by this autoscaler.
    * @type {number}
    * @memberof IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatus
    */
@@ -44,7 +44,7 @@ export interface IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatus {
    */
   lastScaleTime?: string;
   /**
-   * most recent generation observed by this autoscaler.
+   * observedGeneration is the most recent generation observed by this autoscaler.
    * @type {number}
    * @memberof IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatus
    */

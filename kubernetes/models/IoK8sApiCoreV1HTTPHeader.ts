@@ -19,7 +19,7 @@
  */
 export interface IoK8sApiCoreV1HTTPHeader {
   /**
-   * The header field name
+   * The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.
    * @type {string}
    * @memberof IoK8sApiCoreV1HTTPHeader
    */

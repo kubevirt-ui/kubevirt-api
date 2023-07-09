@@ -35,7 +35,7 @@ export interface IoK8sApiNetworkingV1IngressList {
    */
   apiVersion?: string;
   /**
-   * Items is the list of Ingress.
+   * items is the list of Ingress.
    * @type {Array<IoK8sApiNetworkingV1Ingress>}
    * @memberof IoK8sApiNetworkingV1IngressList
    */

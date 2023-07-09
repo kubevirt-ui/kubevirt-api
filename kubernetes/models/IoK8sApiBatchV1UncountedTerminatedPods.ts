@@ -20,13 +20,13 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiBatchV1UncountedTerminatedPods {
   /**
-   * Failed holds UIDs of failed Pods.
+   * failed holds UIDs of failed Pods.
    * @type {Array<string>}
    * @memberof IoK8sApiBatchV1UncountedTerminatedPods
    */
   failed?: Array<string>;
   /**
-   * Succeeded holds UIDs of succeeded Pods.
+   * succeeded holds UIDs of succeeded Pods.
    * @type {Array<string>}
    * @memberof IoK8sApiBatchV1UncountedTerminatedPods
    */

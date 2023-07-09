@@ -13,12 +13,24 @@
  */
 
 import { exists } from '../runtime';
+import { V1ResourceClaim, V1ResourceClaimFromJSON, V1ResourceClaimToJSON } from './';
+
 /**
  * ResourceRequirements describes the compute resource requirements.
  * @export
  * @interface V1ResourceRequirements
  */
 export interface V1ResourceRequirements {
+  /**
+   * Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.
+   *
+   * This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.
+   *
+   * This field is immutable.
+   * @type {Array<V1ResourceClaim>}
+   * @memberof V1ResourceRequirements
+   */
+  claims?: Array<V1ResourceClaim>;
   /**
    * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
    * @type {{ [key: string]: string; }}
@@ -45,6 +57,9 @@ export function V1ResourceRequirementsFromJSONTyped(
     return json;
   }
   return {
+    claims: !exists(json, 'claims')
+      ? undefined
+      : (json['claims'] as Array<any>).map(V1ResourceClaimFromJSON),
     limits: !exists(json, 'limits') ? undefined : json['limits'],
     requests: !exists(json, 'requests') ? undefined : json['requests'],
   };
@@ -58,6 +73,10 @@ export function V1ResourceRequirementsToJSON(value?: V1ResourceRequirements | nu
     return null;
   }
   return {
+    claims:
+      value.claims === undefined
+        ? undefined
+        : (value.claims as Array<any>).map(V1ResourceClaimToJSON),
     limits: value.limits,
     requests: value.requests,
   };

@@ -44,6 +44,12 @@ import {
  */
 export interface V1VirtualMachineInstanceStatus {
   /**
+   * VSOCKCID is used to track the allocated VSOCK CID in the VM.
+   * @type {number}
+   * @memberof V1VirtualMachineInstanceStatus
+   */
+  vSOCKCID?: number;
+  /**
    * ActivePods is a mapping of pod UID to node name. It is possible for multiple pods to be running for a single VMI during migration.
    * @type {{ [key: string]: string; }}
    * @memberof V1VirtualMachineInstanceStatus
@@ -140,6 +146,12 @@ export interface V1VirtualMachineInstanceStatus {
    */
   runtimeUser?: number;
   /**
+   * SELinuxContext is the actual SELinux context of the virt-launcher pod
+   * @type {string}
+   * @memberof V1VirtualMachineInstanceStatus
+   */
+  selinuxContext?: string;
+  /**
    *
    * @type {V1TopologyHints}
    * @memberof V1VirtualMachineInstanceStatus
@@ -171,6 +183,7 @@ export function V1VirtualMachineInstanceStatusFromJSONTyped(
     return json;
   }
   return {
+    vSOCKCID: !exists(json, 'VSOCKCID') ? undefined : json['VSOCKCID'],
     activePods: !exists(json, 'activePods') ? undefined : json['activePods'],
     conditions: !exists(json, 'conditions')
       ? undefined
@@ -205,6 +218,7 @@ export function V1VirtualMachineInstanceStatusFromJSONTyped(
     qosClass: !exists(json, 'qosClass') ? undefined : json['qosClass'],
     reason: !exists(json, 'reason') ? undefined : json['reason'],
     runtimeUser: !exists(json, 'runtimeUser') ? undefined : json['runtimeUser'],
+    selinuxContext: !exists(json, 'selinuxContext') ? undefined : json['selinuxContext'],
     topologyHints: !exists(json, 'topologyHints')
       ? undefined
       : V1TopologyHintsFromJSON(json['topologyHints']),
@@ -227,6 +241,7 @@ export function V1VirtualMachineInstanceStatusToJSON(
     return null;
   }
   return {
+    VSOCKCID: value.vSOCKCID,
     activePods: value.activePods,
     conditions:
       value.conditions === undefined
@@ -254,6 +269,7 @@ export function V1VirtualMachineInstanceStatusToJSON(
     qosClass: value.qosClass,
     reason: value.reason,
     runtimeUser: value.runtimeUser,
+    selinuxContext: value.selinuxContext,
     topologyHints: V1TopologyHintsToJSON(value.topologyHints),
     virtualMachineRevisionName: value.virtualMachineRevisionName,
     volumeStatus:

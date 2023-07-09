@@ -26,7 +26,7 @@ export interface V1DataVolumeSource {
    */
   hotpluggable?: boolean;
   /**
-   * Name represents the name of the DataVolume in the same namespace
+   * Name of both the DataVolume and the PVC in the same namespace. After PVC population the DataVolume is garbage collected by default.
    * @type {string}
    * @memberof V1DataVolumeSource
    */

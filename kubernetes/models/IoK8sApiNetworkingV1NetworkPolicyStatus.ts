@@ -20,13 +20,13 @@ import {
 } from './';
 
 /**
- * NetworkPolicyStatus describe the current state of the NetworkPolicy.
+ * NetworkPolicyStatus describes the current state of the NetworkPolicy.
  * @export
  * @interface IoK8sApiNetworkingV1NetworkPolicyStatus
  */
 export interface IoK8sApiNetworkingV1NetworkPolicyStatus {
   /**
-   * Conditions holds an array of metav1.Condition that describe the state of the NetworkPolicy. Current service state
+   * conditions holds an array of metav1.Condition that describe the state of the NetworkPolicy. Current service state
    * @type {Array<IoK8sApimachineryPkgApisMetaV1Condition>}
    * @memberof IoK8sApiNetworkingV1NetworkPolicyStatus
    */

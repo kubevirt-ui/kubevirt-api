@@ -35,6 +35,9 @@ import {
   V1SMBiosConfiguration,
   V1SMBiosConfigurationFromJSON,
   V1SMBiosConfigurationToJSON,
+  V1SeccompConfiguration,
+  V1SeccompConfigurationFromJSON,
+  V1SeccompConfigurationToJSON,
   V1TLSConfiguration,
   V1TLSConfigurationFromJSON,
   V1TLSConfigurationToJSON,
@@ -46,6 +49,12 @@ import {
  * @interface V1KubeVirtConfiguration
  */
 export interface V1KubeVirtConfiguration {
+  /**
+   * AdditionalGuestMemoryOverheadRatio can be used to increase the virtualization infrastructure overhead. This is useful, since the calculation of this overhead is not accurate and cannot be entirely known in advance. The ratio that is being set determines by which factor to increase the overhead calculated by Kubevirt. A higher ratio means that the VMs would be less compromised by node pressures, but would mean that fewer VMs could be scheduled to a node. If not set, the default is 1.
+   * @type {string}
+   * @memberof V1KubeVirtConfiguration
+   */
+  additionalGuestMemoryOverheadRatio?: string;
   /**
    *
    * @type {V1ReloadableComponentConfiguration}
@@ -192,6 +201,12 @@ export interface V1KubeVirtConfiguration {
   permittedHostDevices?: V1PermittedHostDevices;
   /**
    *
+   * @type {V1SeccompConfiguration}
+   * @memberof V1KubeVirtConfiguration
+   */
+  seccompConfiguration?: V1SeccompConfiguration;
+  /**
+   *
    * @type {string}
    * @memberof V1KubeVirtConfiguration
    */
@@ -240,6 +255,9 @@ export function V1KubeVirtConfigurationFromJSONTyped(
     return json;
   }
   return {
+    additionalGuestMemoryOverheadRatio: !exists(json, 'additionalGuestMemoryOverheadRatio')
+      ? undefined
+      : json['additionalGuestMemoryOverheadRatio'],
     apiConfiguration: !exists(json, 'apiConfiguration')
       ? undefined
       : V1ReloadableComponentConfigurationFromJSON(json['apiConfiguration']),
@@ -277,6 +295,9 @@ export function V1KubeVirtConfigurationFromJSONTyped(
     permittedHostDevices: !exists(json, 'permittedHostDevices')
       ? undefined
       : V1PermittedHostDevicesFromJSON(json['permittedHostDevices']),
+    seccompConfiguration: !exists(json, 'seccompConfiguration')
+      ? undefined
+      : V1SeccompConfigurationFromJSON(json['seccompConfiguration']),
     selinuxLauncherType: !exists(json, 'selinuxLauncherType')
       ? undefined
       : json['selinuxLauncherType'],
@@ -304,6 +325,7 @@ export function V1KubeVirtConfigurationToJSON(value?: V1KubeVirtConfiguration | 
     return null;
   }
   return {
+    additionalGuestMemoryOverheadRatio: value.additionalGuestMemoryOverheadRatio,
     apiConfiguration: V1ReloadableComponentConfigurationToJSON(value.apiConfiguration),
     controllerConfiguration: V1ReloadableComponentConfigurationToJSON(
       value.controllerConfiguration,
@@ -327,6 +349,7 @@ export function V1KubeVirtConfigurationToJSON(value?: V1KubeVirtConfiguration | 
     obsoleteCPUModels: value.obsoleteCPUModels,
     ovmfPath: value.ovmfPath,
     permittedHostDevices: V1PermittedHostDevicesToJSON(value.permittedHostDevices),
+    seccompConfiguration: V1SeccompConfigurationToJSON(value.seccompConfiguration),
     selinuxLauncherType: value.selinuxLauncherType,
     smbios: V1SMBiosConfigurationToJSON(value.smbios),
     supportedGuestAgentVersions: value.supportedGuestAgentVersions,

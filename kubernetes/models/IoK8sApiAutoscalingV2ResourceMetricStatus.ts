@@ -31,7 +31,7 @@ export interface IoK8sApiAutoscalingV2ResourceMetricStatus {
    */
   current: IoK8sApiAutoscalingV2MetricValueStatus;
   /**
-   * Name is the name of the resource in question.
+   * name is the name of the resource in question.
    * @type {string}
    * @memberof IoK8sApiAutoscalingV2ResourceMetricStatus
    */

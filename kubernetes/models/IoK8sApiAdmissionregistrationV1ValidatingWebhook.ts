@@ -14,6 +14,9 @@
 
 import { exists } from '../runtime';
 import {
+  IoK8sApiAdmissionregistrationV1MatchCondition,
+  IoK8sApiAdmissionregistrationV1MatchConditionFromJSON,
+  IoK8sApiAdmissionregistrationV1MatchConditionToJSON,
   IoK8sApiAdmissionregistrationV1RuleWithOperations,
   IoK8sApiAdmissionregistrationV1RuleWithOperationsFromJSON,
   IoK8sApiAdmissionregistrationV1RuleWithOperationsToJSON,
@@ -49,6 +52,21 @@ export interface IoK8sApiAdmissionregistrationV1ValidatingWebhook {
    * @memberof IoK8sApiAdmissionregistrationV1ValidatingWebhook
    */
   failurePolicy?: string;
+  /**
+   * MatchConditions is a list of conditions that must be met for a request to be sent to this webhook. Match conditions filter requests that have already been matched by the rules, namespaceSelector, and objectSelector. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.
+   *
+   * The exact matching logic is (in order):
+   *   1. If ANY matchCondition evaluates to FALSE, the webhook is skipped.
+   *   2. If ALL matchConditions evaluate to TRUE, the webhook is called.
+   *   3. If any matchCondition evaluates to an error (but none are FALSE):
+   *      - If failurePolicy=Fail, reject the request
+   *      - If failurePolicy=Ignore, the error is ignored and the webhook is skipped
+   *
+   * This is an alpha feature and managed by the AdmissionWebhookMatchConditions feature gate.
+   * @type {Array<IoK8sApiAdmissionregistrationV1MatchCondition>}
+   * @memberof IoK8sApiAdmissionregistrationV1ValidatingWebhook
+   */
+  matchConditions?: Array<IoK8sApiAdmissionregistrationV1MatchCondition>;
   /**
    * matchPolicy defines how the "rules" list is used to match incoming requests. Allowed values are "Exact" or "Equivalent".
    *
@@ -116,6 +134,11 @@ export function IoK8sApiAdmissionregistrationV1ValidatingWebhookFromJSONTyped(
     admissionReviewVersions: json['admissionReviewVersions'],
     clientConfig: IoK8sApiAdmissionregistrationV1WebhookClientConfigFromJSON(json['clientConfig']),
     failurePolicy: !exists(json, 'failurePolicy') ? undefined : json['failurePolicy'],
+    matchConditions: !exists(json, 'matchConditions')
+      ? undefined
+      : (json['matchConditions'] as Array<any>).map(
+          IoK8sApiAdmissionregistrationV1MatchConditionFromJSON,
+        ),
     matchPolicy: !exists(json, 'matchPolicy') ? undefined : json['matchPolicy'],
     name: json['name'],
     namespaceSelector: !exists(json, 'namespaceSelector')
@@ -147,6 +170,12 @@ export function IoK8sApiAdmissionregistrationV1ValidatingWebhookToJSON(
     admissionReviewVersions: value.admissionReviewVersions,
     clientConfig: IoK8sApiAdmissionregistrationV1WebhookClientConfigToJSON(value.clientConfig),
     failurePolicy: value.failurePolicy,
+    matchConditions:
+      value.matchConditions === undefined
+        ? undefined
+        : (value.matchConditions as Array<any>).map(
+            IoK8sApiAdmissionregistrationV1MatchConditionToJSON,
+          ),
     matchPolicy: value.matchPolicy,
     name: value.name,
     namespaceSelector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.namespaceSelector),

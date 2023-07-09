@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+import { exists } from '../runtime';
 /**
  * NodeMediatedDeviceTypesConfig holds information about MDEV types to be defined in a specifc node that matches the NodeSelector field.
  * @export
@@ -23,7 +24,13 @@ export interface V1NodeMediatedDeviceTypesConfig {
    * @type {Array<string>}
    * @memberof V1NodeMediatedDeviceTypesConfig
    */
-  mediatedDevicesTypes: Array<string>;
+  mediatedDeviceTypes?: Array<string>;
+  /**
+   * Deprecated. Use mediatedDeviceTypes instead.
+   * @type {Array<string>}
+   * @memberof V1NodeMediatedDeviceTypesConfig
+   */
+  mediatedDevicesTypes?: Array<string>;
   /**
    * NodeSelector is a selector which must be true for the vmi to fit on a node. Selector which must match a node's labels for the vmi to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
    * @type {{ [key: string]: string; }}
@@ -46,7 +53,12 @@ export function V1NodeMediatedDeviceTypesConfigFromJSONTyped(
     return json;
   }
   return {
-    mediatedDevicesTypes: json['mediatedDevicesTypes'],
+    mediatedDeviceTypes: !exists(json, 'mediatedDeviceTypes')
+      ? undefined
+      : json['mediatedDeviceTypes'],
+    mediatedDevicesTypes: !exists(json, 'mediatedDevicesTypes')
+      ? undefined
+      : json['mediatedDevicesTypes'],
     nodeSelector: json['nodeSelector'],
   };
 }
@@ -61,6 +73,7 @@ export function V1NodeMediatedDeviceTypesConfigToJSON(
     return null;
   }
   return {
+    mediatedDeviceTypes: value.mediatedDeviceTypes,
     mediatedDevicesTypes: value.mediatedDevicesTypes,
     nodeSelector: value.nodeSelector,
   };

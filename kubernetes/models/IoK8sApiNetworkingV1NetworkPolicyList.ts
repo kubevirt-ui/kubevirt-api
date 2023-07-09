@@ -35,7 +35,7 @@ export interface IoK8sApiNetworkingV1NetworkPolicyList {
    */
   apiVersion?: string;
   /**
-   * Items is a list of schema objects.
+   * items is a list of schema objects.
    * @type {Array<IoK8sApiNetworkingV1NetworkPolicy>}
    * @memberof IoK8sApiNetworkingV1NetworkPolicyList
    */

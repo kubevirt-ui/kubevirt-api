@@ -26,19 +26,19 @@ import {
  */
 export interface IoK8sApiNetworkingV1IngressLoadBalancerIngress {
   /**
-   * Hostname is set for load-balancer ingress points that are DNS based.
+   * hostname is set for load-balancer ingress points that are DNS based.
    * @type {string}
    * @memberof IoK8sApiNetworkingV1IngressLoadBalancerIngress
    */
   hostname?: string;
   /**
-   * IP is set for load-balancer ingress points that are IP based.
+   * ip is set for load-balancer ingress points that are IP based.
    * @type {string}
    * @memberof IoK8sApiNetworkingV1IngressLoadBalancerIngress
    */
   ip?: string;
   /**
-   * Ports provides information about the ports exposed by this LoadBalancer.
+   * ports provides information about the ports exposed by this LoadBalancer.
    * @type {Array<IoK8sApiNetworkingV1IngressPortStatus>}
    * @memberof IoK8sApiNetworkingV1IngressLoadBalancerIngress
    */

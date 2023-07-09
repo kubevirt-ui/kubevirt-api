@@ -14,6 +14,9 @@
 
 import { exists } from '../runtime';
 import {
+  V1LocalObjectReference,
+  V1LocalObjectReferenceFromJSON,
+  V1LocalObjectReferenceToJSON,
   V1ResourceRequirements,
   V1ResourceRequirementsFromJSON,
   V1ResourceRequirementsToJSON,
@@ -43,6 +46,12 @@ export interface V1beta1CDIConfigStatus {
    * @memberof V1beta1CDIConfigStatus
    */
   filesystemOverhead?: V1beta1FilesystemOverhead;
+  /**
+   * The imagePullSecrets used to pull the container images
+   * @type {Array<V1LocalObjectReference>}
+   * @memberof V1beta1CDIConfigStatus
+   */
+  imagePullSecrets?: Array<V1LocalObjectReference>;
   /**
    *
    * @type {V1beta1ImportProxy}
@@ -87,6 +96,9 @@ export function V1beta1CDIConfigStatusFromJSONTyped(
     filesystemOverhead: !exists(json, 'filesystemOverhead')
       ? undefined
       : V1beta1FilesystemOverheadFromJSON(json['filesystemOverhead']),
+    imagePullSecrets: !exists(json, 'imagePullSecrets')
+      ? undefined
+      : (json['imagePullSecrets'] as Array<any>).map(V1LocalObjectReferenceFromJSON),
     importProxy: !exists(json, 'importProxy')
       ? undefined
       : V1beta1ImportProxyFromJSON(json['importProxy']),
@@ -110,6 +122,10 @@ export function V1beta1CDIConfigStatusToJSON(value?: V1beta1CDIConfigStatus | nu
       value.defaultPodResourceRequirements,
     ),
     filesystemOverhead: V1beta1FilesystemOverheadToJSON(value.filesystemOverhead),
+    imagePullSecrets:
+      value.imagePullSecrets === undefined
+        ? undefined
+        : (value.imagePullSecrets as Array<any>).map(V1LocalObjectReferenceToJSON),
     importProxy: V1beta1ImportProxyToJSON(value.importProxy),
     preallocation: value.preallocation,
     scratchSpaceStorageClass: value.scratchSpaceStorageClass,

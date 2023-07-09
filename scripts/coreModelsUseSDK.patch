@@ -695,3 +695,34 @@ index 3d4e4be..2f15c42 100644
    label: 'ConsolePlugin',
    // t('public~ConsolePlugin')
    labelKey: 'public~ConsolePlugin',
+diff --git a/console/core/index.ts b/console/core/index.ts
+index b75d9f7..36efaac 100644
+--- a/console/core/index.ts
++++ b/console/core/index.ts
+@@ -34,7 +34,7 @@ export const ServiceMonitorModel: K8sModel = {
+   propagationPolicy: 'Foreground',
+ };
+ 
+-export const PodMonitorModel: K8sKind = {
++export const PodMonitorModel: K8sModel = {
+   kind: 'PodMonitor',
+   label: 'PodMonitor',
+   // t('public~PodMonitor')
+@@ -1261,7 +1261,7 @@ export const ConsolePluginModel: K8sModel = {
+   crd: true,
+ };
+ 
+-export const CloudCredentialModel: K8sKind = {
++export const CloudCredentialModel: K8sModel = {
+   kind: 'CloudCredential',
+   label: 'CloudCredential',
+   labelPlural: 'CloudCredentials',
+@@ -1271,7 +1271,7 @@ export const CloudCredentialModel: K8sKind = {
+   plural: 'cloudcredentials',
+ };
+ 
+-export const AuthenticationModel: K8sKind = {
++export const AuthenticationModel: K8sModel = {
+   kind: 'Authentication',
+   label: 'Authentication',
+   labelPlural: 'Authentications',

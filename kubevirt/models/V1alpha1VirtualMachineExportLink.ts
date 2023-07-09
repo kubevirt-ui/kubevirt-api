@@ -14,6 +14,9 @@
 
 import { exists } from '../runtime';
 import {
+  V1alpha1VirtualMachineExportManifest,
+  V1alpha1VirtualMachineExportManifestFromJSON,
+  V1alpha1VirtualMachineExportManifestToJSON,
   V1alpha1VirtualMachineExportVolume,
   V1alpha1VirtualMachineExportVolumeFromJSON,
   V1alpha1VirtualMachineExportVolumeToJSON,
@@ -31,6 +34,12 @@ export interface V1alpha1VirtualMachineExportLink {
    * @memberof V1alpha1VirtualMachineExportLink
    */
   cert: string;
+  /**
+   * Manifests is a list of available manifests for the export
+   * @type {Array<V1alpha1VirtualMachineExportManifest>}
+   * @memberof V1alpha1VirtualMachineExportLink
+   */
+  manifests?: Array<V1alpha1VirtualMachineExportManifest>;
   /**
    * Volumes is a list of available volumes to export
    * @type {Array<V1alpha1VirtualMachineExportVolume>}
@@ -54,6 +63,9 @@ export function V1alpha1VirtualMachineExportLinkFromJSONTyped(
   }
   return {
     cert: json['cert'],
+    manifests: !exists(json, 'manifests')
+      ? undefined
+      : (json['manifests'] as Array<any>).map(V1alpha1VirtualMachineExportManifestFromJSON),
     volumes: !exists(json, 'volumes')
       ? undefined
       : (json['volumes'] as Array<any>).map(V1alpha1VirtualMachineExportVolumeFromJSON),
@@ -71,6 +83,10 @@ export function V1alpha1VirtualMachineExportLinkToJSON(
   }
   return {
     cert: value.cert,
+    manifests:
+      value.manifests === undefined
+        ? undefined
+        : (value.manifests as Array<any>).map(V1alpha1VirtualMachineExportManifestToJSON),
     volumes:
       value.volumes === undefined
         ? undefined

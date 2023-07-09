@@ -20,7 +20,7 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiStorageV1VolumeError {
   /**
-   * String detailing the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.
+   * message represents the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.
    * @type {string}
    * @memberof IoK8sApiStorageV1VolumeError
    */

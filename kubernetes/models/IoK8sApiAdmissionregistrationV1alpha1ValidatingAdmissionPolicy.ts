@@ -17,6 +17,9 @@ import {
   IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicySpec,
   IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicySpecFromJSON,
   IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicySpecToJSON,
+  IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus,
+  IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusFromJSON,
+  IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
   IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
@@ -52,6 +55,12 @@ export interface IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy 
    * @memberof IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy
    */
   spec?: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicySpec;
+  /**
+   *
+   * @type {IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus}
+   * @memberof IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy
+   */
+  status?: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus;
 }
 
 export function IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyFromJSON(
@@ -76,6 +85,11 @@ export function IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyFr
     spec: !exists(json, 'spec')
       ? undefined
       : IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicySpecFromJSON(json['spec']),
+    status: !exists(json, 'status')
+      ? undefined
+      : IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusFromJSON(
+          json['status'],
+        ),
   };
 }
 
@@ -93,5 +107,8 @@ export function IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyTo
     kind: value.kind,
     metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
     spec: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicySpecToJSON(value.spec),
+    status: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusToJSON(
+      value.status,
+    ),
   };
 }

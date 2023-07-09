@@ -26,7 +26,7 @@ import {
  */
 export interface IoK8sApiNetworkingV1IngressServiceBackend {
   /**
-   * Name is the referenced service. The service must exist in the same namespace as the Ingress object.
+   * name is the referenced service. The service must exist in the same namespace as the Ingress object.
    * @type {string}
    * @memberof IoK8sApiNetworkingV1IngressServiceBackend
    */

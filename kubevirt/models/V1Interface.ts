@@ -29,6 +29,12 @@ import {
  */
 export interface V1Interface {
   /**
+   * If specified, the ACPI index is used to provide network interface device naming, that is stable across changes in PCI addresses assigned to the device. This value is required to be unique across all devices and be between 1 and (16*1024-1).
+   * @type {number}
+   * @memberof V1Interface
+   */
+  acpiIndex?: number;
+  /**
    * BootOrder is an integer value > 0, used to determine ordering of boot devices. Lower values take precedence. Each interface or disk that has a boot order must have a unique value. Interfaces without a boot order are not tried.
    * @type {number}
    * @memberof V1Interface
@@ -123,6 +129,7 @@ export function V1InterfaceFromJSONTyped(json: any, _ignoreDiscriminator: boolea
     return json;
   }
   return {
+    acpiIndex: !exists(json, 'acpiIndex') ? undefined : json['acpiIndex'],
     bootOrder: !exists(json, 'bootOrder') ? undefined : json['bootOrder'],
     bridge: !exists(json, 'bridge') ? undefined : json['bridge'],
     dhcpOptions: !exists(json, 'dhcpOptions')
@@ -150,6 +157,7 @@ export function V1InterfaceToJSON(value?: V1Interface | null): any {
     return null;
   }
   return {
+    acpiIndex: value.acpiIndex,
     bootOrder: value.bootOrder,
     bridge: value.bridge,
     dhcpOptions: V1DHCPOptionsToJSON(value.dhcpOptions),

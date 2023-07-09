@@ -36,48 +36,74 @@ import { V1beta1DataVolume } from '@kubevirt-ui/kubevirt-api/containerized-data-
 import { VirtualMachineModelGroupVersionKind } from '@kubevirt-ui/kubevirt-api/console/models'
 import VirtualMachineModel from '@kubevirt-ui/kubevirt-api/console/models/VirtualMachineModel'
 ```
-## Download swagger CLI tools
+
+## Update API
+
+1. Make sure you have all dependencies installed
 
 ``` bash
 yarn
 ```
-## Generate TypeScript types
 
-``` bash
-yarn generate
-```
+2. Go to the `scripts/generate.sh` script and modify the package's version the latest available version.
 
-### NOTE
-it usefull to clean all before starting a new generate with 
+* Note: for Console API take the latest commit hash
+
+3. It is essential to remove old API first
 
 ``` bash
 yarn clean:all
 ```
 
-## Generating patch
-
-we adding to git the generated API, and than we need to commit it,
-we want to create a new patch file to replace the old one. 
-
-``` bash
-git diff -P <file_path_to_diff> > <file_path_to_copy>
-```
-
-### NOTE
-if a patch was replaced, we need to run again:
+4. Generate the new API
 
 ``` bash
 yarn generate
 ```
 
-## Run linter
+5. If you got an error while generating a new API, follow the `Update patch files` section below,
+Otherwise, you can add and commit your changes.
+
+## Update patch files
+
+The `yarn generate` might fail for linter issues, in that case try to follow these steps.
+
+1. Commit current changes
 
 ``` bash
-yarn lint
+git add . && git commit -m "Save initial API generation"
 ```
 
-## Update upstream versions
+2. The `yarn generate` should have provided with an error message, try to locate the source of the error, and fix it manually (usually should be an easy fix, like */ is missing the '\' character which faults the comments)
 
-Edit the versions in `./scripts/generate.sh`
+3. After we fixed the errors, we edit the existing patch file.
 
-Each new versions may need different patchs, look for errors while running the generate script after each update.
+* Example:
+    An error occured on kubernetes/models/IoK8sApiAdmissionregistrationV1alpha1NamedRuleWithOperations.ts, 
+    commit changes before fix, manually fix the error, edited the fixGeneratedCommentsInK8s.patch file with:
+
+``` bash
+git diff -P kubernetes/models/IoK8sApiAdmissionregistrationV1alpha1NamedRuleWithOperations.ts >> scripts/fixGeneratedCommentsInK8s.patch
+```
+
+* Example: 
+    An error occured on console/core/index.ts, commit changes before fix, manually fix the error,
+    edited the coreModelsUseSDK.patch file with:
+
+``` bash
+git diff -P console/core/index.ts >> scripts/coreModelsUseSDK.patch
+```
+
+4. Commit the changed patch file and edited files
+
+``` bash
+git add . && git commit -m "Edit patch file to fix errors"
+```
+
+5. Now we can clean and generate again
+
+``` bash
+yarn clean:all && yarn generate
+```
+
+Reapet the process if needed, can check more linting errors exist with `yarn lint` and try to fix it with `yarn lint:fix`.

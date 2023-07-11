@@ -13,6 +13,8 @@
  */
 
 import { exists } from '../runtime';
+import { V1SEV, V1SEVFromJSON, V1SEVToJSON } from './';
+
 /**
  *
  * @export
@@ -21,10 +23,10 @@ import { exists } from '../runtime';
 export interface V1LaunchSecurity {
   /**
    *
-   * @type {object}
+   * @type {V1SEV}
    * @memberof V1LaunchSecurity
    */
-  sev?: object;
+  sev?: V1SEV;
 }
 
 export function V1LaunchSecurityFromJSON(json: any): V1LaunchSecurity {
@@ -39,7 +41,7 @@ export function V1LaunchSecurityFromJSONTyped(
     return json;
   }
   return {
-    sev: !exists(json, 'sev') ? undefined : json['sev'],
+    sev: !exists(json, 'sev') ? undefined : V1SEVFromJSON(json['sev']),
   };
 }
 
@@ -51,6 +53,6 @@ export function V1LaunchSecurityToJSON(value?: V1LaunchSecurity | null): any {
     return null;
   }
   return {
-    sev: value.sev,
+    sev: V1SEVToJSON(value.sev),
   };
 }

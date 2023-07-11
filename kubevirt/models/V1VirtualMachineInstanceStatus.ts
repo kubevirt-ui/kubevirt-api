@@ -14,6 +14,12 @@
 
 import { exists } from '../runtime';
 import {
+  V1CPUTopology,
+  V1CPUTopologyFromJSON,
+  V1CPUTopologyToJSON,
+  V1Machine,
+  V1MachineFromJSON,
+  V1MachineToJSON,
   V1TopologyHints,
   V1TopologyHintsFromJSON,
   V1TopologyHintsToJSON,
@@ -62,6 +68,12 @@ export interface V1VirtualMachineInstanceStatus {
    */
   conditions?: Array<V1VirtualMachineInstanceCondition>;
   /**
+   *
+   * @type {V1CPUTopology}
+   * @memberof V1VirtualMachineInstanceStatus
+   */
+  currentCPUTopology?: V1CPUTopology;
+  /**
    * EvacuationNodeName is used to track the eviction process of a VMI. It stores the name of the node that we want to evacuate. It is meant to be used by KubeVirt core components only and can't be set or modified by users.
    * @type {string}
    * @memberof V1VirtualMachineInstanceStatus
@@ -91,6 +103,12 @@ export interface V1VirtualMachineInstanceStatus {
    * @memberof V1VirtualMachineInstanceStatus
    */
   launcherContainerImageVersion?: string;
+  /**
+   *
+   * @type {V1Machine}
+   * @memberof V1VirtualMachineInstanceStatus
+   */
+  machine?: V1Machine;
   /**
    * Represents the method using which the vmi can be migrated: live migration or block migration
    * @type {string}
@@ -129,10 +147,15 @@ export interface V1VirtualMachineInstanceStatus {
   phaseTransitionTimestamps?: Array<V1VirtualMachineInstancePhaseTransitionTimestamp>;
   /**
    * The Quality of Service (QOS) classification assigned to the virtual machine instance based on resource requirements See PodQOSClass type for available QOS classes More info: https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md
+   *
+   * Possible enum values:
+   *  - `"BestEffort"` is the BestEffort qos class.
+   *  - `"Burstable"` is the Burstable qos class.
+   *  - `"Guaranteed"` is the Guaranteed qos class.
    * @type {string}
    * @memberof V1VirtualMachineInstanceStatus
    */
-  qosClass?: string;
+  qosClass?: V1VirtualMachineInstanceStatusQosClassEnum;
   /**
    * A brief CamelCase message indicating details about why the VMI is in this state. e.g. 'NodeUnresponsive'
    * @type {string}
@@ -171,6 +194,16 @@ export interface V1VirtualMachineInstanceStatus {
   volumeStatus?: Array<V1VolumeStatus>;
 }
 
+/**
+ * @export
+ * @enum {string}
+ */
+export enum V1VirtualMachineInstanceStatusQosClassEnum {
+  BestEffort = 'BestEffort',
+  Burstable = 'Burstable',
+  Guaranteed = 'Guaranteed',
+}
+
 export function V1VirtualMachineInstanceStatusFromJSON(json: any): V1VirtualMachineInstanceStatus {
   return V1VirtualMachineInstanceStatusFromJSONTyped(json, false);
 }
@@ -188,6 +221,9 @@ export function V1VirtualMachineInstanceStatusFromJSONTyped(
     conditions: !exists(json, 'conditions')
       ? undefined
       : (json['conditions'] as Array<any>).map(V1VirtualMachineInstanceConditionFromJSON),
+    currentCPUTopology: !exists(json, 'currentCPUTopology')
+      ? undefined
+      : V1CPUTopologyFromJSON(json['currentCPUTopology']),
     evacuationNodeName: !exists(json, 'evacuationNodeName')
       ? undefined
       : json['evacuationNodeName'],
@@ -201,6 +237,7 @@ export function V1VirtualMachineInstanceStatusFromJSONTyped(
     launcherContainerImageVersion: !exists(json, 'launcherContainerImageVersion')
       ? undefined
       : json['launcherContainerImageVersion'],
+    machine: !exists(json, 'machine') ? undefined : V1MachineFromJSON(json['machine']),
     migrationMethod: !exists(json, 'migrationMethod') ? undefined : json['migrationMethod'],
     migrationState: !exists(json, 'migrationState')
       ? undefined
@@ -247,6 +284,7 @@ export function V1VirtualMachineInstanceStatusToJSON(
       value.conditions === undefined
         ? undefined
         : (value.conditions as Array<any>).map(V1VirtualMachineInstanceConditionToJSON),
+    currentCPUTopology: V1CPUTopologyToJSON(value.currentCPUTopology),
     evacuationNodeName: value.evacuationNodeName,
     fsFreezeStatus: value.fsFreezeStatus,
     guestOSInfo: V1VirtualMachineInstanceGuestOSInfoToJSON(value.guestOSInfo),
@@ -255,6 +293,7 @@ export function V1VirtualMachineInstanceStatusToJSON(
         ? undefined
         : (value.interfaces as Array<any>).map(V1VirtualMachineInstanceNetworkInterfaceToJSON),
     launcherContainerImageVersion: value.launcherContainerImageVersion,
+    machine: V1MachineToJSON(value.machine),
     migrationMethod: value.migrationMethod,
     migrationState: V1VirtualMachineInstanceMigrationStateToJSON(value.migrationState),
     migrationTransport: value.migrationTransport,

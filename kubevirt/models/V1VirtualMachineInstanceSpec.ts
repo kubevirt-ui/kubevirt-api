@@ -62,6 +62,12 @@ export interface V1VirtualMachineInstanceSpec {
    */
   affinity?: K8sIoApiCoreV1Affinity;
   /**
+   * Specifies the architecture of the vm guest you are attempting to run. Defaults to the compiled architecture of the KubeVirt components
+   * @type {string}
+   * @memberof V1VirtualMachineInstanceSpec
+   */
+  architecture?: string;
+  /**
    *
    * @type {K8sIoApiCoreV1PodDNSConfig}
    * @memberof V1VirtualMachineInstanceSpec
@@ -69,10 +75,16 @@ export interface V1VirtualMachineInstanceSpec {
   dnsConfig?: K8sIoApiCoreV1PodDNSConfig;
   /**
    * Set DNS policy for the pod. Defaults to "ClusterFirst". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.
+   *
+   * Possible enum values:
+   *  - `"ClusterFirst"` indicates that the pod should use cluster DNS first unless hostNetwork is true, if it is available, then fall back on the default (as determined by kubelet) DNS settings.
+   *  - `"ClusterFirstWithHostNet"` indicates that the pod should use cluster DNS first, if it is available, then fall back on the default (as determined by kubelet) DNS settings.
+   *  - `"Default"` indicates that the pod should use the default (as determined by kubelet) DNS settings.
+   *  - `"None"` indicates that the pod should use empty DNS settings. DNS parameters such as nameservers and search paths should be defined via DNSConfig.
    * @type {string}
    * @memberof V1VirtualMachineInstanceSpec
    */
-  dnsPolicy?: string;
+  dnsPolicy?: V1VirtualMachineInstanceSpecDnsPolicyEnum;
   /**
    *
    * @type {V1DomainSpec}
@@ -165,6 +177,17 @@ export interface V1VirtualMachineInstanceSpec {
   volumes?: Array<V1Volume>;
 }
 
+/**
+ * @export
+ * @enum {string}
+ */
+export enum V1VirtualMachineInstanceSpecDnsPolicyEnum {
+  ClusterFirst = 'ClusterFirst',
+  ClusterFirstWithHostNet = 'ClusterFirstWithHostNet',
+  Default = 'Default',
+  None = 'None',
+}
+
 export function V1VirtualMachineInstanceSpecFromJSON(json: any): V1VirtualMachineInstanceSpec {
   return V1VirtualMachineInstanceSpecFromJSONTyped(json, false);
 }
@@ -183,6 +206,7 @@ export function V1VirtualMachineInstanceSpecFromJSONTyped(
     affinity: !exists(json, 'affinity')
       ? undefined
       : K8sIoApiCoreV1AffinityFromJSON(json['affinity']),
+    architecture: !exists(json, 'architecture') ? undefined : json['architecture'],
     dnsConfig: !exists(json, 'dnsConfig')
       ? undefined
       : K8sIoApiCoreV1PodDNSConfigFromJSON(json['dnsConfig']),
@@ -236,6 +260,7 @@ export function V1VirtualMachineInstanceSpecToJSON(
         ? undefined
         : (value.accessCredentials as Array<any>).map(V1AccessCredentialToJSON),
     affinity: K8sIoApiCoreV1AffinityToJSON(value.affinity),
+    architecture: value.architecture,
     dnsConfig: K8sIoApiCoreV1PodDNSConfigToJSON(value.dnsConfig),
     dnsPolicy: value.dnsPolicy,
     domain: V1DomainSpecToJSON(value.domain),

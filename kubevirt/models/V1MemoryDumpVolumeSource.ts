@@ -20,7 +20,7 @@ import { exists } from '../runtime';
  */
 export interface V1MemoryDumpVolumeSource {
   /**
-   * ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+   * claimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
    * @type {string}
    * @memberof V1MemoryDumpVolumeSource
    */
@@ -32,7 +32,7 @@ export interface V1MemoryDumpVolumeSource {
    */
   hotpluggable?: boolean;
   /**
-   * Will force the ReadOnly setting in VolumeMounts. Default false.
+   * readOnly Will force the ReadOnly setting in VolumeMounts. Default false.
    * @type {boolean}
    * @memberof V1MemoryDumpVolumeSource
    */

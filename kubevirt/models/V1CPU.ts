@@ -56,6 +56,12 @@ export interface V1CPU {
    */
   isolateEmulatorThread?: boolean;
   /**
+   * MaxSockets specifies the maximum amount of sockets that can be hotplugged
+   * @type {number}
+   * @memberof V1CPU
+   */
+  maxSockets?: number;
+  /**
    * Model specifies the CPU model inside the VMI. List of available models https://github.com/libvirt/libvirt/tree/master/src/cpu_map. It is possible to specify special cases like "host-passthrough" to get the same CPU as the node and "host-model" to get CPU closest to the node one. Defaults to host-model.
    * @type {string}
    * @memberof V1CPU
@@ -106,6 +112,7 @@ export function V1CPUFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1
     isolateEmulatorThread: !exists(json, 'isolateEmulatorThread')
       ? undefined
       : json['isolateEmulatorThread'],
+    maxSockets: !exists(json, 'maxSockets') ? undefined : json['maxSockets'],
     model: !exists(json, 'model') ? undefined : json['model'],
     numa: !exists(json, 'numa') ? undefined : V1NUMAFromJSON(json['numa']),
     realtime: !exists(json, 'realtime') ? undefined : V1RealtimeFromJSON(json['realtime']),
@@ -129,6 +136,7 @@ export function V1CPUToJSON(value?: V1CPU | null): any {
         ? undefined
         : (value.features as Array<any>).map(V1CPUFeatureToJSON),
     isolateEmulatorThread: value.isolateEmulatorThread,
+    maxSockets: value.maxSockets,
     model: value.model,
     numa: V1NUMAToJSON(value.numa),
     realtime: V1RealtimeToJSON(value.realtime),

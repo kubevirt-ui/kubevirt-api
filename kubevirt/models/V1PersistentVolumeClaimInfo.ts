@@ -51,10 +51,23 @@ export interface V1PersistentVolumeClaimInfo {
   requests?: { [key: string]: string };
   /**
    * VolumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
+   *
+   * Possible enum values:
+   *  - `"Block"` means the volume will not be formatted with a filesystem and will remain a raw block device.
+   *  - `"Filesystem"` means the volume will be or is formatted with a filesystem.
    * @type {string}
    * @memberof V1PersistentVolumeClaimInfo
    */
-  volumeMode?: string;
+  volumeMode?: V1PersistentVolumeClaimInfoVolumeModeEnum;
+}
+
+/**
+ * @export
+ * @enum {string}
+ */
+export enum V1PersistentVolumeClaimInfoVolumeModeEnum {
+  Block = 'Block',
+  Filesystem = 'Filesystem',
 }
 
 export function V1PersistentVolumeClaimInfoFromJSON(json: any): V1PersistentVolumeClaimInfo {

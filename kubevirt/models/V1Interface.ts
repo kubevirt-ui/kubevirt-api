@@ -113,6 +113,12 @@ export interface V1Interface {
    */
   sriov?: object;
   /**
+   * State represents the requested operational state of the interface. The (only) value supported is `absent`, expressing a request to remove the interface.
+   * @type {string}
+   * @memberof V1Interface
+   */
+  state?: string;
+  /**
    * If specified, the virtual network interface address and its tag will be provided to the guest via config drive
    * @type {string}
    * @memberof V1Interface
@@ -145,6 +151,7 @@ export function V1InterfaceFromJSONTyped(json: any, _ignoreDiscriminator: boolea
     ports: !exists(json, 'ports') ? undefined : (json['ports'] as Array<any>).map(V1PortFromJSON),
     slirp: !exists(json, 'slirp') ? undefined : json['slirp'],
     sriov: !exists(json, 'sriov') ? undefined : json['sriov'],
+    state: !exists(json, 'state') ? undefined : json['state'],
     tag: !exists(json, 'tag') ? undefined : json['tag'],
   };
 }
@@ -171,6 +178,7 @@ export function V1InterfaceToJSON(value?: V1Interface | null): any {
     ports: value.ports === undefined ? undefined : (value.ports as Array<any>).map(V1PortToJSON),
     slirp: value.slirp,
     sriov: value.sriov,
+    state: value.state,
     tag: value.tag,
   };
 }

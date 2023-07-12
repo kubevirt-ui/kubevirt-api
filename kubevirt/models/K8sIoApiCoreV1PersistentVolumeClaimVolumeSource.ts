@@ -20,13 +20,13 @@ import { exists } from '../runtime';
  */
 export interface K8sIoApiCoreV1PersistentVolumeClaimVolumeSource {
   /**
-   * claimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+   * ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
    * @type {string}
    * @memberof K8sIoApiCoreV1PersistentVolumeClaimVolumeSource
    */
   claimName: string;
   /**
-   * readOnly Will force the ReadOnly setting in VolumeMounts. Default false.
+   * Will force the ReadOnly setting in VolumeMounts. Default false.
    * @type {boolean}
    * @memberof K8sIoApiCoreV1PersistentVolumeClaimVolumeSource
    */

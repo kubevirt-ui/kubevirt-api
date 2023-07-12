@@ -36,12 +36,6 @@ export interface V1KubeVirtStatus {
   conditions?: Array<V1KubeVirtCondition>;
   /**
    *
-   * @type {string}
-   * @memberof V1KubeVirtStatus
-   */
-  defaultArchitecture?: string;
-  /**
-   *
    * @type {Array<V1GenerationStatus>}
    * @memberof V1KubeVirtStatus
    */
@@ -135,9 +129,6 @@ export function V1KubeVirtStatusFromJSONTyped(
     conditions: !exists(json, 'conditions')
       ? undefined
       : (json['conditions'] as Array<any>).map(V1KubeVirtConditionFromJSON),
-    defaultArchitecture: !exists(json, 'defaultArchitecture')
-      ? undefined
-      : json['defaultArchitecture'],
     generations: !exists(json, 'generations')
       ? undefined
       : (json['generations'] as Array<any>).map(V1GenerationStatusFromJSON),
@@ -191,7 +182,6 @@ export function V1KubeVirtStatusToJSON(value?: V1KubeVirtStatus | null): any {
       value.conditions === undefined
         ? undefined
         : (value.conditions as Array<any>).map(V1KubeVirtConditionToJSON),
-    defaultArchitecture: value.defaultArchitecture,
     generations:
       value.generations === undefined
         ? undefined

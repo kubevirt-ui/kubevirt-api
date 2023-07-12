@@ -45,23 +45,10 @@ export interface K8sIoApiCoreV1HTTPGetAction {
   path?: string;
   /**
    * Scheme to use for connecting to the host. Defaults to HTTP.
-   *
-   * Possible enum values:
-   *  - `"HTTP"` means that the scheme used will be http://
-   *  - `"HTTPS"` means that the scheme used will be https://
    * @type {string}
    * @memberof K8sIoApiCoreV1HTTPGetAction
    */
-  scheme?: K8sIoApiCoreV1HTTPGetActionSchemeEnum;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum K8sIoApiCoreV1HTTPGetActionSchemeEnum {
-  Http = 'HTTP',
-  Https = 'HTTPS',
+  scheme?: string;
 }
 
 export function K8sIoApiCoreV1HTTPGetActionFromJSON(json: any): K8sIoApiCoreV1HTTPGetAction {

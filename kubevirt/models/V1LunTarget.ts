@@ -31,12 +31,6 @@ export interface V1LunTarget {
    * @memberof V1LunTarget
    */
   readonly?: boolean;
-  /**
-   * Reservation indicates if the disk needs to support the persistent reservation for the SCSI disk
-   * @type {boolean}
-   * @memberof V1LunTarget
-   */
-  reservation?: boolean;
 }
 
 export function V1LunTargetFromJSON(json: any): V1LunTarget {
@@ -50,7 +44,6 @@ export function V1LunTargetFromJSONTyped(json: any, _ignoreDiscriminator: boolea
   return {
     bus: !exists(json, 'bus') ? undefined : json['bus'],
     readonly: !exists(json, 'readonly') ? undefined : json['readonly'],
-    reservation: !exists(json, 'reservation') ? undefined : json['reservation'],
   };
 }
 
@@ -64,6 +57,5 @@ export function V1LunTargetToJSON(value?: V1LunTarget | null): any {
   return {
     bus: value.bus,
     readonly: value.readonly,
-    reservation: value.reservation,
   };
 }

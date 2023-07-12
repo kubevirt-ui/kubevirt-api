@@ -20,9 +20,6 @@ import {
   V1InstancetypeMatcher,
   V1InstancetypeMatcherFromJSON,
   V1InstancetypeMatcherToJSON,
-  V1LiveUpdateFeatures,
-  V1LiveUpdateFeaturesFromJSON,
-  V1LiveUpdateFeaturesToJSON,
   V1PreferenceMatcher,
   V1PreferenceMatcherFromJSON,
   V1PreferenceMatcherToJSON,
@@ -49,12 +46,6 @@ export interface V1VirtualMachineSpec {
    * @memberof V1VirtualMachineSpec
    */
   instancetype?: V1InstancetypeMatcher;
-  /**
-   *
-   * @type {V1LiveUpdateFeatures}
-   * @memberof V1VirtualMachineSpec
-   */
-  liveUpdateFeatures?: V1LiveUpdateFeatures;
   /**
    *
    * @type {V1PreferenceMatcher}
@@ -99,9 +90,6 @@ export function V1VirtualMachineSpecFromJSONTyped(
     instancetype: !exists(json, 'instancetype')
       ? undefined
       : V1InstancetypeMatcherFromJSON(json['instancetype']),
-    liveUpdateFeatures: !exists(json, 'liveUpdateFeatures')
-      ? undefined
-      : V1LiveUpdateFeaturesFromJSON(json['liveUpdateFeatures']),
     preference: !exists(json, 'preference')
       ? undefined
       : V1PreferenceMatcherFromJSON(json['preference']),
@@ -124,7 +112,6 @@ export function V1VirtualMachineSpecToJSON(value?: V1VirtualMachineSpec | null):
         ? undefined
         : (value.dataVolumeTemplates as Array<any>).map(V1DataVolumeTemplateSpecToJSON),
     instancetype: V1InstancetypeMatcherToJSON(value.instancetype),
-    liveUpdateFeatures: V1LiveUpdateFeaturesToJSON(value.liveUpdateFeatures),
     preference: V1PreferenceMatcherToJSON(value.preference),
     runStrategy: value.runStrategy,
     running: value.running,

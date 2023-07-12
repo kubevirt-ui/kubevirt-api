@@ -20,9 +20,6 @@ import {
   K8sIoApiCoreV1TypedLocalObjectReference,
   K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
   K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-  K8sIoApiCoreV1TypedObjectReference,
-  K8sIoApiCoreV1TypedObjectReferenceFromJSON,
-  K8sIoApiCoreV1TypedObjectReferenceToJSON,
   K8sIoApimachineryPkgApisMetaV1LabelSelector,
   K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
   K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
@@ -35,7 +32,7 @@ import {
  */
 export interface K8sIoApiCoreV1PersistentVolumeClaimSpec {
   /**
-   * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+   * AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
    * @type {Array<string>}
    * @memberof K8sIoApiCoreV1PersistentVolumeClaimSpec
    */
@@ -48,10 +45,10 @@ export interface K8sIoApiCoreV1PersistentVolumeClaimSpec {
   dataSource?: K8sIoApiCoreV1TypedLocalObjectReference;
   /**
    *
-   * @type {K8sIoApiCoreV1TypedObjectReference}
+   * @type {K8sIoApiCoreV1TypedLocalObjectReference}
    * @memberof K8sIoApiCoreV1PersistentVolumeClaimSpec
    */
-  dataSourceRef?: K8sIoApiCoreV1TypedObjectReference;
+  dataSourceRef?: K8sIoApiCoreV1TypedLocalObjectReference;
   /**
    *
    * @type {K8sIoApiCoreV1ResourceRequirements}
@@ -65,36 +62,23 @@ export interface K8sIoApiCoreV1PersistentVolumeClaimSpec {
    */
   selector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
   /**
-   * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+   * Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
    * @type {string}
    * @memberof K8sIoApiCoreV1PersistentVolumeClaimSpec
    */
   storageClassName?: string;
   /**
    * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
-   *
-   * Possible enum values:
-   *  - `"Block"` means the volume will not be formatted with a filesystem and will remain a raw block device.
-   *  - `"Filesystem"` means the volume will be or is formatted with a filesystem.
    * @type {string}
    * @memberof K8sIoApiCoreV1PersistentVolumeClaimSpec
    */
-  volumeMode?: K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum;
+  volumeMode?: string;
   /**
-   * volumeName is the binding reference to the PersistentVolume backing this claim.
+   * VolumeName is the binding reference to the PersistentVolume backing this claim.
    * @type {string}
    * @memberof K8sIoApiCoreV1PersistentVolumeClaimSpec
    */
   volumeName?: string;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum {
-  Block = 'Block',
-  Filesystem = 'Filesystem',
 }
 
 export function K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSON(
@@ -117,7 +101,7 @@ export function K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSONTyped(
       : K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['dataSource']),
     dataSourceRef: !exists(json, 'dataSourceRef')
       ? undefined
-      : K8sIoApiCoreV1TypedObjectReferenceFromJSON(json['dataSourceRef']),
+      : K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['dataSourceRef']),
     resources: !exists(json, 'resources')
       ? undefined
       : K8sIoApiCoreV1ResourceRequirementsFromJSON(json['resources']),
@@ -142,7 +126,7 @@ export function K8sIoApiCoreV1PersistentVolumeClaimSpecToJSON(
   return {
     accessModes: value.accessModes,
     dataSource: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.dataSource),
-    dataSourceRef: K8sIoApiCoreV1TypedObjectReferenceToJSON(value.dataSourceRef),
+    dataSourceRef: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.dataSourceRef),
     resources: K8sIoApiCoreV1ResourceRequirementsToJSON(value.resources),
     selector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
     storageClassName: value.storageClassName,

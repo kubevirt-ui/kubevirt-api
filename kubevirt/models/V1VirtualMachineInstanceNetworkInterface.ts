@@ -20,7 +20,7 @@ import { exists } from '../runtime';
  */
 export interface V1VirtualMachineInstanceNetworkInterface {
   /**
-   * Specifies the origin of the interface data collected. values: domain, guest-agent, multus-status.
+   * Specifies the origin of the interface data collected. values: domain, guest-agent, or both
    * @type {string}
    * @memberof V1VirtualMachineInstanceNetworkInterface
    */

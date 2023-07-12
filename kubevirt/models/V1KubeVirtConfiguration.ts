@@ -14,21 +14,9 @@
 
 import { exists } from '../runtime';
 import {
-  K8sIoApimachineryPkgApisMetaV1LabelSelector,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-  V1ArchConfiguration,
-  V1ArchConfigurationFromJSON,
-  V1ArchConfigurationToJSON,
   V1DeveloperConfiguration,
   V1DeveloperConfigurationFromJSON,
   V1DeveloperConfigurationToJSON,
-  V1KSMConfiguration,
-  V1KSMConfigurationFromJSON,
-  V1KSMConfigurationToJSON,
-  V1LiveUpdateConfiguration,
-  V1LiveUpdateConfigurationFromJSON,
-  V1LiveUpdateConfigurationToJSON,
   V1MediatedDevicesConfiguration,
   V1MediatedDevicesConfigurationFromJSON,
   V1MediatedDevicesConfigurationToJSON,
@@ -50,15 +38,9 @@ import {
   V1SeccompConfiguration,
   V1SeccompConfigurationFromJSON,
   V1SeccompConfigurationToJSON,
-  V1SupportContainerResources,
-  V1SupportContainerResourcesFromJSON,
-  V1SupportContainerResourcesToJSON,
   V1TLSConfiguration,
   V1TLSConfigurationFromJSON,
   V1TLSConfigurationToJSON,
-  V1VirtualMachineOptions,
-  V1VirtualMachineOptionsFromJSON,
-  V1VirtualMachineOptionsToJSON,
 } from './';
 
 /**
@@ -81,18 +63,6 @@ export interface V1KubeVirtConfiguration {
   apiConfiguration?: V1ReloadableComponentConfiguration;
   /**
    *
-   * @type {V1ArchConfiguration}
-   * @memberof V1KubeVirtConfiguration
-   */
-  architectureConfiguration?: V1ArchConfiguration;
-  /**
-   *
-   * @type {K8sIoApimachineryPkgApisMetaV1LabelSelector}
-   * @memberof V1KubeVirtConfiguration
-   */
-  autoCPULimitNamespaceLabelSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
-  /**
-   *
    * @type {V1ReloadableComponentConfiguration}
    * @memberof V1KubeVirtConfiguration
    */
@@ -108,33 +78,27 @@ export interface V1KubeVirtConfiguration {
    *
    * The serialization format is:
    *
-   * ``` <quantity>        ::= <signedNumber><suffix>
-   *
-   * 	(Note that <suffix> may be empty, from the "" case in <decimalSI>.)
-   *
+   * <quantity>        ::= <signedNumber><suffix>
+   *   (Note that <suffix> may be empty, from the "" case in <decimalSI>.)
    * <digit>           ::= 0 | 1 | ... | 9 <digits>          ::= <digit> | <digit><digits> <number>          ::= <digits> | <digits>.<digits> | <digits>. | .<digits> <sign>            ::= "+" | "-" <signedNumber>    ::= <number> | <sign><number> <suffix>          ::= <binarySI> | <decimalExponent> | <decimalSI> <binarySI>        ::= Ki | Mi | Gi | Ti | Pi | Ei
-   *
-   * 	(International System of units; See: http://physics.nist.gov/cuu/Units/binary.html)
-   *
+   *   (International System of units; See: http://physics.nist.gov/cuu/Units/binary.html)
    * <decimalSI>       ::= m | "" | k | M | G | T | P | E
-   *
-   * 	(Note that 1024 = 1Ki but 1000 = 1k; I didn't choose the capitalization.)
-   *
-   * <decimalExponent> ::= "e" <signedNumber> | "E" <signedNumber> ```
+   *   (Note that 1024 = 1Ki but 1000 = 1k; I didn't choose the capitalization.)
+   * <decimalExponent> ::= "e" <signedNumber> | "E" <signedNumber>
    *
    * No matter which of the three exponent forms is used, no quantity may represent a number greater than 2^63-1 in magnitude, nor may it have more than 3 decimal places. Numbers larger or more precise will be capped or rounded up. (E.g.: 0.1m will rounded up to 1m.) This may be extended in the future if we require larger or smaller quantities.
    *
    * When a Quantity is parsed from a string, it will remember the type of suffix it had, and will use the same type again when it is serialized.
    *
    * Before serializing, Quantity will be put in "canonical form". This means that Exponent/suffix will be adjusted up or down (with a corresponding increase or decrease in Mantissa) such that:
-   *
-   * - No precision is lost - No fractional digits will be emitted - The exponent (or suffix) is as large as possible.
-   *
+   *   a. No precision is lost
+   *   b. No fractional digits will be emitted
+   *   c. The exponent (or suffix) is as large as possible.
    * The sign will be omitted unless the number is negative.
    *
    * Examples:
-   *
-   * - 1.5 will be serialized as "1500m" - 1.5Gi will be serialized as "1536Mi"
+   *   1.5 will be serialized as "1500m"
+   *   1.5Gi will be serialized as "1536Mi"
    *
    * Note that the quantity will NEVER be internally represented by a floating point number. That is the whole point of this exercise.
    *
@@ -176,26 +140,11 @@ export interface V1KubeVirtConfiguration {
    */
   handlerConfiguration?: V1ReloadableComponentConfiguration;
   /**
-   * Possible enum values:
-   *  - `"Always"` means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.
-   *  - `"IfNotPresent"` means that kubelet pulls if the image isn't present on disk. Container will fail if the image isn't present and the pull fails.
-   *  - `"Never"` means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn't present
+   *
    * @type {string}
    * @memberof V1KubeVirtConfiguration
    */
-  imagePullPolicy?: V1KubeVirtConfigurationImagePullPolicyEnum;
-  /**
-   *
-   * @type {V1KSMConfiguration}
-   * @memberof V1KubeVirtConfiguration
-   */
-  ksmConfiguration?: V1KSMConfiguration;
-  /**
-   *
-   * @type {V1LiveUpdateConfiguration}
-   * @memberof V1KubeVirtConfiguration
-   */
-  liveUpdateConfiguration?: V1LiveUpdateConfiguration;
+  imagePullPolicy?: string;
   /**
    *
    * @type {string}
@@ -269,12 +218,6 @@ export interface V1KubeVirtConfiguration {
    */
   smbios?: V1SMBiosConfiguration;
   /**
-   * SupportContainerResources specifies the resource requirements for various types of supporting containers such as container disks/virtiofs/sidecars and hotplug attachment pods. If omitted a sensible default will be supplied.
-   * @type {Array<V1SupportContainerResources>}
-   * @memberof V1KubeVirtConfiguration
-   */
-  supportContainerResources?: Array<V1SupportContainerResources>;
-  /**
    * deprecated
    * @type {Array<string>}
    * @memberof V1KubeVirtConfiguration
@@ -294,32 +237,10 @@ export interface V1KubeVirtConfiguration {
   virtualMachineInstancesPerNode?: number;
   /**
    *
-   * @type {V1VirtualMachineOptions}
-   * @memberof V1KubeVirtConfiguration
-   */
-  virtualMachineOptions?: V1VirtualMachineOptions;
-  /**
-   * VMStateStorageClass is the name of the storage class to use for the PVCs created to preserve VM state, like TPM. The storage class must support RWX in filesystem mode.
-   * @type {string}
-   * @memberof V1KubeVirtConfiguration
-   */
-  vmStateStorageClass?: string;
-  /**
-   *
    * @type {V1ReloadableComponentConfiguration}
    * @memberof V1KubeVirtConfiguration
    */
   webhookConfiguration?: V1ReloadableComponentConfiguration;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum V1KubeVirtConfigurationImagePullPolicyEnum {
-  Always = 'Always',
-  IfNotPresent = 'IfNotPresent',
-  Never = 'Never',
 }
 
 export function V1KubeVirtConfigurationFromJSON(json: any): V1KubeVirtConfiguration {
@@ -340,14 +261,6 @@ export function V1KubeVirtConfigurationFromJSONTyped(
     apiConfiguration: !exists(json, 'apiConfiguration')
       ? undefined
       : V1ReloadableComponentConfigurationFromJSON(json['apiConfiguration']),
-    architectureConfiguration: !exists(json, 'architectureConfiguration')
-      ? undefined
-      : V1ArchConfigurationFromJSON(json['architectureConfiguration']),
-    autoCPULimitNamespaceLabelSelector: !exists(json, 'autoCPULimitNamespaceLabelSelector')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(
-          json['autoCPULimitNamespaceLabelSelector'],
-        ),
     controllerConfiguration: !exists(json, 'controllerConfiguration')
       ? undefined
       : V1ReloadableComponentConfigurationFromJSON(json['controllerConfiguration']),
@@ -365,12 +278,6 @@ export function V1KubeVirtConfigurationFromJSONTyped(
       ? undefined
       : V1ReloadableComponentConfigurationFromJSON(json['handlerConfiguration']),
     imagePullPolicy: !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
-    ksmConfiguration: !exists(json, 'ksmConfiguration')
-      ? undefined
-      : V1KSMConfigurationFromJSON(json['ksmConfiguration']),
-    liveUpdateConfiguration: !exists(json, 'liveUpdateConfiguration')
-      ? undefined
-      : V1LiveUpdateConfigurationFromJSON(json['liveUpdateConfiguration']),
     machineType: !exists(json, 'machineType') ? undefined : json['machineType'],
     mediatedDevicesConfiguration: !exists(json, 'mediatedDevicesConfiguration')
       ? undefined
@@ -395,9 +302,6 @@ export function V1KubeVirtConfigurationFromJSONTyped(
       ? undefined
       : json['selinuxLauncherType'],
     smbios: !exists(json, 'smbios') ? undefined : V1SMBiosConfigurationFromJSON(json['smbios']),
-    supportContainerResources: !exists(json, 'supportContainerResources')
-      ? undefined
-      : (json['supportContainerResources'] as Array<any>).map(V1SupportContainerResourcesFromJSON),
     supportedGuestAgentVersions: !exists(json, 'supportedGuestAgentVersions')
       ? undefined
       : json['supportedGuestAgentVersions'],
@@ -407,12 +311,6 @@ export function V1KubeVirtConfigurationFromJSONTyped(
     virtualMachineInstancesPerNode: !exists(json, 'virtualMachineInstancesPerNode')
       ? undefined
       : json['virtualMachineInstancesPerNode'],
-    virtualMachineOptions: !exists(json, 'virtualMachineOptions')
-      ? undefined
-      : V1VirtualMachineOptionsFromJSON(json['virtualMachineOptions']),
-    vmStateStorageClass: !exists(json, 'vmStateStorageClass')
-      ? undefined
-      : json['vmStateStorageClass'],
     webhookConfiguration: !exists(json, 'webhookConfiguration')
       ? undefined
       : V1ReloadableComponentConfigurationFromJSON(json['webhookConfiguration']),
@@ -429,10 +327,6 @@ export function V1KubeVirtConfigurationToJSON(value?: V1KubeVirtConfiguration | 
   return {
     additionalGuestMemoryOverheadRatio: value.additionalGuestMemoryOverheadRatio,
     apiConfiguration: V1ReloadableComponentConfigurationToJSON(value.apiConfiguration),
-    architectureConfiguration: V1ArchConfigurationToJSON(value.architectureConfiguration),
-    autoCPULimitNamespaceLabelSelector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(
-      value.autoCPULimitNamespaceLabelSelector,
-    ),
     controllerConfiguration: V1ReloadableComponentConfigurationToJSON(
       value.controllerConfiguration,
     ),
@@ -444,8 +338,6 @@ export function V1KubeVirtConfigurationToJSON(value?: V1KubeVirtConfiguration | 
     evictionStrategy: value.evictionStrategy,
     handlerConfiguration: V1ReloadableComponentConfigurationToJSON(value.handlerConfiguration),
     imagePullPolicy: value.imagePullPolicy,
-    ksmConfiguration: V1KSMConfigurationToJSON(value.ksmConfiguration),
-    liveUpdateConfiguration: V1LiveUpdateConfigurationToJSON(value.liveUpdateConfiguration),
     machineType: value.machineType,
     mediatedDevicesConfiguration: V1MediatedDevicesConfigurationToJSON(
       value.mediatedDevicesConfiguration,
@@ -460,15 +352,9 @@ export function V1KubeVirtConfigurationToJSON(value?: V1KubeVirtConfiguration | 
     seccompConfiguration: V1SeccompConfigurationToJSON(value.seccompConfiguration),
     selinuxLauncherType: value.selinuxLauncherType,
     smbios: V1SMBiosConfigurationToJSON(value.smbios),
-    supportContainerResources:
-      value.supportContainerResources === undefined
-        ? undefined
-        : (value.supportContainerResources as Array<any>).map(V1SupportContainerResourcesToJSON),
     supportedGuestAgentVersions: value.supportedGuestAgentVersions,
     tlsConfiguration: V1TLSConfigurationToJSON(value.tlsConfiguration),
     virtualMachineInstancesPerNode: value.virtualMachineInstancesPerNode,
-    virtualMachineOptions: V1VirtualMachineOptionsToJSON(value.virtualMachineOptions),
-    vmStateStorageClass: value.vmStateStorageClass,
     webhookConfiguration: V1ReloadableComponentConfigurationToJSON(value.webhookConfiguration),
   };
 }

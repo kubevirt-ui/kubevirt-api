@@ -60,15 +60,10 @@ export interface V1KubeVirtSpec {
   customizeComponents?: V1CustomizeComponents;
   /**
    * The ImagePullPolicy to use.
-   *
-   * Possible enum values:
-   *  - `"Always"` means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.
-   *  - `"IfNotPresent"` means that kubelet pulls if the image isn't present on disk. Container will fail if the image isn't present and the pull fails.
-   *  - `"Never"` means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn't present
    * @type {string}
    * @memberof V1KubeVirtSpec
    */
-  imagePullPolicy?: V1KubeVirtSpecImagePullPolicyEnum;
+  imagePullPolicy?: string;
   /**
    * The imagePullSecrets to pull the container images from Defaults to none
    * @type {Array<K8sIoApiCoreV1LocalObjectReference>}
@@ -149,16 +144,6 @@ export interface V1KubeVirtSpec {
    * @memberof V1KubeVirtSpec
    */
   workloads?: V1ComponentConfig;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum V1KubeVirtSpecImagePullPolicyEnum {
-  Always = 'Always',
-  IfNotPresent = 'IfNotPresent',
-  Never = 'Never',
 }
 
 export function V1KubeVirtSpecFromJSON(json: any): V1KubeVirtSpec {

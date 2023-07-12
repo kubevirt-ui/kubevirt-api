@@ -14,9 +14,6 @@
 
 import { exists } from '../runtime';
 import {
-  V1beta1DataVolumeSourceGCS,
-  V1beta1DataVolumeSourceGCSFromJSON,
-  V1beta1DataVolumeSourceGCSToJSON,
   V1beta1DataVolumeSourceHTTP,
   V1beta1DataVolumeSourceHTTPFromJSON,
   V1beta1DataVolumeSourceHTTPToJSON,
@@ -32,16 +29,13 @@ import {
   V1beta1DataVolumeSourceS3,
   V1beta1DataVolumeSourceS3FromJSON,
   V1beta1DataVolumeSourceS3ToJSON,
-  V1beta1DataVolumeSourceSnapshot,
-  V1beta1DataVolumeSourceSnapshotFromJSON,
-  V1beta1DataVolumeSourceSnapshotToJSON,
   V1beta1DataVolumeSourceVDDK,
   V1beta1DataVolumeSourceVDDKFromJSON,
   V1beta1DataVolumeSourceVDDKToJSON,
 } from './';
 
 /**
- * DataVolumeSource represents the source for our Data Volume, this can be HTTP, Imageio, S3, GCS, Registry or an existing PVC
+ * DataVolumeSource represents the source for our Data Volume, this can be HTTP, Imageio, S3, Registry or an existing PVC
  * @export
  * @interface V1beta1DataVolumeSource
  */
@@ -52,12 +46,6 @@ export interface V1beta1DataVolumeSource {
    * @memberof V1beta1DataVolumeSource
    */
   blank?: object;
-  /**
-   *
-   * @type {V1beta1DataVolumeSourceGCS}
-   * @memberof V1beta1DataVolumeSource
-   */
-  gcs?: V1beta1DataVolumeSourceGCS;
   /**
    *
    * @type {V1beta1DataVolumeSourceHTTP}
@@ -89,12 +77,6 @@ export interface V1beta1DataVolumeSource {
    */
   s3?: V1beta1DataVolumeSourceS3;
   /**
-   *
-   * @type {V1beta1DataVolumeSourceSnapshot}
-   * @memberof V1beta1DataVolumeSource
-   */
-  snapshot?: V1beta1DataVolumeSourceSnapshot;
-  /**
    * DataVolumeSourceUpload provides the parameters to create a Data Volume by uploading the source
    * @type {object}
    * @memberof V1beta1DataVolumeSource
@@ -121,7 +103,6 @@ export function V1beta1DataVolumeSourceFromJSONTyped(
   }
   return {
     blank: !exists(json, 'blank') ? undefined : json['blank'],
-    gcs: !exists(json, 'gcs') ? undefined : V1beta1DataVolumeSourceGCSFromJSON(json['gcs']),
     http: !exists(json, 'http') ? undefined : V1beta1DataVolumeSourceHTTPFromJSON(json['http']),
     imageio: !exists(json, 'imageio')
       ? undefined
@@ -131,9 +112,6 @@ export function V1beta1DataVolumeSourceFromJSONTyped(
       ? undefined
       : V1beta1DataVolumeSourceRegistryFromJSON(json['registry']),
     s3: !exists(json, 's3') ? undefined : V1beta1DataVolumeSourceS3FromJSON(json['s3']),
-    snapshot: !exists(json, 'snapshot')
-      ? undefined
-      : V1beta1DataVolumeSourceSnapshotFromJSON(json['snapshot']),
     upload: !exists(json, 'upload') ? undefined : json['upload'],
     vddk: !exists(json, 'vddk') ? undefined : V1beta1DataVolumeSourceVDDKFromJSON(json['vddk']),
   };
@@ -148,13 +126,11 @@ export function V1beta1DataVolumeSourceToJSON(value?: V1beta1DataVolumeSource | 
   }
   return {
     blank: value.blank,
-    gcs: V1beta1DataVolumeSourceGCSToJSON(value.gcs),
     http: V1beta1DataVolumeSourceHTTPToJSON(value.http),
     imageio: V1beta1DataVolumeSourceImageIOToJSON(value.imageio),
     pvc: V1beta1DataVolumeSourcePVCToJSON(value.pvc),
     registry: V1beta1DataVolumeSourceRegistryToJSON(value.registry),
     s3: V1beta1DataVolumeSourceS3ToJSON(value.s3),
-    snapshot: V1beta1DataVolumeSourceSnapshotToJSON(value.snapshot),
     upload: value.upload,
     vddk: V1beta1DataVolumeSourceVDDKToJSON(value.vddk),
   };

@@ -20,9 +20,6 @@ import {
   K8sIoApiCoreV1TypedLocalObjectReference,
   K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
   K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-  K8sIoApiCoreV1TypedObjectReference,
-  K8sIoApiCoreV1TypedObjectReferenceFromJSON,
-  K8sIoApiCoreV1TypedObjectReferenceToJSON,
   K8sIoApimachineryPkgApisMetaV1LabelSelector,
   K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
   K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
@@ -48,12 +45,6 @@ export interface V1beta1StorageSpec {
   dataSource?: K8sIoApiCoreV1TypedLocalObjectReference;
   /**
    *
-   * @type {K8sIoApiCoreV1TypedObjectReference}
-   * @memberof V1beta1StorageSpec
-   */
-  dataSourceRef?: K8sIoApiCoreV1TypedObjectReference;
-  /**
-   *
    * @type {K8sIoApiCoreV1ResourceRequirements}
    * @memberof V1beta1StorageSpec
    */
@@ -72,29 +63,16 @@ export interface V1beta1StorageSpec {
   storageClassName?: string;
   /**
    * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
-   *
-   * Possible enum values:
-   *  - `"Block"` means the volume will not be formatted with a filesystem and will remain a raw block device.
-   *  - `"Filesystem"` means the volume will be or is formatted with a filesystem.
    * @type {string}
    * @memberof V1beta1StorageSpec
    */
-  volumeMode?: V1beta1StorageSpecVolumeModeEnum;
+  volumeMode?: string;
   /**
    * VolumeName is the binding reference to the PersistentVolume backing this claim.
    * @type {string}
    * @memberof V1beta1StorageSpec
    */
   volumeName?: string;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum V1beta1StorageSpecVolumeModeEnum {
-  Block = 'Block',
-  Filesystem = 'Filesystem',
 }
 
 export function V1beta1StorageSpecFromJSON(json: any): V1beta1StorageSpec {
@@ -113,9 +91,6 @@ export function V1beta1StorageSpecFromJSONTyped(
     dataSource: !exists(json, 'dataSource')
       ? undefined
       : K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['dataSource']),
-    dataSourceRef: !exists(json, 'dataSourceRef')
-      ? undefined
-      : K8sIoApiCoreV1TypedObjectReferenceFromJSON(json['dataSourceRef']),
     resources: !exists(json, 'resources')
       ? undefined
       : K8sIoApiCoreV1ResourceRequirementsFromJSON(json['resources']),
@@ -138,7 +113,6 @@ export function V1beta1StorageSpecToJSON(value?: V1beta1StorageSpec | null): any
   return {
     accessModes: value.accessModes,
     dataSource: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.dataSource),
-    dataSourceRef: K8sIoApiCoreV1TypedObjectReferenceToJSON(value.dataSourceRef),
     resources: K8sIoApiCoreV1ResourceRequirementsToJSON(value.resources),
     selector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
     storageClassName: value.storageClassName,

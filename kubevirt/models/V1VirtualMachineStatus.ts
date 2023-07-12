@@ -17,9 +17,6 @@ import {
   V1VirtualMachineCondition,
   V1VirtualMachineConditionFromJSON,
   V1VirtualMachineConditionToJSON,
-  V1VirtualMachineInterfaceRequest,
-  V1VirtualMachineInterfaceRequestFromJSON,
-  V1VirtualMachineInterfaceRequestToJSON,
   V1VirtualMachineMemoryDumpRequest,
   V1VirtualMachineMemoryDumpRequestFromJSON,
   V1VirtualMachineMemoryDumpRequestToJSON,
@@ -56,29 +53,11 @@ export interface V1VirtualMachineStatus {
    */
   created?: boolean;
   /**
-   * DesiredGeneration is the generation which is desired for the VMI. This will be used in comparisons with ObservedGeneration to understand when the VMI is out of sync. This will be changed at the same time as ObservedGeneration to remove errors which could occur if Generation is updated through an Update() before ObservedGeneration in Status.
-   * @type {number}
-   * @memberof V1VirtualMachineStatus
-   */
-  desiredGeneration?: number;
-  /**
-   * InterfaceRequests indicates a list of interfaces added to the VMI template and hot-plugged on an active running VMI.
-   * @type {Array<V1VirtualMachineInterfaceRequest>}
-   * @memberof V1VirtualMachineStatus
-   */
-  interfaceRequests?: Array<V1VirtualMachineInterfaceRequest>;
-  /**
    *
    * @type {V1VirtualMachineMemoryDumpRequest}
    * @memberof V1VirtualMachineStatus
    */
   memoryDumpRequest?: V1VirtualMachineMemoryDumpRequest;
-  /**
-   * ObservedGeneration is the generation observed by the vmi when started.
-   * @type {number}
-   * @memberof V1VirtualMachineStatus
-   */
-  observedGeneration?: number;
   /**
    * PrintableStatus is a human readable, high-level representation of the status of the virtual machine
    * @type {string}
@@ -145,16 +124,9 @@ export function V1VirtualMachineStatusFromJSONTyped(
       ? undefined
       : (json['conditions'] as Array<any>).map(V1VirtualMachineConditionFromJSON),
     created: !exists(json, 'created') ? undefined : json['created'],
-    desiredGeneration: !exists(json, 'desiredGeneration') ? undefined : json['desiredGeneration'],
-    interfaceRequests: !exists(json, 'interfaceRequests')
-      ? undefined
-      : (json['interfaceRequests'] as Array<any>).map(V1VirtualMachineInterfaceRequestFromJSON),
     memoryDumpRequest: !exists(json, 'memoryDumpRequest')
       ? undefined
       : V1VirtualMachineMemoryDumpRequestFromJSON(json['memoryDumpRequest']),
-    observedGeneration: !exists(json, 'observedGeneration')
-      ? undefined
-      : json['observedGeneration'],
     printableStatus: !exists(json, 'printableStatus') ? undefined : json['printableStatus'],
     ready: !exists(json, 'ready') ? undefined : json['ready'],
     restoreInProgress: !exists(json, 'restoreInProgress') ? undefined : json['restoreInProgress'],
@@ -189,13 +161,7 @@ export function V1VirtualMachineStatusToJSON(value?: V1VirtualMachineStatus | nu
         ? undefined
         : (value.conditions as Array<any>).map(V1VirtualMachineConditionToJSON),
     created: value.created,
-    desiredGeneration: value.desiredGeneration,
-    interfaceRequests:
-      value.interfaceRequests === undefined
-        ? undefined
-        : (value.interfaceRequests as Array<any>).map(V1VirtualMachineInterfaceRequestToJSON),
     memoryDumpRequest: V1VirtualMachineMemoryDumpRequestToJSON(value.memoryDumpRequest),
-    observedGeneration: value.observedGeneration,
     printableStatus: value.printableStatus,
     ready: value.ready,
     restoreInProgress: value.restoreInProgress,

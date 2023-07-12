@@ -128,12 +128,6 @@ export interface V1VirtualMachineInstanceMigrationState {
    */
   targetNodeDomainDetected?: boolean;
   /**
-   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-   * @type {string}
-   * @memberof V1VirtualMachineInstanceMigrationState
-   */
-  targetNodeDomainReadyTimestamp?: string;
-  /**
    * If the VMI requires dedicated CPUs, this field will hold the numa topology on the target node
    * @type {string}
    * @memberof V1VirtualMachineInstanceMigrationState
@@ -188,9 +182,6 @@ export function V1VirtualMachineInstanceMigrationStateFromJSONTyped(
     targetNodeDomainDetected: !exists(json, 'targetNodeDomainDetected')
       ? undefined
       : json['targetNodeDomainDetected'],
-    targetNodeDomainReadyTimestamp: !exists(json, 'targetNodeDomainReadyTimestamp')
-      ? undefined
-      : json['targetNodeDomainReadyTimestamp'],
     targetNodeTopology: !exists(json, 'targetNodeTopology')
       ? undefined
       : json['targetNodeTopology'],
@@ -225,10 +216,6 @@ export function V1VirtualMachineInstanceMigrationStateToJSON(
     targetNode: value.targetNode,
     targetNodeAddress: value.targetNodeAddress,
     targetNodeDomainDetected: value.targetNodeDomainDetected,
-    targetNodeDomainReadyTimestamp:
-      value.targetNodeDomainReadyTimestamp === undefined
-        ? undefined
-        : value.targetNodeDomainReadyTimestamp,
     targetNodeTopology: value.targetNodeTopology,
     targetPod: value.targetPod,
   };

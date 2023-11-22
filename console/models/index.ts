@@ -21,6 +21,7 @@ export * from './StorageProfileModel';
 export * from './SubscriptionModel';
 export * from './VirtualMachineClusterInstancetypeModel';
 export * from './VirtualMachineInstancetypeModel';
+export * from './VirtualMachineCloneModel';
 export * from './VirtualMachinePreferenceModel';
 export * from './VirtualMachineClusterPreferenceModel';
 export * from './VirtualMachineInstanceMigrationModel';

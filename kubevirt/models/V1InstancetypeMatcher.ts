@@ -26,6 +26,12 @@ export interface V1InstancetypeMatcher {
    */
   inferFromVolume?: string;
   /**
+   * InferFromVolumeFailurePolicy controls what should happen on failure when inferring the instancetype. Allowed values are: "RejectInferFromVolumeFailure" and "IgnoreInferFromVolumeFailure". If not specified, "RejectInferFromVolumeFailure" is used by default.
+   * @type {string}
+   * @memberof V1InstancetypeMatcher
+   */
+  inferFromVolumeFailurePolicy?: string;
+  /**
    * Kind specifies which instancetype resource is referenced. Allowed values are: "VirtualMachineInstancetype" and "VirtualMachineClusterInstancetype". If not specified, "VirtualMachineClusterInstancetype" is used by default.
    * @type {string}
    * @memberof V1InstancetypeMatcher
@@ -58,6 +64,9 @@ export function V1InstancetypeMatcherFromJSONTyped(
   }
   return {
     inferFromVolume: !exists(json, 'inferFromVolume') ? undefined : json['inferFromVolume'],
+    inferFromVolumeFailurePolicy: !exists(json, 'inferFromVolumeFailurePolicy')
+      ? undefined
+      : json['inferFromVolumeFailurePolicy'],
     kind: !exists(json, 'kind') ? undefined : json['kind'],
     name: !exists(json, 'name') ? undefined : json['name'],
     revisionName: !exists(json, 'revisionName') ? undefined : json['revisionName'],
@@ -73,6 +82,7 @@ export function V1InstancetypeMatcherToJSON(value?: V1InstancetypeMatcher | null
   }
   return {
     inferFromVolume: value.inferFromVolume,
+    inferFromVolumeFailurePolicy: value.inferFromVolumeFailurePolicy,
     kind: value.kind,
     name: value.name,
     revisionName: value.revisionName,

@@ -31,7 +31,7 @@ export interface V1CustomTLSProfile {
     /**
      * minTLSVersion is used to specify the minimal version of the TLS protocol that is negotiated during the TLS handshake. For example, to use TLS versions 1.1, 1.2 and 1.3 (yaml):
      * 
-     *   minTLSVersion: TLSv1.1
+     *   minTLSVersion: VersionTLS11
      * 
      * NOTE: currently the highest minTLSVersion allowed is VersionTLS12
      * @type {string}

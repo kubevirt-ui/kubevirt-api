@@ -20,6 +20,9 @@ import {
   V1PciHostDevice,
   V1PciHostDeviceFromJSON,
   V1PciHostDeviceToJSON,
+  V1USBHostDevice,
+  V1USBHostDeviceFromJSON,
+  V1USBHostDeviceToJSON,
 } from './';
 
 /**
@@ -40,6 +43,12 @@ export interface V1PermittedHostDevices {
    * @memberof V1PermittedHostDevices
    */
   pciHostDevices?: Array<V1PciHostDevice>;
+  /**
+   *
+   * @type {Array<V1USBHostDevice>}
+   * @memberof V1PermittedHostDevices
+   */
+  usb?: Array<V1USBHostDevice>;
 }
 
 export function V1PermittedHostDevicesFromJSON(json: any): V1PermittedHostDevices {
@@ -60,6 +69,9 @@ export function V1PermittedHostDevicesFromJSONTyped(
     pciHostDevices: !exists(json, 'pciHostDevices')
       ? undefined
       : (json['pciHostDevices'] as Array<any>).map(V1PciHostDeviceFromJSON),
+    usb: !exists(json, 'usb')
+      ? undefined
+      : (json['usb'] as Array<any>).map(V1USBHostDeviceFromJSON),
   };
 }
 
@@ -79,5 +91,6 @@ export function V1PermittedHostDevicesToJSON(value?: V1PermittedHostDevices | nu
       value.pciHostDevices === undefined
         ? undefined
         : (value.pciHostDevices as Array<any>).map(V1PciHostDeviceToJSON),
+    usb: value.usb === undefined ? undefined : (value.usb as Array<any>).map(V1USBHostDeviceToJSON),
   };
 }

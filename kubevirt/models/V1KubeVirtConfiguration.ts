@@ -197,7 +197,7 @@ export interface V1KubeVirtConfiguration {
    */
   liveUpdateConfiguration?: V1LiveUpdateConfiguration;
   /**
-   *
+   * Deprecated. Use architectureConfiguration instead.
    * @type {string}
    * @memberof V1KubeVirtConfiguration
    */

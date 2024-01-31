@@ -47,6 +47,12 @@ import {
  */
 export interface V1beta1VirtualMachinePreferenceSpec {
   /**
+   * Optionally defines preferred Annotations to be applied to the VirtualMachineInstance
+   * @type {{ [key: string]: string; }}
+   * @memberof V1beta1VirtualMachinePreferenceSpec
+   */
+  annotations?: { [key: string]: string };
+  /**
    *
    * @type {V1beta1ClockPreferences}
    * @memberof V1beta1VirtualMachinePreferenceSpec
@@ -82,6 +88,12 @@ export interface V1beta1VirtualMachinePreferenceSpec {
    * @memberof V1beta1VirtualMachinePreferenceSpec
    */
   machine?: V1beta1MachinePreferences;
+  /**
+   * PreferSpreadSocketToCoreRatio defines the ratio to spread vCPUs between cores and sockets, it defaults to 2.
+   * @type {number}
+   * @memberof V1beta1VirtualMachinePreferenceSpec
+   */
+  preferSpreadSocketToCoreRatio?: number;
   /**
    * Subdomain of the VirtualMachineInstance
    * @type {string}
@@ -122,6 +134,7 @@ export function V1beta1VirtualMachinePreferenceSpecFromJSONTyped(
     return json;
   }
   return {
+    annotations: !exists(json, 'annotations') ? undefined : json['annotations'],
     clock: !exists(json, 'clock') ? undefined : V1beta1ClockPreferencesFromJSON(json['clock']),
     cpu: !exists(json, 'cpu') ? undefined : V1beta1CPUPreferencesFromJSON(json['cpu']),
     devices: !exists(json, 'devices')
@@ -136,6 +149,9 @@ export function V1beta1VirtualMachinePreferenceSpecFromJSONTyped(
     machine: !exists(json, 'machine')
       ? undefined
       : V1beta1MachinePreferencesFromJSON(json['machine']),
+    preferSpreadSocketToCoreRatio: !exists(json, 'preferSpreadSocketToCoreRatio')
+      ? undefined
+      : json['preferSpreadSocketToCoreRatio'],
     preferredSubdomain: !exists(json, 'preferredSubdomain')
       ? undefined
       : json['preferredSubdomain'],
@@ -161,12 +177,14 @@ export function V1beta1VirtualMachinePreferenceSpecToJSON(
     return null;
   }
   return {
+    annotations: value.annotations,
     clock: V1beta1ClockPreferencesToJSON(value.clock),
     cpu: V1beta1CPUPreferencesToJSON(value.cpu),
     devices: V1beta1DevicePreferencesToJSON(value.devices),
     features: V1beta1FeaturePreferencesToJSON(value.features),
     firmware: V1beta1FirmwarePreferencesToJSON(value.firmware),
     machine: V1beta1MachinePreferencesToJSON(value.machine),
+    preferSpreadSocketToCoreRatio: value.preferSpreadSocketToCoreRatio,
     preferredSubdomain: value.preferredSubdomain,
     preferredTerminationGracePeriodSeconds: value.preferredTerminationGracePeriodSeconds,
     requirements: V1beta1PreferenceRequirementsToJSON(value.requirements),

@@ -55,7 +55,7 @@ export interface IoK8sApiBatchV1PodFailurePolicyRule {
      * @type {Array<IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPattern>}
      * @memberof IoK8sApiBatchV1PodFailurePolicyRule
      */
-    onPodConditions: Array<IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPattern>;
+    onPodConditions?: Array<IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPattern>;
 }
 
 export function IoK8sApiBatchV1PodFailurePolicyRuleFromJSON(json: any): IoK8sApiBatchV1PodFailurePolicyRule {
@@ -70,7 +70,7 @@ export function IoK8sApiBatchV1PodFailurePolicyRuleFromJSONTyped(json: any, igno
         
         'action': json['action'],
         'onExitCodes': !exists(json, 'onExitCodes') ? undefined : IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirementFromJSON(json['onExitCodes']),
-        'onPodConditions': ((json['onPodConditions'] as Array<any>).map(IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternFromJSON)),
+        'onPodConditions': !exists(json, 'onPodConditions') ? undefined : ((json['onPodConditions'] as Array<any>).map(IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternFromJSON)),
     };
 }
 
@@ -85,7 +85,7 @@ export function IoK8sApiBatchV1PodFailurePolicyRuleToJSON(value?: IoK8sApiBatchV
         
         'action': value.action,
         'onExitCodes': IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirementToJSON(value.onExitCodes),
-        'onPodConditions': ((value.onPodConditions as Array<any>).map(IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternToJSON)),
+        'onPodConditions': value.onPodConditions === undefined ? undefined : ((value.onPodConditions as Array<any>).map(IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternToJSON)),
     };
 }
 

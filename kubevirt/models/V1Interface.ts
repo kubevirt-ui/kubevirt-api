@@ -17,6 +17,9 @@ import {
   V1DHCPOptions,
   V1DHCPOptionsFromJSON,
   V1DHCPOptionsToJSON,
+  V1PluginBinding,
+  V1PluginBindingFromJSON,
+  V1PluginBindingToJSON,
   V1Port,
   V1PortFromJSON,
   V1PortToJSON,
@@ -34,6 +37,12 @@ export interface V1Interface {
    * @memberof V1Interface
    */
   acpiIndex?: number;
+  /**
+   *
+   * @type {V1PluginBinding}
+   * @memberof V1Interface
+   */
+  binding?: V1PluginBinding;
   /**
    * BootOrder is an integer value > 0, used to determine ordering of boot devices. Lower values take precedence. Each interface or disk that has a boot order must have a unique value. Interfaces without a boot order are not tried.
    * @type {number}
@@ -136,6 +145,7 @@ export function V1InterfaceFromJSONTyped(json: any, _ignoreDiscriminator: boolea
   }
   return {
     acpiIndex: !exists(json, 'acpiIndex') ? undefined : json['acpiIndex'],
+    binding: !exists(json, 'binding') ? undefined : V1PluginBindingFromJSON(json['binding']),
     bootOrder: !exists(json, 'bootOrder') ? undefined : json['bootOrder'],
     bridge: !exists(json, 'bridge') ? undefined : json['bridge'],
     dhcpOptions: !exists(json, 'dhcpOptions')
@@ -165,6 +175,7 @@ export function V1InterfaceToJSON(value?: V1Interface | null): any {
   }
   return {
     acpiIndex: value.acpiIndex,
+    binding: V1PluginBindingToJSON(value.binding),
     bootOrder: value.bootOrder,
     bridge: value.bridge,
     dhcpOptions: V1DHCPOptionsToJSON(value.dhcpOptions),

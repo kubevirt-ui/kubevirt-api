@@ -71,6 +71,12 @@ export interface V1Disk {
    */
   disk?: V1DiskTarget;
   /**
+   * If specified, it can change the default error policy (stop) for the disk
+   * @type {string}
+   * @memberof V1Disk
+   */
+  errorPolicy?: string;
+  /**
    * IO specifies which QEMU disk IO mode should be used. Supported values are: native, default, threads.
    * @type {string}
    * @memberof V1Disk
@@ -123,6 +129,7 @@ export function V1DiskFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V
     cdrom: !exists(json, 'cdrom') ? undefined : V1CDRomTargetFromJSON(json['cdrom']),
     dedicatedIOThread: !exists(json, 'dedicatedIOThread') ? undefined : json['dedicatedIOThread'],
     disk: !exists(json, 'disk') ? undefined : V1DiskTargetFromJSON(json['disk']),
+    errorPolicy: !exists(json, 'errorPolicy') ? undefined : json['errorPolicy'],
     io: !exists(json, 'io') ? undefined : json['io'],
     lun: !exists(json, 'lun') ? undefined : V1LunTargetFromJSON(json['lun']),
     name: json['name'],
@@ -146,6 +153,7 @@ export function V1DiskToJSON(value?: V1Disk | null): any {
     cdrom: V1CDRomTargetToJSON(value.cdrom),
     dedicatedIOThread: value.dedicatedIOThread,
     disk: V1DiskTargetToJSON(value.disk),
+    errorPolicy: value.errorPolicy,
     io: value.io,
     lun: V1LunTargetToJSON(value.lun),
     name: value.name,

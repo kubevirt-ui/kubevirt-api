@@ -32,7 +32,7 @@ export interface V1PciHostDevice {
    */
   pciVendorSelector: string;
   /**
-   * The name of the resource that is representing the device. Exposed by a device plugin and requested by VMs. Typically of the form vendor.com/product_nameThe name of the resource that is representing the device. Exposed by a device plugin and requested by VMs. Typically of the form vendor.com/product_name
+   * The name of the resource that is representing the device. Exposed by a device plugin and requested by VMs. Typically of the form vendor.com/product_name
    * @type {string}
    * @memberof V1PciHostDevice
    */

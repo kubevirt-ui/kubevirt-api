@@ -23,10 +23,28 @@ import { V1SEVPolicy, V1SEVPolicyFromJSON, V1SEVPolicyToJSON } from './';
 export interface V1SEV {
   /**
    *
+   * @type {object}
+   * @memberof V1SEV
+   */
+  attestation?: object;
+  /**
+   * Base64 encoded guest owner's Diffie-Hellman key.
+   * @type {string}
+   * @memberof V1SEV
+   */
+  dhCert?: string;
+  /**
+   *
    * @type {V1SEVPolicy}
    * @memberof V1SEV
    */
   policy?: V1SEVPolicy;
+  /**
+   * Base64 encoded session blob.
+   * @type {string}
+   * @memberof V1SEV
+   */
+  session?: string;
 }
 
 export function V1SEVFromJSON(json: any): V1SEV {
@@ -38,7 +56,10 @@ export function V1SEVFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1
     return json;
   }
   return {
+    attestation: !exists(json, 'attestation') ? undefined : json['attestation'],
+    dhCert: !exists(json, 'dhCert') ? undefined : json['dhCert'],
     policy: !exists(json, 'policy') ? undefined : V1SEVPolicyFromJSON(json['policy']),
+    session: !exists(json, 'session') ? undefined : json['session'],
   };
 }
 
@@ -50,6 +71,9 @@ export function V1SEVToJSON(value?: V1SEV | null): any {
     return null;
   }
   return {
+    attestation: value.attestation,
+    dhCert: value.dhCert,
     policy: V1SEVPolicyToJSON(value.policy),
+    session: value.session,
   };
 }

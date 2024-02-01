@@ -74,6 +74,12 @@ export interface V1beta1CDIConfigSpec {
    */
   insecureRegistries?: Array<string>;
   /**
+   * LogVerbosity overrides the default verbosity level used to initialize loggers
+   * @type {number}
+   * @memberof V1beta1CDIConfigSpec
+   */
+  logVerbosity?: number;
+  /**
    *
    * @type {V1ResourceRequirements}
    * @memberof V1beta1CDIConfigSpec
@@ -133,6 +139,7 @@ export function V1beta1CDIConfigSpecFromJSONTyped(
     insecureRegistries: !exists(json, 'insecureRegistries')
       ? undefined
       : json['insecureRegistries'],
+    logVerbosity: !exists(json, 'logVerbosity') ? undefined : json['logVerbosity'],
     podResourceRequirements: !exists(json, 'podResourceRequirements')
       ? undefined
       : V1ResourceRequirementsFromJSON(json['podResourceRequirements']),
@@ -166,6 +173,7 @@ export function V1beta1CDIConfigSpecToJSON(value?: V1beta1CDIConfigSpec | null):
         : (value.imagePullSecrets as Array<any>).map(V1LocalObjectReferenceToJSON),
     importProxy: V1beta1ImportProxyToJSON(value.importProxy),
     insecureRegistries: value.insecureRegistries,
+    logVerbosity: value.logVerbosity,
     podResourceRequirements: V1ResourceRequirementsToJSON(value.podResourceRequirements),
     preallocation: value.preallocation,
     scratchSpaceStorageClass: value.scratchSpaceStorageClass,

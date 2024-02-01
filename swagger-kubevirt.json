@@ -329,7 +329,7 @@
      }
     }
    },
-   "/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}": {
     "get": {
      "description": "Get a VirtualMachineClone object.",
      "produces": [
@@ -647,7 +647,7 @@
      }
     }
    },
-   "/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineexports": {
+   "/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachineexports": {
     "get": {
      "description": "Get a list of VirtualMachineExport objects.",
      "produces": [
@@ -874,7 +874,7 @@
      }
     }
    },
-   "/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineexports/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachineexports/{name}": {
     "get": {
      "description": "Get a VirtualMachineExport object.",
      "produces": [
@@ -1150,7 +1150,7 @@
      }
     ]
    },
-   "/apis/export.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineexports": {
+   "/apis/export.kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachineexports": {
     "get": {
      "description": "Watch a VirtualMachineExport object.",
      "produces": [
@@ -1372,7 +1372,7 @@
      }
     }
    },
-   "/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstancetypes": {
+   "/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachineinstancetypes": {
     "get": {
      "description": "Get a list of VirtualMachineInstancetype objects.",
      "produces": [
@@ -1599,7 +1599,7 @@
      }
     }
    },
-   "/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstancetypes/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachineinstancetypes/{name}": {
     "get": {
      "description": "Get a VirtualMachineInstancetype object.",
      "produces": [
@@ -1792,7 +1792,7 @@
      }
     ]
    },
-   "/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinepreferences": {
+   "/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepreferences": {
     "get": {
      "description": "Get a list of VirtualMachinePreference objects.",
      "produces": [
@@ -2019,7 +2019,7 @@
      }
     }
    },
-   "/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinepreferences/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepreferences/{name}": {
     "get": {
      "description": "Get a VirtualMachinePreference object.",
      "produces": [
@@ -2423,7 +2423,7 @@
      }
     }
    },
-   "/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterinstancetypes/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterinstancetypes/{name}": {
     "get": {
      "description": "Get a VirtualMachineClusterInstancetype object.",
      "produces": [
@@ -2819,7 +2819,7 @@
      }
     }
    },
-   "/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterpreferences/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterpreferences/{name}": {
     "get": {
      "description": "Get a VirtualMachineClusterPreference object.",
      "produces": [
@@ -3170,7 +3170,7 @@
      }
     ]
    },
-   "/apis/instancetype.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstancetypes": {
+   "/apis/instancetype.kubevirt.io/v1beta1/watch/namespaces/{namespace}/virtualmachineinstancetypes": {
     "get": {
      "description": "Watch a VirtualMachineInstancetype object.",
      "produces": [
@@ -3259,7 +3259,7 @@
      }
     ]
    },
-   "/apis/instancetype.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinepreferences": {
+   "/apis/instancetype.kubevirt.io/v1beta1/watch/namespaces/{namespace}/virtualmachinepreferences": {
     "get": {
      "description": "Watch a VirtualMachinePreference object.",
      "produces": [
@@ -3807,7 +3807,7 @@
      }
     ]
    },
-   "/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/kubevirt": {
+   "/apis/kubevirt.io/v1/namespaces/{namespace}/kubevirt": {
     "get": {
      "description": "Get a list of KubeVirt objects.",
      "produces": [
@@ -4034,7 +4034,7 @@
      }
     }
    },
-   "/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/kubevirt/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/kubevirt.io/v1/namespaces/{namespace}/kubevirt/{name}": {
     "get": {
      "description": "Get a KubeVirt object.",
      "produces": [
@@ -4227,7 +4227,7 @@
      }
     ]
    },
-   "/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstancemigrations": {
+   "/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancemigrations": {
     "get": {
      "description": "Get a list of VirtualMachineInstanceMigration objects.",
      "produces": [
@@ -4454,7 +4454,7 @@
      }
     }
    },
-   "/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstancemigrations/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancemigrations/{name}": {
     "get": {
      "description": "Get a VirtualMachineInstanceMigration object.",
      "produces": [
@@ -4647,7 +4647,7 @@
      }
     ]
    },
-   "/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstancepresets": {
+   "/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancepresets": {
     "get": {
      "description": "Get a list of VirtualMachineInstancePreset objects.",
      "produces": [
@@ -4874,7 +4874,7 @@
      }
     }
    },
-   "/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstancepresets/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancepresets/{name}": {
     "get": {
      "description": "Get a VirtualMachineInstancePreset object.",
      "produces": [
@@ -5067,7 +5067,7 @@
      }
     ]
    },
-   "/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstancereplicasets": {
+   "/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancereplicasets": {
     "get": {
      "description": "Get a list of VirtualMachineInstanceReplicaSet objects.",
      "produces": [
@@ -5294,7 +5294,7 @@
      }
     }
    },
-   "/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstancereplicasets/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancereplicasets/{name}": {
     "get": {
      "description": "Get a VirtualMachineInstanceReplicaSet object.",
      "produces": [
@@ -5487,7 +5487,7 @@
      }
     ]
    },
-   "/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances": {
+   "/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances": {
     "get": {
      "description": "Get a list of VirtualMachineInstance objects.",
      "produces": [
@@ -5714,7 +5714,7 @@
      }
     }
    },
-   "/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}": {
     "get": {
      "description": "Get a VirtualMachineInstance object.",
      "produces": [
@@ -5907,7 +5907,7 @@
      }
     ]
    },
-   "/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines": {
+   "/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachines": {
     "get": {
      "description": "Get a list of VirtualMachine objects.",
      "produces": [
@@ -6134,7 +6134,7 @@
      }
     }
    },
-   "/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}": {
     "get": {
      "description": "Get a VirtualMachine object.",
      "produces": [
@@ -6823,7 +6823,7 @@
      }
     ]
    },
-   "/apis/kubevirt.io/v1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/kubevirt": {
+   "/apis/kubevirt.io/v1/watch/namespaces/{namespace}/kubevirt": {
     "get": {
      "description": "Watch a KubeVirt object.",
      "produces": [
@@ -6912,7 +6912,7 @@
      }
     ]
    },
-   "/apis/kubevirt.io/v1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstancemigrations": {
+   "/apis/kubevirt.io/v1/watch/namespaces/{namespace}/virtualmachineinstancemigrations": {
     "get": {
      "description": "Watch a VirtualMachineInstanceMigration object.",
      "produces": [
@@ -7001,7 +7001,7 @@
      }
     ]
    },
-   "/apis/kubevirt.io/v1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstancepresets": {
+   "/apis/kubevirt.io/v1/watch/namespaces/{namespace}/virtualmachineinstancepresets": {
     "get": {
      "description": "Watch a VirtualMachineInstancePreset object.",
      "produces": [
@@ -7090,7 +7090,7 @@
      }
     ]
    },
-   "/apis/kubevirt.io/v1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstancereplicasets": {
+   "/apis/kubevirt.io/v1/watch/namespaces/{namespace}/virtualmachineinstancereplicasets": {
     "get": {
      "description": "Watch a VirtualMachineInstanceReplicaSet object.",
      "produces": [
@@ -7179,7 +7179,7 @@
      }
     ]
    },
-   "/apis/kubevirt.io/v1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances": {
+   "/apis/kubevirt.io/v1/watch/namespaces/{namespace}/virtualmachineinstances": {
     "get": {
      "description": "Watch a VirtualMachineInstance object.",
      "produces": [
@@ -7268,7 +7268,7 @@
      }
     ]
    },
-   "/apis/kubevirt.io/v1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines": {
+   "/apis/kubevirt.io/v1/watch/namespaces/{namespace}/virtualmachines": {
     "get": {
      "description": "Watch a VirtualMachine object.",
      "produces": [
@@ -8025,7 +8025,7 @@
      }
     }
    },
-   "/apis/migrations.kubevirt.io/v1alpha1/migrationpolicies/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/migrations.kubevirt.io/v1alpha1/migrationpolicies/{name}": {
     "get": {
      "description": "Get a MigrationPolicy object.",
      "produces": [
@@ -8343,7 +8343,7 @@
      }
     }
    },
-   "/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinepools": {
+   "/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools": {
     "get": {
      "description": "Get a list of VirtualMachinePool objects.",
      "produces": [
@@ -8570,7 +8570,7 @@
      }
     }
    },
-   "/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinepools/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools/{name}": {
     "get": {
      "description": "Get a VirtualMachinePool object.",
      "produces": [
@@ -8846,7 +8846,7 @@
      }
     ]
    },
-   "/apis/pool.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinepools": {
+   "/apis/pool.kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachinepools": {
     "get": {
      "description": "Watch a VirtualMachinePool object.",
      "produces": [
@@ -9068,7 +9068,7 @@
      }
     }
    },
-   "/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinerestores": {
+   "/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinerestores": {
     "get": {
      "description": "Get a list of VirtualMachineRestore objects.",
      "produces": [
@@ -9295,7 +9295,7 @@
      }
     }
    },
-   "/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinerestores/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinerestores/{name}": {
     "get": {
      "description": "Get a VirtualMachineRestore object.",
      "produces": [
@@ -9488,7 +9488,7 @@
      }
     ]
    },
-   "/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinesnapshotcontents": {
+   "/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshotcontents": {
     "get": {
      "description": "Get a list of VirtualMachineSnapshotContent objects.",
      "produces": [
@@ -9715,7 +9715,7 @@
      }
     }
    },
-   "/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinesnapshotcontents/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshotcontents/{name}": {
     "get": {
      "description": "Get a VirtualMachineSnapshotContent object.",
      "produces": [
@@ -9908,7 +9908,7 @@
      }
     ]
    },
-   "/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinesnapshots": {
+   "/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshots": {
     "get": {
      "description": "Get a list of VirtualMachineSnapshot objects.",
      "produces": [
@@ -10135,7 +10135,7 @@
      }
     }
    },
-   "/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\\-]*}": {
+   "/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshots/{name}": {
     "get": {
      "description": "Get a VirtualMachineSnapshot object.",
      "produces": [
@@ -10577,7 +10577,7 @@
      }
     ]
    },
-   "/apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinerestores": {
+   "/apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachinerestores": {
     "get": {
      "description": "Watch a VirtualMachineRestore object.",
      "produces": [
@@ -10666,7 +10666,7 @@
      }
     ]
    },
-   "/apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinesnapshotcontents": {
+   "/apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachinesnapshotcontents": {
     "get": {
      "description": "Watch a VirtualMachineSnapshotContent object.",
      "produces": [
@@ -10755,7 +10755,7 @@
      }
     ]
    },
-   "/apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachinesnapshots": {
+   "/apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachinesnapshots": {
     "get": {
      "description": "Watch a VirtualMachineSnapshot object.",
      "produces": [
@@ -11206,7 +11206,7 @@
      }
     }
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/expand-vm-spec": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/expand-vm-spec": {
     "put": {
      "description": "Expands instancetype and preference into the passed VirtualMachine object.",
      "consumes": [
@@ -11239,11 +11239,24 @@
        }
       }
      }
-    }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/addvolume": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/addvolume": {
     "put": {
      "description": "Add a volume and disk to a running Virtual Machine Instance",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1vmi-addvolume",
      "parameters": [
       {
@@ -11292,7 +11305,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/console": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/console": {
     "get": {
      "description": "Open a websocket connection to a serial console on the specified VirtualMachineInstance.",
      "operationId": "v1Console",
@@ -11321,7 +11334,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/filesystemlist": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/filesystemlist": {
     "get": {
      "description": "Get list of active filesystems on guest machine via guest agent",
      "consumes": [
@@ -11342,11 +11355,32 @@
        "description": "Unauthorized"
       }
      }
-    }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/freeze": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/freeze": {
     "put": {
      "description": "Freeze a VirtualMachineInstance object.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1Freeze",
      "parameters": [
       {
@@ -11395,7 +11429,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/guestosinfo": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/guestosinfo": {
     "get": {
      "description": "Get guest agent os information",
      "consumes": [
@@ -11436,9 +11470,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/pause": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/pause": {
     "put": {
      "description": "Pause a VirtualMachineInstance object.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1Pause",
      "parameters": [
       {
@@ -11493,7 +11530,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/portforward/{port:[0-9]+}": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/portforward/{port}": {
     "get": {
      "description": "Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port.",
      "operationId": "v1vmi-PortForward",
@@ -11530,7 +11567,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/portforward/{port:[0-9]+}/{protocol:tcp|udp}": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/portforward/{port}/{protocol}": {
     "get": {
      "description": "Open a websocket connection forwarding traffic of the specified protocol (either tcp or udp) to the specified VirtualMachineInstance and port.",
      "operationId": "v1vmi-PortForwardWithProtocol",
@@ -11575,9 +11612,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/removevolume": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/removevolume": {
     "put": {
      "description": "Removes a volume and disk from a running Virtual Machine Instance",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1vmi-removevolume",
      "parameters": [
       {
@@ -11626,7 +11666,197 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/softreboot": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/sev/fetchcertchain": {
+    "get": {
+     "description": "Fetch SEV certificate chain from the node where Virtual Machine is scheduled",
+     "consumes": [
+      "application/json"
+     ],
+     "produces": [
+      "application/json"
+     ],
+     "operationId": "v1SEVFetchCertChain",
+     "responses": {
+      "200": {
+       "description": "OK",
+       "schema": {
+        "$ref": "#/definitions/v1.SEVPlatformInfo"
+       }
+      },
+      "401": {
+       "description": "Unauthorized"
+      }
+     }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
+   },
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/sev/injectlaunchsecret": {
+    "put": {
+     "description": "Inject SEV launch secret into a Virtual Machine",
+     "consumes": [
+      "*/*"
+     ],
+     "operationId": "v1SEVInjectLaunchSecret",
+     "parameters": [
+      {
+       "name": "body",
+       "in": "body",
+       "required": true,
+       "schema": {
+        "$ref": "#/definitions/v1.SEVSecretOptions"
+       }
+      }
+     ],
+     "responses": {
+      "200": {
+       "description": "OK",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "400": {
+       "description": "Bad Request",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "401": {
+       "description": "Unauthorized"
+      }
+     }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
+   },
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/sev/querylaunchmeasurement": {
+    "get": {
+     "description": "Query SEV launch measurement from a Virtual Machine",
+     "consumes": [
+      "application/json"
+     ],
+     "produces": [
+      "application/json"
+     ],
+     "operationId": "v1SEVQueryLaunchMeasurement",
+     "responses": {
+      "200": {
+       "description": "OK",
+       "schema": {
+        "$ref": "#/definitions/v1.SEVMeasurementInfo"
+       }
+      },
+      "401": {
+       "description": "Unauthorized"
+      }
+     }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
+   },
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/sev/setupsession": {
+    "put": {
+     "description": "Setup SEV session parameters for a Virtual Machine",
+     "consumes": [
+      "*/*"
+     ],
+     "operationId": "v1SEVSetupSession",
+     "parameters": [
+      {
+       "name": "body",
+       "in": "body",
+       "required": true,
+       "schema": {
+        "$ref": "#/definitions/v1.SEVSessionOptions"
+       }
+      }
+     ],
+     "responses": {
+      "200": {
+       "description": "OK",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "400": {
+       "description": "Bad Request",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "401": {
+       "description": "Unauthorized"
+      }
+     }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
+   },
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/softreboot": {
     "put": {
      "description": "Soft reboot a VirtualMachineInstance object.",
      "operationId": "v1SoftReboot",
@@ -11667,7 +11897,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/unfreeze": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/unfreeze": {
     "put": {
      "description": "Unfreeze a VirtualMachineInstance object.",
      "operationId": "v1Unfreeze",
@@ -11708,9 +11938,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/unpause": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/unpause": {
     "put": {
      "description": "Unpause a VirtualMachineInstance object.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1Unpause",
      "parameters": [
       {
@@ -11765,7 +11998,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/usbredir": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/usbredir": {
     "get": {
      "description": "Open a websocket connection to connect to USB device on the specified VirtualMachineInstance.",
      "operationId": "v1usbredir",
@@ -11794,7 +12027,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/userlist": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/userlist": {
     "get": {
      "description": "Get list of active users via guest agent",
      "consumes": [
@@ -11815,9 +12048,27 @@
        "description": "Unauthorized"
       }
      }
-    }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/vnc": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/vnc": {
     "get": {
      "description": "Open a websocket connection to connect to VNC on the specified VirtualMachineInstance.",
      "operationId": "v1VNC",
@@ -11846,7 +12097,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/vnc/screenshot": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/vnc/screenshot": {
     "get": {
      "description": "Get a PNG VNC screenshot of the specified VirtualMachineInstance.",
      "operationId": "v1VNCScreenshot",
@@ -11882,7 +12133,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/vsock": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/vsock": {
     "get": {
      "description": "Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port via VSOCK.",
      "operationId": "v1VSOCK",
@@ -11926,60 +12177,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/addinterface": {
-    "put": {
-     "description": "Add a network interface to a running Virtual Machine.",
-     "operationId": "v1vm-addinterface",
-     "parameters": [
-      {
-       "name": "body",
-       "in": "body",
-       "required": true,
-       "schema": {
-        "$ref": "#/definitions/v1.AddInterfaceOptions"
-       }
-      }
-     ],
-     "responses": {
-      "200": {
-       "description": "OK",
-       "schema": {
-        "type": "string"
-       }
-      },
-      "400": {
-       "description": "Bad Request",
-       "schema": {
-        "type": "string"
-       }
-      },
-      "401": {
-       "description": "Unauthorized"
-      }
-     }
-    },
-    "parameters": [
-     {
-      "uniqueItems": true,
-      "type": "string",
-      "description": "Name of the resource",
-      "name": "name",
-      "in": "path",
-      "required": true
-     },
-     {
-      "uniqueItems": true,
-      "type": "string",
-      "description": "Object name and auth scope, such as for teams and projects",
-      "name": "namespace",
-      "in": "path",
-      "required": true
-     }
-    ]
-   },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/addvolume": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/addvolume": {
     "put": {
      "description": "Add a volume and disk to a running Virtual Machine.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1vm-addvolume",
      "parameters": [
       {
@@ -12028,7 +12231,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/expand-spec": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/expand-spec": {
     "get": {
      "description": "Get VirtualMachine object with expanded instancetype and preference.",
      "produces": [
@@ -12078,9 +12281,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/memorydump": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/memorydump": {
     "put": {
      "description": "Dumps a VirtualMachineInstance memory.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1MemoryDump",
      "parameters": [
       {
@@ -12129,9 +12335,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/migrate": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/migrate": {
     "put": {
      "description": "Migrate a running VirtualMachine to another node.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1Migrate",
      "parameters": [
       {
@@ -12186,7 +12395,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/portforward/{port:[0-9]+}": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/portforward/{port}": {
     "get": {
      "description": "Open a websocket connection forwarding traffic to the running VMI for the specified VirtualMachine and port.",
      "operationId": "v1vm-PortForward",
@@ -12223,7 +12432,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/portforward/{port:[0-9]+}/{protocol:tcp|udp}": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/portforward/{port}/{protocol}": {
     "get": {
      "description": "Open a websocket connection forwarding traffic of the specified protocol (either tcp or udp) to the specified VirtualMachine and port.",
      "operationId": "v1vm-PortForwardWithProtocol",
@@ -12268,58 +12477,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/removeinterface": {
-    "put": {
-     "description": "Remove a network interface from a running Virtual Machine",
-     "operationId": "v1vm-removeinterface",
-     "parameters": [
-      {
-       "name": "body",
-       "in": "body",
-       "required": true,
-       "schema": {
-        "$ref": "#/definitions/v1.RemoveInterfaceOptions"
-       }
-      }
-     ],
-     "responses": {
-      "200": {
-       "description": "OK",
-       "schema": {
-        "type": "string"
-       }
-      },
-      "400": {
-       "description": "Bad Request",
-       "schema": {
-        "type": "string"
-       }
-      },
-      "401": {
-       "description": "Unauthorized"
-      }
-     }
-    },
-    "parameters": [
-     {
-      "uniqueItems": true,
-      "type": "string",
-      "description": "Name of the resource",
-      "name": "name",
-      "in": "path",
-      "required": true
-     },
-     {
-      "uniqueItems": true,
-      "type": "string",
-      "description": "Object name and auth scope, such as for teams and projects",
-      "name": "namespace",
-      "in": "path",
-      "required": true
-     }
-    ]
-   },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/removememorydump": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/removememorydump": {
     "put": {
      "description": "Remove memory dump association.",
      "operationId": "v1RemoveMemoryDump",
@@ -12360,9 +12518,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/removevolume": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/removevolume": {
     "put": {
      "description": "Removes a volume and disk from a running Virtual Machine.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1vm-removevolume",
      "parameters": [
       {
@@ -12411,9 +12572,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/restart": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/restart": {
     "put": {
      "description": "Restart a VirtualMachine object.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1Restart",
      "parameters": [
       {
@@ -12467,9 +12631,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/start": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/start": {
     "put": {
      "description": "Start a VirtualMachine object.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1Start",
      "parameters": [
       {
@@ -12524,9 +12691,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/stop": {
+   "/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/stop": {
     "put": {
      "description": "Stop a VirtualMachine object.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1Stop",
      "parameters": [
       {
@@ -12712,7 +12882,7 @@
      }
     }
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/expand-vm-spec": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/expand-vm-spec": {
     "put": {
      "description": "Expands instancetype and preference into the passed VirtualMachine object.",
      "consumes": [
@@ -12745,11 +12915,24 @@
        }
       }
      }
-    }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/addvolume": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/addvolume": {
     "put": {
      "description": "Add a volume and disk to a running Virtual Machine Instance",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1alpha3vmi-addvolume",
      "parameters": [
       {
@@ -12798,7 +12981,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/console": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/console": {
     "get": {
      "description": "Open a websocket connection to a serial console on the specified VirtualMachineInstance.",
      "operationId": "v1alpha3Console",
@@ -12827,7 +13010,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/filesystemlist": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/filesystemlist": {
     "get": {
      "description": "Get list of active filesystems on guest machine via guest agent",
      "consumes": [
@@ -12848,11 +13031,32 @@
        "description": "Unauthorized"
       }
      }
-    }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/freeze": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/freeze": {
     "put": {
      "description": "Freeze a VirtualMachineInstance object.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1alpha3Freeze",
      "parameters": [
       {
@@ -12901,7 +13105,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/guestosinfo": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/guestosinfo": {
     "get": {
      "description": "Get guest agent os information",
      "consumes": [
@@ -12942,9 +13146,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/pause": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/pause": {
     "put": {
      "description": "Pause a VirtualMachineInstance object.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1alpha3Pause",
      "parameters": [
       {
@@ -12999,7 +13206,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/portforward/{port:[0-9]+}": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/portforward/{port}": {
     "get": {
      "description": "Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port.",
      "operationId": "v1alpha3vmi-PortForward",
@@ -13036,7 +13243,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/portforward/{port:[0-9]+}/{protocol:tcp|udp}": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/portforward/{port}/{protocol}": {
     "get": {
      "description": "Open a websocket connection forwarding traffic of the specified protocol (either tcp or udp) to the specified VirtualMachineInstance and port.",
      "operationId": "v1alpha3vmi-PortForwardWithProtocol",
@@ -13081,9 +13288,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/removevolume": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/removevolume": {
     "put": {
      "description": "Removes a volume and disk from a running Virtual Machine Instance",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1alpha3vmi-removevolume",
      "parameters": [
       {
@@ -13132,7 +13342,197 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/softreboot": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/sev/fetchcertchain": {
+    "get": {
+     "description": "Fetch SEV certificate chain from the node where Virtual Machine is scheduled",
+     "consumes": [
+      "application/json"
+     ],
+     "produces": [
+      "application/json"
+     ],
+     "operationId": "v1alpha3SEVFetchCertChain",
+     "responses": {
+      "200": {
+       "description": "OK",
+       "schema": {
+        "$ref": "#/definitions/v1.SEVPlatformInfo"
+       }
+      },
+      "401": {
+       "description": "Unauthorized"
+      }
+     }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
+   },
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/sev/injectlaunchsecret": {
+    "put": {
+     "description": "Inject SEV launch secret into a Virtual Machine",
+     "consumes": [
+      "*/*"
+     ],
+     "operationId": "v1alpha3SEVInjectLaunchSecret",
+     "parameters": [
+      {
+       "name": "body",
+       "in": "body",
+       "required": true,
+       "schema": {
+        "$ref": "#/definitions/v1.SEVSecretOptions"
+       }
+      }
+     ],
+     "responses": {
+      "200": {
+       "description": "OK",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "400": {
+       "description": "Bad Request",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "401": {
+       "description": "Unauthorized"
+      }
+     }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
+   },
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/sev/querylaunchmeasurement": {
+    "get": {
+     "description": "Query SEV launch measurement from a Virtual Machine",
+     "consumes": [
+      "application/json"
+     ],
+     "produces": [
+      "application/json"
+     ],
+     "operationId": "v1alpha3SEVQueryLaunchMeasurement",
+     "responses": {
+      "200": {
+       "description": "OK",
+       "schema": {
+        "$ref": "#/definitions/v1.SEVMeasurementInfo"
+       }
+      },
+      "401": {
+       "description": "Unauthorized"
+      }
+     }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
+   },
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/sev/setupsession": {
+    "put": {
+     "description": "Setup SEV session parameters for a Virtual Machine",
+     "consumes": [
+      "*/*"
+     ],
+     "operationId": "v1alpha3SEVSetupSession",
+     "parameters": [
+      {
+       "name": "body",
+       "in": "body",
+       "required": true,
+       "schema": {
+        "$ref": "#/definitions/v1.SEVSessionOptions"
+       }
+      }
+     ],
+     "responses": {
+      "200": {
+       "description": "OK",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "400": {
+       "description": "Bad Request",
+       "schema": {
+        "type": "string"
+       }
+      },
+      "401": {
+       "description": "Unauthorized"
+      }
+     }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
+   },
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/softreboot": {
     "put": {
      "description": "Soft reboot a VirtualMachineInstance object.",
      "operationId": "v1alpha3SoftReboot",
@@ -13173,7 +13573,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/unfreeze": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/unfreeze": {
     "put": {
      "description": "Unfreeze a VirtualMachineInstance object.",
      "operationId": "v1alpha3Unfreeze",
@@ -13214,9 +13614,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/unpause": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/unpause": {
     "put": {
      "description": "Unpause a VirtualMachineInstance object.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1alpha3Unpause",
      "parameters": [
       {
@@ -13271,7 +13674,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/usbredir": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/usbredir": {
     "get": {
      "description": "Open a websocket connection to connect to USB device on the specified VirtualMachineInstance.",
      "operationId": "v1alpha3usbredir",
@@ -13300,7 +13703,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/userlist": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/userlist": {
     "get": {
      "description": "Get list of active users via guest agent",
      "consumes": [
@@ -13321,9 +13724,27 @@
        "description": "Unauthorized"
       }
      }
-    }
+    },
+    "parameters": [
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Name of the resource",
+      "name": "name",
+      "in": "path",
+      "required": true
+     },
+     {
+      "uniqueItems": true,
+      "type": "string",
+      "description": "Object name and auth scope, such as for teams and projects",
+      "name": "namespace",
+      "in": "path",
+      "required": true
+     }
+    ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/vnc": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/vnc": {
     "get": {
      "description": "Open a websocket connection to connect to VNC on the specified VirtualMachineInstance.",
      "operationId": "v1alpha3VNC",
@@ -13352,7 +13773,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/vnc/screenshot": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/vnc/screenshot": {
     "get": {
      "description": "Get a PNG VNC screenshot of the specified VirtualMachineInstance.",
      "operationId": "v1alpha3VNCScreenshot",
@@ -13388,7 +13809,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\\-]*}/vsock": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/vsock": {
     "get": {
      "description": "Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port via VSOCK.",
      "operationId": "v1alpha3VSOCK",
@@ -13432,60 +13853,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/addinterface": {
-    "put": {
-     "description": "Add a network interface to a running Virtual Machine.",
-     "operationId": "v1alpha3vm-addinterface",
-     "parameters": [
-      {
-       "name": "body",
-       "in": "body",
-       "required": true,
-       "schema": {
-        "$ref": "#/definitions/v1.AddInterfaceOptions"
-       }
-      }
-     ],
-     "responses": {
-      "200": {
-       "description": "OK",
-       "schema": {
-        "type": "string"
-       }
-      },
-      "400": {
-       "description": "Bad Request",
-       "schema": {
-        "type": "string"
-       }
-      },
-      "401": {
-       "description": "Unauthorized"
-      }
-     }
-    },
-    "parameters": [
-     {
-      "uniqueItems": true,
-      "type": "string",
-      "description": "Name of the resource",
-      "name": "name",
-      "in": "path",
-      "required": true
-     },
-     {
-      "uniqueItems": true,
-      "type": "string",
-      "description": "Object name and auth scope, such as for teams and projects",
-      "name": "namespace",
-      "in": "path",
-      "required": true
-     }
-    ]
-   },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/addvolume": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/addvolume": {
     "put": {
      "description": "Add a volume and disk to a running Virtual Machine.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1alpha3vm-addvolume",
      "parameters": [
       {
@@ -13534,7 +13907,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/expand-spec": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/expand-spec": {
     "get": {
      "description": "Get VirtualMachine object with expanded instancetype and preference.",
      "produces": [
@@ -13584,9 +13957,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/memorydump": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/memorydump": {
     "put": {
      "description": "Dumps a VirtualMachineInstance memory.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1alpha3MemoryDump",
      "parameters": [
       {
@@ -13635,9 +14011,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/migrate": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/migrate": {
     "put": {
      "description": "Migrate a running VirtualMachine to another node.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1alpha3Migrate",
      "parameters": [
       {
@@ -13692,7 +14071,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/portforward/{port:[0-9]+}": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/portforward/{port}": {
     "get": {
      "description": "Open a websocket connection forwarding traffic to the running VMI for the specified VirtualMachine and port.",
      "operationId": "v1alpha3vm-PortForward",
@@ -13729,7 +14108,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/portforward/{port:[0-9]+}/{protocol:tcp|udp}": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/portforward/{port}/{protocol}": {
     "get": {
      "description": "Open a websocket connection forwarding traffic of the specified protocol (either tcp or udp) to the specified VirtualMachine and port.",
      "operationId": "v1alpha3vm-PortForwardWithProtocol",
@@ -13774,58 +14153,7 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/removeinterface": {
-    "put": {
-     "description": "Remove a network interface from a running Virtual Machine",
-     "operationId": "v1alpha3vm-removeinterface",
-     "parameters": [
-      {
-       "name": "body",
-       "in": "body",
-       "required": true,
-       "schema": {
-        "$ref": "#/definitions/v1.RemoveInterfaceOptions"
-       }
-      }
-     ],
-     "responses": {
-      "200": {
-       "description": "OK",
-       "schema": {
-        "type": "string"
-       }
-      },
-      "400": {
-       "description": "Bad Request",
-       "schema": {
-        "type": "string"
-       }
-      },
-      "401": {
-       "description": "Unauthorized"
-      }
-     }
-    },
-    "parameters": [
-     {
-      "uniqueItems": true,
-      "type": "string",
-      "description": "Name of the resource",
-      "name": "name",
-      "in": "path",
-      "required": true
-     },
-     {
-      "uniqueItems": true,
-      "type": "string",
-      "description": "Object name and auth scope, such as for teams and projects",
-      "name": "namespace",
-      "in": "path",
-      "required": true
-     }
-    ]
-   },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/removememorydump": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/removememorydump": {
     "put": {
      "description": "Remove memory dump association.",
      "operationId": "v1alpha3RemoveMemoryDump",
@@ -13866,9 +14194,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/removevolume": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/removevolume": {
     "put": {
      "description": "Removes a volume and disk from a running Virtual Machine.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1alpha3vm-removevolume",
      "parameters": [
       {
@@ -13917,9 +14248,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/restart": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/restart": {
     "put": {
      "description": "Restart a VirtualMachine object.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1alpha3Restart",
      "parameters": [
       {
@@ -13973,9 +14307,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/start": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/start": {
     "put": {
      "description": "Start a VirtualMachine object.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1alpha3Start",
      "parameters": [
       {
@@ -14030,9 +14367,12 @@
      }
     ]
    },
-   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\\-]*}/stop": {
+   "/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/stop": {
     "put": {
      "description": "Stop a VirtualMachine object.",
+     "consumes": [
+      "*/*"
+     ],
      "operationId": "v1alpha3Stop",
      "parameters": [
       {
@@ -15593,26 +15933,6 @@
      }
     }
    },
-   "v1.AddInterfaceOptions": {
-    "description": "AddInterfaceOptions is provided when dynamically hot plugging a network interface",
-    "type": "object",
-    "required": [
-     "networkAttachmentDefinitionName",
-     "name"
-    ],
-    "properties": {
-     "name": {
-      "description": "Name indicates the logical name of the interface.",
-      "type": "string",
-      "default": ""
-     },
-     "networkAttachmentDefinitionName": {
-      "description": "NetworkAttachmentDefinitionName references a NetworkAttachmentDefinition CRD object. Format: \u003cnetworkAttachmentDefinitionName\u003e, \u003cnamespace\u003e/\u003cnetworkAttachmentDefinitionName\u003e. If namespace is not specified, VMI namespace is assumed.",
-      "type": "string",
-      "default": ""
-     }
-    }
-   },
    "v1.AddVolumeOptions": {
     "description": "AddVolumeOptions is provided when dynamically hot plugging a volume and disk",
     "type": "object",
@@ -16005,6 +16325,17 @@
      }
     }
    },
+   "v1.ContainerDiskInfo": {
+    "description": "ContainerDiskInfo shows info about the containerdisk",
+    "type": "object",
+    "properties": {
+     "checksum": {
+      "description": "Checksum is the checksum of the rootdisk or kernel artifacts inside the containerdisk",
+      "type": "integer",
+      "format": "int64"
+     }
+    }
+   },
    "v1.ContainerDiskSource": {
     "description": "Represents a docker image with an embedded disk.",
     "type": "object",
@@ -16289,7 +16620,7 @@
       "type": "boolean"
      },
      "autoattachSerialConsole": {
-      "description": "Whether to attach the default serial console or not. Serial console access will not be available if set to false. Defaults to true.",
+      "description": "Whether to attach the default virtio-serial console or not. Serial console access will not be available if set to false. Defaults to true.",
       "type": "boolean"
      },
      "autoattachVSOCK": {
@@ -16315,6 +16646,10 @@
        "default": {},
        "$ref": "#/definitions/v1.Disk"
       }
+     },
+     "downwardMetrics": {
+      "description": "DownwardMetrics creates a virtio serials for exposing the downward metrics to the vmi.",
+      "$ref": "#/definitions/v1.DownwardMetrics"
      },
      "filesystems": {
       "description": "Filesystems describes filesystem which is connected to the vmi.",
@@ -16359,6 +16694,10 @@
        "$ref": "#/definitions/v1.Interface"
       }
      },
+     "logSerialConsole": {
+      "description": "Whether to log the auto-attached default serial console or not. Serial console logs will be collect to a file and then streamed from a named `guest-console-log`. Not relevant if autoattachSerialConsole is disabled. Defaults to cluster wide setting on VirtualMachineOptions.",
+      "type": "boolean"
+     },
      "networkInterfaceMultiqueue": {
       "description": "If specified, virtual network interfaces configured with a virtio bus will also enable the vhost multiqueue feature for network devices. The number of queues created depends on additional factors of the VirtualMachineInstance, like the number of guest CPUs.",
       "type": "boolean"
@@ -16386,6 +16725,9 @@
     }
    },
    "v1.DisableFreePageReporting": {
+    "type": "object"
+   },
+   "v1.DisableSerialConsoleLog": {
     "type": "object"
    },
    "v1.Disk": {
@@ -16418,6 +16760,10 @@
      "disk": {
       "description": "Attach a volume as a disk to the vmi.",
       "$ref": "#/definitions/v1.DiskTarget"
+     },
+     "errorPolicy": {
+      "description": "If specified, it can change the default error policy (stop) for the disk",
+      "type": "string"
      },
      "io": {
       "description": "IO specifies which QEMU disk IO mode should be used. Supported values are: native, default, threads.",
@@ -16569,6 +16915,9 @@
      }
     }
    },
+   "v1.DownwardMetrics": {
+    "type": "object"
+   },
    "v1.DownwardMetricsVolumeSource": {
     "description": "DownwardMetricsVolumeSource adds a very small disk to VMIs which contains a limited view of host and guest metrics. The disk content is compatible with vhostmd (https://github.com/vhostmd/vhostmd) and vm-dump-metrics.",
     "type": "object"
@@ -16577,6 +16926,10 @@
     "description": "If set, EFI will be used instead of BIOS.",
     "type": "object",
     "properties": {
+     "persistent": {
+      "description": "If set to true, Persistent will persist the EFI NVRAM across reboots. Defaults to false",
+      "type": "boolean"
+     },
      "secureBoot": {
       "description": "If set, SecureBoot will be enabled and the OVMF roms will be swapped for SecureBoot-enabled ones. Requires SMM to be enabled. Defaults to true",
       "type": "boolean"
@@ -17045,6 +17398,17 @@
      }
     }
    },
+   "v1.InitrdInfo": {
+    "description": "InitrdInfo show info about the initrd file",
+    "type": "object",
+    "properties": {
+     "checksum": {
+      "description": "Checksum is the checksum of the initrd file",
+      "type": "integer",
+      "format": "int64"
+     }
+    }
+   },
    "v1.Input": {
     "type": "object",
     "required": [
@@ -17076,6 +17440,10 @@
       "description": "InferFromVolume lists the name of a volume that should be used to infer or discover the instancetype to be used through known annotations on the underlying resource. Once applied to the InstancetypeMatcher this field is removed.",
       "type": "string"
      },
+     "inferFromVolumeFailurePolicy": {
+      "description": "InferFromVolumeFailurePolicy controls what should happen on failure when inferring the instancetype. Allowed values are: \"RejectInferFromVolumeFailure\" and \"IgnoreInferFromVolumeFailure\". If not specified, \"RejectInferFromVolumeFailure\" is used by default.",
+      "type": "string"
+     },
      "kind": {
       "description": "Kind specifies which instancetype resource is referenced. Allowed values are: \"VirtualMachineInstancetype\" and \"VirtualMachineClusterInstancetype\". If not specified, \"VirtualMachineClusterInstancetype\" is used by default.",
       "type": "string"
@@ -17100,6 +17468,10 @@
       "description": "If specified, the ACPI index is used to provide network interface device naming, that is stable across changes in PCI addresses assigned to the device. This value is required to be unique across all devices and be between 1 and (16*1024-1).",
       "type": "integer",
       "format": "int32"
+     },
+     "binding": {
+      "description": "Binding specifies the binding plugin that will be used to connect the interface to the guest. It provides an alternative to InterfaceBindingMethod. version: 1alphav1",
+      "$ref": "#/definitions/v1.PluginBinding"
      },
      "bootOrder": {
       "description": "BootOrder is an integer value \u003e 0, used to determine ordering of boot devices. Lower values take precedence. Each interface or disk that has a boot order must have a unique value. Interfaces without a boot order are not tried.",
@@ -17159,6 +17531,23 @@
      },
      "tag": {
       "description": "If specified, the virtual network interface address and its tag will be provided to the guest via config drive",
+      "type": "string"
+     }
+    }
+   },
+   "v1.InterfaceBindingPlugin": {
+    "type": "object",
+    "properties": {
+     "domainAttachmentType": {
+      "description": "DomainAttachmentType is a standard domain network attachment method kubevirt supports. Supported values: \"tap\". The standard domain attachment can be used instead or in addition to the sidecarImage. version: 1alphav1",
+      "type": "string"
+     },
+     "networkAttachmentDefinition": {
+      "description": "NetworkAttachmentDefinition references to a NetworkAttachmentDefinition CR object. Format: \u003cname\u003e, \u003cnamespace\u003e/\u003cname\u003e. If namespace is not specified, VMI namespace is assumed. version: 1alphav1",
+      "type": "string"
+     },
+     "sidecarImage": {
+      "description": "SidecarImage references a container image that runs in the virt-launcher pod. The sidecar handles (libvirt) domain configuration and optional services. version: 1alphav1",
       "type": "string"
      }
     }
@@ -17252,6 +17641,31 @@
      "kernelPath": {
       "description": "The fully-qualified path to the kernel image in the host OS",
       "type": "string"
+     }
+    }
+   },
+   "v1.KernelBootStatus": {
+    "description": "KernelBootStatus contains info about the kernelBootContainer",
+    "type": "object",
+    "properties": {
+     "initrdInfo": {
+      "description": "InitrdInfo show info about the initrd file",
+      "$ref": "#/definitions/v1.InitrdInfo"
+     },
+     "kernelInfo": {
+      "description": "KernelInfo show info about the kernel image",
+      "$ref": "#/definitions/v1.KernelInfo"
+     }
+    }
+   },
+   "v1.KernelInfo": {
+    "description": "KernelInfo show info about the kernel image",
+    "type": "object",
+    "properties": {
+     "checksum": {
+      "description": "Checksum is the checksum of the kernel image",
+      "type": "integer",
+      "format": "int64"
      }
     }
    },
@@ -17395,6 +17809,7 @@
       "$ref": "#/definitions/v1.LiveUpdateConfiguration"
      },
      "machineType": {
+      "description": "Deprecated. Use architectureConfiguration instead.",
       "type": "string"
      },
      "mediatedDevicesConfiguration": {
@@ -17708,6 +18123,9 @@
      }
     }
    },
+   "v1.LiveUpdateAffinity": {
+    "type": "object"
+   },
    "v1.LiveUpdateCPU": {
     "type": "object",
     "properties": {
@@ -17725,15 +18143,41 @@
       "description": "MaxCpuSockets holds the maximum amount of sockets that can be hotplugged",
       "type": "integer",
       "format": "int64"
+     },
+     "maxGuest": {
+      "description": "MaxGuest defines the maximum amount memory that can be allocated to the guest using hotplug.",
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
+     },
+     "maxHotplugRatio": {
+      "description": "MaxHotplugRatio is the ratio used to define the max amount of a hotplug resource that can be made available to a VM when the specific Max* setting is not defined (MaxCpuSockets, MaxGuest) Example: VM is configured with 512Mi of guest memory, if MaxGuest is not defined and MaxHotplugRatio is 2 then MaxGuest = 1Gi defaults to 4",
+      "type": "integer",
+      "format": "int64"
      }
     }
    },
    "v1.LiveUpdateFeatures": {
     "type": "object",
     "properties": {
+     "affinity": {
+      "description": "Affinity allows live updating the virtual machines node affinity",
+      "$ref": "#/definitions/v1.LiveUpdateAffinity"
+     },
      "cpu": {
       "description": "LiveUpdateCPU holds hotplug configuration for the CPU resource. Empty struct indicates that default will be used for maxSockets. Default is specified on cluster level. Absence of the struct means opt-out from CPU hotplug functionality.",
       "$ref": "#/definitions/v1.LiveUpdateCPU"
+     },
+     "memory": {
+      "description": "MemoryLiveUpdateConfiguration defines the live update memory features for the VirtualMachine",
+      "$ref": "#/definitions/v1.LiveUpdateMemory"
+     }
+    }
+   },
+   "v1.LiveUpdateMemory": {
+    "type": "object",
+    "properties": {
+     "maxGuest": {
+      "description": "MaxGuest defines the maximum amount memory that can be allocated for the VM.",
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
      }
     }
    },
@@ -17862,6 +18306,10 @@
      "hugepages": {
       "description": "Hugepages allow to use hugepages for the VirtualMachineInstance instead of regular memory.",
       "$ref": "#/definitions/v1.Hugepages"
+     },
+     "maxGuest": {
+      "description": "MaxGuest allows to specify the maximum amount of memory which is visible inside the Guest OS. The delta between MaxGuest and Guest is the amount of memory that can be hot(un)plugged.",
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
      }
     }
    },
@@ -17883,6 +18331,23 @@
      "readOnly": {
       "description": "readOnly Will force the ReadOnly setting in VolumeMounts. Default false.",
       "type": "boolean"
+     }
+    }
+   },
+   "v1.MemoryStatus": {
+    "type": "object",
+    "properties": {
+     "guestAtBoot": {
+      "description": "GuestAtBoot specifies with how much memory the VirtualMachine intiallly booted with.",
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
+     },
+     "guestCurrent": {
+      "description": "GuestCurrent specifies how much memory is currently available for the VirtualMachine.",
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
+     },
+     "guestRequested": {
+      "description": "GuestRequested specifies how much memory was requested (hotplug) for the VirtualMachine.",
+      "$ref": "#/definitions/k8s.io.apimachinery.pkg.api.resource.Quantity"
      }
     }
    },
@@ -18022,6 +18487,13 @@
     "description": "NetworkConfiguration holds network options",
     "type": "object",
     "properties": {
+     "binding": {
+      "type": "object",
+      "additionalProperties": {
+       "default": {},
+       "$ref": "#/definitions/v1.InterfaceBindingPlugin"
+      }
+     },
      "defaultNetworkInterface": {
       "type": "string"
      },
@@ -18032,6 +18504,9 @@
       "type": "boolean"
      }
     }
+   },
+   "v1.NoCloudSSHPublicKeyAccessCredentialPropagation": {
+    "type": "object"
    },
    "v1.NodeMediatedDeviceTypesConfig": {
     "description": "NodeMediatedDeviceTypesConfig holds information about MDEV types to be defined in a specific node that matches the NodeSelector field.",
@@ -18147,7 +18622,7 @@
       "default": ""
      },
      "resourceName": {
-      "description": "The name of the resource that is representing the device. Exposed by a device plugin and requested by VMs. Typically of the form vendor.com/product_nameThe name of the resource that is representing the device. Exposed by a device plugin and requested by VMs. Typically of the form vendor.com/product_name",
+      "description": "The name of the resource that is representing the device. Exposed by a device plugin and requested by VMs. Typically of the form vendor.com/product_name",
       "type": "string",
       "default": ""
      }
@@ -18170,6 +18645,14 @@
       "items": {
        "default": {},
        "$ref": "#/definitions/v1.PciHostDevice"
+      },
+      "x-kubernetes-list-type": "atomic"
+     },
+     "usb": {
+      "type": "array",
+      "items": {
+       "default": {},
+       "$ref": "#/definitions/v1.USBHostDevice"
       },
       "x-kubernetes-list-type": "atomic"
      }
@@ -18244,6 +18727,20 @@
      }
     }
    },
+   "v1.PluginBinding": {
+    "description": "PluginBinding represents a binding implemented in a plugin.",
+    "type": "object",
+    "required": [
+     "name"
+    ],
+    "properties": {
+     "name": {
+      "description": "Name references to the binding name as denined in the kubevirt CR. version: 1alphav1",
+      "type": "string",
+      "default": ""
+     }
+    }
+   },
    "v1.PodNetwork": {
     "description": "Represents the stock pod network interface.",
     "type": "object",
@@ -18287,6 +18784,10 @@
     "properties": {
      "inferFromVolume": {
       "description": "InferFromVolume lists the name of a volume that should be used to infer or discover the preference to be used through known annotations on the underlying resource. Once applied to the PreferenceMatcher this field is removed.",
+      "type": "string"
+     },
+     "inferFromVolumeFailurePolicy": {
+      "description": "InferFromVolumeFailurePolicy controls what should happen on failure when preference the instancetype. Allowed values are: \"RejectInferFromVolumeFailure\" and \"IgnoreInferFromVolumeFailure\". If not specified, \"RejectInferFromVolumeFailure\" is used by default.",
       "type": "string"
      },
      "kind": {
@@ -18425,20 +18926,6 @@
      }
     }
    },
-   "v1.RemoveInterfaceOptions": {
-    "description": "RemoveInterfaceOptions is provided when dynamically hot unplugging a network interface",
-    "type": "object",
-    "required": [
-     "name"
-    ],
-    "properties": {
-     "name": {
-      "description": "Name indicates the logical name of the interface.",
-      "type": "string",
-      "default": ""
-     }
-    }
-   },
    "v1.RemoveVolumeOptions": {
     "description": "RemoveVolumeOptions is provided when dynamically hot unplugging volume and disk",
     "type": "object",
@@ -18514,9 +19001,88 @@
    "v1.SEV": {
     "type": "object",
     "properties": {
+     "attestation": {
+      "description": "If specified, run the attestation process for a vmi.",
+      "$ref": "#/definitions/v1.SEVAttestation"
+     },
+     "dhCert": {
+      "description": "Base64 encoded guest owner's Diffie-Hellman key.",
+      "type": "string"
+     },
      "policy": {
       "description": "Guest policy flags as defined in AMD SEV API specification. Note: due to security reasons it is not allowed to enable guest debugging. Therefore NoDebug flag is not exposed to users and is always true.",
       "$ref": "#/definitions/v1.SEVPolicy"
+     },
+     "session": {
+      "description": "Base64 encoded session blob.",
+      "type": "string"
+     }
+    }
+   },
+   "v1.SEVAttestation": {
+    "type": "object"
+   },
+   "v1.SEVMeasurementInfo": {
+    "description": "SEVMeasurementInfo contains information about the guest launch measurement.",
+    "type": "object",
+    "properties": {
+     "apiMajor": {
+      "description": "API major version of the SEV host.",
+      "type": "integer",
+      "format": "int32"
+     },
+     "apiMinor": {
+      "description": "API minor version of the SEV host.",
+      "type": "integer",
+      "format": "int32"
+     },
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+     },
+     "buildID": {
+      "description": "Build ID of the SEV host.",
+      "type": "integer",
+      "format": "int32"
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "loaderSHA": {
+      "description": "SHA256 of the loader binary",
+      "type": "string"
+     },
+     "measurement": {
+      "description": "Base64 encoded launch measurement of the SEV guest.",
+      "type": "string"
+     },
+     "policy": {
+      "description": "Policy of the SEV guest.",
+      "type": "integer",
+      "format": "int32"
+     }
+    }
+   },
+   "v1.SEVPlatformInfo": {
+    "description": "SEVPlatformInfo contains information about the AMD SEV features for the node.",
+    "type": "object",
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+     },
+     "certChain": {
+      "description": "Base64 encoded SEV certificate chain.",
+      "type": "string"
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "pdh": {
+      "description": "Base64 encoded platform Diffie-Hellman key.",
+      "type": "string"
      }
     }
    },
@@ -18526,6 +19092,34 @@
      "encryptedState": {
       "description": "SEV-ES is required. Defaults to false.",
       "type": "boolean"
+     }
+    }
+   },
+   "v1.SEVSecretOptions": {
+    "description": "SEVSecretOptions is used to provide a secret for a running guest.",
+    "type": "object",
+    "properties": {
+     "header": {
+      "description": "Base64 encoded header needed to decrypt the secret.",
+      "type": "string"
+     },
+     "secret": {
+      "description": "Base64 encoded encrypted launch secret.",
+      "type": "string"
+     }
+    }
+   },
+   "v1.SEVSessionOptions": {
+    "description": "SEVSessionOptions is used to provide SEV session parameters.",
+    "type": "object",
+    "properties": {
+     "dhCert": {
+      "description": "Base64 encoded guest owner's Diffie-Hellman key.",
+      "type": "string"
+     },
+     "session": {
+      "description": "Base64 encoded session blob.",
+      "type": "string"
      }
     }
    },
@@ -18576,6 +19170,10 @@
      "configDrive": {
       "description": "ConfigDrivePropagation means that the ssh public keys are injected into the VM using metadata using the configDrive cloud-init provider",
       "$ref": "#/definitions/v1.ConfigDriveSSHPublicKeyAccessCredentialPropagation"
+     },
+     "noCloud": {
+      "description": "NoCloudPropagation means that the ssh public keys are injected into the VM using metadata using the noCloud cloud-init provider",
+      "$ref": "#/definitions/v1.NoCloudSSHPublicKeyAccessCredentialPropagation"
      },
      "qemuGuestAgent": {
       "description": "QemuGuestAgentAccessCredentailPropagation means ssh public keys are dynamically injected into the vm at runtime via the qemu guest agent. This feature requires the qemu guest agent to be running within the guest.",
@@ -18827,6 +19425,48 @@
      "tscFrequency": {
       "type": "integer",
       "format": "int64"
+     }
+    }
+   },
+   "v1.USBHostDevice": {
+    "type": "object",
+    "required": [
+     "resourceName"
+    ],
+    "properties": {
+     "externalResourceProvider": {
+      "description": "If true, KubeVirt will leave the allocation and monitoring to an external device plugin",
+      "type": "boolean"
+     },
+     "resourceName": {
+      "description": "Identifies the list of USB host devices. e.g: kubevirt.io/storage, kubevirt.io/bootable-usb, etc",
+      "type": "string",
+      "default": ""
+     },
+     "selectors": {
+      "type": "array",
+      "items": {
+       "default": {},
+       "$ref": "#/definitions/v1.USBSelector"
+      },
+      "x-kubernetes-list-type": "atomic"
+     }
+    }
+   },
+   "v1.USBSelector": {
+    "type": "object",
+    "required": [
+     "vendor",
+     "product"
+    ],
+    "properties": {
+     "product": {
+      "type": "string",
+      "default": ""
+     },
+     "vendor": {
+      "type": "string",
+      "default": ""
      }
     }
    },
@@ -19867,7 +20507,7 @@
       "$ref": "#/definitions/v1.DomainSpec"
      },
      "evictionStrategy": {
-      "description": "EvictionStrategy can be set to \"LiveMigrate\" if the VirtualMachineInstance should be migrated instead of shut-off in case of a node drain.",
+      "description": "EvictionStrategy describes the strategy to follow when a node drain occurs. The possible options are: - \"None\": No action will be taken, according to the specified 'RunStrategy' the VirtualMachine will be restarted or shutdown. - \"LiveMigrate\": the VirtualMachineInstance will be migrated instead of being shutdown. - \"LiveMigrateIfPossible\": the same as \"LiveMigrate\" but only if the VirtualMachine is Live-Migratable, otherwise it will behave as \"None\". - \"External\": the VirtualMachineInstance will be protected by a PDB and `vmi.Status.EvacuationNodeName` will be set on eviction. This is mainly useful for cluster-api-provider-kubevirt (capk) which needs a way for VMI's to be blocked from eviction, yet signal capk that eviction has been called on the VMI so the capk controller can handle tearing the VMI down. Details can be found in the commit description https://github.com/kubevirt/kubevirt/commit/c1d77face705c8b126696bac9a3ee3825f27f1fa.",
       "type": "string"
      },
      "hostname": {
@@ -20003,6 +20643,10 @@
        "$ref": "#/definitions/v1.VirtualMachineInstanceNetworkInterface"
       }
      },
+     "kernelBootStatus": {
+      "description": "KernelBootStatus contains info about the kernelBootContainer",
+      "$ref": "#/definitions/v1.KernelBootStatus"
+     },
      "launcherContainerImageVersion": {
       "description": "LauncherContainerImageVersion indicates what container image is currently active for the vmi.",
       "type": "string"
@@ -20010,6 +20654,10 @@
      "machine": {
       "description": "Machine shows the final resulting qemu machine type. This can be different than the machine type selected in the spec, due to qemus machine type alias mechanism.",
       "$ref": "#/definitions/v1.Machine"
+     },
+     "memory": {
+      "description": "Memory shows various informations about the VirtualMachine memory.",
+      "$ref": "#/definitions/v1.MemoryStatus"
      },
      "migrationMethod": {
       "description": "Represents the method using which the vmi can be migrated: live migration or block migration",
@@ -20095,19 +20743,6 @@
      }
     }
    },
-   "v1.VirtualMachineInterfaceRequest": {
-    "type": "object",
-    "properties": {
-     "addInterfaceOptions": {
-      "description": "AddInterfaceOptions when set indicates a network interface should be added. The details within this field specify how to add the interface",
-      "$ref": "#/definitions/v1.AddInterfaceOptions"
-     },
-     "removeInterfaceOptions": {
-      "description": "RemoveInterfaceOptions when set indicates a network interface should be removed. The details within this field specify how to remove the interface",
-      "$ref": "#/definitions/v1.RemoveInterfaceOptions"
-     }
-    }
-   },
    "v1.VirtualMachineList": {
     "description": "VirtualMachineList is a list of virtualmachines",
     "type": "object",
@@ -20183,6 +20818,10 @@
      "disableFreePageReporting": {
       "description": "DisableFreePageReporting disable the free page reporting of memory balloon device https://libvirt.org/formatdomain.html#memory-balloon-device. This will have effect only if AutoattachMemBalloon is not false and the vmi is not requesting any high performance feature (dedicatedCPU/realtime/hugePages), in which free page reporting is always disabled.",
       "$ref": "#/definitions/v1.DisableFreePageReporting"
+     },
+     "disableSerialConsoleLog": {
+      "description": "DisableSerialConsoleLog disables logging the auto-attached default serial console. If not set, serial console logs will be written to a file and then streamed from a container named `guest-console-log`. The value can be individually overridden for each VM, not relevant if AutoattachSerialConsole is disabled.",
+      "$ref": "#/definitions/v1.DisableSerialConsoleLog"
      }
     }
    },
@@ -20289,15 +20928,6 @@
       "description": "DesiredGeneration is the generation which is desired for the VMI. This will be used in comparisons with ObservedGeneration to understand when the VMI is out of sync. This will be changed at the same time as ObservedGeneration to remove errors which could occur if Generation is updated through an Update() before ObservedGeneration in Status.",
       "type": "integer",
       "format": "int64"
-     },
-     "interfaceRequests": {
-      "description": "InterfaceRequests indicates a list of interfaces added to the VMI template and hot-plugged on an active running VMI.",
-      "type": "array",
-      "items": {
-       "default": {},
-       "$ref": "#/definitions/v1.VirtualMachineInterfaceRequest"
-      },
-      "x-kubernetes-list-type": "atomic"
      },
      "memoryDumpRequest": {
       "description": "MemoryDumpRequest tracks memory dump request phase and info of getting a memory dump to the given pvc",
@@ -20473,6 +21103,10 @@
      "target"
     ],
     "properties": {
+     "containerDiskVolume": {
+      "description": "ContainerDiskVolume shows info about the containerdisk, if the volume is a containerdisk",
+      "$ref": "#/definitions/v1.ContainerDiskInfo"
+     },
      "hotplugVolume": {
       "description": "If the volume is hotplug, this will contain the hotplug status.",
       "$ref": "#/definitions/v1.HotplugVolumeStatus"
@@ -20817,6 +21451,7 @@
     ],
     "properties": {
      "annotationFilters": {
+      "description": "Example use: \"!some/key*\". For a detailed description, please refer to https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters.",
       "type": "array",
       "items": {
        "type": "string",
@@ -20825,6 +21460,7 @@
       "x-kubernetes-list-type": "atomic"
      },
      "labelFilters": {
+      "description": "Example use: \"!some/key*\". For a detailed description, please refer to https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters.",
       "type": "array",
       "items": {
        "type": "string",
@@ -20845,10 +21481,11 @@
       "type": "string"
      },
      "source": {
+      "description": "Source is the object that would be cloned. Currently supported source types are: VirtualMachine of kubevirt.io API group, VirtualMachineSnapshot of snapshot.kubevirt.io API group",
       "$ref": "#/definitions/k8s.io.api.core.v1.TypedLocalObjectReference"
      },
      "target": {
-      "description": "If the target is not provided, a random name would be generated for the target. The target's name can be viewed by inspecting status \"TargetName\" field below.",
+      "description": "Target is the outcome of the cloning process. Currently supported source types are: - VirtualMachine of kubevirt.io API group - Empty (nil). If the target is not provided, the target type would default to VirtualMachine and a random name would be generated for the target. The target's name can be viewed by inspecting status \"TargetName\" field below.",
       "$ref": "#/definitions/k8s.io.api.core.v1.TypedLocalObjectReference"
      }
     }
@@ -21696,7 +22333,7 @@
       "type": "boolean"
      },
      "guest": {
-      "description": "Required number of vCPUs to expose to the guest.\n\nThe resulting CPU topology being derived from the optional PreferredCPUTopology attribute of CPUPreferences that itself defaults to PreferCores.",
+      "description": "Required number of vCPUs to expose to the guest.\n\nThe resulting CPU topology being derived from the optional PreferredCPUTopology attribute of CPUPreferences that itself defaults to PreferSockets.",
       "type": "integer",
       "format": "int64",
       "default": 0
@@ -22532,6 +23169,14 @@
      "memory"
     ],
     "properties": {
+     "annotations": {
+      "description": "Optionally defines the required Annotations to be used by the instance type and applied to the VirtualMachineInstance",
+      "type": "object",
+      "additionalProperties": {
+       "type": "string",
+       "default": ""
+      }
+     },
      "cpu": {
       "description": "Required CPU related attributes of the instancetype.",
       "default": {},
@@ -22567,6 +23212,18 @@
       "description": "Required Memory related attributes of the instancetype.",
       "default": {},
       "$ref": "#/definitions/v1beta1.MemoryInstancetype"
+     },
+     "nodeSelector": {
+      "description": "NodeSelector is a selector which must be true for the vmi to fit on a node. Selector which must match a node's labels for the vmi to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/\n\nNodeSelector is the name of the custom node selector for the instancetype.",
+      "type": "object",
+      "additionalProperties": {
+       "type": "string",
+       "default": ""
+      }
+     },
+     "schedulerName": {
+      "description": "If specified, the VMI will be dispatched by specified scheduler. If not specified, the VMI will be dispatched by default scheduler.\n\nSchedulerName is the name of the custom K8s scheduler for the instancetype.",
+      "type": "string"
      }
     }
    },
@@ -22629,6 +23286,14 @@
     "description": "VirtualMachinePreferenceSpec is a description of the VirtualMachinePreference or VirtualMachineClusterPreference.",
     "type": "object",
     "properties": {
+     "annotations": {
+      "description": "Optionally defines preferred Annotations to be applied to the VirtualMachineInstance",
+      "type": "object",
+      "additionalProperties": {
+       "type": "string",
+       "default": ""
+      }
+     },
      "clock": {
       "description": "Clock optionally defines preferences associated with the Clock attribute of a VirtualMachineInstance DomainSpec",
       "$ref": "#/definitions/v1beta1.ClockPreferences"
@@ -22652,6 +23317,11 @@
      "machine": {
       "description": "Machine optionally defines preferences associated with the Machine attribute of a VirtualMachineInstance DomainSpec",
       "$ref": "#/definitions/v1beta1.MachinePreferences"
+     },
+     "preferSpreadSocketToCoreRatio": {
+      "description": "PreferSpreadSocketToCoreRatio defines the ratio to spread vCPUs between cores and sockets, it defaults to 2.",
+      "type": "integer",
+      "format": "int64"
      },
      "preferredSubdomain": {
       "description": "Subdomain of the VirtualMachineInstance",

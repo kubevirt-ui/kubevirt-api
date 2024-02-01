@@ -26,6 +26,12 @@ export interface V1PreferenceMatcher {
    */
   inferFromVolume?: string;
   /**
+   * InferFromVolumeFailurePolicy controls what should happen on failure when preference the instancetype. Allowed values are: "RejectInferFromVolumeFailure" and "IgnoreInferFromVolumeFailure". If not specified, "RejectInferFromVolumeFailure" is used by default.
+   * @type {string}
+   * @memberof V1PreferenceMatcher
+   */
+  inferFromVolumeFailurePolicy?: string;
+  /**
    * Kind specifies which preference resource is referenced. Allowed values are: "VirtualMachinePreference" and "VirtualMachineClusterPreference". If not specified, "VirtualMachineClusterPreference" is used by default.
    * @type {string}
    * @memberof V1PreferenceMatcher
@@ -58,6 +64,9 @@ export function V1PreferenceMatcherFromJSONTyped(
   }
   return {
     inferFromVolume: !exists(json, 'inferFromVolume') ? undefined : json['inferFromVolume'],
+    inferFromVolumeFailurePolicy: !exists(json, 'inferFromVolumeFailurePolicy')
+      ? undefined
+      : json['inferFromVolumeFailurePolicy'],
     kind: !exists(json, 'kind') ? undefined : json['kind'],
     name: !exists(json, 'name') ? undefined : json['name'],
     revisionName: !exists(json, 'revisionName') ? undefined : json['revisionName'],
@@ -73,6 +82,7 @@ export function V1PreferenceMatcherToJSON(value?: V1PreferenceMatcher | null): a
   }
   return {
     inferFromVolume: value.inferFromVolume,
+    inferFromVolumeFailurePolicy: value.inferFromVolumeFailurePolicy,
     kind: value.kind,
     name: value.name,
     revisionName: value.revisionName,

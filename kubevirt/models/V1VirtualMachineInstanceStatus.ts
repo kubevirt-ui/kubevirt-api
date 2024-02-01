@@ -17,9 +17,15 @@ import {
   V1CPUTopology,
   V1CPUTopologyFromJSON,
   V1CPUTopologyToJSON,
+  V1KernelBootStatus,
+  V1KernelBootStatusFromJSON,
+  V1KernelBootStatusToJSON,
   V1Machine,
   V1MachineFromJSON,
   V1MachineToJSON,
+  V1MemoryStatus,
+  V1MemoryStatusFromJSON,
+  V1MemoryStatusToJSON,
   V1TopologyHints,
   V1TopologyHintsFromJSON,
   V1TopologyHintsToJSON,
@@ -98,6 +104,12 @@ export interface V1VirtualMachineInstanceStatus {
    */
   interfaces?: Array<V1VirtualMachineInstanceNetworkInterface>;
   /**
+   *
+   * @type {V1KernelBootStatus}
+   * @memberof V1VirtualMachineInstanceStatus
+   */
+  kernelBootStatus?: V1KernelBootStatus;
+  /**
    * LauncherContainerImageVersion indicates what container image is currently active for the vmi.
    * @type {string}
    * @memberof V1VirtualMachineInstanceStatus
@@ -109,6 +121,12 @@ export interface V1VirtualMachineInstanceStatus {
    * @memberof V1VirtualMachineInstanceStatus
    */
   machine?: V1Machine;
+  /**
+   *
+   * @type {V1MemoryStatus}
+   * @memberof V1VirtualMachineInstanceStatus
+   */
+  memory?: V1MemoryStatus;
   /**
    * Represents the method using which the vmi can be migrated: live migration or block migration
    * @type {string}
@@ -234,10 +252,14 @@ export function V1VirtualMachineInstanceStatusFromJSONTyped(
     interfaces: !exists(json, 'interfaces')
       ? undefined
       : (json['interfaces'] as Array<any>).map(V1VirtualMachineInstanceNetworkInterfaceFromJSON),
+    kernelBootStatus: !exists(json, 'kernelBootStatus')
+      ? undefined
+      : V1KernelBootStatusFromJSON(json['kernelBootStatus']),
     launcherContainerImageVersion: !exists(json, 'launcherContainerImageVersion')
       ? undefined
       : json['launcherContainerImageVersion'],
     machine: !exists(json, 'machine') ? undefined : V1MachineFromJSON(json['machine']),
+    memory: !exists(json, 'memory') ? undefined : V1MemoryStatusFromJSON(json['memory']),
     migrationMethod: !exists(json, 'migrationMethod') ? undefined : json['migrationMethod'],
     migrationState: !exists(json, 'migrationState')
       ? undefined
@@ -292,8 +314,10 @@ export function V1VirtualMachineInstanceStatusToJSON(
       value.interfaces === undefined
         ? undefined
         : (value.interfaces as Array<any>).map(V1VirtualMachineInstanceNetworkInterfaceToJSON),
+    kernelBootStatus: V1KernelBootStatusToJSON(value.kernelBootStatus),
     launcherContainerImageVersion: value.launcherContainerImageVersion,
     machine: V1MachineToJSON(value.machine),
+    memory: V1MemoryStatusToJSON(value.memory),
     migrationMethod: value.migrationMethod,
     migrationState: V1VirtualMachineInstanceMigrationStateToJSON(value.migrationState),
     migrationTransport: value.migrationTransport,

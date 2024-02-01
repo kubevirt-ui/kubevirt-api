@@ -20,6 +20,12 @@ import { exists } from '../runtime';
  */
 export interface V1EFI {
   /**
+   * If set to true, Persistent will persist the EFI NVRAM across reboots. Defaults to false
+   * @type {boolean}
+   * @memberof V1EFI
+   */
+  persistent?: boolean;
+  /**
    * If set, SecureBoot will be enabled and the OVMF roms will be swapped for SecureBoot-enabled ones. Requires SMM to be enabled. Defaults to true
    * @type {boolean}
    * @memberof V1EFI
@@ -36,6 +42,7 @@ export function V1EFIFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1
     return json;
   }
   return {
+    persistent: !exists(json, 'persistent') ? undefined : json['persistent'],
     secureBoot: !exists(json, 'secureBoot') ? undefined : json['secureBoot'],
   };
 }
@@ -48,6 +55,7 @@ export function V1EFIToJSON(value?: V1EFI | null): any {
     return null;
   }
   return {
+    persistent: value.persistent,
     secureBoot: value.secureBoot,
   };
 }

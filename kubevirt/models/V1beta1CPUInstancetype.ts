@@ -39,7 +39,7 @@ export interface V1beta1CPUInstancetype {
   /**
    * Required number of vCPUs to expose to the guest.
    *
-   * The resulting CPU topology being derived from the optional PreferredCPUTopology attribute of CPUPreferences that itself defaults to PreferCores.
+   * The resulting CPU topology being derived from the optional PreferredCPUTopology attribute of CPUPreferences that itself defaults to PreferSockets.
    * @type {number}
    * @memberof V1beta1CPUInstancetype
    */

@@ -74,7 +74,7 @@ export interface V1Devices {
    */
   autoattachPodInterface?: boolean;
   /**
-   * Whether to attach the default serial console or not. Serial console access will not be available if set to false. Defaults to true.
+   * Whether to attach the default virtio-serial console or not. Serial console access will not be available if set to false. Defaults to true.
    * @type {boolean}
    * @memberof V1Devices
    */
@@ -112,6 +112,12 @@ export interface V1Devices {
    */
   disks?: Array<V1Disk>;
   /**
+   *
+   * @type {object}
+   * @memberof V1Devices
+   */
+  downwardMetrics?: object;
+  /**
    * Filesystems describes filesystem which is connected to the vmi.
    * @type {Array<V1Filesystem>}
    * @memberof V1Devices
@@ -141,6 +147,12 @@ export interface V1Devices {
    * @memberof V1Devices
    */
   interfaces?: Array<V1Interface>;
+  /**
+   * Whether to log the auto-attached default serial console or not. Serial console logs will be collect to a file and then streamed from a named `guest-console-log`. Not relevant if autoattachSerialConsole is disabled. Defaults to cluster wide setting on VirtualMachineOptions.
+   * @type {boolean}
+   * @memberof V1Devices
+   */
+  logSerialConsole?: boolean;
   /**
    * If specified, virtual network interfaces configured with a virtio bus will also enable the vhost multiqueue feature for network devices. The number of queues created depends on additional factors of the VirtualMachineInstance, like the number of guest CPUs.
    * @type {boolean}
@@ -208,6 +220,7 @@ export function V1DevicesFromJSONTyped(json: any, _ignoreDiscriminator: boolean)
     clientPassthrough: !exists(json, 'clientPassthrough') ? undefined : json['clientPassthrough'],
     disableHotplug: !exists(json, 'disableHotplug') ? undefined : json['disableHotplug'],
     disks: !exists(json, 'disks') ? undefined : (json['disks'] as Array<any>).map(V1DiskFromJSON),
+    downwardMetrics: !exists(json, 'downwardMetrics') ? undefined : json['downwardMetrics'],
     filesystems: !exists(json, 'filesystems')
       ? undefined
       : (json['filesystems'] as Array<any>).map(V1FilesystemFromJSON),
@@ -221,6 +234,7 @@ export function V1DevicesFromJSONTyped(json: any, _ignoreDiscriminator: boolean)
     interfaces: !exists(json, 'interfaces')
       ? undefined
       : (json['interfaces'] as Array<any>).map(V1InterfaceFromJSON),
+    logSerialConsole: !exists(json, 'logSerialConsole') ? undefined : json['logSerialConsole'],
     networkInterfaceMultiqueue: !exists(json, 'networkInterfaceMultiqueue')
       ? undefined
       : json['networkInterfaceMultiqueue'],
@@ -252,6 +266,7 @@ export function V1DevicesToJSON(value?: V1Devices | null): any {
     clientPassthrough: value.clientPassthrough,
     disableHotplug: value.disableHotplug,
     disks: value.disks === undefined ? undefined : (value.disks as Array<any>).map(V1DiskToJSON),
+    downwardMetrics: value.downwardMetrics,
     filesystems:
       value.filesystems === undefined
         ? undefined
@@ -267,6 +282,7 @@ export function V1DevicesToJSON(value?: V1Devices | null): any {
       value.interfaces === undefined
         ? undefined
         : (value.interfaces as Array<any>).map(V1InterfaceToJSON),
+    logSerialConsole: value.logSerialConsole,
     networkInterfaceMultiqueue: value.networkInterfaceMultiqueue,
     rng: value.rng,
     sound: V1SoundDeviceToJSON(value.sound),

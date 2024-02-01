@@ -14,6 +14,9 @@
 
 import { exists } from '../runtime';
 import {
+  V1ContainerDiskInfo,
+  V1ContainerDiskInfoFromJSON,
+  V1ContainerDiskInfoToJSON,
   V1DomainMemoryDumpInfo,
   V1DomainMemoryDumpInfoFromJSON,
   V1DomainMemoryDumpInfoToJSON,
@@ -31,6 +34,12 @@ import {
  * @interface V1VolumeStatus
  */
 export interface V1VolumeStatus {
+  /**
+   *
+   * @type {V1ContainerDiskInfo}
+   * @memberof V1VolumeStatus
+   */
+  containerDiskVolume?: V1ContainerDiskInfo;
   /**
    *
    * @type {V1HotplugVolumeStatus}
@@ -99,6 +108,9 @@ export function V1VolumeStatusFromJSONTyped(
     return json;
   }
   return {
+    containerDiskVolume: !exists(json, 'containerDiskVolume')
+      ? undefined
+      : V1ContainerDiskInfoFromJSON(json['containerDiskVolume']),
     hotplugVolume: !exists(json, 'hotplugVolume')
       ? undefined
       : V1HotplugVolumeStatusFromJSON(json['hotplugVolume']),
@@ -125,6 +137,7 @@ export function V1VolumeStatusToJSON(value?: V1VolumeStatus | null): any {
     return null;
   }
   return {
+    containerDiskVolume: V1ContainerDiskInfoToJSON(value.containerDiskVolume),
     hotplugVolume: V1HotplugVolumeStatusToJSON(value.hotplugVolume),
     memoryDumpVolume: V1DomainMemoryDumpInfoToJSON(value.memoryDumpVolume),
     message: value.message,

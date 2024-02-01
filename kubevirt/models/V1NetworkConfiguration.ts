@@ -12,13 +12,25 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import {
+  V1InterfaceBindingPlugin,
+  V1InterfaceBindingPluginFromJSON,
+  V1InterfaceBindingPluginToJSON,
+} from './';
+
 /**
  * NetworkConfiguration holds network options
  * @export
  * @interface V1NetworkConfiguration
  */
 export interface V1NetworkConfiguration {
+  /**
+   *
+   * @type {{ [key: string]: V1InterfaceBindingPlugin; }}
+   * @memberof V1NetworkConfiguration
+   */
+  binding?: { [key: string]: V1InterfaceBindingPlugin };
   /**
    *
    * @type {string}
@@ -51,6 +63,9 @@ export function V1NetworkConfigurationFromJSONTyped(
     return json;
   }
   return {
+    binding: !exists(json, 'binding')
+      ? undefined
+      : mapValues(json['binding'], V1InterfaceBindingPluginFromJSON),
     defaultNetworkInterface: !exists(json, 'defaultNetworkInterface')
       ? undefined
       : json['defaultNetworkInterface'],
@@ -71,6 +86,10 @@ export function V1NetworkConfigurationToJSON(value?: V1NetworkConfiguration | nu
     return null;
   }
   return {
+    binding:
+      value.binding === undefined
+        ? undefined
+        : mapValues(value.binding, V1InterfaceBindingPluginToJSON),
     defaultNetworkInterface: value.defaultNetworkInterface,
     permitBridgeInterfaceOnPodNetwork: value.permitBridgeInterfaceOnPodNetwork,
     permitSlirpInterface: value.permitSlirpInterface,

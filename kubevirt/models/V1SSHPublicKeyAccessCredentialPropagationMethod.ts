@@ -33,6 +33,12 @@ export interface V1SSHPublicKeyAccessCredentialPropagationMethod {
   configDrive?: object;
   /**
    *
+   * @type {object}
+   * @memberof V1SSHPublicKeyAccessCredentialPropagationMethod
+   */
+  noCloud?: object;
+  /**
+   *
    * @type {V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation}
    * @memberof V1SSHPublicKeyAccessCredentialPropagationMethod
    */
@@ -54,6 +60,7 @@ export function V1SSHPublicKeyAccessCredentialPropagationMethodFromJSONTyped(
   }
   return {
     configDrive: !exists(json, 'configDrive') ? undefined : json['configDrive'],
+    noCloud: !exists(json, 'noCloud') ? undefined : json['noCloud'],
     qemuGuestAgent: !exists(json, 'qemuGuestAgent')
       ? undefined
       : V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSON(json['qemuGuestAgent']),
@@ -71,6 +78,7 @@ export function V1SSHPublicKeyAccessCredentialPropagationMethodToJSON(
   }
   return {
     configDrive: value.configDrive,
+    noCloud: value.noCloud,
     qemuGuestAgent: V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationToJSON(
       value.qemuGuestAgent,
     ),

@@ -17,9 +17,6 @@ import {
   V1VirtualMachineCondition,
   V1VirtualMachineConditionFromJSON,
   V1VirtualMachineConditionToJSON,
-  V1VirtualMachineInterfaceRequest,
-  V1VirtualMachineInterfaceRequestFromJSON,
-  V1VirtualMachineInterfaceRequestToJSON,
   V1VirtualMachineMemoryDumpRequest,
   V1VirtualMachineMemoryDumpRequestFromJSON,
   V1VirtualMachineMemoryDumpRequestToJSON,
@@ -61,12 +58,6 @@ export interface V1VirtualMachineStatus {
    * @memberof V1VirtualMachineStatus
    */
   desiredGeneration?: number;
-  /**
-   * InterfaceRequests indicates a list of interfaces added to the VMI template and hot-plugged on an active running VMI.
-   * @type {Array<V1VirtualMachineInterfaceRequest>}
-   * @memberof V1VirtualMachineStatus
-   */
-  interfaceRequests?: Array<V1VirtualMachineInterfaceRequest>;
   /**
    *
    * @type {V1VirtualMachineMemoryDumpRequest}
@@ -146,9 +137,6 @@ export function V1VirtualMachineStatusFromJSONTyped(
       : (json['conditions'] as Array<any>).map(V1VirtualMachineConditionFromJSON),
     created: !exists(json, 'created') ? undefined : json['created'],
     desiredGeneration: !exists(json, 'desiredGeneration') ? undefined : json['desiredGeneration'],
-    interfaceRequests: !exists(json, 'interfaceRequests')
-      ? undefined
-      : (json['interfaceRequests'] as Array<any>).map(V1VirtualMachineInterfaceRequestFromJSON),
     memoryDumpRequest: !exists(json, 'memoryDumpRequest')
       ? undefined
       : V1VirtualMachineMemoryDumpRequestFromJSON(json['memoryDumpRequest']),
@@ -190,10 +178,6 @@ export function V1VirtualMachineStatusToJSON(value?: V1VirtualMachineStatus | nu
         : (value.conditions as Array<any>).map(V1VirtualMachineConditionToJSON),
     created: value.created,
     desiredGeneration: value.desiredGeneration,
-    interfaceRequests:
-      value.interfaceRequests === undefined
-        ? undefined
-        : (value.interfaceRequests as Array<any>).map(V1VirtualMachineInterfaceRequestToJSON),
     memoryDumpRequest: V1VirtualMachineMemoryDumpRequestToJSON(value.memoryDumpRequest),
     observedGeneration: value.observedGeneration,
     printableStatus: value.printableStatus,

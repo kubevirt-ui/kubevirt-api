@@ -40,6 +40,12 @@ import {
  */
 export interface V1beta1VirtualMachineInstancetypeSpec {
   /**
+   * Optionally defines the required Annotations to be used by the instance type and applied to the VirtualMachineInstance
+   * @type {{ [key: string]: string; }}
+   * @memberof V1beta1VirtualMachineInstancetypeSpec
+   */
+  annotations?: { [key: string]: string };
+  /**
    *
    * @type {V1beta1CPUInstancetype}
    * @memberof V1beta1VirtualMachineInstancetypeSpec
@@ -75,6 +81,22 @@ export interface V1beta1VirtualMachineInstancetypeSpec {
    * @memberof V1beta1VirtualMachineInstancetypeSpec
    */
   memory: V1beta1MemoryInstancetype;
+  /**
+   * NodeSelector is a selector which must be true for the vmi to fit on a node. Selector which must match a node's labels for the vmi to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
+   *
+   * NodeSelector is the name of the custom node selector for the instancetype.
+   * @type {{ [key: string]: string; }}
+   * @memberof V1beta1VirtualMachineInstancetypeSpec
+   */
+  nodeSelector?: { [key: string]: string };
+  /**
+   * If specified, the VMI will be dispatched by specified scheduler. If not specified, the VMI will be dispatched by default scheduler.
+   *
+   * SchedulerName is the name of the custom K8s scheduler for the instancetype.
+   * @type {string}
+   * @memberof V1beta1VirtualMachineInstancetypeSpec
+   */
+  schedulerName?: string;
 }
 
 export function V1beta1VirtualMachineInstancetypeSpecFromJSON(
@@ -91,6 +113,7 @@ export function V1beta1VirtualMachineInstancetypeSpecFromJSONTyped(
     return json;
   }
   return {
+    annotations: !exists(json, 'annotations') ? undefined : json['annotations'],
     cpu: V1beta1CPUInstancetypeFromJSON(json['cpu']),
     gpus: !exists(json, 'gpus') ? undefined : (json['gpus'] as Array<any>).map(V1GPUFromJSON),
     hostDevices: !exists(json, 'hostDevices')
@@ -101,6 +124,8 @@ export function V1beta1VirtualMachineInstancetypeSpecFromJSONTyped(
       ? undefined
       : V1LaunchSecurityFromJSON(json['launchSecurity']),
     memory: V1beta1MemoryInstancetypeFromJSON(json['memory']),
+    nodeSelector: !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
+    schedulerName: !exists(json, 'schedulerName') ? undefined : json['schedulerName'],
   };
 }
 
@@ -114,6 +139,7 @@ export function V1beta1VirtualMachineInstancetypeSpecToJSON(
     return null;
   }
   return {
+    annotations: value.annotations,
     cpu: V1beta1CPUInstancetypeToJSON(value.cpu),
     gpus: value.gpus === undefined ? undefined : (value.gpus as Array<any>).map(V1GPUToJSON),
     hostDevices:
@@ -123,5 +149,7 @@ export function V1beta1VirtualMachineInstancetypeSpecToJSON(
     ioThreadsPolicy: value.ioThreadsPolicy,
     launchSecurity: V1LaunchSecurityToJSON(value.launchSecurity),
     memory: V1beta1MemoryInstancetypeToJSON(value.memory),
+    nodeSelector: value.nodeSelector,
+    schedulerName: value.schedulerName,
   };
 }

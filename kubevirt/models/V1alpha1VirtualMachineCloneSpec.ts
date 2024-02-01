@@ -26,13 +26,13 @@ import {
  */
 export interface V1alpha1VirtualMachineCloneSpec {
   /**
-   *
+   * Example use: "!some/key*". For a detailed description, please refer to https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters.
    * @type {Array<string>}
    * @memberof V1alpha1VirtualMachineCloneSpec
    */
   annotationFilters?: Array<string>;
   /**
-   *
+   * Example use: "!some/key*". For a detailed description, please refer to https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters.
    * @type {Array<string>}
    * @memberof V1alpha1VirtualMachineCloneSpec
    */

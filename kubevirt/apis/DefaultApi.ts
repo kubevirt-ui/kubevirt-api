@@ -28,8 +28,6 @@ import {
   K8sIoApimachineryPkgApisMetaV1StatusFromJSON,
   K8sIoApimachineryPkgApisMetaV1WatchEvent,
   K8sIoApimachineryPkgApisMetaV1WatchEventFromJSON,
-  V1AddInterfaceOptions,
-  V1AddInterfaceOptionsToJSON,
   V1AddVolumeOptions,
   V1AddVolumeOptionsToJSON,
   V1FreezeUnfreezeTimeout,
@@ -43,12 +41,18 @@ import {
   V1MigrateOptionsToJSON,
   V1PauseOptions,
   V1PauseOptionsToJSON,
-  V1RemoveInterfaceOptions,
-  V1RemoveInterfaceOptionsToJSON,
   V1RemoveVolumeOptions,
   V1RemoveVolumeOptionsToJSON,
   V1RestartOptions,
   V1RestartOptionsToJSON,
+  V1SEVMeasurementInfo,
+  V1SEVMeasurementInfoFromJSON,
+  V1SEVPlatformInfo,
+  V1SEVPlatformInfoFromJSON,
+  V1SEVSecretOptions,
+  V1SEVSecretOptionsToJSON,
+  V1SEVSessionOptions,
+  V1SEVSessionOptionsToJSON,
   V1StartOptions,
   V1StartOptionsToJSON,
   V1StopOptions,
@@ -1221,6 +1225,15 @@ export interface V1ConsoleRequest {
   namespace: string;
 }
 
+export interface V1ExpandSpecRequest {
+  namespace: string;
+}
+
+export interface V1FilesystemlistRequest {
+  name: string;
+  namespace: string;
+}
+
 export interface V1FreezeRequest {
   name: string;
   namespace: string;
@@ -1261,6 +1274,28 @@ export interface V1RestartRequest {
   body?: V1RestartOptions;
 }
 
+export interface V1SEVFetchCertChainRequest {
+  name: string;
+  namespace: string;
+}
+
+export interface V1SEVInjectLaunchSecretRequest {
+  name: string;
+  namespace: string;
+  body: V1SEVSecretOptions;
+}
+
+export interface V1SEVQueryLaunchMeasurementRequest {
+  name: string;
+  namespace: string;
+}
+
+export interface V1SEVSetupSessionRequest {
+  name: string;
+  namespace: string;
+  body: V1SEVSessionOptions;
+}
+
 export interface V1SoftRebootRequest {
   name: string;
   namespace: string;
@@ -1289,6 +1324,11 @@ export interface V1UnpauseRequest {
   body: V1UnpauseOptions;
 }
 
+export interface V1UserlistRequest {
+  name: string;
+  namespace: string;
+}
+
 export interface V1VNCRequest {
   name: string;
   namespace: string;
@@ -1308,6 +1348,15 @@ export interface V1VSOCKRequest {
 }
 
 export interface V1alpha3ConsoleRequest {
+  name: string;
+  namespace: string;
+}
+
+export interface V1alpha3ExpandSpecRequest {
+  namespace: string;
+}
+
+export interface V1alpha3FilesystemlistRequest {
   name: string;
   namespace: string;
 }
@@ -1352,6 +1401,28 @@ export interface V1alpha3RestartRequest {
   body?: V1RestartOptions;
 }
 
+export interface V1alpha3SEVFetchCertChainRequest {
+  name: string;
+  namespace: string;
+}
+
+export interface V1alpha3SEVInjectLaunchSecretRequest {
+  name: string;
+  namespace: string;
+  body: V1SEVSecretOptions;
+}
+
+export interface V1alpha3SEVQueryLaunchMeasurementRequest {
+  name: string;
+  namespace: string;
+}
+
+export interface V1alpha3SEVSetupSessionRequest {
+  name: string;
+  namespace: string;
+  body: V1SEVSessionOptions;
+}
+
 export interface V1alpha3SoftRebootRequest {
   name: string;
   namespace: string;
@@ -1380,6 +1451,11 @@ export interface V1alpha3UnpauseRequest {
   body: V1UnpauseOptions;
 }
 
+export interface V1alpha3UserlistRequest {
+  name: string;
+  namespace: string;
+}
+
 export interface V1alpha3VNCRequest {
   name: string;
   namespace: string;
@@ -1401,12 +1477,6 @@ export interface V1alpha3VSOCKRequest {
 export interface V1alpha3usbredirRequest {
   name: string;
   namespace: string;
-}
-
-export interface V1alpha3vmAddinterfaceRequest {
-  name: string;
-  namespace: string;
-  body: V1AddInterfaceOptions;
 }
 
 export interface V1alpha3vmAddvolumeRequest {
@@ -1431,12 +1501,6 @@ export interface V1alpha3vmPortForwardWithProtocolRequest {
   namespace: string;
   port: string;
   protocol: string;
-}
-
-export interface V1alpha3vmRemoveinterfaceRequest {
-  name: string;
-  namespace: string;
-  body: V1RemoveInterfaceOptions;
 }
 
 export interface V1alpha3vmRemovevolumeRequest {
@@ -1475,12 +1539,6 @@ export interface V1usbredirRequest {
   namespace: string;
 }
 
-export interface V1vmAddinterfaceRequest {
-  name: string;
-  namespace: string;
-  body: V1AddInterfaceOptions;
-}
-
 export interface V1vmAddvolumeRequest {
   name: string;
   namespace: string;
@@ -1503,12 +1561,6 @@ export interface V1vmPortForwardWithProtocolRequest {
   namespace: string;
   port: string;
   protocol: string;
-}
-
-export interface V1vmRemoveinterfaceRequest {
-  name: string;
-  namespace: string;
-  body: V1RemoveInterfaceOptions;
 }
 
 export interface V1vmRemovevolumeRequest {
@@ -1965,7 +2017,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/kubevirt`.replace(
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/kubevirt`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -2020,7 +2072,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines`.replace(
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachines`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -2077,7 +2129,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineexports`.replace(
+        path: `/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachineexports`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -2137,7 +2189,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances`.replace(
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -2197,7 +2249,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancemigrations`.replace(
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancemigrations`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -2257,7 +2309,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancepresets`.replace(
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancepresets`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -2317,7 +2369,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancereplicasets`.replace(
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancereplicasets`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -2377,7 +2429,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancetypes`.replace(
+        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachineinstancetypes`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -2437,7 +2489,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepools`.replace(
+        path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -2497,7 +2549,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepreferences`.replace(
+        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepreferences`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -2557,7 +2609,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores`.replace(
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinerestores`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -2617,7 +2669,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots`.replace(
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshots`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -2677,7 +2729,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents`.replace(
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshotcontents`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -2972,7 +3024,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/kubevirt`,
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/kubevirt`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -3044,7 +3096,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines`,
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachines`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -3116,7 +3168,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineexports`,
+        path: `/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachineexports`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -3188,7 +3240,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances`,
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -3260,7 +3312,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancemigrations`,
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancemigrations`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -3332,7 +3384,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancepresets`,
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancepresets`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -3404,7 +3456,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancereplicasets`,
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancereplicasets`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -3476,7 +3528,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancetypes`,
+        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachineinstancetypes`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -3548,7 +3600,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepools`,
+        path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -3620,7 +3672,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepreferences`,
+        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepreferences`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -3692,7 +3744,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores`,
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinerestores`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -3764,7 +3816,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots`,
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshots`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -3836,7 +3888,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents`,
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshotcontents`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -4120,7 +4172,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/migrations.kubevirt.io/v1alpha1/migrationpolicies/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/migrations.kubevirt.io/v1alpha1/migrationpolicies/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -4196,7 +4248,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/kubevirt/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/kubevirt/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'DELETE',
@@ -4271,7 +4323,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'DELETE',
@@ -4346,7 +4398,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineexports/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachineexports/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'DELETE',
@@ -4424,7 +4476,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'DELETE',
@@ -4502,7 +4554,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancemigrations/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancemigrations/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'DELETE',
@@ -4580,7 +4632,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancepresets/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancepresets/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'DELETE',
@@ -4658,7 +4710,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancereplicasets/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancereplicasets/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'DELETE',
@@ -4736,7 +4788,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancetypes/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachineinstancetypes/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'DELETE',
@@ -4814,7 +4866,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepools/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'DELETE',
@@ -4892,7 +4944,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepreferences/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepreferences/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'DELETE',
@@ -4970,7 +5022,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinerestores/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'DELETE',
@@ -5048,7 +5100,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshots/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'DELETE',
@@ -5126,7 +5178,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshotcontents/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'DELETE',
@@ -5197,7 +5249,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -5266,7 +5318,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterinstancetypes/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterinstancetypes/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -5338,7 +5390,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterpreferences/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterpreferences/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -6255,7 +6307,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/kubevirt`.replace(
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/kubevirt`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -6332,7 +6384,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines`.replace(
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachines`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -6411,7 +6463,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineexports`.replace(
+        path: `/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachineexports`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -6493,7 +6545,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances`.replace(
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -6575,7 +6627,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancemigrations`.replace(
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancemigrations`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -6657,7 +6709,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancepresets`.replace(
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancepresets`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -6739,7 +6791,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancereplicasets`.replace(
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancereplicasets`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -6821,7 +6873,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancetypes`.replace(
+        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachineinstancetypes`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -6903,7 +6955,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepools`.replace(
+        path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -6985,7 +7037,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepreferences`.replace(
+        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepreferences`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -7067,7 +7119,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores`.replace(
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinerestores`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -7149,7 +7201,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots`.replace(
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshots`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -7231,7 +7283,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents`.replace(
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshotcontents`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -8367,7 +8419,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/migrations.kubevirt.io/v1alpha1/migrationpolicies/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/migrations.kubevirt.io/v1alpha1/migrationpolicies/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -8431,7 +8483,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/kubevirt/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/kubevirt/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PATCH',
@@ -8492,7 +8544,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PATCH',
@@ -8555,7 +8607,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineexports/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachineexports/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PATCH',
@@ -8621,7 +8673,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PATCH',
@@ -8687,7 +8739,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancemigrations/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancemigrations/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PATCH',
@@ -8753,7 +8805,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancepresets/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancepresets/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PATCH',
@@ -8819,7 +8871,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancereplicasets/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancereplicasets/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PATCH',
@@ -8885,7 +8937,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancetypes/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachineinstancetypes/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PATCH',
@@ -8951,7 +9003,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepools/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PATCH',
@@ -9017,7 +9069,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepreferences/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepreferences/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PATCH',
@@ -9083,7 +9135,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinerestores/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PATCH',
@@ -9149,7 +9201,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshots/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PATCH',
@@ -9215,7 +9267,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshotcontents/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PATCH',
@@ -9274,7 +9326,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -9331,7 +9383,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterinstancetypes/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterinstancetypes/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -9391,7 +9443,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterpreferences/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterpreferences/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -9450,7 +9502,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/migrations.kubevirt.io/v1alpha1/migrationpolicies/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/migrations.kubevirt.io/v1alpha1/migrationpolicies/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -9512,7 +9564,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/kubevirt/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/kubevirt/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -9571,7 +9623,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -9632,7 +9684,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineexports/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachineexports/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -9696,7 +9748,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -9760,7 +9812,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancemigrations/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancemigrations/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -9824,7 +9876,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancepresets/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancepresets/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -9888,7 +9940,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancereplicasets/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancereplicasets/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -9952,7 +10004,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancetypes/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachineinstancetypes/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -10016,7 +10068,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepools/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -10080,7 +10132,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepreferences/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepreferences/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -10144,7 +10196,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinerestores/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -10208,7 +10260,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshots/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -10272,7 +10324,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshotcontents/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -10329,7 +10381,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -10384,7 +10436,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterinstancetypes/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterinstancetypes/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -10442,7 +10494,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterpreferences/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterpreferences/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -10501,7 +10553,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/migrations.kubevirt.io/v1alpha1/migrationpolicies/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/migrations.kubevirt.io/v1alpha1/migrationpolicies/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -10565,7 +10617,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/kubevirt/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/kubevirt/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -10626,7 +10678,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -10692,7 +10744,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineexports/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/export.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachineexports/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -10758,7 +10810,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -10824,7 +10876,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancemigrations/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancemigrations/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -10890,7 +10942,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancepresets/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancepresets/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -10956,7 +11008,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancereplicasets/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstancereplicasets/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -11022,7 +11074,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancetypes/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachineinstancetypes/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -11088,7 +11140,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepools/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -11154,7 +11206,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepreferences/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/instancetype.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepreferences/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -11220,7 +11272,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinerestores/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -11286,7 +11338,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshots/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -11352,7 +11404,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents/{name:[a-z0-9][a-z0-9\-]*}`
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinesnapshotcontents/{name}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -11411,7 +11463,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -11468,7 +11520,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterinstancetypes/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterinstancetypes/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -11528,7 +11580,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterpreferences/{name:[a-z0-9][a-z0-9\-]*}`.replace(
+        path: `/apis/instancetype.kubevirt.io/v1beta1/virtualmachineclusterpreferences/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -11615,7 +11667,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/console`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/console`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -11638,14 +11690,27 @@ export class DefaultApi extends runtime.BaseAPI {
   /**
    * Expands instancetype and preference into the passed VirtualMachine object.
    */
-  async v1ExpandSpecRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+  async v1ExpandSpecRaw(
+    requestParameters: V1ExpandSpecRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<string>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1ExpandSpec.',
+      );
+    }
+
     const queryParameters: any = {};
 
     const headerParameters: runtime.HTTPHeaders = {};
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/expand-vm-spec`,
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/expand-vm-spec`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
         method: 'PUT',
         headers: headerParameters,
         query: queryParameters,
@@ -11659,8 +11724,11 @@ export class DefaultApi extends runtime.BaseAPI {
   /**
    * Expands instancetype and preference into the passed VirtualMachine object.
    */
-  async v1ExpandSpec(initOverrides?: RequestInit): Promise<string> {
-    const response = await this.v1ExpandSpecRaw(initOverrides);
+  async v1ExpandSpec(
+    requestParameters: V1ExpandSpecRequest,
+    initOverrides?: RequestInit,
+  ): Promise<string> {
+    const response = await this.v1ExpandSpecRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -11668,15 +11736,32 @@ export class DefaultApi extends runtime.BaseAPI {
    * Get list of active filesystems on guest machine via guest agent
    */
   async v1FilesystemlistRaw(
+    requestParameters: V1FilesystemlistRequest,
     initOverrides?: RequestInit,
   ): Promise<runtime.ApiResponse<V1VirtualMachineInstanceFileSystemList>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1Filesystemlist.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1Filesystemlist.',
+      );
+    }
+
     const queryParameters: any = {};
 
     const headerParameters: runtime.HTTPHeaders = {};
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/filesystemlist`,
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/filesystemlist`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -11693,9 +11778,10 @@ export class DefaultApi extends runtime.BaseAPI {
    * Get list of active filesystems on guest machine via guest agent
    */
   async v1Filesystemlist(
+    requestParameters: V1FilesystemlistRequest,
     initOverrides?: RequestInit,
   ): Promise<V1VirtualMachineInstanceFileSystemList> {
-    const response = await this.v1FilesystemlistRaw(initOverrides);
+    const response = await this.v1FilesystemlistRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -11735,7 +11821,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/freeze`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/freeze`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -11846,7 +11932,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/guestosinfo`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/guestosinfo`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -11908,7 +11994,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/memorydump`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/memorydump`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -11969,7 +12055,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/migrate`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/migrate`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -12030,7 +12116,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/pause`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/pause`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -12079,7 +12165,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/removememorydump`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/removememorydump`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -12132,7 +12218,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/restart`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/restart`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -12154,6 +12240,234 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<string> {
     const response = await this.v1RestartRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Fetch SEV certificate chain from the node where Virtual Machine is scheduled
+   */
+  async v1SEVFetchCertChainRaw(
+    requestParameters: V1SEVFetchCertChainRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1SEVPlatformInfo>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1SEVFetchCertChain.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1SEVFetchCertChain.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/sev/fetchcertchain`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1SEVPlatformInfoFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Fetch SEV certificate chain from the node where Virtual Machine is scheduled
+   */
+  async v1SEVFetchCertChain(
+    requestParameters: V1SEVFetchCertChainRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1SEVPlatformInfo> {
+    const response = await this.v1SEVFetchCertChainRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Inject SEV launch secret into a Virtual Machine
+   */
+  async v1SEVInjectLaunchSecretRaw(
+    requestParameters: V1SEVInjectLaunchSecretRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<string>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1SEVInjectLaunchSecret.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1SEVInjectLaunchSecret.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling v1SEVInjectLaunchSecret.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/sev/injectlaunchsecret`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1SEVSecretOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.TextApiResponse(response) as any;
+  }
+
+  /**
+   * Inject SEV launch secret into a Virtual Machine
+   */
+  async v1SEVInjectLaunchSecret(
+    requestParameters: V1SEVInjectLaunchSecretRequest,
+    initOverrides?: RequestInit,
+  ): Promise<string> {
+    const response = await this.v1SEVInjectLaunchSecretRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Query SEV launch measurement from a Virtual Machine
+   */
+  async v1SEVQueryLaunchMeasurementRaw(
+    requestParameters: V1SEVQueryLaunchMeasurementRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1SEVMeasurementInfo>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1SEVQueryLaunchMeasurement.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1SEVQueryLaunchMeasurement.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/sev/querylaunchmeasurement`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1SEVMeasurementInfoFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Query SEV launch measurement from a Virtual Machine
+   */
+  async v1SEVQueryLaunchMeasurement(
+    requestParameters: V1SEVQueryLaunchMeasurementRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1SEVMeasurementInfo> {
+    const response = await this.v1SEVQueryLaunchMeasurementRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Setup SEV session parameters for a Virtual Machine
+   */
+  async v1SEVSetupSessionRaw(
+    requestParameters: V1SEVSetupSessionRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<string>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1SEVSetupSession.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1SEVSetupSession.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling v1SEVSetupSession.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/sev/setupsession`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1SEVSessionOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.TextApiResponse(response) as any;
+  }
+
+  /**
+   * Setup SEV session parameters for a Virtual Machine
+   */
+  async v1SEVSetupSession(
+    requestParameters: V1SEVSetupSessionRequest,
+    initOverrides?: RequestInit,
+  ): Promise<string> {
+    const response = await this.v1SEVSetupSessionRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -12184,7 +12498,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/softreboot`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/softreboot`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -12244,7 +12558,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/start`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/start`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -12295,7 +12609,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/stop`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/stop`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -12344,7 +12658,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/unfreeze`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/unfreeze`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -12404,7 +12718,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/unpause`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/unpause`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -12433,15 +12747,32 @@ export class DefaultApi extends runtime.BaseAPI {
    * Get list of active users via guest agent
    */
   async v1UserlistRaw(
+    requestParameters: V1UserlistRequest,
     initOverrides?: RequestInit,
   ): Promise<runtime.ApiResponse<V1VirtualMachineInstanceGuestOSUserList>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1Userlist.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1Userlist.',
+      );
+    }
+
     const queryParameters: any = {};
 
     const headerParameters: runtime.HTTPHeaders = {};
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/userlist`,
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/userlist`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -12457,8 +12788,11 @@ export class DefaultApi extends runtime.BaseAPI {
   /**
    * Get list of active users via guest agent
    */
-  async v1Userlist(initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceGuestOSUserList> {
-    const response = await this.v1UserlistRaw(initOverrides);
+  async v1Userlist(
+    requestParameters: V1UserlistRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1VirtualMachineInstanceGuestOSUserList> {
+    const response = await this.v1UserlistRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -12489,7 +12823,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/vnc`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/vnc`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -12540,7 +12874,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/vnc/screenshot`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/vnc/screenshot`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -12605,7 +12939,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/vsock`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/vsock`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -12707,7 +13041,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/console`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/console`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -12733,14 +13067,27 @@ export class DefaultApi extends runtime.BaseAPI {
   /**
    * Expands instancetype and preference into the passed VirtualMachine object.
    */
-  async v1alpha3ExpandSpecRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+  async v1alpha3ExpandSpecRaw(
+    requestParameters: V1alpha3ExpandSpecRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<string>> {
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1alpha3ExpandSpec.',
+      );
+    }
+
     const queryParameters: any = {};
 
     const headerParameters: runtime.HTTPHeaders = {};
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/expand-vm-spec`,
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/expand-vm-spec`.replace(
+          `{${'namespace'}}`,
+          encodeURIComponent(String(requestParameters.namespace)),
+        ),
         method: 'PUT',
         headers: headerParameters,
         query: queryParameters,
@@ -12754,8 +13101,11 @@ export class DefaultApi extends runtime.BaseAPI {
   /**
    * Expands instancetype and preference into the passed VirtualMachine object.
    */
-  async v1alpha3ExpandSpec(initOverrides?: RequestInit): Promise<string> {
-    const response = await this.v1alpha3ExpandSpecRaw(initOverrides);
+  async v1alpha3ExpandSpec(
+    requestParameters: V1alpha3ExpandSpecRequest,
+    initOverrides?: RequestInit,
+  ): Promise<string> {
+    const response = await this.v1alpha3ExpandSpecRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -12763,15 +13113,32 @@ export class DefaultApi extends runtime.BaseAPI {
    * Get list of active filesystems on guest machine via guest agent
    */
   async v1alpha3FilesystemlistRaw(
+    requestParameters: V1alpha3FilesystemlistRequest,
     initOverrides?: RequestInit,
   ): Promise<runtime.ApiResponse<V1VirtualMachineInstanceFileSystemList>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1alpha3Filesystemlist.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1alpha3Filesystemlist.',
+      );
+    }
+
     const queryParameters: any = {};
 
     const headerParameters: runtime.HTTPHeaders = {};
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/filesystemlist`,
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/filesystemlist`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -12788,9 +13155,10 @@ export class DefaultApi extends runtime.BaseAPI {
    * Get list of active filesystems on guest machine via guest agent
    */
   async v1alpha3Filesystemlist(
+    requestParameters: V1alpha3FilesystemlistRequest,
     initOverrides?: RequestInit,
   ): Promise<V1VirtualMachineInstanceFileSystemList> {
-    const response = await this.v1alpha3FilesystemlistRaw(initOverrides);
+    const response = await this.v1alpha3FilesystemlistRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -12830,7 +13198,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/freeze`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/freeze`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -12909,7 +13277,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/guestosinfo`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/guestosinfo`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -12971,7 +13339,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/memorydump`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/memorydump`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -13032,7 +13400,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/migrate`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/migrate`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -13093,7 +13461,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/pause`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/pause`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -13145,7 +13513,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/removememorydump`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/removememorydump`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -13198,7 +13566,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/restart`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/restart`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -13220,6 +13588,237 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<string> {
     const response = await this.v1alpha3RestartRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Fetch SEV certificate chain from the node where Virtual Machine is scheduled
+   */
+  async v1alpha3SEVFetchCertChainRaw(
+    requestParameters: V1alpha3SEVFetchCertChainRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1SEVPlatformInfo>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1alpha3SEVFetchCertChain.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1alpha3SEVFetchCertChain.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/sev/fetchcertchain`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1SEVPlatformInfoFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Fetch SEV certificate chain from the node where Virtual Machine is scheduled
+   */
+  async v1alpha3SEVFetchCertChain(
+    requestParameters: V1alpha3SEVFetchCertChainRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1SEVPlatformInfo> {
+    const response = await this.v1alpha3SEVFetchCertChainRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Inject SEV launch secret into a Virtual Machine
+   */
+  async v1alpha3SEVInjectLaunchSecretRaw(
+    requestParameters: V1alpha3SEVInjectLaunchSecretRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<string>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1alpha3SEVInjectLaunchSecret.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1alpha3SEVInjectLaunchSecret.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling v1alpha3SEVInjectLaunchSecret.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/sev/injectlaunchsecret`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1SEVSecretOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.TextApiResponse(response) as any;
+  }
+
+  /**
+   * Inject SEV launch secret into a Virtual Machine
+   */
+  async v1alpha3SEVInjectLaunchSecret(
+    requestParameters: V1alpha3SEVInjectLaunchSecretRequest,
+    initOverrides?: RequestInit,
+  ): Promise<string> {
+    const response = await this.v1alpha3SEVInjectLaunchSecretRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Query SEV launch measurement from a Virtual Machine
+   */
+  async v1alpha3SEVQueryLaunchMeasurementRaw(
+    requestParameters: V1alpha3SEVQueryLaunchMeasurementRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1SEVMeasurementInfo>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1alpha3SEVQueryLaunchMeasurement.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1alpha3SEVQueryLaunchMeasurement.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/sev/querylaunchmeasurement`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1SEVMeasurementInfoFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Query SEV launch measurement from a Virtual Machine
+   */
+  async v1alpha3SEVQueryLaunchMeasurement(
+    requestParameters: V1alpha3SEVQueryLaunchMeasurementRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1SEVMeasurementInfo> {
+    const response = await this.v1alpha3SEVQueryLaunchMeasurementRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * Setup SEV session parameters for a Virtual Machine
+   */
+  async v1alpha3SEVSetupSessionRaw(
+    requestParameters: V1alpha3SEVSetupSessionRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<string>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1alpha3SEVSetupSession.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1alpha3SEVSetupSession.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling v1alpha3SEVSetupSession.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/sev/setupsession`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1SEVSessionOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.TextApiResponse(response) as any;
+  }
+
+  /**
+   * Setup SEV session parameters for a Virtual Machine
+   */
+  async v1alpha3SEVSetupSession(
+    requestParameters: V1alpha3SEVSetupSessionRequest,
+    initOverrides?: RequestInit,
+  ): Promise<string> {
+    const response = await this.v1alpha3SEVSetupSessionRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -13250,7 +13849,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/softreboot`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/softreboot`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -13310,7 +13909,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/start`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/start`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -13364,7 +13963,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/stop`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/stop`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -13416,7 +14015,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/unfreeze`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/unfreeze`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -13476,7 +14075,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/unpause`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/unpause`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -13505,15 +14104,32 @@ export class DefaultApi extends runtime.BaseAPI {
    * Get list of active users via guest agent
    */
   async v1alpha3UserlistRaw(
+    requestParameters: V1alpha3UserlistRequest,
     initOverrides?: RequestInit,
   ): Promise<runtime.ApiResponse<V1VirtualMachineInstanceGuestOSUserList>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1alpha3Userlist.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1alpha3Userlist.',
+      );
+    }
+
     const queryParameters: any = {};
 
     const headerParameters: runtime.HTTPHeaders = {};
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/userlist`,
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/userlist`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -13530,9 +14146,10 @@ export class DefaultApi extends runtime.BaseAPI {
    * Get list of active users via guest agent
    */
   async v1alpha3Userlist(
+    requestParameters: V1alpha3UserlistRequest,
     initOverrides?: RequestInit,
   ): Promise<V1VirtualMachineInstanceGuestOSUserList> {
-    const response = await this.v1alpha3UserlistRaw(initOverrides);
+    const response = await this.v1alpha3UserlistRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -13563,7 +14180,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/vnc`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/vnc`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -13617,7 +14234,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/vnc/screenshot`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/vnc/screenshot`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -13682,7 +14299,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/vsock`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/vsock`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -13877,7 +14494,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/usbredir`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/usbredir`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -13898,67 +14515,6 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<void> {
     await this.v1alpha3usbredirRaw(requestParameters, initOverrides);
-  }
-
-  /**
-   * Add a network interface to a running Virtual Machine.
-   */
-  async v1alpha3vmAddinterfaceRaw(
-    requestParameters: V1alpha3vmAddinterfaceRequest,
-    initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<string>> {
-    if (requestParameters.name === null || requestParameters.name === undefined) {
-      throw new runtime.RequiredError(
-        'name',
-        'Required parameter requestParameters.name was null or undefined when calling v1alpha3vmAddinterface.',
-      );
-    }
-
-    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-      throw new runtime.RequiredError(
-        'namespace',
-        'Required parameter requestParameters.namespace was null or undefined when calling v1alpha3vmAddinterface.',
-      );
-    }
-
-    if (requestParameters.body === null || requestParameters.body === undefined) {
-      throw new runtime.RequiredError(
-        'body',
-        'Required parameter requestParameters.body was null or undefined when calling v1alpha3vmAddinterface.',
-      );
-    }
-
-    const queryParameters: any = {};
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    headerParameters['Content-Type'] = 'application/json';
-
-    const response = await this.request(
-      {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/addinterface`
-          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
-        method: 'PUT',
-        headers: headerParameters,
-        query: queryParameters,
-        body: V1AddInterfaceOptionsToJSON(requestParameters.body),
-      },
-      initOverrides,
-    );
-
-    return new runtime.TextApiResponse(response) as any;
-  }
-
-  /**
-   * Add a network interface to a running Virtual Machine.
-   */
-  async v1alpha3vmAddinterface(
-    requestParameters: V1alpha3vmAddinterfaceRequest,
-    initOverrides?: RequestInit,
-  ): Promise<string> {
-    const response = await this.v1alpha3vmAddinterfaceRaw(requestParameters, initOverrides);
-    return await response.value();
   }
 
   /**
@@ -13997,7 +14553,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/addvolume`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/addvolume`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -14049,7 +14605,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/expand-spec`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/expand-spec`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -14107,7 +14663,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/portforward/{port:[0-9]+}`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/portforward/{port}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
           .replace(`{${'port'}}`, encodeURIComponent(String(requestParameters.port))),
@@ -14172,7 +14728,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/portforward/{port:[0-9]+}/{protocol:tcp|udp}`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/portforward/{port}/{protocol}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
           .replace(`{${'port'}}`, encodeURIComponent(String(requestParameters.port)))
@@ -14195,67 +14751,6 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<void> {
     await this.v1alpha3vmPortForwardWithProtocolRaw(requestParameters, initOverrides);
-  }
-
-  /**
-   * Remove a network interface from a running Virtual Machine
-   */
-  async v1alpha3vmRemoveinterfaceRaw(
-    requestParameters: V1alpha3vmRemoveinterfaceRequest,
-    initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<string>> {
-    if (requestParameters.name === null || requestParameters.name === undefined) {
-      throw new runtime.RequiredError(
-        'name',
-        'Required parameter requestParameters.name was null or undefined when calling v1alpha3vmRemoveinterface.',
-      );
-    }
-
-    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-      throw new runtime.RequiredError(
-        'namespace',
-        'Required parameter requestParameters.namespace was null or undefined when calling v1alpha3vmRemoveinterface.',
-      );
-    }
-
-    if (requestParameters.body === null || requestParameters.body === undefined) {
-      throw new runtime.RequiredError(
-        'body',
-        'Required parameter requestParameters.body was null or undefined when calling v1alpha3vmRemoveinterface.',
-      );
-    }
-
-    const queryParameters: any = {};
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    headerParameters['Content-Type'] = 'application/json';
-
-    const response = await this.request(
-      {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/removeinterface`
-          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
-        method: 'PUT',
-        headers: headerParameters,
-        query: queryParameters,
-        body: V1RemoveInterfaceOptionsToJSON(requestParameters.body),
-      },
-      initOverrides,
-    );
-
-    return new runtime.TextApiResponse(response) as any;
-  }
-
-  /**
-   * Remove a network interface from a running Virtual Machine
-   */
-  async v1alpha3vmRemoveinterface(
-    requestParameters: V1alpha3vmRemoveinterfaceRequest,
-    initOverrides?: RequestInit,
-  ): Promise<string> {
-    const response = await this.v1alpha3vmRemoveinterfaceRaw(requestParameters, initOverrides);
-    return await response.value();
   }
 
   /**
@@ -14294,7 +14789,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/removevolume`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/removevolume`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -14355,7 +14850,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/addvolume`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/addvolume`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -14414,7 +14909,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/portforward/{port:[0-9]+}`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/portforward/{port}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
           .replace(`{${'port'}}`, encodeURIComponent(String(requestParameters.port))),
@@ -14479,7 +14974,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/portforward/{port:[0-9]+}/{protocol:tcp|udp}`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/portforward/{port}/{protocol}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
           .replace(`{${'port'}}`, encodeURIComponent(String(requestParameters.port)))
@@ -14540,7 +15035,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/removevolume`
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/removevolume`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -14705,7 +15200,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/usbredir`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/usbredir`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -14726,67 +15221,6 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<void> {
     await this.v1usbredirRaw(requestParameters, initOverrides);
-  }
-
-  /**
-   * Add a network interface to a running Virtual Machine.
-   */
-  async v1vmAddinterfaceRaw(
-    requestParameters: V1vmAddinterfaceRequest,
-    initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<string>> {
-    if (requestParameters.name === null || requestParameters.name === undefined) {
-      throw new runtime.RequiredError(
-        'name',
-        'Required parameter requestParameters.name was null or undefined when calling v1vmAddinterface.',
-      );
-    }
-
-    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-      throw new runtime.RequiredError(
-        'namespace',
-        'Required parameter requestParameters.namespace was null or undefined when calling v1vmAddinterface.',
-      );
-    }
-
-    if (requestParameters.body === null || requestParameters.body === undefined) {
-      throw new runtime.RequiredError(
-        'body',
-        'Required parameter requestParameters.body was null or undefined when calling v1vmAddinterface.',
-      );
-    }
-
-    const queryParameters: any = {};
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    headerParameters['Content-Type'] = 'application/json';
-
-    const response = await this.request(
-      {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/addinterface`
-          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
-        method: 'PUT',
-        headers: headerParameters,
-        query: queryParameters,
-        body: V1AddInterfaceOptionsToJSON(requestParameters.body),
-      },
-      initOverrides,
-    );
-
-    return new runtime.TextApiResponse(response) as any;
-  }
-
-  /**
-   * Add a network interface to a running Virtual Machine.
-   */
-  async v1vmAddinterface(
-    requestParameters: V1vmAddinterfaceRequest,
-    initOverrides?: RequestInit,
-  ): Promise<string> {
-    const response = await this.v1vmAddinterfaceRaw(requestParameters, initOverrides);
-    return await response.value();
   }
 
   /**
@@ -14825,7 +15259,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/addvolume`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/addvolume`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -14877,7 +15311,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/expand-spec`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/expand-spec`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
@@ -14935,7 +15369,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/portforward/{port:[0-9]+}`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/portforward/{port}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
           .replace(`{${'port'}}`, encodeURIComponent(String(requestParameters.port))),
@@ -15000,7 +15434,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/portforward/{port:[0-9]+}/{protocol:tcp|udp}`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/portforward/{port}/{protocol}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
           .replace(`{${'port'}}`, encodeURIComponent(String(requestParameters.port)))
@@ -15023,67 +15457,6 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<void> {
     await this.v1vmPortForwardWithProtocolRaw(requestParameters, initOverrides);
-  }
-
-  /**
-   * Remove a network interface from a running Virtual Machine
-   */
-  async v1vmRemoveinterfaceRaw(
-    requestParameters: V1vmRemoveinterfaceRequest,
-    initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<string>> {
-    if (requestParameters.name === null || requestParameters.name === undefined) {
-      throw new runtime.RequiredError(
-        'name',
-        'Required parameter requestParameters.name was null or undefined when calling v1vmRemoveinterface.',
-      );
-    }
-
-    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
-      throw new runtime.RequiredError(
-        'namespace',
-        'Required parameter requestParameters.namespace was null or undefined when calling v1vmRemoveinterface.',
-      );
-    }
-
-    if (requestParameters.body === null || requestParameters.body === undefined) {
-      throw new runtime.RequiredError(
-        'body',
-        'Required parameter requestParameters.body was null or undefined when calling v1vmRemoveinterface.',
-      );
-    }
-
-    const queryParameters: any = {};
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    headerParameters['Content-Type'] = 'application/json';
-
-    const response = await this.request(
-      {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/removeinterface`
-          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
-        method: 'PUT',
-        headers: headerParameters,
-        query: queryParameters,
-        body: V1RemoveInterfaceOptionsToJSON(requestParameters.body),
-      },
-      initOverrides,
-    );
-
-    return new runtime.TextApiResponse(response) as any;
-  }
-
-  /**
-   * Remove a network interface from a running Virtual Machine
-   */
-  async v1vmRemoveinterface(
-    requestParameters: V1vmRemoveinterfaceRequest,
-    initOverrides?: RequestInit,
-  ): Promise<string> {
-    const response = await this.v1vmRemoveinterfaceRaw(requestParameters, initOverrides);
-    return await response.value();
   }
 
   /**
@@ -15122,7 +15495,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines/{name:[a-z0-9][a-z0-9\-]*}/removevolume`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/removevolume`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -15183,7 +15556,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/addvolume`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/addvolume`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -15242,7 +15615,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/portforward/{port:[0-9]+}`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/portforward/{port}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
           .replace(`{${'port'}}`, encodeURIComponent(String(requestParameters.port))),
@@ -15307,7 +15680,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/portforward/{port:[0-9]+}/{protocol:tcp|udp}`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/portforward/{port}/{protocol}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
           .replace(`{${'port'}}`, encodeURIComponent(String(requestParameters.port)))
@@ -15368,7 +15741,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]*}/removevolume`
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/removevolume`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
           .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
@@ -15589,7 +15962,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/kubevirt`.replace(
+        path: `/apis/kubevirt.io/v1/watch/namespaces/{namespace}/kubevirt`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -15668,7 +16041,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachines`.replace(
+        path: `/apis/kubevirt.io/v1/watch/namespaces/{namespace}/virtualmachines`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -15747,7 +16120,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/export.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineexports`.replace(
+        path: `/apis/export.kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachineexports`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -15829,7 +16202,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstances`.replace(
+        path: `/apis/kubevirt.io/v1/watch/namespaces/{namespace}/virtualmachineinstances`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -15911,7 +16284,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancemigrations`.replace(
+        path: `/apis/kubevirt.io/v1/watch/namespaces/{namespace}/virtualmachineinstancemigrations`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -15993,7 +16366,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancepresets`.replace(
+        path: `/apis/kubevirt.io/v1/watch/namespaces/{namespace}/virtualmachineinstancepresets`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -16075,7 +16448,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/kubevirt.io/v1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancereplicasets`.replace(
+        path: `/apis/kubevirt.io/v1/watch/namespaces/{namespace}/virtualmachineinstancereplicasets`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -16157,7 +16530,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachineinstancetypes`.replace(
+        path: `/apis/instancetype.kubevirt.io/v1beta1/watch/namespaces/{namespace}/virtualmachineinstancetypes`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -16239,7 +16612,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/pool.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepools`.replace(
+        path: `/apis/pool.kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachinepools`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -16321,7 +16694,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/instancetype.kubevirt.io/v1beta1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinepreferences`.replace(
+        path: `/apis/instancetype.kubevirt.io/v1beta1/watch/namespaces/{namespace}/virtualmachinepreferences`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -16403,7 +16776,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores`.replace(
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachinerestores`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -16485,7 +16858,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots`.replace(
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachinesnapshots`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),
@@ -16567,7 +16940,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents`.replace(
+        path: `/apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachinesnapshotcontents`.replace(
           `{${'namespace'}}`,
           encodeURIComponent(String(requestParameters.namespace)),
         ),

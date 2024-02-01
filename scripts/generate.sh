@@ -4,7 +4,7 @@ set -eu
 OPENAPI_GENERATOR_CLI=./node_modules/.bin/openapi-generator-cli
 
 # Use released versions
-KUBEVIRT_RELEASE=release-1.0
+KUBEVIRT_RELEASE=release-1.1
 CDI_RELEASE=main
 KUBERNETES_RELEASE=release-1.27
 # openshift console latest main commit hash

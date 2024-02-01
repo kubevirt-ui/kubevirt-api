@@ -76,16 +76,29 @@ export interface V1PersistentVolumeClaimSpec {
     storageClassName?: string;
     /**
      * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
+     * 
+     * Possible enum values:
+     *  - `"Block"` means the volume will not be formatted with a filesystem and will remain a raw block device.
+     *  - `"Filesystem"` means the volume will be or is formatted with a filesystem.
      * @type {string}
      * @memberof V1PersistentVolumeClaimSpec
      */
-    volumeMode?: string;
+    volumeMode?: V1PersistentVolumeClaimSpecVolumeModeEnum;
     /**
      * volumeName is the binding reference to the PersistentVolume backing this claim.
      * @type {string}
      * @memberof V1PersistentVolumeClaimSpec
      */
     volumeName?: string;
+}
+
+/**
+* @export
+* @enum {string}
+*/
+export enum V1PersistentVolumeClaimSpecVolumeModeEnum {
+    Block = 'Block',
+    Filesystem = 'Filesystem'
 }
 
 export function V1PersistentVolumeClaimSpecFromJSON(json: any): V1PersistentVolumeClaimSpec {

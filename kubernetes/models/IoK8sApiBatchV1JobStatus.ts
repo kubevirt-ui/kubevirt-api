@@ -59,6 +59,12 @@ export interface IoK8sApiBatchV1JobStatus {
    */
   failed?: number;
   /**
+   * FailedIndexes holds the failed indexes when backoffLimitPerIndex=true. The indexes are represented in the text format analogous as for the `completedIndexes` field, ie. they are kept as decimal integers separated by commas. The numbers are listed in increasing order. Three or more consecutive numbers are compressed and represented by the first and last element of the series, separated by a hyphen. For example, if the failed indexes are 1, 3, 4, 5 and 7, they are represented as "1,3-5,7". This field is alpha-level. It can be used when the `JobBackoffLimitPerIndex` feature gate is enabled (disabled by default).
+   * @type {string}
+   * @memberof IoK8sApiBatchV1JobStatus
+   */
+  failedIndexes?: string;
+  /**
    * The number of pods which have a Ready condition.
    *
    * This field is beta-level. The job controller populates the field when the feature gate JobReadyPods is enabled (enabled by default).
@@ -78,6 +84,14 @@ export interface IoK8sApiBatchV1JobStatus {
    * @memberof IoK8sApiBatchV1JobStatus
    */
   succeeded?: number;
+  /**
+   * The number of pods which are terminating (in phase Pending or Running and have a deletionTimestamp).
+   *
+   * This field is alpha-level. The job controller populates the field when the feature gate JobPodReplacementPolicy is enabled (disabled by default).
+   * @type {number}
+   * @memberof IoK8sApiBatchV1JobStatus
+   */
+  terminating?: number;
   /**
    *
    * @type {IoK8sApiBatchV1UncountedTerminatedPods}
@@ -105,9 +119,11 @@ export function IoK8sApiBatchV1JobStatusFromJSONTyped(
       ? undefined
       : (json['conditions'] as Array<any>).map(IoK8sApiBatchV1JobConditionFromJSON),
     failed: !exists(json, 'failed') ? undefined : json['failed'],
+    failedIndexes: !exists(json, 'failedIndexes') ? undefined : json['failedIndexes'],
     ready: !exists(json, 'ready') ? undefined : json['ready'],
     startTime: !exists(json, 'startTime') ? undefined : json['startTime'],
     succeeded: !exists(json, 'succeeded') ? undefined : json['succeeded'],
+    terminating: !exists(json, 'terminating') ? undefined : json['terminating'],
     uncountedTerminatedPods: !exists(json, 'uncountedTerminatedPods')
       ? undefined
       : IoK8sApiBatchV1UncountedTerminatedPodsFromJSON(json['uncountedTerminatedPods']),
@@ -130,9 +146,11 @@ export function IoK8sApiBatchV1JobStatusToJSON(value?: IoK8sApiBatchV1JobStatus 
         ? undefined
         : (value.conditions as Array<any>).map(IoK8sApiBatchV1JobConditionToJSON),
     failed: value.failed,
+    failedIndexes: value.failedIndexes,
     ready: value.ready,
     startTime: value.startTime === undefined ? undefined : value.startTime,
     succeeded: value.succeeded,
+    terminating: value.terminating,
     uncountedTerminatedPods: IoK8sApiBatchV1UncountedTerminatedPodsToJSON(
       value.uncountedTerminatedPods,
     ),

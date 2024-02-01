@@ -17,9 +17,6 @@ import {
   IoK8sApiNetworkingV1NetworkPolicySpec,
   IoK8sApiNetworkingV1NetworkPolicySpecFromJSON,
   IoK8sApiNetworkingV1NetworkPolicySpecToJSON,
-  IoK8sApiNetworkingV1NetworkPolicyStatus,
-  IoK8sApiNetworkingV1NetworkPolicyStatusFromJSON,
-  IoK8sApiNetworkingV1NetworkPolicyStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
   IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
@@ -55,12 +52,6 @@ export interface IoK8sApiNetworkingV1NetworkPolicy {
    * @memberof IoK8sApiNetworkingV1NetworkPolicy
    */
   spec?: IoK8sApiNetworkingV1NetworkPolicySpec;
-  /**
-   *
-   * @type {IoK8sApiNetworkingV1NetworkPolicyStatus}
-   * @memberof IoK8sApiNetworkingV1NetworkPolicy
-   */
-  status?: IoK8sApiNetworkingV1NetworkPolicyStatus;
 }
 
 export function IoK8sApiNetworkingV1NetworkPolicyFromJSON(
@@ -85,9 +76,6 @@ export function IoK8sApiNetworkingV1NetworkPolicyFromJSONTyped(
     spec: !exists(json, 'spec')
       ? undefined
       : IoK8sApiNetworkingV1NetworkPolicySpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiNetworkingV1NetworkPolicyStatusFromJSON(json['status']),
   };
 }
 
@@ -105,6 +93,5 @@ export function IoK8sApiNetworkingV1NetworkPolicyToJSON(
     kind: value.kind,
     metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
     spec: IoK8sApiNetworkingV1NetworkPolicySpecToJSON(value.spec),
-    status: IoK8sApiNetworkingV1NetworkPolicyStatusToJSON(value.status),
   };
 }

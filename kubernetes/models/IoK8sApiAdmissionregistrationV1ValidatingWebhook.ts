@@ -62,7 +62,7 @@ export interface IoK8sApiAdmissionregistrationV1ValidatingWebhook {
    *      - If failurePolicy=Fail, reject the request
    *      - If failurePolicy=Ignore, the error is ignored and the webhook is skipped
    *
-   * This is an alpha feature and managed by the AdmissionWebhookMatchConditions feature gate.
+   * This is a beta feature and managed by the AdmissionWebhookMatchConditions feature gate.
    * @type {Array<IoK8sApiAdmissionregistrationV1MatchCondition>}
    * @memberof IoK8sApiAdmissionregistrationV1ValidatingWebhook
    */

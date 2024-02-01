@@ -14,6 +14,9 @@
 
 import { exists } from '../runtime';
 import {
+  IoK8sApiFlowcontrolV1beta2ExemptPriorityLevelConfiguration,
+  IoK8sApiFlowcontrolV1beta2ExemptPriorityLevelConfigurationFromJSON,
+  IoK8sApiFlowcontrolV1beta2ExemptPriorityLevelConfigurationToJSON,
   IoK8sApiFlowcontrolV1beta2LimitedPriorityLevelConfiguration,
   IoK8sApiFlowcontrolV1beta2LimitedPriorityLevelConfigurationFromJSON,
   IoK8sApiFlowcontrolV1beta2LimitedPriorityLevelConfigurationToJSON,
@@ -25,6 +28,12 @@ import {
  * @interface IoK8sApiFlowcontrolV1beta2PriorityLevelConfigurationSpec
  */
 export interface IoK8sApiFlowcontrolV1beta2PriorityLevelConfigurationSpec {
+  /**
+   *
+   * @type {IoK8sApiFlowcontrolV1beta2ExemptPriorityLevelConfiguration}
+   * @memberof IoK8sApiFlowcontrolV1beta2PriorityLevelConfigurationSpec
+   */
+  exempt?: IoK8sApiFlowcontrolV1beta2ExemptPriorityLevelConfiguration;
   /**
    *
    * @type {IoK8sApiFlowcontrolV1beta2LimitedPriorityLevelConfiguration}
@@ -53,6 +62,9 @@ export function IoK8sApiFlowcontrolV1beta2PriorityLevelConfigurationSpecFromJSON
     return json;
   }
   return {
+    exempt: !exists(json, 'exempt')
+      ? undefined
+      : IoK8sApiFlowcontrolV1beta2ExemptPriorityLevelConfigurationFromJSON(json['exempt']),
     limited: !exists(json, 'limited')
       ? undefined
       : IoK8sApiFlowcontrolV1beta2LimitedPriorityLevelConfigurationFromJSON(json['limited']),
@@ -70,6 +82,7 @@ export function IoK8sApiFlowcontrolV1beta2PriorityLevelConfigurationSpecToJSON(
     return null;
   }
   return {
+    exempt: IoK8sApiFlowcontrolV1beta2ExemptPriorityLevelConfigurationToJSON(value.exempt),
     limited: IoK8sApiFlowcontrolV1beta2LimitedPriorityLevelConfigurationToJSON(value.limited),
     type: value.type,
   };

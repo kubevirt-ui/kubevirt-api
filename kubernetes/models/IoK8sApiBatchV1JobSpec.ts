@@ -44,6 +44,12 @@ export interface IoK8sApiBatchV1JobSpec {
    */
   backoffLimit?: number;
   /**
+   * Specifies the limit for the number of retries within an index before marking this index as failed. When enabled the number of failures per index is kept in the pod's batch.kubernetes.io/job-index-failure-count annotation. It can only be set when Job's completionMode=Indexed, and the Pod's restart policy is Never. The field is immutable. This field is alpha-level. It can be used when the `JobBackoffLimitPerIndex` feature gate is enabled (disabled by default).
+   * @type {number}
+   * @memberof IoK8sApiBatchV1JobSpec
+   */
+  backoffLimitPerIndex?: number;
+  /**
    * completionMode specifies how Pod completions are tracked. It can be `NonIndexed` (default) or `Indexed`.
    *
    * `NonIndexed` means that the Job is considered complete when there have been .spec.completions successfully completed Pods. Each Pod completion is homologous to each other.
@@ -68,6 +74,12 @@ export interface IoK8sApiBatchV1JobSpec {
    */
   manualSelector?: boolean;
   /**
+   * Specifies the maximal number of failed indexes before marking the Job as failed, when backoffLimitPerIndex is set. Once the number of failed indexes exceeds this number the entire Job is marked as Failed and its execution is terminated. When left as null the job continues execution of all of its indexes and is marked with the `Complete` Job condition. It can only be specified when backoffLimitPerIndex is set. It can be null or up to completions. It is required and must be less than or equal to 10^4 when is completions greater than 10^5. This field is alpha-level. It can be used when the `JobBackoffLimitPerIndex` feature gate is enabled (disabled by default).
+   * @type {number}
+   * @memberof IoK8sApiBatchV1JobSpec
+   */
+  maxFailedIndexes?: number;
+  /**
    * Specifies the maximum desired number of pods the job should run at any given time. The actual number of pods running in steady state will be less than this number when ((.spec.completions - .status.successful) < .spec.parallelism), i.e. when the work left to do is less than max parallelism. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
    * @type {number}
    * @memberof IoK8sApiBatchV1JobSpec
@@ -79,6 +91,17 @@ export interface IoK8sApiBatchV1JobSpec {
    * @memberof IoK8sApiBatchV1JobSpec
    */
   podFailurePolicy?: IoK8sApiBatchV1PodFailurePolicy;
+  /**
+   * podReplacementPolicy specifies when to create replacement Pods. Possible values are: - TerminatingOrFailed means that we recreate pods
+   *   when they are terminating (has a metadata.deletionTimestamp) or failed.
+   * - Failed means to wait until a previously created Pod is fully terminated (has phase
+   *   Failed or Succeeded) before creating a replacement Pod.
+   *
+   * When using podFailurePolicy, Failed is the the only allowed value. TerminatingOrFailed and Failed are allowed values when podFailurePolicy is not in use. This is an alpha field. Enable JobPodReplacementPolicy to be able to use this field.
+   * @type {string}
+   * @memberof IoK8sApiBatchV1JobSpec
+   */
+  podReplacementPolicy?: string;
   /**
    *
    * @type {IoK8sApimachineryPkgApisMetaV1LabelSelector}
@@ -121,13 +144,20 @@ export function IoK8sApiBatchV1JobSpecFromJSONTyped(
       ? undefined
       : json['activeDeadlineSeconds'],
     backoffLimit: !exists(json, 'backoffLimit') ? undefined : json['backoffLimit'],
+    backoffLimitPerIndex: !exists(json, 'backoffLimitPerIndex')
+      ? undefined
+      : json['backoffLimitPerIndex'],
     completionMode: !exists(json, 'completionMode') ? undefined : json['completionMode'],
     completions: !exists(json, 'completions') ? undefined : json['completions'],
     manualSelector: !exists(json, 'manualSelector') ? undefined : json['manualSelector'],
+    maxFailedIndexes: !exists(json, 'maxFailedIndexes') ? undefined : json['maxFailedIndexes'],
     parallelism: !exists(json, 'parallelism') ? undefined : json['parallelism'],
     podFailurePolicy: !exists(json, 'podFailurePolicy')
       ? undefined
       : IoK8sApiBatchV1PodFailurePolicyFromJSON(json['podFailurePolicy']),
+    podReplacementPolicy: !exists(json, 'podReplacementPolicy')
+      ? undefined
+      : json['podReplacementPolicy'],
     selector: !exists(json, 'selector')
       ? undefined
       : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
@@ -149,11 +179,14 @@ export function IoK8sApiBatchV1JobSpecToJSON(value?: IoK8sApiBatchV1JobSpec | nu
   return {
     activeDeadlineSeconds: value.activeDeadlineSeconds,
     backoffLimit: value.backoffLimit,
+    backoffLimitPerIndex: value.backoffLimitPerIndex,
     completionMode: value.completionMode,
     completions: value.completions,
     manualSelector: value.manualSelector,
+    maxFailedIndexes: value.maxFailedIndexes,
     parallelism: value.parallelism,
     podFailurePolicy: IoK8sApiBatchV1PodFailurePolicyToJSON(value.podFailurePolicy),
+    podReplacementPolicy: value.podReplacementPolicy,
     selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
     suspend: value.suspend,
     template: IoK8sApiCoreV1PodTemplateSpecToJSON(value.template),

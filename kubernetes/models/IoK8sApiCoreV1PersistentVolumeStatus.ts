@@ -20,6 +20,12 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1PersistentVolumeStatus {
   /**
+   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+   * @type {string}
+   * @memberof IoK8sApiCoreV1PersistentVolumeStatus
+   */
+  lastPhaseTransitionTime?: string;
+  /**
    * message is a human-readable message indicating details about why the volume is in this state.
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeStatus
@@ -53,6 +59,9 @@ export function IoK8sApiCoreV1PersistentVolumeStatusFromJSONTyped(
     return json;
   }
   return {
+    lastPhaseTransitionTime: !exists(json, 'lastPhaseTransitionTime')
+      ? undefined
+      : json['lastPhaseTransitionTime'],
     message: !exists(json, 'message') ? undefined : json['message'],
     phase: !exists(json, 'phase') ? undefined : json['phase'],
     reason: !exists(json, 'reason') ? undefined : json['reason'],
@@ -69,6 +78,8 @@ export function IoK8sApiCoreV1PersistentVolumeStatusToJSON(
     return null;
   }
   return {
+    lastPhaseTransitionTime:
+      value.lastPhaseTransitionTime === undefined ? undefined : value.lastPhaseTransitionTime,
     message: value.message,
     phase: value.phase,
     reason: value.reason,

@@ -13,24 +13,52 @@
  */
 
 import { exists } from '../runtime';
+import {
+  IoK8sApimachineryPkgApisMetaV1LabelSelector,
+  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
+  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
+} from './';
+
 /**
- * ParamRef references a parameter resource
+ * ParamRef describes how to locate the params to be used as input to expressions of rules applied by a policy binding.
  * @export
  * @interface IoK8sApiAdmissionregistrationV1alpha1ParamRef
  */
 export interface IoK8sApiAdmissionregistrationV1alpha1ParamRef {
   /**
-   * Name of the resource being referenced.
+   * `name` is the name of the resource being referenced.
+   *
+   * `name` and `selector` are mutually exclusive properties. If one is set, the other must be unset.
    * @type {string}
    * @memberof IoK8sApiAdmissionregistrationV1alpha1ParamRef
    */
   name?: string;
   /**
-   * Namespace of the referenced resource. Should be empty for the cluster-scoped resources
+   * namespace is the namespace of the referenced resource. Allows limiting the search for params to a specific namespace. Applies to both `name` and `selector` fields.
+   *
+   * A per-namespace parameter may be used by specifying a namespace-scoped `paramKind` in the policy and leaving this field empty.
+   *
+   * - If `paramKind` is cluster-scoped, this field MUST be unset. Setting this field results in a configuration error.
+   *
+   * - If `paramKind` is namespace-scoped, the namespace of the object being evaluated for admission will be used when this field is left unset. Take care that if this is left empty the binding must not match any cluster-scoped resources, which will result in an error.
    * @type {string}
    * @memberof IoK8sApiAdmissionregistrationV1alpha1ParamRef
    */
   namespace?: string;
+  /**
+   * `parameterNotFoundAction` controls the behavior of the binding when the resource exists, and name or selector is valid, but there are no parameters matched by the binding. If the value is set to `Allow`, then no matched parameters will be treated as successful validation by the binding. If set to `Deny`, then no matched parameters will be subject to the `failurePolicy` of the policy.
+   *
+   * Allowed values are `Allow` or `Deny` Default to `Deny`
+   * @type {string}
+   * @memberof IoK8sApiAdmissionregistrationV1alpha1ParamRef
+   */
+  parameterNotFoundAction?: string;
+  /**
+   *
+   * @type {IoK8sApimachineryPkgApisMetaV1LabelSelector}
+   * @memberof IoK8sApiAdmissionregistrationV1alpha1ParamRef
+   */
+  selector?: IoK8sApimachineryPkgApisMetaV1LabelSelector;
 }
 
 export function IoK8sApiAdmissionregistrationV1alpha1ParamRefFromJSON(
@@ -49,6 +77,12 @@ export function IoK8sApiAdmissionregistrationV1alpha1ParamRefFromJSONTyped(
   return {
     name: !exists(json, 'name') ? undefined : json['name'],
     namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
+    parameterNotFoundAction: !exists(json, 'parameterNotFoundAction')
+      ? undefined
+      : json['parameterNotFoundAction'],
+    selector: !exists(json, 'selector')
+      ? undefined
+      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
   };
 }
 
@@ -64,5 +98,7 @@ export function IoK8sApiAdmissionregistrationV1alpha1ParamRefToJSON(
   return {
     name: value.name,
     namespace: value.namespace,
+    parameterNotFoundAction: value.parameterNotFoundAction,
+    selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
   };
 }

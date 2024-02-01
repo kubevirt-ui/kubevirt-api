@@ -14,12 +14,23 @@
 
 import * as runtime from '../runtime';
 import {
+  IoK8sApiAuthenticationV1SelfSubjectReview,
+  IoK8sApiAuthenticationV1SelfSubjectReviewFromJSON,
+  IoK8sApiAuthenticationV1SelfSubjectReviewToJSON,
   IoK8sApiAuthenticationV1TokenReview,
   IoK8sApiAuthenticationV1TokenReviewFromJSON,
   IoK8sApiAuthenticationV1TokenReviewToJSON,
   IoK8sApimachineryPkgApisMetaV1APIResourceList,
   IoK8sApimachineryPkgApisMetaV1APIResourceListFromJSON,
 } from '../models';
+
+export interface CreateAuthenticationV1SelfSubjectReviewRequest {
+  body: IoK8sApiAuthenticationV1SelfSubjectReview;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
+  pretty?: string;
+}
 
 export interface CreateAuthenticationV1TokenReviewRequest {
   body: IoK8sApiAuthenticationV1TokenReview;
@@ -33,6 +44,76 @@ export interface CreateAuthenticationV1TokenReviewRequest {
  *
  */
 export class AuthenticationV1Api extends runtime.BaseAPI {
+  /**
+   * create a SelfSubjectReview
+   */
+  async createAuthenticationV1SelfSubjectReviewRaw(
+    requestParameters: CreateAuthenticationV1SelfSubjectReviewRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiAuthenticationV1SelfSubjectReview>> {
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling createAuthenticationV1SelfSubjectReview.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/authentication.k8s.io/v1/selfsubjectreviews`,
+        method: 'POST',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApiAuthenticationV1SelfSubjectReviewToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiAuthenticationV1SelfSubjectReviewFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * create a SelfSubjectReview
+   */
+  async createAuthenticationV1SelfSubjectReview(
+    requestParameters: CreateAuthenticationV1SelfSubjectReviewRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiAuthenticationV1SelfSubjectReview> {
+    const response = await this.createAuthenticationV1SelfSubjectReviewRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
   /**
    * create a TokenReview
    */

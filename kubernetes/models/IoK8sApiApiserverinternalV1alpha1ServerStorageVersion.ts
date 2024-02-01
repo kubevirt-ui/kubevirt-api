@@ -37,6 +37,12 @@ export interface IoK8sApiApiserverinternalV1alpha1ServerStorageVersion {
    * @memberof IoK8sApiApiserverinternalV1alpha1ServerStorageVersion
    */
   encodingVersion?: string;
+  /**
+   * The API server can serve these versions. DecodableVersions must include all ServedVersions.
+   * @type {Array<string>}
+   * @memberof IoK8sApiApiserverinternalV1alpha1ServerStorageVersion
+   */
+  servedVersions?: Array<string>;
 }
 
 export function IoK8sApiApiserverinternalV1alpha1ServerStorageVersionFromJSON(
@@ -56,6 +62,7 @@ export function IoK8sApiApiserverinternalV1alpha1ServerStorageVersionFromJSONTyp
     apiServerID: !exists(json, 'apiServerID') ? undefined : json['apiServerID'],
     decodableVersions: !exists(json, 'decodableVersions') ? undefined : json['decodableVersions'],
     encodingVersion: !exists(json, 'encodingVersion') ? undefined : json['encodingVersion'],
+    servedVersions: !exists(json, 'servedVersions') ? undefined : json['servedVersions'],
   };
 }
 
@@ -72,5 +79,6 @@ export function IoK8sApiApiserverinternalV1alpha1ServerStorageVersionToJSON(
     apiServerID: value.apiServerID,
     decodableVersions: value.decodableVersions,
     encodingVersion: value.encodingVersion,
+    servedVersions: value.servedVersions,
   };
 }

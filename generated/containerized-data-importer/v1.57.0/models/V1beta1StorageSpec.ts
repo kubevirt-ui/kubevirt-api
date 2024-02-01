@@ -33,79 +33,66 @@ import {
 } from './';
 
 /**
- * PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes
+ * StorageSpec defines the Storage type specification
  * @export
- * @interface V1PersistentVolumeClaimSpec
+ * @interface V1beta1StorageSpec
  */
-export interface V1PersistentVolumeClaimSpec {
+export interface V1beta1StorageSpec {
     /**
-     * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+     * AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
      * @type {Array<string>}
-     * @memberof V1PersistentVolumeClaimSpec
+     * @memberof V1beta1StorageSpec
      */
     accessModes?: Array<string>;
     /**
      * 
      * @type {V1TypedLocalObjectReference}
-     * @memberof V1PersistentVolumeClaimSpec
+     * @memberof V1beta1StorageSpec
      */
     dataSource?: V1TypedLocalObjectReference;
     /**
      * 
      * @type {V1TypedObjectReference}
-     * @memberof V1PersistentVolumeClaimSpec
+     * @memberof V1beta1StorageSpec
      */
     dataSourceRef?: V1TypedObjectReference;
     /**
      * 
      * @type {V1ResourceRequirements}
-     * @memberof V1PersistentVolumeClaimSpec
+     * @memberof V1beta1StorageSpec
      */
     resources?: V1ResourceRequirements;
     /**
      * 
      * @type {V1LabelSelector}
-     * @memberof V1PersistentVolumeClaimSpec
+     * @memberof V1beta1StorageSpec
      */
     selector?: V1LabelSelector;
     /**
-     * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+     * Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
      * @type {string}
-     * @memberof V1PersistentVolumeClaimSpec
+     * @memberof V1beta1StorageSpec
      */
     storageClassName?: string;
     /**
      * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
-     * 
-     * Possible enum values:
-     *  - `"Block"` means the volume will not be formatted with a filesystem and will remain a raw block device.
-     *  - `"Filesystem"` means the volume will be or is formatted with a filesystem.
      * @type {string}
-     * @memberof V1PersistentVolumeClaimSpec
+     * @memberof V1beta1StorageSpec
      */
-    volumeMode?: V1PersistentVolumeClaimSpecVolumeModeEnum;
+    volumeMode?: string;
     /**
-     * volumeName is the binding reference to the PersistentVolume backing this claim.
+     * VolumeName is the binding reference to the PersistentVolume backing this claim.
      * @type {string}
-     * @memberof V1PersistentVolumeClaimSpec
+     * @memberof V1beta1StorageSpec
      */
     volumeName?: string;
 }
 
-/**
-* @export
-* @enum {string}
-*/
-export enum V1PersistentVolumeClaimSpecVolumeModeEnum {
-    Block = 'Block',
-    Filesystem = 'Filesystem'
+export function V1beta1StorageSpecFromJSON(json: any): V1beta1StorageSpec {
+    return V1beta1StorageSpecFromJSONTyped(json, false);
 }
 
-export function V1PersistentVolumeClaimSpecFromJSON(json: any): V1PersistentVolumeClaimSpec {
-    return V1PersistentVolumeClaimSpecFromJSONTyped(json, false);
-}
-
-export function V1PersistentVolumeClaimSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PersistentVolumeClaimSpec {
+export function V1beta1StorageSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1StorageSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -122,7 +109,7 @@ export function V1PersistentVolumeClaimSpecFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-export function V1PersistentVolumeClaimSpecToJSON(value?: V1PersistentVolumeClaimSpec | null): any {
+export function V1beta1StorageSpecToJSON(value?: V1beta1StorageSpec | null): any {
     if (value === undefined) {
         return undefined;
     }

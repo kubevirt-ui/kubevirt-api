@@ -52,9 +52,6 @@ models/V1beta1CDIList.ts
 models/V1beta1CDISpec.ts
 models/V1beta1CDIStatus.ts
 models/V1beta1CertConfig.ts
-models/V1beta1ComponentConfig.ts
-models/V1beta1CustomizeComponents.ts
-models/V1beta1CustomizeComponentsPatch.ts
 models/V1beta1DataImportCron.ts
 models/V1beta1DataImportCronCondition.ts
 models/V1beta1DataImportCronList.ts
@@ -83,7 +80,6 @@ models/V1beta1DataVolumeSourceVDDK.ts
 models/V1beta1DataVolumeSpec.ts
 models/V1beta1DataVolumeStatus.ts
 models/V1beta1FilesystemOverhead.ts
-models/V1beta1Flags.ts
 models/V1beta1ImportProxy.ts
 models/V1beta1ImportStatus.ts
 models/V1beta1StorageSpec.ts

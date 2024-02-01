@@ -61,12 +61,6 @@ export interface V1beta1DataImportCronStatus {
    * @memberof V1beta1DataImportCronStatus
    */
   lastImportedPVC?: V1beta1DataVolumeSourcePVC;
-  /**
-   * SourceFormat defines the format of the DataImportCron-created disk image sources
-   * @type {string}
-   * @memberof V1beta1DataImportCronStatus
-   */
-  sourceFormat?: string;
 }
 
 export function V1beta1DataImportCronStatusFromJSON(json: any): V1beta1DataImportCronStatus {
@@ -96,7 +90,6 @@ export function V1beta1DataImportCronStatusFromJSONTyped(
     lastImportedPVC: !exists(json, 'lastImportedPVC')
       ? undefined
       : V1beta1DataVolumeSourcePVCFromJSON(json['lastImportedPVC']),
-    sourceFormat: !exists(json, 'sourceFormat') ? undefined : json['sourceFormat'],
   };
 }
 
@@ -121,6 +114,5 @@ export function V1beta1DataImportCronStatusToJSON(value?: V1beta1DataImportCronS
     lastImportTimestamp:
       value.lastImportTimestamp === undefined ? undefined : value.lastImportTimestamp,
     lastImportedPVC: V1beta1DataVolumeSourcePVCToJSON(value.lastImportedPVC),
-    sourceFormat: value.sourceFormat,
   };
 }

@@ -44,13 +44,13 @@ export interface V1OwnerReference {
      */
     kind: string;
     /**
-     * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names
+     * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
      * @type {string}
      * @memberof V1OwnerReference
      */
     name: string;
     /**
-     * UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids
+     * UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
      * @type {string}
      * @memberof V1OwnerReference
      */

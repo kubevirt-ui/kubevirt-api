@@ -23,12 +23,6 @@ import {
   V1beta1CDIConfigSpec,
   V1beta1CDIConfigSpecFromJSON,
   V1beta1CDIConfigSpecToJSON,
-  V1beta1ComponentConfig,
-  V1beta1ComponentConfigFromJSON,
-  V1beta1ComponentConfigToJSON,
-  V1beta1CustomizeComponents,
-  V1beta1CustomizeComponentsFromJSON,
-  V1beta1CustomizeComponentsToJSON,
 } from './';
 
 /**
@@ -56,12 +50,6 @@ export interface V1beta1CDISpec {
    */
   config?: V1beta1CDIConfigSpec;
   /**
-   *
-   * @type {V1beta1CustomizeComponents}
-   * @memberof V1beta1CDISpec
-   */
-  customizeComponents?: V1beta1CustomizeComponents;
-  /**
    * PullPolicy describes a policy for if/when to pull a container image
    *
    * Possible enum values:
@@ -74,10 +62,10 @@ export interface V1beta1CDISpec {
   imagePullPolicy?: V1beta1CDISpecImagePullPolicyEnum;
   /**
    *
-   * @type {V1beta1ComponentConfig}
+   * @type {ApiNodePlacement}
    * @memberof V1beta1CDISpec
    */
-  infra?: V1beta1ComponentConfig;
+  infra?: ApiNodePlacement;
   /**
    * PriorityClass of the CDI control plane
    * @type {string}
@@ -127,11 +115,8 @@ export function V1beta1CDISpecFromJSONTyped(
       ? undefined
       : json['cloneStrategyOverride'],
     config: !exists(json, 'config') ? undefined : V1beta1CDIConfigSpecFromJSON(json['config']),
-    customizeComponents: !exists(json, 'customizeComponents')
-      ? undefined
-      : V1beta1CustomizeComponentsFromJSON(json['customizeComponents']),
     imagePullPolicy: !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
-    infra: !exists(json, 'infra') ? undefined : V1beta1ComponentConfigFromJSON(json['infra']),
+    infra: !exists(json, 'infra') ? undefined : ApiNodePlacementFromJSON(json['infra']),
     priorityClass: !exists(json, 'priorityClass') ? undefined : json['priorityClass'],
     uninstallStrategy: !exists(json, 'uninstallStrategy') ? undefined : json['uninstallStrategy'],
     workload: !exists(json, 'workload') ? undefined : ApiNodePlacementFromJSON(json['workload']),
@@ -149,9 +134,8 @@ export function V1beta1CDISpecToJSON(value?: V1beta1CDISpec | null): any {
     certConfig: V1beta1CDICertConfigToJSON(value.certConfig),
     cloneStrategyOverride: value.cloneStrategyOverride,
     config: V1beta1CDIConfigSpecToJSON(value.config),
-    customizeComponents: V1beta1CustomizeComponentsToJSON(value.customizeComponents),
     imagePullPolicy: value.imagePullPolicy,
-    infra: V1beta1ComponentConfigToJSON(value.infra),
+    infra: ApiNodePlacementToJSON(value.infra),
     priorityClass: value.priorityClass,
     uninstallStrategy: value.uninstallStrategy,
     workload: ApiNodePlacementToJSON(value.workload),

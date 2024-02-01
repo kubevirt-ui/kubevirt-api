@@ -33,79 +33,66 @@ import {
 } from './';
 
 /**
- * StorageSpec defines the Storage type specification
+ * PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes
  * @export
- * @interface V1beta1StorageSpec
+ * @interface V1PersistentVolumeClaimSpec
  */
-export interface V1beta1StorageSpec {
+export interface V1PersistentVolumeClaimSpec {
     /**
-     * AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+     * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
      * @type {Array<string>}
-     * @memberof V1beta1StorageSpec
+     * @memberof V1PersistentVolumeClaimSpec
      */
     accessModes?: Array<string>;
     /**
      * 
      * @type {V1TypedLocalObjectReference}
-     * @memberof V1beta1StorageSpec
+     * @memberof V1PersistentVolumeClaimSpec
      */
     dataSource?: V1TypedLocalObjectReference;
     /**
      * 
      * @type {V1TypedObjectReference}
-     * @memberof V1beta1StorageSpec
+     * @memberof V1PersistentVolumeClaimSpec
      */
     dataSourceRef?: V1TypedObjectReference;
     /**
      * 
      * @type {V1ResourceRequirements}
-     * @memberof V1beta1StorageSpec
+     * @memberof V1PersistentVolumeClaimSpec
      */
     resources?: V1ResourceRequirements;
     /**
      * 
      * @type {V1LabelSelector}
-     * @memberof V1beta1StorageSpec
+     * @memberof V1PersistentVolumeClaimSpec
      */
     selector?: V1LabelSelector;
     /**
-     * Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+     * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
      * @type {string}
-     * @memberof V1beta1StorageSpec
+     * @memberof V1PersistentVolumeClaimSpec
      */
     storageClassName?: string;
     /**
      * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
-     * 
-     * Possible enum values:
-     *  - `"Block"` means the volume will not be formatted with a filesystem and will remain a raw block device.
-     *  - `"Filesystem"` means the volume will be or is formatted with a filesystem.
      * @type {string}
-     * @memberof V1beta1StorageSpec
+     * @memberof V1PersistentVolumeClaimSpec
      */
-    volumeMode?: V1beta1StorageSpecVolumeModeEnum;
+    volumeMode?: string;
     /**
-     * VolumeName is the binding reference to the PersistentVolume backing this claim.
+     * volumeName is the binding reference to the PersistentVolume backing this claim.
      * @type {string}
-     * @memberof V1beta1StorageSpec
+     * @memberof V1PersistentVolumeClaimSpec
      */
     volumeName?: string;
 }
 
-/**
-* @export
-* @enum {string}
-*/
-export enum V1beta1StorageSpecVolumeModeEnum {
-    Block = 'Block',
-    Filesystem = 'Filesystem'
+export function V1PersistentVolumeClaimSpecFromJSON(json: any): V1PersistentVolumeClaimSpec {
+    return V1PersistentVolumeClaimSpecFromJSONTyped(json, false);
 }
 
-export function V1beta1StorageSpecFromJSON(json: any): V1beta1StorageSpec {
-    return V1beta1StorageSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1StorageSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1StorageSpec {
+export function V1PersistentVolumeClaimSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PersistentVolumeClaimSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -122,7 +109,7 @@ export function V1beta1StorageSpecFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-export function V1beta1StorageSpecToJSON(value?: V1beta1StorageSpec | null): any {
+export function V1PersistentVolumeClaimSpecToJSON(value?: V1PersistentVolumeClaimSpec | null): any {
     if (value === undefined) {
         return undefined;
     }

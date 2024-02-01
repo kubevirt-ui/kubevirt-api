@@ -17,12 +17,18 @@ import {
   IoK8sApiCoreV1ContainerStatus,
   IoK8sApiCoreV1ContainerStatusFromJSON,
   IoK8sApiCoreV1ContainerStatusToJSON,
+  IoK8sApiCoreV1HostIP,
+  IoK8sApiCoreV1HostIPFromJSON,
+  IoK8sApiCoreV1HostIPToJSON,
   IoK8sApiCoreV1PodCondition,
   IoK8sApiCoreV1PodConditionFromJSON,
   IoK8sApiCoreV1PodConditionToJSON,
   IoK8sApiCoreV1PodIP,
   IoK8sApiCoreV1PodIPFromJSON,
   IoK8sApiCoreV1PodIPToJSON,
+  IoK8sApiCoreV1PodResourceClaimStatus,
+  IoK8sApiCoreV1PodResourceClaimStatusFromJSON,
+  IoK8sApiCoreV1PodResourceClaimStatusToJSON,
 } from './';
 
 /**
@@ -50,11 +56,17 @@ export interface IoK8sApiCoreV1PodStatus {
    */
   ephemeralContainerStatuses?: Array<IoK8sApiCoreV1ContainerStatus>;
   /**
-   * IP address of the host to which the pod is assigned. Empty if not yet scheduled.
+   * hostIP holds the IP address of the host to which the pod is assigned. Empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns mean that HostIP will not be updated even if there is a node is assigned to pod
    * @type {string}
    * @memberof IoK8sApiCoreV1PodStatus
    */
   hostIP?: string;
+  /**
+   * hostIPs holds the IP addresses allocated to the host. If this field is specified, the first entry must match the hostIP field. This list is empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns means that HostIPs will not be updated even if there is a node is assigned to this pod.
+   * @type {Array<IoK8sApiCoreV1HostIP>}
+   * @memberof IoK8sApiCoreV1PodStatus
+   */
+  hostIPs?: Array<IoK8sApiCoreV1HostIP>;
   /**
    * The list has one entry per init container in the manifest. The most recent successful init container will have ready = true, the most recently started container will have startTime set. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status
    * @type {Array<IoK8sApiCoreV1ContainerStatus>}
@@ -84,7 +96,7 @@ export interface IoK8sApiCoreV1PodStatus {
    */
   phase?: string;
   /**
-   * IP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.
+   * podIP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.
    * @type {string}
    * @memberof IoK8sApiCoreV1PodStatus
    */
@@ -113,6 +125,12 @@ export interface IoK8sApiCoreV1PodStatus {
    * @memberof IoK8sApiCoreV1PodStatus
    */
   resize?: string;
+  /**
+   * Status of resource claims.
+   * @type {Array<IoK8sApiCoreV1PodResourceClaimStatus>}
+   * @memberof IoK8sApiCoreV1PodStatus
+   */
+  resourceClaimStatuses?: Array<IoK8sApiCoreV1PodResourceClaimStatus>;
   /**
    * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
    * @type {string}
@@ -145,6 +163,9 @@ export function IoK8sApiCoreV1PodStatusFromJSONTyped(
           IoK8sApiCoreV1ContainerStatusFromJSON,
         ),
     hostIP: !exists(json, 'hostIP') ? undefined : json['hostIP'],
+    hostIPs: !exists(json, 'hostIPs')
+      ? undefined
+      : (json['hostIPs'] as Array<any>).map(IoK8sApiCoreV1HostIPFromJSON),
     initContainerStatuses: !exists(json, 'initContainerStatuses')
       ? undefined
       : (json['initContainerStatuses'] as Array<any>).map(IoK8sApiCoreV1ContainerStatusFromJSON),
@@ -158,6 +179,11 @@ export function IoK8sApiCoreV1PodStatusFromJSONTyped(
     qosClass: !exists(json, 'qosClass') ? undefined : json['qosClass'],
     reason: !exists(json, 'reason') ? undefined : json['reason'],
     resize: !exists(json, 'resize') ? undefined : json['resize'],
+    resourceClaimStatuses: !exists(json, 'resourceClaimStatuses')
+      ? undefined
+      : (json['resourceClaimStatuses'] as Array<any>).map(
+          IoK8sApiCoreV1PodResourceClaimStatusFromJSON,
+        ),
     startTime: !exists(json, 'startTime') ? undefined : json['startTime'],
   };
 }
@@ -183,6 +209,10 @@ export function IoK8sApiCoreV1PodStatusToJSON(value?: IoK8sApiCoreV1PodStatus | 
         ? undefined
         : (value.ephemeralContainerStatuses as Array<any>).map(IoK8sApiCoreV1ContainerStatusToJSON),
     hostIP: value.hostIP,
+    hostIPs:
+      value.hostIPs === undefined
+        ? undefined
+        : (value.hostIPs as Array<any>).map(IoK8sApiCoreV1HostIPToJSON),
     initContainerStatuses:
       value.initContainerStatuses === undefined
         ? undefined
@@ -198,6 +228,12 @@ export function IoK8sApiCoreV1PodStatusToJSON(value?: IoK8sApiCoreV1PodStatus | 
     qosClass: value.qosClass,
     reason: value.reason,
     resize: value.resize,
+    resourceClaimStatuses:
+      value.resourceClaimStatuses === undefined
+        ? undefined
+        : (value.resourceClaimStatuses as Array<any>).map(
+            IoK8sApiCoreV1PodResourceClaimStatusToJSON,
+          ),
     startTime: value.startTime === undefined ? undefined : value.startTime,
   };
 }

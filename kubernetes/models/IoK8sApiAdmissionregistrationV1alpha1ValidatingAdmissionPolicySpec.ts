@@ -29,6 +29,9 @@ import {
   IoK8sApiAdmissionregistrationV1alpha1Validation,
   IoK8sApiAdmissionregistrationV1alpha1ValidationFromJSON,
   IoK8sApiAdmissionregistrationV1alpha1ValidationToJSON,
+  IoK8sApiAdmissionregistrationV1alpha1Variable,
+  IoK8sApiAdmissionregistrationV1alpha1VariableFromJSON,
+  IoK8sApiAdmissionregistrationV1alpha1VariableToJSON,
 } from './';
 
 /**
@@ -90,6 +93,14 @@ export interface IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyS
    * @memberof IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicySpec
    */
   validations?: Array<IoK8sApiAdmissionregistrationV1alpha1Validation>;
+  /**
+   * Variables contain definitions of variables that can be used in composition of other expressions. Each variable is defined as a named CEL expression. The variables defined here will be available under `variables` in other expressions of the policy except MatchConditions because MatchConditions are evaluated before the rest of the policy.
+   *
+   * The expression of a variable can refer to other variables defined earlier in the list but not those after. Thus, Variables must be sorted by the order of first appearance and acyclic.
+   * @type {Array<IoK8sApiAdmissionregistrationV1alpha1Variable>}
+   * @memberof IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicySpec
+   */
+  variables?: Array<IoK8sApiAdmissionregistrationV1alpha1Variable>;
 }
 
 export function IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicySpecFromJSON(
@@ -131,6 +142,11 @@ export function IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicySp
       : (json['validations'] as Array<any>).map(
           IoK8sApiAdmissionregistrationV1alpha1ValidationFromJSON,
         ),
+    variables: !exists(json, 'variables')
+      ? undefined
+      : (json['variables'] as Array<any>).map(
+          IoK8sApiAdmissionregistrationV1alpha1VariableFromJSON,
+        ),
   };
 }
 
@@ -167,5 +183,9 @@ export function IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicySp
         : (value.validations as Array<any>).map(
             IoK8sApiAdmissionregistrationV1alpha1ValidationToJSON,
           ),
+    variables:
+      value.variables === undefined
+        ? undefined
+        : (value.variables as Array<any>).map(IoK8sApiAdmissionregistrationV1alpha1VariableToJSON),
   };
 }

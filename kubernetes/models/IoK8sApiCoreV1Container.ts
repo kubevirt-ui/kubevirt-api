@@ -131,6 +131,12 @@ export interface IoK8sApiCoreV1Container {
    */
   resources?: IoK8sApiCoreV1ResourceRequirements;
   /**
+   * RestartPolicy defines the restart behavior of individual containers in a pod. This field may only be set for init containers, and the only allowed value is "Always". For non-init containers or when this field is not specified, the restart behavior is defined by the Pod's restart policy and the container type. Setting the RestartPolicy as "Always" for the init container will have the following effect: this init container will be continually restarted on exit until all regular containers have terminated. Once all regular containers have completed, all init containers with restartPolicy "Always" will be shut down. This lifecycle differs from normal init containers and is often referred to as a "sidecar" container. Although this init container still starts in the init container sequence, it does not wait for the container to complete before proceeding to the next init container. Instead, the next init container starts immediately after this init container is started, or after any startupProbe has successfully completed.
+   * @type {string}
+   * @memberof IoK8sApiCoreV1Container
+   */
+  restartPolicy?: string;
+  /**
    *
    * @type {IoK8sApiCoreV1SecurityContext}
    * @memberof IoK8sApiCoreV1Container
@@ -233,6 +239,7 @@ export function IoK8sApiCoreV1ContainerFromJSONTyped(
     resources: !exists(json, 'resources')
       ? undefined
       : IoK8sApiCoreV1ResourceRequirementsFromJSON(json['resources']),
+    restartPolicy: !exists(json, 'restartPolicy') ? undefined : json['restartPolicy'],
     securityContext: !exists(json, 'securityContext')
       ? undefined
       : IoK8sApiCoreV1SecurityContextFromJSON(json['securityContext']),
@@ -291,6 +298,7 @@ export function IoK8sApiCoreV1ContainerToJSON(value?: IoK8sApiCoreV1Container | 
         ? undefined
         : (value.resizePolicy as Array<any>).map(IoK8sApiCoreV1ContainerResizePolicyToJSON),
     resources: IoK8sApiCoreV1ResourceRequirementsToJSON(value.resources),
+    restartPolicy: value.restartPolicy,
     securityContext: IoK8sApiCoreV1SecurityContextToJSON(value.securityContext),
     startupProbe: IoK8sApiCoreV1ProbeToJSON(value.startupProbe),
     stdin: value.stdin,

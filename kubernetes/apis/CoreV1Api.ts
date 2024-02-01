@@ -124,8 +124,7 @@ export interface ConnectCoreV1DeleteNamespacedPodProxyRequest {
 export interface ConnectCoreV1DeleteNamespacedPodProxyWithPathRequest {
   name: string;
   namespace: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1DeleteNamespacedServiceProxyRequest {
@@ -137,8 +136,7 @@ export interface ConnectCoreV1DeleteNamespacedServiceProxyRequest {
 export interface ConnectCoreV1DeleteNamespacedServiceProxyWithPathRequest {
   name: string;
   namespace: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1DeleteNodeProxyRequest {
@@ -148,8 +146,7 @@ export interface ConnectCoreV1DeleteNodeProxyRequest {
 
 export interface ConnectCoreV1DeleteNodeProxyWithPathRequest {
   name: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1GetNamespacedPodAttachRequest {
@@ -188,8 +185,7 @@ export interface ConnectCoreV1GetNamespacedPodProxyRequest {
 export interface ConnectCoreV1GetNamespacedPodProxyWithPathRequest {
   name: string;
   namespace: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1GetNamespacedServiceProxyRequest {
@@ -201,8 +197,7 @@ export interface ConnectCoreV1GetNamespacedServiceProxyRequest {
 export interface ConnectCoreV1GetNamespacedServiceProxyWithPathRequest {
   name: string;
   namespace: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1GetNodeProxyRequest {
@@ -212,8 +207,7 @@ export interface ConnectCoreV1GetNodeProxyRequest {
 
 export interface ConnectCoreV1GetNodeProxyWithPathRequest {
   name: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1HeadNamespacedPodProxyRequest {
@@ -225,8 +219,7 @@ export interface ConnectCoreV1HeadNamespacedPodProxyRequest {
 export interface ConnectCoreV1HeadNamespacedPodProxyWithPathRequest {
   name: string;
   namespace: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1HeadNamespacedServiceProxyRequest {
@@ -238,8 +231,7 @@ export interface ConnectCoreV1HeadNamespacedServiceProxyRequest {
 export interface ConnectCoreV1HeadNamespacedServiceProxyWithPathRequest {
   name: string;
   namespace: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1HeadNodeProxyRequest {
@@ -249,8 +241,7 @@ export interface ConnectCoreV1HeadNodeProxyRequest {
 
 export interface ConnectCoreV1HeadNodeProxyWithPathRequest {
   name: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1OptionsNamespacedPodProxyRequest {
@@ -262,8 +253,7 @@ export interface ConnectCoreV1OptionsNamespacedPodProxyRequest {
 export interface ConnectCoreV1OptionsNamespacedPodProxyWithPathRequest {
   name: string;
   namespace: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1OptionsNamespacedServiceProxyRequest {
@@ -275,8 +265,7 @@ export interface ConnectCoreV1OptionsNamespacedServiceProxyRequest {
 export interface ConnectCoreV1OptionsNamespacedServiceProxyWithPathRequest {
   name: string;
   namespace: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1OptionsNodeProxyRequest {
@@ -286,8 +275,7 @@ export interface ConnectCoreV1OptionsNodeProxyRequest {
 
 export interface ConnectCoreV1OptionsNodeProxyWithPathRequest {
   name: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1PatchNamespacedPodProxyRequest {
@@ -299,8 +287,7 @@ export interface ConnectCoreV1PatchNamespacedPodProxyRequest {
 export interface ConnectCoreV1PatchNamespacedPodProxyWithPathRequest {
   name: string;
   namespace: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1PatchNamespacedServiceProxyRequest {
@@ -312,8 +299,7 @@ export interface ConnectCoreV1PatchNamespacedServiceProxyRequest {
 export interface ConnectCoreV1PatchNamespacedServiceProxyWithPathRequest {
   name: string;
   namespace: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1PatchNodeProxyRequest {
@@ -323,8 +309,7 @@ export interface ConnectCoreV1PatchNodeProxyRequest {
 
 export interface ConnectCoreV1PatchNodeProxyWithPathRequest {
   name: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1PostNamespacedPodAttachRequest {
@@ -363,8 +348,7 @@ export interface ConnectCoreV1PostNamespacedPodProxyRequest {
 export interface ConnectCoreV1PostNamespacedPodProxyWithPathRequest {
   name: string;
   namespace: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1PostNamespacedServiceProxyRequest {
@@ -376,8 +360,7 @@ export interface ConnectCoreV1PostNamespacedServiceProxyRequest {
 export interface ConnectCoreV1PostNamespacedServiceProxyWithPathRequest {
   name: string;
   namespace: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1PostNodeProxyRequest {
@@ -387,8 +370,7 @@ export interface ConnectCoreV1PostNodeProxyRequest {
 
 export interface ConnectCoreV1PostNodeProxyWithPathRequest {
   name: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1PutNamespacedPodProxyRequest {
@@ -400,8 +382,7 @@ export interface ConnectCoreV1PutNamespacedPodProxyRequest {
 export interface ConnectCoreV1PutNamespacedPodProxyWithPathRequest {
   name: string;
   namespace: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1PutNamespacedServiceProxyRequest {
@@ -413,8 +394,7 @@ export interface ConnectCoreV1PutNamespacedServiceProxyRequest {
 export interface ConnectCoreV1PutNamespacedServiceProxyWithPathRequest {
   name: string;
   namespace: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface ConnectCoreV1PutNodeProxyRequest {
@@ -424,8 +404,7 @@ export interface ConnectCoreV1PutNodeProxyRequest {
 
 export interface ConnectCoreV1PutNodeProxyWithPathRequest {
   name: string;
-  path: string;
-  path2?: string;
+  path?: string;
 }
 
 export interface CreateCoreV1NamespaceRequest {
@@ -2814,17 +2793,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1DeleteNamespacedPodProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -2837,8 +2809,7 @@ export class CoreV1Api extends runtime.BaseAPI {
       {
         path: `/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -2946,17 +2917,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1DeleteNamespacedServiceProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -2969,8 +2933,7 @@ export class CoreV1Api extends runtime.BaseAPI {
       {
         path: `/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -3062,17 +3025,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1DeleteNodeProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -3083,9 +3039,10 @@ export class CoreV1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/api/v1/nodes/{name}/proxy/{path}`
-          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+        path: `/api/v1/nodes/{name}/proxy/{path}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -3415,17 +3372,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1GetNamespacedPodProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -3438,8 +3388,7 @@ export class CoreV1Api extends runtime.BaseAPI {
       {
         path: `/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -3547,17 +3496,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1GetNamespacedServiceProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -3570,8 +3512,7 @@ export class CoreV1Api extends runtime.BaseAPI {
       {
         path: `/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -3663,17 +3604,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1GetNodeProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -3684,9 +3618,10 @@ export class CoreV1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/api/v1/nodes/{name}/proxy/{path}`
-          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+        path: `/api/v1/nodes/{name}/proxy/{path}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -3794,17 +3729,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1HeadNamespacedPodProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -3817,8 +3745,7 @@ export class CoreV1Api extends runtime.BaseAPI {
       {
         path: `/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'HEAD',
         headers: headerParameters,
         query: queryParameters,
@@ -3926,17 +3853,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1HeadNamespacedServiceProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -3949,8 +3869,7 @@ export class CoreV1Api extends runtime.BaseAPI {
       {
         path: `/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'HEAD',
         headers: headerParameters,
         query: queryParameters,
@@ -4042,17 +3961,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1HeadNodeProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -4063,9 +3975,10 @@ export class CoreV1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/api/v1/nodes/{name}/proxy/{path}`
-          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+        path: `/api/v1/nodes/{name}/proxy/{path}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
         method: 'HEAD',
         headers: headerParameters,
         query: queryParameters,
@@ -4173,17 +4086,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1OptionsNamespacedPodProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -4196,8 +4102,7 @@ export class CoreV1Api extends runtime.BaseAPI {
       {
         path: `/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'OPTIONS',
         headers: headerParameters,
         query: queryParameters,
@@ -4305,17 +4210,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1OptionsNamespacedServiceProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -4328,8 +4226,7 @@ export class CoreV1Api extends runtime.BaseAPI {
       {
         path: `/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'OPTIONS',
         headers: headerParameters,
         query: queryParameters,
@@ -4421,17 +4318,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1OptionsNodeProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -4442,9 +4332,10 @@ export class CoreV1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/api/v1/nodes/{name}/proxy/{path}`
-          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+        path: `/api/v1/nodes/{name}/proxy/{path}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
         method: 'OPTIONS',
         headers: headerParameters,
         query: queryParameters,
@@ -4552,17 +4443,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1PatchNamespacedPodProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -4575,8 +4459,7 @@ export class CoreV1Api extends runtime.BaseAPI {
       {
         path: `/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PATCH',
         headers: headerParameters,
         query: queryParameters,
@@ -4684,17 +4567,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1PatchNamespacedServiceProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -4707,8 +4583,7 @@ export class CoreV1Api extends runtime.BaseAPI {
       {
         path: `/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PATCH',
         headers: headerParameters,
         query: queryParameters,
@@ -4800,17 +4675,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1PatchNodeProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -4821,9 +4689,10 @@ export class CoreV1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/api/v1/nodes/{name}/proxy/{path}`
-          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+        path: `/api/v1/nodes/{name}/proxy/{path}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
         method: 'PATCH',
         headers: headerParameters,
         query: queryParameters,
@@ -5153,17 +5022,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1PostNamespacedPodProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -5176,8 +5038,7 @@ export class CoreV1Api extends runtime.BaseAPI {
       {
         path: `/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'POST',
         headers: headerParameters,
         query: queryParameters,
@@ -5285,17 +5146,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1PostNamespacedServiceProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -5308,8 +5162,7 @@ export class CoreV1Api extends runtime.BaseAPI {
       {
         path: `/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'POST',
         headers: headerParameters,
         query: queryParameters,
@@ -5401,17 +5254,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1PostNodeProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -5422,9 +5268,10 @@ export class CoreV1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/api/v1/nodes/{name}/proxy/{path}`
-          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+        path: `/api/v1/nodes/{name}/proxy/{path}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
         method: 'POST',
         headers: headerParameters,
         query: queryParameters,
@@ -5532,17 +5379,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1PutNamespacedPodProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -5555,8 +5395,7 @@ export class CoreV1Api extends runtime.BaseAPI {
       {
         path: `/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
         headers: headerParameters,
         query: queryParameters,
@@ -5664,17 +5503,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1PutNamespacedServiceProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -5687,8 +5519,7 @@ export class CoreV1Api extends runtime.BaseAPI {
       {
         path: `/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}`
           .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
         method: 'PUT',
         headers: headerParameters,
         query: queryParameters,
@@ -5780,17 +5611,10 @@ export class CoreV1Api extends runtime.BaseAPI {
       );
     }
 
-    if (requestParameters.path === null || requestParameters.path === undefined) {
-      throw new runtime.RequiredError(
-        'path',
-        'Required parameter requestParameters.path was null or undefined when calling connectCoreV1PutNodeProxyWithPath.',
-      );
-    }
-
     const queryParameters: any = {};
 
-    if (requestParameters.path2 !== undefined) {
-      queryParameters['path'] = requestParameters.path2;
+    if (requestParameters.path !== undefined) {
+      queryParameters['path'] = requestParameters.path;
     }
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -5801,9 +5625,10 @@ export class CoreV1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/api/v1/nodes/{name}/proxy/{path}`
-          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
-          .replace(`{${'path'}}`, encodeURIComponent(String(requestParameters.path))),
+        path: `/api/v1/nodes/{name}/proxy/{path}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
         method: 'PUT',
         headers: headerParameters,
         query: queryParameters,

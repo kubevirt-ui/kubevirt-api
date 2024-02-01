@@ -133,6 +133,12 @@ export interface IoK8sApiCoreV1EphemeralContainer {
    */
   resources?: IoK8sApiCoreV1ResourceRequirements;
   /**
+   * Restart policy for the container to manage the restart behavior of each container within a pod. This may only be set for init containers. You cannot set this field on ephemeral containers.
+   * @type {string}
+   * @memberof IoK8sApiCoreV1EphemeralContainer
+   */
+  restartPolicy?: string;
+  /**
    *
    * @type {IoK8sApiCoreV1SecurityContext}
    * @memberof IoK8sApiCoreV1EphemeralContainer
@@ -245,6 +251,7 @@ export function IoK8sApiCoreV1EphemeralContainerFromJSONTyped(
     resources: !exists(json, 'resources')
       ? undefined
       : IoK8sApiCoreV1ResourceRequirementsFromJSON(json['resources']),
+    restartPolicy: !exists(json, 'restartPolicy') ? undefined : json['restartPolicy'],
     securityContext: !exists(json, 'securityContext')
       ? undefined
       : IoK8sApiCoreV1SecurityContextFromJSON(json['securityContext']),
@@ -308,6 +315,7 @@ export function IoK8sApiCoreV1EphemeralContainerToJSON(
         ? undefined
         : (value.resizePolicy as Array<any>).map(IoK8sApiCoreV1ContainerResizePolicyToJSON),
     resources: IoK8sApiCoreV1ResourceRequirementsToJSON(value.resources),
+    restartPolicy: value.restartPolicy,
     securityContext: IoK8sApiCoreV1SecurityContextToJSON(value.securityContext),
     startupProbe: IoK8sApiCoreV1ProbeToJSON(value.startupProbe),
     stdin: value.stdin,

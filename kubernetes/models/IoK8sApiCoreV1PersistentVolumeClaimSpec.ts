@@ -14,15 +14,15 @@
 
 import { exists } from '../runtime';
 import {
-  IoK8sApiCoreV1ResourceRequirements,
-  IoK8sApiCoreV1ResourceRequirementsFromJSON,
-  IoK8sApiCoreV1ResourceRequirementsToJSON,
   IoK8sApiCoreV1TypedLocalObjectReference,
   IoK8sApiCoreV1TypedLocalObjectReferenceFromJSON,
   IoK8sApiCoreV1TypedLocalObjectReferenceToJSON,
   IoK8sApiCoreV1TypedObjectReference,
   IoK8sApiCoreV1TypedObjectReferenceFromJSON,
   IoK8sApiCoreV1TypedObjectReferenceToJSON,
+  IoK8sApiCoreV1VolumeResourceRequirements,
+  IoK8sApiCoreV1VolumeResourceRequirementsFromJSON,
+  IoK8sApiCoreV1VolumeResourceRequirementsToJSON,
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
   IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
   IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
@@ -54,10 +54,10 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimSpec {
   dataSourceRef?: IoK8sApiCoreV1TypedObjectReference;
   /**
    *
-   * @type {IoK8sApiCoreV1ResourceRequirements}
+   * @type {IoK8sApiCoreV1VolumeResourceRequirements}
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimSpec
    */
-  resources?: IoK8sApiCoreV1ResourceRequirements;
+  resources?: IoK8sApiCoreV1VolumeResourceRequirements;
   /**
    *
    * @type {IoK8sApimachineryPkgApisMetaV1LabelSelector}
@@ -70,6 +70,12 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimSpec {
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimSpec
    */
   storageClassName?: string;
+  /**
+   * volumeAttributesClassName may be used to set the VolumeAttributesClass used by this claim. If specified, the CSI driver will create or update the volume with the attributes defined in the corresponding VolumeAttributesClass. This has a different purpose than storageClassName, it can be changed after the claim is created. An empty string value means that no VolumeAttributesClass will be applied to the claim but it's not allowed to reset this field to empty string once it is set. If unspecified and the PersistentVolumeClaim is unbound, the default VolumeAttributesClass will be set by the persistentvolume controller if it exists. If the resource referred to by volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as reflected by the modifyVolumeStatus field, until such as a resource exists. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#volumeattributesclass (Alpha) Using this field requires the VolumeAttributesClass feature gate to be enabled.
+   * @type {string}
+   * @memberof IoK8sApiCoreV1PersistentVolumeClaimSpec
+   */
+  volumeAttributesClassName?: string;
   /**
    * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
    * @type {string}
@@ -107,11 +113,14 @@ export function IoK8sApiCoreV1PersistentVolumeClaimSpecFromJSONTyped(
       : IoK8sApiCoreV1TypedObjectReferenceFromJSON(json['dataSourceRef']),
     resources: !exists(json, 'resources')
       ? undefined
-      : IoK8sApiCoreV1ResourceRequirementsFromJSON(json['resources']),
+      : IoK8sApiCoreV1VolumeResourceRequirementsFromJSON(json['resources']),
     selector: !exists(json, 'selector')
       ? undefined
       : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
     storageClassName: !exists(json, 'storageClassName') ? undefined : json['storageClassName'],
+    volumeAttributesClassName: !exists(json, 'volumeAttributesClassName')
+      ? undefined
+      : json['volumeAttributesClassName'],
     volumeMode: !exists(json, 'volumeMode') ? undefined : json['volumeMode'],
     volumeName: !exists(json, 'volumeName') ? undefined : json['volumeName'],
   };
@@ -130,9 +139,10 @@ export function IoK8sApiCoreV1PersistentVolumeClaimSpecToJSON(
     accessModes: value.accessModes,
     dataSource: IoK8sApiCoreV1TypedLocalObjectReferenceToJSON(value.dataSource),
     dataSourceRef: IoK8sApiCoreV1TypedObjectReferenceToJSON(value.dataSourceRef),
-    resources: IoK8sApiCoreV1ResourceRequirementsToJSON(value.resources),
+    resources: IoK8sApiCoreV1VolumeResourceRequirementsToJSON(value.resources),
     selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
     storageClassName: value.storageClassName,
+    volumeAttributesClassName: value.volumeAttributesClassName,
     volumeMode: value.volumeMode,
     volumeName: value.volumeName,
   };

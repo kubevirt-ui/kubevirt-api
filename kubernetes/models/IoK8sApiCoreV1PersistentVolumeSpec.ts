@@ -263,6 +263,12 @@ export interface IoK8sApiCoreV1PersistentVolumeSpec {
    */
   storageos?: IoK8sApiCoreV1StorageOSPersistentVolumeSource;
   /**
+   * Name of VolumeAttributesClass to which this persistent volume belongs. Empty value is not allowed. When this field is not set, it indicates that this volume does not belong to any VolumeAttributesClass. This field is mutable and can be changed by the CSI driver after a volume has been updated successfully to a new class. For an unbound PersistentVolume, the volumeAttributesClassName will be matched with unbound PersistentVolumeClaims during the binding process. This is an alpha field and requires enabling VolumeAttributesClass feature.
+   * @type {string}
+   * @memberof IoK8sApiCoreV1PersistentVolumeSpec
+   */
+  volumeAttributesClassName?: string;
+  /**
    * volumeMode defines if a volume is intended to be used with a formatted filesystem or to remain in raw block state. Value of Filesystem is implied when not included in spec.
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeSpec
@@ -362,6 +368,9 @@ export function IoK8sApiCoreV1PersistentVolumeSpecFromJSONTyped(
     storageos: !exists(json, 'storageos')
       ? undefined
       : IoK8sApiCoreV1StorageOSPersistentVolumeSourceFromJSON(json['storageos']),
+    volumeAttributesClassName: !exists(json, 'volumeAttributesClassName')
+      ? undefined
+      : json['volumeAttributesClassName'],
     volumeMode: !exists(json, 'volumeMode') ? undefined : json['volumeMode'],
     vsphereVolume: !exists(json, 'vsphereVolume')
       ? undefined
@@ -411,6 +420,7 @@ export function IoK8sApiCoreV1PersistentVolumeSpecToJSON(
     scaleIO: IoK8sApiCoreV1ScaleIOPersistentVolumeSourceToJSON(value.scaleIO),
     storageClassName: value.storageClassName,
     storageos: IoK8sApiCoreV1StorageOSPersistentVolumeSourceToJSON(value.storageos),
+    volumeAttributesClassName: value.volumeAttributesClassName,
     volumeMode: value.volumeMode,
     vsphereVolume: IoK8sApiCoreV1VsphereVirtualDiskVolumeSourceToJSON(value.vsphereVolume),
   };

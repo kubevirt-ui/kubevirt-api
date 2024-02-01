@@ -20,6 +20,9 @@ import {
   IoK8sApiCoreV1HTTPGetAction,
   IoK8sApiCoreV1HTTPGetActionFromJSON,
   IoK8sApiCoreV1HTTPGetActionToJSON,
+  IoK8sApiCoreV1SleepAction,
+  IoK8sApiCoreV1SleepActionFromJSON,
+  IoK8sApiCoreV1SleepActionToJSON,
   IoK8sApiCoreV1TCPSocketAction,
   IoK8sApiCoreV1TCPSocketActionFromJSON,
   IoK8sApiCoreV1TCPSocketActionToJSON,
@@ -45,6 +48,12 @@ export interface IoK8sApiCoreV1LifecycleHandler {
   httpGet?: IoK8sApiCoreV1HTTPGetAction;
   /**
    *
+   * @type {IoK8sApiCoreV1SleepAction}
+   * @memberof IoK8sApiCoreV1LifecycleHandler
+   */
+  sleep?: IoK8sApiCoreV1SleepAction;
+  /**
+   *
    * @type {IoK8sApiCoreV1TCPSocketAction}
    * @memberof IoK8sApiCoreV1LifecycleHandler
    */
@@ -67,6 +76,7 @@ export function IoK8sApiCoreV1LifecycleHandlerFromJSONTyped(
     httpGet: !exists(json, 'httpGet')
       ? undefined
       : IoK8sApiCoreV1HTTPGetActionFromJSON(json['httpGet']),
+    sleep: !exists(json, 'sleep') ? undefined : IoK8sApiCoreV1SleepActionFromJSON(json['sleep']),
     tcpSocket: !exists(json, 'tcpSocket')
       ? undefined
       : IoK8sApiCoreV1TCPSocketActionFromJSON(json['tcpSocket']),
@@ -85,6 +95,7 @@ export function IoK8sApiCoreV1LifecycleHandlerToJSON(
   return {
     exec: IoK8sApiCoreV1ExecActionToJSON(value.exec),
     httpGet: IoK8sApiCoreV1HTTPGetActionToJSON(value.httpGet),
+    sleep: IoK8sApiCoreV1SleepActionToJSON(value.sleep),
     tcpSocket: IoK8sApiCoreV1TCPSocketActionToJSON(value.tcpSocket),
   };
 }

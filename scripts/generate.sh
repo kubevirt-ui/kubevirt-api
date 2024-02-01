@@ -6,7 +6,7 @@ OPENAPI_GENERATOR_CLI=./node_modules/.bin/openapi-generator-cli
 # Use released versions
 KUBEVIRT_RELEASE=release-1.1
 CDI_RELEASE=main
-KUBERNETES_RELEASE=release-1.28
+KUBERNETES_RELEASE=release-1.29
 # openshift console latest main commit hash
 OPENSHIFT_CONSOLE_COMMIT=d2e30aa5aba35ec57b18a0f3d826889b9c6af147
 

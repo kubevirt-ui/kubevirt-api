@@ -14,6 +14,9 @@
 
 import { exists } from '../runtime';
 import {
+  IoK8sApiCoreV1ModifyVolumeStatus,
+  IoK8sApiCoreV1ModifyVolumeStatusFromJSON,
+  IoK8sApiCoreV1ModifyVolumeStatusToJSON,
   IoK8sApiCoreV1PersistentVolumeClaimCondition,
   IoK8sApiCoreV1PersistentVolumeClaimConditionFromJSON,
   IoK8sApiCoreV1PersistentVolumeClaimConditionToJSON,
@@ -95,6 +98,18 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimStatus {
    */
   conditions?: Array<IoK8sApiCoreV1PersistentVolumeClaimCondition>;
   /**
+   * currentVolumeAttributesClassName is the current name of the VolumeAttributesClass the PVC is using. When unset, there is no VolumeAttributeClass applied to this PersistentVolumeClaim This is an alpha field and requires enabling VolumeAttributesClass feature.
+   * @type {string}
+   * @memberof IoK8sApiCoreV1PersistentVolumeClaimStatus
+   */
+  currentVolumeAttributesClassName?: string;
+  /**
+   *
+   * @type {IoK8sApiCoreV1ModifyVolumeStatus}
+   * @memberof IoK8sApiCoreV1PersistentVolumeClaimStatus
+   */
+  modifyVolumeStatus?: IoK8sApiCoreV1ModifyVolumeStatus;
+  /**
    * phase represents the current phase of PersistentVolumeClaim.
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimStatus
@@ -129,6 +144,12 @@ export function IoK8sApiCoreV1PersistentVolumeClaimStatusFromJSONTyped(
       : (json['conditions'] as Array<any>).map(
           IoK8sApiCoreV1PersistentVolumeClaimConditionFromJSON,
         ),
+    currentVolumeAttributesClassName: !exists(json, 'currentVolumeAttributesClassName')
+      ? undefined
+      : json['currentVolumeAttributesClassName'],
+    modifyVolumeStatus: !exists(json, 'modifyVolumeStatus')
+      ? undefined
+      : IoK8sApiCoreV1ModifyVolumeStatusFromJSON(json['modifyVolumeStatus']),
     phase: !exists(json, 'phase') ? undefined : json['phase'],
   };
 }
@@ -151,6 +172,8 @@ export function IoK8sApiCoreV1PersistentVolumeClaimStatusToJSON(
       value.conditions === undefined
         ? undefined
         : (value.conditions as Array<any>).map(IoK8sApiCoreV1PersistentVolumeClaimConditionToJSON),
+    currentVolumeAttributesClassName: value.currentVolumeAttributesClassName,
+    modifyVolumeStatus: IoK8sApiCoreV1ModifyVolumeStatusToJSON(value.modifyVolumeStatus),
     phase: value.phase,
   };
 }

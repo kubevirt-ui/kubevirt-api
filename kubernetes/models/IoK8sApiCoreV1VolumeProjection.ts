@@ -14,6 +14,9 @@
 
 import { exists } from '../runtime';
 import {
+  IoK8sApiCoreV1ClusterTrustBundleProjection,
+  IoK8sApiCoreV1ClusterTrustBundleProjectionFromJSON,
+  IoK8sApiCoreV1ClusterTrustBundleProjectionToJSON,
   IoK8sApiCoreV1ConfigMapProjection,
   IoK8sApiCoreV1ConfigMapProjectionFromJSON,
   IoK8sApiCoreV1ConfigMapProjectionToJSON,
@@ -34,6 +37,12 @@ import {
  * @interface IoK8sApiCoreV1VolumeProjection
  */
 export interface IoK8sApiCoreV1VolumeProjection {
+  /**
+   *
+   * @type {IoK8sApiCoreV1ClusterTrustBundleProjection}
+   * @memberof IoK8sApiCoreV1VolumeProjection
+   */
+  clusterTrustBundle?: IoK8sApiCoreV1ClusterTrustBundleProjection;
   /**
    *
    * @type {IoK8sApiCoreV1ConfigMapProjection}
@@ -72,6 +81,9 @@ export function IoK8sApiCoreV1VolumeProjectionFromJSONTyped(
     return json;
   }
   return {
+    clusterTrustBundle: !exists(json, 'clusterTrustBundle')
+      ? undefined
+      : IoK8sApiCoreV1ClusterTrustBundleProjectionFromJSON(json['clusterTrustBundle']),
     configMap: !exists(json, 'configMap')
       ? undefined
       : IoK8sApiCoreV1ConfigMapProjectionFromJSON(json['configMap']),
@@ -97,6 +109,7 @@ export function IoK8sApiCoreV1VolumeProjectionToJSON(
     return null;
   }
   return {
+    clusterTrustBundle: IoK8sApiCoreV1ClusterTrustBundleProjectionToJSON(value.clusterTrustBundle),
     configMap: IoK8sApiCoreV1ConfigMapProjectionToJSON(value.configMap),
     downwardAPI: IoK8sApiCoreV1DownwardAPIProjectionToJSON(value.downwardAPI),
     secret: IoK8sApiCoreV1SecretProjectionToJSON(value.secret),

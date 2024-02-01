@@ -43,12 +43,6 @@ export interface IoK8sApiNetworkingV1alpha1ParentReference {
    * @memberof IoK8sApiNetworkingV1alpha1ParentReference
    */
   resource?: string;
-  /**
-   * UID is the uid of the object being referenced.
-   * @type {string}
-   * @memberof IoK8sApiNetworkingV1alpha1ParentReference
-   */
-  uid?: string;
 }
 
 export function IoK8sApiNetworkingV1alpha1ParentReferenceFromJSON(
@@ -69,7 +63,6 @@ export function IoK8sApiNetworkingV1alpha1ParentReferenceFromJSONTyped(
     name: !exists(json, 'name') ? undefined : json['name'],
     namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
     resource: !exists(json, 'resource') ? undefined : json['resource'],
-    uid: !exists(json, 'uid') ? undefined : json['uid'],
   };
 }
 
@@ -87,6 +80,5 @@ export function IoK8sApiNetworkingV1alpha1ParentReferenceToJSON(
     name: value.name,
     namespace: value.namespace,
     resource: value.resource,
-    uid: value.uid,
   };
 }

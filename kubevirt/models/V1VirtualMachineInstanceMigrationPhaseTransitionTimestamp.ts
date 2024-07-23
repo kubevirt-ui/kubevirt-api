@@ -12,60 +12,53 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * VirtualMachineInstanceMigrationPhaseTransitionTimestamp gives a timestamp in relation to when a phase is set on a vmi
  * @export
  * @interface V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp
  */
 export interface V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp {
-  /**
-   * Phase is the status of the VirtualMachineInstanceMigrationPhase in kubernetes world. It is not the VirtualMachineInstanceMigrationPhase status, but partially correlates to it.
-   * @type {string}
-   * @memberof V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp
-   */
-  phase?: string;
-  /**
-   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-   * @type {string}
-   * @memberof V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp
-   */
-  phaseTransitionTimestamp?: string;
+    /**
+     * Phase is the status of the VirtualMachineInstanceMigrationPhase in kubernetes world. It is not the VirtualMachineInstanceMigrationPhase status, but partially correlates to it.
+     * @type {string}
+     * @memberof V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp
+     */
+    phase?: string;
+    /**
+     * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+     * @type {string}
+     * @memberof V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp
+     */
+    phaseTransitionTimestamp?: string;
 }
 
-export function V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSON(
-  json: any,
-): V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp {
-  return V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSONTyped(json, false);
+export function V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSON(json: any): V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp {
+    return V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    phase: !exists(json, 'phase') ? undefined : json['phase'],
-    phaseTransitionTimestamp: !exists(json, 'phaseTransitionTimestamp')
-      ? undefined
-      : json['phaseTransitionTimestamp'],
-  };
+export function V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'phase': !exists(json, 'phase') ? undefined : json['phase'],
+        'phaseTransitionTimestamp': !exists(json, 'phaseTransitionTimestamp') ? undefined : ((json['phaseTransitionTimestamp'])),
+    };
 }
 
-export function V1VirtualMachineInstanceMigrationPhaseTransitionTimestampToJSON(
-  value?: V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    phase: value.phase,
-    phaseTransitionTimestamp:
-      value.phaseTransitionTimestamp === undefined ? undefined : value.phaseTransitionTimestamp,
-  };
+export function V1VirtualMachineInstanceMigrationPhaseTransitionTimestampToJSON(value?: V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'phase': value.phase,
+        'phaseTransitionTimestamp': value.phaseTransitionTimestamp === undefined ? undefined : (value.phaseTransitionTimestamp),
+    };
 }
+

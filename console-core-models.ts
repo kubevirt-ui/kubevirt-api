@@ -599,6 +599,22 @@ export const SelfSubjectAccessReviewModel: K8sKind = {
   labelPluralKey: 'public~SelfSubjectAccessReviews',
 };
 
+export const SelfSubjectReviewModel: K8sKind = {
+  label: 'SelfSubjectReview',
+  // t('public~SelfSubjectReview')
+  labelKey: 'public~SelfSubjectReview',
+  apiGroup: 'authorization.k8s.io',
+  apiVersion: 'v1',
+  plural: 'selfsubjectreviews',
+  abbr: 'SSR',
+  namespaced: true,
+  kind: 'SelfSubjectReview',
+  id: 'selfsubjectreview',
+  labelPlural: 'SelfSubjectReviews',
+  // t('public~SelfSubjectReviews')
+  labelPluralKey: 'public~SelfSubjectReviews',
+};
+
 export const ResourceAccessReviewsModel: K8sKind = {
   label: 'ResourceAccessReview',
   // t('public~ResourceAccessReview')
@@ -1279,4 +1295,21 @@ export const AuthenticationModel: K8sKind = {
   apiVersion: 'v1',
   plural: 'authentications',
   abbr: 'AU',
+};
+
+export const MultiNetworkPolicyModel: K8sKind = {
+  abbr: 'MNP',
+  apiGroup: 'k8s.cni.cncf.io',
+  apiVersion: 'v1beta1',
+  id: 'multinetworkpolicy',
+  kind: 'MultiNetworkPolicy',
+  label: 'multi-networkpolicy',
+  // t('public~MultiNetworkPolicy')
+  labelKey: 'public~MultiNetworkPolicy',
+  labelPlural: 'MultiNetworkPolicies',
+  // t('MultiNetworkPolicies')
+  labelPluralKey: 'public~MultiNetworkPolicies',
+  namespaced: true,
+  plural: 'multi-networkpolicies',
+  crd: true,
 };

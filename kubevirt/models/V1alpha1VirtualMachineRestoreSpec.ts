@@ -12,11 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 import {
-  K8sIoApiCoreV1TypedLocalObjectReference,
-  K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
-  K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
+    K8sIoApiCoreV1TypedLocalObjectReference,
+    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
+    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSONTyped,
+    K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
 } from './';
 
 /**
@@ -25,60 +26,56 @@ import {
  * @interface V1alpha1VirtualMachineRestoreSpec
  */
 export interface V1alpha1VirtualMachineRestoreSpec {
-  /**
-   * If the target for the restore does not exist, it will be created. Patches holds JSON patches that would be applied to the target manifest before it's created. Patches should fit the target's Kind.
-   *
-   * Example for a patch: {"op": "replace", "path": "/metadata/name", "value": "new-vm-name"}
-   * @type {Array<string>}
-   * @memberof V1alpha1VirtualMachineRestoreSpec
-   */
-  patches?: Array<string>;
-  /**
-   *
-   * @type {K8sIoApiCoreV1TypedLocalObjectReference}
-   * @memberof V1alpha1VirtualMachineRestoreSpec
-   */
-  target: K8sIoApiCoreV1TypedLocalObjectReference;
-  /**
-   *
-   * @type {string}
-   * @memberof V1alpha1VirtualMachineRestoreSpec
-   */
-  virtualMachineSnapshotName: string;
+    /**
+     * If the target for the restore does not exist, it will be created. Patches holds JSON patches that would be applied to the target manifest before it's created. Patches should fit the target's Kind.
+     * 
+     * Example for a patch: {"op": "replace", "path": "/metadata/name", "value": "new-vm-name"}
+     * @type {Array<string>}
+     * @memberof V1alpha1VirtualMachineRestoreSpec
+     */
+    patches?: Array<string>;
+    /**
+     * 
+     * @type {K8sIoApiCoreV1TypedLocalObjectReference}
+     * @memberof V1alpha1VirtualMachineRestoreSpec
+     */
+    target: K8sIoApiCoreV1TypedLocalObjectReference;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1alpha1VirtualMachineRestoreSpec
+     */
+    virtualMachineSnapshotName: string;
 }
 
-export function V1alpha1VirtualMachineRestoreSpecFromJSON(
-  json: any,
-): V1alpha1VirtualMachineRestoreSpec {
-  return V1alpha1VirtualMachineRestoreSpecFromJSONTyped(json, false);
+export function V1alpha1VirtualMachineRestoreSpecFromJSON(json: any): V1alpha1VirtualMachineRestoreSpec {
+    return V1alpha1VirtualMachineRestoreSpecFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachineRestoreSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1alpha1VirtualMachineRestoreSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    patches: !exists(json, 'patches') ? undefined : json['patches'],
-    target: K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['target']),
-    virtualMachineSnapshotName: json['virtualMachineSnapshotName'],
-  };
+export function V1alpha1VirtualMachineRestoreSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VirtualMachineRestoreSpec {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'patches': !exists(json, 'patches') ? undefined : json['patches'],
+        'target': K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['target']),
+        'virtualMachineSnapshotName': json['virtualMachineSnapshotName'],
+    };
 }
 
-export function V1alpha1VirtualMachineRestoreSpecToJSON(
-  value?: V1alpha1VirtualMachineRestoreSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    patches: value.patches,
-    target: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.target),
-    virtualMachineSnapshotName: value.virtualMachineSnapshotName,
-  };
+export function V1alpha1VirtualMachineRestoreSpecToJSON(value?: V1alpha1VirtualMachineRestoreSpec | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'patches': value.patches,
+        'target': K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.target),
+        'virtualMachineSnapshotName': value.virtualMachineSnapshotName,
+    };
 }
+

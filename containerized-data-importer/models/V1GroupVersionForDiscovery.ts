@@ -12,52 +12,53 @@
  * Do not edit the class manually.
  */
 
+import { exists, mapValues } from '../runtime';
 /**
  * GroupVersion contains the "group/version" and "version" string of a version. It is made a struct to keep extensibility.
  * @export
  * @interface V1GroupVersionForDiscovery
  */
 export interface V1GroupVersionForDiscovery {
-  /**
-   * groupVersion specifies the API group and version in the form "group/version"
-   * @type {string}
-   * @memberof V1GroupVersionForDiscovery
-   */
-  groupVersion: string;
-  /**
-   * version specifies the version in the form of "version". This is to save the clients the trouble of splitting the GroupVersion.
-   * @type {string}
-   * @memberof V1GroupVersionForDiscovery
-   */
-  version: string;
+    /**
+     * groupVersion specifies the API group and version in the form "group/version"
+     * @type {string}
+     * @memberof V1GroupVersionForDiscovery
+     */
+    groupVersion: string;
+    /**
+     * version specifies the version in the form of "version". This is to save the clients the trouble of splitting the GroupVersion.
+     * @type {string}
+     * @memberof V1GroupVersionForDiscovery
+     */
+    version: string;
 }
 
 export function V1GroupVersionForDiscoveryFromJSON(json: any): V1GroupVersionForDiscovery {
-  return V1GroupVersionForDiscoveryFromJSONTyped(json, false);
+    return V1GroupVersionForDiscoveryFromJSONTyped(json, false);
 }
 
-export function V1GroupVersionForDiscoveryFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1GroupVersionForDiscovery {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    groupVersion: json['groupVersion'],
-    version: json['version'],
-  };
+export function V1GroupVersionForDiscoveryFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1GroupVersionForDiscovery {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'groupVersion': json['groupVersion'],
+        'version': json['version'],
+    };
 }
 
 export function V1GroupVersionForDiscoveryToJSON(value?: V1GroupVersionForDiscovery | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    groupVersion: value.groupVersion,
-    version: value.version,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'groupVersion': value.groupVersion,
+        'version': value.version,
+    };
 }
+

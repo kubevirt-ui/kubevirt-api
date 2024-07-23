@@ -12,11 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 import {
-  K8sIoApiCoreV1PodDNSConfigOption,
-  K8sIoApiCoreV1PodDNSConfigOptionFromJSON,
-  K8sIoApiCoreV1PodDNSConfigOptionToJSON,
+    K8sIoApiCoreV1PodDNSConfigOption,
+    K8sIoApiCoreV1PodDNSConfigOptionFromJSON,
+    K8sIoApiCoreV1PodDNSConfigOptionFromJSONTyped,
+    K8sIoApiCoreV1PodDNSConfigOptionToJSON,
 } from './';
 
 /**
@@ -25,59 +26,54 @@ import {
  * @interface K8sIoApiCoreV1PodDNSConfig
  */
 export interface K8sIoApiCoreV1PodDNSConfig {
-  /**
-   * A list of DNS name server IP addresses. This will be appended to the base nameservers generated from DNSPolicy. Duplicated nameservers will be removed.
-   * @type {Array<string>}
-   * @memberof K8sIoApiCoreV1PodDNSConfig
-   */
-  nameservers?: Array<string>;
-  /**
-   * A list of DNS resolver options. This will be merged with the base options generated from DNSPolicy. Duplicated entries will be removed. Resolution options given in Options will override those that appear in the base DNSPolicy.
-   * @type {Array<K8sIoApiCoreV1PodDNSConfigOption>}
-   * @memberof K8sIoApiCoreV1PodDNSConfig
-   */
-  options?: Array<K8sIoApiCoreV1PodDNSConfigOption>;
-  /**
-   * A list of DNS search domains for host-name lookup. This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.
-   * @type {Array<string>}
-   * @memberof K8sIoApiCoreV1PodDNSConfig
-   */
-  searches?: Array<string>;
+    /**
+     * A list of DNS name server IP addresses. This will be appended to the base nameservers generated from DNSPolicy. Duplicated nameservers will be removed.
+     * @type {Array<string>}
+     * @memberof K8sIoApiCoreV1PodDNSConfig
+     */
+    nameservers?: Array<string>;
+    /**
+     * A list of DNS resolver options. This will be merged with the base options generated from DNSPolicy. Duplicated entries will be removed. Resolution options given in Options will override those that appear in the base DNSPolicy.
+     * @type {Array<K8sIoApiCoreV1PodDNSConfigOption>}
+     * @memberof K8sIoApiCoreV1PodDNSConfig
+     */
+    options?: Array<K8sIoApiCoreV1PodDNSConfigOption>;
+    /**
+     * A list of DNS search domains for host-name lookup. This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.
+     * @type {Array<string>}
+     * @memberof K8sIoApiCoreV1PodDNSConfig
+     */
+    searches?: Array<string>;
 }
 
 export function K8sIoApiCoreV1PodDNSConfigFromJSON(json: any): K8sIoApiCoreV1PodDNSConfig {
-  return K8sIoApiCoreV1PodDNSConfigFromJSONTyped(json, false);
+    return K8sIoApiCoreV1PodDNSConfigFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1PodDNSConfigFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApiCoreV1PodDNSConfig {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    nameservers: !exists(json, 'nameservers') ? undefined : json['nameservers'],
-    options: !exists(json, 'options')
-      ? undefined
-      : (json['options'] as Array<any>).map(K8sIoApiCoreV1PodDNSConfigOptionFromJSON),
-    searches: !exists(json, 'searches') ? undefined : json['searches'],
-  };
+export function K8sIoApiCoreV1PodDNSConfigFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApiCoreV1PodDNSConfig {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'nameservers': !exists(json, 'nameservers') ? undefined : json['nameservers'],
+        'options': !exists(json, 'options') ? undefined : ((json['options'] as Array<any>).map(K8sIoApiCoreV1PodDNSConfigOptionFromJSON)),
+        'searches': !exists(json, 'searches') ? undefined : json['searches'],
+    };
 }
 
 export function K8sIoApiCoreV1PodDNSConfigToJSON(value?: K8sIoApiCoreV1PodDNSConfig | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    nameservers: value.nameservers,
-    options:
-      value.options === undefined
-        ? undefined
-        : (value.options as Array<any>).map(K8sIoApiCoreV1PodDNSConfigOptionToJSON),
-    searches: value.searches,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'nameservers': value.nameservers,
+        'options': value.options === undefined ? undefined : ((value.options as Array<any>).map(K8sIoApiCoreV1PodDNSConfigOptionToJSON)),
+        'searches': value.searches,
+    };
 }
+

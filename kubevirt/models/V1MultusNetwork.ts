@@ -12,53 +12,53 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * Represents the multus cni network.
  * @export
  * @interface V1MultusNetwork
  */
 export interface V1MultusNetwork {
-  /**
-   * Select the default network and add it to the multus-cni.io/default-network annotation.
-   * @type {boolean}
-   * @memberof V1MultusNetwork
-   */
-  _default?: boolean;
-  /**
-   * References to a NetworkAttachmentDefinition CRD object. Format: <networkName>, <namespace>/<networkName>. If namespace is not specified, VMI namespace is assumed.
-   * @type {string}
-   * @memberof V1MultusNetwork
-   */
-  networkName: string;
+    /**
+     * Select the default network and add it to the multus-cni.io/default-network annotation.
+     * @type {boolean}
+     * @memberof V1MultusNetwork
+     */
+    _default?: boolean;
+    /**
+     * References to a NetworkAttachmentDefinition CRD object. Format: <networkName>, <namespace>/<networkName>. If namespace is not specified, VMI namespace is assumed.
+     * @type {string}
+     * @memberof V1MultusNetwork
+     */
+    networkName: string;
 }
 
 export function V1MultusNetworkFromJSON(json: any): V1MultusNetwork {
-  return V1MultusNetworkFromJSONTyped(json, false);
+    return V1MultusNetworkFromJSONTyped(json, false);
 }
 
-export function V1MultusNetworkFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1MultusNetwork {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    _default: !exists(json, 'default') ? undefined : json['default'],
-    networkName: json['networkName'],
-  };
+export function V1MultusNetworkFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1MultusNetwork {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        '_default': !exists(json, 'default') ? undefined : json['default'],
+        'networkName': json['networkName'],
+    };
 }
 
 export function V1MultusNetworkToJSON(value?: V1MultusNetwork | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    default: value._default,
-    networkName: value.networkName,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'default': value._default,
+        'networkName': value.networkName,
+    };
 }
+

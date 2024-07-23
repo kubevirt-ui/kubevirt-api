@@ -12,50 +12,53 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * CPUFeature allows specifying a CPU feature.
  * @export
  * @interface V1CPUFeature
  */
 export interface V1CPUFeature {
-  /**
-   * Name of the CPU feature
-   * @type {string}
-   * @memberof V1CPUFeature
-   */
-  name: string;
-  /**
-   * Policy is the CPU feature attribute which can have the following attributes: force    - The virtual CPU will claim the feature is supported regardless of it being supported by host CPU. require  - Guest creation will fail unless the feature is supported by the host CPU or the hypervisor is able to emulate it. optional - The feature will be supported by virtual CPU if and only if it is supported by host CPU. disable  - The feature will not be supported by virtual CPU. forbid   - Guest creation will fail if the feature is supported by host CPU. Defaults to require
-   * @type {string}
-   * @memberof V1CPUFeature
-   */
-  policy?: string;
+    /**
+     * Name of the CPU feature
+     * @type {string}
+     * @memberof V1CPUFeature
+     */
+    name: string;
+    /**
+     * Policy is the CPU feature attribute which can have the following attributes: force    - The virtual CPU will claim the feature is supported regardless of it being supported by host CPU. require  - Guest creation will fail unless the feature is supported by the host CPU or the hypervisor is able to emulate it. optional - The feature will be supported by virtual CPU if and only if it is supported by host CPU. disable  - The feature will not be supported by virtual CPU. forbid   - Guest creation will fail if the feature is supported by host CPU. Defaults to require
+     * @type {string}
+     * @memberof V1CPUFeature
+     */
+    policy?: string;
 }
 
 export function V1CPUFeatureFromJSON(json: any): V1CPUFeature {
-  return V1CPUFeatureFromJSONTyped(json, false);
+    return V1CPUFeatureFromJSONTyped(json, false);
 }
 
 export function V1CPUFeatureFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1CPUFeature {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    policy: !exists(json, 'policy') ? undefined : json['policy'],
-  };
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'name': json['name'],
+        'policy': !exists(json, 'policy') ? undefined : json['policy'],
+    };
 }
 
 export function V1CPUFeatureToJSON(value?: V1CPUFeature | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    policy: value.policy,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'name': value.name,
+        'policy': value.policy,
+    };
 }
+

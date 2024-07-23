@@ -12,8 +12,17 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1BIOS, V1BIOSFromJSON, V1BIOSToJSON, V1EFI, V1EFIFromJSON, V1EFIToJSON } from './';
+import { exists, mapValues } from '../runtime';
+import {
+    V1BIOS,
+    V1BIOSFromJSON,
+    V1BIOSFromJSONTyped,
+    V1BIOSToJSON,
+    V1EFI,
+    V1EFIFromJSON,
+    V1EFIFromJSONTyped,
+    V1EFIToJSON,
+} from './';
 
 /**
  * Represents the firmware blob used to assist in the domain creation process. Used for setting the QEMU BIOS file path for the libvirt domain.
@@ -21,43 +30,46 @@ import { V1BIOS, V1BIOSFromJSON, V1BIOSToJSON, V1EFI, V1EFIFromJSON, V1EFIToJSON
  * @interface V1Bootloader
  */
 export interface V1Bootloader {
-  /**
-   *
-   * @type {V1BIOS}
-   * @memberof V1Bootloader
-   */
-  bios?: V1BIOS;
-  /**
-   *
-   * @type {V1EFI}
-   * @memberof V1Bootloader
-   */
-  efi?: V1EFI;
+    /**
+     * 
+     * @type {V1BIOS}
+     * @memberof V1Bootloader
+     */
+    bios?: V1BIOS;
+    /**
+     * 
+     * @type {V1EFI}
+     * @memberof V1Bootloader
+     */
+    efi?: V1EFI;
 }
 
 export function V1BootloaderFromJSON(json: any): V1Bootloader {
-  return V1BootloaderFromJSONTyped(json, false);
+    return V1BootloaderFromJSONTyped(json, false);
 }
 
 export function V1BootloaderFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Bootloader {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    bios: !exists(json, 'bios') ? undefined : V1BIOSFromJSON(json['bios']),
-    efi: !exists(json, 'efi') ? undefined : V1EFIFromJSON(json['efi']),
-  };
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'bios': !exists(json, 'bios') ? undefined : V1BIOSFromJSON(json['bios']),
+        'efi': !exists(json, 'efi') ? undefined : V1EFIFromJSON(json['efi']),
+    };
 }
 
 export function V1BootloaderToJSON(value?: V1Bootloader | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    bios: V1BIOSToJSON(value.bios),
-    efi: V1EFIToJSON(value.efi),
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'bios': V1BIOSToJSON(value.bios),
+        'efi': V1EFIToJSON(value.efi),
+    };
 }
+

@@ -12,52 +12,53 @@
  * Do not edit the class manually.
  */
 
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1TokenBucketRateLimiter
  */
 export interface V1TokenBucketRateLimiter {
-  /**
-   * Maximum burst for throttle. If it's zero, the component default will be used
-   * @type {number}
-   * @memberof V1TokenBucketRateLimiter
-   */
-  burst: number;
-  /**
-   * QPS indicates the maximum QPS to the apiserver from this client. If it's zero, the component default will be used
-   * @type {number}
-   * @memberof V1TokenBucketRateLimiter
-   */
-  qps: number;
+    /**
+     * Maximum burst for throttle. If it's zero, the component default will be used
+     * @type {number}
+     * @memberof V1TokenBucketRateLimiter
+     */
+    burst: number;
+    /**
+     * QPS indicates the maximum QPS to the apiserver from this client. If it's zero, the component default will be used
+     * @type {number}
+     * @memberof V1TokenBucketRateLimiter
+     */
+    qps: number;
 }
 
 export function V1TokenBucketRateLimiterFromJSON(json: any): V1TokenBucketRateLimiter {
-  return V1TokenBucketRateLimiterFromJSONTyped(json, false);
+    return V1TokenBucketRateLimiterFromJSONTyped(json, false);
 }
 
-export function V1TokenBucketRateLimiterFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1TokenBucketRateLimiter {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    burst: json['burst'],
-    qps: json['qps'],
-  };
+export function V1TokenBucketRateLimiterFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1TokenBucketRateLimiter {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'burst': json['burst'],
+        'qps': json['qps'],
+    };
 }
 
 export function V1TokenBucketRateLimiterToJSON(value?: V1TokenBucketRateLimiter | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    burst: value.burst,
-    qps: value.qps,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'burst': value.burst,
+        'qps': value.qps,
+    };
 }
+

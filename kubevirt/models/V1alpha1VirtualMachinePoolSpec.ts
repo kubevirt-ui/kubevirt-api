@@ -12,82 +12,80 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 import {
-  K8sIoApimachineryPkgApisMetaV1LabelSelector,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-  V1alpha1VirtualMachineTemplateSpec,
-  V1alpha1VirtualMachineTemplateSpecFromJSON,
-  V1alpha1VirtualMachineTemplateSpecToJSON,
+    K8sIoApimachineryPkgApisMetaV1LabelSelector,
+    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
+    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
+    K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
+    V1alpha1VirtualMachineTemplateSpec,
+    V1alpha1VirtualMachineTemplateSpecFromJSON,
+    V1alpha1VirtualMachineTemplateSpecFromJSONTyped,
+    V1alpha1VirtualMachineTemplateSpecToJSON,
 } from './';
 
 /**
- *
+ * 
  * @export
  * @interface V1alpha1VirtualMachinePoolSpec
  */
 export interface V1alpha1VirtualMachinePoolSpec {
-  /**
-   * Indicates that the pool is paused.
-   * @type {boolean}
-   * @memberof V1alpha1VirtualMachinePoolSpec
-   */
-  paused?: boolean;
-  /**
-   * Number of desired pods. This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.
-   * @type {number}
-   * @memberof V1alpha1VirtualMachinePoolSpec
-   */
-  replicas?: number;
-  /**
-   *
-   * @type {K8sIoApimachineryPkgApisMetaV1LabelSelector}
-   * @memberof V1alpha1VirtualMachinePoolSpec
-   */
-  selector: K8sIoApimachineryPkgApisMetaV1LabelSelector;
-  /**
-   *
-   * @type {V1alpha1VirtualMachineTemplateSpec}
-   * @memberof V1alpha1VirtualMachinePoolSpec
-   */
-  virtualMachineTemplate: V1alpha1VirtualMachineTemplateSpec;
+    /**
+     * Indicates that the pool is paused.
+     * @type {boolean}
+     * @memberof V1alpha1VirtualMachinePoolSpec
+     */
+    paused?: boolean;
+    /**
+     * Number of desired pods. This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.
+     * @type {number}
+     * @memberof V1alpha1VirtualMachinePoolSpec
+     */
+    replicas?: number;
+    /**
+     * 
+     * @type {K8sIoApimachineryPkgApisMetaV1LabelSelector}
+     * @memberof V1alpha1VirtualMachinePoolSpec
+     */
+    selector: K8sIoApimachineryPkgApisMetaV1LabelSelector;
+    /**
+     * 
+     * @type {V1alpha1VirtualMachineTemplateSpec}
+     * @memberof V1alpha1VirtualMachinePoolSpec
+     */
+    virtualMachineTemplate: V1alpha1VirtualMachineTemplateSpec;
 }
 
 export function V1alpha1VirtualMachinePoolSpecFromJSON(json: any): V1alpha1VirtualMachinePoolSpec {
-  return V1alpha1VirtualMachinePoolSpecFromJSONTyped(json, false);
+    return V1alpha1VirtualMachinePoolSpecFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachinePoolSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1alpha1VirtualMachinePoolSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    paused: !exists(json, 'paused') ? undefined : json['paused'],
-    replicas: !exists(json, 'replicas') ? undefined : json['replicas'],
-    selector: K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
-    virtualMachineTemplate: V1alpha1VirtualMachineTemplateSpecFromJSON(
-      json['virtualMachineTemplate'],
-    ),
-  };
+export function V1alpha1VirtualMachinePoolSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VirtualMachinePoolSpec {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'paused': !exists(json, 'paused') ? undefined : json['paused'],
+        'replicas': !exists(json, 'replicas') ? undefined : json['replicas'],
+        'selector': K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
+        'virtualMachineTemplate': V1alpha1VirtualMachineTemplateSpecFromJSON(json['virtualMachineTemplate']),
+    };
 }
 
-export function V1alpha1VirtualMachinePoolSpecToJSON(
-  value?: V1alpha1VirtualMachinePoolSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    paused: value.paused,
-    replicas: value.replicas,
-    selector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
-    virtualMachineTemplate: V1alpha1VirtualMachineTemplateSpecToJSON(value.virtualMachineTemplate),
-  };
+export function V1alpha1VirtualMachinePoolSpecToJSON(value?: V1alpha1VirtualMachinePoolSpec | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'paused': value.paused,
+        'replicas': value.replicas,
+        'selector': K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
+        'virtualMachineTemplate': V1alpha1VirtualMachineTemplateSpecToJSON(value.virtualMachineTemplate),
+    };
 }
+

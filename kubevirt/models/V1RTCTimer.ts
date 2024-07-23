@@ -12,58 +12,61 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1RTCTimer
  */
 export interface V1RTCTimer {
-  /**
-   * Enabled set to false makes sure that the machine type or a preset can't add the timer. Defaults to true.
-   * @type {boolean}
-   * @memberof V1RTCTimer
-   */
-  present?: boolean;
-  /**
-   * TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest. One of "delay", "catchup".
-   * @type {string}
-   * @memberof V1RTCTimer
-   */
-  tickPolicy?: string;
-  /**
-   * Track the guest or the wall clock.
-   * @type {string}
-   * @memberof V1RTCTimer
-   */
-  track?: string;
+    /**
+     * Enabled set to false makes sure that the machine type or a preset can't add the timer. Defaults to true.
+     * @type {boolean}
+     * @memberof V1RTCTimer
+     */
+    present?: boolean;
+    /**
+     * TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest. One of "delay", "catchup".
+     * @type {string}
+     * @memberof V1RTCTimer
+     */
+    tickPolicy?: string;
+    /**
+     * Track the guest or the wall clock.
+     * @type {string}
+     * @memberof V1RTCTimer
+     */
+    track?: string;
 }
 
 export function V1RTCTimerFromJSON(json: any): V1RTCTimer {
-  return V1RTCTimerFromJSONTyped(json, false);
+    return V1RTCTimerFromJSONTyped(json, false);
 }
 
 export function V1RTCTimerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1RTCTimer {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    present: !exists(json, 'present') ? undefined : json['present'],
-    tickPolicy: !exists(json, 'tickPolicy') ? undefined : json['tickPolicy'],
-    track: !exists(json, 'track') ? undefined : json['track'],
-  };
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'present': !exists(json, 'present') ? undefined : json['present'],
+        'tickPolicy': !exists(json, 'tickPolicy') ? undefined : json['tickPolicy'],
+        'track': !exists(json, 'track') ? undefined : json['track'],
+    };
 }
 
 export function V1RTCTimerToJSON(value?: V1RTCTimer | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    present: value.present,
-    tickPolicy: value.tickPolicy,
-    track: value.track,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'present': value.present,
+        'tickPolicy': value.tickPolicy,
+        'track': value.track,
+    };
 }
+

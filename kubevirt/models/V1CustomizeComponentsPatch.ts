@@ -12,68 +12,69 @@
  * Do not edit the class manually.
  */
 
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1CustomizeComponentsPatch
  */
 export interface V1CustomizeComponentsPatch {
-  /**
-   *
-   * @type {string}
-   * @memberof V1CustomizeComponentsPatch
-   */
-  patch: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1CustomizeComponentsPatch
-   */
-  resourceName: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1CustomizeComponentsPatch
-   */
-  resourceType: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1CustomizeComponentsPatch
-   */
-  type: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1CustomizeComponentsPatch
+     */
+    patch: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1CustomizeComponentsPatch
+     */
+    resourceName: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1CustomizeComponentsPatch
+     */
+    resourceType: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1CustomizeComponentsPatch
+     */
+    type: string;
 }
 
 export function V1CustomizeComponentsPatchFromJSON(json: any): V1CustomizeComponentsPatch {
-  return V1CustomizeComponentsPatchFromJSONTyped(json, false);
+    return V1CustomizeComponentsPatchFromJSONTyped(json, false);
 }
 
-export function V1CustomizeComponentsPatchFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1CustomizeComponentsPatch {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    patch: json['patch'],
-    resourceName: json['resourceName'],
-    resourceType: json['resourceType'],
-    type: json['type'],
-  };
+export function V1CustomizeComponentsPatchFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1CustomizeComponentsPatch {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'patch': json['patch'],
+        'resourceName': json['resourceName'],
+        'resourceType': json['resourceType'],
+        'type': json['type'],
+    };
 }
 
 export function V1CustomizeComponentsPatchToJSON(value?: V1CustomizeComponentsPatch | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    patch: value.patch,
-    resourceName: value.resourceName,
-    resourceType: value.resourceType,
-    type: value.type,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'patch': value.patch,
+        'resourceName': value.resourceName,
+        'resourceType': value.resourceType,
+        'type': value.type,
+    };
 }
+

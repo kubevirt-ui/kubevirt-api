@@ -12,42 +12,45 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1Machine
  */
 export interface V1Machine {
-  /**
-   * QEMU machine type is the actual chipset of the VirtualMachineInstance.
-   * @type {string}
-   * @memberof V1Machine
-   */
-  type?: string;
+    /**
+     * QEMU machine type is the actual chipset of the VirtualMachineInstance.
+     * @type {string}
+     * @memberof V1Machine
+     */
+    type?: string;
 }
 
 export function V1MachineFromJSON(json: any): V1Machine {
-  return V1MachineFromJSONTyped(json, false);
+    return V1MachineFromJSONTyped(json, false);
 }
 
 export function V1MachineFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Machine {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    type: !exists(json, 'type') ? undefined : json['type'],
-  };
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'type': !exists(json, 'type') ? undefined : json['type'],
+    };
 }
 
 export function V1MachineToJSON(value?: V1Machine | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    type: value.type,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'type': value.type,
+    };
 }
+

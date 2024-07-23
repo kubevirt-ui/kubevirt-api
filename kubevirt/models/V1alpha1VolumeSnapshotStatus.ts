@@ -12,8 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1alpha1Error, V1alpha1ErrorFromJSON, V1alpha1ErrorToJSON } from './';
+import { exists, mapValues } from '../runtime';
+import {
+    V1alpha1Error,
+    V1alpha1ErrorFromJSON,
+    V1alpha1ErrorFromJSONTyped,
+    V1alpha1ErrorToJSON,
+} from './';
 
 /**
  * VolumeSnapshotStatus is the status of a VolumeSnapshot
@@ -21,64 +26,62 @@ import { V1alpha1Error, V1alpha1ErrorFromJSON, V1alpha1ErrorToJSON } from './';
  * @interface V1alpha1VolumeSnapshotStatus
  */
 export interface V1alpha1VolumeSnapshotStatus {
-  /**
-   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-   * @type {string}
-   * @memberof V1alpha1VolumeSnapshotStatus
-   */
-  creationTime?: string;
-  /**
-   *
-   * @type {V1alpha1Error}
-   * @memberof V1alpha1VolumeSnapshotStatus
-   */
-  error?: V1alpha1Error;
-  /**
-   *
-   * @type {boolean}
-   * @memberof V1alpha1VolumeSnapshotStatus
-   */
-  readyToUse?: boolean;
-  /**
-   *
-   * @type {string}
-   * @memberof V1alpha1VolumeSnapshotStatus
-   */
-  volumeSnapshotName: string;
+    /**
+     * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+     * @type {string}
+     * @memberof V1alpha1VolumeSnapshotStatus
+     */
+    creationTime?: string;
+    /**
+     * 
+     * @type {V1alpha1Error}
+     * @memberof V1alpha1VolumeSnapshotStatus
+     */
+    error?: V1alpha1Error;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof V1alpha1VolumeSnapshotStatus
+     */
+    readyToUse?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1alpha1VolumeSnapshotStatus
+     */
+    volumeSnapshotName: string;
 }
 
 export function V1alpha1VolumeSnapshotStatusFromJSON(json: any): V1alpha1VolumeSnapshotStatus {
-  return V1alpha1VolumeSnapshotStatusFromJSONTyped(json, false);
+    return V1alpha1VolumeSnapshotStatusFromJSONTyped(json, false);
 }
 
-export function V1alpha1VolumeSnapshotStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1alpha1VolumeSnapshotStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    creationTime: !exists(json, 'creationTime') ? undefined : json['creationTime'],
-    error: !exists(json, 'error') ? undefined : V1alpha1ErrorFromJSON(json['error']),
-    readyToUse: !exists(json, 'readyToUse') ? undefined : json['readyToUse'],
-    volumeSnapshotName: json['volumeSnapshotName'],
-  };
+export function V1alpha1VolumeSnapshotStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VolumeSnapshotStatus {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'creationTime': !exists(json, 'creationTime') ? undefined : ((json['creationTime'])),
+        'error': !exists(json, 'error') ? undefined : V1alpha1ErrorFromJSON(json['error']),
+        'readyToUse': !exists(json, 'readyToUse') ? undefined : json['readyToUse'],
+        'volumeSnapshotName': json['volumeSnapshotName'],
+    };
 }
 
-export function V1alpha1VolumeSnapshotStatusToJSON(
-  value?: V1alpha1VolumeSnapshotStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    creationTime: value.creationTime === undefined ? undefined : value.creationTime,
-    error: V1alpha1ErrorToJSON(value.error),
-    readyToUse: value.readyToUse,
-    volumeSnapshotName: value.volumeSnapshotName,
-  };
+export function V1alpha1VolumeSnapshotStatusToJSON(value?: V1alpha1VolumeSnapshotStatus | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'creationTime': value.creationTime === undefined ? undefined : (value.creationTime),
+        'error': V1alpha1ErrorToJSON(value.error),
+        'readyToUse': value.readyToUse,
+        'volumeSnapshotName': value.volumeSnapshotName,
+    };
 }
+

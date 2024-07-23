@@ -12,14 +12,16 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 import {
-  K8sIoApimachineryPkgApisMetaV1ListMeta,
-  K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-  V1beta1VirtualMachinePreference,
-  V1beta1VirtualMachinePreferenceFromJSON,
-  V1beta1VirtualMachinePreferenceToJSON,
+    K8sIoApimachineryPkgApisMetaV1ListMeta,
+    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
+    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
+    K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
+    V1beta1VirtualMachinePreference,
+    V1beta1VirtualMachinePreferenceFromJSON,
+    V1beta1VirtualMachinePreferenceFromJSONTyped,
+    V1beta1VirtualMachinePreferenceToJSON,
 } from './';
 
 /**
@@ -28,68 +30,62 @@ import {
  * @interface V1beta1VirtualMachinePreferenceList
  */
 export interface V1beta1VirtualMachinePreferenceList {
-  /**
-   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-   * @type {string}
-   * @memberof V1beta1VirtualMachinePreferenceList
-   */
-  apiVersion?: string;
-  /**
-   *
-   * @type {Array<V1beta1VirtualMachinePreference>}
-   * @memberof V1beta1VirtualMachinePreferenceList
-   */
-  items: Array<V1beta1VirtualMachinePreference>;
-  /**
-   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   * @type {string}
-   * @memberof V1beta1VirtualMachinePreferenceList
-   */
-  kind?: string;
-  /**
-   *
-   * @type {K8sIoApimachineryPkgApisMetaV1ListMeta}
-   * @memberof V1beta1VirtualMachinePreferenceList
-   */
-  metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
+    /**
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+     * @type {string}
+     * @memberof V1beta1VirtualMachinePreferenceList
+     */
+    apiVersion?: string;
+    /**
+     * 
+     * @type {Array<V1beta1VirtualMachinePreference>}
+     * @memberof V1beta1VirtualMachinePreferenceList
+     */
+    items: Array<V1beta1VirtualMachinePreference>;
+    /**
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+     * @type {string}
+     * @memberof V1beta1VirtualMachinePreferenceList
+     */
+    kind?: string;
+    /**
+     * 
+     * @type {K8sIoApimachineryPkgApisMetaV1ListMeta}
+     * @memberof V1beta1VirtualMachinePreferenceList
+     */
+    metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
 
-export function V1beta1VirtualMachinePreferenceListFromJSON(
-  json: any,
-): V1beta1VirtualMachinePreferenceList {
-  return V1beta1VirtualMachinePreferenceListFromJSONTyped(json, false);
+export function V1beta1VirtualMachinePreferenceListFromJSON(json: any): V1beta1VirtualMachinePreferenceList {
+    return V1beta1VirtualMachinePreferenceListFromJSONTyped(json, false);
 }
 
-export function V1beta1VirtualMachinePreferenceListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachinePreferenceList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1beta1VirtualMachinePreferenceFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
+export function V1beta1VirtualMachinePreferenceListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1VirtualMachinePreferenceList {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+        'items': ((json['items'] as Array<any>).map(V1beta1VirtualMachinePreferenceFromJSON)),
+        'kind': !exists(json, 'kind') ? undefined : json['kind'],
+        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
+    };
 }
 
-export function V1beta1VirtualMachinePreferenceListToJSON(
-  value?: V1beta1VirtualMachinePreferenceList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1beta1VirtualMachinePreferenceToJSON),
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
+export function V1beta1VirtualMachinePreferenceListToJSON(value?: V1beta1VirtualMachinePreferenceList | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'apiVersion': value.apiVersion,
+        'items': ((value.items as Array<any>).map(V1beta1VirtualMachinePreferenceToJSON)),
+        'kind': value.kind,
+        'metadata': K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
+    };
 }
+

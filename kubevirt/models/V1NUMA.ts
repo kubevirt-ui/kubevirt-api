@@ -12,44 +12,45 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1NUMA
  */
 export interface V1NUMA {
-  /**
-   * NUMAGuestMappingPassthrough instructs kubevirt to model numa topology which is compatible with the CPU pinning on the guest. This will result in a subset of the node numa topology being passed through, ensuring that virtual numa nodes and their memory never cross boundaries coming from the node numa mapping.
-   * @type {object}
-   * @memberof V1NUMA
-   */
-  guestMappingPassthrough?: object;
+    /**
+     * NUMAGuestMappingPassthrough instructs kubevirt to model numa topology which is compatible with the CPU pinning on the guest. This will result in a subset of the node numa topology being passed through, ensuring that virtual numa nodes and their memory never cross boundaries coming from the node numa mapping.
+     * @type {object}
+     * @memberof V1NUMA
+     */
+    guestMappingPassthrough?: object;
 }
 
 export function V1NUMAFromJSON(json: any): V1NUMA {
-  return V1NUMAFromJSONTyped(json, false);
+    return V1NUMAFromJSONTyped(json, false);
 }
 
 export function V1NUMAFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1NUMA {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    guestMappingPassthrough: !exists(json, 'guestMappingPassthrough')
-      ? undefined
-      : json['guestMappingPassthrough'],
-  };
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'guestMappingPassthrough': !exists(json, 'guestMappingPassthrough') ? undefined : json['guestMappingPassthrough'],
+    };
 }
 
 export function V1NUMAToJSON(value?: V1NUMA | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    guestMappingPassthrough: value.guestMappingPassthrough,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'guestMappingPassthrough': value.guestMappingPassthrough,
+    };
 }
+

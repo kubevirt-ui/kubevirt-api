@@ -12,14 +12,16 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 import {
-  K8sIoApimachineryPkgApisMetaV1ObjectMeta,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-  V1beta1VirtualMachineInstancetypeSpec,
-  V1beta1VirtualMachineInstancetypeSpecFromJSON,
-  V1beta1VirtualMachineInstancetypeSpecToJSON,
+    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
+    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
+    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
+    K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
+    V1beta1VirtualMachineInstancetypeSpec,
+    V1beta1VirtualMachineInstancetypeSpecFromJSON,
+    V1beta1VirtualMachineInstancetypeSpecFromJSONTyped,
+    V1beta1VirtualMachineInstancetypeSpecToJSON,
 } from './';
 
 /**
@@ -28,68 +30,62 @@ import {
  * @interface V1beta1VirtualMachineInstancetype
  */
 export interface V1beta1VirtualMachineInstancetype {
-  /**
-   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-   * @type {string}
-   * @memberof V1beta1VirtualMachineInstancetype
-   */
-  apiVersion?: string;
-  /**
-   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   * @type {string}
-   * @memberof V1beta1VirtualMachineInstancetype
-   */
-  kind?: string;
-  /**
-   *
-   * @type {K8sIoApimachineryPkgApisMetaV1ObjectMeta}
-   * @memberof V1beta1VirtualMachineInstancetype
-   */
-  metadata?: K8sIoApimachineryPkgApisMetaV1ObjectMeta;
-  /**
-   *
-   * @type {V1beta1VirtualMachineInstancetypeSpec}
-   * @memberof V1beta1VirtualMachineInstancetype
-   */
-  spec: V1beta1VirtualMachineInstancetypeSpec;
+    /**
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+     * @type {string}
+     * @memberof V1beta1VirtualMachineInstancetype
+     */
+    apiVersion?: string;
+    /**
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+     * @type {string}
+     * @memberof V1beta1VirtualMachineInstancetype
+     */
+    kind?: string;
+    /**
+     * 
+     * @type {K8sIoApimachineryPkgApisMetaV1ObjectMeta}
+     * @memberof V1beta1VirtualMachineInstancetype
+     */
+    metadata?: K8sIoApimachineryPkgApisMetaV1ObjectMeta;
+    /**
+     * 
+     * @type {V1beta1VirtualMachineInstancetypeSpec}
+     * @memberof V1beta1VirtualMachineInstancetype
+     */
+    spec: V1beta1VirtualMachineInstancetypeSpec;
 }
 
-export function V1beta1VirtualMachineInstancetypeFromJSON(
-  json: any,
-): V1beta1VirtualMachineInstancetype {
-  return V1beta1VirtualMachineInstancetypeFromJSONTyped(json, false);
+export function V1beta1VirtualMachineInstancetypeFromJSON(json: any): V1beta1VirtualMachineInstancetype {
+    return V1beta1VirtualMachineInstancetypeFromJSONTyped(json, false);
 }
 
-export function V1beta1VirtualMachineInstancetypeFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineInstancetype {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: V1beta1VirtualMachineInstancetypeSpecFromJSON(json['spec']),
-  };
+export function V1beta1VirtualMachineInstancetypeFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1VirtualMachineInstancetype {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+        'kind': !exists(json, 'kind') ? undefined : json['kind'],
+        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
+        'spec': V1beta1VirtualMachineInstancetypeSpecFromJSON(json['spec']),
+    };
 }
 
-export function V1beta1VirtualMachineInstancetypeToJSON(
-  value?: V1beta1VirtualMachineInstancetype | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: V1beta1VirtualMachineInstancetypeSpecToJSON(value.spec),
-  };
+export function V1beta1VirtualMachineInstancetypeToJSON(value?: V1beta1VirtualMachineInstancetype | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'apiVersion': value.apiVersion,
+        'kind': value.kind,
+        'metadata': K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
+        'spec': V1beta1VirtualMachineInstancetypeSpecToJSON(value.spec),
+    };
 }
+

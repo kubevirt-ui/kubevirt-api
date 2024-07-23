@@ -12,11 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 import {
-  V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation,
-  V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSON,
-  V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationToJSON,
+    V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation,
+    V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSON,
+    V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSONTyped,
+    V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationToJSON,
 } from './';
 
 /**
@@ -25,62 +26,54 @@ import {
  * @interface V1SSHPublicKeyAccessCredentialPropagationMethod
  */
 export interface V1SSHPublicKeyAccessCredentialPropagationMethod {
-  /**
-   *
-   * @type {object}
-   * @memberof V1SSHPublicKeyAccessCredentialPropagationMethod
-   */
-  configDrive?: object;
-  /**
-   *
-   * @type {object}
-   * @memberof V1SSHPublicKeyAccessCredentialPropagationMethod
-   */
-  noCloud?: object;
-  /**
-   *
-   * @type {V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation}
-   * @memberof V1SSHPublicKeyAccessCredentialPropagationMethod
-   */
-  qemuGuestAgent?: V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation;
+    /**
+     * 
+     * @type {object}
+     * @memberof V1SSHPublicKeyAccessCredentialPropagationMethod
+     */
+    configDrive?: object;
+    /**
+     * 
+     * @type {object}
+     * @memberof V1SSHPublicKeyAccessCredentialPropagationMethod
+     */
+    noCloud?: object;
+    /**
+     * 
+     * @type {V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation}
+     * @memberof V1SSHPublicKeyAccessCredentialPropagationMethod
+     */
+    qemuGuestAgent?: V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation;
 }
 
-export function V1SSHPublicKeyAccessCredentialPropagationMethodFromJSON(
-  json: any,
-): V1SSHPublicKeyAccessCredentialPropagationMethod {
-  return V1SSHPublicKeyAccessCredentialPropagationMethodFromJSONTyped(json, false);
+export function V1SSHPublicKeyAccessCredentialPropagationMethodFromJSON(json: any): V1SSHPublicKeyAccessCredentialPropagationMethod {
+    return V1SSHPublicKeyAccessCredentialPropagationMethodFromJSONTyped(json, false);
 }
 
-export function V1SSHPublicKeyAccessCredentialPropagationMethodFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1SSHPublicKeyAccessCredentialPropagationMethod {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    configDrive: !exists(json, 'configDrive') ? undefined : json['configDrive'],
-    noCloud: !exists(json, 'noCloud') ? undefined : json['noCloud'],
-    qemuGuestAgent: !exists(json, 'qemuGuestAgent')
-      ? undefined
-      : V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSON(json['qemuGuestAgent']),
-  };
+export function V1SSHPublicKeyAccessCredentialPropagationMethodFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SSHPublicKeyAccessCredentialPropagationMethod {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'configDrive': !exists(json, 'configDrive') ? undefined : json['configDrive'],
+        'noCloud': !exists(json, 'noCloud') ? undefined : json['noCloud'],
+        'qemuGuestAgent': !exists(json, 'qemuGuestAgent') ? undefined : V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSON(json['qemuGuestAgent']),
+    };
 }
 
-export function V1SSHPublicKeyAccessCredentialPropagationMethodToJSON(
-  value?: V1SSHPublicKeyAccessCredentialPropagationMethod | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    configDrive: value.configDrive,
-    noCloud: value.noCloud,
-    qemuGuestAgent: V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationToJSON(
-      value.qemuGuestAgent,
-    ),
-  };
+export function V1SSHPublicKeyAccessCredentialPropagationMethodToJSON(value?: V1SSHPublicKeyAccessCredentialPropagationMethod | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'configDrive': value.configDrive,
+        'noCloud': value.noCloud,
+        'qemuGuestAgent': V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationToJSON(value.qemuGuestAgent),
+    };
 }
+

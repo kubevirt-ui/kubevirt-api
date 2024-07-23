@@ -12,14 +12,16 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 import {
-  V1beta1DataSourceCondition,
-  V1beta1DataSourceConditionFromJSON,
-  V1beta1DataSourceConditionToJSON,
-  V1beta1DataSourceSource,
-  V1beta1DataSourceSourceFromJSON,
-  V1beta1DataSourceSourceToJSON,
+    V1beta1DataSourceCondition,
+    V1beta1DataSourceConditionFromJSON,
+    V1beta1DataSourceConditionFromJSONTyped,
+    V1beta1DataSourceConditionToJSON,
+    V1beta1DataSourceSource,
+    V1beta1DataSourceSourceFromJSON,
+    V1beta1DataSourceSourceFromJSONTyped,
+    V1beta1DataSourceSourceToJSON,
 } from './';
 
 /**
@@ -28,51 +30,46 @@ import {
  * @interface V1beta1DataSourceStatus
  */
 export interface V1beta1DataSourceStatus {
-  /**
-   *
-   * @type {Array<V1beta1DataSourceCondition>}
-   * @memberof V1beta1DataSourceStatus
-   */
-  conditions?: Array<V1beta1DataSourceCondition>;
-  /**
-   *
-   * @type {V1beta1DataSourceSource}
-   * @memberof V1beta1DataSourceStatus
-   */
-  source?: V1beta1DataSourceSource;
+    /**
+     * 
+     * @type {Array<V1beta1DataSourceCondition>}
+     * @memberof V1beta1DataSourceStatus
+     */
+    conditions?: Array<V1beta1DataSourceCondition>;
+    /**
+     * 
+     * @type {V1beta1DataSourceSource}
+     * @memberof V1beta1DataSourceStatus
+     */
+    source?: V1beta1DataSourceSource;
 }
 
 export function V1beta1DataSourceStatusFromJSON(json: any): V1beta1DataSourceStatus {
-  return V1beta1DataSourceStatusFromJSONTyped(json, false);
+    return V1beta1DataSourceStatusFromJSONTyped(json, false);
 }
 
-export function V1beta1DataSourceStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataSourceStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(V1beta1DataSourceConditionFromJSON),
-    source: !exists(json, 'source') ? undefined : V1beta1DataSourceSourceFromJSON(json['source']),
-  };
+export function V1beta1DataSourceStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataSourceStatus {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'conditions': !exists(json, 'conditions') ? undefined : ((json['conditions'] as Array<any>).map(V1beta1DataSourceConditionFromJSON)),
+        'source': !exists(json, 'source') ? undefined : V1beta1DataSourceSourceFromJSON(json['source']),
+    };
 }
 
 export function V1beta1DataSourceStatusToJSON(value?: V1beta1DataSourceStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(V1beta1DataSourceConditionToJSON),
-    source: V1beta1DataSourceSourceToJSON(value.source),
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'conditions': value.conditions === undefined ? undefined : ((value.conditions as Array<any>).map(V1beta1DataSourceConditionToJSON)),
+        'source': V1beta1DataSourceSourceToJSON(value.source),
+    };
 }
+

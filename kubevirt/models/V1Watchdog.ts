@@ -12,8 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1I6300ESBWatchdog, V1I6300ESBWatchdogFromJSON, V1I6300ESBWatchdogToJSON } from './';
+import { exists, mapValues } from '../runtime';
+import {
+    V1I6300ESBWatchdog,
+    V1I6300ESBWatchdogFromJSON,
+    V1I6300ESBWatchdogFromJSONTyped,
+    V1I6300ESBWatchdogToJSON,
+} from './';
 
 /**
  * Named watchdog device.
@@ -21,43 +26,46 @@ import { V1I6300ESBWatchdog, V1I6300ESBWatchdogFromJSON, V1I6300ESBWatchdogToJSO
  * @interface V1Watchdog
  */
 export interface V1Watchdog {
-  /**
-   *
-   * @type {V1I6300ESBWatchdog}
-   * @memberof V1Watchdog
-   */
-  i6300esb?: V1I6300ESBWatchdog;
-  /**
-   * Name of the watchdog.
-   * @type {string}
-   * @memberof V1Watchdog
-   */
-  name: string;
+    /**
+     * 
+     * @type {V1I6300ESBWatchdog}
+     * @memberof V1Watchdog
+     */
+    i6300esb?: V1I6300ESBWatchdog;
+    /**
+     * Name of the watchdog.
+     * @type {string}
+     * @memberof V1Watchdog
+     */
+    name: string;
 }
 
 export function V1WatchdogFromJSON(json: any): V1Watchdog {
-  return V1WatchdogFromJSONTyped(json, false);
+    return V1WatchdogFromJSONTyped(json, false);
 }
 
 export function V1WatchdogFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Watchdog {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    i6300esb: !exists(json, 'i6300esb') ? undefined : V1I6300ESBWatchdogFromJSON(json['i6300esb']),
-    name: json['name'],
-  };
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'i6300esb': !exists(json, 'i6300esb') ? undefined : V1I6300ESBWatchdogFromJSON(json['i6300esb']),
+        'name': json['name'],
+    };
 }
 
 export function V1WatchdogToJSON(value?: V1Watchdog | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    i6300esb: V1I6300ESBWatchdogToJSON(value.i6300esb),
-    name: value.name,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'i6300esb': V1I6300ESBWatchdogToJSON(value.i6300esb),
+        'name': value.name,
+    };
 }
+

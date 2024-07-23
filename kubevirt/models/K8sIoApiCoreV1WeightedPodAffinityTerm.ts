@@ -12,10 +12,12 @@
  * Do not edit the class manually.
  */
 
+import { exists, mapValues } from '../runtime';
 import {
-  K8sIoApiCoreV1PodAffinityTerm,
-  K8sIoApiCoreV1PodAffinityTermFromJSON,
-  K8sIoApiCoreV1PodAffinityTermToJSON,
+    K8sIoApiCoreV1PodAffinityTerm,
+    K8sIoApiCoreV1PodAffinityTermFromJSON,
+    K8sIoApiCoreV1PodAffinityTermFromJSONTyped,
+    K8sIoApiCoreV1PodAffinityTermToJSON,
 } from './';
 
 /**
@@ -24,50 +26,46 @@ import {
  * @interface K8sIoApiCoreV1WeightedPodAffinityTerm
  */
 export interface K8sIoApiCoreV1WeightedPodAffinityTerm {
-  /**
-   *
-   * @type {K8sIoApiCoreV1PodAffinityTerm}
-   * @memberof K8sIoApiCoreV1WeightedPodAffinityTerm
-   */
-  podAffinityTerm: K8sIoApiCoreV1PodAffinityTerm;
-  /**
-   * weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
-   * @type {number}
-   * @memberof K8sIoApiCoreV1WeightedPodAffinityTerm
-   */
-  weight: number;
+    /**
+     * 
+     * @type {K8sIoApiCoreV1PodAffinityTerm}
+     * @memberof K8sIoApiCoreV1WeightedPodAffinityTerm
+     */
+    podAffinityTerm: K8sIoApiCoreV1PodAffinityTerm;
+    /**
+     * weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
+     * @type {number}
+     * @memberof K8sIoApiCoreV1WeightedPodAffinityTerm
+     */
+    weight: number;
 }
 
-export function K8sIoApiCoreV1WeightedPodAffinityTermFromJSON(
-  json: any,
-): K8sIoApiCoreV1WeightedPodAffinityTerm {
-  return K8sIoApiCoreV1WeightedPodAffinityTermFromJSONTyped(json, false);
+export function K8sIoApiCoreV1WeightedPodAffinityTermFromJSON(json: any): K8sIoApiCoreV1WeightedPodAffinityTerm {
+    return K8sIoApiCoreV1WeightedPodAffinityTermFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1WeightedPodAffinityTermFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApiCoreV1WeightedPodAffinityTerm {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    podAffinityTerm: K8sIoApiCoreV1PodAffinityTermFromJSON(json['podAffinityTerm']),
-    weight: json['weight'],
-  };
+export function K8sIoApiCoreV1WeightedPodAffinityTermFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApiCoreV1WeightedPodAffinityTerm {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'podAffinityTerm': K8sIoApiCoreV1PodAffinityTermFromJSON(json['podAffinityTerm']),
+        'weight': json['weight'],
+    };
 }
 
-export function K8sIoApiCoreV1WeightedPodAffinityTermToJSON(
-  value?: K8sIoApiCoreV1WeightedPodAffinityTerm | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    podAffinityTerm: K8sIoApiCoreV1PodAffinityTermToJSON(value.podAffinityTerm),
-    weight: value.weight,
-  };
+export function K8sIoApiCoreV1WeightedPodAffinityTermToJSON(value?: K8sIoApiCoreV1WeightedPodAffinityTerm | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'podAffinityTerm': K8sIoApiCoreV1PodAffinityTermToJSON(value.podAffinityTerm),
+        'weight': value.weight,
+    };
 }
+

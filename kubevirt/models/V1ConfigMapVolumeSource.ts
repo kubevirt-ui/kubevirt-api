@@ -12,61 +12,61 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * ConfigMapVolumeSource adapts a ConfigMap into a volume. More info: https://kubernetes.io/docs/concepts/storage/volumes/#configmap
  * @export
  * @interface V1ConfigMapVolumeSource
  */
 export interface V1ConfigMapVolumeSource {
-  /**
-   * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-   * @type {string}
-   * @memberof V1ConfigMapVolumeSource
-   */
-  name?: string;
-  /**
-   * Specify whether the ConfigMap or it's keys must be defined
-   * @type {boolean}
-   * @memberof V1ConfigMapVolumeSource
-   */
-  optional?: boolean;
-  /**
-   * The volume label of the resulting disk inside the VMI. Different bootstrapping mechanisms require different values. Typical values are "cidata" (cloud-init), "config-2" (cloud-init) or "OEMDRV" (kickstart).
-   * @type {string}
-   * @memberof V1ConfigMapVolumeSource
-   */
-  volumeLabel?: string;
+    /**
+     * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+     * @type {string}
+     * @memberof V1ConfigMapVolumeSource
+     */
+    name?: string;
+    /**
+     * Specify whether the ConfigMap or it's keys must be defined
+     * @type {boolean}
+     * @memberof V1ConfigMapVolumeSource
+     */
+    optional?: boolean;
+    /**
+     * The volume label of the resulting disk inside the VMI. Different bootstrapping mechanisms require different values. Typical values are "cidata" (cloud-init), "config-2" (cloud-init) or "OEMDRV" (kickstart).
+     * @type {string}
+     * @memberof V1ConfigMapVolumeSource
+     */
+    volumeLabel?: string;
 }
 
 export function V1ConfigMapVolumeSourceFromJSON(json: any): V1ConfigMapVolumeSource {
-  return V1ConfigMapVolumeSourceFromJSONTyped(json, false);
+    return V1ConfigMapVolumeSourceFromJSONTyped(json, false);
 }
 
-export function V1ConfigMapVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1ConfigMapVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: !exists(json, 'name') ? undefined : json['name'],
-    optional: !exists(json, 'optional') ? undefined : json['optional'],
-    volumeLabel: !exists(json, 'volumeLabel') ? undefined : json['volumeLabel'],
-  };
+export function V1ConfigMapVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ConfigMapVolumeSource {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'name': !exists(json, 'name') ? undefined : json['name'],
+        'optional': !exists(json, 'optional') ? undefined : json['optional'],
+        'volumeLabel': !exists(json, 'volumeLabel') ? undefined : json['volumeLabel'],
+    };
 }
 
 export function V1ConfigMapVolumeSourceToJSON(value?: V1ConfigMapVolumeSource | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    optional: value.optional,
-    volumeLabel: value.volumeLabel,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'name': value.name,
+        'optional': value.optional,
+        'volumeLabel': value.volumeLabel,
+    };
 }
+

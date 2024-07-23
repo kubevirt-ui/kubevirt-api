@@ -12,11 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 import {
-  K8sIoApiCoreV1DownwardAPIVolumeFile,
-  K8sIoApiCoreV1DownwardAPIVolumeFileFromJSON,
-  K8sIoApiCoreV1DownwardAPIVolumeFileToJSON,
+    K8sIoApiCoreV1DownwardAPIVolumeFile,
+    K8sIoApiCoreV1DownwardAPIVolumeFileFromJSON,
+    K8sIoApiCoreV1DownwardAPIVolumeFileFromJSONTyped,
+    K8sIoApiCoreV1DownwardAPIVolumeFileToJSON,
 } from './';
 
 /**
@@ -25,51 +26,46 @@ import {
  * @interface V1DownwardAPIVolumeSource
  */
 export interface V1DownwardAPIVolumeSource {
-  /**
-   * Fields is a list of downward API volume file
-   * @type {Array<K8sIoApiCoreV1DownwardAPIVolumeFile>}
-   * @memberof V1DownwardAPIVolumeSource
-   */
-  fields?: Array<K8sIoApiCoreV1DownwardAPIVolumeFile>;
-  /**
-   * The volume label of the resulting disk inside the VMI. Different bootstrapping mechanisms require different values. Typical values are "cidata" (cloud-init), "config-2" (cloud-init) or "OEMDRV" (kickstart).
-   * @type {string}
-   * @memberof V1DownwardAPIVolumeSource
-   */
-  volumeLabel?: string;
+    /**
+     * Fields is a list of downward API volume file
+     * @type {Array<K8sIoApiCoreV1DownwardAPIVolumeFile>}
+     * @memberof V1DownwardAPIVolumeSource
+     */
+    fields?: Array<K8sIoApiCoreV1DownwardAPIVolumeFile>;
+    /**
+     * The volume label of the resulting disk inside the VMI. Different bootstrapping mechanisms require different values. Typical values are "cidata" (cloud-init), "config-2" (cloud-init) or "OEMDRV" (kickstart).
+     * @type {string}
+     * @memberof V1DownwardAPIVolumeSource
+     */
+    volumeLabel?: string;
 }
 
 export function V1DownwardAPIVolumeSourceFromJSON(json: any): V1DownwardAPIVolumeSource {
-  return V1DownwardAPIVolumeSourceFromJSONTyped(json, false);
+    return V1DownwardAPIVolumeSourceFromJSONTyped(json, false);
 }
 
-export function V1DownwardAPIVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DownwardAPIVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fields: !exists(json, 'fields')
-      ? undefined
-      : (json['fields'] as Array<any>).map(K8sIoApiCoreV1DownwardAPIVolumeFileFromJSON),
-    volumeLabel: !exists(json, 'volumeLabel') ? undefined : json['volumeLabel'],
-  };
+export function V1DownwardAPIVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1DownwardAPIVolumeSource {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'fields': !exists(json, 'fields') ? undefined : ((json['fields'] as Array<any>).map(K8sIoApiCoreV1DownwardAPIVolumeFileFromJSON)),
+        'volumeLabel': !exists(json, 'volumeLabel') ? undefined : json['volumeLabel'],
+    };
 }
 
 export function V1DownwardAPIVolumeSourceToJSON(value?: V1DownwardAPIVolumeSource | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fields:
-      value.fields === undefined
-        ? undefined
-        : (value.fields as Array<any>).map(K8sIoApiCoreV1DownwardAPIVolumeFileToJSON),
-    volumeLabel: value.volumeLabel,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'fields': value.fields === undefined ? undefined : ((value.fields as Array<any>).map(K8sIoApiCoreV1DownwardAPIVolumeFileToJSON)),
+        'volumeLabel': value.volumeLabel,
+    };
 }
+

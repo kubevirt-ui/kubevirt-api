@@ -12,48 +12,45 @@
  * Do not edit the class manually.
  */
 
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1beta1CPUPreferenceRequirement
  */
 export interface V1beta1CPUPreferenceRequirement {
-  /**
-   * Minimal number of vCPUs required by the preference.
-   * @type {number}
-   * @memberof V1beta1CPUPreferenceRequirement
-   */
-  guest: number;
+    /**
+     * Minimal number of vCPUs required by the preference.
+     * @type {number}
+     * @memberof V1beta1CPUPreferenceRequirement
+     */
+    guest: number;
 }
 
-export function V1beta1CPUPreferenceRequirementFromJSON(
-  json: any,
-): V1beta1CPUPreferenceRequirement {
-  return V1beta1CPUPreferenceRequirementFromJSONTyped(json, false);
+export function V1beta1CPUPreferenceRequirementFromJSON(json: any): V1beta1CPUPreferenceRequirement {
+    return V1beta1CPUPreferenceRequirementFromJSONTyped(json, false);
 }
 
-export function V1beta1CPUPreferenceRequirementFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1CPUPreferenceRequirement {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    guest: json['guest'],
-  };
+export function V1beta1CPUPreferenceRequirementFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1CPUPreferenceRequirement {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'guest': json['guest'],
+    };
 }
 
-export function V1beta1CPUPreferenceRequirementToJSON(
-  value?: V1beta1CPUPreferenceRequirement | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    guest: value.guest,
-  };
+export function V1beta1CPUPreferenceRequirementToJSON(value?: V1beta1CPUPreferenceRequirement | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'guest': value.guest,
+    };
 }
+

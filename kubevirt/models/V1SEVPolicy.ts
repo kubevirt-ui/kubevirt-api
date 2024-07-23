@@ -12,42 +12,45 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1SEVPolicy
  */
 export interface V1SEVPolicy {
-  /**
-   * SEV-ES is required. Defaults to false.
-   * @type {boolean}
-   * @memberof V1SEVPolicy
-   */
-  encryptedState?: boolean;
+    /**
+     * SEV-ES is required. Defaults to false.
+     * @type {boolean}
+     * @memberof V1SEVPolicy
+     */
+    encryptedState?: boolean;
 }
 
 export function V1SEVPolicyFromJSON(json: any): V1SEVPolicy {
-  return V1SEVPolicyFromJSONTyped(json, false);
+    return V1SEVPolicyFromJSONTyped(json, false);
 }
 
 export function V1SEVPolicyFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SEVPolicy {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    encryptedState: !exists(json, 'encryptedState') ? undefined : json['encryptedState'],
-  };
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'encryptedState': !exists(json, 'encryptedState') ? undefined : json['encryptedState'],
+    };
 }
 
 export function V1SEVPolicyToJSON(value?: V1SEVPolicy | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    encryptedState: value.encryptedState,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'encryptedState': value.encryptedState,
+    };
 }
+

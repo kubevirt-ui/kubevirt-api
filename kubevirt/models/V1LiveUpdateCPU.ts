@@ -12,45 +12,45 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1LiveUpdateCPU
  */
 export interface V1LiveUpdateCPU {
-  /**
-   * The maximum amount of sockets that can be hot-plugged to the Virtual Machine
-   * @type {number}
-   * @memberof V1LiveUpdateCPU
-   */
-  maxSockets?: number;
+    /**
+     * The maximum amount of sockets that can be hot-plugged to the Virtual Machine
+     * @type {number}
+     * @memberof V1LiveUpdateCPU
+     */
+    maxSockets?: number;
 }
 
 export function V1LiveUpdateCPUFromJSON(json: any): V1LiveUpdateCPU {
-  return V1LiveUpdateCPUFromJSONTyped(json, false);
+    return V1LiveUpdateCPUFromJSONTyped(json, false);
 }
 
-export function V1LiveUpdateCPUFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1LiveUpdateCPU {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    maxSockets: !exists(json, 'maxSockets') ? undefined : json['maxSockets'],
-  };
+export function V1LiveUpdateCPUFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1LiveUpdateCPU {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'maxSockets': !exists(json, 'maxSockets') ? undefined : json['maxSockets'],
+    };
 }
 
 export function V1LiveUpdateCPUToJSON(value?: V1LiveUpdateCPU | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    maxSockets: value.maxSockets,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'maxSockets': value.maxSockets,
+    };
 }
+

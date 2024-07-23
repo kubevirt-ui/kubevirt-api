@@ -12,57 +12,53 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.
  * @export
  * @interface K8sIoApimachineryPkgApisMetaV1Preconditions
  */
 export interface K8sIoApimachineryPkgApisMetaV1Preconditions {
-  /**
-   * Specifies the target ResourceVersion
-   * @type {string}
-   * @memberof K8sIoApimachineryPkgApisMetaV1Preconditions
-   */
-  resourceVersion?: string;
-  /**
-   * Specifies the target UID.
-   * @type {string}
-   * @memberof K8sIoApimachineryPkgApisMetaV1Preconditions
-   */
-  uid?: string;
+    /**
+     * Specifies the target ResourceVersion
+     * @type {string}
+     * @memberof K8sIoApimachineryPkgApisMetaV1Preconditions
+     */
+    resourceVersion?: string;
+    /**
+     * Specifies the target UID.
+     * @type {string}
+     * @memberof K8sIoApimachineryPkgApisMetaV1Preconditions
+     */
+    uid?: string;
 }
 
-export function K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSON(
-  json: any,
-): K8sIoApimachineryPkgApisMetaV1Preconditions {
-  return K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSONTyped(json, false);
+export function K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1Preconditions {
+    return K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSONTyped(json, false);
 }
 
-export function K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApimachineryPkgApisMetaV1Preconditions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    resourceVersion: !exists(json, 'resourceVersion') ? undefined : json['resourceVersion'],
-    uid: !exists(json, 'uid') ? undefined : json['uid'],
-  };
+export function K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1Preconditions {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'resourceVersion': !exists(json, 'resourceVersion') ? undefined : json['resourceVersion'],
+        'uid': !exists(json, 'uid') ? undefined : json['uid'],
+    };
 }
 
-export function K8sIoApimachineryPkgApisMetaV1PreconditionsToJSON(
-  value?: K8sIoApimachineryPkgApisMetaV1Preconditions | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    resourceVersion: value.resourceVersion,
-    uid: value.uid,
-  };
+export function K8sIoApimachineryPkgApisMetaV1PreconditionsToJSON(value?: K8sIoApimachineryPkgApisMetaV1Preconditions | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'resourceVersion': value.resourceVersion,
+        'uid': value.uid,
+    };
 }
+

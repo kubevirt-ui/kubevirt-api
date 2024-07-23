@@ -12,47 +12,45 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1beta1VolumePreferences
  */
 export interface V1beta1VolumePreferences {
-  /**
-   * PreffereedStorageClassName optionally defines the preferred storageClass
-   * @type {string}
-   * @memberof V1beta1VolumePreferences
-   */
-  preferredStorageClassName?: string;
+    /**
+     * PreffereedStorageClassName optionally defines the preferred storageClass
+     * @type {string}
+     * @memberof V1beta1VolumePreferences
+     */
+    preferredStorageClassName?: string;
 }
 
 export function V1beta1VolumePreferencesFromJSON(json: any): V1beta1VolumePreferences {
-  return V1beta1VolumePreferencesFromJSONTyped(json, false);
+    return V1beta1VolumePreferencesFromJSONTyped(json, false);
 }
 
-export function V1beta1VolumePreferencesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VolumePreferences {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredStorageClassName: !exists(json, 'preferredStorageClassName')
-      ? undefined
-      : json['preferredStorageClassName'],
-  };
+export function V1beta1VolumePreferencesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1VolumePreferences {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'preferredStorageClassName': !exists(json, 'preferredStorageClassName') ? undefined : json['preferredStorageClassName'],
+    };
 }
 
 export function V1beta1VolumePreferencesToJSON(value?: V1beta1VolumePreferences | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredStorageClassName: value.preferredStorageClassName,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'preferredStorageClassName': value.preferredStorageClassName,
+    };
 }
+

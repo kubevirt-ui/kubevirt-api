@@ -12,80 +12,77 @@
  * Do not edit the class manually.
  */
 
+import { exists, mapValues } from '../runtime';
 /**
  * VirtualMachineInstanceFileSystem represents guest os disk
  * @export
  * @interface V1VirtualMachineInstanceFileSystem
  */
 export interface V1VirtualMachineInstanceFileSystem {
-  /**
-   *
-   * @type {string}
-   * @memberof V1VirtualMachineInstanceFileSystem
-   */
-  diskName: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1VirtualMachineInstanceFileSystem
-   */
-  fileSystemType: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1VirtualMachineInstanceFileSystem
-   */
-  mountPoint: string;
-  /**
-   *
-   * @type {number}
-   * @memberof V1VirtualMachineInstanceFileSystem
-   */
-  totalBytes: number;
-  /**
-   *
-   * @type {number}
-   * @memberof V1VirtualMachineInstanceFileSystem
-   */
-  usedBytes: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1VirtualMachineInstanceFileSystem
+     */
+    diskName: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1VirtualMachineInstanceFileSystem
+     */
+    fileSystemType: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1VirtualMachineInstanceFileSystem
+     */
+    mountPoint: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof V1VirtualMachineInstanceFileSystem
+     */
+    totalBytes: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof V1VirtualMachineInstanceFileSystem
+     */
+    usedBytes: number;
 }
 
-export function V1VirtualMachineInstanceFileSystemFromJSON(
-  json: any,
-): V1VirtualMachineInstanceFileSystem {
-  return V1VirtualMachineInstanceFileSystemFromJSONTyped(json, false);
+export function V1VirtualMachineInstanceFileSystemFromJSON(json: any): V1VirtualMachineInstanceFileSystem {
+    return V1VirtualMachineInstanceFileSystemFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceFileSystemFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceFileSystem {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    diskName: json['diskName'],
-    fileSystemType: json['fileSystemType'],
-    mountPoint: json['mountPoint'],
-    totalBytes: json['totalBytes'],
-    usedBytes: json['usedBytes'],
-  };
+export function V1VirtualMachineInstanceFileSystemFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceFileSystem {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'diskName': json['diskName'],
+        'fileSystemType': json['fileSystemType'],
+        'mountPoint': json['mountPoint'],
+        'totalBytes': json['totalBytes'],
+        'usedBytes': json['usedBytes'],
+    };
 }
 
-export function V1VirtualMachineInstanceFileSystemToJSON(
-  value?: V1VirtualMachineInstanceFileSystem | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    diskName: value.diskName,
-    fileSystemType: value.fileSystemType,
-    mountPoint: value.mountPoint,
-    totalBytes: value.totalBytes,
-    usedBytes: value.usedBytes,
-  };
+export function V1VirtualMachineInstanceFileSystemToJSON(value?: V1VirtualMachineInstanceFileSystem | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'diskName': value.diskName,
+        'fileSystemType': value.fileSystemType,
+        'mountPoint': value.mountPoint,
+        'totalBytes': value.totalBytes,
+        'usedBytes': value.usedBytes,
+    };
 }
+

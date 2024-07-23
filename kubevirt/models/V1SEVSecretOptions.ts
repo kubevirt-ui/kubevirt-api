@@ -12,53 +12,53 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * SEVSecretOptions is used to provide a secret for a running guest.
  * @export
  * @interface V1SEVSecretOptions
  */
 export interface V1SEVSecretOptions {
-  /**
-   * Base64 encoded header needed to decrypt the secret.
-   * @type {string}
-   * @memberof V1SEVSecretOptions
-   */
-  header?: string;
-  /**
-   * Base64 encoded encrypted launch secret.
-   * @type {string}
-   * @memberof V1SEVSecretOptions
-   */
-  secret?: string;
+    /**
+     * Base64 encoded header needed to decrypt the secret.
+     * @type {string}
+     * @memberof V1SEVSecretOptions
+     */
+    header?: string;
+    /**
+     * Base64 encoded encrypted launch secret.
+     * @type {string}
+     * @memberof V1SEVSecretOptions
+     */
+    secret?: string;
 }
 
 export function V1SEVSecretOptionsFromJSON(json: any): V1SEVSecretOptions {
-  return V1SEVSecretOptionsFromJSONTyped(json, false);
+    return V1SEVSecretOptionsFromJSONTyped(json, false);
 }
 
-export function V1SEVSecretOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1SEVSecretOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    header: !exists(json, 'header') ? undefined : json['header'],
-    secret: !exists(json, 'secret') ? undefined : json['secret'],
-  };
+export function V1SEVSecretOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SEVSecretOptions {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'header': !exists(json, 'header') ? undefined : json['header'],
+        'secret': !exists(json, 'secret') ? undefined : json['secret'],
+    };
 }
 
 export function V1SEVSecretOptionsToJSON(value?: V1SEVSecretOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    header: value.header,
-    secret: value.secret,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'header': value.header,
+        'secret': value.secret,
+    };
 }
+

@@ -12,74 +12,77 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * Chassis specifies the chassis info passed to the domain.
  * @export
  * @interface V1Chassis
  */
 export interface V1Chassis {
-  /**
-   *
-   * @type {string}
-   * @memberof V1Chassis
-   */
-  asset?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1Chassis
-   */
-  manufacturer?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1Chassis
-   */
-  serial?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1Chassis
-   */
-  sku?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1Chassis
-   */
-  version?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Chassis
+     */
+    asset?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Chassis
+     */
+    manufacturer?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Chassis
+     */
+    serial?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Chassis
+     */
+    sku?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Chassis
+     */
+    version?: string;
 }
 
 export function V1ChassisFromJSON(json: any): V1Chassis {
-  return V1ChassisFromJSONTyped(json, false);
+    return V1ChassisFromJSONTyped(json, false);
 }
 
 export function V1ChassisFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Chassis {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    asset: !exists(json, 'asset') ? undefined : json['asset'],
-    manufacturer: !exists(json, 'manufacturer') ? undefined : json['manufacturer'],
-    serial: !exists(json, 'serial') ? undefined : json['serial'],
-    sku: !exists(json, 'sku') ? undefined : json['sku'],
-    version: !exists(json, 'version') ? undefined : json['version'],
-  };
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'asset': !exists(json, 'asset') ? undefined : json['asset'],
+        'manufacturer': !exists(json, 'manufacturer') ? undefined : json['manufacturer'],
+        'serial': !exists(json, 'serial') ? undefined : json['serial'],
+        'sku': !exists(json, 'sku') ? undefined : json['sku'],
+        'version': !exists(json, 'version') ? undefined : json['version'],
+    };
 }
 
 export function V1ChassisToJSON(value?: V1Chassis | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    asset: value.asset,
-    manufacturer: value.manufacturer,
-    serial: value.serial,
-    sku: value.sku,
-    version: value.version,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'asset': value.asset,
+        'manufacturer': value.manufacturer,
+        'serial': value.serial,
+        'sku': value.sku,
+        'version': value.version,
+    };
 }
+

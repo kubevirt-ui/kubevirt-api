@@ -12,8 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1RateLimiter, V1RateLimiterFromJSON, V1RateLimiterToJSON } from './';
+import { exists, mapValues } from '../runtime';
+import {
+    V1RateLimiter,
+    V1RateLimiterFromJSON,
+    V1RateLimiterFromJSONTyped,
+    V1RateLimiterToJSON,
+} from './';
 
 /**
  * RESTClientConfiguration allows configuring certain aspects of the k8s rest client.
@@ -21,40 +26,38 @@ import { V1RateLimiter, V1RateLimiterFromJSON, V1RateLimiterToJSON } from './';
  * @interface V1RESTClientConfiguration
  */
 export interface V1RESTClientConfiguration {
-  /**
-   *
-   * @type {V1RateLimiter}
-   * @memberof V1RESTClientConfiguration
-   */
-  rateLimiter?: V1RateLimiter;
+    /**
+     * 
+     * @type {V1RateLimiter}
+     * @memberof V1RESTClientConfiguration
+     */
+    rateLimiter?: V1RateLimiter;
 }
 
 export function V1RESTClientConfigurationFromJSON(json: any): V1RESTClientConfiguration {
-  return V1RESTClientConfigurationFromJSONTyped(json, false);
+    return V1RESTClientConfigurationFromJSONTyped(json, false);
 }
 
-export function V1RESTClientConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1RESTClientConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    rateLimiter: !exists(json, 'rateLimiter')
-      ? undefined
-      : V1RateLimiterFromJSON(json['rateLimiter']),
-  };
+export function V1RESTClientConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1RESTClientConfiguration {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'rateLimiter': !exists(json, 'rateLimiter') ? undefined : V1RateLimiterFromJSON(json['rateLimiter']),
+    };
 }
 
 export function V1RESTClientConfigurationToJSON(value?: V1RESTClientConfiguration | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    rateLimiter: V1RateLimiterToJSON(value.rateLimiter),
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'rateLimiter': V1RateLimiterToJSON(value.rateLimiter),
+    };
 }
+

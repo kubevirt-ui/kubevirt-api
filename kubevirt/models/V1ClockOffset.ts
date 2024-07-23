@@ -12,8 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1ClockOffsetUTC, V1ClockOffsetUTCFromJSON, V1ClockOffsetUTCToJSON } from './';
+import { exists, mapValues } from '../runtime';
+import {
+    V1ClockOffsetUTC,
+    V1ClockOffsetUTCFromJSON,
+    V1ClockOffsetUTCFromJSONTyped,
+    V1ClockOffsetUTCToJSON,
+} from './';
 
 /**
  * Exactly one of its members must be set.
@@ -21,46 +26,46 @@ import { V1ClockOffsetUTC, V1ClockOffsetUTCFromJSON, V1ClockOffsetUTCToJSON } fr
  * @interface V1ClockOffset
  */
 export interface V1ClockOffset {
-  /**
-   * Timezone sets the guest clock to the specified timezone. Zone name follows the TZ environment variable format (e.g. 'America/New_York').
-   * @type {string}
-   * @memberof V1ClockOffset
-   */
-  timezone?: string;
-  /**
-   *
-   * @type {V1ClockOffsetUTC}
-   * @memberof V1ClockOffset
-   */
-  utc?: V1ClockOffsetUTC;
+    /**
+     * Timezone sets the guest clock to the specified timezone. Zone name follows the TZ environment variable format (e.g. 'America/New_York').
+     * @type {string}
+     * @memberof V1ClockOffset
+     */
+    timezone?: string;
+    /**
+     * 
+     * @type {V1ClockOffsetUTC}
+     * @memberof V1ClockOffset
+     */
+    utc?: V1ClockOffsetUTC;
 }
 
 export function V1ClockOffsetFromJSON(json: any): V1ClockOffset {
-  return V1ClockOffsetFromJSONTyped(json, false);
+    return V1ClockOffsetFromJSONTyped(json, false);
 }
 
-export function V1ClockOffsetFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1ClockOffset {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    timezone: !exists(json, 'timezone') ? undefined : json['timezone'],
-    utc: !exists(json, 'utc') ? undefined : V1ClockOffsetUTCFromJSON(json['utc']),
-  };
+export function V1ClockOffsetFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ClockOffset {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'timezone': !exists(json, 'timezone') ? undefined : json['timezone'],
+        'utc': !exists(json, 'utc') ? undefined : V1ClockOffsetUTCFromJSON(json['utc']),
+    };
 }
 
 export function V1ClockOffsetToJSON(value?: V1ClockOffset | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    timezone: value.timezone,
-    utc: V1ClockOffsetUTCToJSON(value.utc),
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'timezone': value.timezone,
+        'utc': V1ClockOffsetUTCToJSON(value.utc),
+    };
 }
+

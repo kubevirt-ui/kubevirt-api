@@ -12,16 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1beta1Condition,
-    V1beta1ConditionFromJSON,
-    V1beta1ConditionFromJSONTyped,
-    V1beta1ConditionToJSON,
-    V1beta1VirtualMachineExportLinks,
-    V1beta1VirtualMachineExportLinksFromJSON,
-    V1beta1VirtualMachineExportLinksFromJSONTyped,
-    V1beta1VirtualMachineExportLinksToJSON,
+  V1beta1Condition,
+  V1beta1ConditionFromJSON,
+  V1beta1ConditionToJSON,
+  V1beta1VirtualMachineExportLinks,
+  V1beta1VirtualMachineExportLinksFromJSON,
+  V1beta1VirtualMachineExportLinksToJSON,
 } from './';
 
 /**
@@ -30,86 +28,99 @@ import {
  * @interface V1beta1VirtualMachineExportStatus
  */
 export interface V1beta1VirtualMachineExportStatus {
-    /**
-     * 
-     * @type {Array<V1beta1Condition>}
-     * @memberof V1beta1VirtualMachineExportStatus
-     */
-    conditions?: Array<V1beta1Condition>;
-    /**
-     * 
-     * @type {V1beta1VirtualMachineExportLinks}
-     * @memberof V1beta1VirtualMachineExportStatus
-     */
-    links?: V1beta1VirtualMachineExportLinks;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1beta1VirtualMachineExportStatus
-     */
-    phase?: string;
-    /**
-     * ServiceName is the name of the service created associated with the Virtual Machine export. It will be used to create the internal URLs for downloading the images
-     * @type {string}
-     * @memberof V1beta1VirtualMachineExportStatus
-     */
-    serviceName?: string;
-    /**
-     * TokenSecretRef is the name of the secret that contains the token used by the export server pod
-     * @type {string}
-     * @memberof V1beta1VirtualMachineExportStatus
-     */
-    tokenSecretRef?: string;
-    /**
-     * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-     * @type {string}
-     * @memberof V1beta1VirtualMachineExportStatus
-     */
-    ttlExpirationTime?: string;
-    /**
-     * VirtualMachineName shows the name of the source virtual machine if the source is either a VirtualMachine or a VirtualMachineSnapshot. This is mainly to easily identify the source VirtualMachine in case of a VirtualMachineSnapshot
-     * @type {string}
-     * @memberof V1beta1VirtualMachineExportStatus
-     */
-    virtualMachineName?: string;
+  /**
+   *
+   * @type {Array<V1beta1Condition>}
+   * @memberof V1beta1VirtualMachineExportStatus
+   */
+  conditions?: Array<V1beta1Condition>;
+  /**
+   *
+   * @type {V1beta1VirtualMachineExportLinks}
+   * @memberof V1beta1VirtualMachineExportStatus
+   */
+  links?: V1beta1VirtualMachineExportLinks;
+  /**
+   *
+   * @type {string}
+   * @memberof V1beta1VirtualMachineExportStatus
+   */
+  phase?: string;
+  /**
+   * ServiceName is the name of the service created associated with the Virtual Machine export. It will be used to create the internal URLs for downloading the images
+   * @type {string}
+   * @memberof V1beta1VirtualMachineExportStatus
+   */
+  serviceName?: string;
+  /**
+   * TokenSecretRef is the name of the secret that contains the token used by the export server pod
+   * @type {string}
+   * @memberof V1beta1VirtualMachineExportStatus
+   */
+  tokenSecretRef?: string;
+  /**
+   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+   * @type {string}
+   * @memberof V1beta1VirtualMachineExportStatus
+   */
+  ttlExpirationTime?: string;
+  /**
+   * VirtualMachineName shows the name of the source virtual machine if the source is either a VirtualMachine or a VirtualMachineSnapshot. This is mainly to easily identify the source VirtualMachine in case of a VirtualMachineSnapshot
+   * @type {string}
+   * @memberof V1beta1VirtualMachineExportStatus
+   */
+  virtualMachineName?: string;
 }
 
-export function V1beta1VirtualMachineExportStatusFromJSON(json: any): V1beta1VirtualMachineExportStatus {
-    return V1beta1VirtualMachineExportStatusFromJSONTyped(json, false);
+export function V1beta1VirtualMachineExportStatusFromJSON(
+  json: any,
+): V1beta1VirtualMachineExportStatus {
+  return V1beta1VirtualMachineExportStatusFromJSONTyped(json, false);
 }
 
-export function V1beta1VirtualMachineExportStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineExportStatus {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'conditions': !exists(json, 'conditions') ? undefined : ((json['conditions'] as Array<any>).map(V1beta1ConditionFromJSON)),
-        'links': !exists(json, 'links') ? undefined : V1beta1VirtualMachineExportLinksFromJSON(json['links']),
-        'phase': !exists(json, 'phase') ? undefined : json['phase'],
-        'serviceName': !exists(json, 'serviceName') ? undefined : json['serviceName'],
-        'tokenSecretRef': !exists(json, 'tokenSecretRef') ? undefined : json['tokenSecretRef'],
-        'ttlExpirationTime': !exists(json, 'ttlExpirationTime') ? undefined : (new Date(json['ttlExpirationTime'])),
-        'virtualMachineName': !exists(json, 'virtualMachineName') ? undefined : json['virtualMachineName'],
-    };
+export function V1beta1VirtualMachineExportStatusFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1beta1VirtualMachineExportStatus {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    conditions: !exists(json, 'conditions')
+      ? undefined
+      : (json['conditions'] as Array<any>).map(V1beta1ConditionFromJSON),
+    links: !exists(json, 'links')
+      ? undefined
+      : V1beta1VirtualMachineExportLinksFromJSON(json['links']),
+    phase: !exists(json, 'phase') ? undefined : json['phase'],
+    serviceName: !exists(json, 'serviceName') ? undefined : json['serviceName'],
+    tokenSecretRef: !exists(json, 'tokenSecretRef') ? undefined : json['tokenSecretRef'],
+    ttlExpirationTime: !exists(json, 'ttlExpirationTime') ? undefined : json['ttlExpirationTime'],
+    virtualMachineName: !exists(json, 'virtualMachineName')
+      ? undefined
+      : json['virtualMachineName'],
+  };
 }
 
-export function V1beta1VirtualMachineExportStatusToJSON(value?: V1beta1VirtualMachineExportStatus | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'conditions': value.conditions === undefined ? undefined : ((value.conditions as Array<any>).map(V1beta1ConditionToJSON)),
-        'links': V1beta1VirtualMachineExportLinksToJSON(value.links),
-        'phase': value.phase,
-        'serviceName': value.serviceName,
-        'tokenSecretRef': value.tokenSecretRef,
-        'ttlExpirationTime': value.ttlExpirationTime === undefined ? undefined : (value.ttlExpirationTime.toISOString()),
-        'virtualMachineName': value.virtualMachineName,
-    };
+export function V1beta1VirtualMachineExportStatusToJSON(
+  value?: V1beta1VirtualMachineExportStatus | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    conditions:
+      value.conditions === undefined
+        ? undefined
+        : (value.conditions as Array<any>).map(V1beta1ConditionToJSON),
+    links: V1beta1VirtualMachineExportLinksToJSON(value.links),
+    phase: value.phase,
+    serviceName: value.serviceName,
+    tokenSecretRef: value.tokenSecretRef,
+    ttlExpirationTime: value.ttlExpirationTime === undefined ? undefined : value.ttlExpirationTime,
+    virtualMachineName: value.virtualMachineName,
+  };
 }
-

@@ -12,12 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1beta1VirtualMachine,
-    V1beta1VirtualMachineFromJSON,
-    V1beta1VirtualMachineFromJSONTyped,
-    V1beta1VirtualMachineToJSON,
+  V1beta1VirtualMachine,
+  V1beta1VirtualMachineFromJSON,
+  V1beta1VirtualMachineToJSON,
 } from './';
 
 /**
@@ -26,38 +25,40 @@ import {
  * @interface V1beta1SourceSpec
  */
 export interface V1beta1SourceSpec {
-    /**
-     * 
-     * @type {V1beta1VirtualMachine}
-     * @memberof V1beta1SourceSpec
-     */
-    virtualMachine?: V1beta1VirtualMachine;
+  /**
+   *
+   * @type {V1beta1VirtualMachine}
+   * @memberof V1beta1SourceSpec
+   */
+  virtualMachine?: V1beta1VirtualMachine;
 }
 
 export function V1beta1SourceSpecFromJSON(json: any): V1beta1SourceSpec {
-    return V1beta1SourceSpecFromJSONTyped(json, false);
+  return V1beta1SourceSpecFromJSONTyped(json, false);
 }
 
-export function V1beta1SourceSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1SourceSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'virtualMachine': !exists(json, 'virtualMachine') ? undefined : V1beta1VirtualMachineFromJSON(json['virtualMachine']),
-    };
+export function V1beta1SourceSpecFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1beta1SourceSpec {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    virtualMachine: !exists(json, 'virtualMachine')
+      ? undefined
+      : V1beta1VirtualMachineFromJSON(json['virtualMachine']),
+  };
 }
 
 export function V1beta1SourceSpecToJSON(value?: V1beta1SourceSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'virtualMachine': V1beta1VirtualMachineToJSON(value.virtualMachine),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    virtualMachine: V1beta1VirtualMachineToJSON(value.virtualMachine),
+  };
 }
-

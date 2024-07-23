@@ -12,16 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1MultusNetwork,
-    V1MultusNetworkFromJSON,
-    V1MultusNetworkFromJSONTyped,
-    V1MultusNetworkToJSON,
-    V1PodNetwork,
-    V1PodNetworkFromJSON,
-    V1PodNetworkFromJSONTyped,
-    V1PodNetworkToJSON,
+  V1MultusNetwork,
+  V1MultusNetworkFromJSON,
+  V1MultusNetworkToJSON,
+  V1PodNetwork,
+  V1PodNetworkFromJSON,
+  V1PodNetworkToJSON,
 } from './';
 
 /**
@@ -30,54 +28,51 @@ import {
  * @interface V1Network
  */
 export interface V1Network {
-    /**
-     * 
-     * @type {V1MultusNetwork}
-     * @memberof V1Network
-     */
-    multus?: V1MultusNetwork;
-    /**
-     * Network name. Must be a DNS_LABEL and unique within the vm. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-     * @type {string}
-     * @memberof V1Network
-     */
-    name: string;
-    /**
-     * 
-     * @type {V1PodNetwork}
-     * @memberof V1Network
-     */
-    pod?: V1PodNetwork;
+  /**
+   *
+   * @type {V1MultusNetwork}
+   * @memberof V1Network
+   */
+  multus?: V1MultusNetwork;
+  /**
+   * Network name. Must be a DNS_LABEL and unique within the vm. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+   * @type {string}
+   * @memberof V1Network
+   */
+  name: string;
+  /**
+   *
+   * @type {V1PodNetwork}
+   * @memberof V1Network
+   */
+  pod?: V1PodNetwork;
 }
 
 export function V1NetworkFromJSON(json: any): V1Network {
-    return V1NetworkFromJSONTyped(json, false);
+  return V1NetworkFromJSONTyped(json, false);
 }
 
-export function V1NetworkFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Network {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'multus': !exists(json, 'multus') ? undefined : V1MultusNetworkFromJSON(json['multus']),
-        'name': json['name'],
-        'pod': !exists(json, 'pod') ? undefined : V1PodNetworkFromJSON(json['pod']),
-    };
+export function V1NetworkFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Network {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    multus: !exists(json, 'multus') ? undefined : V1MultusNetworkFromJSON(json['multus']),
+    name: json['name'],
+    pod: !exists(json, 'pod') ? undefined : V1PodNetworkFromJSON(json['pod']),
+  };
 }
 
 export function V1NetworkToJSON(value?: V1Network | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'multus': V1MultusNetworkToJSON(value.multus),
-        'name': value.name,
-        'pod': V1PodNetworkToJSON(value.pod),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    multus: V1MultusNetworkToJSON(value.multus),
+    name: value.name,
+    pod: V1PodNetworkToJSON(value.pod),
+  };
 }
-

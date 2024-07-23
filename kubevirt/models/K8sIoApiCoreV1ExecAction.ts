@@ -12,45 +12,45 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * ExecAction describes a "run in container" action.
  * @export
  * @interface K8sIoApiCoreV1ExecAction
  */
 export interface K8sIoApiCoreV1ExecAction {
-    /**
-     * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-     * @type {Array<string>}
-     * @memberof K8sIoApiCoreV1ExecAction
-     */
-    command?: Array<string>;
+  /**
+   * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+   * @type {Array<string>}
+   * @memberof K8sIoApiCoreV1ExecAction
+   */
+  command?: Array<string>;
 }
 
 export function K8sIoApiCoreV1ExecActionFromJSON(json: any): K8sIoApiCoreV1ExecAction {
-    return K8sIoApiCoreV1ExecActionFromJSONTyped(json, false);
+  return K8sIoApiCoreV1ExecActionFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1ExecActionFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1ExecAction {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'command': !exists(json, 'command') ? undefined : json['command'],
-    };
+export function K8sIoApiCoreV1ExecActionFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): K8sIoApiCoreV1ExecAction {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    command: !exists(json, 'command') ? undefined : json['command'],
+  };
 }
 
 export function K8sIoApiCoreV1ExecActionToJSON(value?: K8sIoApiCoreV1ExecAction | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'command': value.command,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    command: value.command,
+  };
 }
-

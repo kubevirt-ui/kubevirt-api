@@ -12,12 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    K8sIoApiCoreV1HTTPHeader,
-    K8sIoApiCoreV1HTTPHeaderFromJSON,
-    K8sIoApiCoreV1HTTPHeaderFromJSONTyped,
-    K8sIoApiCoreV1HTTPHeaderToJSON,
+  K8sIoApiCoreV1HTTPHeader,
+  K8sIoApiCoreV1HTTPHeaderFromJSON,
+  K8sIoApiCoreV1HTTPHeaderToJSON,
 } from './';
 
 /**
@@ -26,75 +25,80 @@ import {
  * @interface K8sIoApiCoreV1HTTPGetAction
  */
 export interface K8sIoApiCoreV1HTTPGetAction {
-    /**
-     * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
-     * @type {string}
-     * @memberof K8sIoApiCoreV1HTTPGetAction
-     */
-    host?: string;
-    /**
-     * Custom headers to set in the request. HTTP allows repeated headers.
-     * @type {Array<K8sIoApiCoreV1HTTPHeader>}
-     * @memberof K8sIoApiCoreV1HTTPGetAction
-     */
-    httpHeaders?: Array<K8sIoApiCoreV1HTTPHeader>;
-    /**
-     * Path to access on the HTTP server.
-     * @type {string}
-     * @memberof K8sIoApiCoreV1HTTPGetAction
-     */
-    path?: string;
-    /**
-     * Scheme to use for connecting to the host. Defaults to HTTP.
-     * 
-     * Possible enum values:
-     *  - `"HTTP"` means that the scheme used will be http://
-     *  - `"HTTPS"` means that the scheme used will be https://
-     * @type {string}
-     * @memberof K8sIoApiCoreV1HTTPGetAction
-     */
-    scheme?: K8sIoApiCoreV1HTTPGetActionSchemeEnum;
+  /**
+   * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+   * @type {string}
+   * @memberof K8sIoApiCoreV1HTTPGetAction
+   */
+  host?: string;
+  /**
+   * Custom headers to set in the request. HTTP allows repeated headers.
+   * @type {Array<K8sIoApiCoreV1HTTPHeader>}
+   * @memberof K8sIoApiCoreV1HTTPGetAction
+   */
+  httpHeaders?: Array<K8sIoApiCoreV1HTTPHeader>;
+  /**
+   * Path to access on the HTTP server.
+   * @type {string}
+   * @memberof K8sIoApiCoreV1HTTPGetAction
+   */
+  path?: string;
+  /**
+   * Scheme to use for connecting to the host. Defaults to HTTP.
+   *
+   * Possible enum values:
+   *  - `"HTTP"` means that the scheme used will be http://
+   *  - `"HTTPS"` means that the scheme used will be https://
+   * @type {string}
+   * @memberof K8sIoApiCoreV1HTTPGetAction
+   */
+  scheme?: K8sIoApiCoreV1HTTPGetActionSchemeEnum;
 }
 
 /**
-* @export
-* @enum {string}
-*/
+ * @export
+ * @enum {string}
+ */
 export enum K8sIoApiCoreV1HTTPGetActionSchemeEnum {
-    Http = 'HTTP',
-    Https = 'HTTPS'
+  Http = 'HTTP',
+  Https = 'HTTPS',
 }
 
 export function K8sIoApiCoreV1HTTPGetActionFromJSON(json: any): K8sIoApiCoreV1HTTPGetAction {
-    return K8sIoApiCoreV1HTTPGetActionFromJSONTyped(json, false);
+  return K8sIoApiCoreV1HTTPGetActionFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1HTTPGetActionFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1HTTPGetAction {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'host': !exists(json, 'host') ? undefined : json['host'],
-        'httpHeaders': !exists(json, 'httpHeaders') ? undefined : ((json['httpHeaders'] as Array<any>).map(K8sIoApiCoreV1HTTPHeaderFromJSON)),
-        'path': !exists(json, 'path') ? undefined : json['path'],
-        'scheme': !exists(json, 'scheme') ? undefined : json['scheme'],
-    };
+export function K8sIoApiCoreV1HTTPGetActionFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): K8sIoApiCoreV1HTTPGetAction {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    host: !exists(json, 'host') ? undefined : json['host'],
+    httpHeaders: !exists(json, 'httpHeaders')
+      ? undefined
+      : (json['httpHeaders'] as Array<any>).map(K8sIoApiCoreV1HTTPHeaderFromJSON),
+    path: !exists(json, 'path') ? undefined : json['path'],
+    scheme: !exists(json, 'scheme') ? undefined : json['scheme'],
+  };
 }
 
 export function K8sIoApiCoreV1HTTPGetActionToJSON(value?: K8sIoApiCoreV1HTTPGetAction | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'host': value.host,
-        'httpHeaders': value.httpHeaders === undefined ? undefined : ((value.httpHeaders as Array<any>).map(K8sIoApiCoreV1HTTPHeaderToJSON)),
-        'path': value.path,
-        'scheme': value.scheme,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    host: value.host,
+    httpHeaders:
+      value.httpHeaders === undefined
+        ? undefined
+        : (value.httpHeaders as Array<any>).map(K8sIoApiCoreV1HTTPHeaderToJSON),
+    path: value.path,
+    scheme: value.scheme,
+  };
 }
-

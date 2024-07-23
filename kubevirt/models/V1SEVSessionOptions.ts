@@ -12,53 +12,53 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * SEVSessionOptions is used to provide SEV session parameters.
  * @export
  * @interface V1SEVSessionOptions
  */
 export interface V1SEVSessionOptions {
-    /**
-     * Base64 encoded guest owner's Diffie-Hellman key.
-     * @type {string}
-     * @memberof V1SEVSessionOptions
-     */
-    dhCert?: string;
-    /**
-     * Base64 encoded session blob.
-     * @type {string}
-     * @memberof V1SEVSessionOptions
-     */
-    session?: string;
+  /**
+   * Base64 encoded guest owner's Diffie-Hellman key.
+   * @type {string}
+   * @memberof V1SEVSessionOptions
+   */
+  dhCert?: string;
+  /**
+   * Base64 encoded session blob.
+   * @type {string}
+   * @memberof V1SEVSessionOptions
+   */
+  session?: string;
 }
 
 export function V1SEVSessionOptionsFromJSON(json: any): V1SEVSessionOptions {
-    return V1SEVSessionOptionsFromJSONTyped(json, false);
+  return V1SEVSessionOptionsFromJSONTyped(json, false);
 }
 
-export function V1SEVSessionOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SEVSessionOptions {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'dhCert': !exists(json, 'dhCert') ? undefined : json['dhCert'],
-        'session': !exists(json, 'session') ? undefined : json['session'],
-    };
+export function V1SEVSessionOptionsFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1SEVSessionOptions {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    dhCert: !exists(json, 'dhCert') ? undefined : json['dhCert'],
+    session: !exists(json, 'session') ? undefined : json['session'],
+  };
 }
 
 export function V1SEVSessionOptionsToJSON(value?: V1SEVSessionOptions | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'dhCert': value.dhCert,
-        'session': value.session,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    dhCert: value.dhCert,
+    session: value.session,
+  };
 }
-

@@ -12,108 +12,110 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1NUMA,
-    V1NUMAFromJSON,
-    V1NUMAFromJSONTyped,
-    V1NUMAToJSON,
-    V1Realtime,
-    V1RealtimeFromJSON,
-    V1RealtimeFromJSONTyped,
-    V1RealtimeToJSON,
+  V1NUMA,
+  V1NUMAFromJSON,
+  V1NUMAToJSON,
+  V1Realtime,
+  V1RealtimeFromJSON,
+  V1RealtimeToJSON,
 } from './';
 
 /**
  * CPUInstancetype contains the CPU related configuration of a given VirtualMachineInstancetypeSpec.
- * 
+ *
  * Guest is a required attribute and defines the number of vCPUs to be exposed to the guest by the instancetype.
  * @export
  * @interface V1beta1CPUInstancetype
  */
 export interface V1beta1CPUInstancetype {
-    /**
-     * DedicatedCPUPlacement requests the scheduler to place the VirtualMachineInstance on a node with enough dedicated pCPUs and pin the vCPUs to it.
-     * @type {boolean}
-     * @memberof V1beta1CPUInstancetype
-     */
-    dedicatedCPUPlacement?: boolean;
-    /**
-     * Required number of vCPUs to expose to the guest.
-     * 
-     * The resulting CPU topology being derived from the optional PreferredCPUTopology attribute of CPUPreferences that itself defaults to PreferSockets.
-     * @type {number}
-     * @memberof V1beta1CPUInstancetype
-     */
-    guest: number;
-    /**
-     * IsolateEmulatorThread requests one more dedicated pCPU to be allocated for the VMI to place the emulator thread on it.
-     * @type {boolean}
-     * @memberof V1beta1CPUInstancetype
-     */
-    isolateEmulatorThread?: boolean;
-    /**
-     * MaxSockets specifies the maximum amount of sockets that can be hotplugged
-     * @type {number}
-     * @memberof V1beta1CPUInstancetype
-     */
-    maxSockets?: number;
-    /**
-     * Model specifies the CPU model inside the VMI. List of available models https://github.com/libvirt/libvirt/tree/master/src/cpu_map. It is possible to specify special cases like "host-passthrough" to get the same CPU as the node and "host-model" to get CPU closest to the node one. Defaults to host-model.
-     * @type {string}
-     * @memberof V1beta1CPUInstancetype
-     */
-    model?: string;
-    /**
-     * 
-     * @type {V1NUMA}
-     * @memberof V1beta1CPUInstancetype
-     */
-    numa?: V1NUMA;
-    /**
-     * 
-     * @type {V1Realtime}
-     * @memberof V1beta1CPUInstancetype
-     */
-    realtime?: V1Realtime;
+  /**
+   * DedicatedCPUPlacement requests the scheduler to place the VirtualMachineInstance on a node with enough dedicated pCPUs and pin the vCPUs to it.
+   * @type {boolean}
+   * @memberof V1beta1CPUInstancetype
+   */
+  dedicatedCPUPlacement?: boolean;
+  /**
+   * Required number of vCPUs to expose to the guest.
+   *
+   * The resulting CPU topology being derived from the optional PreferredCPUTopology attribute of CPUPreferences that itself defaults to PreferSockets.
+   * @type {number}
+   * @memberof V1beta1CPUInstancetype
+   */
+  guest: number;
+  /**
+   * IsolateEmulatorThread requests one more dedicated pCPU to be allocated for the VMI to place the emulator thread on it.
+   * @type {boolean}
+   * @memberof V1beta1CPUInstancetype
+   */
+  isolateEmulatorThread?: boolean;
+  /**
+   * MaxSockets specifies the maximum amount of sockets that can be hotplugged
+   * @type {number}
+   * @memberof V1beta1CPUInstancetype
+   */
+  maxSockets?: number;
+  /**
+   * Model specifies the CPU model inside the VMI. List of available models https://github.com/libvirt/libvirt/tree/master/src/cpu_map. It is possible to specify special cases like "host-passthrough" to get the same CPU as the node and "host-model" to get CPU closest to the node one. Defaults to host-model.
+   * @type {string}
+   * @memberof V1beta1CPUInstancetype
+   */
+  model?: string;
+  /**
+   *
+   * @type {V1NUMA}
+   * @memberof V1beta1CPUInstancetype
+   */
+  numa?: V1NUMA;
+  /**
+   *
+   * @type {V1Realtime}
+   * @memberof V1beta1CPUInstancetype
+   */
+  realtime?: V1Realtime;
 }
 
 export function V1beta1CPUInstancetypeFromJSON(json: any): V1beta1CPUInstancetype {
-    return V1beta1CPUInstancetypeFromJSONTyped(json, false);
+  return V1beta1CPUInstancetypeFromJSONTyped(json, false);
 }
 
-export function V1beta1CPUInstancetypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1CPUInstancetype {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'dedicatedCPUPlacement': !exists(json, 'dedicatedCPUPlacement') ? undefined : json['dedicatedCPUPlacement'],
-        'guest': json['guest'],
-        'isolateEmulatorThread': !exists(json, 'isolateEmulatorThread') ? undefined : json['isolateEmulatorThread'],
-        'maxSockets': !exists(json, 'maxSockets') ? undefined : json['maxSockets'],
-        'model': !exists(json, 'model') ? undefined : json['model'],
-        'numa': !exists(json, 'numa') ? undefined : V1NUMAFromJSON(json['numa']),
-        'realtime': !exists(json, 'realtime') ? undefined : V1RealtimeFromJSON(json['realtime']),
-    };
+export function V1beta1CPUInstancetypeFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1beta1CPUInstancetype {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    dedicatedCPUPlacement: !exists(json, 'dedicatedCPUPlacement')
+      ? undefined
+      : json['dedicatedCPUPlacement'],
+    guest: json['guest'],
+    isolateEmulatorThread: !exists(json, 'isolateEmulatorThread')
+      ? undefined
+      : json['isolateEmulatorThread'],
+    maxSockets: !exists(json, 'maxSockets') ? undefined : json['maxSockets'],
+    model: !exists(json, 'model') ? undefined : json['model'],
+    numa: !exists(json, 'numa') ? undefined : V1NUMAFromJSON(json['numa']),
+    realtime: !exists(json, 'realtime') ? undefined : V1RealtimeFromJSON(json['realtime']),
+  };
 }
 
 export function V1beta1CPUInstancetypeToJSON(value?: V1beta1CPUInstancetype | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'dedicatedCPUPlacement': value.dedicatedCPUPlacement,
-        'guest': value.guest,
-        'isolateEmulatorThread': value.isolateEmulatorThread,
-        'maxSockets': value.maxSockets,
-        'model': value.model,
-        'numa': V1NUMAToJSON(value.numa),
-        'realtime': V1RealtimeToJSON(value.realtime),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    dedicatedCPUPlacement: value.dedicatedCPUPlacement,
+    guest: value.guest,
+    isolateEmulatorThread: value.isolateEmulatorThread,
+    maxSockets: value.maxSockets,
+    model: value.model,
+    numa: V1NUMAToJSON(value.numa),
+    realtime: V1RealtimeToJSON(value.realtime),
+  };
 }
-

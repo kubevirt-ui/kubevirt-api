@@ -12,53 +12,53 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * RemoveVolumeOptions is provided when dynamically hot unplugging volume and disk
  * @export
  * @interface V1RemoveVolumeOptions
  */
 export interface V1RemoveVolumeOptions {
-    /**
-     * When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
-     * @type {Array<string>}
-     * @memberof V1RemoveVolumeOptions
-     */
-    dryRun?: Array<string>;
-    /**
-     * Name represents the name that maps to both the disk and volume that should be removed
-     * @type {string}
-     * @memberof V1RemoveVolumeOptions
-     */
-    name: string;
+  /**
+   * When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+   * @type {Array<string>}
+   * @memberof V1RemoveVolumeOptions
+   */
+  dryRun?: Array<string>;
+  /**
+   * Name represents the name that maps to both the disk and volume that should be removed
+   * @type {string}
+   * @memberof V1RemoveVolumeOptions
+   */
+  name: string;
 }
 
 export function V1RemoveVolumeOptionsFromJSON(json: any): V1RemoveVolumeOptions {
-    return V1RemoveVolumeOptionsFromJSONTyped(json, false);
+  return V1RemoveVolumeOptionsFromJSONTyped(json, false);
 }
 
-export function V1RemoveVolumeOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1RemoveVolumeOptions {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'dryRun': !exists(json, 'dryRun') ? undefined : json['dryRun'],
-        'name': json['name'],
-    };
+export function V1RemoveVolumeOptionsFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1RemoveVolumeOptions {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    dryRun: !exists(json, 'dryRun') ? undefined : json['dryRun'],
+    name: json['name'],
+  };
 }
 
 export function V1RemoveVolumeOptionsToJSON(value?: V1RemoveVolumeOptions | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'dryRun': value.dryRun,
-        'name': value.name,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    dryRun: value.dryRun,
+    name: value.name,
+  };
 }
-

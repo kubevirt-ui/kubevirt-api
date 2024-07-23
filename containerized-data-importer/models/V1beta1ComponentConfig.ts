@@ -12,16 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1Affinity,
-    V1AffinityFromJSON,
-    V1AffinityFromJSONTyped,
-    V1AffinityToJSON,
-    V1Toleration,
-    V1TolerationFromJSON,
-    V1TolerationFromJSONTyped,
-    V1TolerationToJSON,
+  V1Affinity,
+  V1AffinityFromJSON,
+  V1AffinityToJSON,
+  V1Toleration,
+  V1TolerationFromJSON,
+  V1TolerationToJSON,
 } from './';
 
 /**
@@ -30,78 +28,87 @@ import {
  * @interface V1beta1ComponentConfig
  */
 export interface V1beta1ComponentConfig {
-    /**
-     * 
-     * @type {V1Affinity}
-     * @memberof V1beta1ComponentConfig
-     */
-    affinity?: V1Affinity;
-    /**
-     * ApiserverReplicas set Replicas for cdi-apiserver
-     * @type {number}
-     * @memberof V1beta1ComponentConfig
-     */
-    apiServerReplicas?: number;
-    /**
-     * DeploymentReplicas set Replicas for cdi-deployment
-     * @type {number}
-     * @memberof V1beta1ComponentConfig
-     */
-    deploymentReplicas?: number;
-    /**
-     * nodeSelector is the node selector applied to the relevant kind of pods It specifies a map of key-value pairs: for the pod to be eligible to run on a node, the node must have each of the indicated key-value pairs as labels (it can have additional labels as well). See https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
-     * @type {{ [key: string]: string; }}
-     * @memberof V1beta1ComponentConfig
-     */
-    nodeSelector?: { [key: string]: string; };
-    /**
-     * tolerations is a list of tolerations applied to the relevant kind of pods See https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ for more info. These are additional tolerations other than default ones.
-     * @type {Array<V1Toleration>}
-     * @memberof V1beta1ComponentConfig
-     */
-    tolerations?: Array<V1Toleration>;
-    /**
-     * UploadproxyReplicas set Replicas for cdi-uploadproxy
-     * @type {number}
-     * @memberof V1beta1ComponentConfig
-     */
-    uploadProxyReplicas?: number;
+  /**
+   *
+   * @type {V1Affinity}
+   * @memberof V1beta1ComponentConfig
+   */
+  affinity?: V1Affinity;
+  /**
+   * ApiserverReplicas set Replicas for cdi-apiserver
+   * @type {number}
+   * @memberof V1beta1ComponentConfig
+   */
+  apiServerReplicas?: number;
+  /**
+   * DeploymentReplicas set Replicas for cdi-deployment
+   * @type {number}
+   * @memberof V1beta1ComponentConfig
+   */
+  deploymentReplicas?: number;
+  /**
+   * nodeSelector is the node selector applied to the relevant kind of pods It specifies a map of key-value pairs: for the pod to be eligible to run on a node, the node must have each of the indicated key-value pairs as labels (it can have additional labels as well). See https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+   * @type {{ [key: string]: string; }}
+   * @memberof V1beta1ComponentConfig
+   */
+  nodeSelector?: { [key: string]: string };
+  /**
+   * tolerations is a list of tolerations applied to the relevant kind of pods See https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ for more info. These are additional tolerations other than default ones.
+   * @type {Array<V1Toleration>}
+   * @memberof V1beta1ComponentConfig
+   */
+  tolerations?: Array<V1Toleration>;
+  /**
+   * UploadproxyReplicas set Replicas for cdi-uploadproxy
+   * @type {number}
+   * @memberof V1beta1ComponentConfig
+   */
+  uploadProxyReplicas?: number;
 }
 
 export function V1beta1ComponentConfigFromJSON(json: any): V1beta1ComponentConfig {
-    return V1beta1ComponentConfigFromJSONTyped(json, false);
+  return V1beta1ComponentConfigFromJSONTyped(json, false);
 }
 
-export function V1beta1ComponentConfigFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1ComponentConfig {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'affinity': !exists(json, 'affinity') ? undefined : V1AffinityFromJSON(json['affinity']),
-        'apiServerReplicas': !exists(json, 'apiServerReplicas') ? undefined : json['apiServerReplicas'],
-        'deploymentReplicas': !exists(json, 'deploymentReplicas') ? undefined : json['deploymentReplicas'],
-        'nodeSelector': !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
-        'tolerations': !exists(json, 'tolerations') ? undefined : ((json['tolerations'] as Array<any>).map(V1TolerationFromJSON)),
-        'uploadProxyReplicas': !exists(json, 'uploadProxyReplicas') ? undefined : json['uploadProxyReplicas'],
-    };
+export function V1beta1ComponentConfigFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1beta1ComponentConfig {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    affinity: !exists(json, 'affinity') ? undefined : V1AffinityFromJSON(json['affinity']),
+    apiServerReplicas: !exists(json, 'apiServerReplicas') ? undefined : json['apiServerReplicas'],
+    deploymentReplicas: !exists(json, 'deploymentReplicas')
+      ? undefined
+      : json['deploymentReplicas'],
+    nodeSelector: !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
+    tolerations: !exists(json, 'tolerations')
+      ? undefined
+      : (json['tolerations'] as Array<any>).map(V1TolerationFromJSON),
+    uploadProxyReplicas: !exists(json, 'uploadProxyReplicas')
+      ? undefined
+      : json['uploadProxyReplicas'],
+  };
 }
 
 export function V1beta1ComponentConfigToJSON(value?: V1beta1ComponentConfig | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'affinity': V1AffinityToJSON(value.affinity),
-        'apiServerReplicas': value.apiServerReplicas,
-        'deploymentReplicas': value.deploymentReplicas,
-        'nodeSelector': value.nodeSelector,
-        'tolerations': value.tolerations === undefined ? undefined : ((value.tolerations as Array<any>).map(V1TolerationToJSON)),
-        'uploadProxyReplicas': value.uploadProxyReplicas,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    affinity: V1AffinityToJSON(value.affinity),
+    apiServerReplicas: value.apiServerReplicas,
+    deploymentReplicas: value.deploymentReplicas,
+    nodeSelector: value.nodeSelector,
+    tolerations:
+      value.tolerations === undefined
+        ? undefined
+        : (value.tolerations as Array<any>).map(V1TolerationToJSON),
+    uploadProxyReplicas: value.uploadProxyReplicas,
+  };
 }
-

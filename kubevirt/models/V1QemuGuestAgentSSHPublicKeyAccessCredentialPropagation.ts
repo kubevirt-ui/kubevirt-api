@@ -12,45 +12,48 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation
  */
 export interface V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation {
-    /**
-     * Users represents a list of guest users that should have the ssh public keys added to their authorized_keys file.
-     * @type {Array<string>}
-     * @memberof V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation
-     */
-    users: Array<string>;
+  /**
+   * Users represents a list of guest users that should have the ssh public keys added to their authorized_keys file.
+   * @type {Array<string>}
+   * @memberof V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation
+   */
+  users: Array<string>;
 }
 
-export function V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSON(json: any): V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation {
-    return V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSONTyped(json, false);
+export function V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSON(
+  json: any,
+): V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation {
+  return V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSONTyped(json, false);
 }
 
-export function V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'users': json['users'],
-    };
+export function V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    users: json['users'],
+  };
 }
 
-export function V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationToJSON(value?: V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'users': value.users,
-    };
+export function V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationToJSON(
+  value?: V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    users: value.users,
+  };
 }
-

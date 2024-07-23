@@ -12,53 +12,57 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * VolumeResourceRequirements describes the storage resource requirements for a volume.
  * @export
  * @interface K8sIoApiCoreV1VolumeResourceRequirements
  */
 export interface K8sIoApiCoreV1VolumeResourceRequirements {
-    /**
-     * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-     * @type {{ [key: string]: string; }}
-     * @memberof K8sIoApiCoreV1VolumeResourceRequirements
-     */
-    limits?: { [key: string]: string; };
-    /**
-     * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-     * @type {{ [key: string]: string; }}
-     * @memberof K8sIoApiCoreV1VolumeResourceRequirements
-     */
-    requests?: { [key: string]: string; };
+  /**
+   * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+   * @type {{ [key: string]: string; }}
+   * @memberof K8sIoApiCoreV1VolumeResourceRequirements
+   */
+  limits?: { [key: string]: string };
+  /**
+   * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+   * @type {{ [key: string]: string; }}
+   * @memberof K8sIoApiCoreV1VolumeResourceRequirements
+   */
+  requests?: { [key: string]: string };
 }
 
-export function K8sIoApiCoreV1VolumeResourceRequirementsFromJSON(json: any): K8sIoApiCoreV1VolumeResourceRequirements {
-    return K8sIoApiCoreV1VolumeResourceRequirementsFromJSONTyped(json, false);
+export function K8sIoApiCoreV1VolumeResourceRequirementsFromJSON(
+  json: any,
+): K8sIoApiCoreV1VolumeResourceRequirements {
+  return K8sIoApiCoreV1VolumeResourceRequirementsFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1VolumeResourceRequirementsFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1VolumeResourceRequirements {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'limits': !exists(json, 'limits') ? undefined : json['limits'],
-        'requests': !exists(json, 'requests') ? undefined : json['requests'],
-    };
+export function K8sIoApiCoreV1VolumeResourceRequirementsFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): K8sIoApiCoreV1VolumeResourceRequirements {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    limits: !exists(json, 'limits') ? undefined : json['limits'],
+    requests: !exists(json, 'requests') ? undefined : json['requests'],
+  };
 }
 
-export function K8sIoApiCoreV1VolumeResourceRequirementsToJSON(value?: K8sIoApiCoreV1VolumeResourceRequirements | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'limits': value.limits,
-        'requests': value.requests,
-    };
+export function K8sIoApiCoreV1VolumeResourceRequirementsToJSON(
+  value?: K8sIoApiCoreV1VolumeResourceRequirements | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    limits: value.limits,
+    requests: value.requests,
+  };
 }
-

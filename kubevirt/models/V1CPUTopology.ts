@@ -12,61 +12,61 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * CPUTopology allows specifying the amount of cores, sockets and threads.
  * @export
  * @interface V1CPUTopology
  */
 export interface V1CPUTopology {
-    /**
-     * Cores specifies the number of cores inside the vmi. Must be a value greater or equal 1.
-     * @type {number}
-     * @memberof V1CPUTopology
-     */
-    cores?: number;
-    /**
-     * Sockets specifies the number of sockets inside the vmi. Must be a value greater or equal 1.
-     * @type {number}
-     * @memberof V1CPUTopology
-     */
-    sockets?: number;
-    /**
-     * Threads specifies the number of threads inside the vmi. Must be a value greater or equal 1.
-     * @type {number}
-     * @memberof V1CPUTopology
-     */
-    threads?: number;
+  /**
+   * Cores specifies the number of cores inside the vmi. Must be a value greater or equal 1.
+   * @type {number}
+   * @memberof V1CPUTopology
+   */
+  cores?: number;
+  /**
+   * Sockets specifies the number of sockets inside the vmi. Must be a value greater or equal 1.
+   * @type {number}
+   * @memberof V1CPUTopology
+   */
+  sockets?: number;
+  /**
+   * Threads specifies the number of threads inside the vmi. Must be a value greater or equal 1.
+   * @type {number}
+   * @memberof V1CPUTopology
+   */
+  threads?: number;
 }
 
 export function V1CPUTopologyFromJSON(json: any): V1CPUTopology {
-    return V1CPUTopologyFromJSONTyped(json, false);
+  return V1CPUTopologyFromJSONTyped(json, false);
 }
 
-export function V1CPUTopologyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1CPUTopology {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'cores': !exists(json, 'cores') ? undefined : json['cores'],
-        'sockets': !exists(json, 'sockets') ? undefined : json['sockets'],
-        'threads': !exists(json, 'threads') ? undefined : json['threads'],
-    };
+export function V1CPUTopologyFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1CPUTopology {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    cores: !exists(json, 'cores') ? undefined : json['cores'],
+    sockets: !exists(json, 'sockets') ? undefined : json['sockets'],
+    threads: !exists(json, 'threads') ? undefined : json['threads'],
+  };
 }
 
 export function V1CPUTopologyToJSON(value?: V1CPUTopology | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'cores': value.cores,
-        'sockets': value.sockets,
-        'threads': value.threads,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    cores: value.cores,
+    sockets: value.sockets,
+    threads: value.threads,
+  };
 }
-

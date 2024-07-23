@@ -12,85 +12,88 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * DataSourceCondition represents the state of a data source condition
  * @export
  * @interface V1beta1DataSourceCondition
  */
 export interface V1beta1DataSourceCondition {
-    /**
-     * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-     * @type {string}
-     * @memberof V1beta1DataSourceCondition
-     */
-    lastHeartbeatTime?: string;
-    /**
-     * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-     * @type {string}
-     * @memberof V1beta1DataSourceCondition
-     */
-    lastTransitionTime?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1beta1DataSourceCondition
-     */
-    message?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1beta1DataSourceCondition
-     */
-    reason?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1beta1DataSourceCondition
-     */
-    status: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1beta1DataSourceCondition
-     */
-    type: string;
+  /**
+   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+   * @type {string}
+   * @memberof V1beta1DataSourceCondition
+   */
+  lastHeartbeatTime?: string;
+  /**
+   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+   * @type {string}
+   * @memberof V1beta1DataSourceCondition
+   */
+  lastTransitionTime?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1beta1DataSourceCondition
+   */
+  message?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1beta1DataSourceCondition
+   */
+  reason?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1beta1DataSourceCondition
+   */
+  status: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1beta1DataSourceCondition
+   */
+  type: string;
 }
 
 export function V1beta1DataSourceConditionFromJSON(json: any): V1beta1DataSourceCondition {
-    return V1beta1DataSourceConditionFromJSONTyped(json, false);
+  return V1beta1DataSourceConditionFromJSONTyped(json, false);
 }
 
-export function V1beta1DataSourceConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataSourceCondition {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'lastHeartbeatTime': !exists(json, 'lastHeartbeatTime') ? undefined : (new Date(json['lastHeartbeatTime'])),
-        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : (new Date(json['lastTransitionTime'])),
-        'message': !exists(json, 'message') ? undefined : json['message'],
-        'reason': !exists(json, 'reason') ? undefined : json['reason'],
-        'status': json['status'],
-        'type': json['type'],
-    };
+export function V1beta1DataSourceConditionFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1beta1DataSourceCondition {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    lastHeartbeatTime: !exists(json, 'lastHeartbeatTime') ? undefined : json['lastHeartbeatTime'],
+    lastTransitionTime: !exists(json, 'lastTransitionTime')
+      ? undefined
+      : json['lastTransitionTime'],
+    message: !exists(json, 'message') ? undefined : json['message'],
+    reason: !exists(json, 'reason') ? undefined : json['reason'],
+    status: json['status'],
+    type: json['type'],
+  };
 }
 
 export function V1beta1DataSourceConditionToJSON(value?: V1beta1DataSourceCondition | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'lastHeartbeatTime': value.lastHeartbeatTime === undefined ? undefined : (value.lastHeartbeatTime.toISOString()),
-        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime.toISOString()),
-        'message': value.message,
-        'reason': value.reason,
-        'status': value.status,
-        'type': value.type,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    lastHeartbeatTime: value.lastHeartbeatTime === undefined ? undefined : value.lastHeartbeatTime,
+    lastTransitionTime:
+      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
+    message: value.message,
+    reason: value.reason,
+    status: value.status,
+    type: value.type,
+  };
 }
-

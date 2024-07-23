@@ -12,76 +12,68 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
-import {
-    V1SEVPolicy,
-    V1SEVPolicyFromJSON,
-    V1SEVPolicyFromJSONTyped,
-    V1SEVPolicyToJSON,
-} from './';
+import { exists } from '../runtime';
+import { V1SEVPolicy, V1SEVPolicyFromJSON, V1SEVPolicyToJSON } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1SEV
  */
 export interface V1SEV {
-    /**
-     * 
-     * @type {object}
-     * @memberof V1SEV
-     */
-    attestation?: object;
-    /**
-     * Base64 encoded guest owner's Diffie-Hellman key.
-     * @type {string}
-     * @memberof V1SEV
-     */
-    dhCert?: string;
-    /**
-     * 
-     * @type {V1SEVPolicy}
-     * @memberof V1SEV
-     */
-    policy?: V1SEVPolicy;
-    /**
-     * Base64 encoded session blob.
-     * @type {string}
-     * @memberof V1SEV
-     */
-    session?: string;
+  /**
+   *
+   * @type {object}
+   * @memberof V1SEV
+   */
+  attestation?: object;
+  /**
+   * Base64 encoded guest owner's Diffie-Hellman key.
+   * @type {string}
+   * @memberof V1SEV
+   */
+  dhCert?: string;
+  /**
+   *
+   * @type {V1SEVPolicy}
+   * @memberof V1SEV
+   */
+  policy?: V1SEVPolicy;
+  /**
+   * Base64 encoded session blob.
+   * @type {string}
+   * @memberof V1SEV
+   */
+  session?: string;
 }
 
 export function V1SEVFromJSON(json: any): V1SEV {
-    return V1SEVFromJSONTyped(json, false);
+  return V1SEVFromJSONTyped(json, false);
 }
 
-export function V1SEVFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SEV {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'attestation': !exists(json, 'attestation') ? undefined : json['attestation'],
-        'dhCert': !exists(json, 'dhCert') ? undefined : json['dhCert'],
-        'policy': !exists(json, 'policy') ? undefined : V1SEVPolicyFromJSON(json['policy']),
-        'session': !exists(json, 'session') ? undefined : json['session'],
-    };
+export function V1SEVFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SEV {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    attestation: !exists(json, 'attestation') ? undefined : json['attestation'],
+    dhCert: !exists(json, 'dhCert') ? undefined : json['dhCert'],
+    policy: !exists(json, 'policy') ? undefined : V1SEVPolicyFromJSON(json['policy']),
+    session: !exists(json, 'session') ? undefined : json['session'],
+  };
 }
 
 export function V1SEVToJSON(value?: V1SEV | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'attestation': value.attestation,
-        'dhCert': value.dhCert,
-        'policy': V1SEVPolicyToJSON(value.policy),
-        'session': value.session,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    attestation: value.attestation,
+    dhCert: value.dhCert,
+    policy: V1SEVPolicyToJSON(value.policy),
+    session: value.session,
+  };
 }
-

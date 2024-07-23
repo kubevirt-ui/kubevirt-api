@@ -12,68 +12,70 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
-import {
-    V1USBSelector,
-    V1USBSelectorFromJSON,
-    V1USBSelectorFromJSONTyped,
-    V1USBSelectorToJSON,
-} from './';
+import { exists } from '../runtime';
+import { V1USBSelector, V1USBSelectorFromJSON, V1USBSelectorToJSON } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1USBHostDevice
  */
 export interface V1USBHostDevice {
-    /**
-     * If true, KubeVirt will leave the allocation and monitoring to an external device plugin
-     * @type {boolean}
-     * @memberof V1USBHostDevice
-     */
-    externalResourceProvider?: boolean;
-    /**
-     * Identifies the list of USB host devices. e.g: kubevirt.io/storage, kubevirt.io/bootable-usb, etc
-     * @type {string}
-     * @memberof V1USBHostDevice
-     */
-    resourceName: string;
-    /**
-     * 
-     * @type {Array<V1USBSelector>}
-     * @memberof V1USBHostDevice
-     */
-    selectors?: Array<V1USBSelector>;
+  /**
+   * If true, KubeVirt will leave the allocation and monitoring to an external device plugin
+   * @type {boolean}
+   * @memberof V1USBHostDevice
+   */
+  externalResourceProvider?: boolean;
+  /**
+   * Identifies the list of USB host devices. e.g: kubevirt.io/storage, kubevirt.io/bootable-usb, etc
+   * @type {string}
+   * @memberof V1USBHostDevice
+   */
+  resourceName: string;
+  /**
+   *
+   * @type {Array<V1USBSelector>}
+   * @memberof V1USBHostDevice
+   */
+  selectors?: Array<V1USBSelector>;
 }
 
 export function V1USBHostDeviceFromJSON(json: any): V1USBHostDevice {
-    return V1USBHostDeviceFromJSONTyped(json, false);
+  return V1USBHostDeviceFromJSONTyped(json, false);
 }
 
-export function V1USBHostDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1USBHostDevice {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'externalResourceProvider': !exists(json, 'externalResourceProvider') ? undefined : json['externalResourceProvider'],
-        'resourceName': json['resourceName'],
-        'selectors': !exists(json, 'selectors') ? undefined : ((json['selectors'] as Array<any>).map(V1USBSelectorFromJSON)),
-    };
+export function V1USBHostDeviceFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1USBHostDevice {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    externalResourceProvider: !exists(json, 'externalResourceProvider')
+      ? undefined
+      : json['externalResourceProvider'],
+    resourceName: json['resourceName'],
+    selectors: !exists(json, 'selectors')
+      ? undefined
+      : (json['selectors'] as Array<any>).map(V1USBSelectorFromJSON),
+  };
 }
 
 export function V1USBHostDeviceToJSON(value?: V1USBHostDevice | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'externalResourceProvider': value.externalResourceProvider,
-        'resourceName': value.resourceName,
-        'selectors': value.selectors === undefined ? undefined : ((value.selectors as Array<any>).map(V1USBSelectorToJSON)),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    externalResourceProvider: value.externalResourceProvider,
+    resourceName: value.resourceName,
+    selectors:
+      value.selectors === undefined
+        ? undefined
+        : (value.selectors as Array<any>).map(V1USBSelectorToJSON),
+  };
 }
-

@@ -12,45 +12,45 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1InterfaceBindingMigration
  */
 export interface V1InterfaceBindingMigration {
-    /**
-     * Method defines a pre-defined migration methodology version: 1alphav1
-     * @type {string}
-     * @memberof V1InterfaceBindingMigration
-     */
-    method?: string;
+  /**
+   * Method defines a pre-defined migration methodology version: 1alphav1
+   * @type {string}
+   * @memberof V1InterfaceBindingMigration
+   */
+  method?: string;
 }
 
 export function V1InterfaceBindingMigrationFromJSON(json: any): V1InterfaceBindingMigration {
-    return V1InterfaceBindingMigrationFromJSONTyped(json, false);
+  return V1InterfaceBindingMigrationFromJSONTyped(json, false);
 }
 
-export function V1InterfaceBindingMigrationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1InterfaceBindingMigration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'method': !exists(json, 'method') ? undefined : json['method'],
-    };
+export function V1InterfaceBindingMigrationFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1InterfaceBindingMigration {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    method: !exists(json, 'method') ? undefined : json['method'],
+  };
 }
 
 export function V1InterfaceBindingMigrationToJSON(value?: V1InterfaceBindingMigration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'method': value.method,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    method: value.method,
+  };
 }
-

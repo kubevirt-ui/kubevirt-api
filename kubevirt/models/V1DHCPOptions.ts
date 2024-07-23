@@ -12,13 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
-import {
-    V1DHCPPrivateOptions,
-    V1DHCPPrivateOptionsFromJSON,
-    V1DHCPPrivateOptionsFromJSONTyped,
-    V1DHCPPrivateOptionsToJSON,
-} from './';
+import { exists } from '../runtime';
+import { V1DHCPPrivateOptions, V1DHCPPrivateOptionsFromJSON, V1DHCPPrivateOptionsToJSON } from './';
 
 /**
  * Extra DHCP options to use in the interface.
@@ -26,62 +21,67 @@ import {
  * @interface V1DHCPOptions
  */
 export interface V1DHCPOptions {
-    /**
-     * If specified will pass option 67 to interface's DHCP server
-     * @type {string}
-     * @memberof V1DHCPOptions
-     */
-    bootFileName?: string;
-    /**
-     * If specified will pass the configured NTP server to the VM via DHCP option 042.
-     * @type {Array<string>}
-     * @memberof V1DHCPOptions
-     */
-    ntpServers?: Array<string>;
-    /**
-     * If specified will pass extra DHCP options for private use, range: 224-254
-     * @type {Array<V1DHCPPrivateOptions>}
-     * @memberof V1DHCPOptions
-     */
-    privateOptions?: Array<V1DHCPPrivateOptions>;
-    /**
-     * If specified will pass option 66 to interface's DHCP server
-     * @type {string}
-     * @memberof V1DHCPOptions
-     */
-    tftpServerName?: string;
+  /**
+   * If specified will pass option 67 to interface's DHCP server
+   * @type {string}
+   * @memberof V1DHCPOptions
+   */
+  bootFileName?: string;
+  /**
+   * If specified will pass the configured NTP server to the VM via DHCP option 042.
+   * @type {Array<string>}
+   * @memberof V1DHCPOptions
+   */
+  ntpServers?: Array<string>;
+  /**
+   * If specified will pass extra DHCP options for private use, range: 224-254
+   * @type {Array<V1DHCPPrivateOptions>}
+   * @memberof V1DHCPOptions
+   */
+  privateOptions?: Array<V1DHCPPrivateOptions>;
+  /**
+   * If specified will pass option 66 to interface's DHCP server
+   * @type {string}
+   * @memberof V1DHCPOptions
+   */
+  tftpServerName?: string;
 }
 
 export function V1DHCPOptionsFromJSON(json: any): V1DHCPOptions {
-    return V1DHCPOptionsFromJSONTyped(json, false);
+  return V1DHCPOptionsFromJSONTyped(json, false);
 }
 
-export function V1DHCPOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DHCPOptions {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'bootFileName': !exists(json, 'bootFileName') ? undefined : json['bootFileName'],
-        'ntpServers': !exists(json, 'ntpServers') ? undefined : json['ntpServers'],
-        'privateOptions': !exists(json, 'privateOptions') ? undefined : ((json['privateOptions'] as Array<any>).map(V1DHCPPrivateOptionsFromJSON)),
-        'tftpServerName': !exists(json, 'tftpServerName') ? undefined : json['tftpServerName'],
-    };
+export function V1DHCPOptionsFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1DHCPOptions {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    bootFileName: !exists(json, 'bootFileName') ? undefined : json['bootFileName'],
+    ntpServers: !exists(json, 'ntpServers') ? undefined : json['ntpServers'],
+    privateOptions: !exists(json, 'privateOptions')
+      ? undefined
+      : (json['privateOptions'] as Array<any>).map(V1DHCPPrivateOptionsFromJSON),
+    tftpServerName: !exists(json, 'tftpServerName') ? undefined : json['tftpServerName'],
+  };
 }
 
 export function V1DHCPOptionsToJSON(value?: V1DHCPOptions | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'bootFileName': value.bootFileName,
-        'ntpServers': value.ntpServers,
-        'privateOptions': value.privateOptions === undefined ? undefined : ((value.privateOptions as Array<any>).map(V1DHCPPrivateOptionsToJSON)),
-        'tftpServerName': value.tftpServerName,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    bootFileName: value.bootFileName,
+    ntpServers: value.ntpServers,
+    privateOptions:
+      value.privateOptions === undefined
+        ? undefined
+        : (value.privateOptions as Array<any>).map(V1DHCPPrivateOptionsToJSON),
+    tftpServerName: value.tftpServerName,
+  };
 }
-

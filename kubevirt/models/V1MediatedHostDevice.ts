@@ -12,61 +12,63 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * MediatedHostDevice represents a host mediated device allowed for passthrough
  * @export
  * @interface V1MediatedHostDevice
  */
 export interface V1MediatedHostDevice {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof V1MediatedHostDevice
-     */
-    externalResourceProvider?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1MediatedHostDevice
-     */
-    mdevNameSelector: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1MediatedHostDevice
-     */
-    resourceName: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1MediatedHostDevice
+   */
+  externalResourceProvider?: boolean;
+  /**
+   *
+   * @type {string}
+   * @memberof V1MediatedHostDevice
+   */
+  mdevNameSelector: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1MediatedHostDevice
+   */
+  resourceName: string;
 }
 
 export function V1MediatedHostDeviceFromJSON(json: any): V1MediatedHostDevice {
-    return V1MediatedHostDeviceFromJSONTyped(json, false);
+  return V1MediatedHostDeviceFromJSONTyped(json, false);
 }
 
-export function V1MediatedHostDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1MediatedHostDevice {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'externalResourceProvider': !exists(json, 'externalResourceProvider') ? undefined : json['externalResourceProvider'],
-        'mdevNameSelector': json['mdevNameSelector'],
-        'resourceName': json['resourceName'],
-    };
+export function V1MediatedHostDeviceFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1MediatedHostDevice {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    externalResourceProvider: !exists(json, 'externalResourceProvider')
+      ? undefined
+      : json['externalResourceProvider'],
+    mdevNameSelector: json['mdevNameSelector'],
+    resourceName: json['resourceName'],
+  };
 }
 
 export function V1MediatedHostDeviceToJSON(value?: V1MediatedHostDevice | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'externalResourceProvider': value.externalResourceProvider,
-        'mdevNameSelector': value.mdevNameSelector,
-        'resourceName': value.resourceName,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    externalResourceProvider: value.externalResourceProvider,
+    mdevNameSelector: value.mdevNameSelector,
+    resourceName: value.resourceName,
+  };
 }
-

@@ -12,61 +12,69 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * NodeMediatedDeviceTypesConfig holds information about MDEV types to be defined in a specific node that matches the NodeSelector field.
  * @export
  * @interface V1NodeMediatedDeviceTypesConfig
  */
 export interface V1NodeMediatedDeviceTypesConfig {
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1NodeMediatedDeviceTypesConfig
-     */
-    mediatedDeviceTypes?: Array<string>;
-    /**
-     * Deprecated. Use mediatedDeviceTypes instead.
-     * @type {Array<string>}
-     * @memberof V1NodeMediatedDeviceTypesConfig
-     */
-    mediatedDevicesTypes?: Array<string>;
-    /**
-     * NodeSelector is a selector which must be true for the vmi to fit on a node. Selector which must match a node's labels for the vmi to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
-     * @type {{ [key: string]: string; }}
-     * @memberof V1NodeMediatedDeviceTypesConfig
-     */
-    nodeSelector: { [key: string]: string; };
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1NodeMediatedDeviceTypesConfig
+   */
+  mediatedDeviceTypes?: Array<string>;
+  /**
+   * Deprecated. Use mediatedDeviceTypes instead.
+   * @type {Array<string>}
+   * @memberof V1NodeMediatedDeviceTypesConfig
+   */
+  mediatedDevicesTypes?: Array<string>;
+  /**
+   * NodeSelector is a selector which must be true for the vmi to fit on a node. Selector which must match a node's labels for the vmi to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
+   * @type {{ [key: string]: string; }}
+   * @memberof V1NodeMediatedDeviceTypesConfig
+   */
+  nodeSelector: { [key: string]: string };
 }
 
-export function V1NodeMediatedDeviceTypesConfigFromJSON(json: any): V1NodeMediatedDeviceTypesConfig {
-    return V1NodeMediatedDeviceTypesConfigFromJSONTyped(json, false);
+export function V1NodeMediatedDeviceTypesConfigFromJSON(
+  json: any,
+): V1NodeMediatedDeviceTypesConfig {
+  return V1NodeMediatedDeviceTypesConfigFromJSONTyped(json, false);
 }
 
-export function V1NodeMediatedDeviceTypesConfigFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1NodeMediatedDeviceTypesConfig {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'mediatedDeviceTypes': !exists(json, 'mediatedDeviceTypes') ? undefined : json['mediatedDeviceTypes'],
-        'mediatedDevicesTypes': !exists(json, 'mediatedDevicesTypes') ? undefined : json['mediatedDevicesTypes'],
-        'nodeSelector': json['nodeSelector'],
-    };
+export function V1NodeMediatedDeviceTypesConfigFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1NodeMediatedDeviceTypesConfig {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    mediatedDeviceTypes: !exists(json, 'mediatedDeviceTypes')
+      ? undefined
+      : json['mediatedDeviceTypes'],
+    mediatedDevicesTypes: !exists(json, 'mediatedDevicesTypes')
+      ? undefined
+      : json['mediatedDevicesTypes'],
+    nodeSelector: json['nodeSelector'],
+  };
 }
 
-export function V1NodeMediatedDeviceTypesConfigToJSON(value?: V1NodeMediatedDeviceTypesConfig | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'mediatedDeviceTypes': value.mediatedDeviceTypes,
-        'mediatedDevicesTypes': value.mediatedDevicesTypes,
-        'nodeSelector': value.nodeSelector,
-    };
+export function V1NodeMediatedDeviceTypesConfigToJSON(
+  value?: V1NodeMediatedDeviceTypesConfig | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    mediatedDeviceTypes: value.mediatedDeviceTypes,
+    mediatedDevicesTypes: value.mediatedDevicesTypes,
+    nodeSelector: value.nodeSelector,
+  };
 }
-

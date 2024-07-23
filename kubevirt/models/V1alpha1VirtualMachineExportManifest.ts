@@ -12,53 +12,56 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * VirtualMachineExportManifest contains the type and URL of the exported manifest
  * @export
  * @interface V1alpha1VirtualMachineExportManifest
  */
 export interface V1alpha1VirtualMachineExportManifest {
-    /**
-     * Type is the type of manifest returned
-     * @type {string}
-     * @memberof V1alpha1VirtualMachineExportManifest
-     */
-    type: string;
-    /**
-     * Url is the url of the endpoint that returns the manifest
-     * @type {string}
-     * @memberof V1alpha1VirtualMachineExportManifest
-     */
-    url: string;
+  /**
+   * Type is the type of manifest returned
+   * @type {string}
+   * @memberof V1alpha1VirtualMachineExportManifest
+   */
+  type: string;
+  /**
+   * Url is the url of the endpoint that returns the manifest
+   * @type {string}
+   * @memberof V1alpha1VirtualMachineExportManifest
+   */
+  url: string;
 }
 
-export function V1alpha1VirtualMachineExportManifestFromJSON(json: any): V1alpha1VirtualMachineExportManifest {
-    return V1alpha1VirtualMachineExportManifestFromJSONTyped(json, false);
+export function V1alpha1VirtualMachineExportManifestFromJSON(
+  json: any,
+): V1alpha1VirtualMachineExportManifest {
+  return V1alpha1VirtualMachineExportManifestFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachineExportManifestFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VirtualMachineExportManifest {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'type': json['type'],
-        'url': json['url'],
-    };
+export function V1alpha1VirtualMachineExportManifestFromJSONTyped(
+  json: any,
+  __ignoreDiscriminator: boolean,
+): V1alpha1VirtualMachineExportManifest {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    type: json['type'],
+    url: json['url'],
+  };
 }
 
-export function V1alpha1VirtualMachineExportManifestToJSON(value?: V1alpha1VirtualMachineExportManifest | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'type': value.type,
-        'url': value.url,
-    };
+export function V1alpha1VirtualMachineExportManifestToJSON(
+  value?: V1alpha1VirtualMachineExportManifest | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    type: value.type,
+    url: value.url,
+  };
 }
-

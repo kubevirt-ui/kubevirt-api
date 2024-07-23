@@ -12,12 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import {
-    K8sIoApiCoreV1ResourceRequirements,
-    K8sIoApiCoreV1ResourceRequirementsFromJSON,
-    K8sIoApiCoreV1ResourceRequirementsFromJSONTyped,
-    K8sIoApiCoreV1ResourceRequirementsToJSON,
+  K8sIoApiCoreV1ResourceRequirements,
+  K8sIoApiCoreV1ResourceRequirementsFromJSON,
+  K8sIoApiCoreV1ResourceRequirementsToJSON,
 } from './';
 
 /**
@@ -26,46 +24,46 @@ import {
  * @interface V1SupportContainerResources
  */
 export interface V1SupportContainerResources {
-    /**
-     * 
-     * @type {K8sIoApiCoreV1ResourceRequirements}
-     * @memberof V1SupportContainerResources
-     */
-    resources: K8sIoApiCoreV1ResourceRequirements;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1SupportContainerResources
-     */
-    type: string;
+  /**
+   *
+   * @type {K8sIoApiCoreV1ResourceRequirements}
+   * @memberof V1SupportContainerResources
+   */
+  resources: K8sIoApiCoreV1ResourceRequirements;
+  /**
+   *
+   * @type {string}
+   * @memberof V1SupportContainerResources
+   */
+  type: string;
 }
 
 export function V1SupportContainerResourcesFromJSON(json: any): V1SupportContainerResources {
-    return V1SupportContainerResourcesFromJSONTyped(json, false);
+  return V1SupportContainerResourcesFromJSONTyped(json, false);
 }
 
-export function V1SupportContainerResourcesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SupportContainerResources {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'resources': K8sIoApiCoreV1ResourceRequirementsFromJSON(json['resources']),
-        'type': json['type'],
-    };
+export function V1SupportContainerResourcesFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1SupportContainerResources {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    resources: K8sIoApiCoreV1ResourceRequirementsFromJSON(json['resources']),
+    type: json['type'],
+  };
 }
 
 export function V1SupportContainerResourcesToJSON(value?: V1SupportContainerResources | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'resources': K8sIoApiCoreV1ResourceRequirementsToJSON(value.resources),
-        'type': value.type,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    resources: K8sIoApiCoreV1ResourceRequirementsToJSON(value.resources),
+    type: value.type,
+  };
 }
-

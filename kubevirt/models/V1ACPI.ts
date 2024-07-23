@@ -12,45 +12,42 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1ACPI
  */
 export interface V1ACPI {
-    /**
-     * SlicNameRef should match the volume name of a secret object. The data in the secret should be a binary blob that follows the ACPI SLIC standard, see: https://learn.microsoft.com/en-us/previous-versions/windows/hardware/design/dn653305(v=vs.85)
-     * @type {string}
-     * @memberof V1ACPI
-     */
-    slicNameRef?: string;
+  /**
+   * SlicNameRef should match the volume name of a secret object. The data in the secret should be a binary blob that follows the ACPI SLIC standard, see: https://learn.microsoft.com/en-us/previous-versions/windows/hardware/design/dn653305(v=vs.85)
+   * @type {string}
+   * @memberof V1ACPI
+   */
+  slicNameRef?: string;
 }
 
 export function V1ACPIFromJSON(json: any): V1ACPI {
-    return V1ACPIFromJSONTyped(json, false);
+  return V1ACPIFromJSONTyped(json, false);
 }
 
-export function V1ACPIFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ACPI {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'slicNameRef': !exists(json, 'slicNameRef') ? undefined : json['slicNameRef'],
-    };
+export function V1ACPIFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ACPI {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    slicNameRef: !exists(json, 'slicNameRef') ? undefined : json['slicNameRef'],
+  };
 }
 
 export function V1ACPIToJSON(value?: V1ACPI | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'slicNameRef': value.slicNameRef,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    slicNameRef: value.slicNameRef,
+  };
 }
-

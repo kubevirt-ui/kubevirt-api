@@ -12,12 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1alpha1PersistentVolumeClaim,
-    V1alpha1PersistentVolumeClaimFromJSON,
-    V1alpha1PersistentVolumeClaimFromJSONTyped,
-    V1alpha1PersistentVolumeClaimToJSON,
+  V1alpha1PersistentVolumeClaim,
+  V1alpha1PersistentVolumeClaimFromJSON,
+  V1alpha1PersistentVolumeClaimToJSON,
 } from './';
 
 /**
@@ -26,54 +25,56 @@ import {
  * @interface V1alpha1VolumeBackup
  */
 export interface V1alpha1VolumeBackup {
-    /**
-     * 
-     * @type {V1alpha1PersistentVolumeClaim}
-     * @memberof V1alpha1VolumeBackup
-     */
-    persistentVolumeClaim: V1alpha1PersistentVolumeClaim;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1alpha1VolumeBackup
-     */
-    volumeName: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1alpha1VolumeBackup
-     */
-    volumeSnapshotName?: string;
+  /**
+   *
+   * @type {V1alpha1PersistentVolumeClaim}
+   * @memberof V1alpha1VolumeBackup
+   */
+  persistentVolumeClaim: V1alpha1PersistentVolumeClaim;
+  /**
+   *
+   * @type {string}
+   * @memberof V1alpha1VolumeBackup
+   */
+  volumeName: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1alpha1VolumeBackup
+   */
+  volumeSnapshotName?: string;
 }
 
 export function V1alpha1VolumeBackupFromJSON(json: any): V1alpha1VolumeBackup {
-    return V1alpha1VolumeBackupFromJSONTyped(json, false);
+  return V1alpha1VolumeBackupFromJSONTyped(json, false);
 }
 
-export function V1alpha1VolumeBackupFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VolumeBackup {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'persistentVolumeClaim': V1alpha1PersistentVolumeClaimFromJSON(json['persistentVolumeClaim']),
-        'volumeName': json['volumeName'],
-        'volumeSnapshotName': !exists(json, 'volumeSnapshotName') ? undefined : json['volumeSnapshotName'],
-    };
+export function V1alpha1VolumeBackupFromJSONTyped(
+  json: any,
+  __ignoreDiscriminator: boolean,
+): V1alpha1VolumeBackup {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    persistentVolumeClaim: V1alpha1PersistentVolumeClaimFromJSON(json['persistentVolumeClaim']),
+    volumeName: json['volumeName'],
+    volumeSnapshotName: !exists(json, 'volumeSnapshotName')
+      ? undefined
+      : json['volumeSnapshotName'],
+  };
 }
 
 export function V1alpha1VolumeBackupToJSON(value?: V1alpha1VolumeBackup | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'persistentVolumeClaim': V1alpha1PersistentVolumeClaimToJSON(value.persistentVolumeClaim),
-        'volumeName': value.volumeName,
-        'volumeSnapshotName': value.volumeSnapshotName,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    persistentVolumeClaim: V1alpha1PersistentVolumeClaimToJSON(value.persistentVolumeClaim),
+    volumeName: value.volumeName,
+    volumeSnapshotName: value.volumeSnapshotName,
+  };
 }
-

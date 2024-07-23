@@ -12,20 +12,17 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    K8sIoApiCoreV1NodeAffinity,
-    K8sIoApiCoreV1NodeAffinityFromJSON,
-    K8sIoApiCoreV1NodeAffinityFromJSONTyped,
-    K8sIoApiCoreV1NodeAffinityToJSON,
-    K8sIoApiCoreV1PodAffinity,
-    K8sIoApiCoreV1PodAffinityFromJSON,
-    K8sIoApiCoreV1PodAffinityFromJSONTyped,
-    K8sIoApiCoreV1PodAffinityToJSON,
-    K8sIoApiCoreV1PodAntiAffinity,
-    K8sIoApiCoreV1PodAntiAffinityFromJSON,
-    K8sIoApiCoreV1PodAntiAffinityFromJSONTyped,
-    K8sIoApiCoreV1PodAntiAffinityToJSON,
+  K8sIoApiCoreV1NodeAffinity,
+  K8sIoApiCoreV1NodeAffinityFromJSON,
+  K8sIoApiCoreV1NodeAffinityToJSON,
+  K8sIoApiCoreV1PodAffinity,
+  K8sIoApiCoreV1PodAffinityFromJSON,
+  K8sIoApiCoreV1PodAffinityToJSON,
+  K8sIoApiCoreV1PodAntiAffinity,
+  K8sIoApiCoreV1PodAntiAffinityFromJSON,
+  K8sIoApiCoreV1PodAntiAffinityToJSON,
 } from './';
 
 /**
@@ -34,54 +31,60 @@ import {
  * @interface K8sIoApiCoreV1Affinity
  */
 export interface K8sIoApiCoreV1Affinity {
-    /**
-     * 
-     * @type {K8sIoApiCoreV1NodeAffinity}
-     * @memberof K8sIoApiCoreV1Affinity
-     */
-    nodeAffinity?: K8sIoApiCoreV1NodeAffinity;
-    /**
-     * 
-     * @type {K8sIoApiCoreV1PodAffinity}
-     * @memberof K8sIoApiCoreV1Affinity
-     */
-    podAffinity?: K8sIoApiCoreV1PodAffinity;
-    /**
-     * 
-     * @type {K8sIoApiCoreV1PodAntiAffinity}
-     * @memberof K8sIoApiCoreV1Affinity
-     */
-    podAntiAffinity?: K8sIoApiCoreV1PodAntiAffinity;
+  /**
+   *
+   * @type {K8sIoApiCoreV1NodeAffinity}
+   * @memberof K8sIoApiCoreV1Affinity
+   */
+  nodeAffinity?: K8sIoApiCoreV1NodeAffinity;
+  /**
+   *
+   * @type {K8sIoApiCoreV1PodAffinity}
+   * @memberof K8sIoApiCoreV1Affinity
+   */
+  podAffinity?: K8sIoApiCoreV1PodAffinity;
+  /**
+   *
+   * @type {K8sIoApiCoreV1PodAntiAffinity}
+   * @memberof K8sIoApiCoreV1Affinity
+   */
+  podAntiAffinity?: K8sIoApiCoreV1PodAntiAffinity;
 }
 
 export function K8sIoApiCoreV1AffinityFromJSON(json: any): K8sIoApiCoreV1Affinity {
-    return K8sIoApiCoreV1AffinityFromJSONTyped(json, false);
+  return K8sIoApiCoreV1AffinityFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1AffinityFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1Affinity {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'nodeAffinity': !exists(json, 'nodeAffinity') ? undefined : K8sIoApiCoreV1NodeAffinityFromJSON(json['nodeAffinity']),
-        'podAffinity': !exists(json, 'podAffinity') ? undefined : K8sIoApiCoreV1PodAffinityFromJSON(json['podAffinity']),
-        'podAntiAffinity': !exists(json, 'podAntiAffinity') ? undefined : K8sIoApiCoreV1PodAntiAffinityFromJSON(json['podAntiAffinity']),
-    };
+export function K8sIoApiCoreV1AffinityFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): K8sIoApiCoreV1Affinity {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    nodeAffinity: !exists(json, 'nodeAffinity')
+      ? undefined
+      : K8sIoApiCoreV1NodeAffinityFromJSON(json['nodeAffinity']),
+    podAffinity: !exists(json, 'podAffinity')
+      ? undefined
+      : K8sIoApiCoreV1PodAffinityFromJSON(json['podAffinity']),
+    podAntiAffinity: !exists(json, 'podAntiAffinity')
+      ? undefined
+      : K8sIoApiCoreV1PodAntiAffinityFromJSON(json['podAntiAffinity']),
+  };
 }
 
 export function K8sIoApiCoreV1AffinityToJSON(value?: K8sIoApiCoreV1Affinity | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'nodeAffinity': K8sIoApiCoreV1NodeAffinityToJSON(value.nodeAffinity),
-        'podAffinity': K8sIoApiCoreV1PodAffinityToJSON(value.podAffinity),
-        'podAntiAffinity': K8sIoApiCoreV1PodAntiAffinityToJSON(value.podAntiAffinity),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    nodeAffinity: K8sIoApiCoreV1NodeAffinityToJSON(value.nodeAffinity),
+    podAffinity: K8sIoApiCoreV1PodAffinityToJSON(value.podAffinity),
+    podAntiAffinity: K8sIoApiCoreV1PodAntiAffinityToJSON(value.podAntiAffinity),
+  };
 }
-

@@ -12,12 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    K8sIoApiCoreV1TypedLocalObjectReference,
-    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
-    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSONTyped,
-    K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
+  K8sIoApiCoreV1TypedLocalObjectReference,
+  K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
+  K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
 } from './';
 
 /**
@@ -26,54 +25,58 @@ import {
  * @interface V1alpha1VirtualMachineExportSpec
  */
 export interface V1alpha1VirtualMachineExportSpec {
-    /**
-     * 
-     * @type {K8sIoApiCoreV1TypedLocalObjectReference}
-     * @memberof V1alpha1VirtualMachineExportSpec
-     */
-    source: K8sIoApiCoreV1TypedLocalObjectReference;
-    /**
-     * TokenSecretRef is the name of the custom-defined secret that contains the token used by the export server pod
-     * @type {string}
-     * @memberof V1alpha1VirtualMachineExportSpec
-     */
-    tokenSecretRef?: string;
-    /**
-     * Duration is a wrapper around time.Duration which supports correct marshaling to YAML and JSON. In particular, it marshals into strings, which can be used as map keys in json.
-     * @type {string}
-     * @memberof V1alpha1VirtualMachineExportSpec
-     */
-    ttlDuration?: string;
+  /**
+   *
+   * @type {K8sIoApiCoreV1TypedLocalObjectReference}
+   * @memberof V1alpha1VirtualMachineExportSpec
+   */
+  source: K8sIoApiCoreV1TypedLocalObjectReference;
+  /**
+   * TokenSecretRef is the name of the custom-defined secret that contains the token used by the export server pod
+   * @type {string}
+   * @memberof V1alpha1VirtualMachineExportSpec
+   */
+  tokenSecretRef?: string;
+  /**
+   * Duration is a wrapper around time.Duration which supports correct marshaling to YAML and JSON. In particular, it marshals into strings, which can be used as map keys in json.
+   * @type {string}
+   * @memberof V1alpha1VirtualMachineExportSpec
+   */
+  ttlDuration?: string;
 }
 
-export function V1alpha1VirtualMachineExportSpecFromJSON(json: any): V1alpha1VirtualMachineExportSpec {
-    return V1alpha1VirtualMachineExportSpecFromJSONTyped(json, false);
+export function V1alpha1VirtualMachineExportSpecFromJSON(
+  json: any,
+): V1alpha1VirtualMachineExportSpec {
+  return V1alpha1VirtualMachineExportSpecFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachineExportSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VirtualMachineExportSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'source': K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['source']),
-        'tokenSecretRef': !exists(json, 'tokenSecretRef') ? undefined : json['tokenSecretRef'],
-        'ttlDuration': !exists(json, 'ttlDuration') ? undefined : json['ttlDuration'],
-    };
+export function V1alpha1VirtualMachineExportSpecFromJSONTyped(
+  json: any,
+  __ignoreDiscriminator: boolean,
+): V1alpha1VirtualMachineExportSpec {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    source: K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['source']),
+    tokenSecretRef: !exists(json, 'tokenSecretRef') ? undefined : json['tokenSecretRef'],
+    ttlDuration: !exists(json, 'ttlDuration') ? undefined : json['ttlDuration'],
+  };
 }
 
-export function V1alpha1VirtualMachineExportSpecToJSON(value?: V1alpha1VirtualMachineExportSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'source': K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.source),
-        'tokenSecretRef': value.tokenSecretRef,
-        'ttlDuration': value.ttlDuration,
-    };
+export function V1alpha1VirtualMachineExportSpecToJSON(
+  value?: V1alpha1VirtualMachineExportSpec | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    source: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.source),
+    tokenSecretRef: value.tokenSecretRef,
+    ttlDuration: value.ttlDuration,
+  };
 }
-

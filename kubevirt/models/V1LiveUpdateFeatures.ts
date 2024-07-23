@@ -12,72 +12,70 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1LiveUpdateCPU,
-    V1LiveUpdateCPUFromJSON,
-    V1LiveUpdateCPUFromJSONTyped,
-    V1LiveUpdateCPUToJSON,
-    V1LiveUpdateMemory,
-    V1LiveUpdateMemoryFromJSON,
-    V1LiveUpdateMemoryFromJSONTyped,
-    V1LiveUpdateMemoryToJSON,
+  V1LiveUpdateCPU,
+  V1LiveUpdateCPUFromJSON,
+  V1LiveUpdateCPUToJSON,
+  V1LiveUpdateMemory,
+  V1LiveUpdateMemoryFromJSON,
+  V1LiveUpdateMemoryToJSON,
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1LiveUpdateFeatures
  */
 export interface V1LiveUpdateFeatures {
-    /**
-     * 
-     * @type {object}
-     * @memberof V1LiveUpdateFeatures
-     */
-    affinity?: object;
-    /**
-     * 
-     * @type {V1LiveUpdateCPU}
-     * @memberof V1LiveUpdateFeatures
-     */
-    cpu?: V1LiveUpdateCPU;
-    /**
-     * 
-     * @type {V1LiveUpdateMemory}
-     * @memberof V1LiveUpdateFeatures
-     */
-    memory?: V1LiveUpdateMemory;
+  /**
+   *
+   * @type {object}
+   * @memberof V1LiveUpdateFeatures
+   */
+  affinity?: object;
+  /**
+   *
+   * @type {V1LiveUpdateCPU}
+   * @memberof V1LiveUpdateFeatures
+   */
+  cpu?: V1LiveUpdateCPU;
+  /**
+   *
+   * @type {V1LiveUpdateMemory}
+   * @memberof V1LiveUpdateFeatures
+   */
+  memory?: V1LiveUpdateMemory;
 }
 
 export function V1LiveUpdateFeaturesFromJSON(json: any): V1LiveUpdateFeatures {
-    return V1LiveUpdateFeaturesFromJSONTyped(json, false);
+  return V1LiveUpdateFeaturesFromJSONTyped(json, false);
 }
 
-export function V1LiveUpdateFeaturesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1LiveUpdateFeatures {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'affinity': !exists(json, 'affinity') ? undefined : json['affinity'],
-        'cpu': !exists(json, 'cpu') ? undefined : V1LiveUpdateCPUFromJSON(json['cpu']),
-        'memory': !exists(json, 'memory') ? undefined : V1LiveUpdateMemoryFromJSON(json['memory']),
-    };
+export function V1LiveUpdateFeaturesFromJSONTyped(
+  json: any,
+  __ignoreDiscriminator: boolean,
+): V1LiveUpdateFeatures {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    affinity: !exists(json, 'affinity') ? undefined : json['affinity'],
+    cpu: !exists(json, 'cpu') ? undefined : V1LiveUpdateCPUFromJSON(json['cpu']),
+    memory: !exists(json, 'memory') ? undefined : V1LiveUpdateMemoryFromJSON(json['memory']),
+  };
 }
 
 export function V1LiveUpdateFeaturesToJSON(value?: V1LiveUpdateFeatures | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'affinity': value.affinity,
-        'cpu': V1LiveUpdateCPUToJSON(value.cpu),
-        'memory': V1LiveUpdateMemoryToJSON(value.memory),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    affinity: value.affinity,
+    cpu: V1LiveUpdateCPUToJSON(value.cpu),
+    memory: V1LiveUpdateMemoryToJSON(value.memory),
+  };
 }
-

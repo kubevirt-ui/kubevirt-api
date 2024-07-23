@@ -12,53 +12,52 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * ImportStatus of a currently in progress import
  * @export
  * @interface V1beta1ImportStatus
  */
 export interface V1beta1ImportStatus {
-    /**
-     * DataVolumeName is the currently in progress import DataVolume
-     * @type {string}
-     * @memberof V1beta1ImportStatus
-     */
-    dataVolumeName: string;
-    /**
-     * Digest of the currently imported image
-     * @type {string}
-     * @memberof V1beta1ImportStatus
-     */
-    digest: string;
+  /**
+   * DataVolumeName is the currently in progress import DataVolume
+   * @type {string}
+   * @memberof V1beta1ImportStatus
+   */
+  dataVolumeName: string;
+  /**
+   * Digest of the currently imported image
+   * @type {string}
+   * @memberof V1beta1ImportStatus
+   */
+  digest: string;
 }
 
 export function V1beta1ImportStatusFromJSON(json: any): V1beta1ImportStatus {
-    return V1beta1ImportStatusFromJSONTyped(json, false);
+  return V1beta1ImportStatusFromJSONTyped(json, false);
 }
 
-export function V1beta1ImportStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1ImportStatus {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'dataVolumeName': json['DataVolumeName'],
-        'digest': json['Digest'],
-    };
+export function V1beta1ImportStatusFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1beta1ImportStatus {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    dataVolumeName: json['DataVolumeName'],
+    digest: json['Digest'],
+  };
 }
 
 export function V1beta1ImportStatusToJSON(value?: V1beta1ImportStatus | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'DataVolumeName': value.dataVolumeName,
-        'Digest': value.digest,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    DataVolumeName: value.dataVolumeName,
+    Digest: value.digest,
+  };
 }
-

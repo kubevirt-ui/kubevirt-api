@@ -12,28 +12,23 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    ApiNodePlacement,
-    ApiNodePlacementFromJSON,
-    ApiNodePlacementFromJSONTyped,
-    ApiNodePlacementToJSON,
-    V1beta1CDICertConfig,
-    V1beta1CDICertConfigFromJSON,
-    V1beta1CDICertConfigFromJSONTyped,
-    V1beta1CDICertConfigToJSON,
-    V1beta1CDIConfigSpec,
-    V1beta1CDIConfigSpecFromJSON,
-    V1beta1CDIConfigSpecFromJSONTyped,
-    V1beta1CDIConfigSpecToJSON,
-    V1beta1ComponentConfig,
-    V1beta1ComponentConfigFromJSON,
-    V1beta1ComponentConfigFromJSONTyped,
-    V1beta1ComponentConfigToJSON,
-    V1beta1CustomizeComponents,
-    V1beta1CustomizeComponentsFromJSON,
-    V1beta1CustomizeComponentsFromJSONTyped,
-    V1beta1CustomizeComponentsToJSON,
+  ApiNodePlacement,
+  ApiNodePlacementFromJSON,
+  ApiNodePlacementToJSON,
+  V1beta1CDICertConfig,
+  V1beta1CDICertConfigFromJSON,
+  V1beta1CDICertConfigToJSON,
+  V1beta1CDIConfigSpec,
+  V1beta1CDIConfigSpecFromJSON,
+  V1beta1CDIConfigSpecToJSON,
+  V1beta1ComponentConfig,
+  V1beta1ComponentConfigFromJSON,
+  V1beta1ComponentConfigToJSON,
+  V1beta1CustomizeComponents,
+  V1beta1CustomizeComponentsFromJSON,
+  V1beta1CustomizeComponentsToJSON,
 } from './';
 
 /**
@@ -42,117 +37,123 @@ import {
  * @interface V1beta1CDISpec
  */
 export interface V1beta1CDISpec {
-    /**
-     * 
-     * @type {V1beta1CDICertConfig}
-     * @memberof V1beta1CDISpec
-     */
-    certConfig?: V1beta1CDICertConfig;
-    /**
-     * Clone strategy override: should we use a host-assisted copy even if snapshots are available?
-     * @type {string}
-     * @memberof V1beta1CDISpec
-     */
-    cloneStrategyOverride?: string;
-    /**
-     * 
-     * @type {V1beta1CDIConfigSpec}
-     * @memberof V1beta1CDISpec
-     */
-    config?: V1beta1CDIConfigSpec;
-    /**
-     * 
-     * @type {V1beta1CustomizeComponents}
-     * @memberof V1beta1CDISpec
-     */
-    customizeComponents?: V1beta1CustomizeComponents;
-    /**
-     * PullPolicy describes a policy for if/when to pull a container image
-     * 
-     * Possible enum values:
-     *  - `"Always"` means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.
-     *  - `"IfNotPresent"` means that kubelet pulls if the image isn't present on disk. Container will fail if the image isn't present and the pull fails.
-     *  - `"Never"` means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn't present
-     * @type {string}
-     * @memberof V1beta1CDISpec
-     */
-    imagePullPolicy?: V1beta1CDISpecImagePullPolicyEnum;
-    /**
-     * 
-     * @type {V1beta1ComponentConfig}
-     * @memberof V1beta1CDISpec
-     */
-    infra?: V1beta1ComponentConfig;
-    /**
-     * PriorityClass of the CDI control plane
-     * @type {string}
-     * @memberof V1beta1CDISpec
-     */
-    priorityClass?: string;
-    /**
-     * CDIUninstallStrategy defines the state to leave CDI on uninstall
-     * @type {string}
-     * @memberof V1beta1CDISpec
-     */
-    uninstallStrategy?: string;
-    /**
-     * 
-     * @type {ApiNodePlacement}
-     * @memberof V1beta1CDISpec
-     */
-    workload?: ApiNodePlacement;
+  /**
+   *
+   * @type {V1beta1CDICertConfig}
+   * @memberof V1beta1CDISpec
+   */
+  certConfig?: V1beta1CDICertConfig;
+  /**
+   * Clone strategy override: should we use a host-assisted copy even if snapshots are available?
+   * @type {string}
+   * @memberof V1beta1CDISpec
+   */
+  cloneStrategyOverride?: string;
+  /**
+   *
+   * @type {V1beta1CDIConfigSpec}
+   * @memberof V1beta1CDISpec
+   */
+  config?: V1beta1CDIConfigSpec;
+  /**
+   *
+   * @type {V1beta1CustomizeComponents}
+   * @memberof V1beta1CDISpec
+   */
+  customizeComponents?: V1beta1CustomizeComponents;
+  /**
+   * PullPolicy describes a policy for if/when to pull a container image
+   *
+   * Possible enum values:
+   *  - `"Always"` means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.
+   *  - `"IfNotPresent"` means that kubelet pulls if the image isn't present on disk. Container will fail if the image isn't present and the pull fails.
+   *  - `"Never"` means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn't present
+   * @type {string}
+   * @memberof V1beta1CDISpec
+   */
+  imagePullPolicy?: V1beta1CDISpecImagePullPolicyEnum;
+  /**
+   *
+   * @type {V1beta1ComponentConfig}
+   * @memberof V1beta1CDISpec
+   */
+  infra?: V1beta1ComponentConfig;
+  /**
+   * PriorityClass of the CDI control plane
+   * @type {string}
+   * @memberof V1beta1CDISpec
+   */
+  priorityClass?: string;
+  /**
+   * CDIUninstallStrategy defines the state to leave CDI on uninstall
+   * @type {string}
+   * @memberof V1beta1CDISpec
+   */
+  uninstallStrategy?: string;
+  /**
+   *
+   * @type {ApiNodePlacement}
+   * @memberof V1beta1CDISpec
+   */
+  workload?: ApiNodePlacement;
 }
 
 /**
-* @export
-* @enum {string}
-*/
+ * @export
+ * @enum {string}
+ */
 export enum V1beta1CDISpecImagePullPolicyEnum {
-    Always = 'Always',
-    IfNotPresent = 'IfNotPresent',
-    Never = 'Never'
+  Always = 'Always',
+  IfNotPresent = 'IfNotPresent',
+  Never = 'Never',
 }
 
 export function V1beta1CDISpecFromJSON(json: any): V1beta1CDISpec {
-    return V1beta1CDISpecFromJSONTyped(json, false);
+  return V1beta1CDISpecFromJSONTyped(json, false);
 }
 
-export function V1beta1CDISpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1CDISpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'certConfig': !exists(json, 'certConfig') ? undefined : V1beta1CDICertConfigFromJSON(json['certConfig']),
-        'cloneStrategyOverride': !exists(json, 'cloneStrategyOverride') ? undefined : json['cloneStrategyOverride'],
-        'config': !exists(json, 'config') ? undefined : V1beta1CDIConfigSpecFromJSON(json['config']),
-        'customizeComponents': !exists(json, 'customizeComponents') ? undefined : V1beta1CustomizeComponentsFromJSON(json['customizeComponents']),
-        'imagePullPolicy': !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
-        'infra': !exists(json, 'infra') ? undefined : V1beta1ComponentConfigFromJSON(json['infra']),
-        'priorityClass': !exists(json, 'priorityClass') ? undefined : json['priorityClass'],
-        'uninstallStrategy': !exists(json, 'uninstallStrategy') ? undefined : json['uninstallStrategy'],
-        'workload': !exists(json, 'workload') ? undefined : ApiNodePlacementFromJSON(json['workload']),
-    };
+export function V1beta1CDISpecFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1beta1CDISpec {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    certConfig: !exists(json, 'certConfig')
+      ? undefined
+      : V1beta1CDICertConfigFromJSON(json['certConfig']),
+    cloneStrategyOverride: !exists(json, 'cloneStrategyOverride')
+      ? undefined
+      : json['cloneStrategyOverride'],
+    config: !exists(json, 'config') ? undefined : V1beta1CDIConfigSpecFromJSON(json['config']),
+    customizeComponents: !exists(json, 'customizeComponents')
+      ? undefined
+      : V1beta1CustomizeComponentsFromJSON(json['customizeComponents']),
+    imagePullPolicy: !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
+    infra: !exists(json, 'infra') ? undefined : V1beta1ComponentConfigFromJSON(json['infra']),
+    priorityClass: !exists(json, 'priorityClass') ? undefined : json['priorityClass'],
+    uninstallStrategy: !exists(json, 'uninstallStrategy') ? undefined : json['uninstallStrategy'],
+    workload: !exists(json, 'workload') ? undefined : ApiNodePlacementFromJSON(json['workload']),
+  };
 }
 
 export function V1beta1CDISpecToJSON(value?: V1beta1CDISpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'certConfig': V1beta1CDICertConfigToJSON(value.certConfig),
-        'cloneStrategyOverride': value.cloneStrategyOverride,
-        'config': V1beta1CDIConfigSpecToJSON(value.config),
-        'customizeComponents': V1beta1CustomizeComponentsToJSON(value.customizeComponents),
-        'imagePullPolicy': value.imagePullPolicy,
-        'infra': V1beta1ComponentConfigToJSON(value.infra),
-        'priorityClass': value.priorityClass,
-        'uninstallStrategy': value.uninstallStrategy,
-        'workload': ApiNodePlacementToJSON(value.workload),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    certConfig: V1beta1CDICertConfigToJSON(value.certConfig),
+    cloneStrategyOverride: value.cloneStrategyOverride,
+    config: V1beta1CDIConfigSpecToJSON(value.config),
+    customizeComponents: V1beta1CustomizeComponentsToJSON(value.customizeComponents),
+    imagePullPolicy: value.imagePullPolicy,
+    infra: V1beta1ComponentConfigToJSON(value.infra),
+    priorityClass: value.priorityClass,
+    uninstallStrategy: value.uninstallStrategy,
+    workload: ApiNodePlacementToJSON(value.workload),
+  };
 }
-

@@ -14,10 +14,9 @@
 
 import { exists, mapValues } from '../runtime';
 import {
-    V1InterfaceBindingPlugin,
-    V1InterfaceBindingPluginFromJSON,
-    V1InterfaceBindingPluginFromJSONTyped,
-    V1InterfaceBindingPluginToJSON,
+  V1InterfaceBindingPlugin,
+  V1InterfaceBindingPluginFromJSON,
+  V1InterfaceBindingPluginToJSON,
 } from './';
 
 /**
@@ -26,62 +25,73 @@ import {
  * @interface V1NetworkConfiguration
  */
 export interface V1NetworkConfiguration {
-    /**
-     * 
-     * @type {{ [key: string]: V1InterfaceBindingPlugin; }}
-     * @memberof V1NetworkConfiguration
-     */
-    binding?: { [key: string]: V1InterfaceBindingPlugin; };
-    /**
-     * 
-     * @type {string}
-     * @memberof V1NetworkConfiguration
-     */
-    defaultNetworkInterface?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof V1NetworkConfiguration
-     */
-    permitBridgeInterfaceOnPodNetwork?: boolean;
-    /**
-     * DeprecatedPermitSlirpInterface is an alias for the deprecated PermitSlirpInterface. Deprecated: Removed in v1.3.
-     * @type {boolean}
-     * @memberof V1NetworkConfiguration
-     */
-    permitSlirpInterface?: boolean;
+  /**
+   *
+   * @type {{ [key: string]: V1InterfaceBindingPlugin; }}
+   * @memberof V1NetworkConfiguration
+   */
+  binding?: { [key: string]: V1InterfaceBindingPlugin };
+  /**
+   *
+   * @type {string}
+   * @memberof V1NetworkConfiguration
+   */
+  defaultNetworkInterface?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1NetworkConfiguration
+   */
+  permitBridgeInterfaceOnPodNetwork?: boolean;
+  /**
+   * DeprecatedPermitSlirpInterface is an alias for the deprecated PermitSlirpInterface. Deprecated: Removed in v1.3.
+   * @type {boolean}
+   * @memberof V1NetworkConfiguration
+   */
+  permitSlirpInterface?: boolean;
 }
 
 export function V1NetworkConfigurationFromJSON(json: any): V1NetworkConfiguration {
-    return V1NetworkConfigurationFromJSONTyped(json, false);
+  return V1NetworkConfigurationFromJSONTyped(json, false);
 }
 
-export function V1NetworkConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1NetworkConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'binding': !exists(json, 'binding') ? undefined : (mapValues(json['binding'], V1InterfaceBindingPluginFromJSON)),
-        'defaultNetworkInterface': !exists(json, 'defaultNetworkInterface') ? undefined : json['defaultNetworkInterface'],
-        'permitBridgeInterfaceOnPodNetwork': !exists(json, 'permitBridgeInterfaceOnPodNetwork') ? undefined : json['permitBridgeInterfaceOnPodNetwork'],
-        'permitSlirpInterface': !exists(json, 'permitSlirpInterface') ? undefined : json['permitSlirpInterface'],
-    };
+export function V1NetworkConfigurationFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1NetworkConfiguration {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    binding: !exists(json, 'binding')
+      ? undefined
+      : mapValues(json['binding'], V1InterfaceBindingPluginFromJSON),
+    defaultNetworkInterface: !exists(json, 'defaultNetworkInterface')
+      ? undefined
+      : json['defaultNetworkInterface'],
+    permitBridgeInterfaceOnPodNetwork: !exists(json, 'permitBridgeInterfaceOnPodNetwork')
+      ? undefined
+      : json['permitBridgeInterfaceOnPodNetwork'],
+    permitSlirpInterface: !exists(json, 'permitSlirpInterface')
+      ? undefined
+      : json['permitSlirpInterface'],
+  };
 }
 
 export function V1NetworkConfigurationToJSON(value?: V1NetworkConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'binding': value.binding === undefined ? undefined : (mapValues(value.binding, V1InterfaceBindingPluginToJSON)),
-        'defaultNetworkInterface': value.defaultNetworkInterface,
-        'permitBridgeInterfaceOnPodNetwork': value.permitBridgeInterfaceOnPodNetwork,
-        'permitSlirpInterface': value.permitSlirpInterface,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    binding:
+      value.binding === undefined
+        ? undefined
+        : mapValues(value.binding, V1InterfaceBindingPluginToJSON),
+    defaultNetworkInterface: value.defaultNetworkInterface,
+    permitBridgeInterfaceOnPodNetwork: value.permitBridgeInterfaceOnPodNetwork,
+    permitSlirpInterface: value.permitSlirpInterface,
+  };
 }
-

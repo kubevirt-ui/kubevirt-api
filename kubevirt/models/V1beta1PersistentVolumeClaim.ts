@@ -12,64 +12,68 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    K8sIoApiCoreV1PersistentVolumeClaimSpec,
-    K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSON,
-    K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSONTyped,
-    K8sIoApiCoreV1PersistentVolumeClaimSpecToJSON,
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
+  K8sIoApiCoreV1PersistentVolumeClaimSpec,
+  K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSON,
+  K8sIoApiCoreV1PersistentVolumeClaimSpecToJSON,
+  K8sIoApimachineryPkgApisMetaV1ObjectMeta,
+  K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
+  K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1beta1PersistentVolumeClaim
  */
 export interface V1beta1PersistentVolumeClaim {
-    /**
-     * 
-     * @type {K8sIoApimachineryPkgApisMetaV1ObjectMeta}
-     * @memberof V1beta1PersistentVolumeClaim
-     */
-    metadata?: K8sIoApimachineryPkgApisMetaV1ObjectMeta;
-    /**
-     * 
-     * @type {K8sIoApiCoreV1PersistentVolumeClaimSpec}
-     * @memberof V1beta1PersistentVolumeClaim
-     */
-    spec?: K8sIoApiCoreV1PersistentVolumeClaimSpec;
+  /**
+   *
+   * @type {K8sIoApimachineryPkgApisMetaV1ObjectMeta}
+   * @memberof V1beta1PersistentVolumeClaim
+   */
+  metadata?: K8sIoApimachineryPkgApisMetaV1ObjectMeta;
+  /**
+   *
+   * @type {K8sIoApiCoreV1PersistentVolumeClaimSpec}
+   * @memberof V1beta1PersistentVolumeClaim
+   */
+  spec?: K8sIoApiCoreV1PersistentVolumeClaimSpec;
 }
 
 export function V1beta1PersistentVolumeClaimFromJSON(json: any): V1beta1PersistentVolumeClaim {
-    return V1beta1PersistentVolumeClaimFromJSONTyped(json, false);
+  return V1beta1PersistentVolumeClaimFromJSONTyped(json, false);
 }
 
-export function V1beta1PersistentVolumeClaimFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1PersistentVolumeClaim {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-        'spec': !exists(json, 'spec') ? undefined : K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSON(json['spec']),
-    };
+export function V1beta1PersistentVolumeClaimFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1beta1PersistentVolumeClaim {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    metadata: !exists(json, 'metadata')
+      ? undefined
+      : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
+    spec: !exists(json, 'spec')
+      ? undefined
+      : K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSON(json['spec']),
+  };
 }
 
-export function V1beta1PersistentVolumeClaimToJSON(value?: V1beta1PersistentVolumeClaim | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'metadata': K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-        'spec': K8sIoApiCoreV1PersistentVolumeClaimSpecToJSON(value.spec),
-    };
+export function V1beta1PersistentVolumeClaimToJSON(
+  value?: V1beta1PersistentVolumeClaim | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    metadata: K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
+    spec: K8sIoApiCoreV1PersistentVolumeClaimSpecToJSON(value.spec),
+  };
 }
-

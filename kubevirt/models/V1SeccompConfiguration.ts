@@ -12,12 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1VirtualMachineInstanceProfile,
-    V1VirtualMachineInstanceProfileFromJSON,
-    V1VirtualMachineInstanceProfileFromJSONTyped,
-    V1VirtualMachineInstanceProfileToJSON,
+  V1VirtualMachineInstanceProfile,
+  V1VirtualMachineInstanceProfileFromJSON,
+  V1VirtualMachineInstanceProfileToJSON,
 } from './';
 
 /**
@@ -26,38 +25,42 @@ import {
  * @interface V1SeccompConfiguration
  */
 export interface V1SeccompConfiguration {
-    /**
-     * 
-     * @type {V1VirtualMachineInstanceProfile}
-     * @memberof V1SeccompConfiguration
-     */
-    virtualMachineInstanceProfile?: V1VirtualMachineInstanceProfile;
+  /**
+   *
+   * @type {V1VirtualMachineInstanceProfile}
+   * @memberof V1SeccompConfiguration
+   */
+  virtualMachineInstanceProfile?: V1VirtualMachineInstanceProfile;
 }
 
 export function V1SeccompConfigurationFromJSON(json: any): V1SeccompConfiguration {
-    return V1SeccompConfigurationFromJSONTyped(json, false);
+  return V1SeccompConfigurationFromJSONTyped(json, false);
 }
 
-export function V1SeccompConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SeccompConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'virtualMachineInstanceProfile': !exists(json, 'virtualMachineInstanceProfile') ? undefined : V1VirtualMachineInstanceProfileFromJSON(json['virtualMachineInstanceProfile']),
-    };
+export function V1SeccompConfigurationFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1SeccompConfiguration {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    virtualMachineInstanceProfile: !exists(json, 'virtualMachineInstanceProfile')
+      ? undefined
+      : V1VirtualMachineInstanceProfileFromJSON(json['virtualMachineInstanceProfile']),
+  };
 }
 
 export function V1SeccompConfigurationToJSON(value?: V1SeccompConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'virtualMachineInstanceProfile': V1VirtualMachineInstanceProfileToJSON(value.virtualMachineInstanceProfile),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    virtualMachineInstanceProfile: V1VirtualMachineInstanceProfileToJSON(
+      value.virtualMachineInstanceProfile,
+    ),
+  };
 }
-

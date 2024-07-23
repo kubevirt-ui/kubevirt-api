@@ -12,61 +12,58 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1DiskTarget
  */
 export interface V1DiskTarget {
-    /**
-     * Bus indicates the type of disk device to emulate. supported values: virtio, sata, scsi, usb.
-     * @type {string}
-     * @memberof V1DiskTarget
-     */
-    bus?: string;
-    /**
-     * If specified, the virtual disk will be placed on the guests pci address with the specified PCI address. For example: 0000:81:01.10
-     * @type {string}
-     * @memberof V1DiskTarget
-     */
-    pciAddress?: string;
-    /**
-     * ReadOnly. Defaults to false.
-     * @type {boolean}
-     * @memberof V1DiskTarget
-     */
-    readonly?: boolean;
+  /**
+   * Bus indicates the type of disk device to emulate. supported values: virtio, sata, scsi, usb.
+   * @type {string}
+   * @memberof V1DiskTarget
+   */
+  bus?: string;
+  /**
+   * If specified, the virtual disk will be placed on the guests pci address with the specified PCI address. For example: 0000:81:01.10
+   * @type {string}
+   * @memberof V1DiskTarget
+   */
+  pciAddress?: string;
+  /**
+   * ReadOnly. Defaults to false.
+   * @type {boolean}
+   * @memberof V1DiskTarget
+   */
+  readonly?: boolean;
 }
 
 export function V1DiskTargetFromJSON(json: any): V1DiskTarget {
-    return V1DiskTargetFromJSONTyped(json, false);
+  return V1DiskTargetFromJSONTyped(json, false);
 }
 
-export function V1DiskTargetFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DiskTarget {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'bus': !exists(json, 'bus') ? undefined : json['bus'],
-        'pciAddress': !exists(json, 'pciAddress') ? undefined : json['pciAddress'],
-        'readonly': !exists(json, 'readonly') ? undefined : json['readonly'],
-    };
+export function V1DiskTargetFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1DiskTarget {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    bus: !exists(json, 'bus') ? undefined : json['bus'],
+    pciAddress: !exists(json, 'pciAddress') ? undefined : json['pciAddress'],
+    readonly: !exists(json, 'readonly') ? undefined : json['readonly'],
+  };
 }
 
 export function V1DiskTargetToJSON(value?: V1DiskTarget | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'bus': value.bus,
-        'pciAddress': value.pciAddress,
-        'readonly': value.readonly,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    bus: value.bus,
+    pciAddress: value.pciAddress,
+    readonly: value.readonly,
+  };
 }
-

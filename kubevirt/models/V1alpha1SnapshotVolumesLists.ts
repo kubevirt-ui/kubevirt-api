@@ -12,53 +12,55 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * SnapshotVolumesLists includes the list of volumes which were included in the snapshot and volumes which were excluded from the snapshot
  * @export
  * @interface V1alpha1SnapshotVolumesLists
  */
 export interface V1alpha1SnapshotVolumesLists {
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1alpha1SnapshotVolumesLists
-     */
-    excludedVolumes?: Array<string>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1alpha1SnapshotVolumesLists
-     */
-    includedVolumes?: Array<string>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1alpha1SnapshotVolumesLists
+   */
+  excludedVolumes?: Array<string>;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1alpha1SnapshotVolumesLists
+   */
+  includedVolumes?: Array<string>;
 }
 
 export function V1alpha1SnapshotVolumesListsFromJSON(json: any): V1alpha1SnapshotVolumesLists {
-    return V1alpha1SnapshotVolumesListsFromJSONTyped(json, false);
+  return V1alpha1SnapshotVolumesListsFromJSONTyped(json, false);
 }
 
-export function V1alpha1SnapshotVolumesListsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1SnapshotVolumesLists {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'excludedVolumes': !exists(json, 'excludedVolumes') ? undefined : json['excludedVolumes'],
-        'includedVolumes': !exists(json, 'includedVolumes') ? undefined : json['includedVolumes'],
-    };
+export function V1alpha1SnapshotVolumesListsFromJSONTyped(
+  json: any,
+  __ignoreDiscriminator: boolean,
+): V1alpha1SnapshotVolumesLists {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    excludedVolumes: !exists(json, 'excludedVolumes') ? undefined : json['excludedVolumes'],
+    includedVolumes: !exists(json, 'includedVolumes') ? undefined : json['includedVolumes'],
+  };
 }
 
-export function V1alpha1SnapshotVolumesListsToJSON(value?: V1alpha1SnapshotVolumesLists | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'excludedVolumes': value.excludedVolumes,
-        'includedVolumes': value.includedVolumes,
-    };
+export function V1alpha1SnapshotVolumesListsToJSON(
+  value?: V1alpha1SnapshotVolumesLists | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    excludedVolumes: value.excludedVolumes,
+    includedVolumes: value.includedVolumes,
+  };
 }
-

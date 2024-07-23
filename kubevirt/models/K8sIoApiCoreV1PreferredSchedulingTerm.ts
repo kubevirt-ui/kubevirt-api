@@ -12,12 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import {
-    K8sIoApiCoreV1NodeSelectorTerm,
-    K8sIoApiCoreV1NodeSelectorTermFromJSON,
-    K8sIoApiCoreV1NodeSelectorTermFromJSONTyped,
-    K8sIoApiCoreV1NodeSelectorTermToJSON,
+  K8sIoApiCoreV1NodeSelectorTerm,
+  K8sIoApiCoreV1NodeSelectorTermFromJSON,
+  K8sIoApiCoreV1NodeSelectorTermToJSON,
 } from './';
 
 /**
@@ -26,46 +24,50 @@ import {
  * @interface K8sIoApiCoreV1PreferredSchedulingTerm
  */
 export interface K8sIoApiCoreV1PreferredSchedulingTerm {
-    /**
-     * 
-     * @type {K8sIoApiCoreV1NodeSelectorTerm}
-     * @memberof K8sIoApiCoreV1PreferredSchedulingTerm
-     */
-    preference: K8sIoApiCoreV1NodeSelectorTerm;
-    /**
-     * Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.
-     * @type {number}
-     * @memberof K8sIoApiCoreV1PreferredSchedulingTerm
-     */
-    weight: number;
+  /**
+   *
+   * @type {K8sIoApiCoreV1NodeSelectorTerm}
+   * @memberof K8sIoApiCoreV1PreferredSchedulingTerm
+   */
+  preference: K8sIoApiCoreV1NodeSelectorTerm;
+  /**
+   * Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.
+   * @type {number}
+   * @memberof K8sIoApiCoreV1PreferredSchedulingTerm
+   */
+  weight: number;
 }
 
-export function K8sIoApiCoreV1PreferredSchedulingTermFromJSON(json: any): K8sIoApiCoreV1PreferredSchedulingTerm {
-    return K8sIoApiCoreV1PreferredSchedulingTermFromJSONTyped(json, false);
+export function K8sIoApiCoreV1PreferredSchedulingTermFromJSON(
+  json: any,
+): K8sIoApiCoreV1PreferredSchedulingTerm {
+  return K8sIoApiCoreV1PreferredSchedulingTermFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1PreferredSchedulingTermFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1PreferredSchedulingTerm {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'preference': K8sIoApiCoreV1NodeSelectorTermFromJSON(json['preference']),
-        'weight': json['weight'],
-    };
+export function K8sIoApiCoreV1PreferredSchedulingTermFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): K8sIoApiCoreV1PreferredSchedulingTerm {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    preference: K8sIoApiCoreV1NodeSelectorTermFromJSON(json['preference']),
+    weight: json['weight'],
+  };
 }
 
-export function K8sIoApiCoreV1PreferredSchedulingTermToJSON(value?: K8sIoApiCoreV1PreferredSchedulingTerm | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'preference': K8sIoApiCoreV1NodeSelectorTermToJSON(value.preference),
-        'weight': value.weight,
-    };
+export function K8sIoApiCoreV1PreferredSchedulingTermToJSON(
+  value?: K8sIoApiCoreV1PreferredSchedulingTerm | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    preference: K8sIoApiCoreV1NodeSelectorTermToJSON(value.preference),
+    weight: value.weight,
+  };
 }
-

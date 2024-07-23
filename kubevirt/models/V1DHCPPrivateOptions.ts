@@ -12,53 +12,52 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * DHCPExtraOptions defines Extra DHCP options for a VM.
  * @export
  * @interface V1DHCPPrivateOptions
  */
 export interface V1DHCPPrivateOptions {
-    /**
-     * Option is an Integer value from 224-254 Required.
-     * @type {number}
-     * @memberof V1DHCPPrivateOptions
-     */
-    option: number;
-    /**
-     * Value is a String value for the Option provided Required.
-     * @type {string}
-     * @memberof V1DHCPPrivateOptions
-     */
-    value: string;
+  /**
+   * Option is an Integer value from 224-254 Required.
+   * @type {number}
+   * @memberof V1DHCPPrivateOptions
+   */
+  option: number;
+  /**
+   * Value is a String value for the Option provided Required.
+   * @type {string}
+   * @memberof V1DHCPPrivateOptions
+   */
+  value: string;
 }
 
 export function V1DHCPPrivateOptionsFromJSON(json: any): V1DHCPPrivateOptions {
-    return V1DHCPPrivateOptionsFromJSONTyped(json, false);
+  return V1DHCPPrivateOptionsFromJSONTyped(json, false);
 }
 
-export function V1DHCPPrivateOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DHCPPrivateOptions {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'option': json['option'],
-        'value': json['value'],
-    };
+export function V1DHCPPrivateOptionsFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1DHCPPrivateOptions {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    option: json['option'],
+    value: json['value'],
+  };
 }
 
 export function V1DHCPPrivateOptionsToJSON(value?: V1DHCPPrivateOptions | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'option': value.option,
-        'value': value.value,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    option: value.option,
+    value: value.value,
+  };
 }
-

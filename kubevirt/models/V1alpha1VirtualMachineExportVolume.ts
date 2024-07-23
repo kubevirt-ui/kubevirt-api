@@ -12,12 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1alpha1VirtualMachineExportVolumeFormat,
-    V1alpha1VirtualMachineExportVolumeFormatFromJSON,
-    V1alpha1VirtualMachineExportVolumeFormatFromJSONTyped,
-    V1alpha1VirtualMachineExportVolumeFormatToJSON,
+  V1alpha1VirtualMachineExportVolumeFormat,
+  V1alpha1VirtualMachineExportVolumeFormatFromJSON,
+  V1alpha1VirtualMachineExportVolumeFormatToJSON,
 } from './';
 
 /**
@@ -26,46 +25,55 @@ import {
  * @interface V1alpha1VirtualMachineExportVolume
  */
 export interface V1alpha1VirtualMachineExportVolume {
-    /**
-     * 
-     * @type {Array<V1alpha1VirtualMachineExportVolumeFormat>}
-     * @memberof V1alpha1VirtualMachineExportVolume
-     */
-    formats?: Array<V1alpha1VirtualMachineExportVolumeFormat>;
-    /**
-     * Name is the name of the exported volume
-     * @type {string}
-     * @memberof V1alpha1VirtualMachineExportVolume
-     */
-    name: string;
+  /**
+   *
+   * @type {Array<V1alpha1VirtualMachineExportVolumeFormat>}
+   * @memberof V1alpha1VirtualMachineExportVolume
+   */
+  formats?: Array<V1alpha1VirtualMachineExportVolumeFormat>;
+  /**
+   * Name is the name of the exported volume
+   * @type {string}
+   * @memberof V1alpha1VirtualMachineExportVolume
+   */
+  name: string;
 }
 
-export function V1alpha1VirtualMachineExportVolumeFromJSON(json: any): V1alpha1VirtualMachineExportVolume {
-    return V1alpha1VirtualMachineExportVolumeFromJSONTyped(json, false);
+export function V1alpha1VirtualMachineExportVolumeFromJSON(
+  json: any,
+): V1alpha1VirtualMachineExportVolume {
+  return V1alpha1VirtualMachineExportVolumeFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachineExportVolumeFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VirtualMachineExportVolume {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'formats': !exists(json, 'formats') ? undefined : ((json['formats'] as Array<any>).map(V1alpha1VirtualMachineExportVolumeFormatFromJSON)),
-        'name': json['name'],
-    };
+export function V1alpha1VirtualMachineExportVolumeFromJSONTyped(
+  json: any,
+  __ignoreDiscriminator: boolean,
+): V1alpha1VirtualMachineExportVolume {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    formats: !exists(json, 'formats')
+      ? undefined
+      : (json['formats'] as Array<any>).map(V1alpha1VirtualMachineExportVolumeFormatFromJSON),
+    name: json['name'],
+  };
 }
 
-export function V1alpha1VirtualMachineExportVolumeToJSON(value?: V1alpha1VirtualMachineExportVolume | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'formats': value.formats === undefined ? undefined : ((value.formats as Array<any>).map(V1alpha1VirtualMachineExportVolumeFormatToJSON)),
-        'name': value.name,
-    };
+export function V1alpha1VirtualMachineExportVolumeToJSON(
+  value?: V1alpha1VirtualMachineExportVolume | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    formats:
+      value.formats === undefined
+        ? undefined
+        : (value.formats as Array<any>).map(V1alpha1VirtualMachineExportVolumeFormatToJSON),
+    name: value.name,
+  };
 }
-

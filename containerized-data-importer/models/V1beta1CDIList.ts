@@ -12,16 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1ListMeta,
-    V1ListMetaFromJSON,
-    V1ListMetaFromJSONTyped,
-    V1ListMetaToJSON,
-    V1beta1CDI,
-    V1beta1CDIFromJSON,
-    V1beta1CDIFromJSONTyped,
-    V1beta1CDIToJSON,
+  V1ListMeta,
+  V1ListMetaFromJSON,
+  V1ListMetaToJSON,
+  V1beta1CDI,
+  V1beta1CDIFromJSON,
+  V1beta1CDIToJSON,
 } from './';
 
 /**
@@ -30,62 +28,62 @@ import {
  * @interface V1beta1CDIList
  */
 export interface V1beta1CDIList {
-    /**
-     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-     * @type {string}
-     * @memberof V1beta1CDIList
-     */
-    apiVersion?: string;
-    /**
-     * Items provides a list of CDIs
-     * @type {Array<V1beta1CDI>}
-     * @memberof V1beta1CDIList
-     */
-    items: Array<V1beta1CDI>;
-    /**
-     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-     * @type {string}
-     * @memberof V1beta1CDIList
-     */
-    kind?: string;
-    /**
-     * 
-     * @type {V1ListMeta}
-     * @memberof V1beta1CDIList
-     */
-    metadata: V1ListMeta;
+  /**
+   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+   * @type {string}
+   * @memberof V1beta1CDIList
+   */
+  apiVersion?: string;
+  /**
+   * Items provides a list of CDIs
+   * @type {Array<V1beta1CDI>}
+   * @memberof V1beta1CDIList
+   */
+  items: Array<V1beta1CDI>;
+  /**
+   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+   * @type {string}
+   * @memberof V1beta1CDIList
+   */
+  kind?: string;
+  /**
+   *
+   * @type {V1ListMeta}
+   * @memberof V1beta1CDIList
+   */
+  metadata: V1ListMeta;
 }
 
 export function V1beta1CDIListFromJSON(json: any): V1beta1CDIList {
-    return V1beta1CDIListFromJSONTyped(json, false);
+  return V1beta1CDIListFromJSONTyped(json, false);
 }
 
-export function V1beta1CDIListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1CDIList {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'items': ((json['items'] as Array<any>).map(V1beta1CDIFromJSON)),
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'metadata': V1ListMetaFromJSON(json['metadata']),
-    };
+export function V1beta1CDIListFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1beta1CDIList {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+    items: (json['items'] as Array<any>).map(V1beta1CDIFromJSON),
+    kind: !exists(json, 'kind') ? undefined : json['kind'],
+    metadata: V1ListMetaFromJSON(json['metadata']),
+  };
 }
 
 export function V1beta1CDIListToJSON(value?: V1beta1CDIList | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'items': ((value.items as Array<any>).map(V1beta1CDIToJSON)),
-        'kind': value.kind,
-        'metadata': V1ListMetaToJSON(value.metadata),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    apiVersion: value.apiVersion,
+    items: (value.items as Array<any>).map(V1beta1CDIToJSON),
+    kind: value.kind,
+    metadata: V1ListMetaToJSON(value.metadata),
+  };
 }
-

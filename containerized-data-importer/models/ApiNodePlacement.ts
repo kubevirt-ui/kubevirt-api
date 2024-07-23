@@ -12,16 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1Affinity,
-    V1AffinityFromJSON,
-    V1AffinityFromJSONTyped,
-    V1AffinityToJSON,
-    V1Toleration,
-    V1TolerationFromJSON,
-    V1TolerationFromJSONTyped,
-    V1TolerationToJSON,
+  V1Affinity,
+  V1AffinityFromJSON,
+  V1AffinityToJSON,
+  V1Toleration,
+  V1TolerationFromJSON,
+  V1TolerationToJSON,
 } from './';
 
 /**
@@ -30,54 +28,59 @@ import {
  * @interface ApiNodePlacement
  */
 export interface ApiNodePlacement {
-    /**
-     * 
-     * @type {V1Affinity}
-     * @memberof ApiNodePlacement
-     */
-    affinity?: V1Affinity;
-    /**
-     * nodeSelector is the node selector applied to the relevant kind of pods It specifies a map of key-value pairs: for the pod to be eligible to run on a node, the node must have each of the indicated key-value pairs as labels (it can have additional labels as well). See https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
-     * @type {{ [key: string]: string; }}
-     * @memberof ApiNodePlacement
-     */
-    nodeSelector?: { [key: string]: string; };
-    /**
-     * tolerations is a list of tolerations applied to the relevant kind of pods See https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ for more info. These are additional tolerations other than default ones.
-     * @type {Array<V1Toleration>}
-     * @memberof ApiNodePlacement
-     */
-    tolerations?: Array<V1Toleration>;
+  /**
+   *
+   * @type {V1Affinity}
+   * @memberof ApiNodePlacement
+   */
+  affinity?: V1Affinity;
+  /**
+   * nodeSelector is the node selector applied to the relevant kind of pods It specifies a map of key-value pairs: for the pod to be eligible to run on a node, the node must have each of the indicated key-value pairs as labels (it can have additional labels as well). See https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+   * @type {{ [key: string]: string; }}
+   * @memberof ApiNodePlacement
+   */
+  nodeSelector?: { [key: string]: string };
+  /**
+   * tolerations is a list of tolerations applied to the relevant kind of pods See https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ for more info. These are additional tolerations other than default ones.
+   * @type {Array<V1Toleration>}
+   * @memberof ApiNodePlacement
+   */
+  tolerations?: Array<V1Toleration>;
 }
 
 export function ApiNodePlacementFromJSON(json: any): ApiNodePlacement {
-    return ApiNodePlacementFromJSONTyped(json, false);
+  return ApiNodePlacementFromJSONTyped(json, false);
 }
 
-export function ApiNodePlacementFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApiNodePlacement {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'affinity': !exists(json, 'affinity') ? undefined : V1AffinityFromJSON(json['affinity']),
-        'nodeSelector': !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
-        'tolerations': !exists(json, 'tolerations') ? undefined : ((json['tolerations'] as Array<any>).map(V1TolerationFromJSON)),
-    };
+export function ApiNodePlacementFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): ApiNodePlacement {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    affinity: !exists(json, 'affinity') ? undefined : V1AffinityFromJSON(json['affinity']),
+    nodeSelector: !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
+    tolerations: !exists(json, 'tolerations')
+      ? undefined
+      : (json['tolerations'] as Array<any>).map(V1TolerationFromJSON),
+  };
 }
 
 export function ApiNodePlacementToJSON(value?: ApiNodePlacement | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'affinity': V1AffinityToJSON(value.affinity),
-        'nodeSelector': value.nodeSelector,
-        'tolerations': value.tolerations === undefined ? undefined : ((value.tolerations as Array<any>).map(V1TolerationToJSON)),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    affinity: V1AffinityToJSON(value.affinity),
+    nodeSelector: value.nodeSelector,
+    tolerations:
+      value.tolerations === undefined
+        ? undefined
+        : (value.tolerations as Array<any>).map(V1TolerationToJSON),
+  };
 }
-

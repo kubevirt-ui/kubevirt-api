@@ -12,12 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1alpha1VirtualMachineExportLink,
-    V1alpha1VirtualMachineExportLinkFromJSON,
-    V1alpha1VirtualMachineExportLinkFromJSONTyped,
-    V1alpha1VirtualMachineExportLinkToJSON,
+  V1alpha1VirtualMachineExportLink,
+  V1alpha1VirtualMachineExportLinkFromJSON,
+  V1alpha1VirtualMachineExportLinkToJSON,
 } from './';
 
 /**
@@ -26,46 +25,54 @@ import {
  * @interface V1alpha1VirtualMachineExportLinks
  */
 export interface V1alpha1VirtualMachineExportLinks {
-    /**
-     * 
-     * @type {V1alpha1VirtualMachineExportLink}
-     * @memberof V1alpha1VirtualMachineExportLinks
-     */
-    external?: V1alpha1VirtualMachineExportLink;
-    /**
-     * 
-     * @type {V1alpha1VirtualMachineExportLink}
-     * @memberof V1alpha1VirtualMachineExportLinks
-     */
-    internal?: V1alpha1VirtualMachineExportLink;
+  /**
+   *
+   * @type {V1alpha1VirtualMachineExportLink}
+   * @memberof V1alpha1VirtualMachineExportLinks
+   */
+  external?: V1alpha1VirtualMachineExportLink;
+  /**
+   *
+   * @type {V1alpha1VirtualMachineExportLink}
+   * @memberof V1alpha1VirtualMachineExportLinks
+   */
+  internal?: V1alpha1VirtualMachineExportLink;
 }
 
-export function V1alpha1VirtualMachineExportLinksFromJSON(json: any): V1alpha1VirtualMachineExportLinks {
-    return V1alpha1VirtualMachineExportLinksFromJSONTyped(json, false);
+export function V1alpha1VirtualMachineExportLinksFromJSON(
+  json: any,
+): V1alpha1VirtualMachineExportLinks {
+  return V1alpha1VirtualMachineExportLinksFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachineExportLinksFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VirtualMachineExportLinks {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'external': !exists(json, 'external') ? undefined : V1alpha1VirtualMachineExportLinkFromJSON(json['external']),
-        'internal': !exists(json, 'internal') ? undefined : V1alpha1VirtualMachineExportLinkFromJSON(json['internal']),
-    };
+export function V1alpha1VirtualMachineExportLinksFromJSONTyped(
+  json: any,
+  __ignoreDiscriminator: boolean,
+): V1alpha1VirtualMachineExportLinks {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    external: !exists(json, 'external')
+      ? undefined
+      : V1alpha1VirtualMachineExportLinkFromJSON(json['external']),
+    internal: !exists(json, 'internal')
+      ? undefined
+      : V1alpha1VirtualMachineExportLinkFromJSON(json['internal']),
+  };
 }
 
-export function V1alpha1VirtualMachineExportLinksToJSON(value?: V1alpha1VirtualMachineExportLinks | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'external': V1alpha1VirtualMachineExportLinkToJSON(value.external),
-        'internal': V1alpha1VirtualMachineExportLinkToJSON(value.internal),
-    };
+export function V1alpha1VirtualMachineExportLinksToJSON(
+  value?: V1alpha1VirtualMachineExportLinks | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    external: V1alpha1VirtualMachineExportLinkToJSON(value.external),
+    internal: V1alpha1VirtualMachineExportLinkToJSON(value.internal),
+  };
 }
-

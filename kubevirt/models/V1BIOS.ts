@@ -12,45 +12,42 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * If set (default), BIOS will be used.
  * @export
  * @interface V1BIOS
  */
 export interface V1BIOS {
-    /**
-     * If set, the BIOS output will be transmitted over serial
-     * @type {boolean}
-     * @memberof V1BIOS
-     */
-    useSerial?: boolean;
+  /**
+   * If set, the BIOS output will be transmitted over serial
+   * @type {boolean}
+   * @memberof V1BIOS
+   */
+  useSerial?: boolean;
 }
 
 export function V1BIOSFromJSON(json: any): V1BIOS {
-    return V1BIOSFromJSONTyped(json, false);
+  return V1BIOSFromJSONTyped(json, false);
 }
 
-export function V1BIOSFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1BIOS {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'useSerial': !exists(json, 'useSerial') ? undefined : json['useSerial'],
-    };
+export function V1BIOSFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1BIOS {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    useSerial: !exists(json, 'useSerial') ? undefined : json['useSerial'],
+  };
 }
 
 export function V1BIOSToJSON(value?: V1BIOS | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'useSerial': value.useSerial,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    useSerial: value.useSerial,
+  };
 }
-

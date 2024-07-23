@@ -12,20 +12,17 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1KubeVirtSpec,
-    V1KubeVirtSpecFromJSON,
-    V1KubeVirtSpecFromJSONTyped,
-    V1KubeVirtSpecToJSON,
-    V1KubeVirtStatus,
-    V1KubeVirtStatusFromJSON,
-    V1KubeVirtStatusFromJSONTyped,
-    V1KubeVirtStatusToJSON,
+  K8sIoApimachineryPkgApisMetaV1ObjectMeta,
+  K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
+  K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
+  V1KubeVirtSpec,
+  V1KubeVirtSpecFromJSON,
+  V1KubeVirtSpecToJSON,
+  V1KubeVirtStatus,
+  V1KubeVirtStatusFromJSON,
+  V1KubeVirtStatusToJSON,
 } from './';
 
 /**
@@ -34,70 +31,69 @@ import {
  * @interface V1KubeVirt
  */
 export interface V1KubeVirt {
-    /**
-     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-     * @type {string}
-     * @memberof V1KubeVirt
-     */
-    apiVersion?: string;
-    /**
-     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-     * @type {string}
-     * @memberof V1KubeVirt
-     */
-    kind?: string;
-    /**
-     * 
-     * @type {K8sIoApimachineryPkgApisMetaV1ObjectMeta}
-     * @memberof V1KubeVirt
-     */
-    metadata?: K8sIoApimachineryPkgApisMetaV1ObjectMeta;
-    /**
-     * 
-     * @type {V1KubeVirtSpec}
-     * @memberof V1KubeVirt
-     */
-    spec: V1KubeVirtSpec;
-    /**
-     * 
-     * @type {V1KubeVirtStatus}
-     * @memberof V1KubeVirt
-     */
-    status?: V1KubeVirtStatus;
+  /**
+   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+   * @type {string}
+   * @memberof V1KubeVirt
+   */
+  apiVersion?: string;
+  /**
+   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+   * @type {string}
+   * @memberof V1KubeVirt
+   */
+  kind?: string;
+  /**
+   *
+   * @type {K8sIoApimachineryPkgApisMetaV1ObjectMeta}
+   * @memberof V1KubeVirt
+   */
+  metadata?: K8sIoApimachineryPkgApisMetaV1ObjectMeta;
+  /**
+   *
+   * @type {V1KubeVirtSpec}
+   * @memberof V1KubeVirt
+   */
+  spec: V1KubeVirtSpec;
+  /**
+   *
+   * @type {V1KubeVirtStatus}
+   * @memberof V1KubeVirt
+   */
+  status?: V1KubeVirtStatus;
 }
 
 export function V1KubeVirtFromJSON(json: any): V1KubeVirt {
-    return V1KubeVirtFromJSONTyped(json, false);
+  return V1KubeVirtFromJSONTyped(json, false);
 }
 
-export function V1KubeVirtFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KubeVirt {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-        'spec': V1KubeVirtSpecFromJSON(json['spec']),
-        'status': !exists(json, 'status') ? undefined : V1KubeVirtStatusFromJSON(json['status']),
-    };
+export function V1KubeVirtFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KubeVirt {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+    kind: !exists(json, 'kind') ? undefined : json['kind'],
+    metadata: !exists(json, 'metadata')
+      ? undefined
+      : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
+    spec: V1KubeVirtSpecFromJSON(json['spec']),
+    status: !exists(json, 'status') ? undefined : V1KubeVirtStatusFromJSON(json['status']),
+  };
 }
 
 export function V1KubeVirtToJSON(value?: V1KubeVirt | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'kind': value.kind,
-        'metadata': K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-        'spec': V1KubeVirtSpecToJSON(value.spec),
-        'status': V1KubeVirtStatusToJSON(value.status),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    apiVersion: value.apiVersion,
+    kind: value.kind,
+    metadata: K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
+    spec: V1KubeVirtSpecToJSON(value.spec),
+    status: V1KubeVirtStatusToJSON(value.status),
+  };
 }
-

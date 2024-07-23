@@ -12,96 +12,104 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    K8sIoApiCoreV1ResourceRequirements,
-    K8sIoApiCoreV1ResourceRequirementsFromJSON,
-    K8sIoApiCoreV1ResourceRequirementsFromJSONTyped,
-    K8sIoApiCoreV1ResourceRequirementsToJSON,
-    V1InterfaceBindingMigration,
-    V1InterfaceBindingMigrationFromJSON,
-    V1InterfaceBindingMigrationFromJSONTyped,
-    V1InterfaceBindingMigrationToJSON,
+  K8sIoApiCoreV1ResourceRequirements,
+  K8sIoApiCoreV1ResourceRequirementsFromJSON,
+  K8sIoApiCoreV1ResourceRequirementsToJSON,
+  V1InterfaceBindingMigration,
+  V1InterfaceBindingMigrationFromJSON,
+  V1InterfaceBindingMigrationToJSON,
 } from './';
 
 /**
- * 
+ *
  * @export
  * @interface V1InterfaceBindingPlugin
  */
 export interface V1InterfaceBindingPlugin {
-    /**
-     * 
-     * @type {K8sIoApiCoreV1ResourceRequirements}
-     * @memberof V1InterfaceBindingPlugin
-     */
-    computeResourceOverhead?: K8sIoApiCoreV1ResourceRequirements;
-    /**
-     * DomainAttachmentType is a standard domain network attachment method kubevirt supports. Supported values: "tap". The standard domain attachment can be used instead or in addition to the sidecarImage. version: 1alphav1
-     * @type {string}
-     * @memberof V1InterfaceBindingPlugin
-     */
-    domainAttachmentType?: string;
-    /**
-     * DownwardAPI specifies what kind of data should be exposed to the binding plugin sidecar. Supported values: "device-info" version: v1alphav1
-     * @type {string}
-     * @memberof V1InterfaceBindingPlugin
-     */
-    downwardAPI?: string;
-    /**
-     * 
-     * @type {V1InterfaceBindingMigration}
-     * @memberof V1InterfaceBindingPlugin
-     */
-    migration?: V1InterfaceBindingMigration;
-    /**
-     * NetworkAttachmentDefinition references to a NetworkAttachmentDefinition CR object. Format: <name>, <namespace>/<name>. If namespace is not specified, VMI namespace is assumed. version: 1alphav1
-     * @type {string}
-     * @memberof V1InterfaceBindingPlugin
-     */
-    networkAttachmentDefinition?: string;
-    /**
-     * SidecarImage references a container image that runs in the virt-launcher pod. The sidecar handles (libvirt) domain configuration and optional services. version: 1alphav1
-     * @type {string}
-     * @memberof V1InterfaceBindingPlugin
-     */
-    sidecarImage?: string;
+  /**
+   *
+   * @type {K8sIoApiCoreV1ResourceRequirements}
+   * @memberof V1InterfaceBindingPlugin
+   */
+  computeResourceOverhead?: K8sIoApiCoreV1ResourceRequirements;
+  /**
+   * DomainAttachmentType is a standard domain network attachment method kubevirt supports. Supported values: "tap". The standard domain attachment can be used instead or in addition to the sidecarImage. version: 1alphav1
+   * @type {string}
+   * @memberof V1InterfaceBindingPlugin
+   */
+  domainAttachmentType?: string;
+  /**
+   * DownwardAPI specifies what kind of data should be exposed to the binding plugin sidecar. Supported values: "device-info" version: v1alphav1
+   * @type {string}
+   * @memberof V1InterfaceBindingPlugin
+   */
+  downwardAPI?: string;
+  /**
+   *
+   * @type {V1InterfaceBindingMigration}
+   * @memberof V1InterfaceBindingPlugin
+   */
+  migration?: V1InterfaceBindingMigration;
+  /**
+   * NetworkAttachmentDefinition references to a NetworkAttachmentDefinition CR object. Format: <name>, <namespace>/<name>. If namespace is not specified, VMI namespace is assumed. version: 1alphav1
+   * @type {string}
+   * @memberof V1InterfaceBindingPlugin
+   */
+  networkAttachmentDefinition?: string;
+  /**
+   * SidecarImage references a container image that runs in the virt-launcher pod. The sidecar handles (libvirt) domain configuration and optional services. version: 1alphav1
+   * @type {string}
+   * @memberof V1InterfaceBindingPlugin
+   */
+  sidecarImage?: string;
 }
 
 export function V1InterfaceBindingPluginFromJSON(json: any): V1InterfaceBindingPlugin {
-    return V1InterfaceBindingPluginFromJSONTyped(json, false);
+  return V1InterfaceBindingPluginFromJSONTyped(json, false);
 }
 
-export function V1InterfaceBindingPluginFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1InterfaceBindingPlugin {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'computeResourceOverhead': !exists(json, 'computeResourceOverhead') ? undefined : K8sIoApiCoreV1ResourceRequirementsFromJSON(json['computeResourceOverhead']),
-        'domainAttachmentType': !exists(json, 'domainAttachmentType') ? undefined : json['domainAttachmentType'],
-        'downwardAPI': !exists(json, 'downwardAPI') ? undefined : json['downwardAPI'],
-        'migration': !exists(json, 'migration') ? undefined : V1InterfaceBindingMigrationFromJSON(json['migration']),
-        'networkAttachmentDefinition': !exists(json, 'networkAttachmentDefinition') ? undefined : json['networkAttachmentDefinition'],
-        'sidecarImage': !exists(json, 'sidecarImage') ? undefined : json['sidecarImage'],
-    };
+export function V1InterfaceBindingPluginFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1InterfaceBindingPlugin {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    computeResourceOverhead: !exists(json, 'computeResourceOverhead')
+      ? undefined
+      : K8sIoApiCoreV1ResourceRequirementsFromJSON(json['computeResourceOverhead']),
+    domainAttachmentType: !exists(json, 'domainAttachmentType')
+      ? undefined
+      : json['domainAttachmentType'],
+    downwardAPI: !exists(json, 'downwardAPI') ? undefined : json['downwardAPI'],
+    migration: !exists(json, 'migration')
+      ? undefined
+      : V1InterfaceBindingMigrationFromJSON(json['migration']),
+    networkAttachmentDefinition: !exists(json, 'networkAttachmentDefinition')
+      ? undefined
+      : json['networkAttachmentDefinition'],
+    sidecarImage: !exists(json, 'sidecarImage') ? undefined : json['sidecarImage'],
+  };
 }
 
 export function V1InterfaceBindingPluginToJSON(value?: V1InterfaceBindingPlugin | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'computeResourceOverhead': K8sIoApiCoreV1ResourceRequirementsToJSON(value.computeResourceOverhead),
-        'domainAttachmentType': value.domainAttachmentType,
-        'downwardAPI': value.downwardAPI,
-        'migration': V1InterfaceBindingMigrationToJSON(value.migration),
-        'networkAttachmentDefinition': value.networkAttachmentDefinition,
-        'sidecarImage': value.sidecarImage,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    computeResourceOverhead: K8sIoApiCoreV1ResourceRequirementsToJSON(
+      value.computeResourceOverhead,
+    ),
+    domainAttachmentType: value.domainAttachmentType,
+    downwardAPI: value.downwardAPI,
+    migration: V1InterfaceBindingMigrationToJSON(value.migration),
+    networkAttachmentDefinition: value.networkAttachmentDefinition,
+    sidecarImage: value.sidecarImage,
+  };
 }
-

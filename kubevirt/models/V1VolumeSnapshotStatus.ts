@@ -12,61 +12,61 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1VolumeSnapshotStatus
  */
 export interface V1VolumeSnapshotStatus {
-    /**
-     * True if the volume supports snapshotting
-     * @type {boolean}
-     * @memberof V1VolumeSnapshotStatus
-     */
-    enabled: boolean;
-    /**
-     * Volume name
-     * @type {string}
-     * @memberof V1VolumeSnapshotStatus
-     */
-    name: string;
-    /**
-     * Empty if snapshotting is enabled, contains reason otherwise
-     * @type {string}
-     * @memberof V1VolumeSnapshotStatus
-     */
-    reason?: string;
+  /**
+   * True if the volume supports snapshotting
+   * @type {boolean}
+   * @memberof V1VolumeSnapshotStatus
+   */
+  enabled: boolean;
+  /**
+   * Volume name
+   * @type {string}
+   * @memberof V1VolumeSnapshotStatus
+   */
+  name: string;
+  /**
+   * Empty if snapshotting is enabled, contains reason otherwise
+   * @type {string}
+   * @memberof V1VolumeSnapshotStatus
+   */
+  reason?: string;
 }
 
 export function V1VolumeSnapshotStatusFromJSON(json: any): V1VolumeSnapshotStatus {
-    return V1VolumeSnapshotStatusFromJSONTyped(json, false);
+  return V1VolumeSnapshotStatusFromJSONTyped(json, false);
 }
 
-export function V1VolumeSnapshotStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VolumeSnapshotStatus {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'enabled': json['enabled'],
-        'name': json['name'],
-        'reason': !exists(json, 'reason') ? undefined : json['reason'],
-    };
+export function V1VolumeSnapshotStatusFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1VolumeSnapshotStatus {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    enabled: json['enabled'],
+    name: json['name'],
+    reason: !exists(json, 'reason') ? undefined : json['reason'],
+  };
 }
 
 export function V1VolumeSnapshotStatusToJSON(value?: V1VolumeSnapshotStatus | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'enabled': value.enabled,
-        'name': value.name,
-        'reason': value.reason,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    enabled: value.enabled,
+    name: value.name,
+    reason: value.reason,
+  };
 }
-

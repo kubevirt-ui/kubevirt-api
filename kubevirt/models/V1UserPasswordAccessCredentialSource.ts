@@ -12,12 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1AccessCredentialSecretSource,
-    V1AccessCredentialSecretSourceFromJSON,
-    V1AccessCredentialSecretSourceFromJSONTyped,
-    V1AccessCredentialSecretSourceToJSON,
+  V1AccessCredentialSecretSource,
+  V1AccessCredentialSecretSourceFromJSON,
+  V1AccessCredentialSecretSourceToJSON,
 } from './';
 
 /**
@@ -26,38 +25,44 @@ import {
  * @interface V1UserPasswordAccessCredentialSource
  */
 export interface V1UserPasswordAccessCredentialSource {
-    /**
-     * 
-     * @type {V1AccessCredentialSecretSource}
-     * @memberof V1UserPasswordAccessCredentialSource
-     */
-    secret?: V1AccessCredentialSecretSource;
+  /**
+   *
+   * @type {V1AccessCredentialSecretSource}
+   * @memberof V1UserPasswordAccessCredentialSource
+   */
+  secret?: V1AccessCredentialSecretSource;
 }
 
-export function V1UserPasswordAccessCredentialSourceFromJSON(json: any): V1UserPasswordAccessCredentialSource {
-    return V1UserPasswordAccessCredentialSourceFromJSONTyped(json, false);
+export function V1UserPasswordAccessCredentialSourceFromJSON(
+  json: any,
+): V1UserPasswordAccessCredentialSource {
+  return V1UserPasswordAccessCredentialSourceFromJSONTyped(json, false);
 }
 
-export function V1UserPasswordAccessCredentialSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1UserPasswordAccessCredentialSource {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'secret': !exists(json, 'secret') ? undefined : V1AccessCredentialSecretSourceFromJSON(json['secret']),
-    };
+export function V1UserPasswordAccessCredentialSourceFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1UserPasswordAccessCredentialSource {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    secret: !exists(json, 'secret')
+      ? undefined
+      : V1AccessCredentialSecretSourceFromJSON(json['secret']),
+  };
 }
 
-export function V1UserPasswordAccessCredentialSourceToJSON(value?: V1UserPasswordAccessCredentialSource | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'secret': V1AccessCredentialSecretSourceToJSON(value.secret),
-    };
+export function V1UserPasswordAccessCredentialSourceToJSON(
+  value?: V1UserPasswordAccessCredentialSource | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    secret: V1AccessCredentialSecretSourceToJSON(value.secret),
+  };
 }
-

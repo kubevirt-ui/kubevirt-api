@@ -12,61 +12,61 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1ArchSpecificConfiguration
  */
 export interface V1ArchSpecificConfiguration {
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof V1ArchSpecificConfiguration
-     */
-    emulatedMachines?: Array<string>;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1ArchSpecificConfiguration
-     */
-    machineType?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof V1ArchSpecificConfiguration
-     */
-    ovmfPath?: string;
+  /**
+   *
+   * @type {Array<string>}
+   * @memberof V1ArchSpecificConfiguration
+   */
+  emulatedMachines?: Array<string>;
+  /**
+   *
+   * @type {string}
+   * @memberof V1ArchSpecificConfiguration
+   */
+  machineType?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1ArchSpecificConfiguration
+   */
+  ovmfPath?: string;
 }
 
 export function V1ArchSpecificConfigurationFromJSON(json: any): V1ArchSpecificConfiguration {
-    return V1ArchSpecificConfigurationFromJSONTyped(json, false);
+  return V1ArchSpecificConfigurationFromJSONTyped(json, false);
 }
 
-export function V1ArchSpecificConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ArchSpecificConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'emulatedMachines': !exists(json, 'emulatedMachines') ? undefined : json['emulatedMachines'],
-        'machineType': !exists(json, 'machineType') ? undefined : json['machineType'],
-        'ovmfPath': !exists(json, 'ovmfPath') ? undefined : json['ovmfPath'],
-    };
+export function V1ArchSpecificConfigurationFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1ArchSpecificConfiguration {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    emulatedMachines: !exists(json, 'emulatedMachines') ? undefined : json['emulatedMachines'],
+    machineType: !exists(json, 'machineType') ? undefined : json['machineType'],
+    ovmfPath: !exists(json, 'ovmfPath') ? undefined : json['ovmfPath'],
+  };
 }
 
 export function V1ArchSpecificConfigurationToJSON(value?: V1ArchSpecificConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'emulatedMachines': value.emulatedMachines,
-        'machineType': value.machineType,
-        'ovmfPath': value.ovmfPath,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    emulatedMachines: value.emulatedMachines,
+    machineType: value.machineType,
+    ovmfPath: value.ovmfPath,
+  };
 }
-

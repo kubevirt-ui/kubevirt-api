@@ -12,45 +12,45 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
  * i6300esb watchdog device.
  * @export
  * @interface V1I6300ESBWatchdog
  */
 export interface V1I6300ESBWatchdog {
-    /**
-     * The action to take. Valid values are poweroff, reset, shutdown. Defaults to reset.
-     * @type {string}
-     * @memberof V1I6300ESBWatchdog
-     */
-    action?: string;
+  /**
+   * The action to take. Valid values are poweroff, reset, shutdown. Defaults to reset.
+   * @type {string}
+   * @memberof V1I6300ESBWatchdog
+   */
+  action?: string;
 }
 
 export function V1I6300ESBWatchdogFromJSON(json: any): V1I6300ESBWatchdog {
-    return V1I6300ESBWatchdogFromJSONTyped(json, false);
+  return V1I6300ESBWatchdogFromJSONTyped(json, false);
 }
 
-export function V1I6300ESBWatchdogFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1I6300ESBWatchdog {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'action': !exists(json, 'action') ? undefined : json['action'],
-    };
+export function V1I6300ESBWatchdogFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1I6300ESBWatchdog {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    action: !exists(json, 'action') ? undefined : json['action'],
+  };
 }
 
 export function V1I6300ESBWatchdogToJSON(value?: V1I6300ESBWatchdog | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'action': value.action,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    action: value.action,
+  };
 }
-

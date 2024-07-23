@@ -12,12 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    K8sIoApimachineryPkgApisMetaV1APIGroup,
-    K8sIoApimachineryPkgApisMetaV1APIGroupFromJSON,
-    K8sIoApimachineryPkgApisMetaV1APIGroupFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1APIGroupToJSON,
+  K8sIoApimachineryPkgApisMetaV1APIGroup,
+  K8sIoApimachineryPkgApisMetaV1APIGroupFromJSON,
+  K8sIoApimachineryPkgApisMetaV1APIGroupToJSON,
 } from './';
 
 /**
@@ -26,54 +25,58 @@ import {
  * @interface K8sIoApimachineryPkgApisMetaV1APIGroupList
  */
 export interface K8sIoApimachineryPkgApisMetaV1APIGroupList {
-    /**
-     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-     * @type {string}
-     * @memberof K8sIoApimachineryPkgApisMetaV1APIGroupList
-     */
-    apiVersion?: string;
-    /**
-     * groups is a list of APIGroup.
-     * @type {Array<K8sIoApimachineryPkgApisMetaV1APIGroup>}
-     * @memberof K8sIoApimachineryPkgApisMetaV1APIGroupList
-     */
-    groups: Array<K8sIoApimachineryPkgApisMetaV1APIGroup>;
-    /**
-     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-     * @type {string}
-     * @memberof K8sIoApimachineryPkgApisMetaV1APIGroupList
-     */
-    kind?: string;
+  /**
+   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+   * @type {string}
+   * @memberof K8sIoApimachineryPkgApisMetaV1APIGroupList
+   */
+  apiVersion?: string;
+  /**
+   * groups is a list of APIGroup.
+   * @type {Array<K8sIoApimachineryPkgApisMetaV1APIGroup>}
+   * @memberof K8sIoApimachineryPkgApisMetaV1APIGroupList
+   */
+  groups: Array<K8sIoApimachineryPkgApisMetaV1APIGroup>;
+  /**
+   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+   * @type {string}
+   * @memberof K8sIoApimachineryPkgApisMetaV1APIGroupList
+   */
+  kind?: string;
 }
 
-export function K8sIoApimachineryPkgApisMetaV1APIGroupListFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1APIGroupList {
-    return K8sIoApimachineryPkgApisMetaV1APIGroupListFromJSONTyped(json, false);
+export function K8sIoApimachineryPkgApisMetaV1APIGroupListFromJSON(
+  json: any,
+): K8sIoApimachineryPkgApisMetaV1APIGroupList {
+  return K8sIoApimachineryPkgApisMetaV1APIGroupListFromJSONTyped(json, false);
 }
 
-export function K8sIoApimachineryPkgApisMetaV1APIGroupListFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1APIGroupList {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'groups': ((json['groups'] as Array<any>).map(K8sIoApimachineryPkgApisMetaV1APIGroupFromJSON)),
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-    };
+export function K8sIoApimachineryPkgApisMetaV1APIGroupListFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): K8sIoApimachineryPkgApisMetaV1APIGroupList {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+    groups: (json['groups'] as Array<any>).map(K8sIoApimachineryPkgApisMetaV1APIGroupFromJSON),
+    kind: !exists(json, 'kind') ? undefined : json['kind'],
+  };
 }
 
-export function K8sIoApimachineryPkgApisMetaV1APIGroupListToJSON(value?: K8sIoApimachineryPkgApisMetaV1APIGroupList | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'groups': ((value.groups as Array<any>).map(K8sIoApimachineryPkgApisMetaV1APIGroupToJSON)),
-        'kind': value.kind,
-    };
+export function K8sIoApimachineryPkgApisMetaV1APIGroupListToJSON(
+  value?: K8sIoApimachineryPkgApisMetaV1APIGroupList | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    apiVersion: value.apiVersion,
+    groups: (value.groups as Array<any>).map(K8sIoApimachineryPkgApisMetaV1APIGroupToJSON),
+    kind: value.kind,
+  };
 }
-

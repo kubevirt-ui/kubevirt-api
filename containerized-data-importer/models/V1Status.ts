@@ -12,16 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 import {
-    V1ListMeta,
-    V1ListMetaFromJSON,
-    V1ListMetaFromJSONTyped,
-    V1ListMetaToJSON,
-    V1StatusDetails,
-    V1StatusDetailsFromJSON,
-    V1StatusDetailsFromJSONTyped,
-    V1StatusDetailsToJSON,
+  V1ListMeta,
+  V1ListMetaFromJSON,
+  V1ListMetaToJSON,
+  V1StatusDetails,
+  V1StatusDetailsFromJSON,
+  V1StatusDetailsToJSON,
 } from './';
 
 /**
@@ -30,94 +28,91 @@ import {
  * @interface V1Status
  */
 export interface V1Status {
-    /**
-     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-     * @type {string}
-     * @memberof V1Status
-     */
-    apiVersion?: string;
-    /**
-     * Suggested HTTP return code for this status, 0 if not set.
-     * @type {number}
-     * @memberof V1Status
-     */
-    code?: number;
-    /**
-     * 
-     * @type {V1StatusDetails}
-     * @memberof V1Status
-     */
-    details?: V1StatusDetails;
-    /**
-     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-     * @type {string}
-     * @memberof V1Status
-     */
-    kind?: string;
-    /**
-     * A human-readable description of the status of this operation.
-     * @type {string}
-     * @memberof V1Status
-     */
-    message?: string;
-    /**
-     * 
-     * @type {V1ListMeta}
-     * @memberof V1Status
-     */
-    metadata?: V1ListMeta;
-    /**
-     * A machine-readable description of why this operation is in the "Failure" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it.
-     * @type {string}
-     * @memberof V1Status
-     */
-    reason?: string;
-    /**
-     * Status of the operation. One of: "Success" or "Failure". More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * @type {string}
-     * @memberof V1Status
-     */
-    status?: string;
+  /**
+   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+   * @type {string}
+   * @memberof V1Status
+   */
+  apiVersion?: string;
+  /**
+   * Suggested HTTP return code for this status, 0 if not set.
+   * @type {number}
+   * @memberof V1Status
+   */
+  code?: number;
+  /**
+   *
+   * @type {V1StatusDetails}
+   * @memberof V1Status
+   */
+  details?: V1StatusDetails;
+  /**
+   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+   * @type {string}
+   * @memberof V1Status
+   */
+  kind?: string;
+  /**
+   * A human-readable description of the status of this operation.
+   * @type {string}
+   * @memberof V1Status
+   */
+  message?: string;
+  /**
+   *
+   * @type {V1ListMeta}
+   * @memberof V1Status
+   */
+  metadata?: V1ListMeta;
+  /**
+   * A machine-readable description of why this operation is in the "Failure" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it.
+   * @type {string}
+   * @memberof V1Status
+   */
+  reason?: string;
+  /**
+   * Status of the operation. One of: "Success" or "Failure". More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+   * @type {string}
+   * @memberof V1Status
+   */
+  status?: string;
 }
 
 export function V1StatusFromJSON(json: any): V1Status {
-    return V1StatusFromJSONTyped(json, false);
+  return V1StatusFromJSONTyped(json, false);
 }
 
-export function V1StatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Status {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'code': !exists(json, 'code') ? undefined : json['code'],
-        'details': !exists(json, 'details') ? undefined : V1StatusDetailsFromJSON(json['details']),
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'message': !exists(json, 'message') ? undefined : json['message'],
-        'metadata': !exists(json, 'metadata') ? undefined : V1ListMetaFromJSON(json['metadata']),
-        'reason': !exists(json, 'reason') ? undefined : json['reason'],
-        'status': !exists(json, 'status') ? undefined : json['status'],
-    };
+export function V1StatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Status {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+    code: !exists(json, 'code') ? undefined : json['code'],
+    details: !exists(json, 'details') ? undefined : V1StatusDetailsFromJSON(json['details']),
+    kind: !exists(json, 'kind') ? undefined : json['kind'],
+    message: !exists(json, 'message') ? undefined : json['message'],
+    metadata: !exists(json, 'metadata') ? undefined : V1ListMetaFromJSON(json['metadata']),
+    reason: !exists(json, 'reason') ? undefined : json['reason'],
+    status: !exists(json, 'status') ? undefined : json['status'],
+  };
 }
 
 export function V1StatusToJSON(value?: V1Status | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'code': value.code,
-        'details': V1StatusDetailsToJSON(value.details),
-        'kind': value.kind,
-        'message': value.message,
-        'metadata': V1ListMetaToJSON(value.metadata),
-        'reason': value.reason,
-        'status': value.status,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    apiVersion: value.apiVersion,
+    code: value.code,
+    details: V1StatusDetailsToJSON(value.details),
+    kind: value.kind,
+    message: value.message,
+    metadata: V1ListMetaToJSON(value.metadata),
+    reason: value.reason,
+    status: value.status,
+  };
 }
-

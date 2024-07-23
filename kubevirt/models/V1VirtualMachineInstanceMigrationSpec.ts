@@ -12,45 +12,49 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1VirtualMachineInstanceMigrationSpec
  */
 export interface V1VirtualMachineInstanceMigrationSpec {
-    /**
-     * The name of the VMI to perform the migration on. VMI must exist in the migration objects namespace
-     * @type {string}
-     * @memberof V1VirtualMachineInstanceMigrationSpec
-     */
-    vmiName?: string;
+  /**
+   * The name of the VMI to perform the migration on. VMI must exist in the migration objects namespace
+   * @type {string}
+   * @memberof V1VirtualMachineInstanceMigrationSpec
+   */
+  vmiName?: string;
 }
 
-export function V1VirtualMachineInstanceMigrationSpecFromJSON(json: any): V1VirtualMachineInstanceMigrationSpec {
-    return V1VirtualMachineInstanceMigrationSpecFromJSONTyped(json, false);
+export function V1VirtualMachineInstanceMigrationSpecFromJSON(
+  json: any,
+): V1VirtualMachineInstanceMigrationSpec {
+  return V1VirtualMachineInstanceMigrationSpecFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceMigrationSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'vmiName': !exists(json, 'vmiName') ? undefined : json['vmiName'],
-    };
+export function V1VirtualMachineInstanceMigrationSpecFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1VirtualMachineInstanceMigrationSpec {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    vmiName: !exists(json, 'vmiName') ? undefined : json['vmiName'],
+  };
 }
 
-export function V1VirtualMachineInstanceMigrationSpecToJSON(value?: V1VirtualMachineInstanceMigrationSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'vmiName': value.vmiName,
-    };
+export function V1VirtualMachineInstanceMigrationSpecToJSON(
+  value?: V1VirtualMachineInstanceMigrationSpec | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    vmiName: value.vmiName,
+  };
 }
-

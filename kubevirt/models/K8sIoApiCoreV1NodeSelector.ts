@@ -12,12 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import {
-    K8sIoApiCoreV1NodeSelectorTerm,
-    K8sIoApiCoreV1NodeSelectorTermFromJSON,
-    K8sIoApiCoreV1NodeSelectorTermFromJSONTyped,
-    K8sIoApiCoreV1NodeSelectorTermToJSON,
+  K8sIoApiCoreV1NodeSelectorTerm,
+  K8sIoApiCoreV1NodeSelectorTermFromJSON,
+  K8sIoApiCoreV1NodeSelectorTermToJSON,
 } from './';
 
 /**
@@ -26,38 +24,42 @@ import {
  * @interface K8sIoApiCoreV1NodeSelector
  */
 export interface K8sIoApiCoreV1NodeSelector {
-    /**
-     * Required. A list of node selector terms. The terms are ORed.
-     * @type {Array<K8sIoApiCoreV1NodeSelectorTerm>}
-     * @memberof K8sIoApiCoreV1NodeSelector
-     */
-    nodeSelectorTerms: Array<K8sIoApiCoreV1NodeSelectorTerm>;
+  /**
+   * Required. A list of node selector terms. The terms are ORed.
+   * @type {Array<K8sIoApiCoreV1NodeSelectorTerm>}
+   * @memberof K8sIoApiCoreV1NodeSelector
+   */
+  nodeSelectorTerms: Array<K8sIoApiCoreV1NodeSelectorTerm>;
 }
 
 export function K8sIoApiCoreV1NodeSelectorFromJSON(json: any): K8sIoApiCoreV1NodeSelector {
-    return K8sIoApiCoreV1NodeSelectorFromJSONTyped(json, false);
+  return K8sIoApiCoreV1NodeSelectorFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1NodeSelectorFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1NodeSelector {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'nodeSelectorTerms': ((json['nodeSelectorTerms'] as Array<any>).map(K8sIoApiCoreV1NodeSelectorTermFromJSON)),
-    };
+export function K8sIoApiCoreV1NodeSelectorFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): K8sIoApiCoreV1NodeSelector {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    nodeSelectorTerms: (json['nodeSelectorTerms'] as Array<any>).map(
+      K8sIoApiCoreV1NodeSelectorTermFromJSON,
+    ),
+  };
 }
 
 export function K8sIoApiCoreV1NodeSelectorToJSON(value?: K8sIoApiCoreV1NodeSelector | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'nodeSelectorTerms': ((value.nodeSelectorTerms as Array<any>).map(K8sIoApiCoreV1NodeSelectorTermToJSON)),
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    nodeSelectorTerms: (value.nodeSelectorTerms as Array<any>).map(
+      K8sIoApiCoreV1NodeSelectorTermToJSON,
+    ),
+  };
 }
-

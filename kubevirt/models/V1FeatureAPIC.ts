@@ -12,53 +12,53 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1FeatureAPIC
  */
 export interface V1FeatureAPIC {
-    /**
-     * Enabled determines if the feature should be enabled or disabled on the guest. Defaults to true.
-     * @type {boolean}
-     * @memberof V1FeatureAPIC
-     */
-    enabled?: boolean;
-    /**
-     * EndOfInterrupt enables the end of interrupt notification in the guest. Defaults to false.
-     * @type {boolean}
-     * @memberof V1FeatureAPIC
-     */
-    endOfInterrupt?: boolean;
+  /**
+   * Enabled determines if the feature should be enabled or disabled on the guest. Defaults to true.
+   * @type {boolean}
+   * @memberof V1FeatureAPIC
+   */
+  enabled?: boolean;
+  /**
+   * EndOfInterrupt enables the end of interrupt notification in the guest. Defaults to false.
+   * @type {boolean}
+   * @memberof V1FeatureAPIC
+   */
+  endOfInterrupt?: boolean;
 }
 
 export function V1FeatureAPICFromJSON(json: any): V1FeatureAPIC {
-    return V1FeatureAPICFromJSONTyped(json, false);
+  return V1FeatureAPICFromJSONTyped(json, false);
 }
 
-export function V1FeatureAPICFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1FeatureAPIC {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
-        'endOfInterrupt': !exists(json, 'endOfInterrupt') ? undefined : json['endOfInterrupt'],
-    };
+export function V1FeatureAPICFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1FeatureAPIC {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    enabled: !exists(json, 'enabled') ? undefined : json['enabled'],
+    endOfInterrupt: !exists(json, 'endOfInterrupt') ? undefined : json['endOfInterrupt'],
+  };
 }
 
 export function V1FeatureAPICToJSON(value?: V1FeatureAPIC | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'enabled': value.enabled,
-        'endOfInterrupt': value.endOfInterrupt,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    enabled: value.enabled,
+    endOfInterrupt: value.endOfInterrupt,
+  };
 }
-

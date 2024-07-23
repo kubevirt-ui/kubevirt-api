@@ -12,45 +12,45 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1HyperVPassthrough
  */
 export interface V1HyperVPassthrough {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof V1HyperVPassthrough
-     */
-    enabled?: boolean;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1HyperVPassthrough
+   */
+  enabled?: boolean;
 }
 
 export function V1HyperVPassthroughFromJSON(json: any): V1HyperVPassthrough {
-    return V1HyperVPassthroughFromJSONTyped(json, false);
+  return V1HyperVPassthroughFromJSONTyped(json, false);
 }
 
-export function V1HyperVPassthroughFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1HyperVPassthrough {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
-    };
+export function V1HyperVPassthroughFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1HyperVPassthrough {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    enabled: !exists(json, 'enabled') ? undefined : json['enabled'],
+  };
 }
 
 export function V1HyperVPassthroughToJSON(value?: V1HyperVPassthrough | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'enabled': value.enabled,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    enabled: value.enabled,
+  };
 }
-

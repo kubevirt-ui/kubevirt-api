@@ -12,53 +12,52 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * HTTPHeader describes a custom header to be used in HTTP probes
  * @export
  * @interface K8sIoApiCoreV1HTTPHeader
  */
 export interface K8sIoApiCoreV1HTTPHeader {
-    /**
-     * The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.
-     * @type {string}
-     * @memberof K8sIoApiCoreV1HTTPHeader
-     */
-    name: string;
-    /**
-     * The header field value
-     * @type {string}
-     * @memberof K8sIoApiCoreV1HTTPHeader
-     */
-    value: string;
+  /**
+   * The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.
+   * @type {string}
+   * @memberof K8sIoApiCoreV1HTTPHeader
+   */
+  name: string;
+  /**
+   * The header field value
+   * @type {string}
+   * @memberof K8sIoApiCoreV1HTTPHeader
+   */
+  value: string;
 }
 
 export function K8sIoApiCoreV1HTTPHeaderFromJSON(json: any): K8sIoApiCoreV1HTTPHeader {
-    return K8sIoApiCoreV1HTTPHeaderFromJSONTyped(json, false);
+  return K8sIoApiCoreV1HTTPHeaderFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1HTTPHeaderFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1HTTPHeader {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'name': json['name'],
-        'value': json['value'],
-    };
+export function K8sIoApiCoreV1HTTPHeaderFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): K8sIoApiCoreV1HTTPHeader {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    name: json['name'],
+    value: json['value'],
+  };
 }
 
 export function K8sIoApiCoreV1HTTPHeaderToJSON(value?: K8sIoApiCoreV1HTTPHeader | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'name': value.name,
-        'value': value.value,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    name: value.name,
+    value: value.value,
+  };
 }
-

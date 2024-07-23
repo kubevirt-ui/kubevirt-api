@@ -12,53 +12,55 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1CustomProfile
  */
 export interface V1CustomProfile {
-    /**
-     * 
-     * @type {string}
-     * @memberof V1CustomProfile
-     */
-    localhostProfile?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof V1CustomProfile
-     */
-    runtimeDefaultProfile?: boolean;
+  /**
+   *
+   * @type {string}
+   * @memberof V1CustomProfile
+   */
+  localhostProfile?: string;
+  /**
+   *
+   * @type {boolean}
+   * @memberof V1CustomProfile
+   */
+  runtimeDefaultProfile?: boolean;
 }
 
 export function V1CustomProfileFromJSON(json: any): V1CustomProfile {
-    return V1CustomProfileFromJSONTyped(json, false);
+  return V1CustomProfileFromJSONTyped(json, false);
 }
 
-export function V1CustomProfileFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1CustomProfile {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'localhostProfile': !exists(json, 'localhostProfile') ? undefined : json['localhostProfile'],
-        'runtimeDefaultProfile': !exists(json, 'runtimeDefaultProfile') ? undefined : json['runtimeDefaultProfile'],
-    };
+export function V1CustomProfileFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1CustomProfile {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    localhostProfile: !exists(json, 'localhostProfile') ? undefined : json['localhostProfile'],
+    runtimeDefaultProfile: !exists(json, 'runtimeDefaultProfile')
+      ? undefined
+      : json['runtimeDefaultProfile'],
+  };
 }
 
 export function V1CustomProfileToJSON(value?: V1CustomProfile | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'localhostProfile': value.localhostProfile,
-        'runtimeDefaultProfile': value.runtimeDefaultProfile,
-    };
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    localhostProfile: value.localhostProfile,
+    runtimeDefaultProfile: value.runtimeDefaultProfile,
+  };
 }
-

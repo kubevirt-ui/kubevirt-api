@@ -12,61 +12,65 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { exists } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1VirtualMachineStateChangeRequest
  */
 export interface V1VirtualMachineStateChangeRequest {
-    /**
-     * Indicates the type of action that is requested. e.g. Start or Stop
-     * @type {string}
-     * @memberof V1VirtualMachineStateChangeRequest
-     */
-    action: string;
-    /**
-     * Provides additional data in order to perform the Action
-     * @type {{ [key: string]: string; }}
-     * @memberof V1VirtualMachineStateChangeRequest
-     */
-    data?: { [key: string]: string; };
-    /**
-     * Indicates the UUID of an existing Virtual Machine Instance that this change request applies to -- if applicable
-     * @type {string}
-     * @memberof V1VirtualMachineStateChangeRequest
-     */
-    uid?: string;
+  /**
+   * Indicates the type of action that is requested. e.g. Start or Stop
+   * @type {string}
+   * @memberof V1VirtualMachineStateChangeRequest
+   */
+  action: string;
+  /**
+   * Provides additional data in order to perform the Action
+   * @type {{ [key: string]: string; }}
+   * @memberof V1VirtualMachineStateChangeRequest
+   */
+  data?: { [key: string]: string };
+  /**
+   * Indicates the UUID of an existing Virtual Machine Instance that this change request applies to -- if applicable
+   * @type {string}
+   * @memberof V1VirtualMachineStateChangeRequest
+   */
+  uid?: string;
 }
 
-export function V1VirtualMachineStateChangeRequestFromJSON(json: any): V1VirtualMachineStateChangeRequest {
-    return V1VirtualMachineStateChangeRequestFromJSONTyped(json, false);
+export function V1VirtualMachineStateChangeRequestFromJSON(
+  json: any,
+): V1VirtualMachineStateChangeRequest {
+  return V1VirtualMachineStateChangeRequestFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineStateChangeRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineStateChangeRequest {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'action': json['action'],
-        'data': !exists(json, 'data') ? undefined : json['data'],
-        'uid': !exists(json, 'uid') ? undefined : json['uid'],
-    };
+export function V1VirtualMachineStateChangeRequestFromJSONTyped(
+  json: any,
+  _ignoreDiscriminator: boolean,
+): V1VirtualMachineStateChangeRequest {
+  if (json === undefined || json === null) {
+    return json;
+  }
+  return {
+    action: json['action'],
+    data: !exists(json, 'data') ? undefined : json['data'],
+    uid: !exists(json, 'uid') ? undefined : json['uid'],
+  };
 }
 
-export function V1VirtualMachineStateChangeRequestToJSON(value?: V1VirtualMachineStateChangeRequest | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'action': value.action,
-        'data': value.data,
-        'uid': value.uid,
-    };
+export function V1VirtualMachineStateChangeRequestToJSON(
+  value?: V1VirtualMachineStateChangeRequest | null,
+): any {
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null) {
+    return null;
+  }
+  return {
+    action: value.action,
+    data: value.data,
+    uid: value.uid,
+  };
 }
-

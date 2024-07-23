@@ -61,14 +61,14 @@ export function IoK8sApiBatchV1JobConditionFromJSON(json: any): IoK8sApiBatchV1J
     return IoK8sApiBatchV1JobConditionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiBatchV1JobConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiBatchV1JobCondition {
+export function IoK8sApiBatchV1JobConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiBatchV1JobCondition {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'lastProbeTime': !exists(json, 'lastProbeTime') ? undefined : ((json['lastProbeTime'])),
-        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : ((json['lastTransitionTime'])),
+        'lastProbeTime': !exists(json, 'lastProbeTime') ? undefined : (new Date(json['lastProbeTime'])),
+        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : (new Date(json['lastTransitionTime'])),
         'message': !exists(json, 'message') ? undefined : json['message'],
         'reason': !exists(json, 'reason') ? undefined : json['reason'],
         'status': json['status'],
@@ -85,8 +85,8 @@ export function IoK8sApiBatchV1JobConditionToJSON(value?: IoK8sApiBatchV1JobCond
     }
     return {
         
-        'lastProbeTime': value.lastProbeTime === undefined ? undefined : (value.lastProbeTime),
-        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime),
+        'lastProbeTime': value.lastProbeTime === undefined ? undefined : (value.lastProbeTime.toISOString()),
+        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime.toISOString()),
         'message': value.message,
         'reason': value.reason,
         'status': value.status,

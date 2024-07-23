@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1TopologySelectorLabelRequirementFromJSON(json: any
     return IoK8sApiCoreV1TopologySelectorLabelRequirementFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1TopologySelectorLabelRequirementFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1TopologySelectorLabelRequirement {
+export function IoK8sApiCoreV1TopologySelectorLabelRequirementFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1TopologySelectorLabelRequirement {
     if ((json === undefined) || (json === null)) {
         return json;
     }

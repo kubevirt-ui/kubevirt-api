@@ -60,7 +60,7 @@ export function IoK8sApiCoreV1PersistentVolumeClaimListFromJSON(json: any): IoK8
     return IoK8sApiCoreV1PersistentVolumeClaimListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PersistentVolumeClaimListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PersistentVolumeClaimList {
+export function IoK8sApiCoreV1PersistentVolumeClaimListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PersistentVolumeClaimList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -44,7 +44,7 @@ export function V1VGPUDisplayOptionsFromJSON(json: any): V1VGPUDisplayOptions {
     return V1VGPUDisplayOptionsFromJSONTyped(json, false);
 }
 
-export function V1VGPUDisplayOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VGPUDisplayOptions {
+export function V1VGPUDisplayOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VGPUDisplayOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

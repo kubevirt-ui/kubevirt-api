@@ -38,7 +38,7 @@ export function V1LaunchSecurityFromJSON(json: any): V1LaunchSecurity {
     return V1LaunchSecurityFromJSONTyped(json, false);
 }
 
-export function V1LaunchSecurityFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1LaunchSecurity {
+export function V1LaunchSecurityFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1LaunchSecurity {
     if ((json === undefined) || (json === null)) {
         return json;
     }

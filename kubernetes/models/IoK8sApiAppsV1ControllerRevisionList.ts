@@ -60,7 +60,7 @@ export function IoK8sApiAppsV1ControllerRevisionListFromJSON(json: any): IoK8sAp
     return IoK8sApiAppsV1ControllerRevisionListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1ControllerRevisionListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1ControllerRevisionList {
+export function IoK8sApiAppsV1ControllerRevisionListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1ControllerRevisionList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

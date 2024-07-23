@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1NodeAddressFromJSON(json: any): IoK8sApiCoreV1Node
     return IoK8sApiCoreV1NodeAddressFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1NodeAddressFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeAddress {
+export function IoK8sApiCoreV1NodeAddressFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeAddress {
     if ((json === undefined) || (json === null)) {
         return json;
     }

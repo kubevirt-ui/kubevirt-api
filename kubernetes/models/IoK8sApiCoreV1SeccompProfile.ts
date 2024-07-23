@@ -39,7 +39,7 @@ export function IoK8sApiCoreV1SeccompProfileFromJSON(json: any): IoK8sApiCoreV1S
     return IoK8sApiCoreV1SeccompProfileFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1SeccompProfileFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1SeccompProfile {
+export function IoK8sApiCoreV1SeccompProfileFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1SeccompProfile {
     if ((json === undefined) || (json === null)) {
         return json;
     }

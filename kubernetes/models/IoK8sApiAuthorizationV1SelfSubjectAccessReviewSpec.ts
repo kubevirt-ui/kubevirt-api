@@ -48,7 +48,7 @@ export function IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpecFromJSON(json:
     return IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpec {
+export function IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

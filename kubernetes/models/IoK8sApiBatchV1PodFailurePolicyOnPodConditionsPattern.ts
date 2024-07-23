@@ -37,7 +37,7 @@ export function IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternFromJSON(js
     return IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternFromJSONTyped(json, false);
 }
 
-export function IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPattern {
+export function IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPattern {
     if ((json === undefined) || (json === null)) {
         return json;
     }

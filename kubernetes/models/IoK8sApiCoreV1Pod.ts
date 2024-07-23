@@ -70,7 +70,7 @@ export function IoK8sApiCoreV1PodFromJSON(json: any): IoK8sApiCoreV1Pod {
     return IoK8sApiCoreV1PodFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PodFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1Pod {
+export function IoK8sApiCoreV1PodFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1Pod {
     if ((json === undefined) || (json === null)) {
         return json;
     }

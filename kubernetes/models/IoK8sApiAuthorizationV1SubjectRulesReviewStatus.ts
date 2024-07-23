@@ -60,7 +60,7 @@ export function IoK8sApiAuthorizationV1SubjectRulesReviewStatusFromJSON(json: an
     return IoK8sApiAuthorizationV1SubjectRulesReviewStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAuthorizationV1SubjectRulesReviewStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAuthorizationV1SubjectRulesReviewStatus {
+export function IoK8sApiAuthorizationV1SubjectRulesReviewStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAuthorizationV1SubjectRulesReviewStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -49,7 +49,7 @@ export function V1StopOptionsFromJSON(json: any): V1StopOptions {
     return V1StopOptionsFromJSONTyped(json, false);
 }
 
-export function V1StopOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1StopOptions {
+export function V1StopOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1StopOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -31,7 +31,7 @@ export function V1TopologyHintsFromJSON(json: any): V1TopologyHints {
     return V1TopologyHintsFromJSONTyped(json, false);
 }
 
-export function V1TopologyHintsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1TopologyHints {
+export function V1TopologyHintsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1TopologyHints {
     if ((json === undefined) || (json === null)) {
         return json;
     }

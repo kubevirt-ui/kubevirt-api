@@ -31,7 +31,7 @@ export function V1beta1MachinePreferencesFromJSON(json: any): V1beta1MachinePref
     return V1beta1MachinePreferencesFromJSONTyped(json, false);
 }
 
-export function V1beta1MachinePreferencesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1MachinePreferences {
+export function V1beta1MachinePreferencesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1MachinePreferences {
     if ((json === undefined) || (json === null)) {
         return json;
     }

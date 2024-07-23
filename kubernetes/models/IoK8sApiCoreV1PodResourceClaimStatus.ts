@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1PodResourceClaimStatusFromJSON(json: any): IoK8sAp
     return IoK8sApiCoreV1PodResourceClaimStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PodResourceClaimStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PodResourceClaimStatus {
+export function IoK8sApiCoreV1PodResourceClaimStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PodResourceClaimStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

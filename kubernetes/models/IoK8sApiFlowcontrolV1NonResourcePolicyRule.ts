@@ -43,7 +43,7 @@ export function IoK8sApiFlowcontrolV1NonResourcePolicyRuleFromJSON(json: any): I
     return IoK8sApiFlowcontrolV1NonResourcePolicyRuleFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1NonResourcePolicyRuleFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1NonResourcePolicyRule {
+export function IoK8sApiFlowcontrolV1NonResourcePolicyRuleFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1NonResourcePolicyRule {
     if ((json === undefined) || (json === null)) {
         return json;
     }

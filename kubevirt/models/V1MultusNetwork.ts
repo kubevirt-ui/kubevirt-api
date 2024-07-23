@@ -37,7 +37,7 @@ export function V1MultusNetworkFromJSON(json: any): V1MultusNetwork {
     return V1MultusNetworkFromJSONTyped(json, false);
 }
 
-export function V1MultusNetworkFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1MultusNetwork {
+export function V1MultusNetworkFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1MultusNetwork {
     if ((json === undefined) || (json === null)) {
         return json;
     }

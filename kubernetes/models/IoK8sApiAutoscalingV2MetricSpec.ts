@@ -84,7 +84,7 @@ export function IoK8sApiAutoscalingV2MetricSpecFromJSON(json: any): IoK8sApiAuto
     return IoK8sApiAutoscalingV2MetricSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAutoscalingV2MetricSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2MetricSpec {
+export function IoK8sApiAutoscalingV2MetricSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2MetricSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -49,7 +49,7 @@ export function V1VirtualMachineInstanceMigrationConditionFromJSON(json: any): V
     return V1VirtualMachineInstanceMigrationConditionFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceMigrationConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationCondition {
+export function V1VirtualMachineInstanceMigrationConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationCondition {
     if ((json === undefined) || (json === null)) {
         return json;
     }

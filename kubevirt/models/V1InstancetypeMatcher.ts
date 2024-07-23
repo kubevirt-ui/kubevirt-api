@@ -55,7 +55,7 @@ export function V1InstancetypeMatcherFromJSON(json: any): V1InstancetypeMatcher 
     return V1InstancetypeMatcherFromJSONTyped(json, false);
 }
 
-export function V1InstancetypeMatcherFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1InstancetypeMatcher {
+export function V1InstancetypeMatcherFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1InstancetypeMatcher {
     if ((json === undefined) || (json === null)) {
         return json;
     }

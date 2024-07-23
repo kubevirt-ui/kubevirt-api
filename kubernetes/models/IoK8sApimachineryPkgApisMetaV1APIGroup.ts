@@ -72,7 +72,7 @@ export function IoK8sApimachineryPkgApisMetaV1APIGroupFromJSON(json: any): IoK8s
     return IoK8sApimachineryPkgApisMetaV1APIGroupFromJSONTyped(json, false);
 }
 
-export function IoK8sApimachineryPkgApisMetaV1APIGroupFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1APIGroup {
+export function IoK8sApimachineryPkgApisMetaV1APIGroupFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1APIGroup {
     if ((json === undefined) || (json === null)) {
         return json;
     }

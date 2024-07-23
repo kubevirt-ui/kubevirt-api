@@ -37,7 +37,7 @@ export function V1SEVSecretOptionsFromJSON(json: any): V1SEVSecretOptions {
     return V1SEVSecretOptionsFromJSONTyped(json, false);
 }
 
-export function V1SEVSecretOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SEVSecretOptions {
+export function V1SEVSecretOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SEVSecretOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

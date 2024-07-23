@@ -47,7 +47,7 @@ export function V1StatusCauseFromJSON(json: any): V1StatusCause {
     return V1StatusCauseFromJSONTyped(json, false);
 }
 
-export function V1StatusCauseFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1StatusCause {
+export function V1StatusCauseFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1StatusCause {
     if ((json === undefined) || (json === null)) {
         return json;
     }

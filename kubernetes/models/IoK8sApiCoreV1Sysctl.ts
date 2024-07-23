@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1SysctlFromJSON(json: any): IoK8sApiCoreV1Sysctl {
     return IoK8sApiCoreV1SysctlFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1SysctlFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1Sysctl {
+export function IoK8sApiCoreV1SysctlFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1Sysctl {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -49,7 +49,7 @@ export function K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json: any): K8sIo
     return K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped(json, false);
 }
 
-export function K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1ListMeta {
+export function K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1ListMeta {
     if ((json === undefined) || (json === null)) {
         return json;
     }

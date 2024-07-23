@@ -48,7 +48,7 @@ export function IoK8sApiBatchV1JobTemplateSpecFromJSON(json: any): IoK8sApiBatch
     return IoK8sApiBatchV1JobTemplateSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiBatchV1JobTemplateSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiBatchV1JobTemplateSpec {
+export function IoK8sApiBatchV1JobTemplateSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiBatchV1JobTemplateSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

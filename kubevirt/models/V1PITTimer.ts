@@ -37,7 +37,7 @@ export function V1PITTimerFromJSON(json: any): V1PITTimer {
     return V1PITTimerFromJSONTyped(json, false);
 }
 
-export function V1PITTimerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1PITTimer {
+export function V1PITTimerFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PITTimer {
     if ((json === undefined) || (json === null)) {
         return json;
     }

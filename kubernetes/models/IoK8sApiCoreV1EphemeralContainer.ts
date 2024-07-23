@@ -222,7 +222,7 @@ export function IoK8sApiCoreV1EphemeralContainerFromJSON(json: any): IoK8sApiCor
     return IoK8sApiCoreV1EphemeralContainerFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1EphemeralContainerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1EphemeralContainer {
+export function IoK8sApiCoreV1EphemeralContainerFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1EphemeralContainer {
     if ((json === undefined) || (json === null)) {
         return json;
     }

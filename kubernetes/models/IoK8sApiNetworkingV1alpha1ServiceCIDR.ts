@@ -70,7 +70,7 @@ export function IoK8sApiNetworkingV1alpha1ServiceCIDRFromJSON(json: any): IoK8sA
     return IoK8sApiNetworkingV1alpha1ServiceCIDRFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1alpha1ServiceCIDRFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1alpha1ServiceCIDR {
+export function IoK8sApiNetworkingV1alpha1ServiceCIDRFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1alpha1ServiceCIDR {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -31,7 +31,7 @@ export function IoK8sApiCoreV1ExecActionFromJSON(json: any): IoK8sApiCoreV1ExecA
     return IoK8sApiCoreV1ExecActionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ExecActionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ExecAction {
+export function IoK8sApiCoreV1ExecActionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ExecAction {
     if ((json === undefined) || (json === null)) {
         return json;
     }

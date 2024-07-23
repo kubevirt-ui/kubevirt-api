@@ -47,7 +47,7 @@ export function IoK8sApiAdmissionregistrationV1alpha1MatchConditionFromJSON(json
     return IoK8sApiAdmissionregistrationV1alpha1MatchConditionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAdmissionregistrationV1alpha1MatchConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1MatchCondition {
+export function IoK8sApiAdmissionregistrationV1alpha1MatchConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1MatchCondition {
     if ((json === undefined) || (json === null)) {
         return json;
     }

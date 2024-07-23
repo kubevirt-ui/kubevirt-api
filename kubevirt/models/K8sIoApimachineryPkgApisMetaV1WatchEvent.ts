@@ -74,7 +74,7 @@ export function K8sIoApimachineryPkgApisMetaV1WatchEventFromJSON(json: any): K8s
     return K8sIoApimachineryPkgApisMetaV1WatchEventFromJSONTyped(json, false);
 }
 
-export function K8sIoApimachineryPkgApisMetaV1WatchEventFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1WatchEvent {
+export function K8sIoApimachineryPkgApisMetaV1WatchEventFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1WatchEvent {
     if ((json === undefined) || (json === null)) {
         return json;
     }

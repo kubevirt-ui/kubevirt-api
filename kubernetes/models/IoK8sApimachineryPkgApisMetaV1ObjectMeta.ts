@@ -136,16 +136,16 @@ export function IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json: any): IoK
     return IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped(json, false);
 }
 
-export function IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1ObjectMeta {
+export function IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1ObjectMeta {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
         'annotations': !exists(json, 'annotations') ? undefined : json['annotations'],
-        'creationTimestamp': !exists(json, 'creationTimestamp') ? undefined : ((json['creationTimestamp'])),
+        'creationTimestamp': !exists(json, 'creationTimestamp') ? undefined : (new Date(json['creationTimestamp'])),
         'deletionGracePeriodSeconds': !exists(json, 'deletionGracePeriodSeconds') ? undefined : json['deletionGracePeriodSeconds'],
-        'deletionTimestamp': !exists(json, 'deletionTimestamp') ? undefined : ((json['deletionTimestamp'])),
+        'deletionTimestamp': !exists(json, 'deletionTimestamp') ? undefined : (new Date(json['deletionTimestamp'])),
         'finalizers': !exists(json, 'finalizers') ? undefined : json['finalizers'],
         'generateName': !exists(json, 'generateName') ? undefined : json['generateName'],
         'generation': !exists(json, 'generation') ? undefined : json['generation'],
@@ -170,9 +170,9 @@ export function IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value?: IoK8sApim
     return {
         
         'annotations': value.annotations,
-        'creationTimestamp': value.creationTimestamp === undefined ? undefined : (value.creationTimestamp),
+        'creationTimestamp': value.creationTimestamp === undefined ? undefined : (value.creationTimestamp.toISOString()),
         'deletionGracePeriodSeconds': value.deletionGracePeriodSeconds,
-        'deletionTimestamp': value.deletionTimestamp === undefined ? undefined : (value.deletionTimestamp),
+        'deletionTimestamp': value.deletionTimestamp === undefined ? undefined : (value.deletionTimestamp.toISOString()),
         'finalizers': value.finalizers,
         'generateName': value.generateName,
         'generation': value.generation,

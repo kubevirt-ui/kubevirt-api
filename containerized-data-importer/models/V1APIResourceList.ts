@@ -56,7 +56,7 @@ export function V1APIResourceListFromJSON(json: any): V1APIResourceList {
     return V1APIResourceListFromJSONTyped(json, false);
 }
 
-export function V1APIResourceListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1APIResourceList {
+export function V1APIResourceListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1APIResourceList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

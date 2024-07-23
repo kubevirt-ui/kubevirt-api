@@ -49,7 +49,7 @@ export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ServiceReferenc
     return IoK8sApiextensionsApiserverPkgApisApiextensionsV1ServiceReferenceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ServiceReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1ServiceReference {
+export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ServiceReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1ServiceReference {
     if ((json === undefined) || (json === null)) {
         return json;
     }

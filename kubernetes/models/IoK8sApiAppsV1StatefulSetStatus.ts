@@ -92,7 +92,7 @@ export function IoK8sApiAppsV1StatefulSetStatusFromJSON(json: any): IoK8sApiApps
     return IoK8sApiAppsV1StatefulSetStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1StatefulSetStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1StatefulSetStatus {
+export function IoK8sApiAppsV1StatefulSetStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1StatefulSetStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -44,7 +44,7 @@ export function IoK8sApiNetworkingV1IngressClassSpecFromJSON(json: any): IoK8sAp
     return IoK8sApiNetworkingV1IngressClassSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1IngressClassSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressClassSpec {
+export function IoK8sApiNetworkingV1IngressClassSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressClassSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

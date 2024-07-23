@@ -48,7 +48,7 @@ export function IoK8sApiCoreV1PodAffinityFromJSON(json: any): IoK8sApiCoreV1PodA
     return IoK8sApiCoreV1PodAffinityFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PodAffinityFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PodAffinity {
+export function IoK8sApiCoreV1PodAffinityFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PodAffinity {
     if ((json === undefined) || (json === null)) {
         return json;
     }

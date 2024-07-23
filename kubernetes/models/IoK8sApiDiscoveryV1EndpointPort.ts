@@ -58,7 +58,7 @@ export function IoK8sApiDiscoveryV1EndpointPortFromJSON(json: any): IoK8sApiDisc
     return IoK8sApiDiscoveryV1EndpointPortFromJSONTyped(json, false);
 }
 
-export function IoK8sApiDiscoveryV1EndpointPortFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiDiscoveryV1EndpointPort {
+export function IoK8sApiDiscoveryV1EndpointPortFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiDiscoveryV1EndpointPort {
     if ((json === undefined) || (json === null)) {
         return json;
     }

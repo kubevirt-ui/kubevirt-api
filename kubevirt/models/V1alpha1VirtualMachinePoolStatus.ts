@@ -56,7 +56,7 @@ export function V1alpha1VirtualMachinePoolStatusFromJSON(json: any): V1alpha1Vir
     return V1alpha1VirtualMachinePoolStatusFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachinePoolStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VirtualMachinePoolStatus {
+export function V1alpha1VirtualMachinePoolStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachinePoolStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

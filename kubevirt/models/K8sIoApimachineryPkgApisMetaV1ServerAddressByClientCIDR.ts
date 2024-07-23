@@ -37,7 +37,7 @@ export function K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSON(
     return K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSONTyped(json, false);
 }
 
-export function K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR {
+export function K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR {
     if ((json === undefined) || (json === null)) {
         return json;
     }

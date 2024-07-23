@@ -60,7 +60,7 @@ export function IoK8sApiResourceV1alpha2ResourceClassListFromJSON(json: any): Io
     return IoK8sApiResourceV1alpha2ResourceClassListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiResourceV1alpha2ResourceClassListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2ResourceClassList {
+export function IoK8sApiResourceV1alpha2ResourceClassListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2ResourceClassList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

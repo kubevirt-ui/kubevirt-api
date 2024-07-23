@@ -148,7 +148,7 @@ export function IoK8sApiCoreV1PodStatusFromJSON(json: any): IoK8sApiCoreV1PodSta
     return IoK8sApiCoreV1PodStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PodStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PodStatus {
+export function IoK8sApiCoreV1PodStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PodStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -169,7 +169,7 @@ export function IoK8sApiCoreV1PodStatusFromJSONTyped(json: any, _ignoreDiscrimin
         'reason': !exists(json, 'reason') ? undefined : json['reason'],
         'resize': !exists(json, 'resize') ? undefined : json['resize'],
         'resourceClaimStatuses': !exists(json, 'resourceClaimStatuses') ? undefined : ((json['resourceClaimStatuses'] as Array<any>).map(IoK8sApiCoreV1PodResourceClaimStatusFromJSON)),
-        'startTime': !exists(json, 'startTime') ? undefined : ((json['startTime'])),
+        'startTime': !exists(json, 'startTime') ? undefined : (new Date(json['startTime'])),
     };
 }
 
@@ -197,7 +197,7 @@ export function IoK8sApiCoreV1PodStatusToJSON(value?: IoK8sApiCoreV1PodStatus | 
         'reason': value.reason,
         'resize': value.resize,
         'resourceClaimStatuses': value.resourceClaimStatuses === undefined ? undefined : ((value.resourceClaimStatuses as Array<any>).map(IoK8sApiCoreV1PodResourceClaimStatusToJSON)),
-        'startTime': value.startTime === undefined ? undefined : (value.startTime),
+        'startTime': value.startTime === undefined ? undefined : (value.startTime.toISOString()),
     };
 }
 

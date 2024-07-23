@@ -50,7 +50,7 @@ export function V1USBHostDeviceFromJSON(json: any): V1USBHostDevice {
     return V1USBHostDeviceFromJSONTyped(json, false);
 }
 
-export function V1USBHostDeviceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1USBHostDevice {
+export function V1USBHostDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1USBHostDevice {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -133,7 +133,7 @@ export function V1MigrationConfigurationFromJSON(json: any): V1MigrationConfigur
     return V1MigrationConfigurationFromJSONTyped(json, false);
 }
 
-export function V1MigrationConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1MigrationConfiguration {
+export function V1MigrationConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1MigrationConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

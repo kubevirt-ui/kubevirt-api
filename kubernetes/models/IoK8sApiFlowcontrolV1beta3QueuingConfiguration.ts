@@ -43,7 +43,7 @@ export function IoK8sApiFlowcontrolV1beta3QueuingConfigurationFromJSON(json: any
     return IoK8sApiFlowcontrolV1beta3QueuingConfigurationFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1beta3QueuingConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3QueuingConfiguration {
+export function IoK8sApiFlowcontrolV1beta3QueuingConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3QueuingConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

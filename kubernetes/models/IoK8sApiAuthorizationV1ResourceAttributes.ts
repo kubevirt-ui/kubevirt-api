@@ -67,7 +67,7 @@ export function IoK8sApiAuthorizationV1ResourceAttributesFromJSON(json: any): Io
     return IoK8sApiAuthorizationV1ResourceAttributesFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAuthorizationV1ResourceAttributesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAuthorizationV1ResourceAttributes {
+export function IoK8sApiAuthorizationV1ResourceAttributesFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAuthorizationV1ResourceAttributes {
     if ((json === undefined) || (json === null)) {
         return json;
     }

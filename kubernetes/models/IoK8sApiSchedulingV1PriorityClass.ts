@@ -74,7 +74,7 @@ export function IoK8sApiSchedulingV1PriorityClassFromJSON(json: any): IoK8sApiSc
     return IoK8sApiSchedulingV1PriorityClassFromJSONTyped(json, false);
 }
 
-export function IoK8sApiSchedulingV1PriorityClassFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiSchedulingV1PriorityClass {
+export function IoK8sApiSchedulingV1PriorityClassFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiSchedulingV1PriorityClass {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -54,7 +54,7 @@ export function V1ClockFromJSON(json: any): V1Clock {
     return V1ClockFromJSONTyped(json, false);
 }
 
-export function V1ClockFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Clock {
+export function V1ClockFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Clock {
     if ((json === undefined) || (json === null)) {
         return json;
     }

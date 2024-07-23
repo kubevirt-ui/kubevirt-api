@@ -60,7 +60,7 @@ export function IoK8sApiDiscoveryV1EndpointSliceListFromJSON(json: any): IoK8sAp
     return IoK8sApiDiscoveryV1EndpointSliceListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiDiscoveryV1EndpointSliceListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiDiscoveryV1EndpointSliceList {
+export function IoK8sApiDiscoveryV1EndpointSliceListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiDiscoveryV1EndpointSliceList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

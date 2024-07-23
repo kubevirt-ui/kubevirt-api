@@ -48,7 +48,7 @@ export function IoK8sApiCoreV1ServiceStatusFromJSON(json: any): IoK8sApiCoreV1Se
     return IoK8sApiCoreV1ServiceStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ServiceStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ServiceStatus {
+export function IoK8sApiCoreV1ServiceStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ServiceStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

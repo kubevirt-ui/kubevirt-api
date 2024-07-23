@@ -134,7 +134,7 @@ export function V1DomainSpecFromJSON(json: any): V1DomainSpec {
     return V1DomainSpecFromJSONTyped(json, false);
 }
 
-export function V1DomainSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1DomainSpec {
+export function V1DomainSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DomainSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

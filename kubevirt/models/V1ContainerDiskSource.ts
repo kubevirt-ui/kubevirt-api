@@ -64,7 +64,7 @@ export function V1ContainerDiskSourceFromJSON(json: any): V1ContainerDiskSource 
     return V1ContainerDiskSourceFromJSONTyped(json, false);
 }
 
-export function V1ContainerDiskSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ContainerDiskSource {
+export function V1ContainerDiskSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ContainerDiskSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

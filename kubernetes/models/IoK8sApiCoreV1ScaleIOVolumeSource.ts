@@ -92,7 +92,7 @@ export function IoK8sApiCoreV1ScaleIOVolumeSourceFromJSON(json: any): IoK8sApiCo
     return IoK8sApiCoreV1ScaleIOVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ScaleIOVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ScaleIOVolumeSource {
+export function IoK8sApiCoreV1ScaleIOVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ScaleIOVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

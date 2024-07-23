@@ -55,7 +55,7 @@ export function IoK8sApiCoreV1ConfigMapNodeConfigSourceFromJSON(json: any): IoK8
     return IoK8sApiCoreV1ConfigMapNodeConfigSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ConfigMapNodeConfigSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ConfigMapNodeConfigSource {
+export function IoK8sApiCoreV1ConfigMapNodeConfigSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ConfigMapNodeConfigSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

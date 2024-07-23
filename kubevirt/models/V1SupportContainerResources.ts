@@ -44,7 +44,7 @@ export function V1SupportContainerResourcesFromJSON(json: any): V1SupportContain
     return V1SupportContainerResourcesFromJSONTyped(json, false);
 }
 
-export function V1SupportContainerResourcesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SupportContainerResources {
+export function V1SupportContainerResourcesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SupportContainerResources {
     if ((json === undefined) || (json === null)) {
         return json;
     }

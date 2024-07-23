@@ -38,7 +38,7 @@ export function IoK8sApiDiscoveryV1EndpointHintsFromJSON(json: any): IoK8sApiDis
     return IoK8sApiDiscoveryV1EndpointHintsFromJSONTyped(json, false);
 }
 
-export function IoK8sApiDiscoveryV1EndpointHintsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiDiscoveryV1EndpointHints {
+export function IoK8sApiDiscoveryV1EndpointHintsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiDiscoveryV1EndpointHints {
     if ((json === undefined) || (json === null)) {
         return json;
     }

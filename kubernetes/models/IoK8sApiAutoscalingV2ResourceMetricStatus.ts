@@ -44,7 +44,7 @@ export function IoK8sApiAutoscalingV2ResourceMetricStatusFromJSON(json: any): Io
     return IoK8sApiAutoscalingV2ResourceMetricStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAutoscalingV2ResourceMetricStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2ResourceMetricStatus {
+export function IoK8sApiAutoscalingV2ResourceMetricStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2ResourceMetricStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

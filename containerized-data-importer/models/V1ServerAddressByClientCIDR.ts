@@ -37,7 +37,7 @@ export function V1ServerAddressByClientCIDRFromJSON(json: any): V1ServerAddressB
     return V1ServerAddressByClientCIDRFromJSONTyped(json, false);
 }
 
-export function V1ServerAddressByClientCIDRFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ServerAddressByClientCIDR {
+export function V1ServerAddressByClientCIDRFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ServerAddressByClientCIDR {
     if ((json === undefined) || (json === null)) {
         return json;
     }

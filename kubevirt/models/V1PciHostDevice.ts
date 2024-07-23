@@ -43,7 +43,7 @@ export function V1PciHostDeviceFromJSON(json: any): V1PciHostDevice {
     return V1PciHostDeviceFromJSONTyped(json, false);
 }
 
-export function V1PciHostDeviceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1PciHostDevice {
+export function V1PciHostDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PciHostDevice {
     if ((json === undefined) || (json === null)) {
         return json;
     }

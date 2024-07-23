@@ -79,7 +79,7 @@ export function V1LiveUpdateConfigurationFromJSON(json: any): V1LiveUpdateConfig
     return V1LiveUpdateConfigurationFromJSONTyped(json, false);
 }
 
-export function V1LiveUpdateConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1LiveUpdateConfiguration {
+export function V1LiveUpdateConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1LiveUpdateConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

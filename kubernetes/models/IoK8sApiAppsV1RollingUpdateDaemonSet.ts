@@ -37,7 +37,7 @@ export function IoK8sApiAppsV1RollingUpdateDaemonSetFromJSON(json: any): IoK8sAp
     return IoK8sApiAppsV1RollingUpdateDaemonSetFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1RollingUpdateDaemonSetFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1RollingUpdateDaemonSet {
+export function IoK8sApiAppsV1RollingUpdateDaemonSetFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1RollingUpdateDaemonSet {
     if ((json === undefined) || (json === null)) {
         return json;
     }

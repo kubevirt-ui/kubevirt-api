@@ -70,7 +70,7 @@ export function V1alpha1VirtualMachinePoolFromJSON(json: any): V1alpha1VirtualMa
     return V1alpha1VirtualMachinePoolFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachinePoolFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VirtualMachinePool {
+export function V1alpha1VirtualMachinePoolFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachinePool {
     if ((json === undefined) || (json === null)) {
         return json;
     }

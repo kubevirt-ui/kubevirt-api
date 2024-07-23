@@ -56,7 +56,7 @@ export function V1VirtualMachineInstanceReplicaSetStatusFromJSON(json: any): V1V
     return V1VirtualMachineInstanceReplicaSetStatusFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceReplicaSetStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceReplicaSetStatus {
+export function V1VirtualMachineInstanceReplicaSetStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceReplicaSetStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

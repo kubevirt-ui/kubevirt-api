@@ -44,7 +44,7 @@ export function IoK8sApiCoreV1LifecycleFromJSON(json: any): IoK8sApiCoreV1Lifecy
     return IoK8sApiCoreV1LifecycleFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1LifecycleFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1Lifecycle {
+export function IoK8sApiCoreV1LifecycleFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1Lifecycle {
     if ((json === undefined) || (json === null)) {
         return json;
     }

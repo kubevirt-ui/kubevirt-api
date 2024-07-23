@@ -43,7 +43,7 @@ export function V1FlagsFromJSON(json: any): V1Flags {
     return V1FlagsFromJSONTyped(json, false);
 }
 
-export function V1FlagsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Flags {
+export function V1FlagsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Flags {
     if ((json === undefined) || (json === null)) {
         return json;
     }

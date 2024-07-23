@@ -72,7 +72,7 @@ export function V1APIGroupFromJSON(json: any): V1APIGroup {
     return V1APIGroupFromJSONTyped(json, false);
 }
 
-export function V1APIGroupFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1APIGroup {
+export function V1APIGroupFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1APIGroup {
     if ((json === undefined) || (json === null)) {
         return json;
     }

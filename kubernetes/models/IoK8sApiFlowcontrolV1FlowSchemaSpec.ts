@@ -64,7 +64,7 @@ export function IoK8sApiFlowcontrolV1FlowSchemaSpecFromJSON(json: any): IoK8sApi
     return IoK8sApiFlowcontrolV1FlowSchemaSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1FlowSchemaSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1FlowSchemaSpec {
+export function IoK8sApiFlowcontrolV1FlowSchemaSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1FlowSchemaSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

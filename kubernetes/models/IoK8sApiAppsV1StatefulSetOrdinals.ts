@@ -34,7 +34,7 @@ export function IoK8sApiAppsV1StatefulSetOrdinalsFromJSON(json: any): IoK8sApiAp
     return IoK8sApiAppsV1StatefulSetOrdinalsFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1StatefulSetOrdinalsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1StatefulSetOrdinals {
+export function IoK8sApiAppsV1StatefulSetOrdinalsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1StatefulSetOrdinals {
     if ((json === undefined) || (json === null)) {
         return json;
     }

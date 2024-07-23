@@ -43,7 +43,7 @@ export function IoK8sApiCoreV1GlusterfsVolumeSourceFromJSON(json: any): IoK8sApi
     return IoK8sApiCoreV1GlusterfsVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1GlusterfsVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1GlusterfsVolumeSource {
+export function IoK8sApiCoreV1GlusterfsVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1GlusterfsVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

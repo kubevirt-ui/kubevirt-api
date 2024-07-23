@@ -51,7 +51,7 @@ export function IoK8sApiCoreV1AWSElasticBlockStoreVolumeSourceFromJSON(json: any
     return IoK8sApiCoreV1AWSElasticBlockStoreVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1AWSElasticBlockStoreVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1AWSElasticBlockStoreVolumeSource {
+export function IoK8sApiCoreV1AWSElasticBlockStoreVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1AWSElasticBlockStoreVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

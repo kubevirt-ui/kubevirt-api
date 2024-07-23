@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1VolumeResourceRequirementsFromJSON(json: any): IoK
     return IoK8sApiCoreV1VolumeResourceRequirementsFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1VolumeResourceRequirementsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1VolumeResourceRequirements {
+export function IoK8sApiCoreV1VolumeResourceRequirementsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1VolumeResourceRequirements {
     if ((json === undefined) || (json === null)) {
         return json;
     }

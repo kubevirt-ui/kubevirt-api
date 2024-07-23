@@ -72,7 +72,7 @@ export function K8sIoApimachineryPkgApisMetaV1APIGroupFromJSON(json: any): K8sIo
     return K8sIoApimachineryPkgApisMetaV1APIGroupFromJSONTyped(json, false);
 }
 
-export function K8sIoApimachineryPkgApisMetaV1APIGroupFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1APIGroup {
+export function K8sIoApimachineryPkgApisMetaV1APIGroupFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1APIGroup {
     if ((json === undefined) || (json === null)) {
         return json;
     }

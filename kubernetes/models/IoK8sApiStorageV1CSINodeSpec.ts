@@ -38,7 +38,7 @@ export function IoK8sApiStorageV1CSINodeSpecFromJSON(json: any): IoK8sApiStorage
     return IoK8sApiStorageV1CSINodeSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiStorageV1CSINodeSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiStorageV1CSINodeSpec {
+export function IoK8sApiStorageV1CSINodeSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiStorageV1CSINodeSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

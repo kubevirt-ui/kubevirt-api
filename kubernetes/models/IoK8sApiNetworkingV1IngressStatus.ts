@@ -38,7 +38,7 @@ export function IoK8sApiNetworkingV1IngressStatusFromJSON(json: any): IoK8sApiNe
     return IoK8sApiNetworkingV1IngressStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1IngressStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressStatus {
+export function IoK8sApiNetworkingV1IngressStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

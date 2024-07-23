@@ -180,7 +180,7 @@ export function V1VolumeFromJSON(json: any): V1Volume {
     return V1VolumeFromJSONTyped(json, false);
 }
 
-export function V1VolumeFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Volume {
+export function V1VolumeFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Volume {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -78,7 +78,7 @@ export function IoK8sApiCoreV1VolumeProjectionFromJSON(json: any): IoK8sApiCoreV
     return IoK8sApiCoreV1VolumeProjectionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1VolumeProjectionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1VolumeProjection {
+export function IoK8sApiCoreV1VolumeProjectionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1VolumeProjection {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1TCPSocketActionFromJSON(json: any): IoK8sApiCoreV1
     return IoK8sApiCoreV1TCPSocketActionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1TCPSocketActionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1TCPSocketAction {
+export function IoK8sApiCoreV1TCPSocketActionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1TCPSocketAction {
     if ((json === undefined) || (json === null)) {
         return json;
     }

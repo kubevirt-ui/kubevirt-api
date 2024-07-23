@@ -49,7 +49,7 @@ export function IoK8sApiAuthenticationV1UserInfoFromJSON(json: any): IoK8sApiAut
     return IoK8sApiAuthenticationV1UserInfoFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAuthenticationV1UserInfoFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1UserInfo {
+export function IoK8sApiAuthenticationV1UserInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1UserInfo {
     if ((json === undefined) || (json === null)) {
         return json;
     }

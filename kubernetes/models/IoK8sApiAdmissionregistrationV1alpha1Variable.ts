@@ -37,7 +37,7 @@ export function IoK8sApiAdmissionregistrationV1alpha1VariableFromJSON(json: any)
     return IoK8sApiAdmissionregistrationV1alpha1VariableFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAdmissionregistrationV1alpha1VariableFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1Variable {
+export function IoK8sApiAdmissionregistrationV1alpha1VariableFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1Variable {
     if ((json === undefined) || (json === null)) {
         return json;
     }

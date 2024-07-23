@@ -60,7 +60,7 @@ export function IoK8sApiCoreV1ReplicationControllerListFromJSON(json: any): IoK8
     return IoK8sApiCoreV1ReplicationControllerListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ReplicationControllerListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ReplicationControllerList {
+export function IoK8sApiCoreV1ReplicationControllerListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ReplicationControllerList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

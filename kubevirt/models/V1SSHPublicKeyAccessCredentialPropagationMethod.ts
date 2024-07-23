@@ -50,7 +50,7 @@ export function V1SSHPublicKeyAccessCredentialPropagationMethodFromJSON(json: an
     return V1SSHPublicKeyAccessCredentialPropagationMethodFromJSONTyped(json, false);
 }
 
-export function V1SSHPublicKeyAccessCredentialPropagationMethodFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SSHPublicKeyAccessCredentialPropagationMethod {
+export function V1SSHPublicKeyAccessCredentialPropagationMethodFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SSHPublicKeyAccessCredentialPropagationMethod {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -48,7 +48,7 @@ export function V1beta1DataSourceStatusFromJSON(json: any): V1beta1DataSourceSta
     return V1beta1DataSourceStatusFromJSONTyped(json, false);
 }
 
-export function V1beta1DataSourceStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataSourceStatus {
+export function V1beta1DataSourceStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataSourceStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -70,7 +70,7 @@ export function V1beta1CDIFromJSON(json: any): V1beta1CDI {
     return V1beta1CDIFromJSONTyped(json, false);
 }
 
-export function V1beta1CDIFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1CDI {
+export function V1beta1CDIFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1CDI {
     if ((json === undefined) || (json === null)) {
         return json;
     }

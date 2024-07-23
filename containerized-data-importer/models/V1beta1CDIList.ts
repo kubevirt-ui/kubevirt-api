@@ -60,7 +60,7 @@ export function V1beta1CDIListFromJSON(json: any): V1beta1CDIList {
     return V1beta1CDIListFromJSONTyped(json, false);
 }
 
-export function V1beta1CDIListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1CDIList {
+export function V1beta1CDIListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1CDIList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

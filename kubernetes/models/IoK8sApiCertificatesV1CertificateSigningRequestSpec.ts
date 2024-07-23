@@ -117,7 +117,7 @@ export function IoK8sApiCertificatesV1CertificateSigningRequestSpecFromJSON(json
     return IoK8sApiCertificatesV1CertificateSigningRequestSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCertificatesV1CertificateSigningRequestSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCertificatesV1CertificateSigningRequestSpec {
+export function IoK8sApiCertificatesV1CertificateSigningRequestSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCertificatesV1CertificateSigningRequestSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

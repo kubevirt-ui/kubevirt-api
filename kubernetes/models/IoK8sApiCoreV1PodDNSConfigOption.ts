@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1PodDNSConfigOptionFromJSON(json: any): IoK8sApiCor
     return IoK8sApiCoreV1PodDNSConfigOptionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PodDNSConfigOptionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PodDNSConfigOption {
+export function IoK8sApiCoreV1PodDNSConfigOptionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PodDNSConfigOption {
     if ((json === undefined) || (json === null)) {
         return json;
     }

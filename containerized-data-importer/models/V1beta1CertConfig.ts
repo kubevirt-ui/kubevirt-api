@@ -37,7 +37,7 @@ export function V1beta1CertConfigFromJSON(json: any): V1beta1CertConfig {
     return V1beta1CertConfigFromJSONTyped(json, false);
 }
 
-export function V1beta1CertConfigFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1CertConfig {
+export function V1beta1CertConfigFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1CertConfig {
     if ((json === undefined) || (json === null)) {
         return json;
     }

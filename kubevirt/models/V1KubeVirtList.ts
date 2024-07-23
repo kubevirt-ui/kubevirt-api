@@ -60,7 +60,7 @@ export function V1KubeVirtListFromJSON(json: any): V1KubeVirtList {
     return V1KubeVirtListFromJSONTyped(json, false);
 }
 
-export function V1KubeVirtListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KubeVirtList {
+export function V1KubeVirtListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KubeVirtList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

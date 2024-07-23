@@ -74,7 +74,7 @@ export function IoK8sApiCoreV1SecretFromJSON(json: any): IoK8sApiCoreV1Secret {
     return IoK8sApiCoreV1SecretFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1SecretFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1Secret {
+export function IoK8sApiCoreV1SecretFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1Secret {
     if ((json === undefined) || (json === null)) {
         return json;
     }

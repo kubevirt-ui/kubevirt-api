@@ -92,7 +92,7 @@ export function IoK8sApiCoreV1CSIPersistentVolumeSourceFromJSON(json: any): IoK8
     return IoK8sApiCoreV1CSIPersistentVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1CSIPersistentVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1CSIPersistentVolumeSource {
+export function IoK8sApiCoreV1CSIPersistentVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1CSIPersistentVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

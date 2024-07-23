@@ -60,7 +60,7 @@ export function IoK8sApiRbacV1RoleBindingListFromJSON(json: any): IoK8sApiRbacV1
     return IoK8sApiRbacV1RoleBindingListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiRbacV1RoleBindingListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiRbacV1RoleBindingList {
+export function IoK8sApiRbacV1RoleBindingListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiRbacV1RoleBindingList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -68,14 +68,14 @@ export function V1alpha1VirtualMachineCloneStatusFromJSON(json: any): V1alpha1Vi
     return V1alpha1VirtualMachineCloneStatusFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachineCloneStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VirtualMachineCloneStatus {
+export function V1alpha1VirtualMachineCloneStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachineCloneStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
         'conditions': !exists(json, 'conditions') ? undefined : ((json['conditions'] as Array<any>).map(V1alpha1ConditionFromJSON)),
-        'creationTime': !exists(json, 'creationTime') ? undefined : ((json['creationTime'])),
+        'creationTime': !exists(json, 'creationTime') ? undefined : (new Date(json['creationTime'])),
         'phase': !exists(json, 'phase') ? undefined : json['phase'],
         'restoreName': !exists(json, 'restoreName') ? undefined : json['restoreName'],
         'snapshotName': !exists(json, 'snapshotName') ? undefined : json['snapshotName'],
@@ -93,7 +93,7 @@ export function V1alpha1VirtualMachineCloneStatusToJSON(value?: V1alpha1VirtualM
     return {
         
         'conditions': value.conditions === undefined ? undefined : ((value.conditions as Array<any>).map(V1alpha1ConditionToJSON)),
-        'creationTime': value.creationTime === undefined ? undefined : (value.creationTime),
+        'creationTime': value.creationTime === undefined ? undefined : (value.creationTime.toISOString()),
         'phase': value.phase,
         'restoreName': value.restoreName,
         'snapshotName': value.snapshotName,

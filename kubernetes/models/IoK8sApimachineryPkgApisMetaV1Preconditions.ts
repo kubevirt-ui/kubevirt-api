@@ -37,7 +37,7 @@ export function IoK8sApimachineryPkgApisMetaV1PreconditionsFromJSON(json: any): 
     return IoK8sApimachineryPkgApisMetaV1PreconditionsFromJSONTyped(json, false);
 }
 
-export function IoK8sApimachineryPkgApisMetaV1PreconditionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1Preconditions {
+export function IoK8sApimachineryPkgApisMetaV1PreconditionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1Preconditions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

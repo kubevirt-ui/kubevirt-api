@@ -31,7 +31,7 @@ export function V1HypervTimerFromJSON(json: any): V1HypervTimer {
     return V1HypervTimerFromJSONTyped(json, false);
 }
 
-export function V1HypervTimerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1HypervTimer {
+export function V1HypervTimerFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1HypervTimer {
     if ((json === undefined) || (json === null)) {
         return json;
     }

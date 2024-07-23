@@ -37,7 +37,7 @@ export function V1GuestAgentCommandInfoFromJSON(json: any): V1GuestAgentCommandI
     return V1GuestAgentCommandInfoFromJSONTyped(json, false);
 }
 
-export function V1GuestAgentCommandInfoFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1GuestAgentCommandInfo {
+export function V1GuestAgentCommandInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1GuestAgentCommandInfo {
     if ((json === undefined) || (json === null)) {
         return json;
     }

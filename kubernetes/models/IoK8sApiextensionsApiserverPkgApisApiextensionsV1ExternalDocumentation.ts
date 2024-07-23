@@ -37,7 +37,7 @@ export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumen
     return IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentationFromJSONTyped(json, false);
 }
 
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentation {
+export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentationFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentation {
     if ((json === undefined) || (json === null)) {
         return json;
     }

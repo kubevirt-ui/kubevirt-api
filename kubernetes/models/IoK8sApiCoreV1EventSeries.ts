@@ -37,14 +37,14 @@ export function IoK8sApiCoreV1EventSeriesFromJSON(json: any): IoK8sApiCoreV1Even
     return IoK8sApiCoreV1EventSeriesFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1EventSeriesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1EventSeries {
+export function IoK8sApiCoreV1EventSeriesFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1EventSeries {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
         'count': !exists(json, 'count') ? undefined : json['count'],
-        'lastObservedTime': !exists(json, 'lastObservedTime') ? undefined : ((json['lastObservedTime'])),
+        'lastObservedTime': !exists(json, 'lastObservedTime') ? undefined : (new Date(json['lastObservedTime'])),
     };
 }
 
@@ -58,7 +58,7 @@ export function IoK8sApiCoreV1EventSeriesToJSON(value?: IoK8sApiCoreV1EventSerie
     return {
         
         'count': value.count,
-        'lastObservedTime': value.lastObservedTime === undefined ? undefined : (value.lastObservedTime),
+        'lastObservedTime': value.lastObservedTime === undefined ? undefined : (value.lastObservedTime.toISOString()),
     };
 }
 

@@ -60,7 +60,7 @@ export function IoK8sApiCoreV1ConfigMapListFromJSON(json: any): IoK8sApiCoreV1Co
     return IoK8sApiCoreV1ConfigMapListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ConfigMapListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ConfigMapList {
+export function IoK8sApiCoreV1ConfigMapListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ConfigMapList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

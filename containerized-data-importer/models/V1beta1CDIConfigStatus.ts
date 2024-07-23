@@ -86,7 +86,7 @@ export function V1beta1CDIConfigStatusFromJSON(json: any): V1beta1CDIConfigStatu
     return V1beta1CDIConfigStatusFromJSONTyped(json, false);
 }
 
-export function V1beta1CDIConfigStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1CDIConfigStatus {
+export function V1beta1CDIConfigStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1CDIConfigStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

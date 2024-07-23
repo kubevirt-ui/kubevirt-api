@@ -54,7 +54,7 @@ export function V1NetworkFromJSON(json: any): V1Network {
     return V1NetworkFromJSONTyped(json, false);
 }
 
-export function V1NetworkFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Network {
+export function V1NetworkFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Network {
     if ((json === undefined) || (json === null)) {
         return json;
     }

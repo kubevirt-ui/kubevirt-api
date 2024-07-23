@@ -53,7 +53,7 @@ export function V1beta1FirmwarePreferencesFromJSON(json: any): V1beta1FirmwarePr
     return V1beta1FirmwarePreferencesFromJSONTyped(json, false);
 }
 
-export function V1beta1FirmwarePreferencesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1FirmwarePreferences {
+export function V1beta1FirmwarePreferencesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1FirmwarePreferences {
     if ((json === undefined) || (json === null)) {
         return json;
     }

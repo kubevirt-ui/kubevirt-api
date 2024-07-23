@@ -67,19 +67,19 @@ export function V1VirtualMachineMemoryDumpRequestFromJSON(json: any): V1VirtualM
     return V1VirtualMachineMemoryDumpRequestFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineMemoryDumpRequestFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineMemoryDumpRequest {
+export function V1VirtualMachineMemoryDumpRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineMemoryDumpRequest {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
         'claimName': json['claimName'],
-        'endTimestamp': !exists(json, 'endTimestamp') ? undefined : ((json['endTimestamp'])),
+        'endTimestamp': !exists(json, 'endTimestamp') ? undefined : (new Date(json['endTimestamp'])),
         'fileName': !exists(json, 'fileName') ? undefined : json['fileName'],
         'message': !exists(json, 'message') ? undefined : json['message'],
         'phase': json['phase'],
         'remove': !exists(json, 'remove') ? undefined : json['remove'],
-        'startTimestamp': !exists(json, 'startTimestamp') ? undefined : ((json['startTimestamp'])),
+        'startTimestamp': !exists(json, 'startTimestamp') ? undefined : (new Date(json['startTimestamp'])),
     };
 }
 
@@ -93,12 +93,12 @@ export function V1VirtualMachineMemoryDumpRequestToJSON(value?: V1VirtualMachine
     return {
         
         'claimName': value.claimName,
-        'endTimestamp': value.endTimestamp === undefined ? undefined : (value.endTimestamp),
+        'endTimestamp': value.endTimestamp === undefined ? undefined : (value.endTimestamp.toISOString()),
         'fileName': value.fileName,
         'message': value.message,
         'phase': value.phase,
         'remove': value.remove,
-        'startTimestamp': value.startTimestamp === undefined ? undefined : (value.startTimestamp),
+        'startTimestamp': value.startTimestamp === undefined ? undefined : (value.startTimestamp.toISOString()),
     };
 }
 

@@ -49,7 +49,7 @@ export function IoK8sApiCoreV1WindowsSecurityContextOptionsFromJSON(json: any): 
     return IoK8sApiCoreV1WindowsSecurityContextOptionsFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1WindowsSecurityContextOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1WindowsSecurityContextOptions {
+export function IoK8sApiCoreV1WindowsSecurityContextOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1WindowsSecurityContextOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

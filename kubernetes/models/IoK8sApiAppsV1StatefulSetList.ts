@@ -60,7 +60,7 @@ export function IoK8sApiAppsV1StatefulSetListFromJSON(json: any): IoK8sApiAppsV1
     return IoK8sApiAppsV1StatefulSetListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1StatefulSetListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1StatefulSetList {
+export function IoK8sApiAppsV1StatefulSetListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1StatefulSetList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

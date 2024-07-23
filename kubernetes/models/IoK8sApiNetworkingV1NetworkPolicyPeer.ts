@@ -54,7 +54,7 @@ export function IoK8sApiNetworkingV1NetworkPolicyPeerFromJSON(json: any): IoK8sA
     return IoK8sApiNetworkingV1NetworkPolicyPeerFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1NetworkPolicyPeerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1NetworkPolicyPeer {
+export function IoK8sApiNetworkingV1NetworkPolicyPeerFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1NetworkPolicyPeer {
     if ((json === undefined) || (json === null)) {
         return json;
     }

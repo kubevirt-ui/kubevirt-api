@@ -80,7 +80,7 @@ export function V1beta1FeaturePreferencesFromJSON(json: any): V1beta1FeaturePref
     return V1beta1FeaturePreferencesFromJSONTyped(json, false);
 }
 
-export function V1beta1FeaturePreferencesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1FeaturePreferences {
+export function V1beta1FeaturePreferencesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1FeaturePreferences {
     if ((json === undefined) || (json === null)) {
         return json;
     }

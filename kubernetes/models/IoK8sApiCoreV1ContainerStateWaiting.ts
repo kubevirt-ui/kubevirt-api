@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1ContainerStateWaitingFromJSON(json: any): IoK8sApi
     return IoK8sApiCoreV1ContainerStateWaitingFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ContainerStateWaitingFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ContainerStateWaiting {
+export function IoK8sApiCoreV1ContainerStateWaitingFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ContainerStateWaiting {
     if ((json === undefined) || (json === null)) {
         return json;
     }

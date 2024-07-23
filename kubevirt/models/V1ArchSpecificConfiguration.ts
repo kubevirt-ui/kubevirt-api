@@ -43,7 +43,7 @@ export function V1ArchSpecificConfigurationFromJSON(json: any): V1ArchSpecificCo
     return V1ArchSpecificConfigurationFromJSONTyped(json, false);
 }
 
-export function V1ArchSpecificConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ArchSpecificConfiguration {
+export function V1ArchSpecificConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ArchSpecificConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

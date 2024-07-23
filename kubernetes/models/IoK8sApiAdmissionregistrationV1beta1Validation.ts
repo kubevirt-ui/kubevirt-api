@@ -74,7 +74,7 @@ export function IoK8sApiAdmissionregistrationV1beta1ValidationFromJSON(json: any
     return IoK8sApiAdmissionregistrationV1beta1ValidationFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAdmissionregistrationV1beta1ValidationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1beta1Validation {
+export function IoK8sApiAdmissionregistrationV1beta1ValidationFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1beta1Validation {
     if ((json === undefined) || (json === null)) {
         return json;
     }

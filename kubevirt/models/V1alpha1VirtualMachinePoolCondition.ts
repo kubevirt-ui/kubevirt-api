@@ -49,7 +49,7 @@ export function V1alpha1VirtualMachinePoolConditionFromJSON(json: any): V1alpha1
     return V1alpha1VirtualMachinePoolConditionFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachinePoolConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VirtualMachinePoolCondition {
+export function V1alpha1VirtualMachinePoolConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachinePoolCondition {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -76,7 +76,7 @@ export function IoK8sApiNodeV1RuntimeClassFromJSON(json: any): IoK8sApiNodeV1Run
     return IoK8sApiNodeV1RuntimeClassFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNodeV1RuntimeClassFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNodeV1RuntimeClass {
+export function IoK8sApiNodeV1RuntimeClassFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNodeV1RuntimeClass {
     if ((json === undefined) || (json === null)) {
         return json;
     }

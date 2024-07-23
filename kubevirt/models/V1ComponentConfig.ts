@@ -44,7 +44,7 @@ export function V1ComponentConfigFromJSON(json: any): V1ComponentConfig {
     return V1ComponentConfigFromJSONTyped(json, false);
 }
 
-export function V1ComponentConfigFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ComponentConfig {
+export function V1ComponentConfigFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ComponentConfig {
     if ((json === undefined) || (json === null)) {
         return json;
     }

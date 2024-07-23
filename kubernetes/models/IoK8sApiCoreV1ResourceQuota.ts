@@ -70,7 +70,7 @@ export function IoK8sApiCoreV1ResourceQuotaFromJSON(json: any): IoK8sApiCoreV1Re
     return IoK8sApiCoreV1ResourceQuotaFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ResourceQuotaFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ResourceQuota {
+export function IoK8sApiCoreV1ResourceQuotaFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ResourceQuota {
     if ((json === undefined) || (json === null)) {
         return json;
     }

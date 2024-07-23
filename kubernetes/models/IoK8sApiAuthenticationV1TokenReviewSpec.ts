@@ -37,7 +37,7 @@ export function IoK8sApiAuthenticationV1TokenReviewSpecFromJSON(json: any): IoK8
     return IoK8sApiAuthenticationV1TokenReviewSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAuthenticationV1TokenReviewSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1TokenReviewSpec {
+export function IoK8sApiAuthenticationV1TokenReviewSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1TokenReviewSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

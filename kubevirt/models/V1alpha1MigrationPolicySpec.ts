@@ -98,7 +98,7 @@ export function V1alpha1MigrationPolicySpecFromJSON(json: any): V1alpha1Migratio
     return V1alpha1MigrationPolicySpecFromJSONTyped(json, false);
 }
 
-export function V1alpha1MigrationPolicySpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1MigrationPolicySpec {
+export function V1alpha1MigrationPolicySpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1MigrationPolicySpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

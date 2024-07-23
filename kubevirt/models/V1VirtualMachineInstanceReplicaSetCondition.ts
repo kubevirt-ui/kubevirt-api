@@ -49,7 +49,7 @@ export function V1VirtualMachineInstanceReplicaSetConditionFromJSON(json: any): 
     return V1VirtualMachineInstanceReplicaSetConditionFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceReplicaSetConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceReplicaSetCondition {
+export function V1VirtualMachineInstanceReplicaSetConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceReplicaSetCondition {
     if ((json === undefined) || (json === null)) {
         return json;
     }

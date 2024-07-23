@@ -70,7 +70,7 @@ export function V1KubeVirtFromJSON(json: any): V1KubeVirt {
     return V1KubeVirtFromJSONTyped(json, false);
 }
 
-export function V1KubeVirtFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KubeVirt {
+export function V1KubeVirtFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KubeVirt {
     if ((json === undefined) || (json === null)) {
         return json;
     }

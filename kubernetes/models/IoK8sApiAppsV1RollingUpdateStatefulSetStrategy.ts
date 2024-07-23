@@ -37,7 +37,7 @@ export function IoK8sApiAppsV1RollingUpdateStatefulSetStrategyFromJSON(json: any
     return IoK8sApiAppsV1RollingUpdateStatefulSetStrategyFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1RollingUpdateStatefulSetStrategyFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1RollingUpdateStatefulSetStrategy {
+export function IoK8sApiAppsV1RollingUpdateStatefulSetStrategyFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1RollingUpdateStatefulSetStrategy {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -70,7 +70,7 @@ export function IoK8sApiAppsV1ReplicaSetFromJSON(json: any): IoK8sApiAppsV1Repli
     return IoK8sApiAppsV1ReplicaSetFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1ReplicaSetFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1ReplicaSet {
+export function IoK8sApiAppsV1ReplicaSetFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1ReplicaSet {
     if ((json === undefined) || (json === null)) {
         return json;
     }

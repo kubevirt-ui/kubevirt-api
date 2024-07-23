@@ -60,7 +60,7 @@ export function IoK8sApiAuthenticationV1alpha1SelfSubjectReviewFromJSON(json: an
     return IoK8sApiAuthenticationV1alpha1SelfSubjectReviewFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAuthenticationV1alpha1SelfSubjectReviewFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1alpha1SelfSubjectReview {
+export function IoK8sApiAuthenticationV1alpha1SelfSubjectReviewFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1alpha1SelfSubjectReview {
     if ((json === undefined) || (json === null)) {
         return json;
     }

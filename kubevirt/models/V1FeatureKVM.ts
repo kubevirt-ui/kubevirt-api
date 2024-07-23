@@ -31,7 +31,7 @@ export function V1FeatureKVMFromJSON(json: any): V1FeatureKVM {
     return V1FeatureKVMFromJSONTyped(json, false);
 }
 
-export function V1FeatureKVMFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1FeatureKVM {
+export function V1FeatureKVMFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1FeatureKVM {
     if ((json === undefined) || (json === null)) {
         return json;
     }

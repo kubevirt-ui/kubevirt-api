@@ -45,7 +45,7 @@ export function IoK8sApiCoreV1GitRepoVolumeSourceFromJSON(json: any): IoK8sApiCo
     return IoK8sApiCoreV1GitRepoVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1GitRepoVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1GitRepoVolumeSource {
+export function IoK8sApiCoreV1GitRepoVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1GitRepoVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

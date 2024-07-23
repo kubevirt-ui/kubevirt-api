@@ -55,13 +55,13 @@ export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceD
     return IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionConditionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionCondition {
+export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionCondition {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : ((json['lastTransitionTime'])),
+        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : (new Date(json['lastTransitionTime'])),
         'message': !exists(json, 'message') ? undefined : json['message'],
         'reason': !exists(json, 'reason') ? undefined : json['reason'],
         'status': json['status'],
@@ -78,7 +78,7 @@ export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceD
     }
     return {
         
-        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime),
+        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime.toISOString()),
         'message': value.message,
         'reason': value.reason,
         'status': value.status,

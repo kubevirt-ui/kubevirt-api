@@ -37,7 +37,7 @@ export function IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSON(j
     return IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSONTyped(json, false);
 }
 
-export function IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscovery {
+export function IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscovery {
     if ((json === undefined) || (json === null)) {
         return json;
     }

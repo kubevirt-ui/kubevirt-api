@@ -44,7 +44,7 @@ export function IoK8sApiCoreV1NamespaceStatusFromJSON(json: any): IoK8sApiCoreV1
     return IoK8sApiCoreV1NamespaceStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1NamespaceStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1NamespaceStatus {
+export function IoK8sApiCoreV1NamespaceStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1NamespaceStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

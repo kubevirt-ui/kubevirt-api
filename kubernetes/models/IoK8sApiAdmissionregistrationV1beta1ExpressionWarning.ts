@@ -37,7 +37,7 @@ export function IoK8sApiAdmissionregistrationV1beta1ExpressionWarningFromJSON(js
     return IoK8sApiAdmissionregistrationV1beta1ExpressionWarningFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAdmissionregistrationV1beta1ExpressionWarningFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1beta1ExpressionWarning {
+export function IoK8sApiAdmissionregistrationV1beta1ExpressionWarningFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1beta1ExpressionWarning {
     if ((json === undefined) || (json === null)) {
         return json;
     }

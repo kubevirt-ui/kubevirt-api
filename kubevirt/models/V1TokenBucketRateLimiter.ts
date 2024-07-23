@@ -37,7 +37,7 @@ export function V1TokenBucketRateLimiterFromJSON(json: any): V1TokenBucketRateLi
     return V1TokenBucketRateLimiterFromJSONTyped(json, false);
 }
 
-export function V1TokenBucketRateLimiterFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1TokenBucketRateLimiter {
+export function V1TokenBucketRateLimiterFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1TokenBucketRateLimiter {
     if ((json === undefined) || (json === null)) {
         return json;
     }

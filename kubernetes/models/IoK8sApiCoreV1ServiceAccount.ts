@@ -76,7 +76,7 @@ export function IoK8sApiCoreV1ServiceAccountFromJSON(json: any): IoK8sApiCoreV1S
     return IoK8sApiCoreV1ServiceAccountFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ServiceAccountFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ServiceAccount {
+export function IoK8sApiCoreV1ServiceAccountFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ServiceAccount {
     if ((json === undefined) || (json === null)) {
         return json;
     }

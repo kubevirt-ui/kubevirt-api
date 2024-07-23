@@ -56,7 +56,7 @@ export function V1GPUFromJSON(json: any): V1GPU {
     return V1GPUFromJSONTyped(json, false);
 }
 
-export function V1GPUFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1GPU {
+export function V1GPUFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1GPU {
     if ((json === undefined) || (json === null)) {
         return json;
     }

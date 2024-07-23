@@ -43,7 +43,7 @@ export function IoK8sApiCoreV1TypedLocalObjectReferenceFromJSON(json: any): IoK8
     return IoK8sApiCoreV1TypedLocalObjectReferenceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1TypedLocalObjectReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1TypedLocalObjectReference {
+export function IoK8sApiCoreV1TypedLocalObjectReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1TypedLocalObjectReference {
     if ((json === undefined) || (json === null)) {
         return json;
     }

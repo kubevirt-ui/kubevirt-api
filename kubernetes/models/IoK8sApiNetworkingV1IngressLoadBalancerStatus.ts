@@ -38,7 +38,7 @@ export function IoK8sApiNetworkingV1IngressLoadBalancerStatusFromJSON(json: any)
     return IoK8sApiNetworkingV1IngressLoadBalancerStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1IngressLoadBalancerStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressLoadBalancerStatus {
+export function IoK8sApiNetworkingV1IngressLoadBalancerStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressLoadBalancerStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

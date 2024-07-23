@@ -44,7 +44,7 @@ export function IoK8sApiCoreV1PodResourceClaimFromJSON(json: any): IoK8sApiCoreV
     return IoK8sApiCoreV1PodResourceClaimFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PodResourceClaimFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PodResourceClaim {
+export function IoK8sApiCoreV1PodResourceClaimFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PodResourceClaim {
     if ((json === undefined) || (json === null)) {
         return json;
     }

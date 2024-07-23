@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1ContainerImageFromJSON(json: any): IoK8sApiCoreV1C
     return IoK8sApiCoreV1ContainerImageFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ContainerImageFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ContainerImage {
+export function IoK8sApiCoreV1ContainerImageFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ContainerImage {
     if ((json === undefined) || (json === null)) {
         return json;
     }

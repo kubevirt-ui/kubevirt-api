@@ -48,7 +48,7 @@ export function V1VirtualMachineInstancePresetSpecFromJSON(json: any): V1Virtual
     return V1VirtualMachineInstancePresetSpecFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstancePresetSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstancePresetSpec {
+export function V1VirtualMachineInstancePresetSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstancePresetSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

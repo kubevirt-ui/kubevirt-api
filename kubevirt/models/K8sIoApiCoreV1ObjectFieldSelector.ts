@@ -37,7 +37,7 @@ export function K8sIoApiCoreV1ObjectFieldSelectorFromJSON(json: any): K8sIoApiCo
     return K8sIoApiCoreV1ObjectFieldSelectorFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1ObjectFieldSelectorFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApiCoreV1ObjectFieldSelector {
+export function K8sIoApiCoreV1ObjectFieldSelectorFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1ObjectFieldSelector {
     if ((json === undefined) || (json === null)) {
         return json;
     }

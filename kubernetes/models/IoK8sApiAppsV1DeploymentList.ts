@@ -60,7 +60,7 @@ export function IoK8sApiAppsV1DeploymentListFromJSON(json: any): IoK8sApiAppsV1D
     return IoK8sApiAppsV1DeploymentListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1DeploymentListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1DeploymentList {
+export function IoK8sApiAppsV1DeploymentListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1DeploymentList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

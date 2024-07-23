@@ -85,7 +85,7 @@ export function IoK8sApiCoreV1NodeSystemInfoFromJSON(json: any): IoK8sApiCoreV1N
     return IoK8sApiCoreV1NodeSystemInfoFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1NodeSystemInfoFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeSystemInfo {
+export function IoK8sApiCoreV1NodeSystemInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeSystemInfo {
     if ((json === undefined) || (json === null)) {
         return json;
     }

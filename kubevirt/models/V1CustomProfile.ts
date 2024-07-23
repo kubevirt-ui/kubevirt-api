@@ -37,7 +37,7 @@ export function V1CustomProfileFromJSON(json: any): V1CustomProfile {
     return V1CustomProfileFromJSONTyped(json, false);
 }
 
-export function V1CustomProfileFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1CustomProfile {
+export function V1CustomProfileFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1CustomProfile {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -48,7 +48,7 @@ export function IoK8sApiCoreV1PodTemplateSpecFromJSON(json: any): IoK8sApiCoreV1
     return IoK8sApiCoreV1PodTemplateSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PodTemplateSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PodTemplateSpec {
+export function IoK8sApiCoreV1PodTemplateSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PodTemplateSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -64,7 +64,7 @@ export function K8sIoApiCoreV1NodeSelectorRequirementFromJSON(json: any): K8sIoA
     return K8sIoApiCoreV1NodeSelectorRequirementFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1NodeSelectorRequirementFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApiCoreV1NodeSelectorRequirement {
+export function K8sIoApiCoreV1NodeSelectorRequirementFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1NodeSelectorRequirement {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -37,7 +37,7 @@ export function V1FeatureSpinlocksFromJSON(json: any): V1FeatureSpinlocks {
     return V1FeatureSpinlocksFromJSONTyped(json, false);
 }
 
-export function V1FeatureSpinlocksFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1FeatureSpinlocks {
+export function V1FeatureSpinlocksFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1FeatureSpinlocks {
     if ((json === undefined) || (json === null)) {
         return json;
     }

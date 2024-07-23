@@ -31,7 +31,7 @@ export function V1NUMAFromJSON(json: any): V1NUMA {
     return V1NUMAFromJSONTyped(json, false);
 }
 
-export function V1NUMAFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1NUMA {
+export function V1NUMAFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1NUMA {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -62,7 +62,7 @@ export function V1KubeVirtSelfSignConfigurationFromJSON(json: any): V1KubeVirtSe
     return V1KubeVirtSelfSignConfigurationFromJSONTyped(json, false);
 }
 
-export function V1KubeVirtSelfSignConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KubeVirtSelfSignConfiguration {
+export function V1KubeVirtSelfSignConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KubeVirtSelfSignConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

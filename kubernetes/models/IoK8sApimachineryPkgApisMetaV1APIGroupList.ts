@@ -50,7 +50,7 @@ export function IoK8sApimachineryPkgApisMetaV1APIGroupListFromJSON(json: any): I
     return IoK8sApimachineryPkgApisMetaV1APIGroupListFromJSONTyped(json, false);
 }
 
-export function IoK8sApimachineryPkgApisMetaV1APIGroupListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1APIGroupList {
+export function IoK8sApimachineryPkgApisMetaV1APIGroupListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1APIGroupList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

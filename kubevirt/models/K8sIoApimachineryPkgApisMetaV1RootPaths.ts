@@ -31,7 +31,7 @@ export function K8sIoApimachineryPkgApisMetaV1RootPathsFromJSON(json: any): K8sI
     return K8sIoApimachineryPkgApisMetaV1RootPathsFromJSONTyped(json, false);
 }
 
-export function K8sIoApimachineryPkgApisMetaV1RootPathsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1RootPaths {
+export function K8sIoApimachineryPkgApisMetaV1RootPathsFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1RootPaths {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -43,7 +43,7 @@ export function IoK8sApiDiscoveryV1EndpointConditionsFromJSON(json: any): IoK8sA
     return IoK8sApiDiscoveryV1EndpointConditionsFromJSONTyped(json, false);
 }
 
-export function IoK8sApiDiscoveryV1EndpointConditionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiDiscoveryV1EndpointConditions {
+export function IoK8sApiDiscoveryV1EndpointConditionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiDiscoveryV1EndpointConditions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

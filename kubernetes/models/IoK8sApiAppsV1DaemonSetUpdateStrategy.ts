@@ -44,7 +44,7 @@ export function IoK8sApiAppsV1DaemonSetUpdateStrategyFromJSON(json: any): IoK8sA
     return IoK8sApiAppsV1DaemonSetUpdateStrategyFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1DaemonSetUpdateStrategyFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1DaemonSetUpdateStrategy {
+export function IoK8sApiAppsV1DaemonSetUpdateStrategyFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1DaemonSetUpdateStrategy {
     if ((json === undefined) || (json === null)) {
         return json;
     }

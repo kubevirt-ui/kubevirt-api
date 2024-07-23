@@ -84,7 +84,7 @@ export function V1StatusFromJSON(json: any): V1Status {
     return V1StatusFromJSONTyped(json, false);
 }
 
-export function V1StatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Status {
+export function V1StatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Status {
     if ((json === undefined) || (json === null)) {
         return json;
     }

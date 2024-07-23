@@ -70,7 +70,7 @@ export function V1VirtualMachineInstanceMigrationFromJSON(json: any): V1VirtualM
     return V1VirtualMachineInstanceMigrationFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceMigrationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigration {
+export function V1VirtualMachineInstanceMigrationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

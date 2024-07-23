@@ -64,7 +64,7 @@ export function V1NodeSelectorRequirementFromJSON(json: any): V1NodeSelectorRequ
     return V1NodeSelectorRequirementFromJSONTyped(json, false);
 }
 
-export function V1NodeSelectorRequirementFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1NodeSelectorRequirement {
+export function V1NodeSelectorRequirementFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1NodeSelectorRequirement {
     if ((json === undefined) || (json === null)) {
         return json;
     }

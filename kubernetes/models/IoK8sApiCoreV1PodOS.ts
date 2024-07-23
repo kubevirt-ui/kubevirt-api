@@ -31,7 +31,7 @@ export function IoK8sApiCoreV1PodOSFromJSON(json: any): IoK8sApiCoreV1PodOS {
     return IoK8sApiCoreV1PodOSFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PodOSFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PodOS {
+export function IoK8sApiCoreV1PodOSFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PodOS {
     if ((json === undefined) || (json === null)) {
         return json;
     }

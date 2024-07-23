@@ -73,7 +73,7 @@ export function V1SEVMeasurementInfoFromJSON(json: any): V1SEVMeasurementInfo {
     return V1SEVMeasurementInfoFromJSONTyped(json, false);
 }
 
-export function V1SEVMeasurementInfoFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SEVMeasurementInfo {
+export function V1SEVMeasurementInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SEVMeasurementInfo {
     if ((json === undefined) || (json === null)) {
         return json;
     }

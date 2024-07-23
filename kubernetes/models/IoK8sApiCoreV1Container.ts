@@ -212,7 +212,7 @@ export function IoK8sApiCoreV1ContainerFromJSON(json: any): IoK8sApiCoreV1Contai
     return IoK8sApiCoreV1ContainerFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ContainerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1Container {
+export function IoK8sApiCoreV1ContainerFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1Container {
     if ((json === undefined) || (json === null)) {
         return json;
     }

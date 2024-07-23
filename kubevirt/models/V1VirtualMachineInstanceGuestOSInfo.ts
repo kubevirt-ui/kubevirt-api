@@ -73,7 +73,7 @@ export function V1VirtualMachineInstanceGuestOSInfoFromJSON(json: any): V1Virtua
     return V1VirtualMachineInstanceGuestOSInfoFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceGuestOSInfoFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceGuestOSInfo {
+export function V1VirtualMachineInstanceGuestOSInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceGuestOSInfo {
     if ((json === undefined) || (json === null)) {
         return json;
     }

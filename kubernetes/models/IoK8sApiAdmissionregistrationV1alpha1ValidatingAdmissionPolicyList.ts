@@ -60,7 +60,7 @@ export function IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyLi
     return IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyList {
+export function IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

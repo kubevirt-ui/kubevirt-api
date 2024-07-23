@@ -43,7 +43,7 @@ export function V1beta1DataVolumeSourceRefFromJSON(json: any): V1beta1DataVolume
     return V1beta1DataVolumeSourceRefFromJSONTyped(json, false);
 }
 
-export function V1beta1DataVolumeSourceRefFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataVolumeSourceRef {
+export function V1beta1DataVolumeSourceRefFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataVolumeSourceRef {
     if ((json === undefined) || (json === null)) {
         return json;
     }

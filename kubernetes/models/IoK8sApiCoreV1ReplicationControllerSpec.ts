@@ -56,7 +56,7 @@ export function IoK8sApiCoreV1ReplicationControllerSpecFromJSON(json: any): IoK8
     return IoK8sApiCoreV1ReplicationControllerSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ReplicationControllerSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ReplicationControllerSpec {
+export function IoK8sApiCoreV1ReplicationControllerSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ReplicationControllerSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -55,7 +55,7 @@ export function V1beta1DataVolumeSourceRegistryFromJSON(json: any): V1beta1DataV
     return V1beta1DataVolumeSourceRegistryFromJSONTyped(json, false);
 }
 
-export function V1beta1DataVolumeSourceRegistryFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataVolumeSourceRegistry {
+export function V1beta1DataVolumeSourceRegistryFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataVolumeSourceRegistry {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -72,7 +72,7 @@ export function IoK8sApiStorageV1VolumeAttachmentFromJSON(json: any): IoK8sApiSt
     return IoK8sApiStorageV1VolumeAttachmentFromJSONTyped(json, false);
 }
 
-export function IoK8sApiStorageV1VolumeAttachmentFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiStorageV1VolumeAttachment {
+export function IoK8sApiStorageV1VolumeAttachmentFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiStorageV1VolumeAttachment {
     if ((json === undefined) || (json === null)) {
         return json;
     }

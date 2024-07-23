@@ -31,7 +31,7 @@ export function IoK8sApiAuthorizationV1SelfSubjectRulesReviewSpecFromJSON(json: 
     return IoK8sApiAuthorizationV1SelfSubjectRulesReviewSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAuthorizationV1SelfSubjectRulesReviewSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAuthorizationV1SelfSubjectRulesReviewSpec {
+export function IoK8sApiAuthorizationV1SelfSubjectRulesReviewSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAuthorizationV1SelfSubjectRulesReviewSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

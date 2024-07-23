@@ -37,7 +37,7 @@ export function IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyFro
     return IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicy {
+export function IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicy {
     if ((json === undefined) || (json === null)) {
         return json;
     }

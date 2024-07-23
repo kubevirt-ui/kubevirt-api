@@ -49,7 +49,7 @@ export function IoK8sApiCoreV1ComponentConditionFromJSON(json: any): IoK8sApiCor
     return IoK8sApiCoreV1ComponentConditionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ComponentConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ComponentCondition {
+export function IoK8sApiCoreV1ComponentConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ComponentCondition {
     if ((json === undefined) || (json === null)) {
         return json;
     }

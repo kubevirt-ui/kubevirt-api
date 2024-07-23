@@ -96,7 +96,7 @@ export function V1DeveloperConfigurationFromJSON(json: any): V1DeveloperConfigur
     return V1DeveloperConfigurationFromJSONTyped(json, false);
 }
 
-export function V1DeveloperConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1DeveloperConfiguration {
+export function V1DeveloperConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DeveloperConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

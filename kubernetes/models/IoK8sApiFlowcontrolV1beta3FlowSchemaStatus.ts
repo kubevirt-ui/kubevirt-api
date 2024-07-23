@@ -38,7 +38,7 @@ export function IoK8sApiFlowcontrolV1beta3FlowSchemaStatusFromJSON(json: any): I
     return IoK8sApiFlowcontrolV1beta3FlowSchemaStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1beta3FlowSchemaStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3FlowSchemaStatus {
+export function IoK8sApiFlowcontrolV1beta3FlowSchemaStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3FlowSchemaStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

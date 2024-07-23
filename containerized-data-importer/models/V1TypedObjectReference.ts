@@ -49,7 +49,7 @@ export function V1TypedObjectReferenceFromJSON(json: any): V1TypedObjectReferenc
     return V1TypedObjectReferenceFromJSONTyped(json, false);
 }
 
-export function V1TypedObjectReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1TypedObjectReference {
+export function V1TypedObjectReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1TypedObjectReference {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -146,7 +146,7 @@ export function IoK8sApiCoreV1EventFromJSON(json: any): IoK8sApiCoreV1Event {
     return IoK8sApiCoreV1EventFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1EventFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1Event {
+export function IoK8sApiCoreV1EventFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1Event {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -155,11 +155,11 @@ export function IoK8sApiCoreV1EventFromJSONTyped(json: any, _ignoreDiscriminator
         'action': !exists(json, 'action') ? undefined : json['action'],
         'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
         'count': !exists(json, 'count') ? undefined : json['count'],
-        'eventTime': !exists(json, 'eventTime') ? undefined : ((json['eventTime'])),
-        'firstTimestamp': !exists(json, 'firstTimestamp') ? undefined : ((json['firstTimestamp'])),
+        'eventTime': !exists(json, 'eventTime') ? undefined : (new Date(json['eventTime'])),
+        'firstTimestamp': !exists(json, 'firstTimestamp') ? undefined : (new Date(json['firstTimestamp'])),
         'involvedObject': IoK8sApiCoreV1ObjectReferenceFromJSON(json['involvedObject']),
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'lastTimestamp': !exists(json, 'lastTimestamp') ? undefined : ((json['lastTimestamp'])),
+        'lastTimestamp': !exists(json, 'lastTimestamp') ? undefined : (new Date(json['lastTimestamp'])),
         'message': !exists(json, 'message') ? undefined : json['message'],
         'metadata': IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
         'reason': !exists(json, 'reason') ? undefined : json['reason'],
@@ -184,11 +184,11 @@ export function IoK8sApiCoreV1EventToJSON(value?: IoK8sApiCoreV1Event | null): a
         'action': value.action,
         'apiVersion': value.apiVersion,
         'count': value.count,
-        'eventTime': value.eventTime === undefined ? undefined : (value.eventTime),
-        'firstTimestamp': value.firstTimestamp === undefined ? undefined : (value.firstTimestamp),
+        'eventTime': value.eventTime === undefined ? undefined : (value.eventTime.toISOString()),
+        'firstTimestamp': value.firstTimestamp === undefined ? undefined : (value.firstTimestamp.toISOString()),
         'involvedObject': IoK8sApiCoreV1ObjectReferenceToJSON(value.involvedObject),
         'kind': value.kind,
-        'lastTimestamp': value.lastTimestamp === undefined ? undefined : (value.lastTimestamp),
+        'lastTimestamp': value.lastTimestamp === undefined ? undefined : (value.lastTimestamp.toISOString()),
         'message': value.message,
         'metadata': IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
         'reason': value.reason,

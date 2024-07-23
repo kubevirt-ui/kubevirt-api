@@ -31,7 +31,7 @@ export function V1ContainerDiskInfoFromJSON(json: any): V1ContainerDiskInfo {
     return V1ContainerDiskInfoFromJSONTyped(json, false);
 }
 
-export function V1ContainerDiskInfoFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ContainerDiskInfo {
+export function V1ContainerDiskInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ContainerDiskInfo {
     if ((json === undefined) || (json === null)) {
         return json;
     }

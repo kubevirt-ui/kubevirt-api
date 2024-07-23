@@ -31,7 +31,7 @@ export function IoK8sApiCoreV1PodSchedulingGateFromJSON(json: any): IoK8sApiCore
     return IoK8sApiCoreV1PodSchedulingGateFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PodSchedulingGateFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PodSchedulingGate {
+export function IoK8sApiCoreV1PodSchedulingGateFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PodSchedulingGate {
     if ((json === undefined) || (json === null)) {
         return json;
     }

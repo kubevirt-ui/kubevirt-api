@@ -56,7 +56,7 @@ export function IoK8sApiCoreV1LoadBalancerIngressFromJSON(json: any): IoK8sApiCo
     return IoK8sApiCoreV1LoadBalancerIngressFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1LoadBalancerIngressFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1LoadBalancerIngress {
+export function IoK8sApiCoreV1LoadBalancerIngressFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1LoadBalancerIngress {
     if ((json === undefined) || (json === null)) {
         return json;
     }

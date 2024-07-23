@@ -48,7 +48,7 @@ export function IoK8sApiCoreV1PersistentVolumeClaimTemplateFromJSON(json: any): 
     return IoK8sApiCoreV1PersistentVolumeClaimTemplateFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PersistentVolumeClaimTemplateFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PersistentVolumeClaimTemplate {
+export function IoK8sApiCoreV1PersistentVolumeClaimTemplateFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PersistentVolumeClaimTemplate {
     if ((json === undefined) || (json === null)) {
         return json;
     }

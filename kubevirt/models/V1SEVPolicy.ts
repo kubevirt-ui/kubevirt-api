@@ -31,7 +31,7 @@ export function V1SEVPolicyFromJSON(json: any): V1SEVPolicy {
     return V1SEVPolicyFromJSONTyped(json, false);
 }
 
-export function V1SEVPolicyFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SEVPolicy {
+export function V1SEVPolicyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SEVPolicy {
     if ((json === undefined) || (json === null)) {
         return json;
     }

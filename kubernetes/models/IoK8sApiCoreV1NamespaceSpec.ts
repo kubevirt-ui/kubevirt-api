@@ -31,7 +31,7 @@ export function IoK8sApiCoreV1NamespaceSpecFromJSON(json: any): IoK8sApiCoreV1Na
     return IoK8sApiCoreV1NamespaceSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1NamespaceSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1NamespaceSpec {
+export function IoK8sApiCoreV1NamespaceSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1NamespaceSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

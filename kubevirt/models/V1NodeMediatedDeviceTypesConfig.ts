@@ -43,7 +43,7 @@ export function V1NodeMediatedDeviceTypesConfigFromJSON(json: any): V1NodeMediat
     return V1NodeMediatedDeviceTypesConfigFromJSONTyped(json, false);
 }
 
-export function V1NodeMediatedDeviceTypesConfigFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1NodeMediatedDeviceTypesConfig {
+export function V1NodeMediatedDeviceTypesConfigFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1NodeMediatedDeviceTypesConfig {
     if ((json === undefined) || (json === null)) {
         return json;
     }

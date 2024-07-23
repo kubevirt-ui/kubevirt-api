@@ -80,7 +80,7 @@ export function IoK8sApiAppsV1DeploymentStatusFromJSON(json: any): IoK8sApiAppsV
     return IoK8sApiAppsV1DeploymentStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1DeploymentStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1DeploymentStatus {
+export function IoK8sApiAppsV1DeploymentStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1DeploymentStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

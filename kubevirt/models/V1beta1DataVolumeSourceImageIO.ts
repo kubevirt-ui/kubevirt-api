@@ -49,7 +49,7 @@ export function V1beta1DataVolumeSourceImageIOFromJSON(json: any): V1beta1DataVo
     return V1beta1DataVolumeSourceImageIOFromJSONTyped(json, false);
 }
 
-export function V1beta1DataVolumeSourceImageIOFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataVolumeSourceImageIO {
+export function V1beta1DataVolumeSourceImageIOFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataVolumeSourceImageIO {
     if ((json === undefined) || (json === null)) {
         return json;
     }

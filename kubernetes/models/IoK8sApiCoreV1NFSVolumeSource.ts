@@ -43,7 +43,7 @@ export function IoK8sApiCoreV1NFSVolumeSourceFromJSON(json: any): IoK8sApiCoreV1
     return IoK8sApiCoreV1NFSVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1NFSVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1NFSVolumeSource {
+export function IoK8sApiCoreV1NFSVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1NFSVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

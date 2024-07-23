@@ -43,7 +43,7 @@ export function IoK8sApiCoreV1NodeSelectorRequirementFromJSON(json: any): IoK8sA
     return IoK8sApiCoreV1NodeSelectorRequirementFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1NodeSelectorRequirementFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeSelectorRequirement {
+export function IoK8sApiCoreV1NodeSelectorRequirementFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeSelectorRequirement {
     if ((json === undefined) || (json === null)) {
         return json;
     }

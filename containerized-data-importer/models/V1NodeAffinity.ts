@@ -48,7 +48,7 @@ export function V1NodeAffinityFromJSON(json: any): V1NodeAffinity {
     return V1NodeAffinityFromJSONTyped(json, false);
 }
 
-export function V1NodeAffinityFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1NodeAffinity {
+export function V1NodeAffinityFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1NodeAffinity {
     if ((json === undefined) || (json === null)) {
         return json;
     }

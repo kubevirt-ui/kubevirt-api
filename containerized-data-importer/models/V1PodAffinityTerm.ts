@@ -56,7 +56,7 @@ export function V1PodAffinityTermFromJSON(json: any): V1PodAffinityTerm {
     return V1PodAffinityTermFromJSONTyped(json, false);
 }
 
-export function V1PodAffinityTermFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1PodAffinityTerm {
+export function V1PodAffinityTermFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PodAffinityTerm {
     if ((json === undefined) || (json === null)) {
         return json;
     }

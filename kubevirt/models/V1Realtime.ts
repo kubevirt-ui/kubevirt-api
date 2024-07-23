@@ -31,7 +31,7 @@ export function V1RealtimeFromJSON(json: any): V1Realtime {
     return V1RealtimeFromJSONTyped(json, false);
 }
 
-export function V1RealtimeFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Realtime {
+export function V1RealtimeFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Realtime {
     if ((json === undefined) || (json === null)) {
         return json;
     }

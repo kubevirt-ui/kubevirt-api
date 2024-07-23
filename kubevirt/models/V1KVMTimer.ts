@@ -31,7 +31,7 @@ export function V1KVMTimerFromJSON(json: any): V1KVMTimer {
     return V1KVMTimerFromJSONTyped(json, false);
 }
 
-export function V1KVMTimerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KVMTimer {
+export function V1KVMTimerFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KVMTimer {
     if ((json === undefined) || (json === null)) {
         return json;
     }

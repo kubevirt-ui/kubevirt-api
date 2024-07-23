@@ -38,7 +38,7 @@ export function IoK8sApiCoreV1NodeDaemonEndpointsFromJSON(json: any): IoK8sApiCo
     return IoK8sApiCoreV1NodeDaemonEndpointsFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1NodeDaemonEndpointsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeDaemonEndpoints {
+export function IoK8sApiCoreV1NodeDaemonEndpointsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeDaemonEndpoints {
     if ((json === undefined) || (json === null)) {
         return json;
     }

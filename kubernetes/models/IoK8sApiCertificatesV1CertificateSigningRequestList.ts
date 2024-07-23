@@ -60,7 +60,7 @@ export function IoK8sApiCertificatesV1CertificateSigningRequestListFromJSON(json
     return IoK8sApiCertificatesV1CertificateSigningRequestListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCertificatesV1CertificateSigningRequestListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCertificatesV1CertificateSigningRequestList {
+export function IoK8sApiCertificatesV1CertificateSigningRequestListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCertificatesV1CertificateSigningRequestList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

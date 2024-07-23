@@ -60,7 +60,7 @@ export function IoK8sApiEventsV1EventListFromJSON(json: any): IoK8sApiEventsV1Ev
     return IoK8sApiEventsV1EventListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiEventsV1EventListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiEventsV1EventList {
+export function IoK8sApiEventsV1EventListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiEventsV1EventList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

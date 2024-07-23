@@ -37,7 +37,7 @@ export function IoK8sApiBatchV1UncountedTerminatedPodsFromJSON(json: any): IoK8s
     return IoK8sApiBatchV1UncountedTerminatedPodsFromJSONTyped(json, false);
 }
 
-export function IoK8sApiBatchV1UncountedTerminatedPodsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiBatchV1UncountedTerminatedPods {
+export function IoK8sApiBatchV1UncountedTerminatedPodsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiBatchV1UncountedTerminatedPods {
     if ((json === undefined) || (json === null)) {
         return json;
     }

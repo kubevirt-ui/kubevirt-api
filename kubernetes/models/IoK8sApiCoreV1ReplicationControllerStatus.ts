@@ -68,7 +68,7 @@ export function IoK8sApiCoreV1ReplicationControllerStatusFromJSON(json: any): Io
     return IoK8sApiCoreV1ReplicationControllerStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ReplicationControllerStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ReplicationControllerStatus {
+export function IoK8sApiCoreV1ReplicationControllerStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ReplicationControllerStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

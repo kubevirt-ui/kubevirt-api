@@ -37,7 +37,7 @@ export function V1CustomBlockSizeFromJSON(json: any): V1CustomBlockSize {
     return V1CustomBlockSizeFromJSONTyped(json, false);
 }
 
-export function V1CustomBlockSizeFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1CustomBlockSize {
+export function V1CustomBlockSizeFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1CustomBlockSize {
     if ((json === undefined) || (json === null)) {
         return json;
     }

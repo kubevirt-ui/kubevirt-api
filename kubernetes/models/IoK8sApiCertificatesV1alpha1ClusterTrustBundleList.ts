@@ -60,7 +60,7 @@ export function IoK8sApiCertificatesV1alpha1ClusterTrustBundleListFromJSON(json:
     return IoK8sApiCertificatesV1alpha1ClusterTrustBundleListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCertificatesV1alpha1ClusterTrustBundleListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCertificatesV1alpha1ClusterTrustBundleList {
+export function IoK8sApiCertificatesV1alpha1ClusterTrustBundleListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCertificatesV1alpha1ClusterTrustBundleList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

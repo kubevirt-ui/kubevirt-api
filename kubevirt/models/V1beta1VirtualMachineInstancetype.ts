@@ -60,7 +60,7 @@ export function V1beta1VirtualMachineInstancetypeFromJSON(json: any): V1beta1Vir
     return V1beta1VirtualMachineInstancetypeFromJSONTyped(json, false);
 }
 
-export function V1beta1VirtualMachineInstancetypeFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1VirtualMachineInstancetype {
+export function V1beta1VirtualMachineInstancetypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineInstancetype {
     if ((json === undefined) || (json === null)) {
         return json;
     }

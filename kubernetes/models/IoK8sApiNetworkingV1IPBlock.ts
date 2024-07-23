@@ -37,7 +37,7 @@ export function IoK8sApiNetworkingV1IPBlockFromJSON(json: any): IoK8sApiNetworki
     return IoK8sApiNetworkingV1IPBlockFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1IPBlockFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IPBlock {
+export function IoK8sApiNetworkingV1IPBlockFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IPBlock {
     if ((json === undefined) || (json === null)) {
         return json;
     }

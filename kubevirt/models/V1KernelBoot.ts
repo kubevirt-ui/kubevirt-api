@@ -44,7 +44,7 @@ export function V1KernelBootFromJSON(json: any): V1KernelBoot {
     return V1KernelBootFromJSONTyped(json, false);
 }
 
-export function V1KernelBootFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KernelBoot {
+export function V1KernelBootFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KernelBoot {
     if ((json === undefined) || (json === null)) {
         return json;
     }

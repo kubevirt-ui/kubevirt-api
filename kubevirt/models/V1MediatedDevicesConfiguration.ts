@@ -50,7 +50,7 @@ export function V1MediatedDevicesConfigurationFromJSON(json: any): V1MediatedDev
     return V1MediatedDevicesConfigurationFromJSONTyped(json, false);
 }
 
-export function V1MediatedDevicesConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1MediatedDevicesConfiguration {
+export function V1MediatedDevicesConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1MediatedDevicesConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

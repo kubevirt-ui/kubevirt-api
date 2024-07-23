@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1HostPathVolumeSourceFromJSON(json: any): IoK8sApiC
     return IoK8sApiCoreV1HostPathVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1HostPathVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1HostPathVolumeSource {
+export function IoK8sApiCoreV1HostPathVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1HostPathVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

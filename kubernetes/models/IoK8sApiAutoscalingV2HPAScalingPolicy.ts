@@ -43,7 +43,7 @@ export function IoK8sApiAutoscalingV2HPAScalingPolicyFromJSON(json: any): IoK8sA
     return IoK8sApiAutoscalingV2HPAScalingPolicyFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAutoscalingV2HPAScalingPolicyFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2HPAScalingPolicy {
+export function IoK8sApiAutoscalingV2HPAScalingPolicyFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2HPAScalingPolicy {
     if ((json === undefined) || (json === null)) {
         return json;
     }

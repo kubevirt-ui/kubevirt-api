@@ -60,7 +60,7 @@ export function IoK8sApiRbacV1RoleFromJSON(json: any): IoK8sApiRbacV1Role {
     return IoK8sApiRbacV1RoleFromJSONTyped(json, false);
 }
 
-export function IoK8sApiRbacV1RoleFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiRbacV1Role {
+export function IoK8sApiRbacV1RoleFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiRbacV1Role {
     if ((json === undefined) || (json === null)) {
         return json;
     }

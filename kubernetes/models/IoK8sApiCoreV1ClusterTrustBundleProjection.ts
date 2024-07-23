@@ -62,7 +62,7 @@ export function IoK8sApiCoreV1ClusterTrustBundleProjectionFromJSON(json: any): I
     return IoK8sApiCoreV1ClusterTrustBundleProjectionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ClusterTrustBundleProjectionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ClusterTrustBundleProjection {
+export function IoK8sApiCoreV1ClusterTrustBundleProjectionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ClusterTrustBundleProjection {
     if ((json === undefined) || (json === null)) {
         return json;
     }

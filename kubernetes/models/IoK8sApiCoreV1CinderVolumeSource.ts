@@ -56,7 +56,7 @@ export function IoK8sApiCoreV1CinderVolumeSourceFromJSON(json: any): IoK8sApiCor
     return IoK8sApiCoreV1CinderVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1CinderVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1CinderVolumeSource {
+export function IoK8sApiCoreV1CinderVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1CinderVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

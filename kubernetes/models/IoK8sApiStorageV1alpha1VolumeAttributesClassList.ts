@@ -60,7 +60,7 @@ export function IoK8sApiStorageV1alpha1VolumeAttributesClassListFromJSON(json: a
     return IoK8sApiStorageV1alpha1VolumeAttributesClassListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiStorageV1alpha1VolumeAttributesClassListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiStorageV1alpha1VolumeAttributesClassList {
+export function IoK8sApiStorageV1alpha1VolumeAttributesClassListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiStorageV1alpha1VolumeAttributesClassList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

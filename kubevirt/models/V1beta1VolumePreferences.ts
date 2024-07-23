@@ -31,7 +31,7 @@ export function V1beta1VolumePreferencesFromJSON(json: any): V1beta1VolumePrefer
     return V1beta1VolumePreferencesFromJSONTyped(json, false);
 }
 
-export function V1beta1VolumePreferencesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1VolumePreferences {
+export function V1beta1VolumePreferencesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VolumePreferences {
     if ((json === undefined) || (json === null)) {
         return json;
     }

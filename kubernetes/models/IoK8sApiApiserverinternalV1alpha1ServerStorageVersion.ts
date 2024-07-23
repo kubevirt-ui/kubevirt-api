@@ -49,7 +49,7 @@ export function IoK8sApiApiserverinternalV1alpha1ServerStorageVersionFromJSON(js
     return IoK8sApiApiserverinternalV1alpha1ServerStorageVersionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiApiserverinternalV1alpha1ServerStorageVersionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiApiserverinternalV1alpha1ServerStorageVersion {
+export function IoK8sApiApiserverinternalV1alpha1ServerStorageVersionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiApiserverinternalV1alpha1ServerStorageVersion {
     if ((json === undefined) || (json === null)) {
         return json;
     }

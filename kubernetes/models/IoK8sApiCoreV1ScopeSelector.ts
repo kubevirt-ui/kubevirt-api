@@ -38,7 +38,7 @@ export function IoK8sApiCoreV1ScopeSelectorFromJSON(json: any): IoK8sApiCoreV1Sc
     return IoK8sApiCoreV1ScopeSelectorFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ScopeSelectorFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ScopeSelector {
+export function IoK8sApiCoreV1ScopeSelectorFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ScopeSelector {
     if ((json === undefined) || (json === null)) {
         return json;
     }

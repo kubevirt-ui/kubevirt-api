@@ -60,7 +60,7 @@ export function IoK8sApiBatchV1CronJobListFromJSON(json: any): IoK8sApiBatchV1Cr
     return IoK8sApiBatchV1CronJobListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiBatchV1CronJobListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiBatchV1CronJobList {
+export function IoK8sApiBatchV1CronJobListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiBatchV1CronJobList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

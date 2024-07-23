@@ -132,7 +132,7 @@ export function V1beta1VirtualMachinePreferenceSpecFromJSON(json: any): V1beta1V
     return V1beta1VirtualMachinePreferenceSpecFromJSONTyped(json, false);
 }
 
-export function V1beta1VirtualMachinePreferenceSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1VirtualMachinePreferenceSpec {
+export function V1beta1VirtualMachinePreferenceSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachinePreferenceSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

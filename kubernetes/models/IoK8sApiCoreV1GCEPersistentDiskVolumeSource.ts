@@ -51,7 +51,7 @@ export function IoK8sApiCoreV1GCEPersistentDiskVolumeSourceFromJSON(json: any): 
     return IoK8sApiCoreV1GCEPersistentDiskVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1GCEPersistentDiskVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1GCEPersistentDiskVolumeSource {
+export function IoK8sApiCoreV1GCEPersistentDiskVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1GCEPersistentDiskVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

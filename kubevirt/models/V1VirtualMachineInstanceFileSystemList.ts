@@ -60,7 +60,7 @@ export function V1VirtualMachineInstanceFileSystemListFromJSON(json: any): V1Vir
     return V1VirtualMachineInstanceFileSystemListFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceFileSystemListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceFileSystemList {
+export function V1VirtualMachineInstanceFileSystemListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceFileSystemList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

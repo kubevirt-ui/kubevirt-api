@@ -38,7 +38,7 @@ export function V1VirtualMachineInstanceProfileFromJSON(json: any): V1VirtualMac
     return V1VirtualMachineInstanceProfileFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceProfileFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceProfile {
+export function V1VirtualMachineInstanceProfileFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceProfile {
     if ((json === undefined) || (json === null)) {
         return json;
     }

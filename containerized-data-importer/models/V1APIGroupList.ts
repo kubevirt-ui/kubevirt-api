@@ -50,7 +50,7 @@ export function V1APIGroupListFromJSON(json: any): V1APIGroupList {
     return V1APIGroupListFromJSONTyped(json, false);
 }
 
-export function V1APIGroupListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1APIGroupList {
+export function V1APIGroupListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1APIGroupList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

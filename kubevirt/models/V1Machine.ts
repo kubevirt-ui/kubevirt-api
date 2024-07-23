@@ -31,7 +31,7 @@ export function V1MachineFromJSON(json: any): V1Machine {
     return V1MachineFromJSONTyped(json, false);
 }
 
-export function V1MachineFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Machine {
+export function V1MachineFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Machine {
     if ((json === undefined) || (json === null)) {
         return json;
     }

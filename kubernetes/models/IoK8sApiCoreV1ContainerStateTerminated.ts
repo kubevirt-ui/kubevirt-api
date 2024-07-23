@@ -67,7 +67,7 @@ export function IoK8sApiCoreV1ContainerStateTerminatedFromJSON(json: any): IoK8s
     return IoK8sApiCoreV1ContainerStateTerminatedFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ContainerStateTerminatedFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ContainerStateTerminated {
+export function IoK8sApiCoreV1ContainerStateTerminatedFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ContainerStateTerminated {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -75,11 +75,11 @@ export function IoK8sApiCoreV1ContainerStateTerminatedFromJSONTyped(json: any, _
         
         'containerID': !exists(json, 'containerID') ? undefined : json['containerID'],
         'exitCode': json['exitCode'],
-        'finishedAt': !exists(json, 'finishedAt') ? undefined : ((json['finishedAt'])),
+        'finishedAt': !exists(json, 'finishedAt') ? undefined : (new Date(json['finishedAt'])),
         'message': !exists(json, 'message') ? undefined : json['message'],
         'reason': !exists(json, 'reason') ? undefined : json['reason'],
         'signal': !exists(json, 'signal') ? undefined : json['signal'],
-        'startedAt': !exists(json, 'startedAt') ? undefined : ((json['startedAt'])),
+        'startedAt': !exists(json, 'startedAt') ? undefined : (new Date(json['startedAt'])),
     };
 }
 
@@ -94,11 +94,11 @@ export function IoK8sApiCoreV1ContainerStateTerminatedToJSON(value?: IoK8sApiCor
         
         'containerID': value.containerID,
         'exitCode': value.exitCode,
-        'finishedAt': value.finishedAt === undefined ? undefined : (value.finishedAt),
+        'finishedAt': value.finishedAt === undefined ? undefined : (value.finishedAt.toISOString()),
         'message': value.message,
         'reason': value.reason,
         'signal': value.signal,
-        'startedAt': value.startedAt === undefined ? undefined : (value.startedAt),
+        'startedAt': value.startedAt === undefined ? undefined : (value.startedAt.toISOString()),
     };
 }
 

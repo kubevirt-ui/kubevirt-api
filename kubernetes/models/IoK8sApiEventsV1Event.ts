@@ -146,7 +146,7 @@ export function IoK8sApiEventsV1EventFromJSON(json: any): IoK8sApiEventsV1Event 
     return IoK8sApiEventsV1EventFromJSONTyped(json, false);
 }
 
-export function IoK8sApiEventsV1EventFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiEventsV1Event {
+export function IoK8sApiEventsV1EventFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiEventsV1Event {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -155,10 +155,10 @@ export function IoK8sApiEventsV1EventFromJSONTyped(json: any, _ignoreDiscriminat
         'action': !exists(json, 'action') ? undefined : json['action'],
         'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
         'deprecatedCount': !exists(json, 'deprecatedCount') ? undefined : json['deprecatedCount'],
-        'deprecatedFirstTimestamp': !exists(json, 'deprecatedFirstTimestamp') ? undefined : ((json['deprecatedFirstTimestamp'])),
-        'deprecatedLastTimestamp': !exists(json, 'deprecatedLastTimestamp') ? undefined : ((json['deprecatedLastTimestamp'])),
+        'deprecatedFirstTimestamp': !exists(json, 'deprecatedFirstTimestamp') ? undefined : (new Date(json['deprecatedFirstTimestamp'])),
+        'deprecatedLastTimestamp': !exists(json, 'deprecatedLastTimestamp') ? undefined : (new Date(json['deprecatedLastTimestamp'])),
         'deprecatedSource': !exists(json, 'deprecatedSource') ? undefined : IoK8sApiCoreV1EventSourceFromJSON(json['deprecatedSource']),
-        'eventTime': ((json['eventTime'])),
+        'eventTime': (new Date(json['eventTime'])),
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'metadata': !exists(json, 'metadata') ? undefined : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
         'note': !exists(json, 'note') ? undefined : json['note'],
@@ -184,10 +184,10 @@ export function IoK8sApiEventsV1EventToJSON(value?: IoK8sApiEventsV1Event | null
         'action': value.action,
         'apiVersion': value.apiVersion,
         'deprecatedCount': value.deprecatedCount,
-        'deprecatedFirstTimestamp': value.deprecatedFirstTimestamp === undefined ? undefined : (value.deprecatedFirstTimestamp),
-        'deprecatedLastTimestamp': value.deprecatedLastTimestamp === undefined ? undefined : (value.deprecatedLastTimestamp),
+        'deprecatedFirstTimestamp': value.deprecatedFirstTimestamp === undefined ? undefined : (value.deprecatedFirstTimestamp.toISOString()),
+        'deprecatedLastTimestamp': value.deprecatedLastTimestamp === undefined ? undefined : (value.deprecatedLastTimestamp.toISOString()),
         'deprecatedSource': IoK8sApiCoreV1EventSourceToJSON(value.deprecatedSource),
-        'eventTime': (value.eventTime),
+        'eventTime': (value.eventTime.toISOString()),
         'kind': value.kind,
         'metadata': IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
         'note': value.note,

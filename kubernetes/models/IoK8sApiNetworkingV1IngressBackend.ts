@@ -48,7 +48,7 @@ export function IoK8sApiNetworkingV1IngressBackendFromJSON(json: any): IoK8sApiN
     return IoK8sApiNetworkingV1IngressBackendFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1IngressBackendFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressBackend {
+export function IoK8sApiNetworkingV1IngressBackendFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressBackend {
     if ((json === undefined) || (json === null)) {
         return json;
     }

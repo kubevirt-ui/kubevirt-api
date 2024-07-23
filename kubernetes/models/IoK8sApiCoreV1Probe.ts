@@ -104,7 +104,7 @@ export function IoK8sApiCoreV1ProbeFromJSON(json: any): IoK8sApiCoreV1Probe {
     return IoK8sApiCoreV1ProbeFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ProbeFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1Probe {
+export function IoK8sApiCoreV1ProbeFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1Probe {
     if ((json === undefined) || (json === null)) {
         return json;
     }

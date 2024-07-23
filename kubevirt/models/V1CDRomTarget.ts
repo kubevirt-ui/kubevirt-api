@@ -43,7 +43,7 @@ export function V1CDRomTargetFromJSON(json: any): V1CDRomTarget {
     return V1CDRomTargetFromJSONTyped(json, false);
 }
 
-export function V1CDRomTargetFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1CDRomTarget {
+export function V1CDRomTargetFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1CDRomTarget {
     if ((json === undefined) || (json === null)) {
         return json;
     }

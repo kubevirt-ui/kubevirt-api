@@ -60,7 +60,7 @@ export function V1VirtualMachineInstanceReplicaSetSpecFromJSON(json: any): V1Vir
     return V1VirtualMachineInstanceReplicaSetSpecFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceReplicaSetSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceReplicaSetSpec {
+export function V1VirtualMachineInstanceReplicaSetSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceReplicaSetSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

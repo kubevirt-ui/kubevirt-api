@@ -55,7 +55,7 @@ export function IoK8sApiRbacV1PolicyRuleFromJSON(json: any): IoK8sApiRbacV1Polic
     return IoK8sApiRbacV1PolicyRuleFromJSONTyped(json, false);
 }
 
-export function IoK8sApiRbacV1PolicyRuleFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiRbacV1PolicyRule {
+export function IoK8sApiRbacV1PolicyRuleFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiRbacV1PolicyRule {
     if ((json === undefined) || (json === null)) {
         return json;
     }

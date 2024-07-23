@@ -44,7 +44,7 @@ export function V1beta1CDICertConfigFromJSON(json: any): V1beta1CDICertConfig {
     return V1beta1CDICertConfigFromJSONTyped(json, false);
 }
 
-export function V1beta1CDICertConfigFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1CDICertConfig {
+export function V1beta1CDICertConfigFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1CDICertConfig {
     if ((json === undefined) || (json === null)) {
         return json;
     }

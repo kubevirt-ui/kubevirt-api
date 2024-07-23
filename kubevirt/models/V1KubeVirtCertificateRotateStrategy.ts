@@ -38,7 +38,7 @@ export function V1KubeVirtCertificateRotateStrategyFromJSON(json: any): V1KubeVi
     return V1KubeVirtCertificateRotateStrategyFromJSONTyped(json, false);
 }
 
-export function V1KubeVirtCertificateRotateStrategyFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KubeVirtCertificateRotateStrategy {
+export function V1KubeVirtCertificateRotateStrategyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KubeVirtCertificateRotateStrategy {
     if ((json === undefined) || (json === null)) {
         return json;
     }

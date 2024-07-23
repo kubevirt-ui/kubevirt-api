@@ -70,7 +70,7 @@ export function IoK8sApiRbacV1ClusterRoleFromJSON(json: any): IoK8sApiRbacV1Clus
     return IoK8sApiRbacV1ClusterRoleFromJSONTyped(json, false);
 }
 
-export function IoK8sApiRbacV1ClusterRoleFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiRbacV1ClusterRole {
+export function IoK8sApiRbacV1ClusterRoleFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiRbacV1ClusterRole {
     if ((json === undefined) || (json === null)) {
         return json;
     }

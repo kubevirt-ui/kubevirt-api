@@ -37,7 +37,7 @@ export function V1PreconditionsFromJSON(json: any): V1Preconditions {
     return V1PreconditionsFromJSONTyped(json, false);
 }
 
-export function V1PreconditionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Preconditions {
+export function V1PreconditionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Preconditions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -61,14 +61,14 @@ export function V1beta1DataImportCronConditionFromJSON(json: any): V1beta1DataIm
     return V1beta1DataImportCronConditionFromJSONTyped(json, false);
 }
 
-export function V1beta1DataImportCronConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataImportCronCondition {
+export function V1beta1DataImportCronConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataImportCronCondition {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'lastHeartbeatTime': !exists(json, 'lastHeartbeatTime') ? undefined : ((json['lastHeartbeatTime'])),
-        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : ((json['lastTransitionTime'])),
+        'lastHeartbeatTime': !exists(json, 'lastHeartbeatTime') ? undefined : (new Date(json['lastHeartbeatTime'])),
+        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : (new Date(json['lastTransitionTime'])),
         'message': !exists(json, 'message') ? undefined : json['message'],
         'reason': !exists(json, 'reason') ? undefined : json['reason'],
         'status': json['status'],
@@ -85,8 +85,8 @@ export function V1beta1DataImportCronConditionToJSON(value?: V1beta1DataImportCr
     }
     return {
         
-        'lastHeartbeatTime': value.lastHeartbeatTime === undefined ? undefined : (value.lastHeartbeatTime),
-        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime),
+        'lastHeartbeatTime': value.lastHeartbeatTime === undefined ? undefined : (value.lastHeartbeatTime.toISOString()),
+        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime.toISOString()),
         'message': value.message,
         'reason': value.reason,
         'status': value.status,

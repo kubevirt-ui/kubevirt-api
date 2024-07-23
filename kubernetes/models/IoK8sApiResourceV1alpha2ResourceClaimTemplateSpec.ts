@@ -48,7 +48,7 @@ export function IoK8sApiResourceV1alpha2ResourceClaimTemplateSpecFromJSON(json: 
     return IoK8sApiResourceV1alpha2ResourceClaimTemplateSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiResourceV1alpha2ResourceClaimTemplateSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2ResourceClaimTemplateSpec {
+export function IoK8sApiResourceV1alpha2ResourceClaimTemplateSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2ResourceClaimTemplateSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

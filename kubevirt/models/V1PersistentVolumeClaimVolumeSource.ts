@@ -43,7 +43,7 @@ export function V1PersistentVolumeClaimVolumeSourceFromJSON(json: any): V1Persis
     return V1PersistentVolumeClaimVolumeSourceFromJSONTyped(json, false);
 }
 
-export function V1PersistentVolumeClaimVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1PersistentVolumeClaimVolumeSource {
+export function V1PersistentVolumeClaimVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PersistentVolumeClaimVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

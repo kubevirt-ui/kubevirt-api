@@ -31,7 +31,7 @@ export function V1HugepagesFromJSON(json: any): V1Hugepages {
     return V1HugepagesFromJSONTyped(json, false);
 }
 
-export function V1HugepagesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Hugepages {
+export function V1HugepagesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Hugepages {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -37,7 +37,7 @@ export function V1FeatureVendorIDFromJSON(json: any): V1FeatureVendorID {
     return V1FeatureVendorIDFromJSONTyped(json, false);
 }
 
-export function V1FeatureVendorIDFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1FeatureVendorID {
+export function V1FeatureVendorIDFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1FeatureVendorID {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -43,7 +43,7 @@ export function V1SecretVolumeSourceFromJSON(json: any): V1SecretVolumeSource {
     return V1SecretVolumeSourceFromJSONTyped(json, false);
 }
 
-export function V1SecretVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SecretVolumeSource {
+export function V1SecretVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SecretVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

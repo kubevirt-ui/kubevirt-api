@@ -43,7 +43,7 @@ export function V1UnpauseOptionsFromJSON(json: any): V1UnpauseOptions {
     return V1UnpauseOptionsFromJSONTyped(json, false);
 }
 
-export function V1UnpauseOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1UnpauseOptions {
+export function V1UnpauseOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1UnpauseOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -37,14 +37,14 @@ export function IoK8sApiEventsV1EventSeriesFromJSON(json: any): IoK8sApiEventsV1
     return IoK8sApiEventsV1EventSeriesFromJSONTyped(json, false);
 }
 
-export function IoK8sApiEventsV1EventSeriesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiEventsV1EventSeries {
+export function IoK8sApiEventsV1EventSeriesFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiEventsV1EventSeries {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
         'count': json['count'],
-        'lastObservedTime': ((json['lastObservedTime'])),
+        'lastObservedTime': (new Date(json['lastObservedTime'])),
     };
 }
 
@@ -58,7 +58,7 @@ export function IoK8sApiEventsV1EventSeriesToJSON(value?: IoK8sApiEventsV1EventS
     return {
         
         'count': value.count,
-        'lastObservedTime': (value.lastObservedTime),
+        'lastObservedTime': (value.lastObservedTime.toISOString()),
     };
 }
 

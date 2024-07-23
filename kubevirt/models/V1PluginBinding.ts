@@ -31,7 +31,7 @@ export function V1PluginBindingFromJSON(json: any): V1PluginBinding {
     return V1PluginBindingFromJSONTyped(json, false);
 }
 
-export function V1PluginBindingFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1PluginBinding {
+export function V1PluginBindingFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PluginBinding {
     if ((json === undefined) || (json === null)) {
         return json;
     }

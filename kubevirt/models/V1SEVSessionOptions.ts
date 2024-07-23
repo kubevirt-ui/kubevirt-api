@@ -37,7 +37,7 @@ export function V1SEVSessionOptionsFromJSON(json: any): V1SEVSessionOptions {
     return V1SEVSessionOptionsFromJSONTyped(json, false);
 }
 
-export function V1SEVSessionOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SEVSessionOptions {
+export function V1SEVSessionOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SEVSessionOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

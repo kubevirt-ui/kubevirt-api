@@ -49,7 +49,7 @@ export function IoK8sApiCoreV1VsphereVirtualDiskVolumeSourceFromJSON(json: any):
     return IoK8sApiCoreV1VsphereVirtualDiskVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1VsphereVirtualDiskVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1VsphereVirtualDiskVolumeSource {
+export function IoK8sApiCoreV1VsphereVirtualDiskVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1VsphereVirtualDiskVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -54,7 +54,7 @@ export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceD
     return IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatus {
+export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

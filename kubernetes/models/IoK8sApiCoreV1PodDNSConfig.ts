@@ -50,7 +50,7 @@ export function IoK8sApiCoreV1PodDNSConfigFromJSON(json: any): IoK8sApiCoreV1Pod
     return IoK8sApiCoreV1PodDNSConfigFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PodDNSConfigFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PodDNSConfig {
+export function IoK8sApiCoreV1PodDNSConfigFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PodDNSConfig {
     if ((json === undefined) || (json === null)) {
         return json;
     }

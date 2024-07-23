@@ -60,7 +60,7 @@ export function V1beta1VirtualMachineClusterInstancetypeListFromJSON(json: any):
     return V1beta1VirtualMachineClusterInstancetypeListFromJSONTyped(json, false);
 }
 
-export function V1beta1VirtualMachineClusterInstancetypeListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1VirtualMachineClusterInstancetypeList {
+export function V1beta1VirtualMachineClusterInstancetypeListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineClusterInstancetypeList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

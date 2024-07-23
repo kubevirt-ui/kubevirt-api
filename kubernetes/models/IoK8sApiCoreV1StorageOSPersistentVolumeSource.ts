@@ -62,7 +62,7 @@ export function IoK8sApiCoreV1StorageOSPersistentVolumeSourceFromJSON(json: any)
     return IoK8sApiCoreV1StorageOSPersistentVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1StorageOSPersistentVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1StorageOSPersistentVolumeSource {
+export function IoK8sApiCoreV1StorageOSPersistentVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1StorageOSPersistentVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

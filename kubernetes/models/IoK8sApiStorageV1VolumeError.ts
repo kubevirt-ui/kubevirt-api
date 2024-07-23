@@ -37,14 +37,14 @@ export function IoK8sApiStorageV1VolumeErrorFromJSON(json: any): IoK8sApiStorage
     return IoK8sApiStorageV1VolumeErrorFromJSONTyped(json, false);
 }
 
-export function IoK8sApiStorageV1VolumeErrorFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiStorageV1VolumeError {
+export function IoK8sApiStorageV1VolumeErrorFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiStorageV1VolumeError {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
         'message': !exists(json, 'message') ? undefined : json['message'],
-        'time': !exists(json, 'time') ? undefined : ((json['time'])),
+        'time': !exists(json, 'time') ? undefined : (new Date(json['time'])),
     };
 }
 
@@ -58,7 +58,7 @@ export function IoK8sApiStorageV1VolumeErrorToJSON(value?: IoK8sApiStorageV1Volu
     return {
         
         'message': value.message,
-        'time': value.time === undefined ? undefined : (value.time),
+        'time': value.time === undefined ? undefined : (value.time.toISOString()),
     };
 }
 

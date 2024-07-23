@@ -104,7 +104,7 @@ export function V1VolumeStatusFromJSON(json: any): V1VolumeStatus {
     return V1VolumeStatusFromJSONTyped(json, false);
 }
 
-export function V1VolumeStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VolumeStatus {
+export function V1VolumeStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VolumeStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -49,7 +49,7 @@ export function IoK8sApiCoreV1GlusterfsPersistentVolumeSourceFromJSON(json: any)
     return IoK8sApiCoreV1GlusterfsPersistentVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1GlusterfsPersistentVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1GlusterfsPersistentVolumeSource {
+export function IoK8sApiCoreV1GlusterfsPersistentVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1GlusterfsPersistentVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

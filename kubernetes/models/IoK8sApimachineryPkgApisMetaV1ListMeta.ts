@@ -49,7 +49,7 @@ export function IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json: any): IoK8s
     return IoK8sApimachineryPkgApisMetaV1ListMetaFromJSONTyped(json, false);
 }
 
-export function IoK8sApimachineryPkgApisMetaV1ListMetaFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1ListMeta {
+export function IoK8sApimachineryPkgApisMetaV1ListMetaFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1ListMeta {
     if ((json === undefined) || (json === null)) {
         return json;
     }

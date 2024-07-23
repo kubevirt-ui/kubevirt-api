@@ -31,7 +31,7 @@ export function V1InitrdInfoFromJSON(json: any): V1InitrdInfo {
     return V1InitrdInfoFromJSONTyped(json, false);
 }
 
-export function V1InitrdInfoFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1InitrdInfo {
+export function V1InitrdInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1InitrdInfo {
     if ((json === undefined) || (json === null)) {
         return json;
     }

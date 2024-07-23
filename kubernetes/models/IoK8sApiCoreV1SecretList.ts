@@ -60,7 +60,7 @@ export function IoK8sApiCoreV1SecretListFromJSON(json: any): IoK8sApiCoreV1Secre
     return IoK8sApiCoreV1SecretListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1SecretListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1SecretList {
+export function IoK8sApiCoreV1SecretListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1SecretList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

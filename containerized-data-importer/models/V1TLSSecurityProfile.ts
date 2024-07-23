@@ -68,7 +68,7 @@ export function V1TLSSecurityProfileFromJSON(json: any): V1TLSSecurityProfile {
     return V1TLSSecurityProfileFromJSONTyped(json, false);
 }
 
-export function V1TLSSecurityProfileFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1TLSSecurityProfile {
+export function V1TLSSecurityProfileFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1TLSSecurityProfile {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -49,15 +49,15 @@ export function V1DomainMemoryDumpInfoFromJSON(json: any): V1DomainMemoryDumpInf
     return V1DomainMemoryDumpInfoFromJSONTyped(json, false);
 }
 
-export function V1DomainMemoryDumpInfoFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1DomainMemoryDumpInfo {
+export function V1DomainMemoryDumpInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DomainMemoryDumpInfo {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
         'claimName': !exists(json, 'claimName') ? undefined : json['claimName'],
-        'endTimestamp': !exists(json, 'endTimestamp') ? undefined : ((json['endTimestamp'])),
-        'startTimestamp': !exists(json, 'startTimestamp') ? undefined : ((json['startTimestamp'])),
+        'endTimestamp': !exists(json, 'endTimestamp') ? undefined : (new Date(json['endTimestamp'])),
+        'startTimestamp': !exists(json, 'startTimestamp') ? undefined : (new Date(json['startTimestamp'])),
         'targetFileName': !exists(json, 'targetFileName') ? undefined : json['targetFileName'],
     };
 }
@@ -72,8 +72,8 @@ export function V1DomainMemoryDumpInfoToJSON(value?: V1DomainMemoryDumpInfo | nu
     return {
         
         'claimName': value.claimName,
-        'endTimestamp': value.endTimestamp === undefined ? undefined : (value.endTimestamp),
-        'startTimestamp': value.startTimestamp === undefined ? undefined : (value.startTimestamp),
+        'endTimestamp': value.endTimestamp === undefined ? undefined : (value.endTimestamp.toISOString()),
+        'startTimestamp': value.startTimestamp === undefined ? undefined : (value.startTimestamp.toISOString()),
         'targetFileName': value.targetFileName,
     };
 }

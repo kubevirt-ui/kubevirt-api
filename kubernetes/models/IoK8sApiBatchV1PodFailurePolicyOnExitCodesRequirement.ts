@@ -51,7 +51,7 @@ export function IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirementFromJSON(js
     return IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirementFromJSONTyped(json, false);
 }
 
-export function IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirementFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirement {
+export function IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirementFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirement {
     if ((json === undefined) || (json === null)) {
         return json;
     }

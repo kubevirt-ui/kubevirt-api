@@ -60,7 +60,7 @@ export function IoK8sApiFlowcontrolV1FlowSchemaListFromJSON(json: any): IoK8sApi
     return IoK8sApiFlowcontrolV1FlowSchemaListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1FlowSchemaListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1FlowSchemaList {
+export function IoK8sApiFlowcontrolV1FlowSchemaListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1FlowSchemaList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

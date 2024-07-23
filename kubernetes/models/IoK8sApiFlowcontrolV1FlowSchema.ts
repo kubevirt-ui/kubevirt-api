@@ -70,7 +70,7 @@ export function IoK8sApiFlowcontrolV1FlowSchemaFromJSON(json: any): IoK8sApiFlow
     return IoK8sApiFlowcontrolV1FlowSchemaFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1FlowSchemaFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1FlowSchema {
+export function IoK8sApiFlowcontrolV1FlowSchemaFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1FlowSchema {
     if ((json === undefined) || (json === null)) {
         return json;
     }

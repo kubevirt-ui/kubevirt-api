@@ -31,7 +31,7 @@ export function V1beta1CPUPreferenceRequirementFromJSON(json: any): V1beta1CPUPr
     return V1beta1CPUPreferenceRequirementFromJSONTyped(json, false);
 }
 
-export function V1beta1CPUPreferenceRequirementFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1CPUPreferenceRequirement {
+export function V1beta1CPUPreferenceRequirementFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1CPUPreferenceRequirement {
     if ((json === undefined) || (json === null)) {
         return json;
     }

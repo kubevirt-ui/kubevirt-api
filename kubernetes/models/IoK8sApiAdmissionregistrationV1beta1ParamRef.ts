@@ -70,7 +70,7 @@ export function IoK8sApiAdmissionregistrationV1beta1ParamRefFromJSON(json: any):
     return IoK8sApiAdmissionregistrationV1beta1ParamRefFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAdmissionregistrationV1beta1ParamRefFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1beta1ParamRef {
+export function IoK8sApiAdmissionregistrationV1beta1ParamRefFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1beta1ParamRef {
     if ((json === undefined) || (json === null)) {
         return json;
     }

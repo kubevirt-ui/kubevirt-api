@@ -122,7 +122,7 @@ export function V1DiskFromJSON(json: any): V1Disk {
     return V1DiskFromJSONTyped(json, false);
 }
 
-export function V1DiskFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Disk {
+export function V1DiskFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Disk {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -48,7 +48,7 @@ export function V1VirtualMachineInstanceTemplateSpecFromJSON(json: any): V1Virtu
     return V1VirtualMachineInstanceTemplateSpecFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceTemplateSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceTemplateSpec {
+export function V1VirtualMachineInstanceTemplateSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceTemplateSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

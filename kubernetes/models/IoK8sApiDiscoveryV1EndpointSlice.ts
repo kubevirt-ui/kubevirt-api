@@ -76,7 +76,7 @@ export function IoK8sApiDiscoveryV1EndpointSliceFromJSON(json: any): IoK8sApiDis
     return IoK8sApiDiscoveryV1EndpointSliceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiDiscoveryV1EndpointSliceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiDiscoveryV1EndpointSlice {
+export function IoK8sApiDiscoveryV1EndpointSliceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiDiscoveryV1EndpointSlice {
     if ((json === undefined) || (json === null)) {
         return json;
     }

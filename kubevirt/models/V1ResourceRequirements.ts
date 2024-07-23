@@ -43,7 +43,7 @@ export function V1ResourceRequirementsFromJSON(json: any): V1ResourceRequirement
     return V1ResourceRequirementsFromJSONTyped(json, false);
 }
 
-export function V1ResourceRequirementsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ResourceRequirements {
+export function V1ResourceRequirementsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ResourceRequirements {
     if ((json === undefined) || (json === null)) {
         return json;
     }

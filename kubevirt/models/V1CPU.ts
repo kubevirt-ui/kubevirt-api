@@ -100,7 +100,7 @@ export function V1CPUFromJSON(json: any): V1CPU {
     return V1CPUFromJSONTyped(json, false);
 }
 
-export function V1CPUFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1CPU {
+export function V1CPUFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1CPU {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -60,7 +60,7 @@ export function IoK8sApiCoreV1NodeListFromJSON(json: any): IoK8sApiCoreV1NodeLis
     return IoK8sApiCoreV1NodeListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1NodeListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeList {
+export function IoK8sApiCoreV1NodeListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

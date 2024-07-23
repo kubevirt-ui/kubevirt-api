@@ -31,7 +31,7 @@ export function K8sIoApiCoreV1ResourceClaimFromJSON(json: any): K8sIoApiCoreV1Re
     return K8sIoApiCoreV1ResourceClaimFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1ResourceClaimFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApiCoreV1ResourceClaim {
+export function K8sIoApiCoreV1ResourceClaimFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1ResourceClaim {
     if ((json === undefined) || (json === null)) {
         return json;
     }

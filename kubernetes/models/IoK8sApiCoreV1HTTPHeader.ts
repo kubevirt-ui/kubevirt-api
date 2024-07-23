@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1HTTPHeaderFromJSON(json: any): IoK8sApiCoreV1HTTPH
     return IoK8sApiCoreV1HTTPHeaderFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1HTTPHeaderFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1HTTPHeader {
+export function IoK8sApiCoreV1HTTPHeaderFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1HTTPHeader {
     if ((json === undefined) || (json === null)) {
         return json;
     }

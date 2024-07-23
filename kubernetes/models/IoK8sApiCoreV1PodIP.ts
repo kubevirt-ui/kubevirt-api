@@ -31,7 +31,7 @@ export function IoK8sApiCoreV1PodIPFromJSON(json: any): IoK8sApiCoreV1PodIP {
     return IoK8sApiCoreV1PodIPFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PodIPFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PodIP {
+export function IoK8sApiCoreV1PodIPFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PodIP {
     if ((json === undefined) || (json === null)) {
         return json;
     }

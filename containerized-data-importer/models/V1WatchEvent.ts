@@ -74,7 +74,7 @@ export function V1WatchEventFromJSON(json: any): V1WatchEvent {
     return V1WatchEventFromJSONTyped(json, false);
 }
 
-export function V1WatchEventFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1WatchEvent {
+export function V1WatchEventFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1WatchEvent {
     if ((json === undefined) || (json === null)) {
         return json;
     }

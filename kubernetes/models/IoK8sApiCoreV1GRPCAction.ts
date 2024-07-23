@@ -39,7 +39,7 @@ export function IoK8sApiCoreV1GRPCActionFromJSON(json: any): IoK8sApiCoreV1GRPCA
     return IoK8sApiCoreV1GRPCActionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1GRPCActionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1GRPCAction {
+export function IoK8sApiCoreV1GRPCActionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1GRPCAction {
     if ((json === undefined) || (json === null)) {
         return json;
     }

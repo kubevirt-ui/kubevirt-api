@@ -50,7 +50,7 @@ export function K8sIoApiCoreV1PodDNSConfigFromJSON(json: any): K8sIoApiCoreV1Pod
     return K8sIoApiCoreV1PodDNSConfigFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1PodDNSConfigFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApiCoreV1PodDNSConfig {
+export function K8sIoApiCoreV1PodDNSConfigFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1PodDNSConfig {
     if ((json === undefined) || (json === null)) {
         return json;
     }

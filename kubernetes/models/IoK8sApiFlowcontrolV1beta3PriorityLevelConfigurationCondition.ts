@@ -55,13 +55,13 @@ export function IoK8sApiFlowcontrolV1beta3PriorityLevelConfigurationConditionFro
     return IoK8sApiFlowcontrolV1beta3PriorityLevelConfigurationConditionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1beta3PriorityLevelConfigurationConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3PriorityLevelConfigurationCondition {
+export function IoK8sApiFlowcontrolV1beta3PriorityLevelConfigurationConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3PriorityLevelConfigurationCondition {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : ((json['lastTransitionTime'])),
+        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : (new Date(json['lastTransitionTime'])),
         'message': !exists(json, 'message') ? undefined : json['message'],
         'reason': !exists(json, 'reason') ? undefined : json['reason'],
         'status': !exists(json, 'status') ? undefined : json['status'],
@@ -78,7 +78,7 @@ export function IoK8sApiFlowcontrolV1beta3PriorityLevelConfigurationConditionToJ
     }
     return {
         
-        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime),
+        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime.toISOString()),
         'message': value.message,
         'reason': value.reason,
         'status': value.status,

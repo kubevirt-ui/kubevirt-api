@@ -70,7 +70,7 @@ export function IoK8sApiAuthenticationV1TokenReviewFromJSON(json: any): IoK8sApi
     return IoK8sApiAuthenticationV1TokenReviewFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAuthenticationV1TokenReviewFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1TokenReview {
+export function IoK8sApiAuthenticationV1TokenReviewFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1TokenReview {
     if ((json === undefined) || (json === null)) {
         return json;
     }

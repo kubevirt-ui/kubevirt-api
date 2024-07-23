@@ -43,7 +43,7 @@ export function IoK8sApiFlowcontrolV1ExemptPriorityLevelConfigurationFromJSON(js
     return IoK8sApiFlowcontrolV1ExemptPriorityLevelConfigurationFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1ExemptPriorityLevelConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1ExemptPriorityLevelConfiguration {
+export function IoK8sApiFlowcontrolV1ExemptPriorityLevelConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1ExemptPriorityLevelConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -43,7 +43,7 @@ export function V1PortFromJSON(json: any): V1Port {
     return V1PortFromJSONTyped(json, false);
 }
 
-export function V1PortFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Port {
+export function V1PortFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Port {
     if ((json === undefined) || (json === null)) {
         return json;
     }

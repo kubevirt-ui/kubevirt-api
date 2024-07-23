@@ -48,7 +48,7 @@ export function V1CustomizeComponentsFromJSON(json: any): V1CustomizeComponents 
     return V1CustomizeComponentsFromJSONTyped(json, false);
 }
 
-export function V1CustomizeComponentsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1CustomizeComponents {
+export function V1CustomizeComponentsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1CustomizeComponents {
     if ((json === undefined) || (json === null)) {
         return json;
     }

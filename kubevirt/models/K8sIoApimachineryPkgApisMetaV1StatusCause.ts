@@ -47,7 +47,7 @@ export function K8sIoApimachineryPkgApisMetaV1StatusCauseFromJSON(json: any): K8
     return K8sIoApimachineryPkgApisMetaV1StatusCauseFromJSONTyped(json, false);
 }
 
-export function K8sIoApimachineryPkgApisMetaV1StatusCauseFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1StatusCause {
+export function K8sIoApimachineryPkgApisMetaV1StatusCauseFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1StatusCause {
     if ((json === undefined) || (json === null)) {
         return json;
     }

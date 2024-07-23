@@ -37,7 +37,7 @@ export function V1PodNetworkFromJSON(json: any): V1PodNetwork {
     return V1PodNetworkFromJSONTyped(json, false);
 }
 
-export function V1PodNetworkFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1PodNetwork {
+export function V1PodNetworkFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PodNetwork {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -31,7 +31,7 @@ export function V1ResourceClaimFromJSON(json: any): V1ResourceClaim {
     return V1ResourceClaimFromJSONTyped(json, false);
 }
 
-export function V1ResourceClaimFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ResourceClaim {
+export function V1ResourceClaimFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ResourceClaim {
     if ((json === undefined) || (json === null)) {
         return json;
     }

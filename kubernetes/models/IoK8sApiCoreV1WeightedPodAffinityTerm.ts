@@ -44,7 +44,7 @@ export function IoK8sApiCoreV1WeightedPodAffinityTermFromJSON(json: any): IoK8sA
     return IoK8sApiCoreV1WeightedPodAffinityTermFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1WeightedPodAffinityTermFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1WeightedPodAffinityTerm {
+export function IoK8sApiCoreV1WeightedPodAffinityTermFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1WeightedPodAffinityTerm {
     if ((json === undefined) || (json === null)) {
         return json;
     }

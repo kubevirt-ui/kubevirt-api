@@ -38,7 +38,7 @@ export function IoK8sApiRbacV1AggregationRuleFromJSON(json: any): IoK8sApiRbacV1
     return IoK8sApiRbacV1AggregationRuleFromJSONTyped(json, false);
 }
 
-export function IoK8sApiRbacV1AggregationRuleFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiRbacV1AggregationRule {
+export function IoK8sApiRbacV1AggregationRuleFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiRbacV1AggregationRule {
     if ((json === undefined) || (json === null)) {
         return json;
     }

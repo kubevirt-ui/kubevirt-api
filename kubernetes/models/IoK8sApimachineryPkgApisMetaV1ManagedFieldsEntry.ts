@@ -71,7 +71,7 @@ export function IoK8sApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSON(json: a
     return IoK8sApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSONTyped(json, false);
 }
 
-export function IoK8sApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1ManagedFieldsEntry {
+export function IoK8sApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1ManagedFieldsEntry {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -83,7 +83,7 @@ export function IoK8sApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSONTyped(js
         'manager': !exists(json, 'manager') ? undefined : json['manager'],
         'operation': !exists(json, 'operation') ? undefined : json['operation'],
         'subresource': !exists(json, 'subresource') ? undefined : json['subresource'],
-        'time': !exists(json, 'time') ? undefined : ((json['time'])),
+        'time': !exists(json, 'time') ? undefined : (new Date(json['time'])),
     };
 }
 
@@ -102,7 +102,7 @@ export function IoK8sApimachineryPkgApisMetaV1ManagedFieldsEntryToJSON(value?: I
         'manager': value.manager,
         'operation': value.operation,
         'subresource': value.subresource,
-        'time': value.time === undefined ? undefined : (value.time),
+        'time': value.time === undefined ? undefined : (value.time.toISOString()),
     };
 }
 

@@ -74,7 +74,7 @@ export function IoK8sApiAppsV1StatefulSetFromJSON(json: any): IoK8sApiAppsV1Stat
     return IoK8sApiAppsV1StatefulSetFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1StatefulSetFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1StatefulSet {
+export function IoK8sApiAppsV1StatefulSetFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1StatefulSet {
     if ((json === undefined) || (json === null)) {
         return json;
     }

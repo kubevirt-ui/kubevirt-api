@@ -66,7 +66,7 @@ export function IoK8sApiPolicyV1PodDisruptionBudgetSpecFromJSON(json: any): IoK8
     return IoK8sApiPolicyV1PodDisruptionBudgetSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiPolicyV1PodDisruptionBudgetSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiPolicyV1PodDisruptionBudgetSpec {
+export function IoK8sApiPolicyV1PodDisruptionBudgetSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiPolicyV1PodDisruptionBudgetSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

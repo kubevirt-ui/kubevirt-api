@@ -66,7 +66,7 @@ export function IoK8sApiAdmissionregistrationV1alpha1ParamRefFromJSON(json: any)
     return IoK8sApiAdmissionregistrationV1alpha1ParamRefFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAdmissionregistrationV1alpha1ParamRefFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1ParamRef {
+export function IoK8sApiAdmissionregistrationV1alpha1ParamRefFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1ParamRef {
     if ((json === undefined) || (json === null)) {
         return json;
     }

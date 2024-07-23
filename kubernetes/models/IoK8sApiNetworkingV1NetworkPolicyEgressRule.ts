@@ -48,7 +48,7 @@ export function IoK8sApiNetworkingV1NetworkPolicyEgressRuleFromJSON(json: any): 
     return IoK8sApiNetworkingV1NetworkPolicyEgressRuleFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1NetworkPolicyEgressRuleFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1NetworkPolicyEgressRule {
+export function IoK8sApiNetworkingV1NetworkPolicyEgressRuleFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1NetworkPolicyEgressRule {
     if ((json === undefined) || (json === null)) {
         return json;
     }

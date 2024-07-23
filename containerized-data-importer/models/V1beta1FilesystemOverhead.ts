@@ -37,7 +37,7 @@ export function V1beta1FilesystemOverheadFromJSON(json: any): V1beta1FilesystemO
     return V1beta1FilesystemOverheadFromJSONTyped(json, false);
 }
 
-export function V1beta1FilesystemOverheadFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1FilesystemOverhead {
+export function V1beta1FilesystemOverheadFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1FilesystemOverhead {
     if ((json === undefined) || (json === null)) {
         return json;
     }

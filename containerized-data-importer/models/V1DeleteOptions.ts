@@ -74,7 +74,7 @@ export function V1DeleteOptionsFromJSON(json: any): V1DeleteOptions {
     return V1DeleteOptionsFromJSONTyped(json, false);
 }
 
-export function V1DeleteOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1DeleteOptions {
+export function V1DeleteOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DeleteOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

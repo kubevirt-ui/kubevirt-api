@@ -98,7 +98,7 @@ export function IoK8sApiCoreV1ISCSIPersistentVolumeSourceFromJSON(json: any): Io
     return IoK8sApiCoreV1ISCSIPersistentVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ISCSIPersistentVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ISCSIPersistentVolumeSource {
+export function IoK8sApiCoreV1ISCSIPersistentVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ISCSIPersistentVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

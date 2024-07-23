@@ -50,7 +50,7 @@ export function IoK8sApiAutoscalingV2ContainerResourceMetricSourceFromJSON(json:
     return IoK8sApiAutoscalingV2ContainerResourceMetricSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAutoscalingV2ContainerResourceMetricSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2ContainerResourceMetricSource {
+export function IoK8sApiAutoscalingV2ContainerResourceMetricSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2ContainerResourceMetricSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

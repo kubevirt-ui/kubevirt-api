@@ -48,7 +48,7 @@ export function V1BootloaderFromJSON(json: any): V1Bootloader {
     return V1BootloaderFromJSONTyped(json, false);
 }
 
-export function V1BootloaderFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Bootloader {
+export function V1BootloaderFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Bootloader {
     if ((json === undefined) || (json === null)) {
         return json;
     }

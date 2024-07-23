@@ -310,7 +310,7 @@ export function IoK8sApiCoreV1PersistentVolumeSpecFromJSON(json: any): IoK8sApiC
     return IoK8sApiCoreV1PersistentVolumeSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PersistentVolumeSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PersistentVolumeSpec {
+export function IoK8sApiCoreV1PersistentVolumeSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PersistentVolumeSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

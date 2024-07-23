@@ -56,7 +56,7 @@ export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpecFromJSON(json: a
     return IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpec {
+export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

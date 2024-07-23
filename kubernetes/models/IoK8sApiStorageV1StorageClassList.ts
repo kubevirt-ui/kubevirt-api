@@ -60,7 +60,7 @@ export function IoK8sApiStorageV1StorageClassListFromJSON(json: any): IoK8sApiSt
     return IoK8sApiStorageV1StorageClassListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiStorageV1StorageClassListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiStorageV1StorageClassList {
+export function IoK8sApiStorageV1StorageClassListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiStorageV1StorageClassList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

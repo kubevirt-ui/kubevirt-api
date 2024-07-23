@@ -38,7 +38,7 @@ export function V1ReloadableComponentConfigurationFromJSON(json: any): V1Reloada
     return V1ReloadableComponentConfigurationFromJSONTyped(json, false);
 }
 
-export function V1ReloadableComponentConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ReloadableComponentConfiguration {
+export function V1ReloadableComponentConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ReloadableComponentConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

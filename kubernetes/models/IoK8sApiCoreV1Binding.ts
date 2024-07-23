@@ -60,7 +60,7 @@ export function IoK8sApiCoreV1BindingFromJSON(json: any): IoK8sApiCoreV1Binding 
     return IoK8sApiCoreV1BindingFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1BindingFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1Binding {
+export function IoK8sApiCoreV1BindingFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1Binding {
     if ((json === undefined) || (json === null)) {
         return json;
     }

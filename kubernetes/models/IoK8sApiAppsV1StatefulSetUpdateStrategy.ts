@@ -44,7 +44,7 @@ export function IoK8sApiAppsV1StatefulSetUpdateStrategyFromJSON(json: any): IoK8
     return IoK8sApiAppsV1StatefulSetUpdateStrategyFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1StatefulSetUpdateStrategyFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1StatefulSetUpdateStrategy {
+export function IoK8sApiAppsV1StatefulSetUpdateStrategyFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1StatefulSetUpdateStrategy {
     if ((json === undefined) || (json === null)) {
         return json;
     }

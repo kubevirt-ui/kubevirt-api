@@ -37,7 +37,7 @@ export function V1HPETTimerFromJSON(json: any): V1HPETTimer {
     return V1HPETTimerFromJSONTyped(json, false);
 }
 
-export function V1HPETTimerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1HPETTimer {
+export function V1HPETTimerFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1HPETTimer {
     if ((json === undefined) || (json === null)) {
         return json;
     }

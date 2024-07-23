@@ -31,7 +31,7 @@ export function V1UserPasswordAccessCredentialPropagationMethodFromJSON(json: an
     return V1UserPasswordAccessCredentialPropagationMethodFromJSONTyped(json, false);
 }
 
-export function V1UserPasswordAccessCredentialPropagationMethodFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1UserPasswordAccessCredentialPropagationMethod {
+export function V1UserPasswordAccessCredentialPropagationMethodFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1UserPasswordAccessCredentialPropagationMethod {
     if ((json === undefined) || (json === null)) {
         return json;
     }

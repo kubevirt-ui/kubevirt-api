@@ -31,7 +31,7 @@ export function IoK8sApiFlowcontrolV1beta3FlowDistinguisherMethodFromJSON(json: 
     return IoK8sApiFlowcontrolV1beta3FlowDistinguisherMethodFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1beta3FlowDistinguisherMethodFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3FlowDistinguisherMethod {
+export function IoK8sApiFlowcontrolV1beta3FlowDistinguisherMethodFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3FlowDistinguisherMethod {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -37,7 +37,7 @@ export function V1beta1DataVolumeSourcePVCFromJSON(json: any): V1beta1DataVolume
     return V1beta1DataVolumeSourcePVCFromJSONTyped(json, false);
 }
 
-export function V1beta1DataVolumeSourcePVCFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataVolumeSourcePVC {
+export function V1beta1DataVolumeSourcePVCFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataVolumeSourcePVC {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -12,11 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 import {
-  K8sIoApiCoreV1LocalObjectReference,
-  K8sIoApiCoreV1LocalObjectReferenceFromJSON,
-  K8sIoApiCoreV1LocalObjectReferenceToJSON,
+    K8sIoApiCoreV1LocalObjectReference,
+    K8sIoApiCoreV1LocalObjectReferenceFromJSON,
+    K8sIoApiCoreV1LocalObjectReferenceFromJSONTyped,
+    K8sIoApiCoreV1LocalObjectReferenceToJSON,
 } from './';
 
 /**
@@ -25,50 +26,46 @@ import {
  * @interface V1SysprepSource
  */
 export interface V1SysprepSource {
-  /**
-   *
-   * @type {K8sIoApiCoreV1LocalObjectReference}
-   * @memberof V1SysprepSource
-   */
-  configMap?: K8sIoApiCoreV1LocalObjectReference;
-  /**
-   *
-   * @type {K8sIoApiCoreV1LocalObjectReference}
-   * @memberof V1SysprepSource
-   */
-  secret?: K8sIoApiCoreV1LocalObjectReference;
+    /**
+     * 
+     * @type {K8sIoApiCoreV1LocalObjectReference}
+     * @memberof V1SysprepSource
+     */
+    configMap?: K8sIoApiCoreV1LocalObjectReference;
+    /**
+     * 
+     * @type {K8sIoApiCoreV1LocalObjectReference}
+     * @memberof V1SysprepSource
+     */
+    secret?: K8sIoApiCoreV1LocalObjectReference;
 }
 
 export function V1SysprepSourceFromJSON(json: any): V1SysprepSource {
-  return V1SysprepSourceFromJSONTyped(json, false);
+    return V1SysprepSourceFromJSONTyped(json, false);
 }
 
-export function V1SysprepSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1SysprepSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    configMap: !exists(json, 'configMap')
-      ? undefined
-      : K8sIoApiCoreV1LocalObjectReferenceFromJSON(json['configMap']),
-    secret: !exists(json, 'secret')
-      ? undefined
-      : K8sIoApiCoreV1LocalObjectReferenceFromJSON(json['secret']),
-  };
+export function V1SysprepSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SysprepSource {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'configMap': !exists(json, 'configMap') ? undefined : K8sIoApiCoreV1LocalObjectReferenceFromJSON(json['configMap']),
+        'secret': !exists(json, 'secret') ? undefined : K8sIoApiCoreV1LocalObjectReferenceFromJSON(json['secret']),
+    };
 }
 
 export function V1SysprepSourceToJSON(value?: V1SysprepSource | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    configMap: K8sIoApiCoreV1LocalObjectReferenceToJSON(value.configMap),
-    secret: K8sIoApiCoreV1LocalObjectReferenceToJSON(value.secret),
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'configMap': K8sIoApiCoreV1LocalObjectReferenceToJSON(value.configMap),
+        'secret': K8sIoApiCoreV1LocalObjectReferenceToJSON(value.secret),
+    };
 }
+

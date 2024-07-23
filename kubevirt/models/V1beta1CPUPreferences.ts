@@ -12,8 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1CPUFeature, V1CPUFeatureFromJSON, V1CPUFeatureToJSON } from './';
+import { exists, mapValues } from '../runtime';
+import {
+    V1CPUFeature,
+    V1CPUFeatureFromJSON,
+    V1CPUFeatureFromJSONTyped,
+    V1CPUFeatureToJSON,
+} from './';
 
 /**
  * CPUPreferences contains various optional CPU preferences.
@@ -21,53 +26,46 @@ import { V1CPUFeature, V1CPUFeatureFromJSON, V1CPUFeatureToJSON } from './';
  * @interface V1beta1CPUPreferences
  */
 export interface V1beta1CPUPreferences {
-  /**
-   * PreferredCPUFeatures optionally defines a slice of preferred CPU features.
-   * @type {Array<V1CPUFeature>}
-   * @memberof V1beta1CPUPreferences
-   */
-  preferredCPUFeatures?: Array<V1CPUFeature>;
-  /**
-   * PreferredCPUTopology optionally defines the preferred guest visible CPU topology, defaults to PreferSockets.
-   * @type {string}
-   * @memberof V1beta1CPUPreferences
-   */
-  preferredCPUTopology?: string;
+    /**
+     * PreferredCPUFeatures optionally defines a slice of preferred CPU features.
+     * @type {Array<V1CPUFeature>}
+     * @memberof V1beta1CPUPreferences
+     */
+    preferredCPUFeatures?: Array<V1CPUFeature>;
+    /**
+     * PreferredCPUTopology optionally defines the preferred guest visible CPU topology, defaults to PreferSockets.
+     * @type {string}
+     * @memberof V1beta1CPUPreferences
+     */
+    preferredCPUTopology?: string;
 }
 
 export function V1beta1CPUPreferencesFromJSON(json: any): V1beta1CPUPreferences {
-  return V1beta1CPUPreferencesFromJSONTyped(json, false);
+    return V1beta1CPUPreferencesFromJSONTyped(json, false);
 }
 
-export function V1beta1CPUPreferencesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1CPUPreferences {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredCPUFeatures: !exists(json, 'preferredCPUFeatures')
-      ? undefined
-      : (json['preferredCPUFeatures'] as Array<any>).map(V1CPUFeatureFromJSON),
-    preferredCPUTopology: !exists(json, 'preferredCPUTopology')
-      ? undefined
-      : json['preferredCPUTopology'],
-  };
+export function V1beta1CPUPreferencesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1CPUPreferences {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'preferredCPUFeatures': !exists(json, 'preferredCPUFeatures') ? undefined : ((json['preferredCPUFeatures'] as Array<any>).map(V1CPUFeatureFromJSON)),
+        'preferredCPUTopology': !exists(json, 'preferredCPUTopology') ? undefined : json['preferredCPUTopology'],
+    };
 }
 
 export function V1beta1CPUPreferencesToJSON(value?: V1beta1CPUPreferences | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredCPUFeatures:
-      value.preferredCPUFeatures === undefined
-        ? undefined
-        : (value.preferredCPUFeatures as Array<any>).map(V1CPUFeatureToJSON),
-    preferredCPUTopology: value.preferredCPUTopology,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'preferredCPUFeatures': value.preferredCPUFeatures === undefined ? undefined : ((value.preferredCPUFeatures as Array<any>).map(V1CPUFeatureToJSON)),
+        'preferredCPUTopology': value.preferredCPUTopology,
+    };
 }
+

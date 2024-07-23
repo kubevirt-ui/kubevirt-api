@@ -12,61 +12,61 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * DataVolumeSourceS3 provides the parameters to create a Data Volume from an S3 source
  * @export
  * @interface V1beta1DataVolumeSourceS3
  */
 export interface V1beta1DataVolumeSourceS3 {
-  /**
-   * CertConfigMap is a configmap reference, containing a Certificate Authority(CA) public key, and a base64 encoded pem certificate
-   * @type {string}
-   * @memberof V1beta1DataVolumeSourceS3
-   */
-  certConfigMap?: string;
-  /**
-   * SecretRef provides the secret reference needed to access the S3 source
-   * @type {string}
-   * @memberof V1beta1DataVolumeSourceS3
-   */
-  secretRef?: string;
-  /**
-   * URL is the url of the S3 source
-   * @type {string}
-   * @memberof V1beta1DataVolumeSourceS3
-   */
-  url: string;
+    /**
+     * CertConfigMap is a configmap reference, containing a Certificate Authority(CA) public key, and a base64 encoded pem certificate
+     * @type {string}
+     * @memberof V1beta1DataVolumeSourceS3
+     */
+    certConfigMap?: string;
+    /**
+     * SecretRef provides the secret reference needed to access the S3 source
+     * @type {string}
+     * @memberof V1beta1DataVolumeSourceS3
+     */
+    secretRef?: string;
+    /**
+     * URL is the url of the S3 source
+     * @type {string}
+     * @memberof V1beta1DataVolumeSourceS3
+     */
+    url: string;
 }
 
 export function V1beta1DataVolumeSourceS3FromJSON(json: any): V1beta1DataVolumeSourceS3 {
-  return V1beta1DataVolumeSourceS3FromJSONTyped(json, false);
+    return V1beta1DataVolumeSourceS3FromJSONTyped(json, false);
 }
 
-export function V1beta1DataVolumeSourceS3FromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataVolumeSourceS3 {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    certConfigMap: !exists(json, 'certConfigMap') ? undefined : json['certConfigMap'],
-    secretRef: !exists(json, 'secretRef') ? undefined : json['secretRef'],
-    url: json['url'],
-  };
+export function V1beta1DataVolumeSourceS3FromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataVolumeSourceS3 {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'certConfigMap': !exists(json, 'certConfigMap') ? undefined : json['certConfigMap'],
+        'secretRef': !exists(json, 'secretRef') ? undefined : json['secretRef'],
+        'url': json['url'],
+    };
 }
 
 export function V1beta1DataVolumeSourceS3ToJSON(value?: V1beta1DataVolumeSourceS3 | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    certConfigMap: value.certConfigMap,
-    secretRef: value.secretRef,
-    url: value.url,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'certConfigMap': value.certConfigMap,
+        'secretRef': value.secretRef,
+        'url': value.url,
+    };
 }
+

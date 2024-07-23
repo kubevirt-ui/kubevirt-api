@@ -12,44 +12,45 @@
  * Do not edit the class manually.
  */
 
+import { exists, mapValues } from '../runtime';
 /**
  * PluginBinding represents a binding implemented in a plugin.
  * @export
  * @interface V1PluginBinding
  */
 export interface V1PluginBinding {
-  /**
-   * Name references to the binding name as denined in the kubevirt CR. version: 1alphav1
-   * @type {string}
-   * @memberof V1PluginBinding
-   */
-  name: string;
+    /**
+     * Name references to the binding name as denined in the kubevirt CR. version: 1alphav1
+     * @type {string}
+     * @memberof V1PluginBinding
+     */
+    name: string;
 }
 
 export function V1PluginBindingFromJSON(json: any): V1PluginBinding {
-  return V1PluginBindingFromJSONTyped(json, false);
+    return V1PluginBindingFromJSONTyped(json, false);
 }
 
-export function V1PluginBindingFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1PluginBinding {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-  };
+export function V1PluginBindingFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1PluginBinding {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'name': json['name'],
+    };
 }
 
 export function V1PluginBindingToJSON(value?: V1PluginBinding | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'name': value.name,
+    };
 }
+

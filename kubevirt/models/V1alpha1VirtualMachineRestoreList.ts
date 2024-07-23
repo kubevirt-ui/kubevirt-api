@@ -12,14 +12,16 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 import {
-  K8sIoApimachineryPkgApisMetaV1ListMeta,
-  K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-  V1alpha1VirtualMachineRestore,
-  V1alpha1VirtualMachineRestoreFromJSON,
-  V1alpha1VirtualMachineRestoreToJSON,
+    K8sIoApimachineryPkgApisMetaV1ListMeta,
+    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
+    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
+    K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
+    V1alpha1VirtualMachineRestore,
+    V1alpha1VirtualMachineRestoreFromJSON,
+    V1alpha1VirtualMachineRestoreFromJSONTyped,
+    V1alpha1VirtualMachineRestoreToJSON,
 } from './';
 
 /**
@@ -28,66 +30,62 @@ import {
  * @interface V1alpha1VirtualMachineRestoreList
  */
 export interface V1alpha1VirtualMachineRestoreList {
-  /**
-   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-   * @type {string}
-   * @memberof V1alpha1VirtualMachineRestoreList
-   */
-  apiVersion?: string;
-  /**
-   *
-   * @type {Array<V1alpha1VirtualMachineRestore>}
-   * @memberof V1alpha1VirtualMachineRestoreList
-   */
-  items: Array<V1alpha1VirtualMachineRestore>;
-  /**
-   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   * @type {string}
-   * @memberof V1alpha1VirtualMachineRestoreList
-   */
-  kind?: string;
-  /**
-   *
-   * @type {K8sIoApimachineryPkgApisMetaV1ListMeta}
-   * @memberof V1alpha1VirtualMachineRestoreList
-   */
-  metadata: K8sIoApimachineryPkgApisMetaV1ListMeta;
+    /**
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+     * @type {string}
+     * @memberof V1alpha1VirtualMachineRestoreList
+     */
+    apiVersion?: string;
+    /**
+     * 
+     * @type {Array<V1alpha1VirtualMachineRestore>}
+     * @memberof V1alpha1VirtualMachineRestoreList
+     */
+    items: Array<V1alpha1VirtualMachineRestore>;
+    /**
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+     * @type {string}
+     * @memberof V1alpha1VirtualMachineRestoreList
+     */
+    kind?: string;
+    /**
+     * 
+     * @type {K8sIoApimachineryPkgApisMetaV1ListMeta}
+     * @memberof V1alpha1VirtualMachineRestoreList
+     */
+    metadata: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
 
-export function V1alpha1VirtualMachineRestoreListFromJSON(
-  json: any,
-): V1alpha1VirtualMachineRestoreList {
-  return V1alpha1VirtualMachineRestoreListFromJSONTyped(json, false);
+export function V1alpha1VirtualMachineRestoreListFromJSON(json: any): V1alpha1VirtualMachineRestoreList {
+    return V1alpha1VirtualMachineRestoreListFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachineRestoreListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1alpha1VirtualMachineRestoreList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1alpha1VirtualMachineRestoreFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
+export function V1alpha1VirtualMachineRestoreListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VirtualMachineRestoreList {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+        'items': ((json['items'] as Array<any>).map(V1alpha1VirtualMachineRestoreFromJSON)),
+        'kind': !exists(json, 'kind') ? undefined : json['kind'],
+        'metadata': K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
+    };
 }
 
-export function V1alpha1VirtualMachineRestoreListToJSON(
-  value?: V1alpha1VirtualMachineRestoreList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1alpha1VirtualMachineRestoreToJSON),
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
+export function V1alpha1VirtualMachineRestoreListToJSON(value?: V1alpha1VirtualMachineRestoreList | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'apiVersion': value.apiVersion,
+        'items': ((value.items as Array<any>).map(V1alpha1VirtualMachineRestoreToJSON)),
+        'kind': value.kind,
+        'metadata': K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
+    };
 }
+

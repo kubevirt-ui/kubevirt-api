@@ -12,50 +12,53 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1HPETTimer
  */
 export interface V1HPETTimer {
-  /**
-   * Enabled set to false makes sure that the machine type or a preset can't add the timer. Defaults to true.
-   * @type {boolean}
-   * @memberof V1HPETTimer
-   */
-  present?: boolean;
-  /**
-   * TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest. One of "delay", "catchup", "merge", "discard".
-   * @type {string}
-   * @memberof V1HPETTimer
-   */
-  tickPolicy?: string;
+    /**
+     * Enabled set to false makes sure that the machine type or a preset can't add the timer. Defaults to true.
+     * @type {boolean}
+     * @memberof V1HPETTimer
+     */
+    present?: boolean;
+    /**
+     * TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest. One of "delay", "catchup", "merge", "discard".
+     * @type {string}
+     * @memberof V1HPETTimer
+     */
+    tickPolicy?: string;
 }
 
 export function V1HPETTimerFromJSON(json: any): V1HPETTimer {
-  return V1HPETTimerFromJSONTyped(json, false);
+    return V1HPETTimerFromJSONTyped(json, false);
 }
 
 export function V1HPETTimerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1HPETTimer {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    present: !exists(json, 'present') ? undefined : json['present'],
-    tickPolicy: !exists(json, 'tickPolicy') ? undefined : json['tickPolicy'],
-  };
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'present': !exists(json, 'present') ? undefined : json['present'],
+        'tickPolicy': !exists(json, 'tickPolicy') ? undefined : json['tickPolicy'],
+    };
 }
 
 export function V1HPETTimerToJSON(value?: V1HPETTimer | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    present: value.present,
-    tickPolicy: value.tickPolicy,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'present': value.present,
+        'tickPolicy': value.tickPolicy,
+    };
 }
+

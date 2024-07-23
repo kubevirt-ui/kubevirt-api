@@ -12,69 +12,69 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * DomainMemoryDumpInfo represents the memory dump information
  * @export
  * @interface V1DomainMemoryDumpInfo
  */
 export interface V1DomainMemoryDumpInfo {
-  /**
-   * ClaimName is the name of the pvc the memory was dumped to
-   * @type {string}
-   * @memberof V1DomainMemoryDumpInfo
-   */
-  claimName?: string;
-  /**
-   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-   * @type {string}
-   * @memberof V1DomainMemoryDumpInfo
-   */
-  endTimestamp?: string;
-  /**
-   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-   * @type {string}
-   * @memberof V1DomainMemoryDumpInfo
-   */
-  startTimestamp?: string;
-  /**
-   * TargetFileName is the name of the memory dump output
-   * @type {string}
-   * @memberof V1DomainMemoryDumpInfo
-   */
-  targetFileName?: string;
+    /**
+     * ClaimName is the name of the pvc the memory was dumped to
+     * @type {string}
+     * @memberof V1DomainMemoryDumpInfo
+     */
+    claimName?: string;
+    /**
+     * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+     * @type {string}
+     * @memberof V1DomainMemoryDumpInfo
+     */
+    endTimestamp?: string;
+    /**
+     * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+     * @type {string}
+     * @memberof V1DomainMemoryDumpInfo
+     */
+    startTimestamp?: string;
+    /**
+     * TargetFileName is the name of the memory dump output
+     * @type {string}
+     * @memberof V1DomainMemoryDumpInfo
+     */
+    targetFileName?: string;
 }
 
 export function V1DomainMemoryDumpInfoFromJSON(json: any): V1DomainMemoryDumpInfo {
-  return V1DomainMemoryDumpInfoFromJSONTyped(json, false);
+    return V1DomainMemoryDumpInfoFromJSONTyped(json, false);
 }
 
-export function V1DomainMemoryDumpInfoFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DomainMemoryDumpInfo {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    claimName: !exists(json, 'claimName') ? undefined : json['claimName'],
-    endTimestamp: !exists(json, 'endTimestamp') ? undefined : json['endTimestamp'],
-    startTimestamp: !exists(json, 'startTimestamp') ? undefined : json['startTimestamp'],
-    targetFileName: !exists(json, 'targetFileName') ? undefined : json['targetFileName'],
-  };
+export function V1DomainMemoryDumpInfoFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1DomainMemoryDumpInfo {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'claimName': !exists(json, 'claimName') ? undefined : json['claimName'],
+        'endTimestamp': !exists(json, 'endTimestamp') ? undefined : ((json['endTimestamp'])),
+        'startTimestamp': !exists(json, 'startTimestamp') ? undefined : ((json['startTimestamp'])),
+        'targetFileName': !exists(json, 'targetFileName') ? undefined : json['targetFileName'],
+    };
 }
 
 export function V1DomainMemoryDumpInfoToJSON(value?: V1DomainMemoryDumpInfo | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    claimName: value.claimName,
-    endTimestamp: value.endTimestamp === undefined ? undefined : value.endTimestamp,
-    startTimestamp: value.startTimestamp === undefined ? undefined : value.startTimestamp,
-    targetFileName: value.targetFileName,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'claimName': value.claimName,
+        'endTimestamp': value.endTimestamp === undefined ? undefined : (value.endTimestamp),
+        'startTimestamp': value.startTimestamp === undefined ? undefined : (value.startTimestamp),
+        'targetFileName': value.targetFileName,
+    };
 }
+

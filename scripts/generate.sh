@@ -8,7 +8,7 @@ KUBEVIRT_RELEASE=release-1.1
 CDI_RELEASE=v1.57.0
 KUBERNETES_RELEASE=release-1.29
 # openshift console latest main commit hash
-OPENSHIFT_CONSOLE_COMMIT=d2e30aa5aba35ec57b18a0f3d826889b9c6af147
+OPENSHIFT_CONSOLE_COMMIT=edae2305e01c2e0e8c33727af720ef960088eee3
 
 GENERATOR=typescript-fetch
 

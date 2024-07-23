@@ -12,7 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { V1PodAffinityTerm, V1PodAffinityTermFromJSON, V1PodAffinityTermToJSON } from './';
+import { exists, mapValues } from '../runtime';
+import {
+    V1PodAffinityTerm,
+    V1PodAffinityTermFromJSON,
+    V1PodAffinityTermFromJSONTyped,
+    V1PodAffinityTermToJSON,
+} from './';
 
 /**
  * The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)
@@ -20,46 +26,46 @@ import { V1PodAffinityTerm, V1PodAffinityTermFromJSON, V1PodAffinityTermToJSON }
  * @interface V1WeightedPodAffinityTerm
  */
 export interface V1WeightedPodAffinityTerm {
-  /**
-   *
-   * @type {V1PodAffinityTerm}
-   * @memberof V1WeightedPodAffinityTerm
-   */
-  podAffinityTerm: V1PodAffinityTerm;
-  /**
-   * weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
-   * @type {number}
-   * @memberof V1WeightedPodAffinityTerm
-   */
-  weight: number;
+    /**
+     * 
+     * @type {V1PodAffinityTerm}
+     * @memberof V1WeightedPodAffinityTerm
+     */
+    podAffinityTerm: V1PodAffinityTerm;
+    /**
+     * weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
+     * @type {number}
+     * @memberof V1WeightedPodAffinityTerm
+     */
+    weight: number;
 }
 
 export function V1WeightedPodAffinityTermFromJSON(json: any): V1WeightedPodAffinityTerm {
-  return V1WeightedPodAffinityTermFromJSONTyped(json, false);
+    return V1WeightedPodAffinityTermFromJSONTyped(json, false);
 }
 
-export function V1WeightedPodAffinityTermFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1WeightedPodAffinityTerm {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    podAffinityTerm: V1PodAffinityTermFromJSON(json['podAffinityTerm']),
-    weight: json['weight'],
-  };
+export function V1WeightedPodAffinityTermFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1WeightedPodAffinityTerm {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'podAffinityTerm': V1PodAffinityTermFromJSON(json['podAffinityTerm']),
+        'weight': json['weight'],
+    };
 }
 
 export function V1WeightedPodAffinityTermToJSON(value?: V1WeightedPodAffinityTerm | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    podAffinityTerm: V1PodAffinityTermToJSON(value.podAffinityTerm),
-    weight: value.weight,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'podAffinityTerm': V1PodAffinityTermToJSON(value.podAffinityTerm),
+        'weight': value.weight,
+    };
 }
+

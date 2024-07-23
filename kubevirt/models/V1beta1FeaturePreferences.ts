@@ -12,20 +12,24 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 import {
-  V1FeatureAPIC,
-  V1FeatureAPICFromJSON,
-  V1FeatureAPICToJSON,
-  V1FeatureHyperv,
-  V1FeatureHypervFromJSON,
-  V1FeatureHypervToJSON,
-  V1FeatureKVM,
-  V1FeatureKVMFromJSON,
-  V1FeatureKVMToJSON,
-  V1FeatureState,
-  V1FeatureStateFromJSON,
-  V1FeatureStateToJSON,
+    V1FeatureAPIC,
+    V1FeatureAPICFromJSON,
+    V1FeatureAPICFromJSONTyped,
+    V1FeatureAPICToJSON,
+    V1FeatureHyperv,
+    V1FeatureHypervFromJSON,
+    V1FeatureHypervFromJSONTyped,
+    V1FeatureHypervToJSON,
+    V1FeatureKVM,
+    V1FeatureKVMFromJSON,
+    V1FeatureKVMFromJSONTyped,
+    V1FeatureKVMToJSON,
+    V1FeatureState,
+    V1FeatureStateFromJSON,
+    V1FeatureStateFromJSONTyped,
+    V1FeatureStateToJSON,
 } from './';
 
 /**
@@ -34,90 +38,78 @@ import {
  * @interface V1beta1FeaturePreferences
  */
 export interface V1beta1FeaturePreferences {
-  /**
-   *
-   * @type {V1FeatureState}
-   * @memberof V1beta1FeaturePreferences
-   */
-  preferredAcpi?: V1FeatureState;
-  /**
-   *
-   * @type {V1FeatureAPIC}
-   * @memberof V1beta1FeaturePreferences
-   */
-  preferredApic?: V1FeatureAPIC;
-  /**
-   *
-   * @type {V1FeatureHyperv}
-   * @memberof V1beta1FeaturePreferences
-   */
-  preferredHyperv?: V1FeatureHyperv;
-  /**
-   *
-   * @type {V1FeatureKVM}
-   * @memberof V1beta1FeaturePreferences
-   */
-  preferredKvm?: V1FeatureKVM;
-  /**
-   *
-   * @type {V1FeatureState}
-   * @memberof V1beta1FeaturePreferences
-   */
-  preferredPvspinlock?: V1FeatureState;
-  /**
-   *
-   * @type {V1FeatureState}
-   * @memberof V1beta1FeaturePreferences
-   */
-  preferredSmm?: V1FeatureState;
+    /**
+     * 
+     * @type {V1FeatureState}
+     * @memberof V1beta1FeaturePreferences
+     */
+    preferredAcpi?: V1FeatureState;
+    /**
+     * 
+     * @type {V1FeatureAPIC}
+     * @memberof V1beta1FeaturePreferences
+     */
+    preferredApic?: V1FeatureAPIC;
+    /**
+     * 
+     * @type {V1FeatureHyperv}
+     * @memberof V1beta1FeaturePreferences
+     */
+    preferredHyperv?: V1FeatureHyperv;
+    /**
+     * 
+     * @type {V1FeatureKVM}
+     * @memberof V1beta1FeaturePreferences
+     */
+    preferredKvm?: V1FeatureKVM;
+    /**
+     * 
+     * @type {V1FeatureState}
+     * @memberof V1beta1FeaturePreferences
+     */
+    preferredPvspinlock?: V1FeatureState;
+    /**
+     * 
+     * @type {V1FeatureState}
+     * @memberof V1beta1FeaturePreferences
+     */
+    preferredSmm?: V1FeatureState;
 }
 
 export function V1beta1FeaturePreferencesFromJSON(json: any): V1beta1FeaturePreferences {
-  return V1beta1FeaturePreferencesFromJSONTyped(json, false);
+    return V1beta1FeaturePreferencesFromJSONTyped(json, false);
 }
 
-export function V1beta1FeaturePreferencesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1FeaturePreferences {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredAcpi: !exists(json, 'preferredAcpi')
-      ? undefined
-      : V1FeatureStateFromJSON(json['preferredAcpi']),
-    preferredApic: !exists(json, 'preferredApic')
-      ? undefined
-      : V1FeatureAPICFromJSON(json['preferredApic']),
-    preferredHyperv: !exists(json, 'preferredHyperv')
-      ? undefined
-      : V1FeatureHypervFromJSON(json['preferredHyperv']),
-    preferredKvm: !exists(json, 'preferredKvm')
-      ? undefined
-      : V1FeatureKVMFromJSON(json['preferredKvm']),
-    preferredPvspinlock: !exists(json, 'preferredPvspinlock')
-      ? undefined
-      : V1FeatureStateFromJSON(json['preferredPvspinlock']),
-    preferredSmm: !exists(json, 'preferredSmm')
-      ? undefined
-      : V1FeatureStateFromJSON(json['preferredSmm']),
-  };
+export function V1beta1FeaturePreferencesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1FeaturePreferences {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'preferredAcpi': !exists(json, 'preferredAcpi') ? undefined : V1FeatureStateFromJSON(json['preferredAcpi']),
+        'preferredApic': !exists(json, 'preferredApic') ? undefined : V1FeatureAPICFromJSON(json['preferredApic']),
+        'preferredHyperv': !exists(json, 'preferredHyperv') ? undefined : V1FeatureHypervFromJSON(json['preferredHyperv']),
+        'preferredKvm': !exists(json, 'preferredKvm') ? undefined : V1FeatureKVMFromJSON(json['preferredKvm']),
+        'preferredPvspinlock': !exists(json, 'preferredPvspinlock') ? undefined : V1FeatureStateFromJSON(json['preferredPvspinlock']),
+        'preferredSmm': !exists(json, 'preferredSmm') ? undefined : V1FeatureStateFromJSON(json['preferredSmm']),
+    };
 }
 
 export function V1beta1FeaturePreferencesToJSON(value?: V1beta1FeaturePreferences | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredAcpi: V1FeatureStateToJSON(value.preferredAcpi),
-    preferredApic: V1FeatureAPICToJSON(value.preferredApic),
-    preferredHyperv: V1FeatureHypervToJSON(value.preferredHyperv),
-    preferredKvm: V1FeatureKVMToJSON(value.preferredKvm),
-    preferredPvspinlock: V1FeatureStateToJSON(value.preferredPvspinlock),
-    preferredSmm: V1FeatureStateToJSON(value.preferredSmm),
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'preferredAcpi': V1FeatureStateToJSON(value.preferredAcpi),
+        'preferredApic': V1FeatureAPICToJSON(value.preferredApic),
+        'preferredHyperv': V1FeatureHypervToJSON(value.preferredHyperv),
+        'preferredKvm': V1FeatureKVMToJSON(value.preferredKvm),
+        'preferredPvspinlock': V1FeatureStateToJSON(value.preferredPvspinlock),
+        'preferredSmm': V1FeatureStateToJSON(value.preferredSmm),
+    };
 }
+

@@ -12,11 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 import {
-  K8sIoApimachineryPkgApisMetaV1Preconditions,
-  K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSON,
-  K8sIoApimachineryPkgApisMetaV1PreconditionsToJSON,
+    K8sIoApimachineryPkgApisMetaV1Preconditions,
+    K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSON,
+    K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSONTyped,
+    K8sIoApimachineryPkgApisMetaV1PreconditionsToJSON,
 } from './';
 
 /**
@@ -25,94 +26,86 @@ import {
  * @interface K8sIoApimachineryPkgApisMetaV1DeleteOptions
  */
 export interface K8sIoApimachineryPkgApisMetaV1DeleteOptions {
-  /**
-   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-   * @type {string}
-   * @memberof K8sIoApimachineryPkgApisMetaV1DeleteOptions
-   */
-  apiVersion?: string;
-  /**
-   * When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
-   * @type {Array<string>}
-   * @memberof K8sIoApimachineryPkgApisMetaV1DeleteOptions
-   */
-  dryRun?: Array<string>;
-  /**
-   * The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-   * @type {number}
-   * @memberof K8sIoApimachineryPkgApisMetaV1DeleteOptions
-   */
-  gracePeriodSeconds?: number;
-  /**
-   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   * @type {string}
-   * @memberof K8sIoApimachineryPkgApisMetaV1DeleteOptions
-   */
-  kind?: string;
-  /**
-   * Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the "orphan" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-   * @type {boolean}
-   * @memberof K8sIoApimachineryPkgApisMetaV1DeleteOptions
-   */
-  orphanDependents?: boolean;
-  /**
-   *
-   * @type {K8sIoApimachineryPkgApisMetaV1Preconditions}
-   * @memberof K8sIoApimachineryPkgApisMetaV1DeleteOptions
-   */
-  preconditions?: K8sIoApimachineryPkgApisMetaV1Preconditions;
-  /**
-   * Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
-   * @type {string}
-   * @memberof K8sIoApimachineryPkgApisMetaV1DeleteOptions
-   */
-  propagationPolicy?: string;
+    /**
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+     * @type {string}
+     * @memberof K8sIoApimachineryPkgApisMetaV1DeleteOptions
+     */
+    apiVersion?: string;
+    /**
+     * When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @type {Array<string>}
+     * @memberof K8sIoApimachineryPkgApisMetaV1DeleteOptions
+     */
+    dryRun?: Array<string>;
+    /**
+     * The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+     * @type {number}
+     * @memberof K8sIoApimachineryPkgApisMetaV1DeleteOptions
+     */
+    gracePeriodSeconds?: number;
+    /**
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+     * @type {string}
+     * @memberof K8sIoApimachineryPkgApisMetaV1DeleteOptions
+     */
+    kind?: string;
+    /**
+     * Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the "orphan" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+     * @type {boolean}
+     * @memberof K8sIoApimachineryPkgApisMetaV1DeleteOptions
+     */
+    orphanDependents?: boolean;
+    /**
+     * 
+     * @type {K8sIoApimachineryPkgApisMetaV1Preconditions}
+     * @memberof K8sIoApimachineryPkgApisMetaV1DeleteOptions
+     */
+    preconditions?: K8sIoApimachineryPkgApisMetaV1Preconditions;
+    /**
+     * Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
+     * @type {string}
+     * @memberof K8sIoApimachineryPkgApisMetaV1DeleteOptions
+     */
+    propagationPolicy?: string;
 }
 
-export function K8sIoApimachineryPkgApisMetaV1DeleteOptionsFromJSON(
-  json: any,
-): K8sIoApimachineryPkgApisMetaV1DeleteOptions {
-  return K8sIoApimachineryPkgApisMetaV1DeleteOptionsFromJSONTyped(json, false);
+export function K8sIoApimachineryPkgApisMetaV1DeleteOptionsFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1DeleteOptions {
+    return K8sIoApimachineryPkgApisMetaV1DeleteOptionsFromJSONTyped(json, false);
 }
 
-export function K8sIoApimachineryPkgApisMetaV1DeleteOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApimachineryPkgApisMetaV1DeleteOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    dryRun: !exists(json, 'dryRun') ? undefined : json['dryRun'],
-    gracePeriodSeconds: !exists(json, 'gracePeriodSeconds')
-      ? undefined
-      : json['gracePeriodSeconds'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    orphanDependents: !exists(json, 'orphanDependents') ? undefined : json['orphanDependents'],
-    preconditions: !exists(json, 'preconditions')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSON(json['preconditions']),
-    propagationPolicy: !exists(json, 'propagationPolicy') ? undefined : json['propagationPolicy'],
-  };
+export function K8sIoApimachineryPkgApisMetaV1DeleteOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1DeleteOptions {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+        'dryRun': !exists(json, 'dryRun') ? undefined : json['dryRun'],
+        'gracePeriodSeconds': !exists(json, 'gracePeriodSeconds') ? undefined : json['gracePeriodSeconds'],
+        'kind': !exists(json, 'kind') ? undefined : json['kind'],
+        'orphanDependents': !exists(json, 'orphanDependents') ? undefined : json['orphanDependents'],
+        'preconditions': !exists(json, 'preconditions') ? undefined : K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSON(json['preconditions']),
+        'propagationPolicy': !exists(json, 'propagationPolicy') ? undefined : json['propagationPolicy'],
+    };
 }
 
-export function K8sIoApimachineryPkgApisMetaV1DeleteOptionsToJSON(
-  value?: K8sIoApimachineryPkgApisMetaV1DeleteOptions | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    dryRun: value.dryRun,
-    gracePeriodSeconds: value.gracePeriodSeconds,
-    kind: value.kind,
-    orphanDependents: value.orphanDependents,
-    preconditions: K8sIoApimachineryPkgApisMetaV1PreconditionsToJSON(value.preconditions),
-    propagationPolicy: value.propagationPolicy,
-  };
+export function K8sIoApimachineryPkgApisMetaV1DeleteOptionsToJSON(value?: K8sIoApimachineryPkgApisMetaV1DeleteOptions | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'apiVersion': value.apiVersion,
+        'dryRun': value.dryRun,
+        'gracePeriodSeconds': value.gracePeriodSeconds,
+        'kind': value.kind,
+        'orphanDependents': value.orphanDependents,
+        'preconditions': K8sIoApimachineryPkgApisMetaV1PreconditionsToJSON(value.preconditions),
+        'propagationPolicy': value.propagationPolicy,
+    };
 }
+

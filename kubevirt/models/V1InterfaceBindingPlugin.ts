@@ -12,65 +12,61 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1InterfaceBindingPlugin
  */
 export interface V1InterfaceBindingPlugin {
-  /**
-   * DomainAttachmentType is a standard domain network attachment method kubevirt supports. Supported values: "tap". The standard domain attachment can be used instead or in addition to the sidecarImage. version: 1alphav1
-   * @type {string}
-   * @memberof V1InterfaceBindingPlugin
-   */
-  domainAttachmentType?: string;
-  /**
-   * NetworkAttachmentDefinition references to a NetworkAttachmentDefinition CR object. Format: <name>, <namespace>/<name>. If namespace is not specified, VMI namespace is assumed. version: 1alphav1
-   * @type {string}
-   * @memberof V1InterfaceBindingPlugin
-   */
-  networkAttachmentDefinition?: string;
-  /**
-   * SidecarImage references a container image that runs in the virt-launcher pod. The sidecar handles (libvirt) domain configuration and optional services. version: 1alphav1
-   * @type {string}
-   * @memberof V1InterfaceBindingPlugin
-   */
-  sidecarImage?: string;
+    /**
+     * DomainAttachmentType is a standard domain network attachment method kubevirt supports. Supported values: "tap". The standard domain attachment can be used instead or in addition to the sidecarImage. version: 1alphav1
+     * @type {string}
+     * @memberof V1InterfaceBindingPlugin
+     */
+    domainAttachmentType?: string;
+    /**
+     * NetworkAttachmentDefinition references to a NetworkAttachmentDefinition CR object. Format: <name>, <namespace>/<name>. If namespace is not specified, VMI namespace is assumed. version: 1alphav1
+     * @type {string}
+     * @memberof V1InterfaceBindingPlugin
+     */
+    networkAttachmentDefinition?: string;
+    /**
+     * SidecarImage references a container image that runs in the virt-launcher pod. The sidecar handles (libvirt) domain configuration and optional services. version: 1alphav1
+     * @type {string}
+     * @memberof V1InterfaceBindingPlugin
+     */
+    sidecarImage?: string;
 }
 
 export function V1InterfaceBindingPluginFromJSON(json: any): V1InterfaceBindingPlugin {
-  return V1InterfaceBindingPluginFromJSONTyped(json, false);
+    return V1InterfaceBindingPluginFromJSONTyped(json, false);
 }
 
-export function V1InterfaceBindingPluginFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1InterfaceBindingPlugin {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    domainAttachmentType: !exists(json, 'domainAttachmentType')
-      ? undefined
-      : json['domainAttachmentType'],
-    networkAttachmentDefinition: !exists(json, 'networkAttachmentDefinition')
-      ? undefined
-      : json['networkAttachmentDefinition'],
-    sidecarImage: !exists(json, 'sidecarImage') ? undefined : json['sidecarImage'],
-  };
+export function V1InterfaceBindingPluginFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1InterfaceBindingPlugin {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'domainAttachmentType': !exists(json, 'domainAttachmentType') ? undefined : json['domainAttachmentType'],
+        'networkAttachmentDefinition': !exists(json, 'networkAttachmentDefinition') ? undefined : json['networkAttachmentDefinition'],
+        'sidecarImage': !exists(json, 'sidecarImage') ? undefined : json['sidecarImage'],
+    };
 }
 
 export function V1InterfaceBindingPluginToJSON(value?: V1InterfaceBindingPlugin | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    domainAttachmentType: value.domainAttachmentType,
-    networkAttachmentDefinition: value.networkAttachmentDefinition,
-    sidecarImage: value.sidecarImage,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'domainAttachmentType': value.domainAttachmentType,
+        'networkAttachmentDefinition': value.networkAttachmentDefinition,
+        'sidecarImage': value.sidecarImage,
+    };
 }
+

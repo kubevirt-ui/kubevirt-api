@@ -12,53 +12,53 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * Represents the user's configuration to emulate sound cards in the VMI.
  * @export
  * @interface V1SoundDevice
  */
 export interface V1SoundDevice {
-  /**
-   * We only support ich9 or ac97. If SoundDevice is not set: No sound card is emulated. If SoundDevice is set but Model is not: ich9
-   * @type {string}
-   * @memberof V1SoundDevice
-   */
-  model?: string;
-  /**
-   * User's defined name for this sound device
-   * @type {string}
-   * @memberof V1SoundDevice
-   */
-  name: string;
+    /**
+     * We only support ich9 or ac97. If SoundDevice is not set: No sound card is emulated. If SoundDevice is set but Model is not: ich9
+     * @type {string}
+     * @memberof V1SoundDevice
+     */
+    model?: string;
+    /**
+     * User's defined name for this sound device
+     * @type {string}
+     * @memberof V1SoundDevice
+     */
+    name: string;
 }
 
 export function V1SoundDeviceFromJSON(json: any): V1SoundDevice {
-  return V1SoundDeviceFromJSONTyped(json, false);
+    return V1SoundDeviceFromJSONTyped(json, false);
 }
 
-export function V1SoundDeviceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1SoundDevice {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    model: !exists(json, 'model') ? undefined : json['model'],
-    name: json['name'],
-  };
+export function V1SoundDeviceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SoundDevice {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'model': !exists(json, 'model') ? undefined : json['model'],
+        'name': json['name'],
+    };
 }
 
 export function V1SoundDeviceToJSON(value?: V1SoundDevice | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    model: value.model,
-    name: value.name,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'model': value.model,
+        'name': value.name,
+    };
 }
+

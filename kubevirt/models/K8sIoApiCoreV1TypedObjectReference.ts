@@ -12,73 +12,69 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface K8sIoApiCoreV1TypedObjectReference
  */
 export interface K8sIoApiCoreV1TypedObjectReference {
-  /**
-   * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
-   * @type {string}
-   * @memberof K8sIoApiCoreV1TypedObjectReference
-   */
-  apiGroup?: string;
-  /**
-   * Kind is the type of resource being referenced
-   * @type {string}
-   * @memberof K8sIoApiCoreV1TypedObjectReference
-   */
-  kind: string;
-  /**
-   * Name is the name of resource being referenced
-   * @type {string}
-   * @memberof K8sIoApiCoreV1TypedObjectReference
-   */
-  name: string;
-  /**
-   * Namespace is the namespace of resource being referenced Note that when a namespace is specified, a gateway.networking.k8s.io/ReferenceGrant object is required in the referent namespace to allow that namespace's owner to accept the reference. See the ReferenceGrant documentation for details. (Alpha) This field requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
-   * @type {string}
-   * @memberof K8sIoApiCoreV1TypedObjectReference
-   */
-  namespace?: string;
+    /**
+     * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+     * @type {string}
+     * @memberof K8sIoApiCoreV1TypedObjectReference
+     */
+    apiGroup?: string;
+    /**
+     * Kind is the type of resource being referenced
+     * @type {string}
+     * @memberof K8sIoApiCoreV1TypedObjectReference
+     */
+    kind: string;
+    /**
+     * Name is the name of resource being referenced
+     * @type {string}
+     * @memberof K8sIoApiCoreV1TypedObjectReference
+     */
+    name: string;
+    /**
+     * Namespace is the namespace of resource being referenced Note that when a namespace is specified, a gateway.networking.k8s.io/ReferenceGrant object is required in the referent namespace to allow that namespace's owner to accept the reference. See the ReferenceGrant documentation for details. (Alpha) This field requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
+     * @type {string}
+     * @memberof K8sIoApiCoreV1TypedObjectReference
+     */
+    namespace?: string;
 }
 
-export function K8sIoApiCoreV1TypedObjectReferenceFromJSON(
-  json: any,
-): K8sIoApiCoreV1TypedObjectReference {
-  return K8sIoApiCoreV1TypedObjectReferenceFromJSONTyped(json, false);
+export function K8sIoApiCoreV1TypedObjectReferenceFromJSON(json: any): K8sIoApiCoreV1TypedObjectReference {
+    return K8sIoApiCoreV1TypedObjectReferenceFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1TypedObjectReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApiCoreV1TypedObjectReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiGroup: !exists(json, 'apiGroup') ? undefined : json['apiGroup'],
-    kind: json['kind'],
-    name: json['name'],
-    namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
-  };
+export function K8sIoApiCoreV1TypedObjectReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApiCoreV1TypedObjectReference {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'apiGroup': !exists(json, 'apiGroup') ? undefined : json['apiGroup'],
+        'kind': json['kind'],
+        'name': json['name'],
+        'namespace': !exists(json, 'namespace') ? undefined : json['namespace'],
+    };
 }
 
-export function K8sIoApiCoreV1TypedObjectReferenceToJSON(
-  value?: K8sIoApiCoreV1TypedObjectReference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiGroup: value.apiGroup,
-    kind: value.kind,
-    name: value.name,
-    namespace: value.namespace,
-  };
+export function K8sIoApiCoreV1TypedObjectReferenceToJSON(value?: K8sIoApiCoreV1TypedObjectReference | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'apiGroup': value.apiGroup,
+        'kind': value.kind,
+        'name': value.name,
+        'namespace': value.namespace,
+    };
 }
+

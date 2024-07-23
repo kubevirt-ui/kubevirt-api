@@ -12,48 +12,45 @@
  * Do not edit the class manually.
  */
 
+import { exists, mapValues } from '../runtime';
 /**
  * RootPaths lists the paths available at root. For example: "/healthz", "/apis".
  * @export
  * @interface K8sIoApimachineryPkgApisMetaV1RootPaths
  */
 export interface K8sIoApimachineryPkgApisMetaV1RootPaths {
-  /**
-   * paths are the paths available at root.
-   * @type {Array<string>}
-   * @memberof K8sIoApimachineryPkgApisMetaV1RootPaths
-   */
-  paths: Array<string>;
+    /**
+     * paths are the paths available at root.
+     * @type {Array<string>}
+     * @memberof K8sIoApimachineryPkgApisMetaV1RootPaths
+     */
+    paths: Array<string>;
 }
 
-export function K8sIoApimachineryPkgApisMetaV1RootPathsFromJSON(
-  json: any,
-): K8sIoApimachineryPkgApisMetaV1RootPaths {
-  return K8sIoApimachineryPkgApisMetaV1RootPathsFromJSONTyped(json, false);
+export function K8sIoApimachineryPkgApisMetaV1RootPathsFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1RootPaths {
+    return K8sIoApimachineryPkgApisMetaV1RootPathsFromJSONTyped(json, false);
 }
 
-export function K8sIoApimachineryPkgApisMetaV1RootPathsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApimachineryPkgApisMetaV1RootPaths {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    paths: json['paths'],
-  };
+export function K8sIoApimachineryPkgApisMetaV1RootPathsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1RootPaths {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'paths': json['paths'],
+    };
 }
 
-export function K8sIoApimachineryPkgApisMetaV1RootPathsToJSON(
-  value?: K8sIoApimachineryPkgApisMetaV1RootPaths | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    paths: value.paths,
-  };
+export function K8sIoApimachineryPkgApisMetaV1RootPathsToJSON(value?: K8sIoApimachineryPkgApisMetaV1RootPaths | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'paths': value.paths,
+    };
 }
+

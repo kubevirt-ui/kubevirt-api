@@ -12,8 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1ResourceClaim, V1ResourceClaimFromJSON, V1ResourceClaimToJSON } from './';
+import { exists, mapValues } from '../runtime';
+import {
+    V1ResourceClaim,
+    V1ResourceClaimFromJSON,
+    V1ResourceClaimFromJSONTyped,
+    V1ResourceClaimToJSON,
+} from './';
 
 /**
  * ResourceRequirements describes the compute resource requirements.
@@ -21,63 +26,58 @@ import { V1ResourceClaim, V1ResourceClaimFromJSON, V1ResourceClaimToJSON } from 
  * @interface V1ResourceRequirements
  */
 export interface V1ResourceRequirements {
-  /**
-   * Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.
-   *
-   * This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.
-   *
-   * This field is immutable.
-   * @type {Array<V1ResourceClaim>}
-   * @memberof V1ResourceRequirements
-   */
-  claims?: Array<V1ResourceClaim>;
-  /**
-   * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-   * @type {{ [key: string]: string; }}
-   * @memberof V1ResourceRequirements
-   */
-  limits?: { [key: string]: string };
-  /**
-   * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-   * @type {{ [key: string]: string; }}
-   * @memberof V1ResourceRequirements
-   */
-  requests?: { [key: string]: string };
+    /**
+     * Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.
+     * 
+     * This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.
+     * 
+     * This field is immutable.
+     * @type {Array<V1ResourceClaim>}
+     * @memberof V1ResourceRequirements
+     */
+    claims?: Array<V1ResourceClaim>;
+    /**
+     * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+     * @type {{ [key: string]: string; }}
+     * @memberof V1ResourceRequirements
+     */
+    limits?: { [key: string]: string; };
+    /**
+     * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+     * @type {{ [key: string]: string; }}
+     * @memberof V1ResourceRequirements
+     */
+    requests?: { [key: string]: string; };
 }
 
 export function V1ResourceRequirementsFromJSON(json: any): V1ResourceRequirements {
-  return V1ResourceRequirementsFromJSONTyped(json, false);
+    return V1ResourceRequirementsFromJSONTyped(json, false);
 }
 
-export function V1ResourceRequirementsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1ResourceRequirements {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    claims: !exists(json, 'claims')
-      ? undefined
-      : (json['claims'] as Array<any>).map(V1ResourceClaimFromJSON),
-    limits: !exists(json, 'limits') ? undefined : json['limits'],
-    requests: !exists(json, 'requests') ? undefined : json['requests'],
-  };
+export function V1ResourceRequirementsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ResourceRequirements {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'claims': !exists(json, 'claims') ? undefined : ((json['claims'] as Array<any>).map(V1ResourceClaimFromJSON)),
+        'limits': !exists(json, 'limits') ? undefined : json['limits'],
+        'requests': !exists(json, 'requests') ? undefined : json['requests'],
+    };
 }
 
 export function V1ResourceRequirementsToJSON(value?: V1ResourceRequirements | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    claims:
-      value.claims === undefined
-        ? undefined
-        : (value.claims as Array<any>).map(V1ResourceClaimToJSON),
-    limits: value.limits,
-    requests: value.requests,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'claims': value.claims === undefined ? undefined : ((value.claims as Array<any>).map(V1ResourceClaimToJSON)),
+        'limits': value.limits,
+        'requests': value.requests,
+    };
 }
+

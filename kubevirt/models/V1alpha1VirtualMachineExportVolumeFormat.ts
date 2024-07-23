@@ -12,56 +12,53 @@
  * Do not edit the class manually.
  */
 
+import { exists, mapValues } from '../runtime';
 /**
  * VirtualMachineExportVolumeFormat contains the format type and URL to get the volume in that format
  * @export
  * @interface V1alpha1VirtualMachineExportVolumeFormat
  */
 export interface V1alpha1VirtualMachineExportVolumeFormat {
-  /**
-   * Format is the format of the image at the specified URL
-   * @type {string}
-   * @memberof V1alpha1VirtualMachineExportVolumeFormat
-   */
-  format: string;
-  /**
-   * Url is the url that contains the volume in the format specified
-   * @type {string}
-   * @memberof V1alpha1VirtualMachineExportVolumeFormat
-   */
-  url: string;
+    /**
+     * Format is the format of the image at the specified URL
+     * @type {string}
+     * @memberof V1alpha1VirtualMachineExportVolumeFormat
+     */
+    format: string;
+    /**
+     * Url is the url that contains the volume in the format specified
+     * @type {string}
+     * @memberof V1alpha1VirtualMachineExportVolumeFormat
+     */
+    url: string;
 }
 
-export function V1alpha1VirtualMachineExportVolumeFormatFromJSON(
-  json: any,
-): V1alpha1VirtualMachineExportVolumeFormat {
-  return V1alpha1VirtualMachineExportVolumeFormatFromJSONTyped(json, false);
+export function V1alpha1VirtualMachineExportVolumeFormatFromJSON(json: any): V1alpha1VirtualMachineExportVolumeFormat {
+    return V1alpha1VirtualMachineExportVolumeFormatFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachineExportVolumeFormatFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1alpha1VirtualMachineExportVolumeFormat {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    format: json['format'],
-    url: json['url'],
-  };
+export function V1alpha1VirtualMachineExportVolumeFormatFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VirtualMachineExportVolumeFormat {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'format': json['format'],
+        'url': json['url'],
+    };
 }
 
-export function V1alpha1VirtualMachineExportVolumeFormatToJSON(
-  value?: V1alpha1VirtualMachineExportVolumeFormat | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    format: value.format,
-    url: value.url,
-  };
+export function V1alpha1VirtualMachineExportVolumeFormatToJSON(value?: V1alpha1VirtualMachineExportVolumeFormat | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'format': value.format,
+        'url': value.url,
+    };
 }
+

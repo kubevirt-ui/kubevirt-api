@@ -12,49 +12,45 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.
  * @export
  * @interface K8sIoApiCoreV1LocalObjectReference
  */
 export interface K8sIoApiCoreV1LocalObjectReference {
-  /**
-   * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-   * @type {string}
-   * @memberof K8sIoApiCoreV1LocalObjectReference
-   */
-  name?: string;
+    /**
+     * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+     * @type {string}
+     * @memberof K8sIoApiCoreV1LocalObjectReference
+     */
+    name?: string;
 }
 
-export function K8sIoApiCoreV1LocalObjectReferenceFromJSON(
-  json: any,
-): K8sIoApiCoreV1LocalObjectReference {
-  return K8sIoApiCoreV1LocalObjectReferenceFromJSONTyped(json, false);
+export function K8sIoApiCoreV1LocalObjectReferenceFromJSON(json: any): K8sIoApiCoreV1LocalObjectReference {
+    return K8sIoApiCoreV1LocalObjectReferenceFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1LocalObjectReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApiCoreV1LocalObjectReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: !exists(json, 'name') ? undefined : json['name'],
-  };
+export function K8sIoApiCoreV1LocalObjectReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApiCoreV1LocalObjectReference {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'name': !exists(json, 'name') ? undefined : json['name'],
+    };
 }
 
-export function K8sIoApiCoreV1LocalObjectReferenceToJSON(
-  value?: K8sIoApiCoreV1LocalObjectReference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-  };
+export function K8sIoApiCoreV1LocalObjectReferenceToJSON(value?: K8sIoApiCoreV1LocalObjectReference | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'name': value.name,
+    };
 }
+

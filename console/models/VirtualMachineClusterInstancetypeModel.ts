@@ -5,7 +5,7 @@ import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 const VirtualMachineClusterInstancetypeModel: K8sModel = {
   label: 'VirtualMachineClusterInstancetype',
   labelPlural: 'VirtualMachineClusterInstancetypes',
-  apiVersion: 'v1alpha2',
+  apiVersion: 'v1beta1',
   apiGroup: 'instancetype.kubevirt.io',
   plural: 'virtualmachineclusterinstancetypes',
   abbr: 'VMCI',

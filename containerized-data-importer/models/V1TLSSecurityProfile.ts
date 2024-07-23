@@ -12,8 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1CustomTLSProfile, V1CustomTLSProfileFromJSON, V1CustomTLSProfileToJSON } from './';
+import { exists, mapValues } from '../runtime';
+import {
+    V1CustomTLSProfile,
+    V1CustomTLSProfileFromJSON,
+    V1CustomTLSProfileFromJSONTyped,
+    V1CustomTLSProfileToJSON,
+} from './';
 
 /**
  * TLSSecurityProfile defines the schema for a TLS security profile. This object is used by operators to apply TLS security settings to operands.
@@ -21,76 +26,76 @@ import { V1CustomTLSProfile, V1CustomTLSProfileFromJSON, V1CustomTLSProfileToJSO
  * @interface V1TLSSecurityProfile
  */
 export interface V1TLSSecurityProfile {
-  /**
-   *
-   * @type {V1CustomTLSProfile}
-   * @memberof V1TLSSecurityProfile
-   */
-  custom?: V1CustomTLSProfile;
-  /**
-   * IntermediateTLSProfile is a TLS security profile based on: https://wiki.mozilla.org/Security/Server_Side_TLS#Intermediate_compatibility_.28default.29
-   * @type {object}
-   * @memberof V1TLSSecurityProfile
-   */
-  intermediate?: object;
-  /**
-   * ModernTLSProfile is a TLS security profile based on: https://wiki.mozilla.org/Security/Server_Side_TLS#Modern_compatibility
-   * @type {object}
-   * @memberof V1TLSSecurityProfile
-   */
-  modern?: object;
-  /**
-   * OldTLSProfile is a TLS security profile based on: https://wiki.mozilla.org/Security/Server_Side_TLS#Old_backward_compatibility
-   * @type {object}
-   * @memberof V1TLSSecurityProfile
-   */
-  old?: object;
-  /**
-   * type is one of Old, Intermediate, Modern or Custom. Custom provides the ability to specify individual TLS security profile parameters. Old, Intermediate and Modern are TLS security profiles based on:
-   *
-   * https://wiki.mozilla.org/Security/Server_Side_TLS#Recommended_configurations
-   *
-   * The profiles are intent based, so they may change over time as new ciphers are developed and existing ciphers are found to be insecure.  Depending on precisely which ciphers are available to a process, the list may be reduced.
-   *
-   * Note that the Modern profile is currently not supported because it is not yet well adopted by common software libraries.
-   * @type {string}
-   * @memberof V1TLSSecurityProfile
-   */
-  type?: string;
+    /**
+     * 
+     * @type {V1CustomTLSProfile}
+     * @memberof V1TLSSecurityProfile
+     */
+    custom?: V1CustomTLSProfile;
+    /**
+     * IntermediateTLSProfile is a TLS security profile based on: https://wiki.mozilla.org/Security/Server_Side_TLS#Intermediate_compatibility_.28default.29
+     * @type {object}
+     * @memberof V1TLSSecurityProfile
+     */
+    intermediate?: object;
+    /**
+     * ModernTLSProfile is a TLS security profile based on: https://wiki.mozilla.org/Security/Server_Side_TLS#Modern_compatibility
+     * @type {object}
+     * @memberof V1TLSSecurityProfile
+     */
+    modern?: object;
+    /**
+     * OldTLSProfile is a TLS security profile based on: https://wiki.mozilla.org/Security/Server_Side_TLS#Old_backward_compatibility
+     * @type {object}
+     * @memberof V1TLSSecurityProfile
+     */
+    old?: object;
+    /**
+     * type is one of Old, Intermediate, Modern or Custom. Custom provides the ability to specify individual TLS security profile parameters. Old, Intermediate and Modern are TLS security profiles based on:
+     * 
+     * https://wiki.mozilla.org/Security/Server_Side_TLS#Recommended_configurations
+     * 
+     * The profiles are intent based, so they may change over time as new ciphers are developed and existing ciphers are found to be insecure.  Depending on precisely which ciphers are available to a process, the list may be reduced.
+     * 
+     * Note that the Modern profile is currently not supported because it is not yet well adopted by common software libraries.
+     * @type {string}
+     * @memberof V1TLSSecurityProfile
+     */
+    type?: string;
 }
 
 export function V1TLSSecurityProfileFromJSON(json: any): V1TLSSecurityProfile {
-  return V1TLSSecurityProfileFromJSONTyped(json, false);
+    return V1TLSSecurityProfileFromJSONTyped(json, false);
 }
 
-export function V1TLSSecurityProfileFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1TLSSecurityProfile {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    custom: !exists(json, 'custom') ? undefined : V1CustomTLSProfileFromJSON(json['custom']),
-    intermediate: !exists(json, 'intermediate') ? undefined : json['intermediate'],
-    modern: !exists(json, 'modern') ? undefined : json['modern'],
-    old: !exists(json, 'old') ? undefined : json['old'],
-    type: !exists(json, 'type') ? undefined : json['type'],
-  };
+export function V1TLSSecurityProfileFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1TLSSecurityProfile {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'custom': !exists(json, 'custom') ? undefined : V1CustomTLSProfileFromJSON(json['custom']),
+        'intermediate': !exists(json, 'intermediate') ? undefined : json['intermediate'],
+        'modern': !exists(json, 'modern') ? undefined : json['modern'],
+        'old': !exists(json, 'old') ? undefined : json['old'],
+        'type': !exists(json, 'type') ? undefined : json['type'],
+    };
 }
 
 export function V1TLSSecurityProfileToJSON(value?: V1TLSSecurityProfile | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    custom: V1CustomTLSProfileToJSON(value.custom),
-    intermediate: value.intermediate,
-    modern: value.modern,
-    old: value.old,
-    type: value.type,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'custom': V1CustomTLSProfileToJSON(value.custom),
+        'intermediate': value.intermediate,
+        'modern': value.modern,
+        'old': value.old,
+        'type': value.type,
+    };
 }
+

@@ -12,42 +12,45 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1TPMDevice
  */
 export interface V1TPMDevice {
-  /**
-   * Persistent indicates the state of the TPM device should be kept accross reboots Defaults to false
-   * @type {boolean}
-   * @memberof V1TPMDevice
-   */
-  persistent?: boolean;
+    /**
+     * Persistent indicates the state of the TPM device should be kept accross reboots Defaults to false
+     * @type {boolean}
+     * @memberof V1TPMDevice
+     */
+    persistent?: boolean;
 }
 
 export function V1TPMDeviceFromJSON(json: any): V1TPMDevice {
-  return V1TPMDeviceFromJSONTyped(json, false);
+    return V1TPMDeviceFromJSONTyped(json, false);
 }
 
 export function V1TPMDeviceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1TPMDevice {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    persistent: !exists(json, 'persistent') ? undefined : json['persistent'],
-  };
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'persistent': !exists(json, 'persistent') ? undefined : json['persistent'],
+    };
 }
 
 export function V1TPMDeviceToJSON(value?: V1TPMDevice | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    persistent: value.persistent,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'persistent': value.persistent,
+    };
 }
+

@@ -38,7 +38,7 @@ export function V1SeccompConfigurationFromJSON(json: any): V1SeccompConfiguratio
     return V1SeccompConfigurationFromJSONTyped(json, false);
 }
 
-export function V1SeccompConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SeccompConfiguration {
+export function V1SeccompConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SeccompConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

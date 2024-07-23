@@ -43,7 +43,7 @@ export function V1HostDeviceFromJSON(json: any): V1HostDevice {
     return V1HostDeviceFromJSONTyped(json, false);
 }
 
-export function V1HostDeviceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1HostDevice {
+export function V1HostDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1HostDevice {
     if ((json === undefined) || (json === null)) {
         return json;
     }

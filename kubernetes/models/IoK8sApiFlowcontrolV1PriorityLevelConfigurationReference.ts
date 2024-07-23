@@ -31,7 +31,7 @@ export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationReferenceFromJSON
     return IoK8sApiFlowcontrolV1PriorityLevelConfigurationReferenceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1PriorityLevelConfigurationReference {
+export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1PriorityLevelConfigurationReference {
     if ((json === undefined) || (json === null)) {
         return json;
     }

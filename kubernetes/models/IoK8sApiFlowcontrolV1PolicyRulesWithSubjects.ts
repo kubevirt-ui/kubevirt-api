@@ -58,7 +58,7 @@ export function IoK8sApiFlowcontrolV1PolicyRulesWithSubjectsFromJSON(json: any):
     return IoK8sApiFlowcontrolV1PolicyRulesWithSubjectsFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1PolicyRulesWithSubjectsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1PolicyRulesWithSubjects {
+export function IoK8sApiFlowcontrolV1PolicyRulesWithSubjectsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1PolicyRulesWithSubjects {
     if ((json === undefined) || (json === null)) {
         return json;
     }

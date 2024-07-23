@@ -31,7 +31,7 @@ export function V1BIOSFromJSON(json: any): V1BIOS {
     return V1BIOSFromJSONTyped(json, false);
 }
 
-export function V1BIOSFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1BIOS {
+export function V1BIOSFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1BIOS {
     if ((json === undefined) || (json === null)) {
         return json;
     }

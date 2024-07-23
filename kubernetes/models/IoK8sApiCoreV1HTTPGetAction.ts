@@ -62,7 +62,7 @@ export function IoK8sApiCoreV1HTTPGetActionFromJSON(json: any): IoK8sApiCoreV1HT
     return IoK8sApiCoreV1HTTPGetActionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1HTTPGetActionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1HTTPGetAction {
+export function IoK8sApiCoreV1HTTPGetActionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1HTTPGetAction {
     if ((json === undefined) || (json === null)) {
         return json;
     }

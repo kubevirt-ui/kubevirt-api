@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1AttachedVolumeFromJSON(json: any): IoK8sApiCoreV1A
     return IoK8sApiCoreV1AttachedVolumeFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1AttachedVolumeFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1AttachedVolume {
+export function IoK8sApiCoreV1AttachedVolumeFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1AttachedVolume {
     if ((json === undefined) || (json === null)) {
         return json;
     }

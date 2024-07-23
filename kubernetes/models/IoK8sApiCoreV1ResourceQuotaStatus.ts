@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1ResourceQuotaStatusFromJSON(json: any): IoK8sApiCo
     return IoK8sApiCoreV1ResourceQuotaStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ResourceQuotaStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ResourceQuotaStatus {
+export function IoK8sApiCoreV1ResourceQuotaStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ResourceQuotaStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

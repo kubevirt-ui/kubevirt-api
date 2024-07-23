@@ -99,7 +99,7 @@ export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleF
     return IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleFromJSONTyped(json, false);
 }
 
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule {
+export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule {
     if ((json === undefined) || (json === null)) {
         return json;
     }

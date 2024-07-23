@@ -37,7 +37,7 @@ export function V1RemoveVolumeOptionsFromJSON(json: any): V1RemoveVolumeOptions 
     return V1RemoveVolumeOptionsFromJSONTyped(json, false);
 }
 
-export function V1RemoveVolumeOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1RemoveVolumeOptions {
+export function V1RemoveVolumeOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1RemoveVolumeOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

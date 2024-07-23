@@ -54,7 +54,7 @@ export function IoK8sApiCoreV1ResourceRequirementsFromJSON(json: any): IoK8sApiC
     return IoK8sApiCoreV1ResourceRequirementsFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ResourceRequirementsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ResourceRequirements {
+export function IoK8sApiCoreV1ResourceRequirementsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ResourceRequirements {
     if ((json === undefined) || (json === null)) {
         return json;
     }

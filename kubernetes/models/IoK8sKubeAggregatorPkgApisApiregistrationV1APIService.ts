@@ -70,7 +70,7 @@ export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceFromJSON(js
     return IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceFromJSONTyped(json, false);
 }
 
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sKubeAggregatorPkgApisApiregistrationV1APIService {
+export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sKubeAggregatorPkgApisApiregistrationV1APIService {
     if ((json === undefined) || (json === null)) {
         return json;
     }

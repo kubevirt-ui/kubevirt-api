@@ -31,7 +31,7 @@ export function V1I6300ESBWatchdogFromJSON(json: any): V1I6300ESBWatchdog {
     return V1I6300ESBWatchdogFromJSONTyped(json, false);
 }
 
-export function V1I6300ESBWatchdogFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1I6300ESBWatchdog {
+export function V1I6300ESBWatchdogFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1I6300ESBWatchdog {
     if ((json === undefined) || (json === null)) {
         return json;
     }

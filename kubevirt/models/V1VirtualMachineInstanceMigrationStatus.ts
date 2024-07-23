@@ -64,7 +64,7 @@ export function V1VirtualMachineInstanceMigrationStatusFromJSON(json: any): V1Vi
     return V1VirtualMachineInstanceMigrationStatusFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceMigrationStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationStatus {
+export function V1VirtualMachineInstanceMigrationStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

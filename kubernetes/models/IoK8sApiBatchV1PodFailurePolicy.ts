@@ -38,7 +38,7 @@ export function IoK8sApiBatchV1PodFailurePolicyFromJSON(json: any): IoK8sApiBatc
     return IoK8sApiBatchV1PodFailurePolicyFromJSONTyped(json, false);
 }
 
-export function IoK8sApiBatchV1PodFailurePolicyFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiBatchV1PodFailurePolicy {
+export function IoK8sApiBatchV1PodFailurePolicyFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiBatchV1PodFailurePolicy {
     if ((json === undefined) || (json === null)) {
         return json;
     }

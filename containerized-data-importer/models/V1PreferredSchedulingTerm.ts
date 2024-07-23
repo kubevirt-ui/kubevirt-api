@@ -44,7 +44,7 @@ export function V1PreferredSchedulingTermFromJSON(json: any): V1PreferredSchedul
     return V1PreferredSchedulingTermFromJSONTyped(json, false);
 }
 
-export function V1PreferredSchedulingTermFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1PreferredSchedulingTerm {
+export function V1PreferredSchedulingTermFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PreferredSchedulingTerm {
     if ((json === undefined) || (json === null)) {
         return json;
     }

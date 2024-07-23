@@ -44,7 +44,7 @@ export function V1ClockOffsetFromJSON(json: any): V1ClockOffset {
     return V1ClockOffsetFromJSONTyped(json, false);
 }
 
-export function V1ClockOffsetFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ClockOffset {
+export function V1ClockOffsetFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ClockOffset {
     if ((json === undefined) || (json === null)) {
         return json;
     }

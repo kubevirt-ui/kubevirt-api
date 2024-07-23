@@ -64,7 +64,7 @@ export function IoK8sApiNetworkingV1NetworkPolicySpecFromJSON(json: any): IoK8sA
     return IoK8sApiNetworkingV1NetworkPolicySpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1NetworkPolicySpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1NetworkPolicySpec {
+export function IoK8sApiNetworkingV1NetworkPolicySpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1NetworkPolicySpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

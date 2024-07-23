@@ -58,7 +58,7 @@ export function IoK8sApiCoreV1ContainerStateFromJSON(json: any): IoK8sApiCoreV1C
     return IoK8sApiCoreV1ContainerStateFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ContainerStateFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ContainerState {
+export function IoK8sApiCoreV1ContainerStateFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ContainerState {
     if ((json === undefined) || (json === null)) {
         return json;
     }

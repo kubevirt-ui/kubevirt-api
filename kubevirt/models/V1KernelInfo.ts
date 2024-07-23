@@ -31,7 +31,7 @@ export function V1KernelInfoFromJSON(json: any): V1KernelInfo {
     return V1KernelInfoFromJSONTyped(json, false);
 }
 
-export function V1KernelInfoFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KernelInfo {
+export function V1KernelInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KernelInfo {
     if ((json === undefined) || (json === null)) {
         return json;
     }

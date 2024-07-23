@@ -31,7 +31,7 @@ export function IoK8sApiFlowcontrolV1beta3UserSubjectFromJSON(json: any): IoK8sA
     return IoK8sApiFlowcontrolV1beta3UserSubjectFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1beta3UserSubjectFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3UserSubject {
+export function IoK8sApiFlowcontrolV1beta3UserSubjectFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3UserSubject {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -74,7 +74,7 @@ export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceSpecFromJSO
     return IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceSpec {
+export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

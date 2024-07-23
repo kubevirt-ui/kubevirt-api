@@ -49,7 +49,7 @@ export function V1KubeVirtConditionFromJSON(json: any): V1KubeVirtCondition {
     return V1KubeVirtConditionFromJSONTyped(json, false);
 }
 
-export function V1KubeVirtConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KubeVirtCondition {
+export function V1KubeVirtConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KubeVirtCondition {
     if ((json === undefined) || (json === null)) {
         return json;
     }

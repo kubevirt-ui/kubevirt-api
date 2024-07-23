@@ -62,7 +62,7 @@ export function V1VirtualMachineInstancePresetFromJSON(json: any): V1VirtualMach
     return V1VirtualMachineInstancePresetFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstancePresetFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstancePreset {
+export function V1VirtualMachineInstancePresetFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstancePreset {
     if ((json === undefined) || (json === null)) {
         return json;
     }

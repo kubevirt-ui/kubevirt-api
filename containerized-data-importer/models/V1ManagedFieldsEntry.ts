@@ -71,7 +71,7 @@ export function V1ManagedFieldsEntryFromJSON(json: any): V1ManagedFieldsEntry {
     return V1ManagedFieldsEntryFromJSONTyped(json, false);
 }
 
-export function V1ManagedFieldsEntryFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ManagedFieldsEntry {
+export function V1ManagedFieldsEntryFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ManagedFieldsEntry {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -83,7 +83,7 @@ export function V1ManagedFieldsEntryFromJSONTyped(json: any, _ignoreDiscriminato
         'manager': !exists(json, 'manager') ? undefined : json['manager'],
         'operation': !exists(json, 'operation') ? undefined : json['operation'],
         'subresource': !exists(json, 'subresource') ? undefined : json['subresource'],
-        'time': !exists(json, 'time') ? undefined : ((json['time'])),
+        'time': !exists(json, 'time') ? undefined : (new Date(json['time'])),
     };
 }
 
@@ -102,7 +102,7 @@ export function V1ManagedFieldsEntryToJSON(value?: V1ManagedFieldsEntry | null):
         'manager': value.manager,
         'operation': value.operation,
         'subresource': value.subresource,
-        'time': value.time === undefined ? undefined : (value.time),
+        'time': value.time === undefined ? undefined : (value.time.toISOString()),
     };
 }
 

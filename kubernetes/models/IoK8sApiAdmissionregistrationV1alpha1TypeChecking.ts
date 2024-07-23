@@ -38,7 +38,7 @@ export function IoK8sApiAdmissionregistrationV1alpha1TypeCheckingFromJSON(json: 
     return IoK8sApiAdmissionregistrationV1alpha1TypeCheckingFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAdmissionregistrationV1alpha1TypeCheckingFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1TypeChecking {
+export function IoK8sApiAdmissionregistrationV1alpha1TypeCheckingFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1TypeChecking {
     if ((json === undefined) || (json === null)) {
         return json;
     }

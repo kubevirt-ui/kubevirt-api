@@ -41,7 +41,7 @@ export function V1TLSConfigurationFromJSON(json: any): V1TLSConfiguration {
     return V1TLSConfigurationFromJSONTyped(json, false);
 }
 
-export function V1TLSConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1TLSConfiguration {
+export function V1TLSConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1TLSConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

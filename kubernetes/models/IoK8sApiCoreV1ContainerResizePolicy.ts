@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1ContainerResizePolicyFromJSON(json: any): IoK8sApi
     return IoK8sApiCoreV1ContainerResizePolicyFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ContainerResizePolicyFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ContainerResizePolicy {
+export function IoK8sApiCoreV1ContainerResizePolicyFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ContainerResizePolicy {
     if ((json === undefined) || (json === null)) {
         return json;
     }

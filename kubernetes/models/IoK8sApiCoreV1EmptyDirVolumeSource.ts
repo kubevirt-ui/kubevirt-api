@@ -73,7 +73,7 @@ export function IoK8sApiCoreV1EmptyDirVolumeSourceFromJSON(json: any): IoK8sApiC
     return IoK8sApiCoreV1EmptyDirVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1EmptyDirVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1EmptyDirVolumeSource {
+export function IoK8sApiCoreV1EmptyDirVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1EmptyDirVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

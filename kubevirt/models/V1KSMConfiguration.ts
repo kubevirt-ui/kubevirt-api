@@ -38,7 +38,7 @@ export function V1KSMConfigurationFromJSON(json: any): V1KSMConfiguration {
     return V1KSMConfigurationFromJSONTyped(json, false);
 }
 
-export function V1KSMConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KSMConfiguration {
+export function V1KSMConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KSMConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

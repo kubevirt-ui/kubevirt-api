@@ -37,7 +37,7 @@ export function IoK8sApiAuthorizationV1NonResourceRuleFromJSON(json: any): IoK8s
     return IoK8sApiAuthorizationV1NonResourceRuleFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAuthorizationV1NonResourceRuleFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAuthorizationV1NonResourceRule {
+export function IoK8sApiAuthorizationV1NonResourceRuleFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAuthorizationV1NonResourceRule {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1FlockerVolumeSourceFromJSON(json: any): IoK8sApiCo
     return IoK8sApiCoreV1FlockerVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1FlockerVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1FlockerVolumeSource {
+export function IoK8sApiCoreV1FlockerVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1FlockerVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

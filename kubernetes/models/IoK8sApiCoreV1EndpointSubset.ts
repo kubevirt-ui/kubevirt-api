@@ -64,7 +64,7 @@ export function IoK8sApiCoreV1EndpointSubsetFromJSON(json: any): IoK8sApiCoreV1E
     return IoK8sApiCoreV1EndpointSubsetFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1EndpointSubsetFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1EndpointSubset {
+export function IoK8sApiCoreV1EndpointSubsetFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1EndpointSubset {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -60,7 +60,7 @@ export function V1AddVolumeOptionsFromJSON(json: any): V1AddVolumeOptions {
     return V1AddVolumeOptionsFromJSONTyped(json, false);
 }
 
-export function V1AddVolumeOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1AddVolumeOptions {
+export function V1AddVolumeOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1AddVolumeOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

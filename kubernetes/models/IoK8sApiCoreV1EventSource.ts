@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1EventSourceFromJSON(json: any): IoK8sApiCoreV1Even
     return IoK8sApiCoreV1EventSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1EventSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1EventSource {
+export function IoK8sApiCoreV1EventSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1EventSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

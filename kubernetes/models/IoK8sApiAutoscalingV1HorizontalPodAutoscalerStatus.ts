@@ -55,7 +55,7 @@ export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatusFromJSON(json:
     return IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatus {
+export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -64,7 +64,7 @@ export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatusFromJSONTyped(
         'currentCPUUtilizationPercentage': !exists(json, 'currentCPUUtilizationPercentage') ? undefined : json['currentCPUUtilizationPercentage'],
         'currentReplicas': json['currentReplicas'],
         'desiredReplicas': json['desiredReplicas'],
-        'lastScaleTime': !exists(json, 'lastScaleTime') ? undefined : ((json['lastScaleTime'])),
+        'lastScaleTime': !exists(json, 'lastScaleTime') ? undefined : (new Date(json['lastScaleTime'])),
         'observedGeneration': !exists(json, 'observedGeneration') ? undefined : json['observedGeneration'],
     };
 }
@@ -81,7 +81,7 @@ export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatusToJSON(value?:
         'currentCPUUtilizationPercentage': value.currentCPUUtilizationPercentage,
         'currentReplicas': value.currentReplicas,
         'desiredReplicas': value.desiredReplicas,
-        'lastScaleTime': value.lastScaleTime === undefined ? undefined : (value.lastScaleTime),
+        'lastScaleTime': value.lastScaleTime === undefined ? undefined : (value.lastScaleTime.toISOString()),
         'observedGeneration': value.observedGeneration,
     };
 }

@@ -55,13 +55,13 @@ export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerConditionFromJSON(js
     return IoK8sApiAutoscalingV2HorizontalPodAutoscalerConditionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2HorizontalPodAutoscalerCondition {
+export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2HorizontalPodAutoscalerCondition {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : ((json['lastTransitionTime'])),
+        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : (new Date(json['lastTransitionTime'])),
         'message': !exists(json, 'message') ? undefined : json['message'],
         'reason': !exists(json, 'reason') ? undefined : json['reason'],
         'status': json['status'],
@@ -78,7 +78,7 @@ export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerConditionToJSON(valu
     }
     return {
         
-        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime),
+        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime.toISOString()),
         'message': value.message,
         'reason': value.reason,
         'status': value.status,

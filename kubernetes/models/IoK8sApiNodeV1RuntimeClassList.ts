@@ -60,7 +60,7 @@ export function IoK8sApiNodeV1RuntimeClassListFromJSON(json: any): IoK8sApiNodeV
     return IoK8sApiNodeV1RuntimeClassListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNodeV1RuntimeClassListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNodeV1RuntimeClassList {
+export function IoK8sApiNodeV1RuntimeClassListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNodeV1RuntimeClassList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

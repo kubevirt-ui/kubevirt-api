@@ -60,7 +60,7 @@ export function V1beta1DataImportCronListFromJSON(json: any): V1beta1DataImportC
     return V1beta1DataImportCronListFromJSONTyped(json, false);
 }
 
-export function V1beta1DataImportCronListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataImportCronList {
+export function V1beta1DataImportCronListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataImportCronList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

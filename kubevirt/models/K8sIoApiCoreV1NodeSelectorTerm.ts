@@ -44,7 +44,7 @@ export function K8sIoApiCoreV1NodeSelectorTermFromJSON(json: any): K8sIoApiCoreV
     return K8sIoApiCoreV1NodeSelectorTermFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1NodeSelectorTermFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApiCoreV1NodeSelectorTerm {
+export function K8sIoApiCoreV1NodeSelectorTermFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1NodeSelectorTerm {
     if ((json === undefined) || (json === null)) {
         return json;
     }

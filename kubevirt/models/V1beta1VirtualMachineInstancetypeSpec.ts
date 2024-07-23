@@ -108,7 +108,7 @@ export function V1beta1VirtualMachineInstancetypeSpecFromJSON(json: any): V1beta
     return V1beta1VirtualMachineInstancetypeSpecFromJSONTyped(json, false);
 }
 
-export function V1beta1VirtualMachineInstancetypeSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1VirtualMachineInstancetypeSpec {
+export function V1beta1VirtualMachineInstancetypeSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineInstancetypeSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

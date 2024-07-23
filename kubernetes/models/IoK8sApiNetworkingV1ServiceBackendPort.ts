@@ -37,7 +37,7 @@ export function IoK8sApiNetworkingV1ServiceBackendPortFromJSON(json: any): IoK8s
     return IoK8sApiNetworkingV1ServiceBackendPortFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1ServiceBackendPortFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1ServiceBackendPort {
+export function IoK8sApiNetworkingV1ServiceBackendPortFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1ServiceBackendPort {
     if ((json === undefined) || (json === null)) {
         return json;
     }

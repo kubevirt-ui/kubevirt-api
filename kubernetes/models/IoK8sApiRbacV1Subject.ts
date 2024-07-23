@@ -49,7 +49,7 @@ export function IoK8sApiRbacV1SubjectFromJSON(json: any): IoK8sApiRbacV1Subject 
     return IoK8sApiRbacV1SubjectFromJSONTyped(json, false);
 }
 
-export function IoK8sApiRbacV1SubjectFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiRbacV1Subject {
+export function IoK8sApiRbacV1SubjectFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiRbacV1Subject {
     if ((json === undefined) || (json === null)) {
         return json;
     }

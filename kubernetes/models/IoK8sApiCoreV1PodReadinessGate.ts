@@ -31,7 +31,7 @@ export function IoK8sApiCoreV1PodReadinessGateFromJSON(json: any): IoK8sApiCoreV
     return IoK8sApiCoreV1PodReadinessGateFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PodReadinessGateFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PodReadinessGate {
+export function IoK8sApiCoreV1PodReadinessGateFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PodReadinessGate {
     if ((json === undefined) || (json === null)) {
         return json;
     }

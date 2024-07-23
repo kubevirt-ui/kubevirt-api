@@ -49,7 +49,7 @@ export function V1RestartOptionsFromJSON(json: any): V1RestartOptions {
     return V1RestartOptionsFromJSONTyped(json, false);
 }
 
-export function V1RestartOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1RestartOptions {
+export function V1RestartOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1RestartOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

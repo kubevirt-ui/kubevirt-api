@@ -171,7 +171,7 @@ export function V1KubeVirtSpecFromJSON(json: any): V1KubeVirtSpec {
     return V1KubeVirtSpecFromJSONTyped(json, false);
 }
 
-export function V1KubeVirtSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KubeVirtSpec {
+export function V1KubeVirtSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KubeVirtSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

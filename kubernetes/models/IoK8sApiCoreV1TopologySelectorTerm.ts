@@ -38,7 +38,7 @@ export function IoK8sApiCoreV1TopologySelectorTermFromJSON(json: any): IoK8sApiC
     return IoK8sApiCoreV1TopologySelectorTermFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1TopologySelectorTermFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1TopologySelectorTerm {
+export function IoK8sApiCoreV1TopologySelectorTermFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1TopologySelectorTerm {
     if ((json === undefined) || (json === null)) {
         return json;
     }

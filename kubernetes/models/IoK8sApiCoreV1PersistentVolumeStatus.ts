@@ -49,13 +49,13 @@ export function IoK8sApiCoreV1PersistentVolumeStatusFromJSON(json: any): IoK8sAp
     return IoK8sApiCoreV1PersistentVolumeStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PersistentVolumeStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PersistentVolumeStatus {
+export function IoK8sApiCoreV1PersistentVolumeStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PersistentVolumeStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'lastPhaseTransitionTime': !exists(json, 'lastPhaseTransitionTime') ? undefined : ((json['lastPhaseTransitionTime'])),
+        'lastPhaseTransitionTime': !exists(json, 'lastPhaseTransitionTime') ? undefined : (new Date(json['lastPhaseTransitionTime'])),
         'message': !exists(json, 'message') ? undefined : json['message'],
         'phase': !exists(json, 'phase') ? undefined : json['phase'],
         'reason': !exists(json, 'reason') ? undefined : json['reason'],
@@ -71,7 +71,7 @@ export function IoK8sApiCoreV1PersistentVolumeStatusToJSON(value?: IoK8sApiCoreV
     }
     return {
         
-        'lastPhaseTransitionTime': value.lastPhaseTransitionTime === undefined ? undefined : (value.lastPhaseTransitionTime),
+        'lastPhaseTransitionTime': value.lastPhaseTransitionTime === undefined ? undefined : (value.lastPhaseTransitionTime.toISOString()),
         'message': value.message,
         'phase': value.phase,
         'reason': value.reason,

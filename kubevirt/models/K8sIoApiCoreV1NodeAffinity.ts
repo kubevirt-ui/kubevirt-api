@@ -48,7 +48,7 @@ export function K8sIoApiCoreV1NodeAffinityFromJSON(json: any): K8sIoApiCoreV1Nod
     return K8sIoApiCoreV1NodeAffinityFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1NodeAffinityFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApiCoreV1NodeAffinity {
+export function K8sIoApiCoreV1NodeAffinityFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1NodeAffinity {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -72,7 +72,7 @@ export function IoK8sApiFlowcontrolV1LimitedPriorityLevelConfigurationFromJSON(j
     return IoK8sApiFlowcontrolV1LimitedPriorityLevelConfigurationFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1LimitedPriorityLevelConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1LimitedPriorityLevelConfiguration {
+export function IoK8sApiFlowcontrolV1LimitedPriorityLevelConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1LimitedPriorityLevelConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

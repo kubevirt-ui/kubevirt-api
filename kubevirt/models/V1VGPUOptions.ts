@@ -38,7 +38,7 @@ export function V1VGPUOptionsFromJSON(json: any): V1VGPUOptions {
     return V1VGPUOptionsFromJSONTyped(json, false);
 }
 
-export function V1VGPUOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VGPUOptions {
+export function V1VGPUOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VGPUOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

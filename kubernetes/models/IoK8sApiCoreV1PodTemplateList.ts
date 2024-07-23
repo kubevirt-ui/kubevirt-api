@@ -60,7 +60,7 @@ export function IoK8sApiCoreV1PodTemplateListFromJSON(json: any): IoK8sApiCoreV1
     return IoK8sApiCoreV1PodTemplateListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PodTemplateListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PodTemplateList {
+export function IoK8sApiCoreV1PodTemplateListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PodTemplateList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

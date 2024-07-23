@@ -44,7 +44,7 @@ export function IoK8sApiNodeV1SchedulingFromJSON(json: any): IoK8sApiNodeV1Sched
     return IoK8sApiNodeV1SchedulingFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNodeV1SchedulingFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNodeV1Scheduling {
+export function IoK8sApiNodeV1SchedulingFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNodeV1Scheduling {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -55,7 +55,7 @@ export function V1ChassisFromJSON(json: any): V1Chassis {
     return V1ChassisFromJSONTyped(json, false);
 }
 
-export function V1ChassisFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Chassis {
+export function V1ChassisFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Chassis {
     if ((json === undefined) || (json === null)) {
         return json;
     }

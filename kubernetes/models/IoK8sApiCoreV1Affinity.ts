@@ -58,7 +58,7 @@ export function IoK8sApiCoreV1AffinityFromJSON(json: any): IoK8sApiCoreV1Affinit
     return IoK8sApiCoreV1AffinityFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1AffinityFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1Affinity {
+export function IoK8sApiCoreV1AffinityFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1Affinity {
     if ((json === undefined) || (json === null)) {
         return json;
     }

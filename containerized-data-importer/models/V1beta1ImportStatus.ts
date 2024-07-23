@@ -37,7 +37,7 @@ export function V1beta1ImportStatusFromJSON(json: any): V1beta1ImportStatus {
     return V1beta1ImportStatusFromJSONTyped(json, false);
 }
 
-export function V1beta1ImportStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1ImportStatus {
+export function V1beta1ImportStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1ImportStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

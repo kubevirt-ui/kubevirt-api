@@ -31,7 +31,7 @@ export function IoK8sApiNetworkingV1alpha1ServiceCIDRSpecFromJSON(json: any): Io
     return IoK8sApiNetworkingV1alpha1ServiceCIDRSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1alpha1ServiceCIDRSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1alpha1ServiceCIDRSpec {
+export function IoK8sApiNetworkingV1alpha1ServiceCIDRSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1alpha1ServiceCIDRSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

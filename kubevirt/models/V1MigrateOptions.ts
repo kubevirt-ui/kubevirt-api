@@ -43,7 +43,7 @@ export function V1MigrateOptionsFromJSON(json: any): V1MigrateOptions {
     return V1MigrateOptionsFromJSONTyped(json, false);
 }
 
-export function V1MigrateOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1MigrateOptions {
+export function V1MigrateOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1MigrateOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -49,7 +49,7 @@ export function IoK8sApiCoreV1TypedObjectReferenceFromJSON(json: any): IoK8sApiC
     return IoK8sApiCoreV1TypedObjectReferenceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1TypedObjectReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1TypedObjectReference {
+export function IoK8sApiCoreV1TypedObjectReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1TypedObjectReference {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -62,7 +62,7 @@ export function IoK8sApiCoreV1FlexPersistentVolumeSourceFromJSON(json: any): IoK
     return IoK8sApiCoreV1FlexPersistentVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1FlexPersistentVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1FlexPersistentVolumeSource {
+export function IoK8sApiCoreV1FlexPersistentVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1FlexPersistentVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

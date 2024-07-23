@@ -56,7 +56,7 @@ export function V1DHCPOptionsFromJSON(json: any): V1DHCPOptions {
     return V1DHCPOptionsFromJSONTyped(json, false);
 }
 
-export function V1DHCPOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1DHCPOptions {
+export function V1DHCPOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DHCPOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

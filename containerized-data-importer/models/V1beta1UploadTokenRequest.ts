@@ -70,7 +70,7 @@ export function V1beta1UploadTokenRequestFromJSON(json: any): V1beta1UploadToken
     return V1beta1UploadTokenRequestFromJSONTyped(json, false);
 }
 
-export function V1beta1UploadTokenRequestFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1UploadTokenRequest {
+export function V1beta1UploadTokenRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1UploadTokenRequest {
     if ((json === undefined) || (json === null)) {
         return json;
     }

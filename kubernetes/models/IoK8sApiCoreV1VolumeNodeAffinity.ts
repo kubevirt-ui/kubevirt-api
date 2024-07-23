@@ -38,7 +38,7 @@ export function IoK8sApiCoreV1VolumeNodeAffinityFromJSON(json: any): IoK8sApiCor
     return IoK8sApiCoreV1VolumeNodeAffinityFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1VolumeNodeAffinityFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1VolumeNodeAffinity {
+export function IoK8sApiCoreV1VolumeNodeAffinityFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1VolumeNodeAffinity {
     if ((json === undefined) || (json === null)) {
         return json;
     }

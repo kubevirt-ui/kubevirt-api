@@ -70,7 +70,7 @@ export function IoK8sApiCoreV1ServicePortFromJSON(json: any): IoK8sApiCoreV1Serv
     return IoK8sApiCoreV1ServicePortFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ServicePortFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ServicePort {
+export function IoK8sApiCoreV1ServicePortFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ServicePort {
     if ((json === undefined) || (json === null)) {
         return json;
     }

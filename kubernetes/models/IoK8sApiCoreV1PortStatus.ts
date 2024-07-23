@@ -46,7 +46,7 @@ export function IoK8sApiCoreV1PortStatusFromJSON(json: any): IoK8sApiCoreV1PortS
     return IoK8sApiCoreV1PortStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PortStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PortStatus {
+export function IoK8sApiCoreV1PortStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PortStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

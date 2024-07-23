@@ -61,14 +61,14 @@ export function IoK8sApiAppsV1DeploymentConditionFromJSON(json: any): IoK8sApiAp
     return IoK8sApiAppsV1DeploymentConditionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1DeploymentConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1DeploymentCondition {
+export function IoK8sApiAppsV1DeploymentConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1DeploymentCondition {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : ((json['lastTransitionTime'])),
-        'lastUpdateTime': !exists(json, 'lastUpdateTime') ? undefined : ((json['lastUpdateTime'])),
+        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : (new Date(json['lastTransitionTime'])),
+        'lastUpdateTime': !exists(json, 'lastUpdateTime') ? undefined : (new Date(json['lastUpdateTime'])),
         'message': !exists(json, 'message') ? undefined : json['message'],
         'reason': !exists(json, 'reason') ? undefined : json['reason'],
         'status': json['status'],
@@ -85,8 +85,8 @@ export function IoK8sApiAppsV1DeploymentConditionToJSON(value?: IoK8sApiAppsV1De
     }
     return {
         
-        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime),
-        'lastUpdateTime': value.lastUpdateTime === undefined ? undefined : (value.lastUpdateTime),
+        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime.toISOString()),
+        'lastUpdateTime': value.lastUpdateTime === undefined ? undefined : (value.lastUpdateTime.toISOString()),
         'message': value.message,
         'reason': value.reason,
         'status': value.status,

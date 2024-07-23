@@ -70,7 +70,7 @@ export function V1VirtualMachineInstanceReplicaSetFromJSON(json: any): V1Virtual
     return V1VirtualMachineInstanceReplicaSetFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceReplicaSetFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceReplicaSet {
+export function V1VirtualMachineInstanceReplicaSetFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceReplicaSet {
     if ((json === undefined) || (json === null)) {
         return json;
     }

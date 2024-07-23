@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1VolumeDeviceFromJSON(json: any): IoK8sApiCoreV1Vol
     return IoK8sApiCoreV1VolumeDeviceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1VolumeDeviceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1VolumeDevice {
+export function IoK8sApiCoreV1VolumeDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1VolumeDevice {
     if ((json === undefined) || (json === null)) {
         return json;
     }

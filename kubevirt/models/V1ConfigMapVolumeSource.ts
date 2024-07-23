@@ -43,7 +43,7 @@ export function V1ConfigMapVolumeSourceFromJSON(json: any): V1ConfigMapVolumeSou
     return V1ConfigMapVolumeSourceFromJSONTyped(json, false);
 }
 
-export function V1ConfigMapVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ConfigMapVolumeSource {
+export function V1ConfigMapVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ConfigMapVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -43,7 +43,7 @@ export function V1VirtualMachineInstanceGuestOSUserFromJSON(json: any): V1Virtua
     return V1VirtualMachineInstanceGuestOSUserFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceGuestOSUserFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceGuestOSUser {
+export function V1VirtualMachineInstanceGuestOSUserFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceGuestOSUser {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -38,7 +38,7 @@ export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceV
     return IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidationFromJSONTyped(json, false);
 }
 
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidation {
+export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidationFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidation {
     if ((json === undefined) || (json === null)) {
         return json;
     }

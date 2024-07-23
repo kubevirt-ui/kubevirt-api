@@ -37,7 +37,7 @@ export function IoK8sApiFlowcontrolV1beta3ServiceAccountSubjectFromJSON(json: an
     return IoK8sApiFlowcontrolV1beta3ServiceAccountSubjectFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1beta3ServiceAccountSubjectFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3ServiceAccountSubject {
+export function IoK8sApiFlowcontrolV1beta3ServiceAccountSubjectFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3ServiceAccountSubject {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -60,7 +60,7 @@ export function V1beta1VirtualMachinePreferenceListFromJSON(json: any): V1beta1V
     return V1beta1VirtualMachinePreferenceListFromJSONTyped(json, false);
 }
 
-export function V1beta1VirtualMachinePreferenceListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1VirtualMachinePreferenceList {
+export function V1beta1VirtualMachinePreferenceListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachinePreferenceList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -43,7 +43,7 @@ export function IoK8sApiCoreV1ScopedResourceSelectorRequirementFromJSON(json: an
     return IoK8sApiCoreV1ScopedResourceSelectorRequirementFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ScopedResourceSelectorRequirementFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ScopedResourceSelectorRequirement {
+export function IoK8sApiCoreV1ScopedResourceSelectorRequirementFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ScopedResourceSelectorRequirement {
     if ((json === undefined) || (json === null)) {
         return json;
     }

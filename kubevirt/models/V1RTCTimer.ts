@@ -43,7 +43,7 @@ export function V1RTCTimerFromJSON(json: any): V1RTCTimer {
     return V1RTCTimerFromJSONTyped(json, false);
 }
 
-export function V1RTCTimerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1RTCTimer {
+export function V1RTCTimerFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1RTCTimer {
     if ((json === undefined) || (json === null)) {
         return json;
     }

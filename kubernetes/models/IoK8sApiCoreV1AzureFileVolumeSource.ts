@@ -43,7 +43,7 @@ export function IoK8sApiCoreV1AzureFileVolumeSourceFromJSON(json: any): IoK8sApi
     return IoK8sApiCoreV1AzureFileVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1AzureFileVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1AzureFileVolumeSource {
+export function IoK8sApiCoreV1AzureFileVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1AzureFileVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -43,7 +43,7 @@ export function V1LunTargetFromJSON(json: any): V1LunTarget {
     return V1LunTargetFromJSONTyped(json, false);
 }
 
-export function V1LunTargetFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1LunTarget {
+export function V1LunTargetFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1LunTarget {
     if ((json === undefined) || (json === null)) {
         return json;
     }

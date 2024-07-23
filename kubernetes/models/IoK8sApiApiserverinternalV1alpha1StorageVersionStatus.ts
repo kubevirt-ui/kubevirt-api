@@ -54,7 +54,7 @@ export function IoK8sApiApiserverinternalV1alpha1StorageVersionStatusFromJSON(js
     return IoK8sApiApiserverinternalV1alpha1StorageVersionStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiApiserverinternalV1alpha1StorageVersionStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiApiserverinternalV1alpha1StorageVersionStatus {
+export function IoK8sApiApiserverinternalV1alpha1StorageVersionStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiApiserverinternalV1alpha1StorageVersionStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

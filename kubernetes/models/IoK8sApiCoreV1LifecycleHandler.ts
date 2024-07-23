@@ -68,7 +68,7 @@ export function IoK8sApiCoreV1LifecycleHandlerFromJSON(json: any): IoK8sApiCoreV
     return IoK8sApiCoreV1LifecycleHandlerFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1LifecycleHandlerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1LifecycleHandler {
+export function IoK8sApiCoreV1LifecycleHandlerFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1LifecycleHandler {
     if ((json === undefined) || (json === null)) {
         return json;
     }

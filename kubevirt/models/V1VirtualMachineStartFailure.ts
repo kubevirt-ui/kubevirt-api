@@ -43,7 +43,7 @@ export function V1VirtualMachineStartFailureFromJSON(json: any): V1VirtualMachin
     return V1VirtualMachineStartFailureFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineStartFailureFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineStartFailure {
+export function V1VirtualMachineStartFailureFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineStartFailure {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -51,7 +51,7 @@ export function V1VirtualMachineStartFailureFromJSONTyped(json: any, _ignoreDisc
         
         'consecutiveFailCount': !exists(json, 'consecutiveFailCount') ? undefined : json['consecutiveFailCount'],
         'lastFailedVMIUID': !exists(json, 'lastFailedVMIUID') ? undefined : json['lastFailedVMIUID'],
-        'retryAfterTimestamp': !exists(json, 'retryAfterTimestamp') ? undefined : ((json['retryAfterTimestamp'])),
+        'retryAfterTimestamp': !exists(json, 'retryAfterTimestamp') ? undefined : (new Date(json['retryAfterTimestamp'])),
     };
 }
 
@@ -66,7 +66,7 @@ export function V1VirtualMachineStartFailureToJSON(value?: V1VirtualMachineStart
         
         'consecutiveFailCount': value.consecutiveFailCount,
         'lastFailedVMIUID': value.lastFailedVMIUID,
-        'retryAfterTimestamp': value.retryAfterTimestamp === undefined ? undefined : (value.retryAfterTimestamp),
+        'retryAfterTimestamp': value.retryAfterTimestamp === undefined ? undefined : (value.retryAfterTimestamp.toISOString()),
     };
 }
 

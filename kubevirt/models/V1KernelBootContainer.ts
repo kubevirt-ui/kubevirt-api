@@ -70,7 +70,7 @@ export function V1KernelBootContainerFromJSON(json: any): V1KernelBootContainer 
     return V1KernelBootContainerFromJSONTyped(json, false);
 }
 
-export function V1KernelBootContainerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KernelBootContainer {
+export function V1KernelBootContainerFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KernelBootContainer {
     if ((json === undefined) || (json === null)) {
         return json;
     }

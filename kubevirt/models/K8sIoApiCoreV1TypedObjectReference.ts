@@ -49,7 +49,7 @@ export function K8sIoApiCoreV1TypedObjectReferenceFromJSON(json: any): K8sIoApiC
     return K8sIoApiCoreV1TypedObjectReferenceFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1TypedObjectReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApiCoreV1TypedObjectReference {
+export function K8sIoApiCoreV1TypedObjectReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1TypedObjectReference {
     if ((json === undefined) || (json === null)) {
         return json;
     }

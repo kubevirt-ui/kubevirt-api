@@ -47,7 +47,7 @@ export function IoK8sApiAdmissionregistrationV1alpha1AuditAnnotationFromJSON(jso
     return IoK8sApiAdmissionregistrationV1alpha1AuditAnnotationFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAdmissionregistrationV1alpha1AuditAnnotationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1AuditAnnotation {
+export function IoK8sApiAdmissionregistrationV1alpha1AuditAnnotationFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1AuditAnnotation {
     if ((json === undefined) || (json === null)) {
         return json;
     }

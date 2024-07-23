@@ -31,7 +31,7 @@ export function IoK8sApiStorageV1VolumeNodeResourcesFromJSON(json: any): IoK8sAp
     return IoK8sApiStorageV1VolumeNodeResourcesFromJSONTyped(json, false);
 }
 
-export function IoK8sApiStorageV1VolumeNodeResourcesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiStorageV1VolumeNodeResources {
+export function IoK8sApiStorageV1VolumeNodeResourcesFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiStorageV1VolumeNodeResources {
     if ((json === undefined) || (json === null)) {
         return json;
     }

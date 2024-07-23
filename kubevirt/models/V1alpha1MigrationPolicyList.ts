@@ -60,7 +60,7 @@ export function V1alpha1MigrationPolicyListFromJSON(json: any): V1alpha1Migratio
     return V1alpha1MigrationPolicyListFromJSONTyped(json, false);
 }
 
-export function V1alpha1MigrationPolicyListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1MigrationPolicyList {
+export function V1alpha1MigrationPolicyListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1MigrationPolicyList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

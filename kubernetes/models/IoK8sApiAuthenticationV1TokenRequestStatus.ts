@@ -37,13 +37,13 @@ export function IoK8sApiAuthenticationV1TokenRequestStatusFromJSON(json: any): I
     return IoK8sApiAuthenticationV1TokenRequestStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAuthenticationV1TokenRequestStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1TokenRequestStatus {
+export function IoK8sApiAuthenticationV1TokenRequestStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1TokenRequestStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'expirationTimestamp': ((json['expirationTimestamp'])),
+        'expirationTimestamp': (new Date(json['expirationTimestamp'])),
         'token': json['token'],
     };
 }
@@ -57,7 +57,7 @@ export function IoK8sApiAuthenticationV1TokenRequestStatusToJSON(value?: IoK8sAp
     }
     return {
         
-        'expirationTimestamp': (value.expirationTimestamp),
+        'expirationTimestamp': (value.expirationTimestamp.toISOString()),
         'token': value.token,
     };
 }

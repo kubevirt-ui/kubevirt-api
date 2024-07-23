@@ -79,7 +79,7 @@ export function IoK8sApiCoreV1ResourceFieldSelectorFromJSON(json: any): IoK8sApi
     return IoK8sApiCoreV1ResourceFieldSelectorFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ResourceFieldSelectorFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ResourceFieldSelector {
+export function IoK8sApiCoreV1ResourceFieldSelectorFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ResourceFieldSelector {
     if ((json === undefined) || (json === null)) {
         return json;
     }

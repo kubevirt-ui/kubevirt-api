@@ -43,7 +43,7 @@ export function IoK8sApiCoreV1ServiceAccountTokenProjectionFromJSON(json: any): 
     return IoK8sApiCoreV1ServiceAccountTokenProjectionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ServiceAccountTokenProjectionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ServiceAccountTokenProjection {
+export function IoK8sApiCoreV1ServiceAccountTokenProjectionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ServiceAccountTokenProjection {
     if ((json === undefined) || (json === null)) {
         return json;
     }

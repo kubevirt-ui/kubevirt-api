@@ -60,7 +60,7 @@ export function IoK8sApiCoordinationV1LeaseListFromJSON(json: any): IoK8sApiCoor
     return IoK8sApiCoordinationV1LeaseListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoordinationV1LeaseListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoordinationV1LeaseList {
+export function IoK8sApiCoordinationV1LeaseListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoordinationV1LeaseList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

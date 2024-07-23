@@ -43,7 +43,7 @@ export function IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReferenceFromJ
     return IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReferenceFromJSONTyped(json, false);
 }
 
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReference {
+export function IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReference {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -92,7 +92,7 @@ export function IoK8sApiAppsV1DaemonSetStatusFromJSON(json: any): IoK8sApiAppsV1
     return IoK8sApiAppsV1DaemonSetStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1DaemonSetStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1DaemonSetStatus {
+export function IoK8sApiAppsV1DaemonSetStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1DaemonSetStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

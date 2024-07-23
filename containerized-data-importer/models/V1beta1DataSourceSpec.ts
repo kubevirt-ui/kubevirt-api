@@ -38,7 +38,7 @@ export function V1beta1DataSourceSpecFromJSON(json: any): V1beta1DataSourceSpec 
     return V1beta1DataSourceSpecFromJSONTyped(json, false);
 }
 
-export function V1beta1DataSourceSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataSourceSpec {
+export function V1beta1DataSourceSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataSourceSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

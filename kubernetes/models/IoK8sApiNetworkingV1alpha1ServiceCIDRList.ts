@@ -60,7 +60,7 @@ export function IoK8sApiNetworkingV1alpha1ServiceCIDRListFromJSON(json: any): Io
     return IoK8sApiNetworkingV1alpha1ServiceCIDRListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1alpha1ServiceCIDRListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1alpha1ServiceCIDRList {
+export function IoK8sApiNetworkingV1alpha1ServiceCIDRListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1alpha1ServiceCIDRList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

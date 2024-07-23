@@ -60,7 +60,7 @@ export function IoK8sApiNetworkingV1alpha1IPAddressListFromJSON(json: any): IoK8
     return IoK8sApiNetworkingV1alpha1IPAddressListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1alpha1IPAddressListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1alpha1IPAddressList {
+export function IoK8sApiNetworkingV1alpha1IPAddressListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1alpha1IPAddressList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

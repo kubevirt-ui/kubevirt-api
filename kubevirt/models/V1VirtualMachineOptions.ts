@@ -37,7 +37,7 @@ export function V1VirtualMachineOptionsFromJSON(json: any): V1VirtualMachineOpti
     return V1VirtualMachineOptionsFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineOptions {
+export function V1VirtualMachineOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

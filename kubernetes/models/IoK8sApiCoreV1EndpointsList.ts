@@ -60,7 +60,7 @@ export function IoK8sApiCoreV1EndpointsListFromJSON(json: any): IoK8sApiCoreV1En
     return IoK8sApiCoreV1EndpointsListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1EndpointsListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1EndpointsList {
+export function IoK8sApiCoreV1EndpointsListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1EndpointsList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

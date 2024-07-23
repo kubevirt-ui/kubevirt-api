@@ -31,7 +31,7 @@ export function V1beta1UploadTokenRequestSpecFromJSON(json: any): V1beta1UploadT
     return V1beta1UploadTokenRequestSpecFromJSONTyped(json, false);
 }
 
-export function V1beta1UploadTokenRequestSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1UploadTokenRequestSpec {
+export function V1beta1UploadTokenRequestSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1UploadTokenRequestSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

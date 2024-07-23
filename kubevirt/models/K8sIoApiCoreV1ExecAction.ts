@@ -31,7 +31,7 @@ export function K8sIoApiCoreV1ExecActionFromJSON(json: any): K8sIoApiCoreV1ExecA
     return K8sIoApiCoreV1ExecActionFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1ExecActionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApiCoreV1ExecAction {
+export function K8sIoApiCoreV1ExecActionFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1ExecAction {
     if ((json === undefined) || (json === null)) {
         return json;
     }

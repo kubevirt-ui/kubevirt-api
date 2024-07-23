@@ -94,7 +94,7 @@ export function V1ProbeFromJSON(json: any): V1Probe {
     return V1ProbeFromJSONTyped(json, false);
 }
 
-export function V1ProbeFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Probe {
+export function V1ProbeFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Probe {
     if ((json === undefined) || (json === null)) {
         return json;
     }

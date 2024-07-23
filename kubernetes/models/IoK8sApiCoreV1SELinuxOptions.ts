@@ -49,7 +49,7 @@ export function IoK8sApiCoreV1SELinuxOptionsFromJSON(json: any): IoK8sApiCoreV1S
     return IoK8sApiCoreV1SELinuxOptionsFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1SELinuxOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1SELinuxOptions {
+export function IoK8sApiCoreV1SELinuxOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1SELinuxOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -37,7 +37,7 @@ export function IoK8sApiAdmissionregistrationV1beta1ParamKindFromJSON(json: any)
     return IoK8sApiAdmissionregistrationV1beta1ParamKindFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAdmissionregistrationV1beta1ParamKindFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1beta1ParamKind {
+export function IoK8sApiAdmissionregistrationV1beta1ParamKindFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1beta1ParamKind {
     if ((json === undefined) || (json === null)) {
         return json;
     }

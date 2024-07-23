@@ -55,7 +55,7 @@ export function IoK8sApiCoreV1TolerationFromJSON(json: any): IoK8sApiCoreV1Toler
     return IoK8sApiCoreV1TolerationFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1TolerationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1Toleration {
+export function IoK8sApiCoreV1TolerationFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1Toleration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

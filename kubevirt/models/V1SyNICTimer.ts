@@ -44,7 +44,7 @@ export function V1SyNICTimerFromJSON(json: any): V1SyNICTimer {
     return V1SyNICTimerFromJSONTyped(json, false);
 }
 
-export function V1SyNICTimerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SyNICTimer {
+export function V1SyNICTimerFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SyNICTimer {
     if ((json === undefined) || (json === null)) {
         return json;
     }

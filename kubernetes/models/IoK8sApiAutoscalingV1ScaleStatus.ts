@@ -37,7 +37,7 @@ export function IoK8sApiAutoscalingV1ScaleStatusFromJSON(json: any): IoK8sApiAut
     return IoK8sApiAutoscalingV1ScaleStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAutoscalingV1ScaleStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAutoscalingV1ScaleStatus {
+export function IoK8sApiAutoscalingV1ScaleStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAutoscalingV1ScaleStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

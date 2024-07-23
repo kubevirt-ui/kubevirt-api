@@ -60,7 +60,7 @@ export function IoK8sApiAppsV1ReplicaSetSpecFromJSON(json: any): IoK8sApiAppsV1R
     return IoK8sApiAppsV1ReplicaSetSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1ReplicaSetSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1ReplicaSetSpec {
+export function IoK8sApiAppsV1ReplicaSetSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1ReplicaSetSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

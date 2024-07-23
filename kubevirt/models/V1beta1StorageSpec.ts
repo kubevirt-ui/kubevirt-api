@@ -105,7 +105,7 @@ export function V1beta1StorageSpecFromJSON(json: any): V1beta1StorageSpec {
     return V1beta1StorageSpecFromJSONTyped(json, false);
 }
 
-export function V1beta1StorageSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1StorageSpec {
+export function V1beta1StorageSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1StorageSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

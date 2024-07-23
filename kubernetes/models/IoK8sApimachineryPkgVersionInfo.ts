@@ -79,7 +79,7 @@ export function IoK8sApimachineryPkgVersionInfoFromJSON(json: any): IoK8sApimach
     return IoK8sApimachineryPkgVersionInfoFromJSONTyped(json, false);
 }
 
-export function IoK8sApimachineryPkgVersionInfoFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApimachineryPkgVersionInfo {
+export function IoK8sApimachineryPkgVersionInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApimachineryPkgVersionInfo {
     if ((json === undefined) || (json === null)) {
         return json;
     }

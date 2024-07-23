@@ -56,7 +56,7 @@ export function IoK8sApiResourceV1alpha2AllocationResultFromJSON(json: any): IoK
     return IoK8sApiResourceV1alpha2AllocationResultFromJSONTyped(json, false);
 }
 
-export function IoK8sApiResourceV1alpha2AllocationResultFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2AllocationResult {
+export function IoK8sApiResourceV1alpha2AllocationResultFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2AllocationResult {
     if ((json === undefined) || (json === null)) {
         return json;
     }

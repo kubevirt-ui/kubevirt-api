@@ -60,7 +60,7 @@ export function IoK8sApiResourceV1alpha2ResourceClaimTemplateFromJSON(json: any)
     return IoK8sApiResourceV1alpha2ResourceClaimTemplateFromJSONTyped(json, false);
 }
 
-export function IoK8sApiResourceV1alpha2ResourceClaimTemplateFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2ResourceClaimTemplate {
+export function IoK8sApiResourceV1alpha2ResourceClaimTemplateFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2ResourceClaimTemplate {
     if ((json === undefined) || (json === null)) {
         return json;
     }

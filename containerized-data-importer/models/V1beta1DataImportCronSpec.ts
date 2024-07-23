@@ -68,7 +68,7 @@ export function V1beta1DataImportCronSpecFromJSON(json: any): V1beta1DataImportC
     return V1beta1DataImportCronSpecFromJSONTyped(json, false);
 }
 
-export function V1beta1DataImportCronSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataImportCronSpec {
+export function V1beta1DataImportCronSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataImportCronSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

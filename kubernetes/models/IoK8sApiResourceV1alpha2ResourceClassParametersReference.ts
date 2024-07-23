@@ -49,7 +49,7 @@ export function IoK8sApiResourceV1alpha2ResourceClassParametersReferenceFromJSON
     return IoK8sApiResourceV1alpha2ResourceClassParametersReferenceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiResourceV1alpha2ResourceClassParametersReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2ResourceClassParametersReference {
+export function IoK8sApiResourceV1alpha2ResourceClassParametersReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2ResourceClassParametersReference {
     if ((json === undefined) || (json === null)) {
         return json;
     }

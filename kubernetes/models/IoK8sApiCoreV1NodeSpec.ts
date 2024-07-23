@@ -78,7 +78,7 @@ export function IoK8sApiCoreV1NodeSpecFromJSON(json: any): IoK8sApiCoreV1NodeSpe
     return IoK8sApiCoreV1NodeSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1NodeSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeSpec {
+export function IoK8sApiCoreV1NodeSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -335,7 +335,7 @@ export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProps
     return IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsFromJSONTyped(json, false);
 }
 
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProps {
+export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProps {
     if ((json === undefined) || (json === null)) {
         return json;
     }

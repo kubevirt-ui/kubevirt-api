@@ -31,7 +31,7 @@ export function V1AccessCredentialSecretSourceFromJSON(json: any): V1AccessCrede
     return V1AccessCredentialSecretSourceFromJSONTyped(json, false);
 }
 
-export function V1AccessCredentialSecretSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1AccessCredentialSecretSource {
+export function V1AccessCredentialSecretSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1AccessCredentialSecretSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

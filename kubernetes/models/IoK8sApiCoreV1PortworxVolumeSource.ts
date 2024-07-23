@@ -43,7 +43,7 @@ export function IoK8sApiCoreV1PortworxVolumeSourceFromJSON(json: any): IoK8sApiC
     return IoK8sApiCoreV1PortworxVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PortworxVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PortworxVolumeSource {
+export function IoK8sApiCoreV1PortworxVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PortworxVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

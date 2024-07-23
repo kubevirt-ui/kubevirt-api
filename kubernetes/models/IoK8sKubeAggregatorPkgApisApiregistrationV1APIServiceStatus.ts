@@ -38,7 +38,7 @@ export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceStatusFromJ
     return IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceStatus {
+export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

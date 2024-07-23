@@ -55,7 +55,7 @@ export function IoK8sApiFlowcontrolV1beta3ResourcePolicyRuleFromJSON(json: any):
     return IoK8sApiFlowcontrolV1beta3ResourcePolicyRuleFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1beta3ResourcePolicyRuleFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3ResourcePolicyRule {
+export function IoK8sApiFlowcontrolV1beta3ResourcePolicyRuleFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3ResourcePolicyRule {
     if ((json === undefined) || (json === null)) {
         return json;
     }

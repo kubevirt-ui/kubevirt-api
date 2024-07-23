@@ -56,7 +56,7 @@ export function V1ArchConfigurationFromJSON(json: any): V1ArchConfiguration {
     return V1ArchConfigurationFromJSONTyped(json, false);
 }
 
-export function V1ArchConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ArchConfiguration {
+export function V1ArchConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ArchConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -118,7 +118,7 @@ export function IoK8sApiAppsV1StatefulSetSpecFromJSON(json: any): IoK8sApiAppsV1
     return IoK8sApiAppsV1StatefulSetSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1StatefulSetSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1StatefulSetSpec {
+export function IoK8sApiAppsV1StatefulSetSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1StatefulSetSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

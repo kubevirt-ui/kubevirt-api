@@ -60,7 +60,7 @@ export function IoK8sApiStorageV1CSIDriverListFromJSON(json: any): IoK8sApiStora
     return IoK8sApiStorageV1CSIDriverListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiStorageV1CSIDriverListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiStorageV1CSIDriverList {
+export function IoK8sApiStorageV1CSIDriverListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiStorageV1CSIDriverList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

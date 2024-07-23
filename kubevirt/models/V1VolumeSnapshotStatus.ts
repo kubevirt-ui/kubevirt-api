@@ -43,7 +43,7 @@ export function V1VolumeSnapshotStatusFromJSON(json: any): V1VolumeSnapshotStatu
     return V1VolumeSnapshotStatusFromJSONTyped(json, false);
 }
 
-export function V1VolumeSnapshotStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VolumeSnapshotStatus {
+export function V1VolumeSnapshotStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VolumeSnapshotStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

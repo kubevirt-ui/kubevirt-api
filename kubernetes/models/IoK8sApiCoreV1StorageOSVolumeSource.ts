@@ -62,7 +62,7 @@ export function IoK8sApiCoreV1StorageOSVolumeSourceFromJSON(json: any): IoK8sApi
     return IoK8sApiCoreV1StorageOSVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1StorageOSVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1StorageOSVolumeSource {
+export function IoK8sApiCoreV1StorageOSVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1StorageOSVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

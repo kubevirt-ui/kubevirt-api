@@ -31,7 +31,7 @@ export function IoK8sApiAutoscalingV1ScaleSpecFromJSON(json: any): IoK8sApiAutos
     return IoK8sApiAutoscalingV1ScaleSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAutoscalingV1ScaleSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAutoscalingV1ScaleSpec {
+export function IoK8sApiAutoscalingV1ScaleSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAutoscalingV1ScaleSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

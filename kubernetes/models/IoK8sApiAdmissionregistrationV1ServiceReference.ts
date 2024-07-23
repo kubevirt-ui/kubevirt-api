@@ -49,7 +49,7 @@ export function IoK8sApiAdmissionregistrationV1ServiceReferenceFromJSON(json: an
     return IoK8sApiAdmissionregistrationV1ServiceReferenceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAdmissionregistrationV1ServiceReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1ServiceReference {
+export function IoK8sApiAdmissionregistrationV1ServiceReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1ServiceReference {
     if ((json === undefined) || (json === null)) {
         return json;
     }

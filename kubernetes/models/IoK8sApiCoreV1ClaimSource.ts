@@ -43,7 +43,7 @@ export function IoK8sApiCoreV1ClaimSourceFromJSON(json: any): IoK8sApiCoreV1Clai
     return IoK8sApiCoreV1ClaimSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ClaimSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ClaimSource {
+export function IoK8sApiCoreV1ClaimSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ClaimSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

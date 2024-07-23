@@ -56,7 +56,7 @@ export function IoK8sApimachineryPkgApisMetaV1APIResourceListFromJSON(json: any)
     return IoK8sApimachineryPkgApisMetaV1APIResourceListFromJSONTyped(json, false);
 }
 
-export function IoK8sApimachineryPkgApisMetaV1APIResourceListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1APIResourceList {
+export function IoK8sApimachineryPkgApisMetaV1APIResourceListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1APIResourceList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

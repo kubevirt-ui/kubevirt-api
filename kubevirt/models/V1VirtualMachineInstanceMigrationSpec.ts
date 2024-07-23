@@ -31,7 +31,7 @@ export function V1VirtualMachineInstanceMigrationSpecFromJSON(json: any): V1Virt
     return V1VirtualMachineInstanceMigrationSpecFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceMigrationSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationSpec {
+export function V1VirtualMachineInstanceMigrationSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

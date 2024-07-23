@@ -55,7 +55,7 @@ export function IoK8sApiCoreV1FCVolumeSourceFromJSON(json: any): IoK8sApiCoreV1F
     return IoK8sApiCoreV1FCVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1FCVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1FCVolumeSource {
+export function IoK8sApiCoreV1FCVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1FCVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

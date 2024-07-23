@@ -43,7 +43,7 @@ export function IoK8sApiAutoscalingV1CrossVersionObjectReferenceFromJSON(json: a
     return IoK8sApiAutoscalingV1CrossVersionObjectReferenceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAutoscalingV1CrossVersionObjectReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAutoscalingV1CrossVersionObjectReference {
+export function IoK8sApiAutoscalingV1CrossVersionObjectReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAutoscalingV1CrossVersionObjectReference {
     if ((json === undefined) || (json === null)) {
         return json;
     }

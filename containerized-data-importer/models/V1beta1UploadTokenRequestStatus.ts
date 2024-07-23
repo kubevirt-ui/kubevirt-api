@@ -31,7 +31,7 @@ export function V1beta1UploadTokenRequestStatusFromJSON(json: any): V1beta1Uploa
     return V1beta1UploadTokenRequestStatusFromJSONTyped(json, false);
 }
 
-export function V1beta1UploadTokenRequestStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1UploadTokenRequestStatus {
+export function V1beta1UploadTokenRequestStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1UploadTokenRequestStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

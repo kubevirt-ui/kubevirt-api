@@ -48,7 +48,7 @@ export function V1SSHPublicKeyAccessCredentialFromJSON(json: any): V1SSHPublicKe
     return V1SSHPublicKeyAccessCredentialFromJSONTyped(json, false);
 }
 
-export function V1SSHPublicKeyAccessCredentialFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SSHPublicKeyAccessCredential {
+export function V1SSHPublicKeyAccessCredentialFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SSHPublicKeyAccessCredential {
     if ((json === undefined) || (json === null)) {
         return json;
     }

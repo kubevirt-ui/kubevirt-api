@@ -37,7 +37,7 @@ export function IoK8sApiStorageV1TokenRequestFromJSON(json: any): IoK8sApiStorag
     return IoK8sApiStorageV1TokenRequestFromJSONTyped(json, false);
 }
 
-export function IoK8sApiStorageV1TokenRequestFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiStorageV1TokenRequest {
+export function IoK8sApiStorageV1TokenRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiStorageV1TokenRequest {
     if ((json === undefined) || (json === null)) {
         return json;
     }

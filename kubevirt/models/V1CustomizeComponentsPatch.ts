@@ -49,7 +49,7 @@ export function V1CustomizeComponentsPatchFromJSON(json: any): V1CustomizeCompon
     return V1CustomizeComponentsPatchFromJSONTyped(json, false);
 }
 
-export function V1CustomizeComponentsPatchFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1CustomizeComponentsPatch {
+export function V1CustomizeComponentsPatchFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1CustomizeComponentsPatch {
     if ((json === undefined) || (json === null)) {
         return json;
     }

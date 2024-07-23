@@ -70,7 +70,7 @@ export function V1beta1CDIConfigFromJSON(json: any): V1beta1CDIConfig {
     return V1beta1CDIConfigFromJSONTyped(json, false);
 }
 
-export function V1beta1CDIConfigFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1CDIConfig {
+export function V1beta1CDIConfigFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1CDIConfig {
     if ((json === undefined) || (json === null)) {
         return json;
     }

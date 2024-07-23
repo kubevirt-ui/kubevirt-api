@@ -43,7 +43,7 @@ export function IoK8sApiCoreV1KeyToPathFromJSON(json: any): IoK8sApiCoreV1KeyToP
     return IoK8sApiCoreV1KeyToPathFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1KeyToPathFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1KeyToPath {
+export function IoK8sApiCoreV1KeyToPathFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1KeyToPath {
     if ((json === undefined) || (json === null)) {
         return json;
     }

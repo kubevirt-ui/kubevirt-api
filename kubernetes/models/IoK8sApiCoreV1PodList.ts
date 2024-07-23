@@ -60,7 +60,7 @@ export function IoK8sApiCoreV1PodListFromJSON(json: any): IoK8sApiCoreV1PodList 
     return IoK8sApiCoreV1PodListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PodListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PodList {
+export function IoK8sApiCoreV1PodListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PodList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

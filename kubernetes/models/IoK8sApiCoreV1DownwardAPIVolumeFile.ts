@@ -60,7 +60,7 @@ export function IoK8sApiCoreV1DownwardAPIVolumeFileFromJSON(json: any): IoK8sApi
     return IoK8sApiCoreV1DownwardAPIVolumeFileFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1DownwardAPIVolumeFileFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1DownwardAPIVolumeFile {
+export function IoK8sApiCoreV1DownwardAPIVolumeFileFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1DownwardAPIVolumeFile {
     if ((json === undefined) || (json === null)) {
         return json;
     }

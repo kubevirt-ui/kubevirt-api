@@ -58,7 +58,7 @@ export function IoK8sApiCoreV1SecretVolumeSourceFromJSON(json: any): IoK8sApiCor
     return IoK8sApiCoreV1SecretVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1SecretVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1SecretVolumeSource {
+export function IoK8sApiCoreV1SecretVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1SecretVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

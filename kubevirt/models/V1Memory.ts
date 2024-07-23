@@ -122,7 +122,7 @@ export function V1MemoryFromJSON(json: any): V1Memory {
     return V1MemoryFromJSONTyped(json, false);
 }
 
-export function V1MemoryFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Memory {
+export function V1MemoryFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Memory {
     if ((json === undefined) || (json === null)) {
         return json;
     }

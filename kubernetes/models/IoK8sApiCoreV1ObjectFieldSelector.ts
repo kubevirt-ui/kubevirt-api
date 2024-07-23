@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1ObjectFieldSelectorFromJSON(json: any): IoK8sApiCo
     return IoK8sApiCoreV1ObjectFieldSelectorFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ObjectFieldSelectorFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ObjectFieldSelector {
+export function IoK8sApiCoreV1ObjectFieldSelectorFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ObjectFieldSelector {
     if ((json === undefined) || (json === null)) {
         return json;
     }

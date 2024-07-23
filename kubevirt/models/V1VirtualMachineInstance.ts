@@ -70,7 +70,7 @@ export function V1VirtualMachineInstanceFromJSON(json: any): V1VirtualMachineIns
     return V1VirtualMachineInstanceFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstance {
+export function V1VirtualMachineInstanceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstance {
     if ((json === undefined) || (json === null)) {
         return json;
     }

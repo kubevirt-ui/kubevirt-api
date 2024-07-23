@@ -38,7 +38,7 @@ export function IoK8sApiNetworkingV1alpha1ServiceCIDRStatusFromJSON(json: any): 
     return IoK8sApiNetworkingV1alpha1ServiceCIDRStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1alpha1ServiceCIDRStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1alpha1ServiceCIDRStatus {
+export function IoK8sApiNetworkingV1alpha1ServiceCIDRStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1alpha1ServiceCIDRStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

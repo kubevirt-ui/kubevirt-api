@@ -78,7 +78,7 @@ export function V1TimerFromJSON(json: any): V1Timer {
     return V1TimerFromJSONTyped(json, false);
 }
 
-export function V1TimerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Timer {
+export function V1TimerFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Timer {
     if ((json === undefined) || (json === null)) {
         return json;
     }

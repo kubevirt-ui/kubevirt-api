@@ -74,7 +74,7 @@ export function IoK8sApimachineryPkgApisMetaV1DeleteOptionsFromJSON(json: any): 
     return IoK8sApimachineryPkgApisMetaV1DeleteOptionsFromJSONTyped(json, false);
 }
 
-export function IoK8sApimachineryPkgApisMetaV1DeleteOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1DeleteOptions {
+export function IoK8sApimachineryPkgApisMetaV1DeleteOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1DeleteOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

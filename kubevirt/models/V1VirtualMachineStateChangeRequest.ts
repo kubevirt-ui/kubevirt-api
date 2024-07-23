@@ -43,7 +43,7 @@ export function V1VirtualMachineStateChangeRequestFromJSON(json: any): V1Virtual
     return V1VirtualMachineStateChangeRequestFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineStateChangeRequestFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineStateChangeRequest {
+export function V1VirtualMachineStateChangeRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineStateChangeRequest {
     if ((json === undefined) || (json === null)) {
         return json;
     }

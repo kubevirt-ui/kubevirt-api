@@ -68,7 +68,7 @@ export function IoK8sApiCoreV1EnvVarSourceFromJSON(json: any): IoK8sApiCoreV1Env
     return IoK8sApiCoreV1EnvVarSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1EnvVarSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1EnvVarSource {
+export function IoK8sApiCoreV1EnvVarSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1EnvVarSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

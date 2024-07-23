@@ -56,7 +56,7 @@ export function IoK8sApiCoreV1CinderPersistentVolumeSourceFromJSON(json: any): I
     return IoK8sApiCoreV1CinderPersistentVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1CinderPersistentVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1CinderPersistentVolumeSource {
+export function IoK8sApiCoreV1CinderPersistentVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1CinderPersistentVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

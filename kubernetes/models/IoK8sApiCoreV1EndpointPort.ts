@@ -58,7 +58,7 @@ export function IoK8sApiCoreV1EndpointPortFromJSON(json: any): IoK8sApiCoreV1End
     return IoK8sApiCoreV1EndpointPortFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1EndpointPortFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1EndpointPort {
+export function IoK8sApiCoreV1EndpointPortFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1EndpointPort {
     if ((json === undefined) || (json === null)) {
         return json;
     }

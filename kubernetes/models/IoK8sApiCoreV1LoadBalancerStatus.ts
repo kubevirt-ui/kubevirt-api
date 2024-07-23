@@ -38,7 +38,7 @@ export function IoK8sApiCoreV1LoadBalancerStatusFromJSON(json: any): IoK8sApiCor
     return IoK8sApiCoreV1LoadBalancerStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1LoadBalancerStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1LoadBalancerStatus {
+export function IoK8sApiCoreV1LoadBalancerStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1LoadBalancerStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

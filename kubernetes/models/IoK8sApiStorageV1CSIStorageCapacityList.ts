@@ -60,7 +60,7 @@ export function IoK8sApiStorageV1CSIStorageCapacityListFromJSON(json: any): IoK8
     return IoK8sApiStorageV1CSIStorageCapacityListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiStorageV1CSIStorageCapacityListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiStorageV1CSIStorageCapacityList {
+export function IoK8sApiStorageV1CSIStorageCapacityListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiStorageV1CSIStorageCapacityList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

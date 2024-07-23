@@ -31,7 +31,7 @@ export function V1RootPathsFromJSON(json: any): V1RootPaths {
     return V1RootPathsFromJSONTyped(json, false);
 }
 
-export function V1RootPathsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1RootPaths {
+export function V1RootPathsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1RootPaths {
     if ((json === undefined) || (json === null)) {
         return json;
     }

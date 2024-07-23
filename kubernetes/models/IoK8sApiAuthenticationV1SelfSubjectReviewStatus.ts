@@ -38,7 +38,7 @@ export function IoK8sApiAuthenticationV1SelfSubjectReviewStatusFromJSON(json: an
     return IoK8sApiAuthenticationV1SelfSubjectReviewStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAuthenticationV1SelfSubjectReviewStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1SelfSubjectReviewStatus {
+export function IoK8sApiAuthenticationV1SelfSubjectReviewStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1SelfSubjectReviewStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

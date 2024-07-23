@@ -31,7 +31,7 @@ export function V1LocalObjectReferenceFromJSON(json: any): V1LocalObjectReferenc
     return V1LocalObjectReferenceFromJSONTyped(json, false);
 }
 
-export function V1LocalObjectReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1LocalObjectReference {
+export function V1LocalObjectReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1LocalObjectReference {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -61,13 +61,13 @@ export function IoK8sApimachineryPkgApisMetaV1ConditionFromJSON(json: any): IoK8
     return IoK8sApimachineryPkgApisMetaV1ConditionFromJSONTyped(json, false);
 }
 
-export function IoK8sApimachineryPkgApisMetaV1ConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1Condition {
+export function IoK8sApimachineryPkgApisMetaV1ConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1Condition {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'lastTransitionTime': ((json['lastTransitionTime'])),
+        'lastTransitionTime': (new Date(json['lastTransitionTime'])),
         'message': json['message'],
         'observedGeneration': !exists(json, 'observedGeneration') ? undefined : json['observedGeneration'],
         'reason': json['reason'],
@@ -85,7 +85,7 @@ export function IoK8sApimachineryPkgApisMetaV1ConditionToJSON(value?: IoK8sApima
     }
     return {
         
-        'lastTransitionTime': (value.lastTransitionTime),
+        'lastTransitionTime': (value.lastTransitionTime.toISOString()),
         'message': value.message,
         'observedGeneration': value.observedGeneration,
         'reason': value.reason,

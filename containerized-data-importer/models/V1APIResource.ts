@@ -85,7 +85,7 @@ export function V1APIResourceFromJSON(json: any): V1APIResource {
     return V1APIResourceFromJSONTyped(json, false);
 }
 
-export function V1APIResourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1APIResource {
+export function V1APIResourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1APIResource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

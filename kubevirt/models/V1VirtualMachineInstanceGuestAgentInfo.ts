@@ -104,7 +104,7 @@ export function V1VirtualMachineInstanceGuestAgentInfoFromJSON(json: any): V1Vir
     return V1VirtualMachineInstanceGuestAgentInfoFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceGuestAgentInfoFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceGuestAgentInfo {
+export function V1VirtualMachineInstanceGuestAgentInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceGuestAgentInfo {
     if ((json === undefined) || (json === null)) {
         return json;
     }

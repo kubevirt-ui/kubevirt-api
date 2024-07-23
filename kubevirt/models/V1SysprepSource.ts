@@ -44,7 +44,7 @@ export function V1SysprepSourceFromJSON(json: any): V1SysprepSource {
     return V1SysprepSourceFromJSONTyped(json, false);
 }
 
-export function V1SysprepSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SysprepSource {
+export function V1SysprepSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SysprepSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

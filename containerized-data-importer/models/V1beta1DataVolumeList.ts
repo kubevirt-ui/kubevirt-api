@@ -60,7 +60,7 @@ export function V1beta1DataVolumeListFromJSON(json: any): V1beta1DataVolumeList 
     return V1beta1DataVolumeListFromJSONTyped(json, false);
 }
 
-export function V1beta1DataVolumeListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataVolumeList {
+export function V1beta1DataVolumeListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataVolumeList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

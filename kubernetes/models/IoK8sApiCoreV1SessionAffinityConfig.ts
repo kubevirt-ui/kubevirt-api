@@ -38,7 +38,7 @@ export function IoK8sApiCoreV1SessionAffinityConfigFromJSON(json: any): IoK8sApi
     return IoK8sApiCoreV1SessionAffinityConfigFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1SessionAffinityConfigFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1SessionAffinityConfig {
+export function IoK8sApiCoreV1SessionAffinityConfigFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1SessionAffinityConfig {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -48,7 +48,7 @@ export function V1PodAffinityFromJSON(json: any): V1PodAffinity {
     return V1PodAffinityFromJSONTyped(json, false);
 }
 
-export function V1PodAffinityFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1PodAffinity {
+export function V1PodAffinityFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PodAffinity {
     if ((json === undefined) || (json === null)) {
         return json;
     }

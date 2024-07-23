@@ -49,7 +49,7 @@ export function V1ListMetaFromJSON(json: any): V1ListMeta {
     return V1ListMetaFromJSONTyped(json, false);
 }
 
-export function V1ListMetaFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ListMeta {
+export function V1ListMetaFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ListMeta {
     if ((json === undefined) || (json === null)) {
         return json;
     }

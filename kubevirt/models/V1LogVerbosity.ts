@@ -61,7 +61,7 @@ export function V1LogVerbosityFromJSON(json: any): V1LogVerbosity {
     return V1LogVerbosityFromJSONTyped(json, false);
 }
 
-export function V1LogVerbosityFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1LogVerbosity {
+export function V1LogVerbosityFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1LogVerbosity {
     if ((json === undefined) || (json === null)) {
         return json;
     }

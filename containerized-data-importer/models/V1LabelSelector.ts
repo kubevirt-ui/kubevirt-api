@@ -44,7 +44,7 @@ export function V1LabelSelectorFromJSON(json: any): V1LabelSelector {
     return V1LabelSelectorFromJSONTyped(json, false);
 }
 
-export function V1LabelSelectorFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1LabelSelector {
+export function V1LabelSelectorFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1LabelSelector {
     if ((json === undefined) || (json === null)) {
         return json;
     }

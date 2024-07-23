@@ -56,7 +56,7 @@ export function IoK8sApiCoreV1NodeConfigStatusFromJSON(json: any): IoK8sApiCoreV
     return IoK8sApiCoreV1NodeConfigStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1NodeConfigStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeConfigStatus {
+export function IoK8sApiCoreV1NodeConfigStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeConfigStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -48,7 +48,7 @@ export function V1beta1PreferenceRequirementsFromJSON(json: any): V1beta1Prefere
     return V1beta1PreferenceRequirementsFromJSONTyped(json, false);
 }
 
-export function V1beta1PreferenceRequirementsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1PreferenceRequirements {
+export function V1beta1PreferenceRequirementsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1PreferenceRequirements {
     if ((json === undefined) || (json === null)) {
         return json;
     }

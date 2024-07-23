@@ -49,7 +49,7 @@ export function V1alpha1ConditionFromJSON(json: any): V1alpha1Condition {
     return V1alpha1ConditionFromJSONTyped(json, false);
 }
 
-export function V1alpha1ConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1Condition {
+export function V1alpha1ConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1Condition {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -50,7 +50,7 @@ export function IoK8sApiResourceV1alpha2ResourceClaimSpecFromJSON(json: any): Io
     return IoK8sApiResourceV1alpha2ResourceClaimSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiResourceV1alpha2ResourceClaimSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2ResourceClaimSpec {
+export function IoK8sApiResourceV1alpha2ResourceClaimSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2ResourceClaimSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

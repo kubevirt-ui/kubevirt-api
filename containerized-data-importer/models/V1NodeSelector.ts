@@ -38,7 +38,7 @@ export function V1NodeSelectorFromJSON(json: any): V1NodeSelector {
     return V1NodeSelectorFromJSONTyped(json, false);
 }
 
-export function V1NodeSelectorFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1NodeSelector {
+export function V1NodeSelectorFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1NodeSelector {
     if ((json === undefined) || (json === null)) {
         return json;
     }

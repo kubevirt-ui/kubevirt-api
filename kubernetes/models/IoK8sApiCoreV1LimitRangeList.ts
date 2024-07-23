@@ -60,7 +60,7 @@ export function IoK8sApiCoreV1LimitRangeListFromJSON(json: any): IoK8sApiCoreV1L
     return IoK8sApiCoreV1LimitRangeListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1LimitRangeListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1LimitRangeList {
+export function IoK8sApiCoreV1LimitRangeListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1LimitRangeList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

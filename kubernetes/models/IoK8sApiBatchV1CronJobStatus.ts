@@ -50,15 +50,15 @@ export function IoK8sApiBatchV1CronJobStatusFromJSON(json: any): IoK8sApiBatchV1
     return IoK8sApiBatchV1CronJobStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiBatchV1CronJobStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiBatchV1CronJobStatus {
+export function IoK8sApiBatchV1CronJobStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiBatchV1CronJobStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
         'active': !exists(json, 'active') ? undefined : ((json['active'] as Array<any>).map(IoK8sApiCoreV1ObjectReferenceFromJSON)),
-        'lastScheduleTime': !exists(json, 'lastScheduleTime') ? undefined : ((json['lastScheduleTime'])),
-        'lastSuccessfulTime': !exists(json, 'lastSuccessfulTime') ? undefined : ((json['lastSuccessfulTime'])),
+        'lastScheduleTime': !exists(json, 'lastScheduleTime') ? undefined : (new Date(json['lastScheduleTime'])),
+        'lastSuccessfulTime': !exists(json, 'lastSuccessfulTime') ? undefined : (new Date(json['lastSuccessfulTime'])),
     };
 }
 
@@ -72,8 +72,8 @@ export function IoK8sApiBatchV1CronJobStatusToJSON(value?: IoK8sApiBatchV1CronJo
     return {
         
         'active': value.active === undefined ? undefined : ((value.active as Array<any>).map(IoK8sApiCoreV1ObjectReferenceToJSON)),
-        'lastScheduleTime': value.lastScheduleTime === undefined ? undefined : (value.lastScheduleTime),
-        'lastSuccessfulTime': value.lastSuccessfulTime === undefined ? undefined : (value.lastSuccessfulTime),
+        'lastScheduleTime': value.lastScheduleTime === undefined ? undefined : (value.lastScheduleTime.toISOString()),
+        'lastSuccessfulTime': value.lastSuccessfulTime === undefined ? undefined : (value.lastSuccessfulTime.toISOString()),
     };
 }
 

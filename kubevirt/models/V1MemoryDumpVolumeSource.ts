@@ -43,7 +43,7 @@ export function V1MemoryDumpVolumeSourceFromJSON(json: any): V1MemoryDumpVolumeS
     return V1MemoryDumpVolumeSourceFromJSONTyped(json, false);
 }
 
-export function V1MemoryDumpVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1MemoryDumpVolumeSource {
+export function V1MemoryDumpVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1MemoryDumpVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

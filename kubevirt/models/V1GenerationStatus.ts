@@ -61,7 +61,7 @@ export function V1GenerationStatusFromJSON(json: any): V1GenerationStatus {
     return V1GenerationStatusFromJSONTyped(json, false);
 }
 
-export function V1GenerationStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1GenerationStatus {
+export function V1GenerationStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1GenerationStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

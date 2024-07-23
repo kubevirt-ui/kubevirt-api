@@ -49,7 +49,7 @@ export function V1StartOptionsFromJSON(json: any): V1StartOptions {
     return V1StartOptionsFromJSONTyped(json, false);
 }
 
-export function V1StartOptionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1StartOptions {
+export function V1StartOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1StartOptions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -44,7 +44,7 @@ export function V1NodeSelectorTermFromJSON(json: any): V1NodeSelectorTerm {
     return V1NodeSelectorTermFromJSONTyped(json, false);
 }
 
-export function V1NodeSelectorTermFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1NodeSelectorTerm {
+export function V1NodeSelectorTermFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1NodeSelectorTerm {
     if ((json === undefined) || (json === null)) {
         return json;
     }

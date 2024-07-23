@@ -48,7 +48,7 @@ export function V1beta1ClockPreferencesFromJSON(json: any): V1beta1ClockPreferen
     return V1beta1ClockPreferencesFromJSONTyped(json, false);
 }
 
-export function V1beta1ClockPreferencesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1ClockPreferences {
+export function V1beta1ClockPreferencesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1ClockPreferences {
     if ((json === undefined) || (json === null)) {
         return json;
     }

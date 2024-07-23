@@ -61,7 +61,7 @@ export function V1beta1DataVolumeSourceVDDKFromJSON(json: any): V1beta1DataVolum
     return V1beta1DataVolumeSourceVDDKFromJSONTyped(json, false);
 }
 
-export function V1beta1DataVolumeSourceVDDKFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataVolumeSourceVDDK {
+export function V1beta1DataVolumeSourceVDDKFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataVolumeSourceVDDK {
     if ((json === undefined) || (json === null)) {
         return json;
     }

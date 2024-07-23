@@ -60,7 +60,7 @@ export function IoK8sApiAdmissionregistrationV1ValidatingWebhookConfigurationFro
     return IoK8sApiAdmissionregistrationV1ValidatingWebhookConfigurationFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAdmissionregistrationV1ValidatingWebhookConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1ValidatingWebhookConfiguration {
+export function IoK8sApiAdmissionregistrationV1ValidatingWebhookConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1ValidatingWebhookConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

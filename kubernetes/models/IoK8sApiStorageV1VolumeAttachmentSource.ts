@@ -44,7 +44,7 @@ export function IoK8sApiStorageV1VolumeAttachmentSourceFromJSON(json: any): IoK8
     return IoK8sApiStorageV1VolumeAttachmentSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiStorageV1VolumeAttachmentSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiStorageV1VolumeAttachmentSource {
+export function IoK8sApiStorageV1VolumeAttachmentSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiStorageV1VolumeAttachmentSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

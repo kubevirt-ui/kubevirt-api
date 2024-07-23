@@ -55,7 +55,7 @@ export function V1beta1DataVolumeSourceHTTPFromJSON(json: any): V1beta1DataVolum
     return V1beta1DataVolumeSourceHTTPFromJSONTyped(json, false);
 }
 
-export function V1beta1DataVolumeSourceHTTPFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataVolumeSourceHTTP {
+export function V1beta1DataVolumeSourceHTTPFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataVolumeSourceHTTP {
     if ((json === undefined) || (json === null)) {
         return json;
     }

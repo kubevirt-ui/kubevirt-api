@@ -43,7 +43,7 @@ export function V1DiskTargetFromJSON(json: any): V1DiskTarget {
     return V1DiskTargetFromJSONTyped(json, false);
 }
 
-export function V1DiskTargetFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1DiskTarget {
+export function V1DiskTargetFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DiskTarget {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -54,7 +54,7 @@ export function V1NodePlacementFromJSON(json: any): V1NodePlacement {
     return V1NodePlacementFromJSONTyped(json, false);
 }
 
-export function V1NodePlacementFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1NodePlacement {
+export function V1NodePlacementFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1NodePlacement {
     if ((json === undefined) || (json === null)) {
         return json;
     }

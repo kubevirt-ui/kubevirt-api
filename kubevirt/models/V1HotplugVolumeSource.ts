@@ -48,7 +48,7 @@ export function V1HotplugVolumeSourceFromJSON(json: any): V1HotplugVolumeSource 
     return V1HotplugVolumeSourceFromJSONTyped(json, false);
 }
 
-export function V1HotplugVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1HotplugVolumeSource {
+export function V1HotplugVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1HotplugVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -70,7 +70,7 @@ export function V1alpha1VirtualMachineCloneFromJSON(json: any): V1alpha1VirtualM
     return V1alpha1VirtualMachineCloneFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachineCloneFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VirtualMachineClone {
+export function V1alpha1VirtualMachineCloneFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachineClone {
     if ((json === undefined) || (json === null)) {
         return json;
     }

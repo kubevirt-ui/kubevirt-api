@@ -70,7 +70,7 @@ export function IoK8sApiCoreV1NamespaceFromJSON(json: any): IoK8sApiCoreV1Namesp
     return IoK8sApiCoreV1NamespaceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1NamespaceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1Namespace {
+export function IoK8sApiCoreV1NamespaceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1Namespace {
     if ((json === undefined) || (json === null)) {
         return json;
     }

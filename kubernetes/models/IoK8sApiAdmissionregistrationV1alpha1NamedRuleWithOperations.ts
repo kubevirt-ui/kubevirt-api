@@ -67,7 +67,7 @@ export function IoK8sApiAdmissionregistrationV1alpha1NamedRuleWithOperationsFrom
     return IoK8sApiAdmissionregistrationV1alpha1NamedRuleWithOperationsFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAdmissionregistrationV1alpha1NamedRuleWithOperationsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1NamedRuleWithOperations {
+export function IoK8sApiAdmissionregistrationV1alpha1NamedRuleWithOperationsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1NamedRuleWithOperations {
     if ((json === undefined) || (json === null)) {
         return json;
     }

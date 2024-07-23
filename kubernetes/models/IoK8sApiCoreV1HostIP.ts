@@ -31,7 +31,7 @@ export function IoK8sApiCoreV1HostIPFromJSON(json: any): IoK8sApiCoreV1HostIP {
     return IoK8sApiCoreV1HostIPFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1HostIPFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1HostIP {
+export function IoK8sApiCoreV1HostIPFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1HostIP {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -43,7 +43,7 @@ export function V1InputFromJSON(json: any): V1Input {
     return V1InputFromJSONTyped(json, false);
 }
 
-export function V1InputFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Input {
+export function V1InputFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Input {
     if ((json === undefined) || (json === null)) {
         return json;
     }

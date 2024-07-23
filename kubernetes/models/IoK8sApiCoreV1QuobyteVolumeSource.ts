@@ -61,7 +61,7 @@ export function IoK8sApiCoreV1QuobyteVolumeSourceFromJSON(json: any): IoK8sApiCo
     return IoK8sApiCoreV1QuobyteVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1QuobyteVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1QuobyteVolumeSource {
+export function IoK8sApiCoreV1QuobyteVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1QuobyteVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

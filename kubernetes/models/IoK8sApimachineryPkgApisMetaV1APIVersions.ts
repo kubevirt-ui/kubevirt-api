@@ -56,7 +56,7 @@ export function IoK8sApimachineryPkgApisMetaV1APIVersionsFromJSON(json: any): Io
     return IoK8sApimachineryPkgApisMetaV1APIVersionsFromJSONTyped(json, false);
 }
 
-export function IoK8sApimachineryPkgApisMetaV1APIVersionsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1APIVersions {
+export function IoK8sApimachineryPkgApisMetaV1APIVersionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1APIVersions {
     if ((json === undefined) || (json === null)) {
         return json;
     }

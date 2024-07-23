@@ -48,7 +48,7 @@ export function IoK8sApiAutoscalingV2ExternalMetricSourceFromJSON(json: any): Io
     return IoK8sApiAutoscalingV2ExternalMetricSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAutoscalingV2ExternalMetricSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2ExternalMetricSource {
+export function IoK8sApiAutoscalingV2ExternalMetricSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2ExternalMetricSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

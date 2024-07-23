@@ -44,7 +44,7 @@ export function IoK8sApiCoreV1DownwardAPIVolumeSourceFromJSON(json: any): IoK8sA
     return IoK8sApiCoreV1DownwardAPIVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1DownwardAPIVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1DownwardAPIVolumeSource {
+export function IoK8sApiCoreV1DownwardAPIVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1DownwardAPIVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -50,7 +50,7 @@ export function IoK8sApiCoreV1ResourceQuotaSpecFromJSON(json: any): IoK8sApiCore
     return IoK8sApiCoreV1ResourceQuotaSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ResourceQuotaSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ResourceQuotaSpec {
+export function IoK8sApiCoreV1ResourceQuotaSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ResourceQuotaSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

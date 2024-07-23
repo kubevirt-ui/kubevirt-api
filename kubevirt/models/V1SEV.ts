@@ -56,7 +56,7 @@ export function V1SEVFromJSON(json: any): V1SEV {
     return V1SEVFromJSONTyped(json, false);
 }
 
-export function V1SEVFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SEV {
+export function V1SEVFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SEV {
     if ((json === undefined) || (json === null)) {
         return json;
     }

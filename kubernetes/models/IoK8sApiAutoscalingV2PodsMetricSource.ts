@@ -48,7 +48,7 @@ export function IoK8sApiAutoscalingV2PodsMetricSourceFromJSON(json: any): IoK8sA
     return IoK8sApiAutoscalingV2PodsMetricSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAutoscalingV2PodsMetricSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2PodsMetricSource {
+export function IoK8sApiAutoscalingV2PodsMetricSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2PodsMetricSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

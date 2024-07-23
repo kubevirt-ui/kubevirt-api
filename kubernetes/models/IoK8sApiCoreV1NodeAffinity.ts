@@ -48,7 +48,7 @@ export function IoK8sApiCoreV1NodeAffinityFromJSON(json: any): IoK8sApiCoreV1Nod
     return IoK8sApiCoreV1NodeAffinityFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1NodeAffinityFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeAffinity {
+export function IoK8sApiCoreV1NodeAffinityFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1NodeAffinity {
     if ((json === undefined) || (json === null)) {
         return json;
     }

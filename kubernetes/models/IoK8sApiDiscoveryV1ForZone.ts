@@ -31,7 +31,7 @@ export function IoK8sApiDiscoveryV1ForZoneFromJSON(json: any): IoK8sApiDiscovery
     return IoK8sApiDiscoveryV1ForZoneFromJSONTyped(json, false);
 }
 
-export function IoK8sApiDiscoveryV1ForZoneFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiDiscoveryV1ForZone {
+export function IoK8sApiDiscoveryV1ForZoneFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiDiscoveryV1ForZone {
     if ((json === undefined) || (json === null)) {
         return json;
     }

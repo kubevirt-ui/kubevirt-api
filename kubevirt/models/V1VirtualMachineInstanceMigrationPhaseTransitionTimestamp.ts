@@ -37,14 +37,14 @@ export function V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSO
     return V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp {
+export function V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
         'phase': !exists(json, 'phase') ? undefined : json['phase'],
-        'phaseTransitionTimestamp': !exists(json, 'phaseTransitionTimestamp') ? undefined : ((json['phaseTransitionTimestamp'])),
+        'phaseTransitionTimestamp': !exists(json, 'phaseTransitionTimestamp') ? undefined : (new Date(json['phaseTransitionTimestamp'])),
     };
 }
 
@@ -58,7 +58,7 @@ export function V1VirtualMachineInstanceMigrationPhaseTransitionTimestampToJSON(
     return {
         
         'phase': value.phase,
-        'phaseTransitionTimestamp': value.phaseTransitionTimestamp === undefined ? undefined : (value.phaseTransitionTimestamp),
+        'phaseTransitionTimestamp': value.phaseTransitionTimestamp === undefined ? undefined : (value.phaseTransitionTimestamp.toISOString()),
     };
 }
 

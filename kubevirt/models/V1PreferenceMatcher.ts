@@ -55,7 +55,7 @@ export function V1PreferenceMatcherFromJSON(json: any): V1PreferenceMatcher {
     return V1PreferenceMatcherFromJSONTyped(json, false);
 }
 
-export function V1PreferenceMatcherFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1PreferenceMatcher {
+export function V1PreferenceMatcherFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PreferenceMatcher {
     if ((json === undefined) || (json === null)) {
         return json;
     }

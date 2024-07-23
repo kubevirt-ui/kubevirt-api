@@ -50,7 +50,7 @@ export function IoK8sApiNetworkingV1IngressLoadBalancerIngressFromJSON(json: any
     return IoK8sApiNetworkingV1IngressLoadBalancerIngressFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1IngressLoadBalancerIngressFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressLoadBalancerIngress {
+export function IoK8sApiNetworkingV1IngressLoadBalancerIngressFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressLoadBalancerIngress {
     if ((json === undefined) || (json === null)) {
         return json;
     }

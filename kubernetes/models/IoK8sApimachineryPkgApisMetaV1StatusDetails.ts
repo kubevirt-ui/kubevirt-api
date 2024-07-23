@@ -68,7 +68,7 @@ export function IoK8sApimachineryPkgApisMetaV1StatusDetailsFromJSON(json: any): 
     return IoK8sApimachineryPkgApisMetaV1StatusDetailsFromJSONTyped(json, false);
 }
 
-export function IoK8sApimachineryPkgApisMetaV1StatusDetailsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1StatusDetails {
+export function IoK8sApimachineryPkgApisMetaV1StatusDetailsFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1StatusDetails {
     if ((json === undefined) || (json === null)) {
         return json;
     }

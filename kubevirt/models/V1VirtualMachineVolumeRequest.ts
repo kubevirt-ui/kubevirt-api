@@ -48,7 +48,7 @@ export function V1VirtualMachineVolumeRequestFromJSON(json: any): V1VirtualMachi
     return V1VirtualMachineVolumeRequestFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineVolumeRequestFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineVolumeRequest {
+export function V1VirtualMachineVolumeRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineVolumeRequest {
     if ((json === undefined) || (json === null)) {
         return json;
     }

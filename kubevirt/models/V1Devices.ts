@@ -204,7 +204,7 @@ export function V1DevicesFromJSON(json: any): V1Devices {
     return V1DevicesFromJSONTyped(json, false);
 }
 
-export function V1DevicesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Devices {
+export function V1DevicesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Devices {
     if ((json === undefined) || (json === null)) {
         return json;
     }

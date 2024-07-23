@@ -56,7 +56,7 @@ export function IoK8sApiCoreV1EndpointAddressFromJSON(json: any): IoK8sApiCoreV1
     return IoK8sApiCoreV1EndpointAddressFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1EndpointAddressFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1EndpointAddress {
+export function IoK8sApiCoreV1EndpointAddressFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1EndpointAddress {
     if ((json === undefined) || (json === null)) {
         return json;
     }

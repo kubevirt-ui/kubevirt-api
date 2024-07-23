@@ -126,7 +126,7 @@ export function V1KubeVirtStatusFromJSON(json: any): V1KubeVirtStatus {
     return V1KubeVirtStatusFromJSONTyped(json, false);
 }
 
-export function V1KubeVirtStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KubeVirtStatus {
+export function V1KubeVirtStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KubeVirtStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

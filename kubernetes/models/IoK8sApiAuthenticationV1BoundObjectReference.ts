@@ -49,7 +49,7 @@ export function IoK8sApiAuthenticationV1BoundObjectReferenceFromJSON(json: any):
     return IoK8sApiAuthenticationV1BoundObjectReferenceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAuthenticationV1BoundObjectReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1BoundObjectReference {
+export function IoK8sApiAuthenticationV1BoundObjectReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1BoundObjectReference {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -50,7 +50,7 @@ export function IoK8sApiAuthenticationV1TokenRequestSpecFromJSON(json: any): IoK
     return IoK8sApiAuthenticationV1TokenRequestSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAuthenticationV1TokenRequestSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1TokenRequestSpec {
+export function IoK8sApiAuthenticationV1TokenRequestSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAuthenticationV1TokenRequestSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

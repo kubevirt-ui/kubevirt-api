@@ -46,7 +46,7 @@ export function IoK8sApiCoreV1ModifyVolumeStatusFromJSON(json: any): IoK8sApiCor
     return IoK8sApiCoreV1ModifyVolumeStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ModifyVolumeStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ModifyVolumeStatus {
+export function IoK8sApiCoreV1ModifyVolumeStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ModifyVolumeStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

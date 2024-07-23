@@ -151,7 +151,7 @@ export function V1MemoryStatusFromJSON(json: any): V1MemoryStatus {
     return V1MemoryStatusFromJSONTyped(json, false);
 }
 
-export function V1MemoryStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1MemoryStatus {
+export function V1MemoryStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1MemoryStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

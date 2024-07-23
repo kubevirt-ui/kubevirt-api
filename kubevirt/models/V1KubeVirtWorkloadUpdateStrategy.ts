@@ -47,7 +47,7 @@ export function V1KubeVirtWorkloadUpdateStrategyFromJSON(json: any): V1KubeVirtW
     return V1KubeVirtWorkloadUpdateStrategyFromJSONTyped(json, false);
 }
 
-export function V1KubeVirtWorkloadUpdateStrategyFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KubeVirtWorkloadUpdateStrategy {
+export function V1KubeVirtWorkloadUpdateStrategyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KubeVirtWorkloadUpdateStrategy {
     if ((json === undefined) || (json === null)) {
         return json;
     }

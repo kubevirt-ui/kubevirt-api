@@ -37,7 +37,7 @@ export function IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSON(
     return IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSONTyped(json, false);
 }
 
-export function IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDR {
+export function IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDR {
     if ((json === undefined) || (json === null)) {
         return json;
     }

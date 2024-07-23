@@ -43,7 +43,7 @@ export function V1CPUTopologyFromJSON(json: any): V1CPUTopology {
     return V1CPUTopologyFromJSONTyped(json, false);
 }
 
-export function V1CPUTopologyFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1CPUTopology {
+export function V1CPUTopologyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1CPUTopology {
     if ((json === undefined) || (json === null)) {
         return json;
     }

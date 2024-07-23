@@ -55,7 +55,7 @@ export function V1SMBiosConfigurationFromJSON(json: any): V1SMBiosConfiguration 
     return V1SMBiosConfigurationFromJSONTyped(json, false);
 }
 
-export function V1SMBiosConfigurationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SMBiosConfiguration {
+export function V1SMBiosConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SMBiosConfiguration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -44,7 +44,7 @@ export function V1WatchdogFromJSON(json: any): V1Watchdog {
     return V1WatchdogFromJSONTyped(json, false);
 }
 
-export function V1WatchdogFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Watchdog {
+export function V1WatchdogFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Watchdog {
     if ((json === undefined) || (json === null)) {
         return json;
     }

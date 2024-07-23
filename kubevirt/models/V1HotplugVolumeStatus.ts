@@ -37,7 +37,7 @@ export function V1HotplugVolumeStatusFromJSON(json: any): V1HotplugVolumeStatus 
     return V1HotplugVolumeStatusFromJSONTyped(json, false);
 }
 
-export function V1HotplugVolumeStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1HotplugVolumeStatus {
+export function V1HotplugVolumeStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1HotplugVolumeStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

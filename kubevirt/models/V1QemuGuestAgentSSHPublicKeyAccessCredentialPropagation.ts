@@ -31,7 +31,7 @@ export function V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSON(
     return V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSONTyped(json, false);
 }
 
-export function V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation {
+export function V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -61,7 +61,7 @@ export function IoK8sApimachineryPkgApisMetaV1OwnerReferenceFromJSON(json: any):
     return IoK8sApimachineryPkgApisMetaV1OwnerReferenceFromJSONTyped(json, false);
 }
 
-export function IoK8sApimachineryPkgApisMetaV1OwnerReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1OwnerReference {
+export function IoK8sApimachineryPkgApisMetaV1OwnerReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApimachineryPkgApisMetaV1OwnerReference {
     if ((json === undefined) || (json === null)) {
         return json;
     }

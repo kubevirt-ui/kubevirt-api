@@ -37,7 +37,7 @@ export function IoK8sApiNetworkingV1IngressTLSFromJSON(json: any): IoK8sApiNetwo
     return IoK8sApiNetworkingV1IngressTLSFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1IngressTLSFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressTLS {
+export function IoK8sApiNetworkingV1IngressTLSFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressTLS {
     if ((json === undefined) || (json === null)) {
         return json;
     }

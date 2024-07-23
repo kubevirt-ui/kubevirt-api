@@ -60,7 +60,7 @@ export function V1alpha1VirtualMachinePoolListFromJSON(json: any): V1alpha1Virtu
     return V1alpha1VirtualMachinePoolListFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachinePoolListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1VirtualMachinePoolList {
+export function V1alpha1VirtualMachinePoolListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachinePoolList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

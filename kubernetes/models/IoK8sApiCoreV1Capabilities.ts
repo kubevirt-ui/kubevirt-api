@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1CapabilitiesFromJSON(json: any): IoK8sApiCoreV1Cap
     return IoK8sApiCoreV1CapabilitiesFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1CapabilitiesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1Capabilities {
+export function IoK8sApiCoreV1CapabilitiesFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1Capabilities {
     if ((json === undefined) || (json === null)) {
         return json;
     }

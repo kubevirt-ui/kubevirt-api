@@ -72,7 +72,7 @@ export function IoK8sApiAuthorizationV1SubjectAccessReviewSpecFromJSON(json: any
     return IoK8sApiAuthorizationV1SubjectAccessReviewSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAuthorizationV1SubjectAccessReviewSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAuthorizationV1SubjectAccessReviewSpec {
+export function IoK8sApiAuthorizationV1SubjectAccessReviewSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAuthorizationV1SubjectAccessReviewSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

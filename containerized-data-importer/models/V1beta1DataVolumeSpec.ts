@@ -102,7 +102,7 @@ export function V1beta1DataVolumeSpecFromJSON(json: any): V1beta1DataVolumeSpec 
     return V1beta1DataVolumeSpecFromJSONTyped(json, false);
 }
 
-export function V1beta1DataVolumeSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataVolumeSpec {
+export function V1beta1DataVolumeSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataVolumeSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

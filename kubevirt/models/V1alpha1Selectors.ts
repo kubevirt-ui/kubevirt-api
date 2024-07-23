@@ -37,7 +37,7 @@ export function V1alpha1SelectorsFromJSON(json: any): V1alpha1Selectors {
     return V1alpha1SelectorsFromJSONTyped(json, false);
 }
 
-export function V1alpha1SelectorsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1alpha1Selectors {
+export function V1alpha1SelectorsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1Selectors {
     if ((json === undefined) || (json === null)) {
         return json;
     }

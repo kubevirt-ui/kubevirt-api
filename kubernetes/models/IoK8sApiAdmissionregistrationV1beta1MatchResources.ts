@@ -72,7 +72,7 @@ export function IoK8sApiAdmissionregistrationV1beta1MatchResourcesFromJSON(json:
     return IoK8sApiAdmissionregistrationV1beta1MatchResourcesFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAdmissionregistrationV1beta1MatchResourcesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1beta1MatchResources {
+export function IoK8sApiAdmissionregistrationV1beta1MatchResourcesFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1beta1MatchResources {
     if ((json === undefined) || (json === null)) {
         return json;
     }

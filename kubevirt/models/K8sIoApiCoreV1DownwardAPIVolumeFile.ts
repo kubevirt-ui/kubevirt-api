@@ -60,7 +60,7 @@ export function K8sIoApiCoreV1DownwardAPIVolumeFileFromJSON(json: any): K8sIoApi
     return K8sIoApiCoreV1DownwardAPIVolumeFileFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1DownwardAPIVolumeFileFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApiCoreV1DownwardAPIVolumeFile {
+export function K8sIoApiCoreV1DownwardAPIVolumeFileFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1DownwardAPIVolumeFile {
     if ((json === undefined) || (json === null)) {
         return json;
     }

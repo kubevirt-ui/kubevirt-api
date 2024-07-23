@@ -58,7 +58,7 @@ export function V1PermittedHostDevicesFromJSON(json: any): V1PermittedHostDevice
     return V1PermittedHostDevicesFromJSONTyped(json, false);
 }
 
-export function V1PermittedHostDevicesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1PermittedHostDevices {
+export function V1PermittedHostDevicesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PermittedHostDevices {
     if ((json === undefined) || (json === null)) {
         return json;
     }

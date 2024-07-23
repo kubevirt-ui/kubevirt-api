@@ -49,7 +49,7 @@ export function IoK8sApiCoreV1TaintFromJSON(json: any): IoK8sApiCoreV1Taint {
     return IoK8sApiCoreV1TaintFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1TaintFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1Taint {
+export function IoK8sApiCoreV1TaintFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1Taint {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -57,7 +57,7 @@ export function IoK8sApiCoreV1TaintFromJSONTyped(json: any, _ignoreDiscriminator
         
         'effect': json['effect'],
         'key': json['key'],
-        'timeAdded': !exists(json, 'timeAdded') ? undefined : ((json['timeAdded'])),
+        'timeAdded': !exists(json, 'timeAdded') ? undefined : (new Date(json['timeAdded'])),
         'value': !exists(json, 'value') ? undefined : json['value'],
     };
 }
@@ -73,7 +73,7 @@ export function IoK8sApiCoreV1TaintToJSON(value?: IoK8sApiCoreV1Taint | null): a
         
         'effect': value.effect,
         'key': value.key,
-        'timeAdded': value.timeAdded === undefined ? undefined : (value.timeAdded),
+        'timeAdded': value.timeAdded === undefined ? undefined : (value.timeAdded.toISOString()),
         'value': value.value,
     };
 }

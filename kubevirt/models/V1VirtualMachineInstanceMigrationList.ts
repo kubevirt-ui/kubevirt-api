@@ -60,7 +60,7 @@ export function V1VirtualMachineInstanceMigrationListFromJSON(json: any): V1Virt
     return V1VirtualMachineInstanceMigrationListFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceMigrationListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationList {
+export function V1VirtualMachineInstanceMigrationListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -60,7 +60,7 @@ export function IoK8sApiPolicyV1EvictionFromJSON(json: any): IoK8sApiPolicyV1Evi
     return IoK8sApiPolicyV1EvictionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiPolicyV1EvictionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiPolicyV1Eviction {
+export function IoK8sApiPolicyV1EvictionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiPolicyV1Eviction {
     if ((json === undefined) || (json === null)) {
         return json;
     }

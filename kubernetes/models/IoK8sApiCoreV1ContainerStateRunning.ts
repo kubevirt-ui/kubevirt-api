@@ -31,13 +31,13 @@ export function IoK8sApiCoreV1ContainerStateRunningFromJSON(json: any): IoK8sApi
     return IoK8sApiCoreV1ContainerStateRunningFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ContainerStateRunningFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ContainerStateRunning {
+export function IoK8sApiCoreV1ContainerStateRunningFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ContainerStateRunning {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'startedAt': !exists(json, 'startedAt') ? undefined : ((json['startedAt'])),
+        'startedAt': !exists(json, 'startedAt') ? undefined : (new Date(json['startedAt'])),
     };
 }
 
@@ -50,7 +50,7 @@ export function IoK8sApiCoreV1ContainerStateRunningToJSON(value?: IoK8sApiCoreV1
     }
     return {
         
-        'startedAt': value.startedAt === undefined ? undefined : (value.startedAt),
+        'startedAt': value.startedAt === undefined ? undefined : (value.startedAt.toISOString()),
     };
 }
 

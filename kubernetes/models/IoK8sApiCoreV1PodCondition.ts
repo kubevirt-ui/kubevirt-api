@@ -61,14 +61,14 @@ export function IoK8sApiCoreV1PodConditionFromJSON(json: any): IoK8sApiCoreV1Pod
     return IoK8sApiCoreV1PodConditionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1PodConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1PodCondition {
+export function IoK8sApiCoreV1PodConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1PodCondition {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'lastProbeTime': !exists(json, 'lastProbeTime') ? undefined : ((json['lastProbeTime'])),
-        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : ((json['lastTransitionTime'])),
+        'lastProbeTime': !exists(json, 'lastProbeTime') ? undefined : (new Date(json['lastProbeTime'])),
+        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : (new Date(json['lastTransitionTime'])),
         'message': !exists(json, 'message') ? undefined : json['message'],
         'reason': !exists(json, 'reason') ? undefined : json['reason'],
         'status': json['status'],
@@ -85,8 +85,8 @@ export function IoK8sApiCoreV1PodConditionToJSON(value?: IoK8sApiCoreV1PodCondit
     }
     return {
         
-        'lastProbeTime': value.lastProbeTime === undefined ? undefined : (value.lastProbeTime),
-        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime),
+        'lastProbeTime': value.lastProbeTime === undefined ? undefined : (value.lastProbeTime.toISOString()),
+        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime.toISOString()),
         'message': value.message,
         'reason': value.reason,
         'status': value.status,

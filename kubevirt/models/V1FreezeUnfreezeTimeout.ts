@@ -31,7 +31,7 @@ export function V1FreezeUnfreezeTimeoutFromJSON(json: any): V1FreezeUnfreezeTime
     return V1FreezeUnfreezeTimeoutFromJSONTyped(json, false);
 }
 
-export function V1FreezeUnfreezeTimeoutFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1FreezeUnfreezeTimeout {
+export function V1FreezeUnfreezeTimeoutFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1FreezeUnfreezeTimeout {
     if ((json === undefined) || (json === null)) {
         return json;
     }

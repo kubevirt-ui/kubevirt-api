@@ -88,7 +88,7 @@ export function IoK8sApiAppsV1DeploymentSpecFromJSON(json: any): IoK8sApiAppsV1D
     return IoK8sApiAppsV1DeploymentSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1DeploymentSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1DeploymentSpec {
+export function IoK8sApiAppsV1DeploymentSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1DeploymentSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

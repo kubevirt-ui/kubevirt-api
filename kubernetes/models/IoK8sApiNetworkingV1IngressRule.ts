@@ -51,7 +51,7 @@ export function IoK8sApiNetworkingV1IngressRuleFromJSON(json: any): IoK8sApiNetw
     return IoK8sApiNetworkingV1IngressRuleFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1IngressRuleFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressRule {
+export function IoK8sApiNetworkingV1IngressRuleFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressRule {
     if ((json === undefined) || (json === null)) {
         return json;
     }

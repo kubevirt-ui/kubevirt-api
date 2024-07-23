@@ -46,7 +46,7 @@ export function IoK8sApiNetworkingV1IngressPortStatusFromJSON(json: any): IoK8sA
     return IoK8sApiNetworkingV1IngressPortStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1IngressPortStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressPortStatus {
+export function IoK8sApiNetworkingV1IngressPortStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressPortStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

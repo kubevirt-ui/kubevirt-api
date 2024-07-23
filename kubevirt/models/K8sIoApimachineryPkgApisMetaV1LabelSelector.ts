@@ -44,7 +44,7 @@ export function K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json: any): 
     return K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped(json, false);
 }
 
-export function K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped(json: any, _ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1LabelSelector {
+export function K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1LabelSelector {
     if ((json === undefined) || (json === null)) {
         return json;
     }

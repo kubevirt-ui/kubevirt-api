@@ -61,7 +61,7 @@ export function IoK8sApiCoreV1AzureDiskVolumeSourceFromJSON(json: any): IoK8sApi
     return IoK8sApiCoreV1AzureDiskVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1AzureDiskVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1AzureDiskVolumeSource {
+export function IoK8sApiCoreV1AzureDiskVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1AzureDiskVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

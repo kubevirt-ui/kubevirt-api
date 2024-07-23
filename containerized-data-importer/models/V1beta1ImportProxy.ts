@@ -58,7 +58,7 @@ export function V1beta1ImportProxyFromJSON(json: any): V1beta1ImportProxy {
     return V1beta1ImportProxyFromJSONTyped(json, false);
 }
 
-export function V1beta1ImportProxyFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1ImportProxy {
+export function V1beta1ImportProxyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1ImportProxy {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -37,7 +37,7 @@ export function V1SoundDeviceFromJSON(json: any): V1SoundDevice {
     return V1SoundDeviceFromJSONTyped(json, false);
 }
 
-export function V1SoundDeviceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SoundDevice {
+export function V1SoundDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SoundDevice {
     if ((json === undefined) || (json === null)) {
         return json;
     }

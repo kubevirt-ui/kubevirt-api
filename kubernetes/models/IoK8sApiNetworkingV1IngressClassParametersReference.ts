@@ -55,7 +55,7 @@ export function IoK8sApiNetworkingV1IngressClassParametersReferenceFromJSON(json
     return IoK8sApiNetworkingV1IngressClassParametersReferenceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiNetworkingV1IngressClassParametersReferenceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressClassParametersReference {
+export function IoK8sApiNetworkingV1IngressClassParametersReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiNetworkingV1IngressClassParametersReference {
     if ((json === undefined) || (json === null)) {
         return json;
     }

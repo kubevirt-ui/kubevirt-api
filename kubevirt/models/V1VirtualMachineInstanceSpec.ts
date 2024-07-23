@@ -201,7 +201,7 @@ export function V1VirtualMachineInstanceSpecFromJSON(json: any): V1VirtualMachin
     return V1VirtualMachineInstanceSpecFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceSpec {
+export function V1VirtualMachineInstanceSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

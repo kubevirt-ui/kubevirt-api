@@ -39,7 +39,7 @@ export function IoK8sApiResourceV1alpha2PodSchedulingContextSpecFromJSON(json: a
     return IoK8sApiResourceV1alpha2PodSchedulingContextSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiResourceV1alpha2PodSchedulingContextSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2PodSchedulingContextSpec {
+export function IoK8sApiResourceV1alpha2PodSchedulingContextSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2PodSchedulingContextSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

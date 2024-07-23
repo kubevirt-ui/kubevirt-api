@@ -55,7 +55,7 @@ export function IoK8sApiCoreV1ContainerPortFromJSON(json: any): IoK8sApiCoreV1Co
     return IoK8sApiCoreV1ContainerPortFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ContainerPortFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ContainerPort {
+export function IoK8sApiCoreV1ContainerPortFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ContainerPort {
     if ((json === undefined) || (json === null)) {
         return json;
     }

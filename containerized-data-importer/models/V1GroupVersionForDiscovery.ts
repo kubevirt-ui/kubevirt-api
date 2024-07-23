@@ -37,7 +37,7 @@ export function V1GroupVersionForDiscoveryFromJSON(json: any): V1GroupVersionFor
     return V1GroupVersionForDiscoveryFromJSONTyped(json, false);
 }
 
-export function V1GroupVersionForDiscoveryFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1GroupVersionForDiscovery {
+export function V1GroupVersionForDiscoveryFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1GroupVersionForDiscovery {
     if ((json === undefined) || (json === null)) {
         return json;
     }

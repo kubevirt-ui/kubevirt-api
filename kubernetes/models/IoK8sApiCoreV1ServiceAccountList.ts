@@ -60,7 +60,7 @@ export function IoK8sApiCoreV1ServiceAccountListFromJSON(json: any): IoK8sApiCor
     return IoK8sApiCoreV1ServiceAccountListFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ServiceAccountListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ServiceAccountList {
+export function IoK8sApiCoreV1ServiceAccountListFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ServiceAccountList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

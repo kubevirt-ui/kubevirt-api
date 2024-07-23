@@ -60,7 +60,7 @@ export function V1beta1DataSourceListFromJSON(json: any): V1beta1DataSourceList 
     return V1beta1DataSourceListFromJSONTyped(json, false);
 }
 
-export function V1beta1DataSourceListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1DataSourceList {
+export function V1beta1DataSourceListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataSourceList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

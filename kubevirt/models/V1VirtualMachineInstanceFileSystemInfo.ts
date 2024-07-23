@@ -38,7 +38,7 @@ export function V1VirtualMachineInstanceFileSystemInfoFromJSON(json: any): V1Vir
     return V1VirtualMachineInstanceFileSystemInfoFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceFileSystemInfoFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceFileSystemInfo {
+export function V1VirtualMachineInstanceFileSystemInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceFileSystemInfo {
     if ((json === undefined) || (json === null)) {
         return json;
     }

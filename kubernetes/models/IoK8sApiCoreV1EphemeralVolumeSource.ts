@@ -38,7 +38,7 @@ export function IoK8sApiCoreV1EphemeralVolumeSourceFromJSON(json: any): IoK8sApi
     return IoK8sApiCoreV1EphemeralVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1EphemeralVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1EphemeralVolumeSource {
+export function IoK8sApiCoreV1EphemeralVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1EphemeralVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

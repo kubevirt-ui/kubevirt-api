@@ -38,7 +38,7 @@ export function IoK8sApiCoreV1DownwardAPIProjectionFromJSON(json: any): IoK8sApi
     return IoK8sApiCoreV1DownwardAPIProjectionFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1DownwardAPIProjectionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1DownwardAPIProjection {
+export function IoK8sApiCoreV1DownwardAPIProjectionFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1DownwardAPIProjection {
     if ((json === undefined) || (json === null)) {
         return json;
     }

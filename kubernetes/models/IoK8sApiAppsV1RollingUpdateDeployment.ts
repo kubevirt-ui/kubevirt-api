@@ -37,7 +37,7 @@ export function IoK8sApiAppsV1RollingUpdateDeploymentFromJSON(json: any): IoK8sA
     return IoK8sApiAppsV1RollingUpdateDeploymentFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1RollingUpdateDeploymentFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1RollingUpdateDeployment {
+export function IoK8sApiAppsV1RollingUpdateDeploymentFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1RollingUpdateDeployment {
     if ((json === undefined) || (json === null)) {
         return json;
     }

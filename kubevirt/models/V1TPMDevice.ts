@@ -31,7 +31,7 @@ export function V1TPMDeviceFromJSON(json: any): V1TPMDevice {
     return V1TPMDeviceFromJSONTyped(json, false);
 }
 
-export function V1TPMDeviceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1TPMDevice {
+export function V1TPMDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1TPMDevice {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -70,7 +70,7 @@ export function IoK8sApiAppsV1DaemonSetFromJSON(json: any): IoK8sApiAppsV1Daemon
     return IoK8sApiAppsV1DaemonSetFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1DaemonSetFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1DaemonSet {
+export function IoK8sApiAppsV1DaemonSetFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1DaemonSet {
     if ((json === undefined) || (json === null)) {
         return json;
     }

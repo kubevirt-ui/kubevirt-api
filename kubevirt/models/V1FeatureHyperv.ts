@@ -128,7 +128,7 @@ export function V1FeatureHypervFromJSON(json: any): V1FeatureHyperv {
     return V1FeatureHypervFromJSONTyped(json, false);
 }
 
-export function V1FeatureHypervFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1FeatureHyperv {
+export function V1FeatureHypervFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1FeatureHyperv {
     if ((json === undefined) || (json === null)) {
         return json;
     }

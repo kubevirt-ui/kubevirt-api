@@ -38,7 +38,7 @@ export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatusFromJSON(js
     return IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatus {
+export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

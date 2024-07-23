@@ -37,7 +37,7 @@ export function V1CPUFeatureFromJSON(json: any): V1CPUFeature {
     return V1CPUFeatureFromJSONTyped(json, false);
 }
 
-export function V1CPUFeatureFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1CPUFeature {
+export function V1CPUFeatureFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1CPUFeature {
     if ((json === undefined) || (json === null)) {
         return json;
     }

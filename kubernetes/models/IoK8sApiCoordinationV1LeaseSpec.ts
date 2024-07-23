@@ -55,17 +55,17 @@ export function IoK8sApiCoordinationV1LeaseSpecFromJSON(json: any): IoK8sApiCoor
     return IoK8sApiCoordinationV1LeaseSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoordinationV1LeaseSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoordinationV1LeaseSpec {
+export function IoK8sApiCoordinationV1LeaseSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoordinationV1LeaseSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'acquireTime': !exists(json, 'acquireTime') ? undefined : ((json['acquireTime'])),
+        'acquireTime': !exists(json, 'acquireTime') ? undefined : (new Date(json['acquireTime'])),
         'holderIdentity': !exists(json, 'holderIdentity') ? undefined : json['holderIdentity'],
         'leaseDurationSeconds': !exists(json, 'leaseDurationSeconds') ? undefined : json['leaseDurationSeconds'],
         'leaseTransitions': !exists(json, 'leaseTransitions') ? undefined : json['leaseTransitions'],
-        'renewTime': !exists(json, 'renewTime') ? undefined : ((json['renewTime'])),
+        'renewTime': !exists(json, 'renewTime') ? undefined : (new Date(json['renewTime'])),
     };
 }
 
@@ -78,11 +78,11 @@ export function IoK8sApiCoordinationV1LeaseSpecToJSON(value?: IoK8sApiCoordinati
     }
     return {
         
-        'acquireTime': value.acquireTime === undefined ? undefined : (value.acquireTime),
+        'acquireTime': value.acquireTime === undefined ? undefined : (value.acquireTime.toISOString()),
         'holderIdentity': value.holderIdentity,
         'leaseDurationSeconds': value.leaseDurationSeconds,
         'leaseTransitions': value.leaseTransitions,
-        'renewTime': value.renewTime === undefined ? undefined : (value.renewTime),
+        'renewTime': value.renewTime === undefined ? undefined : (value.renewTime.toISOString()),
     };
 }
 

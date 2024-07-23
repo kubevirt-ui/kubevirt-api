@@ -44,7 +44,7 @@ export function IoK8sApiFlowcontrolV1beta3LimitResponseFromJSON(json: any): IoK8
     return IoK8sApiFlowcontrolV1beta3LimitResponseFromJSONTyped(json, false);
 }
 
-export function IoK8sApiFlowcontrolV1beta3LimitResponseFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3LimitResponse {
+export function IoK8sApiFlowcontrolV1beta3LimitResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiFlowcontrolV1beta3LimitResponse {
     if ((json === undefined) || (json === null)) {
         return json;
     }

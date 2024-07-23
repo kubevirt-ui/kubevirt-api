@@ -50,7 +50,7 @@ export function IoK8sApiAuthorizationV1ResourceRuleFromJSON(json: any): IoK8sApi
     return IoK8sApiAuthorizationV1ResourceRuleFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAuthorizationV1ResourceRuleFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAuthorizationV1ResourceRule {
+export function IoK8sApiAuthorizationV1ResourceRuleFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAuthorizationV1ResourceRule {
     if ((json === undefined) || (json === null)) {
         return json;
     }

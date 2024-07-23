@@ -324,7 +324,7 @@ export function IoK8sApiCoreV1VolumeFromJSON(json: any): IoK8sApiCoreV1Volume {
     return IoK8sApiCoreV1VolumeFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1VolumeFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1Volume {
+export function IoK8sApiCoreV1VolumeFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1Volume {
     if ((json === undefined) || (json === null)) {
         return json;
     }

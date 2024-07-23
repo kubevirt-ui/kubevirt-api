@@ -72,7 +72,7 @@ export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatusFromJSON(json:
     return IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatus {
+export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -82,7 +82,7 @@ export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatusFromJSONTyped(
         'currentMetrics': !exists(json, 'currentMetrics') ? undefined : ((json['currentMetrics'] as Array<any>).map(IoK8sApiAutoscalingV2MetricStatusFromJSON)),
         'currentReplicas': !exists(json, 'currentReplicas') ? undefined : json['currentReplicas'],
         'desiredReplicas': json['desiredReplicas'],
-        'lastScaleTime': !exists(json, 'lastScaleTime') ? undefined : ((json['lastScaleTime'])),
+        'lastScaleTime': !exists(json, 'lastScaleTime') ? undefined : (new Date(json['lastScaleTime'])),
         'observedGeneration': !exists(json, 'observedGeneration') ? undefined : json['observedGeneration'],
     };
 }
@@ -100,7 +100,7 @@ export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatusToJSON(value?:
         'currentMetrics': value.currentMetrics === undefined ? undefined : ((value.currentMetrics as Array<any>).map(IoK8sApiAutoscalingV2MetricStatusToJSON)),
         'currentReplicas': value.currentReplicas,
         'desiredReplicas': value.desiredReplicas,
-        'lastScaleTime': value.lastScaleTime === undefined ? undefined : (value.lastScaleTime),
+        'lastScaleTime': value.lastScaleTime === undefined ? undefined : (value.lastScaleTime.toISOString()),
         'observedGeneration': value.observedGeneration,
     };
 }

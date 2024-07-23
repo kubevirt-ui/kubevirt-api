@@ -39,7 +39,7 @@ export function IoK8sApiResourceV1alpha2ResourceClaimSchedulingStatusFromJSON(js
     return IoK8sApiResourceV1alpha2ResourceClaimSchedulingStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiResourceV1alpha2ResourceClaimSchedulingStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2ResourceClaimSchedulingStatus {
+export function IoK8sApiResourceV1alpha2ResourceClaimSchedulingStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiResourceV1alpha2ResourceClaimSchedulingStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

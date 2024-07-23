@@ -62,7 +62,7 @@ export function V1beta1CDIStatusFromJSON(json: any): V1beta1CDIStatus {
     return V1beta1CDIStatusFromJSONTyped(json, false);
 }
 
-export function V1beta1CDIStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1CDIStatus {
+export function V1beta1CDIStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1CDIStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -31,7 +31,7 @@ export function V1ServiceAccountVolumeSourceFromJSON(json: any): V1ServiceAccoun
     return V1ServiceAccountVolumeSourceFromJSONTyped(json, false);
 }
 
-export function V1ServiceAccountVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ServiceAccountVolumeSource {
+export function V1ServiceAccountVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ServiceAccountVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

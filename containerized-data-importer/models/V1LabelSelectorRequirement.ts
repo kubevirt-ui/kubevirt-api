@@ -43,7 +43,7 @@ export function V1LabelSelectorRequirementFromJSON(json: any): V1LabelSelectorRe
     return V1LabelSelectorRequirementFromJSONTyped(json, false);
 }
 
-export function V1LabelSelectorRequirementFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1LabelSelectorRequirement {
+export function V1LabelSelectorRequirementFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1LabelSelectorRequirement {
     if ((json === undefined) || (json === null)) {
         return json;
     }

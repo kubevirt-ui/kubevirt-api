@@ -44,7 +44,7 @@ export function V1DownwardAPIVolumeSourceFromJSON(json: any): V1DownwardAPIVolum
     return V1DownwardAPIVolumeSourceFromJSONTyped(json, false);
 }
 
-export function V1DownwardAPIVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1DownwardAPIVolumeSource {
+export function V1DownwardAPIVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DownwardAPIVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

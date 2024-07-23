@@ -78,7 +78,7 @@ export function IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBi
     return IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingSpecFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingSpec {
+export function IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingSpec {
     if ((json === undefined) || (json === null)) {
         return json;
     }

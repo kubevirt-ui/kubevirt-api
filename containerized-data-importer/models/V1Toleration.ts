@@ -81,7 +81,7 @@ export function V1TolerationFromJSON(json: any): V1Toleration {
     return V1TolerationFromJSONTyped(json, false);
 }
 
-export function V1TolerationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Toleration {
+export function V1TolerationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Toleration {
     if ((json === undefined) || (json === null)) {
         return json;
     }

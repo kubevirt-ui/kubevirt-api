@@ -60,7 +60,7 @@ export function IoK8sApiCoreV1ComponentStatusFromJSON(json: any): IoK8sApiCoreV1
     return IoK8sApiCoreV1ComponentStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1ComponentStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1ComponentStatus {
+export function IoK8sApiCoreV1ComponentStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1ComponentStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

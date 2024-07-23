@@ -68,7 +68,7 @@ export function IoK8sApiAppsV1ReplicaSetStatusFromJSON(json: any): IoK8sApiAppsV
     return IoK8sApiAppsV1ReplicaSetStatusFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1ReplicaSetStatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1ReplicaSetStatus {
+export function IoK8sApiAppsV1ReplicaSetStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1ReplicaSetStatus {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -66,7 +66,7 @@ export function IoK8sApiBatchV1PodFailurePolicyRuleFromJSON(json: any): IoK8sApi
     return IoK8sApiBatchV1PodFailurePolicyRuleFromJSONTyped(json, false);
 }
 
-export function IoK8sApiBatchV1PodFailurePolicyRuleFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiBatchV1PodFailurePolicyRule {
+export function IoK8sApiBatchV1PodFailurePolicyRuleFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiBatchV1PodFailurePolicyRule {
     if ((json === undefined) || (json === null)) {
         return json;
     }

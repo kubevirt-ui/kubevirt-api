@@ -60,7 +60,7 @@ export function V1VirtualMachineInstanceGuestOSUserListFromJSON(json: any): V1Vi
     return V1VirtualMachineInstanceGuestOSUserListFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceGuestOSUserListFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineInstanceGuestOSUserList {
+export function V1VirtualMachineInstanceGuestOSUserListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceGuestOSUserList {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -44,7 +44,7 @@ export function IoK8sApiAppsV1DeploymentStrategyFromJSON(json: any): IoK8sApiApp
     return IoK8sApiAppsV1DeploymentStrategyFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAppsV1DeploymentStrategyFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAppsV1DeploymentStrategy {
+export function IoK8sApiAppsV1DeploymentStrategyFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAppsV1DeploymentStrategy {
     if ((json === undefined) || (json === null)) {
         return json;
     }

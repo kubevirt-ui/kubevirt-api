@@ -60,7 +60,7 @@ export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientCo
     return IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfigFromJSONTyped(json, false);
 }
 
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfigFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfig {
+export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfigFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfig {
     if ((json === undefined) || (json === null)) {
         return json;
     }

@@ -31,7 +31,7 @@ export function V1ClockOffsetUTCFromJSON(json: any): V1ClockOffsetUTC {
     return V1ClockOffsetUTCFromJSONTyped(json, false);
 }
 
-export function V1ClockOffsetUTCFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ClockOffsetUTC {
+export function V1ClockOffsetUTCFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ClockOffsetUTC {
     if ((json === undefined) || (json === null)) {
         return json;
     }

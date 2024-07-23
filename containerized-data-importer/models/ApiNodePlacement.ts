@@ -54,7 +54,7 @@ export function ApiNodePlacementFromJSON(json: any): ApiNodePlacement {
     return ApiNodePlacementFromJSONTyped(json, false);
 }
 
-export function ApiNodePlacementFromJSONTyped(json: any, _ignoreDiscriminator: boolean): ApiNodePlacement {
+export function ApiNodePlacementFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApiNodePlacement {
     if ((json === undefined) || (json === null)) {
         return json;
     }

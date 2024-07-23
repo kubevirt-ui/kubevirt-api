@@ -70,7 +70,7 @@ export function IoK8sApiAutoscalingV1ScaleFromJSON(json: any): IoK8sApiAutoscali
     return IoK8sApiAutoscalingV1ScaleFromJSONTyped(json, false);
 }
 
-export function IoK8sApiAutoscalingV1ScaleFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiAutoscalingV1Scale {
+export function IoK8sApiAutoscalingV1ScaleFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiAutoscalingV1Scale {
     if ((json === undefined) || (json === null)) {
         return json;
     }

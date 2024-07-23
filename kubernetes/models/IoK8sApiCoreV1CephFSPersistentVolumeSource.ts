@@ -68,7 +68,7 @@ export function IoK8sApiCoreV1CephFSPersistentVolumeSourceFromJSON(json: any): I
     return IoK8sApiCoreV1CephFSPersistentVolumeSourceFromJSONTyped(json, false);
 }
 
-export function IoK8sApiCoreV1CephFSPersistentVolumeSourceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): IoK8sApiCoreV1CephFSPersistentVolumeSource {
+export function IoK8sApiCoreV1CephFSPersistentVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): IoK8sApiCoreV1CephFSPersistentVolumeSource {
     if ((json === undefined) || (json === null)) {
         return json;
     }

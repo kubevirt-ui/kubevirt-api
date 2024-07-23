@@ -49,7 +49,7 @@ export function V1VirtualMachineConditionFromJSON(json: any): V1VirtualMachineCo
     return V1VirtualMachineConditionFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1VirtualMachineCondition {
+export function V1VirtualMachineConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineCondition {
     if ((json === undefined) || (json === null)) {
         return json;
     }

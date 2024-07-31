@@ -41,7 +41,7 @@ export interface IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicyBi
      * @type {Array<IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicyBinding>}
      * @memberof IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicyBindingList
      */
-    items?: Array<IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicyBinding>;
+    items: Array<IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicyBinding>;
     /**
      * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * @type {string}
@@ -67,7 +67,7 @@ export function IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicyBin
     return {
         
         'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'items': !exists(json, 'items') ? undefined : ((json['items'] as Array<any>).map(IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicyBindingFromJSON)),
+        'items': ((json['items'] as Array<any>).map(IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicyBindingFromJSON)),
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
         'metadata': !exists(json, 'metadata') ? undefined : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
     };
@@ -83,7 +83,7 @@ export function IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicyBin
     return {
         
         'apiVersion': value.apiVersion,
-        'items': value.items === undefined ? undefined : ((value.items as Array<any>).map(IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicyBindingToJSON)),
+        'items': ((value.items as Array<any>).map(IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicyBindingToJSON)),
         'kind': value.kind,
         'metadata': IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
     };

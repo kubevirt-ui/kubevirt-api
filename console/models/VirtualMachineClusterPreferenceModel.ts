@@ -5,7 +5,7 @@ import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 const VirtualMachineClusterPreferenceModel: K8sModel = {
   label: 'VirtualMachineClusterPreference',
   labelPlural: 'VirtualMachineClusterPreferences',
-  apiVersion: 'v1alpha2',
+  apiVersion: 'v1beta1',
   apiGroup: 'instancetype.kubevirt.io',
   plural: 'virtualmachineclusterpreferences',
   abbr: 'VMCP',

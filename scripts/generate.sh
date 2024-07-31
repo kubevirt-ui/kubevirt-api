@@ -8,7 +8,7 @@ KUBEVIRT_RELEASE=release-1.3
 CDI_RELEASE=v1.59.0
 KUBERNETES_RELEASE=release-1.30
 # openshift console latest main commit hash
-OPENSHIFT_CONSOLE_COMMIT=edae2305e01c2e0e8c33727af720ef960088eee3
+OPENSHIFT_CONSOLE_COMMIT=master
 
 GENERATOR=typescript-fetch
 
@@ -19,7 +19,7 @@ GENERATOR=typescript-fetch
 curl https://raw.githubusercontent.com/kubevirt/kubevirt/${KUBEVIRT_RELEASE}/api/openapi-spec/swagger.json -o swagger-kubevirt.json
 curl https://raw.githubusercontent.com/kubevirt/containerized-data-importer/${CDI_RELEASE}/api/openapi-spec/swagger.json -o swagger-containerized-data-importer.json
 curl https://raw.githubusercontent.com/kubernetes/kubernetes/${KUBERNETES_RELEASE}/api/openapi-spec/swagger.json -o swagger-kubernetes.json
-# curl https://raw.githubusercontent.com/openshift/console/${OPENSHIFT_CONSOLE_COMMIT}/frontend/public/models/index.ts -o console-core-models.ts
+curl https://raw.githubusercontent.com/openshift/console/${OPENSHIFT_CONSOLE_COMMIT}/frontend/public/models/index.ts -o console-core-models.ts
 
 # Patch missing creationTimestamp in swagger file
 git apply ./scripts/creationTimestamp.patch
@@ -38,39 +38,3 @@ mkdir -p ./kubernetes
 cp -rf ./generated/kubevirt/${KUBEVIRT_RELEASE}/* ./kubevirt/
 cp -rf ./generated/containerized-data-importer/${CDI_RELEASE}/* ./containerized-data-importer/
 cp -rf ./generated/kubernetes/${KUBERNETES_RELEASE}/* ./kubernetes/
-
-## -----------------------------------------------------------
-## Fixes for bad generated code from typescript-fetch generator
-## Specific for current releases
-
-# Patch missing globalFetch type in generated files
-git apply ./scripts/globalFetchFix.patch
-
-# Patch ignoreDiscriminator
-sed -i "s/ignoreDiscriminator/_ignoreDiscriminator/g" ./kubevirt/models/* 
-sed -i "s/ignoreDiscriminator/_ignoreDiscriminator/g" ./containerized-data-importer/models/*
-sed -i "s/ignoreDiscriminator/_ignoreDiscriminator/g" ./kubernetes/models/*
-
-# Patch Data type to steing conversion
-sed -i "s/.toISOString()//g" ./kubevirt/models/*
-sed -i "s/new Date\((json\['.*'\])\)/\1/g" ./kubevirt/models/*
-sed -i "s/.toISOString()//g" ./containerized-data-importer/models/*
-sed -i "s/new Date\((json\['.*'\])\)/\1/g" ./containerized-data-importer/models/*
-sed -i "s/.toISOString()//g" ./kubernetes/models/*
-sed -i "s/new Date\((json\['.*'\])\)/\1/g" ./kubernetes/models/*
-
-# Fetch console models and patch them
-mkdir -p ./console/core
-cp -fr console-core-models.ts console/core/index.ts
-git apply ./scripts/coreModelsUseSDK.patch
-
-# Fix broken comments
-git apply ./scripts/fixGeneratedCommentsInK8s.patch
-
-## -----------------------------------------------------------
-## Run linter
-yarn lint:fix
-
-# -----------------------------------------------------------
-## Generate docs
-yarn generate:docs

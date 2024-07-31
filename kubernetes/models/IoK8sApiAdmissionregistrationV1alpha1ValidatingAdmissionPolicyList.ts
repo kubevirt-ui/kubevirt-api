@@ -39,7 +39,7 @@ export interface IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyL
    * @type {Array<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy>}
    * @memberof IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyList
    */
-  items?: Array<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy>;
+  items: Array<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy>;
   /**
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @type {string}
@@ -72,11 +72,9 @@ export function IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyLi
   }
   return {
     apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: !exists(json, 'items')
-      ? undefined
-      : (json['items'] as Array<any>).map(
-          IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyFromJSON,
-        ),
+    items: (json['items'] as Array<any>).map(
+      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyFromJSON,
+    ),
     kind: !exists(json, 'kind') ? undefined : json['kind'],
     metadata: !exists(json, 'metadata')
       ? undefined
@@ -95,12 +93,9 @@ export function IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyLi
   }
   return {
     apiVersion: value.apiVersion,
-    items:
-      value.items === undefined
-        ? undefined
-        : (value.items as Array<any>).map(
-            IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyToJSON,
-          ),
+    items: (value.items as Array<any>).map(
+      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyToJSON,
+    ),
     kind: value.kind,
     metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
   };

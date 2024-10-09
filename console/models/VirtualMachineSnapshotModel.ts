@@ -5,7 +5,7 @@ import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 const VirtualMachineSnapshotModel: K8sModel = {
   label: 'VirtualMachineSnapshot',
   labelPlural: 'VirtualMachineSnapshots',
-  apiVersion: 'v1alpha1',
+  apiVersion: 'v1beta1',
   apiGroup: 'snapshot.kubevirt.io',
   plural: 'virtualmachinesnapshots',
   abbr: 'VMS',

@@ -5,7 +5,7 @@ import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 const VirtualMachineRestoreModel: K8sModel = {
   label: 'VirtualMachineRestore',
   labelPlural: 'VirtualMachineRestores',
-  apiVersion: 'v1alpha1',
+  apiVersion: 'v1beta1',
   apiGroup: 'snapshot.kubevirt.io',
   plural: 'virtualmachinerestores',
   abbr: 'VMR',

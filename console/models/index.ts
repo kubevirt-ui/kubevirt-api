@@ -2,6 +2,7 @@
 /* eslint-disable */
 export * from './CatalogSourceModel';
 export * from './ClusterServiceVersionModel';
+export * from './ClusterUserDefinedNetworkModel';
 export * from './CDIConfigModel';
 export * from './ConsoleCLIDownloadModel';
 export * from './ConsoleQuickStartModel';
@@ -19,6 +20,7 @@ export * from './PackageManifestModel';
 export * from './SriovNetworkNodePolicyModel';
 export * from './StorageProfileModel';
 export * from './SubscriptionModel';
+export * from './UserDefinedNetworkModel';
 export * from './VirtualMachineClusterInstancetypeModel';
 export * from './VirtualMachineInstancetypeModel';
 export * from './VirtualMachineCloneModel';

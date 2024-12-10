@@ -1,5 +1,5 @@
 import { K8sModel } from '@openshift-console/dynamic-plugin-sdk';
-import { modelToGroupVersionKind, modelToRef } from 'console/modelUtils';
+import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
 const ClusterUserDefinedNetworkModel: K8sModel = {
   abbr: 'CUDN',

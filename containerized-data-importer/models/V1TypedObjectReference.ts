@@ -12,69 +12,69 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1TypedObjectReference
  */
 export interface V1TypedObjectReference {
-  /**
-   * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
-   * @type {string}
-   * @memberof V1TypedObjectReference
-   */
-  apiGroup?: string;
-  /**
-   * Kind is the type of resource being referenced
-   * @type {string}
-   * @memberof V1TypedObjectReference
-   */
-  kind: string;
-  /**
-   * Name is the name of resource being referenced
-   * @type {string}
-   * @memberof V1TypedObjectReference
-   */
-  name: string;
-  /**
-   * Namespace is the namespace of resource being referenced Note that when a namespace is specified, a gateway.networking.k8s.io/ReferenceGrant object is required in the referent namespace to allow that namespace's owner to accept the reference. See the ReferenceGrant documentation for details. (Alpha) This field requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
-   * @type {string}
-   * @memberof V1TypedObjectReference
-   */
-  namespace?: string;
+    /**
+     * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+     * @type {string}
+     * @memberof V1TypedObjectReference
+     */
+    apiGroup?: string;
+    /**
+     * Kind is the type of resource being referenced
+     * @type {string}
+     * @memberof V1TypedObjectReference
+     */
+    kind: string;
+    /**
+     * Name is the name of resource being referenced
+     * @type {string}
+     * @memberof V1TypedObjectReference
+     */
+    name: string;
+    /**
+     * Namespace is the namespace of resource being referenced Note that when a namespace is specified, a gateway.networking.k8s.io/ReferenceGrant object is required in the referent namespace to allow that namespace's owner to accept the reference. See the ReferenceGrant documentation for details. (Alpha) This field requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
+     * @type {string}
+     * @memberof V1TypedObjectReference
+     */
+    namespace?: string;
 }
 
 export function V1TypedObjectReferenceFromJSON(json: any): V1TypedObjectReference {
-  return V1TypedObjectReferenceFromJSONTyped(json, false);
+    return V1TypedObjectReferenceFromJSONTyped(json, false);
 }
 
-export function V1TypedObjectReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1TypedObjectReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiGroup: !exists(json, 'apiGroup') ? undefined : json['apiGroup'],
-    kind: json['kind'],
-    name: json['name'],
-    namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
-  };
+export function V1TypedObjectReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1TypedObjectReference {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'apiGroup': !exists(json, 'apiGroup') ? undefined : json['apiGroup'],
+        'kind': json['kind'],
+        'name': json['name'],
+        'namespace': !exists(json, 'namespace') ? undefined : json['namespace'],
+    };
 }
 
 export function V1TypedObjectReferenceToJSON(value?: V1TypedObjectReference | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiGroup: value.apiGroup,
-    kind: value.kind,
-    name: value.name,
-    namespace: value.namespace,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'apiGroup': value.apiGroup,
+        'kind': value.kind,
+        'name': value.name,
+        'namespace': value.namespace,
+    };
 }
+

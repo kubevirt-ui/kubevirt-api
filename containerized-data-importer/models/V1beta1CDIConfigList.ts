@@ -12,14 +12,16 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 import {
-  V1ListMeta,
-  V1ListMetaFromJSON,
-  V1ListMetaToJSON,
-  V1beta1CDIConfig,
-  V1beta1CDIConfigFromJSON,
-  V1beta1CDIConfigToJSON,
+    V1ListMeta,
+    V1ListMetaFromJSON,
+    V1ListMetaFromJSONTyped,
+    V1ListMetaToJSON,
+    V1beta1CDIConfig,
+    V1beta1CDIConfigFromJSON,
+    V1beta1CDIConfigFromJSONTyped,
+    V1beta1CDIConfigToJSON,
 } from './';
 
 /**
@@ -28,62 +30,62 @@ import {
  * @interface V1beta1CDIConfigList
  */
 export interface V1beta1CDIConfigList {
-  /**
-   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-   * @type {string}
-   * @memberof V1beta1CDIConfigList
-   */
-  apiVersion?: string;
-  /**
-   * Items provides a list of CDIConfigs
-   * @type {Array<V1beta1CDIConfig>}
-   * @memberof V1beta1CDIConfigList
-   */
-  items: Array<V1beta1CDIConfig>;
-  /**
-   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   * @type {string}
-   * @memberof V1beta1CDIConfigList
-   */
-  kind?: string;
-  /**
-   *
-   * @type {V1ListMeta}
-   * @memberof V1beta1CDIConfigList
-   */
-  metadata: V1ListMeta;
+    /**
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+     * @type {string}
+     * @memberof V1beta1CDIConfigList
+     */
+    apiVersion?: string;
+    /**
+     * Items provides a list of CDIConfigs
+     * @type {Array<V1beta1CDIConfig>}
+     * @memberof V1beta1CDIConfigList
+     */
+    items: Array<V1beta1CDIConfig>;
+    /**
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+     * @type {string}
+     * @memberof V1beta1CDIConfigList
+     */
+    kind?: string;
+    /**
+     * 
+     * @type {V1ListMeta}
+     * @memberof V1beta1CDIConfigList
+     */
+    metadata: V1ListMeta;
 }
 
 export function V1beta1CDIConfigListFromJSON(json: any): V1beta1CDIConfigList {
-  return V1beta1CDIConfigListFromJSONTyped(json, false);
+    return V1beta1CDIConfigListFromJSONTyped(json, false);
 }
 
-export function V1beta1CDIConfigListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1CDIConfigList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1beta1CDIConfigFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: V1ListMetaFromJSON(json['metadata']),
-  };
+export function V1beta1CDIConfigListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1CDIConfigList {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+        'items': ((json['items'] as Array<any>).map(V1beta1CDIConfigFromJSON)),
+        'kind': !exists(json, 'kind') ? undefined : json['kind'],
+        'metadata': V1ListMetaFromJSON(json['metadata']),
+    };
 }
 
 export function V1beta1CDIConfigListToJSON(value?: V1beta1CDIConfigList | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1beta1CDIConfigToJSON),
-    kind: value.kind,
-    metadata: V1ListMetaToJSON(value.metadata),
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'apiVersion': value.apiVersion,
+        'items': ((value.items as Array<any>).map(V1beta1CDIConfigToJSON)),
+        'kind': value.kind,
+        'metadata': V1ListMetaToJSON(value.metadata),
+    };
 }
+

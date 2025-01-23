@@ -12,46 +12,45 @@
  * Do not edit the class manually.
  */
 
+import { exists, mapValues } from '../runtime';
 /**
  * UploadTokenRequestSpec defines the parameters of the token request
  * @export
  * @interface V1beta1UploadTokenRequestSpec
  */
 export interface V1beta1UploadTokenRequestSpec {
-  /**
-   * PvcName is the name of the PVC to upload to
-   * @type {string}
-   * @memberof V1beta1UploadTokenRequestSpec
-   */
-  pvcName: string;
+    /**
+     * PvcName is the name of the PVC to upload to
+     * @type {string}
+     * @memberof V1beta1UploadTokenRequestSpec
+     */
+    pvcName: string;
 }
 
 export function V1beta1UploadTokenRequestSpecFromJSON(json: any): V1beta1UploadTokenRequestSpec {
-  return V1beta1UploadTokenRequestSpecFromJSONTyped(json, false);
+    return V1beta1UploadTokenRequestSpecFromJSONTyped(json, false);
 }
 
-export function V1beta1UploadTokenRequestSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1UploadTokenRequestSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    pvcName: json['pvcName'],
-  };
+export function V1beta1UploadTokenRequestSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1UploadTokenRequestSpec {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'pvcName': json['pvcName'],
+    };
 }
 
-export function V1beta1UploadTokenRequestSpecToJSON(
-  value?: V1beta1UploadTokenRequestSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    pvcName: value.pvcName,
-  };
+export function V1beta1UploadTokenRequestSpecToJSON(value?: V1beta1UploadTokenRequestSpec | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'pvcName': value.pvcName,
+    };
 }
+

@@ -12,14 +12,16 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 import {
-  V1beta1CustomizeComponentsPatch,
-  V1beta1CustomizeComponentsPatchFromJSON,
-  V1beta1CustomizeComponentsPatchToJSON,
-  V1beta1Flags,
-  V1beta1FlagsFromJSON,
-  V1beta1FlagsToJSON,
+    V1beta1CustomizeComponentsPatch,
+    V1beta1CustomizeComponentsPatchFromJSON,
+    V1beta1CustomizeComponentsPatchFromJSONTyped,
+    V1beta1CustomizeComponentsPatchToJSON,
+    V1beta1Flags,
+    V1beta1FlagsFromJSON,
+    V1beta1FlagsFromJSONTyped,
+    V1beta1FlagsToJSON,
 } from './';
 
 /**
@@ -28,51 +30,46 @@ import {
  * @interface V1beta1CustomizeComponents
  */
 export interface V1beta1CustomizeComponents {
-  /**
-   *
-   * @type {V1beta1Flags}
-   * @memberof V1beta1CustomizeComponents
-   */
-  flags?: V1beta1Flags;
-  /**
-   *
-   * @type {Array<V1beta1CustomizeComponentsPatch>}
-   * @memberof V1beta1CustomizeComponents
-   */
-  patches?: Array<V1beta1CustomizeComponentsPatch>;
+    /**
+     * 
+     * @type {V1beta1Flags}
+     * @memberof V1beta1CustomizeComponents
+     */
+    flags?: V1beta1Flags;
+    /**
+     * 
+     * @type {Array<V1beta1CustomizeComponentsPatch>}
+     * @memberof V1beta1CustomizeComponents
+     */
+    patches?: Array<V1beta1CustomizeComponentsPatch>;
 }
 
 export function V1beta1CustomizeComponentsFromJSON(json: any): V1beta1CustomizeComponents {
-  return V1beta1CustomizeComponentsFromJSONTyped(json, false);
+    return V1beta1CustomizeComponentsFromJSONTyped(json, false);
 }
 
-export function V1beta1CustomizeComponentsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1CustomizeComponents {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    flags: !exists(json, 'flags') ? undefined : V1beta1FlagsFromJSON(json['flags']),
-    patches: !exists(json, 'patches')
-      ? undefined
-      : (json['patches'] as Array<any>).map(V1beta1CustomizeComponentsPatchFromJSON),
-  };
+export function V1beta1CustomizeComponentsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1CustomizeComponents {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'flags': !exists(json, 'flags') ? undefined : V1beta1FlagsFromJSON(json['flags']),
+        'patches': !exists(json, 'patches') ? undefined : ((json['patches'] as Array<any>).map(V1beta1CustomizeComponentsPatchFromJSON)),
+    };
 }
 
 export function V1beta1CustomizeComponentsToJSON(value?: V1beta1CustomizeComponents | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    flags: V1beta1FlagsToJSON(value.flags),
-    patches:
-      value.patches === undefined
-        ? undefined
-        : (value.patches as Array<any>).map(V1beta1CustomizeComponentsPatchToJSON),
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'flags': V1beta1FlagsToJSON(value.flags),
+        'patches': value.patches === undefined ? undefined : ((value.patches as Array<any>).map(V1beta1CustomizeComponentsPatchToJSON)),
+    };
 }
+

@@ -12,88 +12,85 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * DataVolumeCondition represents the state of a data volume condition.
  * @export
  * @interface V1beta1DataVolumeCondition
  */
 export interface V1beta1DataVolumeCondition {
-  /**
-   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-   * @type {string}
-   * @memberof V1beta1DataVolumeCondition
-   */
-  lastHeartbeatTime?: string;
-  /**
-   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-   * @type {string}
-   * @memberof V1beta1DataVolumeCondition
-   */
-  lastTransitionTime?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1beta1DataVolumeCondition
-   */
-  message?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1beta1DataVolumeCondition
-   */
-  reason?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1beta1DataVolumeCondition
-   */
-  status: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1beta1DataVolumeCondition
-   */
-  type: string;
+    /**
+     * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+     * @type {string}
+     * @memberof V1beta1DataVolumeCondition
+     */
+    lastHeartbeatTime?: string;
+    /**
+     * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+     * @type {string}
+     * @memberof V1beta1DataVolumeCondition
+     */
+    lastTransitionTime?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1beta1DataVolumeCondition
+     */
+    message?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1beta1DataVolumeCondition
+     */
+    reason?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1beta1DataVolumeCondition
+     */
+    status: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1beta1DataVolumeCondition
+     */
+    type: string;
 }
 
 export function V1beta1DataVolumeConditionFromJSON(json: any): V1beta1DataVolumeCondition {
-  return V1beta1DataVolumeConditionFromJSONTyped(json, false);
+    return V1beta1DataVolumeConditionFromJSONTyped(json, false);
 }
 
-export function V1beta1DataVolumeConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataVolumeCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastHeartbeatTime: !exists(json, 'lastHeartbeatTime') ? undefined : json['lastHeartbeatTime'],
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
+export function V1beta1DataVolumeConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataVolumeCondition {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'lastHeartbeatTime': !exists(json, 'lastHeartbeatTime') ? undefined : (new Date(json['lastHeartbeatTime'])),
+        'lastTransitionTime': !exists(json, 'lastTransitionTime') ? undefined : (new Date(json['lastTransitionTime'])),
+        'message': !exists(json, 'message') ? undefined : json['message'],
+        'reason': !exists(json, 'reason') ? undefined : json['reason'],
+        'status': json['status'],
+        'type': json['type'],
+    };
 }
 
 export function V1beta1DataVolumeConditionToJSON(value?: V1beta1DataVolumeCondition | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastHeartbeatTime: value.lastHeartbeatTime === undefined ? undefined : value.lastHeartbeatTime,
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'lastHeartbeatTime': value.lastHeartbeatTime === undefined ? undefined : (value.lastHeartbeatTime.toISOString()),
+        'lastTransitionTime': value.lastTransitionTime === undefined ? undefined : (value.lastTransitionTime.toISOString()),
+        'message': value.message,
+        'reason': value.reason,
+        'status': value.status,
+        'type': value.type,
+    };
 }
+

@@ -12,8 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1APIGroup, V1APIGroupFromJSON, V1APIGroupToJSON } from './';
+import { exists, mapValues } from '../runtime';
+import {
+    V1APIGroup,
+    V1APIGroupFromJSON,
+    V1APIGroupFromJSONTyped,
+    V1APIGroupToJSON,
+} from './';
 
 /**
  * APIGroupList is a list of APIGroup, to allow clients to discover the API at /apis.
@@ -21,54 +26,54 @@ import { V1APIGroup, V1APIGroupFromJSON, V1APIGroupToJSON } from './';
  * @interface V1APIGroupList
  */
 export interface V1APIGroupList {
-  /**
-   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-   * @type {string}
-   * @memberof V1APIGroupList
-   */
-  apiVersion?: string;
-  /**
-   * groups is a list of APIGroup.
-   * @type {Array<V1APIGroup>}
-   * @memberof V1APIGroupList
-   */
-  groups: Array<V1APIGroup>;
-  /**
-   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   * @type {string}
-   * @memberof V1APIGroupList
-   */
-  kind?: string;
+    /**
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+     * @type {string}
+     * @memberof V1APIGroupList
+     */
+    apiVersion?: string;
+    /**
+     * groups is a list of APIGroup.
+     * @type {Array<V1APIGroup>}
+     * @memberof V1APIGroupList
+     */
+    groups: Array<V1APIGroup>;
+    /**
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+     * @type {string}
+     * @memberof V1APIGroupList
+     */
+    kind?: string;
 }
 
 export function V1APIGroupListFromJSON(json: any): V1APIGroupList {
-  return V1APIGroupListFromJSONTyped(json, false);
+    return V1APIGroupListFromJSONTyped(json, false);
 }
 
-export function V1APIGroupListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1APIGroupList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    groups: (json['groups'] as Array<any>).map(V1APIGroupFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-  };
+export function V1APIGroupListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1APIGroupList {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+        'groups': ((json['groups'] as Array<any>).map(V1APIGroupFromJSON)),
+        'kind': !exists(json, 'kind') ? undefined : json['kind'],
+    };
 }
 
 export function V1APIGroupListToJSON(value?: V1APIGroupList | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    groups: (value.groups as Array<any>).map(V1APIGroupToJSON),
-    kind: value.kind,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'apiVersion': value.apiVersion,
+        'groups': ((value.groups as Array<any>).map(V1APIGroupToJSON)),
+        'kind': value.kind,
+    };
 }
+

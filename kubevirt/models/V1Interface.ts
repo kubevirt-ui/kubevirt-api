@@ -80,7 +80,7 @@ export interface V1Interface {
    */
   masquerade?: object;
   /**
-   * Interface model. One of: e1000, e1000e, ne2k_pci, pcnet, rtl8139, virtio. Defaults to virtio.
+   * Interface model. One of: e1000, e1000e, igb, ne2k_pci, pcnet, rtl8139, virtio. Defaults to virtio.
    * @type {string}
    * @memberof V1Interface
    */

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PodIP represents a single IP address allocated to the pod.
  * @export
@@ -24,7 +23,7 @@ export interface IoK8sApiCoreV1PodIP {
    * @type {string}
    * @memberof IoK8sApiCoreV1PodIP
    */
-  ip?: string;
+  ip: string;
 }
 
 export function IoK8sApiCoreV1PodIPFromJSON(json: any): IoK8sApiCoreV1PodIP {
@@ -39,7 +38,7 @@ export function IoK8sApiCoreV1PodIPFromJSONTyped(
     return json;
   }
   return {
-    ip: !exists(json, 'ip') ? undefined : json['ip'],
+    ip: json['ip'],
   };
 }
 

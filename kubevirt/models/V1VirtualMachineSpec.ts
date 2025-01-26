@@ -59,7 +59,7 @@ export interface V1VirtualMachineSpec {
    */
   runStrategy?: string;
   /**
-   * Running controls whether the associatied VirtualMachineInstance is created or not Mutually exclusive with RunStrategy
+   * Running controls whether the associatied VirtualMachineInstance is created or not Mutually exclusive with RunStrategy Deprecated: VirtualMachineInstance field "Running" is now deprecated, please use RunStrategy instead.
    * @type {boolean}
    * @memberof V1VirtualMachineSpec
    */

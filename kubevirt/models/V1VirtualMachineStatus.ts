@@ -32,6 +32,9 @@ import {
   V1VolumeSnapshotStatus,
   V1VolumeSnapshotStatusFromJSON,
   V1VolumeSnapshotStatusToJSON,
+  V1VolumeUpdateState,
+  V1VolumeUpdateStateFromJSON,
+  V1VolumeUpdateStateToJSON,
 } from './';
 
 /**
@@ -124,6 +127,12 @@ export interface V1VirtualMachineStatus {
    * @memberof V1VirtualMachineStatus
    */
   volumeSnapshotStatuses?: Array<V1VolumeSnapshotStatus>;
+  /**
+   *
+   * @type {V1VolumeUpdateState}
+   * @memberof V1VirtualMachineStatus
+   */
+  volumeUpdateState?: V1VolumeUpdateState;
 }
 
 export function V1VirtualMachineStatusFromJSON(json: any): V1VirtualMachineStatus {
@@ -168,6 +177,9 @@ export function V1VirtualMachineStatusFromJSONTyped(
     volumeSnapshotStatuses: !exists(json, 'volumeSnapshotStatuses')
       ? undefined
       : (json['volumeSnapshotStatuses'] as Array<any>).map(V1VolumeSnapshotStatusFromJSON),
+    volumeUpdateState: !exists(json, 'volumeUpdateState')
+      ? undefined
+      : V1VolumeUpdateStateFromJSON(json['volumeUpdateState']),
   };
 }
 
@@ -205,5 +217,6 @@ export function V1VirtualMachineStatusToJSON(value?: V1VirtualMachineStatus | nu
       value.volumeSnapshotStatuses === undefined
         ? undefined
         : (value.volumeSnapshotStatuses as Array<any>).map(V1VolumeSnapshotStatusToJSON),
+    volumeUpdateState: V1VolumeUpdateStateToJSON(value.volumeUpdateState),
   };
 }

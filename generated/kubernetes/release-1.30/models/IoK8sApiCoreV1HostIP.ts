@@ -24,7 +24,7 @@ export interface IoK8sApiCoreV1HostIP {
      * @type {string}
      * @memberof IoK8sApiCoreV1HostIP
      */
-    ip?: string;
+    ip: string;
 }
 
 export function IoK8sApiCoreV1HostIPFromJSON(json: any): IoK8sApiCoreV1HostIP {
@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1HostIPFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'ip': !exists(json, 'ip') ? undefined : json['ip'],
+        'ip': json['ip'],
     };
 }
 

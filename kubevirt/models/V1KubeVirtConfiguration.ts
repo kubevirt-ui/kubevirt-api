@@ -20,9 +20,15 @@ import {
   V1ArchConfiguration,
   V1ArchConfigurationFromJSON,
   V1ArchConfigurationToJSON,
+  V1CommonInstancetypesDeployment,
+  V1CommonInstancetypesDeploymentFromJSON,
+  V1CommonInstancetypesDeploymentToJSON,
   V1DeveloperConfiguration,
   V1DeveloperConfigurationFromJSON,
   V1DeveloperConfigurationToJSON,
+  V1InstancetypeConfiguration,
+  V1InstancetypeConfigurationFromJSON,
+  V1InstancetypeConfigurationToJSON,
   V1KSMConfiguration,
   V1KSMConfigurationFromJSON,
   V1KSMConfigurationToJSON,
@@ -91,6 +97,12 @@ export interface V1KubeVirtConfiguration {
    * @memberof V1KubeVirtConfiguration
    */
   autoCPULimitNamespaceLabelSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
+  /**
+   *
+   * @type {V1CommonInstancetypesDeployment}
+   * @memberof V1KubeVirtConfiguration
+   */
+  commonInstancetypesDeployment?: V1CommonInstancetypesDeployment;
   /**
    *
    * @type {V1ReloadableComponentConfiguration}
@@ -184,6 +196,12 @@ export interface V1KubeVirtConfiguration {
    * @memberof V1KubeVirtConfiguration
    */
   imagePullPolicy?: V1KubeVirtConfigurationImagePullPolicyEnum;
+  /**
+   *
+   * @type {V1InstancetypeConfiguration}
+   * @memberof V1KubeVirtConfiguration
+   */
+  instancetype?: V1InstancetypeConfiguration;
   /**
    *
    * @type {V1KSMConfiguration}
@@ -299,7 +317,7 @@ export interface V1KubeVirtConfiguration {
    */
   virtualMachineOptions?: V1VirtualMachineOptions;
   /**
-   * VMRolloutStrategy defines how changes to a VM object propagate to its VMI
+   * VMRolloutStrategy defines how live-updatable fields, like CPU sockets, memory, tolerations, and affinity, are propagated from a VM to its VMI.
    * @type {string}
    * @memberof V1KubeVirtConfiguration
    */
@@ -354,6 +372,9 @@ export function V1KubeVirtConfigurationFromJSONTyped(
       : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(
           json['autoCPULimitNamespaceLabelSelector'],
         ),
+    commonInstancetypesDeployment: !exists(json, 'commonInstancetypesDeployment')
+      ? undefined
+      : V1CommonInstancetypesDeploymentFromJSON(json['commonInstancetypesDeployment']),
     controllerConfiguration: !exists(json, 'controllerConfiguration')
       ? undefined
       : V1ReloadableComponentConfigurationFromJSON(json['controllerConfiguration']),
@@ -371,6 +392,9 @@ export function V1KubeVirtConfigurationFromJSONTyped(
       ? undefined
       : V1ReloadableComponentConfigurationFromJSON(json['handlerConfiguration']),
     imagePullPolicy: !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
+    instancetype: !exists(json, 'instancetype')
+      ? undefined
+      : V1InstancetypeConfigurationFromJSON(json['instancetype']),
     ksmConfiguration: !exists(json, 'ksmConfiguration')
       ? undefined
       : V1KSMConfigurationFromJSON(json['ksmConfiguration']),
@@ -440,6 +464,9 @@ export function V1KubeVirtConfigurationToJSON(value?: V1KubeVirtConfiguration | 
     autoCPULimitNamespaceLabelSelector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(
       value.autoCPULimitNamespaceLabelSelector,
     ),
+    commonInstancetypesDeployment: V1CommonInstancetypesDeploymentToJSON(
+      value.commonInstancetypesDeployment,
+    ),
     controllerConfiguration: V1ReloadableComponentConfigurationToJSON(
       value.controllerConfiguration,
     ),
@@ -451,6 +478,7 @@ export function V1KubeVirtConfigurationToJSON(value?: V1KubeVirtConfiguration | 
     evictionStrategy: value.evictionStrategy,
     handlerConfiguration: V1ReloadableComponentConfigurationToJSON(value.handlerConfiguration),
     imagePullPolicy: value.imagePullPolicy,
+    instancetype: V1InstancetypeConfigurationToJSON(value.instancetype),
     ksmConfiguration: V1KSMConfigurationToJSON(value.ksmConfiguration),
     liveUpdateConfiguration: V1LiveUpdateConfigurationToJSON(value.liveUpdateConfiguration),
     machineType: value.machineType,

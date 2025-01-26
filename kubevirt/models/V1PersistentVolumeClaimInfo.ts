@@ -24,7 +24,7 @@ export interface V1PersistentVolumeClaimInfo {
    * @type {Array<string>}
    * @memberof V1PersistentVolumeClaimInfo
    */
-  accessModes?: Array<string>;
+  accessModes?: Array<V1PersistentVolumeClaimInfoAccessModesEnum>;
   /**
    * Capacity represents the capacity set on the corresponding PVC status
    * @type {{ [key: string]: string; }}
@@ -67,6 +67,16 @@ export interface V1PersistentVolumeClaimInfo {
   volumeMode?: V1PersistentVolumeClaimInfoVolumeModeEnum;
 }
 
+/**
+ * @export
+ * @enum {string}
+ */
+export enum V1PersistentVolumeClaimInfoAccessModesEnum {
+  ReadOnlyMany = 'ReadOnlyMany',
+  ReadWriteMany = 'ReadWriteMany',
+  ReadWriteOnce = 'ReadWriteOnce',
+  ReadWriteOncePod = 'ReadWriteOncePod',
+}
 /**
  * @export
  * @enum {string}

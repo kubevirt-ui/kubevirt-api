@@ -13,9 +13,9 @@
  */
 
 import {
-  K8sIoApiCoreV1ResourceRequirements,
-  K8sIoApiCoreV1ResourceRequirementsFromJSON,
-  K8sIoApiCoreV1ResourceRequirementsToJSON,
+  V1ResourceRequirementsWithoutClaims,
+  V1ResourceRequirementsWithoutClaimsFromJSON,
+  V1ResourceRequirementsWithoutClaimsToJSON,
 } from './';
 
 /**
@@ -26,10 +26,10 @@ import {
 export interface V1SupportContainerResources {
   /**
    *
-   * @type {K8sIoApiCoreV1ResourceRequirements}
+   * @type {V1ResourceRequirementsWithoutClaims}
    * @memberof V1SupportContainerResources
    */
-  resources: K8sIoApiCoreV1ResourceRequirements;
+  resources: V1ResourceRequirementsWithoutClaims;
   /**
    *
    * @type {string}
@@ -50,7 +50,7 @@ export function V1SupportContainerResourcesFromJSONTyped(
     return json;
   }
   return {
-    resources: K8sIoApiCoreV1ResourceRequirementsFromJSON(json['resources']),
+    resources: V1ResourceRequirementsWithoutClaimsFromJSON(json['resources']),
     type: json['type'],
   };
 }
@@ -63,7 +63,7 @@ export function V1SupportContainerResourcesToJSON(value?: V1SupportContainerReso
     return null;
   }
   return {
-    resources: K8sIoApiCoreV1ResourceRequirementsToJSON(value.resources),
+    resources: V1ResourceRequirementsWithoutClaimsToJSON(value.resources),
     type: value.type,
   };
 }

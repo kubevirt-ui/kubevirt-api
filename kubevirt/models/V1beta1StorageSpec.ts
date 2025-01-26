@@ -39,7 +39,7 @@ export interface V1beta1StorageSpec {
    * @type {Array<string>}
    * @memberof V1beta1StorageSpec
    */
-  accessModes?: Array<string>;
+  accessModes?: Array<V1beta1StorageSpecAccessModesEnum>;
   /**
    *
    * @type {K8sIoApiCoreV1TypedLocalObjectReference}
@@ -88,6 +88,16 @@ export interface V1beta1StorageSpec {
   volumeName?: string;
 }
 
+/**
+ * @export
+ * @enum {string}
+ */
+export enum V1beta1StorageSpecAccessModesEnum {
+  ReadOnlyMany = 'ReadOnlyMany',
+  ReadWriteMany = 'ReadWriteMany',
+  ReadWriteOnce = 'ReadWriteOnce',
+  ReadWriteOncePod = 'ReadWriteOncePod',
+}
 /**
  * @export
  * @enum {string}

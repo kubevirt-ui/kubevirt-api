@@ -56,6 +56,12 @@ export interface V1VirtualMachineInstanceNetworkInterface {
    */
   name?: string;
   /**
+   * PodInterfaceName represents the name of the pod network interface
+   * @type {string}
+   * @memberof V1VirtualMachineInstanceNetworkInterface
+   */
+  podInterfaceName?: string;
+  /**
    * Specifies how many queues are allocated by MultiQueue
    * @type {number}
    * @memberof V1VirtualMachineInstanceNetworkInterface
@@ -83,6 +89,7 @@ export function V1VirtualMachineInstanceNetworkInterfaceFromJSONTyped(
     ipAddresses: !exists(json, 'ipAddresses') ? undefined : json['ipAddresses'],
     mac: !exists(json, 'mac') ? undefined : json['mac'],
     name: !exists(json, 'name') ? undefined : json['name'],
+    podInterfaceName: !exists(json, 'podInterfaceName') ? undefined : json['podInterfaceName'],
     queueCount: !exists(json, 'queueCount') ? undefined : json['queueCount'],
   };
 }
@@ -103,6 +110,7 @@ export function V1VirtualMachineInstanceNetworkInterfaceToJSON(
     ipAddresses: value.ipAddresses,
     mac: value.mac,
     name: value.name,
+    podInterfaceName: value.podInterfaceName,
     queueCount: value.queueCount,
   };
 }

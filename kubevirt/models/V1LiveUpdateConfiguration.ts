@@ -20,7 +20,7 @@ import { exists } from '../runtime';
  */
 export interface V1LiveUpdateConfiguration {
   /**
-   * MaxCpuSockets holds the maximum amount of sockets that can be hotplugged
+   * MaxCpuSockets provides a MaxSockets value for VMs that do not provide their own. For VMs with more sockets than maximum the MaxSockets will be set to equal number of sockets.
    * @type {number}
    * @memberof V1LiveUpdateConfiguration
    */

@@ -34,4 +34,5 @@ yarn generate:fix-console
 cp -fr console-core-models.ts console/core/index.ts
 
 # Fix broken comments
-git apply ./scripts/fixGeneratedCommentsInK8s.patch
+chmod +x ./scripts/fix-comments-parsing-errors.sh
+./scripts/fix-comments-parsing-errors.sh

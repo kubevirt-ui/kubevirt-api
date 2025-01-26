@@ -13,12 +13,20 @@
  */
 
 import { exists } from '../runtime';
+import { V1EFI, V1EFIFromJSON, V1EFIToJSON } from './';
+
 /**
  * FirmwarePreferences contains various optional defaults for Firmware.
  * @export
  * @interface V1beta1FirmwarePreferences
  */
 export interface V1beta1FirmwarePreferences {
+  /**
+   *
+   * @type {V1EFI}
+   * @memberof V1beta1FirmwarePreferences
+   */
+  preferredEfi?: V1EFI;
   /**
    * PreferredUseBios optionally enables BIOS
    * @type {boolean}
@@ -61,6 +69,7 @@ export function V1beta1FirmwarePreferencesFromJSONTyped(
     return json;
   }
   return {
+    preferredEfi: !exists(json, 'preferredEfi') ? undefined : V1EFIFromJSON(json['preferredEfi']),
     preferredUseBios: !exists(json, 'preferredUseBios') ? undefined : json['preferredUseBios'],
     preferredUseBiosSerial: !exists(json, 'preferredUseBiosSerial')
       ? undefined
@@ -80,6 +89,7 @@ export function V1beta1FirmwarePreferencesToJSON(value?: V1beta1FirmwarePreferen
     return null;
   }
   return {
+    preferredEfi: V1EFIToJSON(value.preferredEfi),
     preferredUseBios: value.preferredUseBios,
     preferredUseBiosSerial: value.preferredUseBiosSerial,
     preferredUseEfi: value.preferredUseEfi,

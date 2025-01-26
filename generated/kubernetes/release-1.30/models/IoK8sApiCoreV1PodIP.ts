@@ -24,7 +24,7 @@ export interface IoK8sApiCoreV1PodIP {
      * @type {string}
      * @memberof IoK8sApiCoreV1PodIP
      */
-    ip?: string;
+    ip: string;
 }
 
 export function IoK8sApiCoreV1PodIPFromJSON(json: any): IoK8sApiCoreV1PodIP {
@@ -37,7 +37,7 @@ export function IoK8sApiCoreV1PodIPFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'ip': !exists(json, 'ip') ? undefined : json['ip'],
+        'ip': json['ip'],
     };
 }
 

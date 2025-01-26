@@ -4,7 +4,7 @@ set -eu
 OPENAPI_GENERATOR_CLI=./node_modules/.bin/openapi-generator-cli
 
 # Use released versions
-KUBEVIRT_RELEASE=release-1.3
+KUBEVIRT_RELEASE=release-1.4
 CDI_RELEASE=v1.59.0
 KUBERNETES_RELEASE=release-1.30
 # openshift console latest main commit hash
@@ -21,8 +21,9 @@ curl https://raw.githubusercontent.com/kubevirt/containerized-data-importer/${CD
 curl https://raw.githubusercontent.com/kubernetes/kubernetes/${KUBERNETES_RELEASE}/api/openapi-spec/swagger.json -o swagger-kubernetes.json
 curl https://raw.githubusercontent.com/openshift/console/${OPENSHIFT_CONSOLE_COMMIT}/frontend/public/models/index.ts -o console-core-models.ts
 
-# Patch missing creationTimestamp in swagger file
-git apply ./scripts/creationTimestamp.patch
+# Fix creationTimestamp in swagger file
+chmod +x ./scripts/fix-timestamp.sh
+./scripts/fix-timestamp.sh
 
 # Generate TypeScript types
 ${OPENAPI_GENERATOR_CLI} generate -i swagger-kubevirt.json -g ${GENERATOR} -o ./generated/kubevirt/${KUBEVIRT_RELEASE}/ --skip-validate-spec --type-mappings=Date=string

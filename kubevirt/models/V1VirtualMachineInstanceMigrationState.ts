@@ -92,6 +92,12 @@ export interface V1VirtualMachineInstanceMigrationState {
    */
   sourceNode?: string;
   /**
+   * If the VMI being migrated uses persistent features (backend-storage), its source PVC name is saved here
+   * @type {string}
+   * @memberof V1VirtualMachineInstanceMigrationState
+   */
+  sourcePersistentStatePVCName?: string;
+  /**
    *
    * @type {string}
    * @memberof V1VirtualMachineInstanceMigrationState
@@ -152,6 +158,12 @@ export interface V1VirtualMachineInstanceMigrationState {
    */
   targetNodeTopology?: string;
   /**
+   * If the VMI being migrated uses persistent features (backend-storage), its target PVC name is saved here
+   * @type {string}
+   * @memberof V1VirtualMachineInstanceMigrationState
+   */
+  targetPersistentStatePVCName?: string;
+  /**
    * The target pod that the VMI is moving to
    * @type {string}
    * @memberof V1VirtualMachineInstanceMigrationState
@@ -188,6 +200,9 @@ export function V1VirtualMachineInstanceMigrationStateFromJSONTyped(
     migrationUid: !exists(json, 'migrationUid') ? undefined : json['migrationUid'],
     mode: !exists(json, 'mode') ? undefined : json['mode'],
     sourceNode: !exists(json, 'sourceNode') ? undefined : json['sourceNode'],
+    sourcePersistentStatePVCName: !exists(json, 'sourcePersistentStatePVCName')
+      ? undefined
+      : json['sourcePersistentStatePVCName'],
     sourcePod: !exists(json, 'sourcePod') ? undefined : json['sourcePod'],
     startTimestamp: !exists(json, 'startTimestamp') ? undefined : json['startTimestamp'],
     targetAttachmentPodUID: !exists(json, 'targetAttachmentPodUID')
@@ -208,6 +223,9 @@ export function V1VirtualMachineInstanceMigrationStateFromJSONTyped(
     targetNodeTopology: !exists(json, 'targetNodeTopology')
       ? undefined
       : json['targetNodeTopology'],
+    targetPersistentStatePVCName: !exists(json, 'targetPersistentStatePVCName')
+      ? undefined
+      : json['targetPersistentStatePVCName'],
     targetPod: !exists(json, 'targetPod') ? undefined : json['targetPod'],
   };
 }
@@ -233,6 +251,7 @@ export function V1VirtualMachineInstanceMigrationStateToJSON(
     migrationUid: value.migrationUid,
     mode: value.mode,
     sourceNode: value.sourceNode,
+    sourcePersistentStatePVCName: value.sourcePersistentStatePVCName,
     sourcePod: value.sourcePod,
     startTimestamp: value.startTimestamp === undefined ? undefined : value.startTimestamp,
     targetAttachmentPodUID: value.targetAttachmentPodUID,
@@ -246,6 +265,7 @@ export function V1VirtualMachineInstanceMigrationStateToJSON(
         ? undefined
         : value.targetNodeDomainReadyTimestamp,
     targetNodeTopology: value.targetNodeTopology,
+    targetPersistentStatePVCName: value.targetPersistentStatePVCName,
     targetPod: value.targetPod,
   };
 }

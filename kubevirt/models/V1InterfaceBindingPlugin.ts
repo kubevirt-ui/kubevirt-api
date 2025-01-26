@@ -14,12 +14,12 @@
 
 import { exists } from '../runtime';
 import {
-  K8sIoApiCoreV1ResourceRequirements,
-  K8sIoApiCoreV1ResourceRequirementsFromJSON,
-  K8sIoApiCoreV1ResourceRequirementsToJSON,
   V1InterfaceBindingMigration,
   V1InterfaceBindingMigrationFromJSON,
   V1InterfaceBindingMigrationToJSON,
+  V1ResourceRequirementsWithoutClaims,
+  V1ResourceRequirementsWithoutClaimsFromJSON,
+  V1ResourceRequirementsWithoutClaimsToJSON,
 } from './';
 
 /**
@@ -30,12 +30,12 @@ import {
 export interface V1InterfaceBindingPlugin {
   /**
    *
-   * @type {K8sIoApiCoreV1ResourceRequirements}
+   * @type {V1ResourceRequirementsWithoutClaims}
    * @memberof V1InterfaceBindingPlugin
    */
-  computeResourceOverhead?: K8sIoApiCoreV1ResourceRequirements;
+  computeResourceOverhead?: V1ResourceRequirementsWithoutClaims;
   /**
-   * DomainAttachmentType is a standard domain network attachment method kubevirt supports. Supported values: "tap". The standard domain attachment can be used instead or in addition to the sidecarImage. version: 1alphav1
+   * DomainAttachmentType is a standard domain network attachment method kubevirt supports. Supported values: "tap", "managedTap" (since v1.4). The standard domain attachment can be used instead or in addition to the sidecarImage. version: 1alphav1
    * @type {string}
    * @memberof V1InterfaceBindingPlugin
    */
@@ -80,7 +80,7 @@ export function V1InterfaceBindingPluginFromJSONTyped(
   return {
     computeResourceOverhead: !exists(json, 'computeResourceOverhead')
       ? undefined
-      : K8sIoApiCoreV1ResourceRequirementsFromJSON(json['computeResourceOverhead']),
+      : V1ResourceRequirementsWithoutClaimsFromJSON(json['computeResourceOverhead']),
     domainAttachmentType: !exists(json, 'domainAttachmentType')
       ? undefined
       : json['domainAttachmentType'],
@@ -103,7 +103,7 @@ export function V1InterfaceBindingPluginToJSON(value?: V1InterfaceBindingPlugin 
     return null;
   }
   return {
-    computeResourceOverhead: K8sIoApiCoreV1ResourceRequirementsToJSON(
+    computeResourceOverhead: V1ResourceRequirementsWithoutClaimsToJSON(
       value.computeResourceOverhead,
     ),
     domainAttachmentType: value.domainAttachmentType,

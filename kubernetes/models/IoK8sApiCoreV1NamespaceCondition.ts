@@ -26,13 +26,13 @@ export interface IoK8sApiCoreV1NamespaceCondition {
    */
   lastTransitionTime?: string;
   /**
-   *
+   * Human-readable message indicating details about last transition.
    * @type {string}
    * @memberof IoK8sApiCoreV1NamespaceCondition
    */
   message?: string;
   /**
-   *
+   * Unique, one-word, CamelCase reason for the condition's last transition.
    * @type {string}
    * @memberof IoK8sApiCoreV1NamespaceCondition
    */

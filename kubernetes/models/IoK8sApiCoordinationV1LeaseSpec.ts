@@ -26,13 +26,13 @@ export interface IoK8sApiCoordinationV1LeaseSpec {
    */
   acquireTime?: string;
   /**
-   * holderIdentity contains the identity of the holder of a current lease.
+   * holderIdentity contains the identity of the holder of a current lease. If Coordinated Leader Election is used, the holder identity must be equal to the elected LeaseCandidate.metadata.name field.
    * @type {string}
    * @memberof IoK8sApiCoordinationV1LeaseSpec
    */
   holderIdentity?: string;
   /**
-   * leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measure against time of last observed renewTime.
+   * leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measured against the time of last observed renewTime.
    * @type {number}
    * @memberof IoK8sApiCoordinationV1LeaseSpec
    */
@@ -44,11 +44,23 @@ export interface IoK8sApiCoordinationV1LeaseSpec {
    */
   leaseTransitions?: number;
   /**
+   * PreferredHolder signals to a lease holder that the lease has a more optimal holder and should be given up. This field can only be set if Strategy is also set.
+   * @type {string}
+   * @memberof IoK8sApiCoordinationV1LeaseSpec
+   */
+  preferredHolder?: string;
+  /**
    * MicroTime is version of Time with microsecond level precision.
    * @type {string}
    * @memberof IoK8sApiCoordinationV1LeaseSpec
    */
   renewTime?: string;
+  /**
+   * Strategy indicates the strategy for picking the leader for coordinated leader election. If the field is not specified, there is no active coordination for this lease. (Alpha) Using this field requires the CoordinatedLeaderElection feature gate to be enabled.
+   * @type {string}
+   * @memberof IoK8sApiCoordinationV1LeaseSpec
+   */
+  strategy?: string;
 }
 
 export function IoK8sApiCoordinationV1LeaseSpecFromJSON(
@@ -71,7 +83,9 @@ export function IoK8sApiCoordinationV1LeaseSpecFromJSONTyped(
       ? undefined
       : json['leaseDurationSeconds'],
     leaseTransitions: !exists(json, 'leaseTransitions') ? undefined : json['leaseTransitions'],
+    preferredHolder: !exists(json, 'preferredHolder') ? undefined : json['preferredHolder'],
     renewTime: !exists(json, 'renewTime') ? undefined : json['renewTime'],
+    strategy: !exists(json, 'strategy') ? undefined : json['strategy'],
   };
 }
 
@@ -89,6 +103,8 @@ export function IoK8sApiCoordinationV1LeaseSpecToJSON(
     holderIdentity: value.holderIdentity,
     leaseDurationSeconds: value.leaseDurationSeconds,
     leaseTransitions: value.leaseTransitions,
+    preferredHolder: value.preferredHolder,
     renewTime: value.renewTime === undefined ? undefined : value.renewTime,
+    strategy: value.strategy,
   };
 }

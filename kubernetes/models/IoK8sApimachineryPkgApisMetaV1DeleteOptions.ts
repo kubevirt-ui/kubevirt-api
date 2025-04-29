@@ -44,6 +44,12 @@ export interface IoK8sApimachineryPkgApisMetaV1DeleteOptions {
    */
   gracePeriodSeconds?: number;
   /**
+   * if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it
+   * @type {boolean}
+   * @memberof IoK8sApimachineryPkgApisMetaV1DeleteOptions
+   */
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
+  /**
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @type {string}
    * @memberof IoK8sApimachineryPkgApisMetaV1DeleteOptions
@@ -88,6 +94,12 @@ export function IoK8sApimachineryPkgApisMetaV1DeleteOptionsFromJSONTyped(
     gracePeriodSeconds: !exists(json, 'gracePeriodSeconds')
       ? undefined
       : json['gracePeriodSeconds'],
+    ignoreStoreReadErrorWithClusterBreakingPotential: !exists(
+      json,
+      'ignoreStoreReadErrorWithClusterBreakingPotential',
+    )
+      ? undefined
+      : json['ignoreStoreReadErrorWithClusterBreakingPotential'],
     kind: !exists(json, 'kind') ? undefined : json['kind'],
     orphanDependents: !exists(json, 'orphanDependents') ? undefined : json['orphanDependents'],
     preconditions: !exists(json, 'preconditions')
@@ -110,6 +122,8 @@ export function IoK8sApimachineryPkgApisMetaV1DeleteOptionsToJSON(
     apiVersion: value.apiVersion,
     dryRun: value.dryRun,
     gracePeriodSeconds: value.gracePeriodSeconds,
+    ignoreStoreReadErrorWithClusterBreakingPotential:
+      value.ignoreStoreReadErrorWithClusterBreakingPotential,
     kind: value.kind,
     orphanDependents: value.orphanDependents,
     preconditions: IoK8sApimachineryPkgApisMetaV1PreconditionsToJSON(value.preconditions),

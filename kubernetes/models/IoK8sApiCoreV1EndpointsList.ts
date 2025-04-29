@@ -23,7 +23,7 @@ import {
 } from './';
 
 /**
- * EndpointsList is a list of endpoints.
+ * EndpointsList is a list of endpoints. Deprecated: This API is deprecated in v1.33+.
  * @export
  * @interface IoK8sApiCoreV1EndpointsList
  */

@@ -71,6 +71,12 @@ export interface V1beta1CDIConfigStatus {
    */
   scratchSpaceStorageClass?: string;
   /**
+   * UploadProxyCA is the certificate authority of the upload proxy
+   * @type {string}
+   * @memberof V1beta1CDIConfigStatus
+   */
+  uploadProxyCA?: string;
+  /**
    * The calculated upload proxy URL
    * @type {string}
    * @memberof V1beta1CDIConfigStatus
@@ -106,6 +112,7 @@ export function V1beta1CDIConfigStatusFromJSONTyped(
     scratchSpaceStorageClass: !exists(json, 'scratchSpaceStorageClass')
       ? undefined
       : json['scratchSpaceStorageClass'],
+    uploadProxyCA: !exists(json, 'uploadProxyCA') ? undefined : json['uploadProxyCA'],
     uploadProxyURL: !exists(json, 'uploadProxyURL') ? undefined : json['uploadProxyURL'],
   };
 }
@@ -129,6 +136,7 @@ export function V1beta1CDIConfigStatusToJSON(value?: V1beta1CDIConfigStatus | nu
     importProxy: V1beta1ImportProxyToJSON(value.importProxy),
     preallocation: value.preallocation,
     scratchSpaceStorageClass: value.scratchSpaceStorageClass,
+    uploadProxyCA: value.uploadProxyCA,
     uploadProxyURL: value.uploadProxyURL,
   };
 }

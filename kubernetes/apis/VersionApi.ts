@@ -23,7 +23,7 @@ import {
  */
 export class VersionApi extends runtime.BaseAPI {
   /**
-   * get the code version
+   * get the version information for this server
    */
   async getCodeVersionRaw(
     initOverrides?: RequestInit,
@@ -52,7 +52,7 @@ export class VersionApi extends runtime.BaseAPI {
   }
 
   /**
-   * get the code version
+   * get the version information for this server
    */
   async getCodeVersion(initOverrides?: RequestInit): Promise<IoK8sApimachineryPkgVersionInfo> {
     const response = await this.getCodeVersionRaw(initOverrides);

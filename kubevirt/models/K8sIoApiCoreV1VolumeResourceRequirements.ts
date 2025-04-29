@@ -21,16 +21,16 @@ import { exists } from '../runtime';
 export interface K8sIoApiCoreV1VolumeResourceRequirements {
   /**
    * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-   * @type {{ [key: string]: string; }}
+   * @type {{ [key: string]: object; }}
    * @memberof K8sIoApiCoreV1VolumeResourceRequirements
    */
-  limits?: { [key: string]: string };
+  limits?: { [key: string]: object };
   /**
    * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-   * @type {{ [key: string]: string; }}
+   * @type {{ [key: string]: object; }}
    * @memberof K8sIoApiCoreV1VolumeResourceRequirements
    */
-  requests?: { [key: string]: string };
+  requests?: { [key: string]: object };
 }
 
 export function K8sIoApiCoreV1VolumeResourceRequirementsFromJSON(

@@ -14,6 +14,11 @@
 
 import * as runtime from '../runtime';
 import {
+  IoK8sApiNetworkingV1IPAddress,
+  IoK8sApiNetworkingV1IPAddressFromJSON,
+  IoK8sApiNetworkingV1IPAddressList,
+  IoK8sApiNetworkingV1IPAddressListFromJSON,
+  IoK8sApiNetworkingV1IPAddressToJSON,
   IoK8sApiNetworkingV1Ingress,
   IoK8sApiNetworkingV1IngressClass,
   IoK8sApiNetworkingV1IngressClassFromJSON,
@@ -29,6 +34,11 @@ import {
   IoK8sApiNetworkingV1NetworkPolicyList,
   IoK8sApiNetworkingV1NetworkPolicyListFromJSON,
   IoK8sApiNetworkingV1NetworkPolicyToJSON,
+  IoK8sApiNetworkingV1ServiceCIDR,
+  IoK8sApiNetworkingV1ServiceCIDRFromJSON,
+  IoK8sApiNetworkingV1ServiceCIDRList,
+  IoK8sApiNetworkingV1ServiceCIDRListFromJSON,
+  IoK8sApiNetworkingV1ServiceCIDRToJSON,
   IoK8sApimachineryPkgApisMetaV1APIResourceList,
   IoK8sApimachineryPkgApisMetaV1APIResourceListFromJSON,
   IoK8sApimachineryPkgApisMetaV1DeleteOptions,
@@ -38,6 +48,14 @@ import {
   IoK8sApimachineryPkgApisMetaV1WatchEvent,
   IoK8sApimachineryPkgApisMetaV1WatchEventFromJSON,
 } from '../models';
+
+export interface CreateNetworkingV1IPAddressRequest {
+  body: IoK8sApiNetworkingV1IPAddress;
+  pretty?: string;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
+}
 
 export interface CreateNetworkingV1IngressClassRequest {
   body: IoK8sApiNetworkingV1IngressClass;
@@ -65,12 +83,39 @@ export interface CreateNetworkingV1NamespacedNetworkPolicyRequest {
   fieldValidation?: string;
 }
 
+export interface CreateNetworkingV1ServiceCIDRRequest {
+  body: IoK8sApiNetworkingV1ServiceCIDR;
+  pretty?: string;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
+}
+
+export interface DeleteNetworkingV1CollectionIPAddressRequest {
+  pretty?: string;
+  _continue?: string;
+  dryRun?: string;
+  fieldSelector?: string;
+  gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  orphanDependents?: boolean;
+  propagationPolicy?: string;
+  resourceVersion?: string;
+  resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
+  timeoutSeconds?: number;
+  body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
+}
+
 export interface DeleteNetworkingV1CollectionIngressClassRequest {
   pretty?: string;
   _continue?: string;
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -89,6 +134,7 @@ export interface DeleteNetworkingV1CollectionNamespacedIngressRequest {
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -107,6 +153,7 @@ export interface DeleteNetworkingV1CollectionNamespacedNetworkPolicyRequest {
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -118,11 +165,41 @@ export interface DeleteNetworkingV1CollectionNamespacedNetworkPolicyRequest {
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
 
+export interface DeleteNetworkingV1CollectionServiceCIDRRequest {
+  pretty?: string;
+  _continue?: string;
+  dryRun?: string;
+  fieldSelector?: string;
+  gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
+  labelSelector?: string;
+  limit?: number;
+  orphanDependents?: boolean;
+  propagationPolicy?: string;
+  resourceVersion?: string;
+  resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
+  timeoutSeconds?: number;
+  body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
+}
+
+export interface DeleteNetworkingV1IPAddressRequest {
+  name: string;
+  pretty?: string;
+  dryRun?: string;
+  gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
+  orphanDependents?: boolean;
+  propagationPolicy?: string;
+  body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
+}
+
 export interface DeleteNetworkingV1IngressClassRequest {
   name: string;
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -134,6 +211,7 @@ export interface DeleteNetworkingV1NamespacedIngressRequest {
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -145,9 +223,35 @@ export interface DeleteNetworkingV1NamespacedNetworkPolicyRequest {
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
+}
+
+export interface DeleteNetworkingV1ServiceCIDRRequest {
+  name: string;
+  pretty?: string;
+  dryRun?: string;
+  gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
+  orphanDependents?: boolean;
+  propagationPolicy?: string;
+  body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
+}
+
+export interface ListNetworkingV1IPAddressRequest {
+  pretty?: string;
+  allowWatchBookmarks?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface ListNetworkingV1IngressClassRequest {
@@ -222,6 +326,30 @@ export interface ListNetworkingV1NetworkPolicyForAllNamespacesRequest {
   watch?: boolean;
 }
 
+export interface ListNetworkingV1ServiceCIDRRequest {
+  pretty?: string;
+  allowWatchBookmarks?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  labelSelector?: string;
+  limit?: number;
+  resourceVersion?: string;
+  resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface PatchNetworkingV1IPAddressRequest {
+  name: string;
+  body: object;
+  pretty?: string;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
+  force?: boolean;
+}
+
 export interface PatchNetworkingV1IngressClassRequest {
   name: string;
   body: object;
@@ -265,6 +393,31 @@ export interface PatchNetworkingV1NamespacedNetworkPolicyRequest {
   force?: boolean;
 }
 
+export interface PatchNetworkingV1ServiceCIDRRequest {
+  name: string;
+  body: object;
+  pretty?: string;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
+  force?: boolean;
+}
+
+export interface PatchNetworkingV1ServiceCIDRStatusRequest {
+  name: string;
+  body: object;
+  pretty?: string;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
+  force?: boolean;
+}
+
+export interface ReadNetworkingV1IPAddressRequest {
+  name: string;
+  pretty?: string;
+}
+
 export interface ReadNetworkingV1IngressClassRequest {
   name: string;
   pretty?: string;
@@ -286,6 +439,25 @@ export interface ReadNetworkingV1NamespacedNetworkPolicyRequest {
   name: string;
   namespace: string;
   pretty?: string;
+}
+
+export interface ReadNetworkingV1ServiceCIDRRequest {
+  name: string;
+  pretty?: string;
+}
+
+export interface ReadNetworkingV1ServiceCIDRStatusRequest {
+  name: string;
+  pretty?: string;
+}
+
+export interface ReplaceNetworkingV1IPAddressRequest {
+  name: string;
+  body: IoK8sApiNetworkingV1IPAddress;
+  pretty?: string;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
 }
 
 export interface ReplaceNetworkingV1IngressClassRequest {
@@ -325,6 +497,53 @@ export interface ReplaceNetworkingV1NamespacedNetworkPolicyRequest {
   dryRun?: string;
   fieldManager?: string;
   fieldValidation?: string;
+}
+
+export interface ReplaceNetworkingV1ServiceCIDRRequest {
+  name: string;
+  body: IoK8sApiNetworkingV1ServiceCIDR;
+  pretty?: string;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
+}
+
+export interface ReplaceNetworkingV1ServiceCIDRStatusRequest {
+  name: string;
+  body: IoK8sApiNetworkingV1ServiceCIDR;
+  pretty?: string;
+  dryRun?: string;
+  fieldManager?: string;
+  fieldValidation?: string;
+}
+
+export interface WatchNetworkingV1IPAddressRequest {
+  name: string;
+  allowWatchBookmarks?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  labelSelector?: string;
+  limit?: number;
+  pretty?: string;
+  resourceVersion?: string;
+  resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface WatchNetworkingV1IPAddressListRequest {
+  allowWatchBookmarks?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  labelSelector?: string;
+  limit?: number;
+  pretty?: string;
+  resourceVersion?: string;
+  resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
+  timeoutSeconds?: number;
+  watch?: boolean;
 }
 
 export interface WatchNetworkingV1IngressClassRequest {
@@ -446,10 +665,106 @@ export interface WatchNetworkingV1NetworkPolicyListForAllNamespacesRequest {
   watch?: boolean;
 }
 
+export interface WatchNetworkingV1ServiceCIDRRequest {
+  name: string;
+  allowWatchBookmarks?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  labelSelector?: string;
+  limit?: number;
+  pretty?: string;
+  resourceVersion?: string;
+  resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
+export interface WatchNetworkingV1ServiceCIDRListRequest {
+  allowWatchBookmarks?: boolean;
+  _continue?: string;
+  fieldSelector?: string;
+  labelSelector?: string;
+  limit?: number;
+  pretty?: string;
+  resourceVersion?: string;
+  resourceVersionMatch?: string;
+  sendInitialEvents?: boolean;
+  timeoutSeconds?: number;
+  watch?: boolean;
+}
+
 /**
  *
  */
 export class NetworkingV1Api extends runtime.BaseAPI {
+  /**
+   * create an IPAddress
+   */
+  async createNetworkingV1IPAddressRaw(
+    requestParameters: CreateNetworkingV1IPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1IPAddress>> {
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling createNetworkingV1IPAddress.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/ipaddresses`,
+        method: 'POST',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApiNetworkingV1IPAddressToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1IPAddressFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * create an IPAddress
+   */
+  async createNetworkingV1IPAddress(
+    requestParameters: CreateNetworkingV1IPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1IPAddress> {
+    const response = await this.createNetworkingV1IPAddressRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
   /**
    * create an IngressClass
    */
@@ -678,6 +993,177 @@ export class NetworkingV1Api extends runtime.BaseAPI {
   }
 
   /**
+   * create a ServiceCIDR
+   */
+  async createNetworkingV1ServiceCIDRRaw(
+    requestParameters: CreateNetworkingV1ServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1ServiceCIDR>> {
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling createNetworkingV1ServiceCIDR.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/servicecidrs`,
+        method: 'POST',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApiNetworkingV1ServiceCIDRToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1ServiceCIDRFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * create a ServiceCIDR
+   */
+  async createNetworkingV1ServiceCIDR(
+    requestParameters: CreateNetworkingV1ServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1ServiceCIDR> {
+    const response = await this.createNetworkingV1ServiceCIDRRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * delete collection of IPAddress
+   */
+  async deleteNetworkingV1CollectionIPAddressRaw(
+    requestParameters: DeleteNetworkingV1CollectionIPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1Status>> {
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.gracePeriodSeconds !== undefined) {
+      queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.orphanDependents !== undefined) {
+      queryParameters['orphanDependents'] = requestParameters.orphanDependents;
+    }
+
+    if (requestParameters.propagationPolicy !== undefined) {
+      queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.resourceVersionMatch !== undefined) {
+      queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/ipaddresses`,
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApimachineryPkgApisMetaV1DeleteOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApimachineryPkgApisMetaV1StatusFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * delete collection of IPAddress
+   */
+  async deleteNetworkingV1CollectionIPAddress(
+    requestParameters: DeleteNetworkingV1CollectionIPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApimachineryPkgApisMetaV1Status> {
+    const response = await this.deleteNetworkingV1CollectionIPAddressRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
    * delete collection of IngressClass
    */
   async deleteNetworkingV1CollectionIngressClassRaw(
@@ -704,6 +1190,11 @@ export class NetworkingV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.labelSelector !== undefined) {
@@ -810,6 +1301,11 @@ export class NetworkingV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.labelSelector !== undefined) {
@@ -921,6 +1417,11 @@ export class NetworkingV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.labelSelector !== undefined) {
       queryParameters['labelSelector'] = requestParameters.labelSelector;
     }
@@ -995,6 +1496,189 @@ export class NetworkingV1Api extends runtime.BaseAPI {
   }
 
   /**
+   * delete collection of ServiceCIDR
+   */
+  async deleteNetworkingV1CollectionServiceCIDRRaw(
+    requestParameters: DeleteNetworkingV1CollectionServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1Status>> {
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.gracePeriodSeconds !== undefined) {
+      queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.orphanDependents !== undefined) {
+      queryParameters['orphanDependents'] = requestParameters.orphanDependents;
+    }
+
+    if (requestParameters.propagationPolicy !== undefined) {
+      queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.resourceVersionMatch !== undefined) {
+      queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/servicecidrs`,
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApimachineryPkgApisMetaV1DeleteOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApimachineryPkgApisMetaV1StatusFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * delete collection of ServiceCIDR
+   */
+  async deleteNetworkingV1CollectionServiceCIDR(
+    requestParameters: DeleteNetworkingV1CollectionServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApimachineryPkgApisMetaV1Status> {
+    const response = await this.deleteNetworkingV1CollectionServiceCIDRRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * delete an IPAddress
+   */
+  async deleteNetworkingV1IPAddressRaw(
+    requestParameters: DeleteNetworkingV1IPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1Status>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling deleteNetworkingV1IPAddress.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.gracePeriodSeconds !== undefined) {
+      queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
+    if (requestParameters.orphanDependents !== undefined) {
+      queryParameters['orphanDependents'] = requestParameters.orphanDependents;
+    }
+
+    if (requestParameters.propagationPolicy !== undefined) {
+      queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/ipaddresses/{name}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApimachineryPkgApisMetaV1DeleteOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApimachineryPkgApisMetaV1StatusFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * delete an IPAddress
+   */
+  async deleteNetworkingV1IPAddress(
+    requestParameters: DeleteNetworkingV1IPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApimachineryPkgApisMetaV1Status> {
+    const response = await this.deleteNetworkingV1IPAddressRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
    * delete an IngressClass
    */
   async deleteNetworkingV1IngressClassRaw(
@@ -1020,6 +1704,11 @@ export class NetworkingV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.orphanDependents !== undefined) {
@@ -1101,6 +1790,11 @@ export class NetworkingV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.orphanDependents !== undefined) {
@@ -1186,6 +1880,11 @@ export class NetworkingV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.orphanDependents !== undefined) {
       queryParameters['orphanDependents'] = requestParameters.orphanDependents;
     }
@@ -1235,6 +1934,85 @@ export class NetworkingV1Api extends runtime.BaseAPI {
   }
 
   /**
+   * delete a ServiceCIDR
+   */
+  async deleteNetworkingV1ServiceCIDRRaw(
+    requestParameters: DeleteNetworkingV1ServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1Status>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling deleteNetworkingV1ServiceCIDR.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.gracePeriodSeconds !== undefined) {
+      queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
+    if (requestParameters.orphanDependents !== undefined) {
+      queryParameters['orphanDependents'] = requestParameters.orphanDependents;
+    }
+
+    if (requestParameters.propagationPolicy !== undefined) {
+      queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/servicecidrs/{name}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApimachineryPkgApisMetaV1DeleteOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApimachineryPkgApisMetaV1StatusFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * delete a ServiceCIDR
+   */
+  async deleteNetworkingV1ServiceCIDR(
+    requestParameters: DeleteNetworkingV1ServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApimachineryPkgApisMetaV1Status> {
+    const response = await this.deleteNetworkingV1ServiceCIDRRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
    * get available resources
    */
   async getNetworkingV1APIResourcesRaw(
@@ -1270,6 +2048,91 @@ export class NetworkingV1Api extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<IoK8sApimachineryPkgApisMetaV1APIResourceList> {
     const response = await this.getNetworkingV1APIResourcesRaw(initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * list or watch objects of kind IPAddress
+   */
+  async listNetworkingV1IPAddressRaw(
+    requestParameters: ListNetworkingV1IPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1IPAddressList>> {
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.allowWatchBookmarks !== undefined) {
+      queryParameters['allowWatchBookmarks'] = requestParameters.allowWatchBookmarks;
+    }
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.resourceVersionMatch !== undefined) {
+      queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/ipaddresses`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1IPAddressListFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * list or watch objects of kind IPAddress
+   */
+  async listNetworkingV1IPAddress(
+    requestParameters: ListNetworkingV1IPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1IPAddressList> {
+    const response = await this.listNetworkingV1IPAddressRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -1731,6 +2594,172 @@ export class NetworkingV1Api extends runtime.BaseAPI {
   }
 
   /**
+   * list or watch objects of kind ServiceCIDR
+   */
+  async listNetworkingV1ServiceCIDRRaw(
+    requestParameters: ListNetworkingV1ServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1ServiceCIDRList>> {
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.allowWatchBookmarks !== undefined) {
+      queryParameters['allowWatchBookmarks'] = requestParameters.allowWatchBookmarks;
+    }
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.resourceVersionMatch !== undefined) {
+      queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/servicecidrs`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1ServiceCIDRListFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * list or watch objects of kind ServiceCIDR
+   */
+  async listNetworkingV1ServiceCIDR(
+    requestParameters: ListNetworkingV1ServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1ServiceCIDRList> {
+    const response = await this.listNetworkingV1ServiceCIDRRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * partially update the specified IPAddress
+   */
+  async patchNetworkingV1IPAddressRaw(
+    requestParameters: PatchNetworkingV1IPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1IPAddress>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling patchNetworkingV1IPAddress.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling patchNetworkingV1IPAddress.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    if (requestParameters.force !== undefined) {
+      queryParameters['force'] = requestParameters.force;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json-patch+json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/ipaddresses/{name}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'PATCH',
+        headers: headerParameters,
+        query: queryParameters,
+        body: requestParameters.body as any,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1IPAddressFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * partially update the specified IPAddress
+   */
+  async patchNetworkingV1IPAddress(
+    requestParameters: PatchNetworkingV1IPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1IPAddress> {
+    const response = await this.patchNetworkingV1IPAddressRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
    * partially update the specified IngressClass
    */
   async patchNetworkingV1IngressClassRaw(
@@ -2082,6 +3111,226 @@ export class NetworkingV1Api extends runtime.BaseAPI {
   }
 
   /**
+   * partially update the specified ServiceCIDR
+   */
+  async patchNetworkingV1ServiceCIDRRaw(
+    requestParameters: PatchNetworkingV1ServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1ServiceCIDR>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling patchNetworkingV1ServiceCIDR.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling patchNetworkingV1ServiceCIDR.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    if (requestParameters.force !== undefined) {
+      queryParameters['force'] = requestParameters.force;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json-patch+json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/servicecidrs/{name}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'PATCH',
+        headers: headerParameters,
+        query: queryParameters,
+        body: requestParameters.body as any,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1ServiceCIDRFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * partially update the specified ServiceCIDR
+   */
+  async patchNetworkingV1ServiceCIDR(
+    requestParameters: PatchNetworkingV1ServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1ServiceCIDR> {
+    const response = await this.patchNetworkingV1ServiceCIDRRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * partially update status of the specified ServiceCIDR
+   */
+  async patchNetworkingV1ServiceCIDRStatusRaw(
+    requestParameters: PatchNetworkingV1ServiceCIDRStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1ServiceCIDR>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling patchNetworkingV1ServiceCIDRStatus.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling patchNetworkingV1ServiceCIDRStatus.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    if (requestParameters.force !== undefined) {
+      queryParameters['force'] = requestParameters.force;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json-patch+json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/servicecidrs/{name}/status`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'PATCH',
+        headers: headerParameters,
+        query: queryParameters,
+        body: requestParameters.body as any,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1ServiceCIDRFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * partially update status of the specified ServiceCIDR
+   */
+  async patchNetworkingV1ServiceCIDRStatus(
+    requestParameters: PatchNetworkingV1ServiceCIDRStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1ServiceCIDR> {
+    const response = await this.patchNetworkingV1ServiceCIDRStatusRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * read the specified IPAddress
+   */
+  async readNetworkingV1IPAddressRaw(
+    requestParameters: ReadNetworkingV1IPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1IPAddress>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling readNetworkingV1IPAddress.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/ipaddresses/{name}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1IPAddressFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * read the specified IPAddress
+   */
+  async readNetworkingV1IPAddress(
+    requestParameters: ReadNetworkingV1IPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1IPAddress> {
+    const response = await this.readNetworkingV1IPAddressRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
    * read the specified IngressClass
    */
   async readNetworkingV1IngressClassRaw(
@@ -2325,6 +3574,196 @@ export class NetworkingV1Api extends runtime.BaseAPI {
       requestParameters,
       initOverrides,
     );
+    return await response.value();
+  }
+
+  /**
+   * read the specified ServiceCIDR
+   */
+  async readNetworkingV1ServiceCIDRRaw(
+    requestParameters: ReadNetworkingV1ServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1ServiceCIDR>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling readNetworkingV1ServiceCIDR.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/servicecidrs/{name}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1ServiceCIDRFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * read the specified ServiceCIDR
+   */
+  async readNetworkingV1ServiceCIDR(
+    requestParameters: ReadNetworkingV1ServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1ServiceCIDR> {
+    const response = await this.readNetworkingV1ServiceCIDRRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * read status of the specified ServiceCIDR
+   */
+  async readNetworkingV1ServiceCIDRStatusRaw(
+    requestParameters: ReadNetworkingV1ServiceCIDRStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1ServiceCIDR>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling readNetworkingV1ServiceCIDRStatus.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/servicecidrs/{name}/status`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1ServiceCIDRFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * read status of the specified ServiceCIDR
+   */
+  async readNetworkingV1ServiceCIDRStatus(
+    requestParameters: ReadNetworkingV1ServiceCIDRStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1ServiceCIDR> {
+    const response = await this.readNetworkingV1ServiceCIDRStatusRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * replace the specified IPAddress
+   */
+  async replaceNetworkingV1IPAddressRaw(
+    requestParameters: ReplaceNetworkingV1IPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1IPAddress>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling replaceNetworkingV1IPAddress.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling replaceNetworkingV1IPAddress.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/ipaddresses/{name}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApiNetworkingV1IPAddressToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1IPAddressFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * replace the specified IPAddress
+   */
+  async replaceNetworkingV1IPAddress(
+    requestParameters: ReplaceNetworkingV1IPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1IPAddress> {
+    const response = await this.replaceNetworkingV1IPAddressRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -2663,6 +4102,343 @@ export class NetworkingV1Api extends runtime.BaseAPI {
       requestParameters,
       initOverrides,
     );
+    return await response.value();
+  }
+
+  /**
+   * replace the specified ServiceCIDR
+   */
+  async replaceNetworkingV1ServiceCIDRRaw(
+    requestParameters: ReplaceNetworkingV1ServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1ServiceCIDR>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling replaceNetworkingV1ServiceCIDR.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling replaceNetworkingV1ServiceCIDR.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/servicecidrs/{name}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApiNetworkingV1ServiceCIDRToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1ServiceCIDRFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * replace the specified ServiceCIDR
+   */
+  async replaceNetworkingV1ServiceCIDR(
+    requestParameters: ReplaceNetworkingV1ServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1ServiceCIDR> {
+    const response = await this.replaceNetworkingV1ServiceCIDRRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * replace status of the specified ServiceCIDR
+   */
+  async replaceNetworkingV1ServiceCIDRStatusRaw(
+    requestParameters: ReplaceNetworkingV1ServiceCIDRStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApiNetworkingV1ServiceCIDR>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling replaceNetworkingV1ServiceCIDRStatus.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling replaceNetworkingV1ServiceCIDRStatus.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.dryRun !== undefined) {
+      queryParameters['dryRun'] = requestParameters.dryRun;
+    }
+
+    if (requestParameters.fieldManager !== undefined) {
+      queryParameters['fieldManager'] = requestParameters.fieldManager;
+    }
+
+    if (requestParameters.fieldValidation !== undefined) {
+      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/servicecidrs/{name}/status`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: IoK8sApiNetworkingV1ServiceCIDRToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApiNetworkingV1ServiceCIDRFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * replace status of the specified ServiceCIDR
+   */
+  async replaceNetworkingV1ServiceCIDRStatus(
+    requestParameters: ReplaceNetworkingV1ServiceCIDRStatusRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApiNetworkingV1ServiceCIDR> {
+    const response = await this.replaceNetworkingV1ServiceCIDRStatusRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * watch changes to an object of kind IPAddress. deprecated: use the \'watch\' parameter with a list operation instead, filtered to a single item with the \'fieldSelector\' parameter.
+   */
+  async watchNetworkingV1IPAddressRaw(
+    requestParameters: WatchNetworkingV1IPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1WatchEvent>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling watchNetworkingV1IPAddress.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.allowWatchBookmarks !== undefined) {
+      queryParameters['allowWatchBookmarks'] = requestParameters.allowWatchBookmarks;
+    }
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.resourceVersionMatch !== undefined) {
+      queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/watch/ipaddresses/{name}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApimachineryPkgApisMetaV1WatchEventFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * watch changes to an object of kind IPAddress. deprecated: use the \'watch\' parameter with a list operation instead, filtered to a single item with the \'fieldSelector\' parameter.
+   */
+  async watchNetworkingV1IPAddress(
+    requestParameters: WatchNetworkingV1IPAddressRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApimachineryPkgApisMetaV1WatchEvent> {
+    const response = await this.watchNetworkingV1IPAddressRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * watch individual changes to a list of IPAddress. deprecated: use the \'watch\' parameter with a list operation instead.
+   */
+  async watchNetworkingV1IPAddressListRaw(
+    requestParameters: WatchNetworkingV1IPAddressListRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1WatchEvent>> {
+    const queryParameters: any = {};
+
+    if (requestParameters.allowWatchBookmarks !== undefined) {
+      queryParameters['allowWatchBookmarks'] = requestParameters.allowWatchBookmarks;
+    }
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.resourceVersionMatch !== undefined) {
+      queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/watch/ipaddresses`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApimachineryPkgApisMetaV1WatchEventFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * watch individual changes to a list of IPAddress. deprecated: use the \'watch\' parameter with a list operation instead.
+   */
+  async watchNetworkingV1IPAddressList(
+    requestParameters: WatchNetworkingV1IPAddressListRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApimachineryPkgApisMetaV1WatchEvent> {
+    const response = await this.watchNetworkingV1IPAddressListRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -3423,6 +5199,189 @@ export class NetworkingV1Api extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<IoK8sApimachineryPkgApisMetaV1WatchEvent> {
     const response = await this.watchNetworkingV1NetworkPolicyListForAllNamespacesRaw(
+      requestParameters,
+      initOverrides,
+    );
+    return await response.value();
+  }
+
+  /**
+   * watch changes to an object of kind ServiceCIDR. deprecated: use the \'watch\' parameter with a list operation instead, filtered to a single item with the \'fieldSelector\' parameter.
+   */
+  async watchNetworkingV1ServiceCIDRRaw(
+    requestParameters: WatchNetworkingV1ServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1WatchEvent>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling watchNetworkingV1ServiceCIDR.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    if (requestParameters.allowWatchBookmarks !== undefined) {
+      queryParameters['allowWatchBookmarks'] = requestParameters.allowWatchBookmarks;
+    }
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.resourceVersionMatch !== undefined) {
+      queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/watch/servicecidrs/{name}`.replace(
+          `{${'name'}}`,
+          encodeURIComponent(String(requestParameters.name)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApimachineryPkgApisMetaV1WatchEventFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * watch changes to an object of kind ServiceCIDR. deprecated: use the \'watch\' parameter with a list operation instead, filtered to a single item with the \'fieldSelector\' parameter.
+   */
+  async watchNetworkingV1ServiceCIDR(
+    requestParameters: WatchNetworkingV1ServiceCIDRRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApimachineryPkgApisMetaV1WatchEvent> {
+    const response = await this.watchNetworkingV1ServiceCIDRRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * watch individual changes to a list of ServiceCIDR. deprecated: use the \'watch\' parameter with a list operation instead.
+   */
+  async watchNetworkingV1ServiceCIDRListRaw(
+    requestParameters: WatchNetworkingV1ServiceCIDRListRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1WatchEvent>> {
+    const queryParameters: any = {};
+
+    if (requestParameters.allowWatchBookmarks !== undefined) {
+      queryParameters['allowWatchBookmarks'] = requestParameters.allowWatchBookmarks;
+    }
+
+    if (requestParameters._continue !== undefined) {
+      queryParameters['continue'] = requestParameters._continue;
+    }
+
+    if (requestParameters.fieldSelector !== undefined) {
+      queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+    }
+
+    if (requestParameters.labelSelector !== undefined) {
+      queryParameters['labelSelector'] = requestParameters.labelSelector;
+    }
+
+    if (requestParameters.limit !== undefined) {
+      queryParameters['limit'] = requestParameters.limit;
+    }
+
+    if (requestParameters.pretty !== undefined) {
+      queryParameters['pretty'] = requestParameters.pretty;
+    }
+
+    if (requestParameters.resourceVersion !== undefined) {
+      queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+    }
+
+    if (requestParameters.resourceVersionMatch !== undefined) {
+      queryParameters['resourceVersionMatch'] = requestParameters.resourceVersionMatch;
+    }
+
+    if (requestParameters.sendInitialEvents !== undefined) {
+      queryParameters['sendInitialEvents'] = requestParameters.sendInitialEvents;
+    }
+
+    if (requestParameters.timeoutSeconds !== undefined) {
+      queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+    }
+
+    if (requestParameters.watch !== undefined) {
+      queryParameters['watch'] = requestParameters.watch;
+    }
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    if (this.configuration && this.configuration.apiKey) {
+      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
+    }
+
+    const response = await this.request(
+      {
+        path: `/apis/networking.k8s.io/v1/watch/servicecidrs`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      IoK8sApimachineryPkgApisMetaV1WatchEventFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * watch individual changes to a list of ServiceCIDR. deprecated: use the \'watch\' parameter with a list operation instead.
+   */
+  async watchNetworkingV1ServiceCIDRList(
+    requestParameters: WatchNetworkingV1ServiceCIDRListRequest,
+    initOverrides?: RequestInit,
+  ): Promise<IoK8sApimachineryPkgApisMetaV1WatchEvent> {
+    const response = await this.watchNetworkingV1ServiceCIDRListRaw(
       requestParameters,
       initOverrides,
     );

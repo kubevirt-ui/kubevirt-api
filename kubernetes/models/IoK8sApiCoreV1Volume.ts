@@ -68,6 +68,9 @@ import {
   IoK8sApiCoreV1ISCSIVolumeSource,
   IoK8sApiCoreV1ISCSIVolumeSourceFromJSON,
   IoK8sApiCoreV1ISCSIVolumeSourceToJSON,
+  IoK8sApiCoreV1ImageVolumeSource,
+  IoK8sApiCoreV1ImageVolumeSourceFromJSON,
+  IoK8sApiCoreV1ImageVolumeSourceToJSON,
   IoK8sApiCoreV1NFSVolumeSource,
   IoK8sApiCoreV1NFSVolumeSourceFromJSON,
   IoK8sApiCoreV1NFSVolumeSourceToJSON,
@@ -213,6 +216,12 @@ export interface IoK8sApiCoreV1Volume {
   hostPath?: IoK8sApiCoreV1HostPathVolumeSource;
   /**
    *
+   * @type {IoK8sApiCoreV1ImageVolumeSource}
+   * @memberof IoK8sApiCoreV1Volume
+   */
+  image?: IoK8sApiCoreV1ImageVolumeSource;
+  /**
+   *
    * @type {IoK8sApiCoreV1ISCSIVolumeSource}
    * @memberof IoK8sApiCoreV1Volume
    */
@@ -350,6 +359,9 @@ export function IoK8sApiCoreV1VolumeFromJSONTyped(
     hostPath: !exists(json, 'hostPath')
       ? undefined
       : IoK8sApiCoreV1HostPathVolumeSourceFromJSON(json['hostPath']),
+    image: !exists(json, 'image')
+      ? undefined
+      : IoK8sApiCoreV1ImageVolumeSourceFromJSON(json['image']),
     iscsi: !exists(json, 'iscsi')
       ? undefined
       : IoK8sApiCoreV1ISCSIVolumeSourceFromJSON(json['iscsi']),
@@ -413,6 +425,7 @@ export function IoK8sApiCoreV1VolumeToJSON(value?: IoK8sApiCoreV1Volume | null):
     gitRepo: IoK8sApiCoreV1GitRepoVolumeSourceToJSON(value.gitRepo),
     glusterfs: IoK8sApiCoreV1GlusterfsVolumeSourceToJSON(value.glusterfs),
     hostPath: IoK8sApiCoreV1HostPathVolumeSourceToJSON(value.hostPath),
+    image: IoK8sApiCoreV1ImageVolumeSourceToJSON(value.image),
     iscsi: IoK8sApiCoreV1ISCSIVolumeSourceToJSON(value.iscsi),
     name: value.name,
     nfs: IoK8sApiCoreV1NFSVolumeSourceToJSON(value.nfs),

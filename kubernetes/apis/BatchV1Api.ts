@@ -59,6 +59,7 @@ export interface DeleteBatchV1CollectionNamespacedCronJobRequest {
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -77,6 +78,7 @@ export interface DeleteBatchV1CollectionNamespacedJobRequest {
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -94,6 +96,7 @@ export interface DeleteBatchV1NamespacedCronJobRequest {
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -105,6 +108,7 @@ export interface DeleteBatchV1NamespacedJobRequest {
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -560,6 +564,11 @@ export class BatchV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.labelSelector !== undefined) {
       queryParameters['labelSelector'] = requestParameters.labelSelector;
     }
@@ -667,6 +676,11 @@ export class BatchV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.labelSelector !== undefined) {
@@ -777,6 +791,11 @@ export class BatchV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.orphanDependents !== undefined) {
       queryParameters['orphanDependents'] = requestParameters.orphanDependents;
     }
@@ -855,6 +874,11 @@ export class BatchV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.orphanDependents !== undefined) {

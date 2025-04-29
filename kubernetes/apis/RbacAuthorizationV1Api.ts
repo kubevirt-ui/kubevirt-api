@@ -83,6 +83,7 @@ export interface DeleteRbacAuthorizationV1ClusterRoleRequest {
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -93,6 +94,7 @@ export interface DeleteRbacAuthorizationV1ClusterRoleBindingRequest {
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -104,6 +106,7 @@ export interface DeleteRbacAuthorizationV1CollectionClusterRoleRequest {
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -121,6 +124,7 @@ export interface DeleteRbacAuthorizationV1CollectionClusterRoleBindingRequest {
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -139,6 +143,7 @@ export interface DeleteRbacAuthorizationV1CollectionNamespacedRoleRequest {
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -157,6 +162,7 @@ export interface DeleteRbacAuthorizationV1CollectionNamespacedRoleBindingRequest
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -174,6 +180,7 @@ export interface DeleteRbacAuthorizationV1NamespacedRoleRequest {
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -185,6 +192,7 @@ export interface DeleteRbacAuthorizationV1NamespacedRoleBindingRequest {
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -858,6 +866,11 @@ export class RbacAuthorizationV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.orphanDependents !== undefined) {
       queryParameters['orphanDependents'] = requestParameters.orphanDependents;
     }
@@ -933,6 +946,11 @@ export class RbacAuthorizationV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.orphanDependents !== undefined) {
@@ -1011,6 +1029,11 @@ export class RbacAuthorizationV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.labelSelector !== undefined) {
@@ -1110,6 +1133,11 @@ export class RbacAuthorizationV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.labelSelector !== undefined) {
@@ -1216,6 +1244,11 @@ export class RbacAuthorizationV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.labelSelector !== undefined) {
@@ -1327,6 +1360,11 @@ export class RbacAuthorizationV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.labelSelector !== undefined) {
       queryParameters['labelSelector'] = requestParameters.labelSelector;
     }
@@ -1435,6 +1473,11 @@ export class RbacAuthorizationV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.orphanDependents !== undefined) {
       queryParameters['orphanDependents'] = requestParameters.orphanDependents;
     }
@@ -1516,6 +1559,11 @@ export class RbacAuthorizationV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.orphanDependents !== undefined) {

@@ -95,6 +95,7 @@ export interface DeleteStorageV1CSIDriverRequest {
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -105,6 +106,7 @@ export interface DeleteStorageV1CSINodeRequest {
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -116,6 +118,7 @@ export interface DeleteStorageV1CollectionCSIDriverRequest {
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -133,6 +136,7 @@ export interface DeleteStorageV1CollectionCSINodeRequest {
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -151,6 +155,7 @@ export interface DeleteStorageV1CollectionNamespacedCSIStorageCapacityRequest {
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -168,6 +173,7 @@ export interface DeleteStorageV1CollectionStorageClassRequest {
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -185,6 +191,7 @@ export interface DeleteStorageV1CollectionVolumeAttachmentRequest {
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -202,6 +209,7 @@ export interface DeleteStorageV1NamespacedCSIStorageCapacityRequest {
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -212,6 +220,7 @@ export interface DeleteStorageV1StorageClassRequest {
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -222,6 +231,7 @@ export interface DeleteStorageV1VolumeAttachmentRequest {
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -1003,6 +1013,11 @@ export class StorageV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.orphanDependents !== undefined) {
       queryParameters['orphanDependents'] = requestParameters.orphanDependents;
     }
@@ -1075,6 +1090,11 @@ export class StorageV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.orphanDependents !== undefined) {
@@ -1150,6 +1170,11 @@ export class StorageV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.labelSelector !== undefined) {
@@ -1249,6 +1274,11 @@ export class StorageV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.labelSelector !== undefined) {
@@ -1357,6 +1387,11 @@ export class StorageV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.labelSelector !== undefined) {
       queryParameters['labelSelector'] = requestParameters.labelSelector;
     }
@@ -1459,6 +1494,11 @@ export class StorageV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.labelSelector !== undefined) {
       queryParameters['labelSelector'] = requestParameters.labelSelector;
     }
@@ -1556,6 +1596,11 @@ export class StorageV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.labelSelector !== undefined) {
@@ -1663,6 +1708,11 @@ export class StorageV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.orphanDependents !== undefined) {
       queryParameters['orphanDependents'] = requestParameters.orphanDependents;
     }
@@ -1739,6 +1789,11 @@ export class StorageV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.orphanDependents !== undefined) {
       queryParameters['orphanDependents'] = requestParameters.orphanDependents;
     }
@@ -1811,6 +1866,11 @@ export class StorageV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.orphanDependents !== undefined) {

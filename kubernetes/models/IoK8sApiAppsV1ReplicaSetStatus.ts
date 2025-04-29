@@ -26,7 +26,7 @@ import {
  */
 export interface IoK8sApiAppsV1ReplicaSetStatus {
   /**
-   * The number of available replicas (ready for at least minReadySeconds) for this replica set.
+   * The number of available non-terminating pods (ready for at least minReadySeconds) for this replica set.
    * @type {number}
    * @memberof IoK8sApiAppsV1ReplicaSetStatus
    */
@@ -38,7 +38,7 @@ export interface IoK8sApiAppsV1ReplicaSetStatus {
    */
   conditions?: Array<IoK8sApiAppsV1ReplicaSetCondition>;
   /**
-   * The number of pods that have labels matching the labels of the pod template of the replicaset.
+   * The number of non-terminating pods that have labels matching the labels of the pod template of the replicaset.
    * @type {number}
    * @memberof IoK8sApiAppsV1ReplicaSetStatus
    */
@@ -50,17 +50,25 @@ export interface IoK8sApiAppsV1ReplicaSetStatus {
    */
   observedGeneration?: number;
   /**
-   * readyReplicas is the number of pods targeted by this ReplicaSet with a Ready Condition.
+   * The number of non-terminating pods targeted by this ReplicaSet with a Ready Condition.
    * @type {number}
    * @memberof IoK8sApiAppsV1ReplicaSetStatus
    */
   readyReplicas?: number;
   /**
-   * Replicas is the most recently observed number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller
+   * Replicas is the most recently observed number of non-terminating pods. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset
    * @type {number}
    * @memberof IoK8sApiAppsV1ReplicaSetStatus
    */
   replicas: number;
+  /**
+   * The number of terminating pods for this replica set. Terminating pods have a non-null .metadata.deletionTimestamp and have not yet reached the Failed or Succeeded .status.phase.
+   *
+   * This is an alpha field. Enable DeploymentReplicaSetTerminatingReplicas to be able to use this field.
+   * @type {number}
+   * @memberof IoK8sApiAppsV1ReplicaSetStatus
+   */
+  terminatingReplicas?: number;
 }
 
 export function IoK8sApiAppsV1ReplicaSetStatusFromJSON(json: any): IoK8sApiAppsV1ReplicaSetStatus {
@@ -87,6 +95,9 @@ export function IoK8sApiAppsV1ReplicaSetStatusFromJSONTyped(
       : json['observedGeneration'],
     readyReplicas: !exists(json, 'readyReplicas') ? undefined : json['readyReplicas'],
     replicas: json['replicas'],
+    terminatingReplicas: !exists(json, 'terminatingReplicas')
+      ? undefined
+      : json['terminatingReplicas'],
   };
 }
 
@@ -109,5 +120,6 @@ export function IoK8sApiAppsV1ReplicaSetStatusToJSON(
     observedGeneration: value.observedGeneration,
     readyReplicas: value.readyReplicas,
     replicas: value.replicas,
+    terminatingReplicas: value.terminatingReplicas,
   };
 }

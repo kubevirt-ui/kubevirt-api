@@ -20,7 +20,7 @@ import {
 } from './';
 
 /**
- * Represents storage that is managed by an external CSI volume driver (Beta feature)
+ * Represents storage that is managed by an external CSI volume driver
  * @export
  * @interface IoK8sApiCoreV1CSIPersistentVolumeSource
  */

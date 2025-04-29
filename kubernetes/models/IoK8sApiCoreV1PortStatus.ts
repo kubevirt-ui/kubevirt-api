@@ -14,7 +14,7 @@
 
 import { exists } from '../runtime';
 /**
- *
+ * PortStatus represents the error condition of a service port
  * @export
  * @interface IoK8sApiCoreV1PortStatus
  */

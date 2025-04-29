@@ -35,7 +35,7 @@ export interface IoK8sApiAppsV1ReplicaSetList {
    */
   apiVersion?: string;
   /**
-   * List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+   * List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset
    * @type {Array<IoK8sApiAppsV1ReplicaSet>}
    * @memberof IoK8sApiAppsV1ReplicaSetList
    */

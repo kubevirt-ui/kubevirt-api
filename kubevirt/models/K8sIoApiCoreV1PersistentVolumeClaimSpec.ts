@@ -82,6 +82,7 @@ export interface K8sIoApiCoreV1PersistentVolumeClaimSpec {
    * Possible enum values:
    *  - `"Block"` means the volume will not be formatted with a filesystem and will remain a raw block device.
    *  - `"Filesystem"` means the volume will be or is formatted with a filesystem.
+   *  - `"FromStorageProfile"` means the volume mode will be auto selected by CDI according to a matching StorageProfile
    * @type {string}
    * @memberof K8sIoApiCoreV1PersistentVolumeClaimSpec
    */
@@ -111,6 +112,7 @@ export enum K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum {
 export enum K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum {
   Block = 'Block',
   Filesystem = 'Filesystem',
+  FromStorageProfile = 'FromStorageProfile',
 }
 
 export function K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSON(

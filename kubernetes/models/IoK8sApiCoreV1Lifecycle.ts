@@ -37,6 +37,12 @@ export interface IoK8sApiCoreV1Lifecycle {
    * @memberof IoK8sApiCoreV1Lifecycle
    */
   preStop?: IoK8sApiCoreV1LifecycleHandler;
+  /**
+   * StopSignal defines which signal will be sent to a container when it is being stopped. If not specified, the default is defined by the container runtime in use. StopSignal can only be set for Pods with a non-empty .spec.os.name
+   * @type {string}
+   * @memberof IoK8sApiCoreV1Lifecycle
+   */
+  stopSignal?: string;
 }
 
 export function IoK8sApiCoreV1LifecycleFromJSON(json: any): IoK8sApiCoreV1Lifecycle {
@@ -57,6 +63,7 @@ export function IoK8sApiCoreV1LifecycleFromJSONTyped(
     preStop: !exists(json, 'preStop')
       ? undefined
       : IoK8sApiCoreV1LifecycleHandlerFromJSON(json['preStop']),
+    stopSignal: !exists(json, 'stopSignal') ? undefined : json['stopSignal'],
   };
 }
 
@@ -70,5 +77,6 @@ export function IoK8sApiCoreV1LifecycleToJSON(value?: IoK8sApiCoreV1Lifecycle | 
   return {
     postStart: IoK8sApiCoreV1LifecycleHandlerToJSON(value.postStart),
     preStop: IoK8sApiCoreV1LifecycleHandlerToJSON(value.preStop),
+    stopSignal: value.stopSignal,
   };
 }

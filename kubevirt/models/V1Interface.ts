@@ -122,7 +122,7 @@ export interface V1Interface {
    */
   sriov?: object;
   /**
-   * State represents the requested operational state of the interface. The (only) value supported is `absent`, expressing a request to remove the interface.
+   * State represents the requested operational state of the interface. The supported values are: `absent`, expressing a request to remove the interface. `down`, expressing a request to set the link down. `up`, expressing a request to set the link up. Empty value functions as `up`.
    * @type {string}
    * @memberof V1Interface
    */

@@ -47,6 +47,9 @@ import {
   IoK8sApiCoreV1PodSecurityContext,
   IoK8sApiCoreV1PodSecurityContextFromJSON,
   IoK8sApiCoreV1PodSecurityContextToJSON,
+  IoK8sApiCoreV1ResourceRequirements,
+  IoK8sApiCoreV1ResourceRequirementsFromJSON,
+  IoK8sApiCoreV1ResourceRequirementsToJSON,
   IoK8sApiCoreV1Toleration,
   IoK8sApiCoreV1TolerationFromJSON,
   IoK8sApiCoreV1TolerationToJSON,
@@ -155,13 +158,13 @@ export interface IoK8sApiCoreV1PodSpec {
    */
   imagePullSecrets?: Array<IoK8sApiCoreV1LocalObjectReference>;
   /**
-   * List of initialization containers belonging to the pod. Init containers are executed in order prior to containers being started. If any init container fails, the pod is considered to have failed and is handled according to its restartPolicy. The name for an init container or normal container must be unique among all containers. Init containers may not have Lifecycle actions, Readiness probes, Liveness probes, or Startup probes. The resourceRequirements of an init container are taken into account during scheduling by finding the highest request/limit for each resource type, and then using the max of of that value or the sum of the normal containers. Limits are applied to init containers in a similar fashion. Init containers cannot currently be added or removed. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/
+   * List of initialization containers belonging to the pod. Init containers are executed in order prior to containers being started. If any init container fails, the pod is considered to have failed and is handled according to its restartPolicy. The name for an init container or normal container must be unique among all containers. Init containers may not have Lifecycle actions, Readiness probes, Liveness probes, or Startup probes. The resourceRequirements of an init container are taken into account during scheduling by finding the highest request/limit for each resource type, and then using the max of that value or the sum of the normal containers. Limits are applied to init containers in a similar fashion. Init containers cannot currently be added or removed. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/
    * @type {Array<IoK8sApiCoreV1Container>}
    * @memberof IoK8sApiCoreV1PodSpec
    */
   initContainers?: Array<IoK8sApiCoreV1Container>;
   /**
-   * NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements.
+   * NodeName indicates in which node this pod is scheduled. If empty, this pod is a candidate for scheduling by the scheduler defined in schedulerName. Once this field is set, the kubelet for this node becomes responsible for the lifecycle of this pod. This field should not be used to express a desire for the pod to be scheduled on a specific node. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename
    * @type {string}
    * @memberof IoK8sApiCoreV1PodSpec
    */
@@ -219,6 +222,12 @@ export interface IoK8sApiCoreV1PodSpec {
    */
   resourceClaims?: Array<IoK8sApiCoreV1PodResourceClaim>;
   /**
+   *
+   * @type {IoK8sApiCoreV1ResourceRequirements}
+   * @memberof IoK8sApiCoreV1PodSpec
+   */
+  resources?: IoK8sApiCoreV1ResourceRequirements;
+  /**
    * Restart policy for all containers within the pod. One of Always, OnFailure, Never. In some contexts, only a subset of those values may be permitted. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy
    * @type {string}
    * @memberof IoK8sApiCoreV1PodSpec
@@ -263,7 +272,7 @@ export interface IoK8sApiCoreV1PodSpec {
    */
   serviceAccountName?: string;
   /**
-   * If true the pod's hostname will be configured as the pod's FQDN, rather than the leaf name (the default). In Linux containers, this means setting the FQDN in the hostname field of the kernel (the nodename field of struct utsname). In Windows containers, this means setting the registry value of hostname for the registry key HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters to FQDN. If a pod does not have FQDN, this has no effect. Default to false.
+   * If true the pod's hostname will be configured as the pod's FQDN, rather than the leaf name (the default). In Linux containers, this means setting the FQDN in the hostname field of the kernel (the nodename field of struct utsname). In Windows containers, this means setting the registry value of hostname for the registry key HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters to FQDN. If a pod does not have FQDN, this has no effect. Default to false.
    * @type {boolean}
    * @memberof IoK8sApiCoreV1PodSpec
    */
@@ -365,6 +374,9 @@ export function IoK8sApiCoreV1PodSpecFromJSONTyped(
     resourceClaims: !exists(json, 'resourceClaims')
       ? undefined
       : (json['resourceClaims'] as Array<any>).map(IoK8sApiCoreV1PodResourceClaimFromJSON),
+    resources: !exists(json, 'resources')
+      ? undefined
+      : IoK8sApiCoreV1ResourceRequirementsFromJSON(json['resources']),
     restartPolicy: !exists(json, 'restartPolicy') ? undefined : json['restartPolicy'],
     runtimeClassName: !exists(json, 'runtimeClassName') ? undefined : json['runtimeClassName'],
     schedulerName: !exists(json, 'schedulerName') ? undefined : json['schedulerName'],
@@ -451,6 +463,7 @@ export function IoK8sApiCoreV1PodSpecToJSON(value?: IoK8sApiCoreV1PodSpec | null
       value.resourceClaims === undefined
         ? undefined
         : (value.resourceClaims as Array<any>).map(IoK8sApiCoreV1PodResourceClaimToJSON),
+    resources: IoK8sApiCoreV1ResourceRequirementsToJSON(value.resources),
     restartPolicy: value.restartPolicy,
     runtimeClassName: value.runtimeClassName,
     schedulerName: value.schedulerName,

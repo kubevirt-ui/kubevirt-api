@@ -14,6 +14,9 @@
 
 import { exists } from '../runtime';
 import {
+  V1InstancetypeStatusRef,
+  V1InstancetypeStatusRefFromJSON,
+  V1InstancetypeStatusRefToJSON,
   V1VirtualMachineCondition,
   V1VirtualMachineConditionFromJSON,
   V1VirtualMachineConditionToJSON,
@@ -63,6 +66,12 @@ export interface V1VirtualMachineStatus {
   desiredGeneration?: number;
   /**
    *
+   * @type {V1InstancetypeStatusRef}
+   * @memberof V1VirtualMachineStatus
+   */
+  instancetypeRef?: V1InstancetypeStatusRef;
+  /**
+   *
    * @type {V1VirtualMachineMemoryDumpRequest}
    * @memberof V1VirtualMachineStatus
    */
@@ -73,6 +82,12 @@ export interface V1VirtualMachineStatus {
    * @memberof V1VirtualMachineStatus
    */
   observedGeneration?: number;
+  /**
+   *
+   * @type {V1InstancetypeStatusRef}
+   * @memberof V1VirtualMachineStatus
+   */
+  preferenceRef?: V1InstancetypeStatusRef;
   /**
    * PrintableStatus is a human readable, high-level representation of the status of the virtual machine
    * @type {string}
@@ -152,12 +167,18 @@ export function V1VirtualMachineStatusFromJSONTyped(
       : (json['conditions'] as Array<any>).map(V1VirtualMachineConditionFromJSON),
     created: !exists(json, 'created') ? undefined : json['created'],
     desiredGeneration: !exists(json, 'desiredGeneration') ? undefined : json['desiredGeneration'],
+    instancetypeRef: !exists(json, 'instancetypeRef')
+      ? undefined
+      : V1InstancetypeStatusRefFromJSON(json['instancetypeRef']),
     memoryDumpRequest: !exists(json, 'memoryDumpRequest')
       ? undefined
       : V1VirtualMachineMemoryDumpRequestFromJSON(json['memoryDumpRequest']),
     observedGeneration: !exists(json, 'observedGeneration')
       ? undefined
       : json['observedGeneration'],
+    preferenceRef: !exists(json, 'preferenceRef')
+      ? undefined
+      : V1InstancetypeStatusRefFromJSON(json['preferenceRef']),
     printableStatus: !exists(json, 'printableStatus') ? undefined : json['printableStatus'],
     ready: !exists(json, 'ready') ? undefined : json['ready'],
     restoreInProgress: !exists(json, 'restoreInProgress') ? undefined : json['restoreInProgress'],
@@ -197,8 +218,10 @@ export function V1VirtualMachineStatusToJSON(value?: V1VirtualMachineStatus | nu
         : (value.conditions as Array<any>).map(V1VirtualMachineConditionToJSON),
     created: value.created,
     desiredGeneration: value.desiredGeneration,
+    instancetypeRef: V1InstancetypeStatusRefToJSON(value.instancetypeRef),
     memoryDumpRequest: V1VirtualMachineMemoryDumpRequestToJSON(value.memoryDumpRequest),
     observedGeneration: value.observedGeneration,
+    preferenceRef: V1InstancetypeStatusRefToJSON(value.preferenceRef),
     printableStatus: value.printableStatus,
     ready: value.ready,
     restoreInProgress: value.restoreInProgress,

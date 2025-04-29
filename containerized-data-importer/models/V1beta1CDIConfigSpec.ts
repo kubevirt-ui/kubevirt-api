@@ -20,15 +20,15 @@ import {
   V1ResourceRequirements,
   V1ResourceRequirementsFromJSON,
   V1ResourceRequirementsToJSON,
-  V1TLSSecurityProfile,
-  V1TLSSecurityProfileFromJSON,
-  V1TLSSecurityProfileToJSON,
   V1beta1FilesystemOverhead,
   V1beta1FilesystemOverheadFromJSON,
   V1beta1FilesystemOverheadToJSON,
   V1beta1ImportProxy,
   V1beta1ImportProxyFromJSON,
   V1beta1ImportProxyToJSON,
+  V1beta1TLSSecurityProfile,
+  V1beta1TLSSecurityProfileFromJSON,
+  V1beta1TLSSecurityProfileToJSON,
 } from './';
 
 /**
@@ -38,7 +38,7 @@ import {
  */
 export interface V1beta1CDIConfigSpec {
   /**
-   * DataVolumeTTLSeconds is the time in seconds after DataVolume completion it can be garbage collected. Disabled by default.
+   * DataVolumeTTLSeconds is the time in seconds after DataVolume completion it can be garbage collected. Disabled by default. Deprecated: Removed in v1.62.
    * @type {number}
    * @memberof V1beta1CDIConfigSpec
    */
@@ -99,10 +99,10 @@ export interface V1beta1CDIConfigSpec {
   scratchSpaceStorageClass?: string;
   /**
    *
-   * @type {V1TLSSecurityProfile}
+   * @type {V1beta1TLSSecurityProfile}
    * @memberof V1beta1CDIConfigSpec
    */
-  tlsSecurityProfile?: V1TLSSecurityProfile;
+  tlsSecurityProfile?: V1beta1TLSSecurityProfile;
   /**
    * Override the URL used when uploading to a DataVolume
    * @type {string}
@@ -149,7 +149,7 @@ export function V1beta1CDIConfigSpecFromJSONTyped(
       : json['scratchSpaceStorageClass'],
     tlsSecurityProfile: !exists(json, 'tlsSecurityProfile')
       ? undefined
-      : V1TLSSecurityProfileFromJSON(json['tlsSecurityProfile']),
+      : V1beta1TLSSecurityProfileFromJSON(json['tlsSecurityProfile']),
     uploadProxyURLOverride: !exists(json, 'uploadProxyURLOverride')
       ? undefined
       : json['uploadProxyURLOverride'],
@@ -177,7 +177,7 @@ export function V1beta1CDIConfigSpecToJSON(value?: V1beta1CDIConfigSpec | null):
     podResourceRequirements: V1ResourceRequirementsToJSON(value.podResourceRequirements),
     preallocation: value.preallocation,
     scratchSpaceStorageClass: value.scratchSpaceStorageClass,
-    tlsSecurityProfile: V1TLSSecurityProfileToJSON(value.tlsSecurityProfile),
+    tlsSecurityProfile: V1beta1TLSSecurityProfileToJSON(value.tlsSecurityProfile),
     uploadProxyURLOverride: value.uploadProxyURLOverride,
   };
 }

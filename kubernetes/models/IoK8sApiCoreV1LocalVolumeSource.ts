@@ -14,7 +14,7 @@
 
 import { exists } from '../runtime';
 /**
- * Local represents directly-attached storage with node affinity (Beta feature)
+ * Local represents directly-attached storage with node affinity
  * @export
  * @interface IoK8sApiCoreV1LocalVolumeSource
  */

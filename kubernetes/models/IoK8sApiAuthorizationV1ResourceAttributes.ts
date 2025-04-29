@@ -13,6 +13,15 @@
  */
 
 import { exists } from '../runtime';
+import {
+  IoK8sApiAuthorizationV1FieldSelectorAttributes,
+  IoK8sApiAuthorizationV1FieldSelectorAttributesFromJSON,
+  IoK8sApiAuthorizationV1FieldSelectorAttributesToJSON,
+  IoK8sApiAuthorizationV1LabelSelectorAttributes,
+  IoK8sApiAuthorizationV1LabelSelectorAttributesFromJSON,
+  IoK8sApiAuthorizationV1LabelSelectorAttributesToJSON,
+} from './';
+
 /**
  * ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface
  * @export
@@ -20,11 +29,23 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiAuthorizationV1ResourceAttributes {
   /**
+   *
+   * @type {IoK8sApiAuthorizationV1FieldSelectorAttributes}
+   * @memberof IoK8sApiAuthorizationV1ResourceAttributes
+   */
+  fieldSelector?: IoK8sApiAuthorizationV1FieldSelectorAttributes;
+  /**
    * Group is the API Group of the Resource.  "*" means all.
    * @type {string}
    * @memberof IoK8sApiAuthorizationV1ResourceAttributes
    */
   group?: string;
+  /**
+   *
+   * @type {IoK8sApiAuthorizationV1LabelSelectorAttributes}
+   * @memberof IoK8sApiAuthorizationV1ResourceAttributes
+   */
+  labelSelector?: IoK8sApiAuthorizationV1LabelSelectorAttributes;
   /**
    * Name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
    * @type {string}
@@ -77,7 +98,13 @@ export function IoK8sApiAuthorizationV1ResourceAttributesFromJSONTyped(
     return json;
   }
   return {
+    fieldSelector: !exists(json, 'fieldSelector')
+      ? undefined
+      : IoK8sApiAuthorizationV1FieldSelectorAttributesFromJSON(json['fieldSelector']),
     group: !exists(json, 'group') ? undefined : json['group'],
+    labelSelector: !exists(json, 'labelSelector')
+      ? undefined
+      : IoK8sApiAuthorizationV1LabelSelectorAttributesFromJSON(json['labelSelector']),
     name: !exists(json, 'name') ? undefined : json['name'],
     namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
     resource: !exists(json, 'resource') ? undefined : json['resource'],
@@ -97,7 +124,9 @@ export function IoK8sApiAuthorizationV1ResourceAttributesToJSON(
     return null;
   }
   return {
+    fieldSelector: IoK8sApiAuthorizationV1FieldSelectorAttributesToJSON(value.fieldSelector),
     group: value.group,
+    labelSelector: IoK8sApiAuthorizationV1LabelSelectorAttributesToJSON(value.labelSelector),
     name: value.name,
     namespace: value.namespace,
     resource: value.resource,

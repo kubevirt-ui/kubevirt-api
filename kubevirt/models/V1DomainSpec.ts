@@ -26,6 +26,9 @@ import {
   V1Devices,
   V1DevicesFromJSON,
   V1DevicesToJSON,
+  V1DiskIOThreads,
+  V1DiskIOThreadsFromJSON,
+  V1DiskIOThreadsToJSON,
   V1Features,
   V1FeaturesFromJSON,
   V1FeaturesToJSON,
@@ -89,6 +92,12 @@ export interface V1DomainSpec {
    */
   firmware?: V1Firmware;
   /**
+   *
+   * @type {V1DiskIOThreads}
+   * @memberof V1DomainSpec
+   */
+  ioThreads?: V1DiskIOThreads;
+  /**
    * Controls whether or not disks will share IOThreads. Omitting IOThreadsPolicy disables use of IOThreads. One of: shared, auto
    * @type {string}
    * @memberof V1DomainSpec
@@ -135,6 +144,7 @@ export function V1DomainSpecFromJSONTyped(json: any, _ignoreDiscriminator: boole
     devices: V1DevicesFromJSON(json['devices']),
     features: !exists(json, 'features') ? undefined : V1FeaturesFromJSON(json['features']),
     firmware: !exists(json, 'firmware') ? undefined : V1FirmwareFromJSON(json['firmware']),
+    ioThreads: !exists(json, 'ioThreads') ? undefined : V1DiskIOThreadsFromJSON(json['ioThreads']),
     ioThreadsPolicy: !exists(json, 'ioThreadsPolicy') ? undefined : json['ioThreadsPolicy'],
     launchSecurity: !exists(json, 'launchSecurity')
       ? undefined
@@ -161,6 +171,7 @@ export function V1DomainSpecToJSON(value?: V1DomainSpec | null): any {
     devices: V1DevicesToJSON(value.devices),
     features: V1FeaturesToJSON(value.features),
     firmware: V1FirmwareToJSON(value.firmware),
+    ioThreads: V1DiskIOThreadsToJSON(value.ioThreads),
     ioThreadsPolicy: value.ioThreadsPolicy,
     launchSecurity: V1LaunchSecurityToJSON(value.launchSecurity),
     machine: V1MachineToJSON(value.machine),

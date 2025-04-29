@@ -17,6 +17,9 @@ import {
   K8sIoApimachineryPkgApisMetaV1LabelSelector,
   K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
   K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
+  V1alpha1VirtualMachinePoolNameGeneration,
+  V1alpha1VirtualMachinePoolNameGenerationFromJSON,
+  V1alpha1VirtualMachinePoolNameGenerationToJSON,
   V1alpha1VirtualMachineTemplateSpec,
   V1alpha1VirtualMachineTemplateSpecFromJSON,
   V1alpha1VirtualMachineTemplateSpecToJSON,
@@ -28,6 +31,12 @@ import {
  * @interface V1alpha1VirtualMachinePoolSpec
  */
 export interface V1alpha1VirtualMachinePoolSpec {
+  /**
+   *
+   * @type {V1alpha1VirtualMachinePoolNameGeneration}
+   * @memberof V1alpha1VirtualMachinePoolSpec
+   */
+  nameGeneration?: V1alpha1VirtualMachinePoolNameGeneration;
   /**
    * Indicates that the pool is paused.
    * @type {boolean}
@@ -66,6 +75,9 @@ export function V1alpha1VirtualMachinePoolSpecFromJSONTyped(
     return json;
   }
   return {
+    nameGeneration: !exists(json, 'nameGeneration')
+      ? undefined
+      : V1alpha1VirtualMachinePoolNameGenerationFromJSON(json['nameGeneration']),
     paused: !exists(json, 'paused') ? undefined : json['paused'],
     replicas: !exists(json, 'replicas') ? undefined : json['replicas'],
     selector: K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
@@ -85,6 +97,7 @@ export function V1alpha1VirtualMachinePoolSpecToJSON(
     return null;
   }
   return {
+    nameGeneration: V1alpha1VirtualMachinePoolNameGenerationToJSON(value.nameGeneration),
     paused: value.paused,
     replicas: value.replicas,
     selector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),

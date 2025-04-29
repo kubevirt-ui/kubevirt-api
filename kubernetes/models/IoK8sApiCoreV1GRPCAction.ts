@@ -14,7 +14,7 @@
 
 import { exists } from '../runtime';
 /**
- *
+ * GRPCAction specifies an action involving a GRPC service.
  * @export
  * @interface IoK8sApiCoreV1GRPCAction
  */

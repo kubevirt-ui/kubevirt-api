@@ -14,6 +14,9 @@
 
 import { exists } from '../runtime';
 import {
+  IoK8sApiDiscoveryV1ForNode,
+  IoK8sApiDiscoveryV1ForNodeFromJSON,
+  IoK8sApiDiscoveryV1ForNodeToJSON,
   IoK8sApiDiscoveryV1ForZone,
   IoK8sApiDiscoveryV1ForZoneFromJSON,
   IoK8sApiDiscoveryV1ForZoneToJSON,
@@ -26,7 +29,13 @@ import {
  */
 export interface IoK8sApiDiscoveryV1EndpointHints {
   /**
-   * forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing.
+   * forNodes indicates the node(s) this endpoint should be consumed by when using topology aware routing. May contain a maximum of 8 entries. This is an Alpha feature and is only used when the PreferSameTrafficDistribution feature gate is enabled.
+   * @type {Array<IoK8sApiDiscoveryV1ForNode>}
+   * @memberof IoK8sApiDiscoveryV1EndpointHints
+   */
+  forNodes?: Array<IoK8sApiDiscoveryV1ForNode>;
+  /**
+   * forZones indicates the zone(s) this endpoint should be consumed by when using topology aware routing. May contain a maximum of 8 entries.
    * @type {Array<IoK8sApiDiscoveryV1ForZone>}
    * @memberof IoK8sApiDiscoveryV1EndpointHints
    */
@@ -47,6 +56,9 @@ export function IoK8sApiDiscoveryV1EndpointHintsFromJSONTyped(
     return json;
   }
   return {
+    forNodes: !exists(json, 'forNodes')
+      ? undefined
+      : (json['forNodes'] as Array<any>).map(IoK8sApiDiscoveryV1ForNodeFromJSON),
     forZones: !exists(json, 'forZones')
       ? undefined
       : (json['forZones'] as Array<any>).map(IoK8sApiDiscoveryV1ForZoneFromJSON),
@@ -63,6 +75,10 @@ export function IoK8sApiDiscoveryV1EndpointHintsToJSON(
     return null;
   }
   return {
+    forNodes:
+      value.forNodes === undefined
+        ? undefined
+        : (value.forNodes as Array<any>).map(IoK8sApiDiscoveryV1ForNodeToJSON),
     forZones:
       value.forZones === undefined
         ? undefined

@@ -12,6 +12,13 @@
  * Do not edit the class manually.
  */
 
+import { exists } from '../runtime';
+import {
+  IoK8sApiCoreV1NodeSwapStatus,
+  IoK8sApiCoreV1NodeSwapStatusFromJSON,
+  IoK8sApiCoreV1NodeSwapStatusToJSON,
+} from './';
+
 /**
  * NodeSystemInfo is a set of ids/uuids to uniquely identify the node.
  * @export
@@ -43,7 +50,7 @@ export interface IoK8sApiCoreV1NodeSystemInfo {
    */
   kernelVersion: string;
   /**
-   * KubeProxy Version reported by the node.
+   * Deprecated: KubeProxy Version reported by the node.
    * @type {string}
    * @memberof IoK8sApiCoreV1NodeSystemInfo
    */
@@ -73,6 +80,12 @@ export interface IoK8sApiCoreV1NodeSystemInfo {
    */
   osImage: string;
   /**
+   *
+   * @type {IoK8sApiCoreV1NodeSwapStatus}
+   * @memberof IoK8sApiCoreV1NodeSystemInfo
+   */
+  swap?: IoK8sApiCoreV1NodeSwapStatus;
+  /**
    * SystemUUID reported by the node. For unique machine identification MachineID is preferred. This field is specific to Red Hat hosts https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/rhsm/uuid
    * @type {string}
    * @memberof IoK8sApiCoreV1NodeSystemInfo
@@ -101,6 +114,7 @@ export function IoK8sApiCoreV1NodeSystemInfoFromJSONTyped(
     machineID: json['machineID'],
     operatingSystem: json['operatingSystem'],
     osImage: json['osImage'],
+    swap: !exists(json, 'swap') ? undefined : IoK8sApiCoreV1NodeSwapStatusFromJSON(json['swap']),
     systemUUID: json['systemUUID'],
   };
 }
@@ -124,6 +138,7 @@ export function IoK8sApiCoreV1NodeSystemInfoToJSON(
     machineID: value.machineID,
     operatingSystem: value.operatingSystem,
     osImage: value.osImage,
+    swap: IoK8sApiCoreV1NodeSwapStatusToJSON(value.swap),
     systemUUID: value.systemUUID,
   };
 }

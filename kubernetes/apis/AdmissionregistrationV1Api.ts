@@ -82,6 +82,7 @@ export interface DeleteAdmissionregistrationV1CollectionMutatingWebhookConfigura
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -99,6 +100,7 @@ export interface DeleteAdmissionregistrationV1CollectionValidatingAdmissionPolic
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -116,6 +118,7 @@ export interface DeleteAdmissionregistrationV1CollectionValidatingAdmissionPolic
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -133,6 +136,7 @@ export interface DeleteAdmissionregistrationV1CollectionValidatingWebhookConfigu
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -149,6 +153,7 @@ export interface DeleteAdmissionregistrationV1MutatingWebhookConfigurationReques
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -159,6 +164,7 @@ export interface DeleteAdmissionregistrationV1ValidatingAdmissionPolicyRequest {
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -169,6 +175,7 @@ export interface DeleteAdmissionregistrationV1ValidatingAdmissionPolicyBindingRe
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -179,6 +186,7 @@ export interface DeleteAdmissionregistrationV1ValidatingWebhookConfigurationRequ
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
@@ -797,6 +805,11 @@ export class AdmissionregistrationV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.labelSelector !== undefined) {
       queryParameters['labelSelector'] = requestParameters.labelSelector;
     }
@@ -897,6 +910,11 @@ export class AdmissionregistrationV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.labelSelector !== undefined) {
       queryParameters['labelSelector'] = requestParameters.labelSelector;
     }
@@ -994,6 +1012,11 @@ export class AdmissionregistrationV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.labelSelector !== undefined) {
@@ -1096,6 +1119,11 @@ export class AdmissionregistrationV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.labelSelector !== undefined) {
       queryParameters['labelSelector'] = requestParameters.labelSelector;
     }
@@ -1195,6 +1223,11 @@ export class AdmissionregistrationV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.orphanDependents !== undefined) {
       queryParameters['orphanDependents'] = requestParameters.orphanDependents;
     }
@@ -1270,6 +1303,11 @@ export class AdmissionregistrationV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.orphanDependents !== undefined) {
@@ -1349,6 +1387,11 @@ export class AdmissionregistrationV1Api extends runtime.BaseAPI {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
     }
 
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
+    }
+
     if (requestParameters.orphanDependents !== undefined) {
       queryParameters['orphanDependents'] = requestParameters.orphanDependents;
     }
@@ -1424,6 +1467,11 @@ export class AdmissionregistrationV1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.orphanDependents !== undefined) {

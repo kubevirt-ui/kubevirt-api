@@ -32,6 +32,9 @@ import {
   IoK8sApiCoreV1NodeDaemonEndpoints,
   IoK8sApiCoreV1NodeDaemonEndpointsFromJSON,
   IoK8sApiCoreV1NodeDaemonEndpointsToJSON,
+  IoK8sApiCoreV1NodeFeatures,
+  IoK8sApiCoreV1NodeFeaturesFromJSON,
+  IoK8sApiCoreV1NodeFeaturesToJSON,
   IoK8sApiCoreV1NodeRuntimeHandler,
   IoK8sApiCoreV1NodeRuntimeHandlerFromJSON,
   IoK8sApiCoreV1NodeRuntimeHandlerToJSON,
@@ -47,7 +50,7 @@ import {
  */
 export interface IoK8sApiCoreV1NodeStatus {
   /**
-   * List of addresses reachable to the node. Queried from cloud provider, if available. More info: https://kubernetes.io/docs/concepts/nodes/node/#addresses Note: This field is declared as mergeable, but the merge key is not sufficiently unique, which can cause data corruption when it is merged. Callers should instead use a full-replacement patch. See https://pr.k8s.io/79391 for an example. Consumers should assume that addresses can change during the lifetime of a Node. However, there are some exceptions where this may not be possible, such as Pods that inherit a Node's address in its own status or consumers of the downward API (status.hostIP).
+   * List of addresses reachable to the node. Queried from cloud provider, if available. More info: https://kubernetes.io/docs/reference/node/node-status/#addresses Note: This field is declared as mergeable, but the merge key is not sufficiently unique, which can cause data corruption when it is merged. Callers should instead use a full-replacement patch. See https://pr.k8s.io/79391 for an example. Consumers should assume that addresses can change during the lifetime of a Node. However, there are some exceptions where this may not be possible, such as Pods that inherit a Node's address in its own status or consumers of the downward API (status.hostIP).
    * @type {Array<IoK8sApiCoreV1NodeAddress>}
    * @memberof IoK8sApiCoreV1NodeStatus
    */
@@ -59,13 +62,13 @@ export interface IoK8sApiCoreV1NodeStatus {
    */
   allocatable?: { [key: string]: string };
   /**
-   * Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
+   * Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/reference/node/node-status/#capacity
    * @type {{ [key: string]: string; }}
    * @memberof IoK8sApiCoreV1NodeStatus
    */
   capacity?: { [key: string]: string };
   /**
-   * Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/concepts/nodes/node/#condition
+   * Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/reference/node/node-status/#condition
    * @type {Array<IoK8sApiCoreV1NodeCondition>}
    * @memberof IoK8sApiCoreV1NodeStatus
    */
@@ -82,6 +85,12 @@ export interface IoK8sApiCoreV1NodeStatus {
    * @memberof IoK8sApiCoreV1NodeStatus
    */
   daemonEndpoints?: IoK8sApiCoreV1NodeDaemonEndpoints;
+  /**
+   *
+   * @type {IoK8sApiCoreV1NodeFeatures}
+   * @memberof IoK8sApiCoreV1NodeStatus
+   */
+  features?: IoK8sApiCoreV1NodeFeatures;
   /**
    * List of container images on this node
    * @type {Array<IoK8sApiCoreV1ContainerImage>}
@@ -146,6 +155,9 @@ export function IoK8sApiCoreV1NodeStatusFromJSONTyped(
     daemonEndpoints: !exists(json, 'daemonEndpoints')
       ? undefined
       : IoK8sApiCoreV1NodeDaemonEndpointsFromJSON(json['daemonEndpoints']),
+    features: !exists(json, 'features')
+      ? undefined
+      : IoK8sApiCoreV1NodeFeaturesFromJSON(json['features']),
     images: !exists(json, 'images')
       ? undefined
       : (json['images'] as Array<any>).map(IoK8sApiCoreV1ContainerImageFromJSON),
@@ -183,6 +195,7 @@ export function IoK8sApiCoreV1NodeStatusToJSON(value?: IoK8sApiCoreV1NodeStatus 
         : (value.conditions as Array<any>).map(IoK8sApiCoreV1NodeConditionToJSON),
     config: IoK8sApiCoreV1NodeConfigStatusToJSON(value.config),
     daemonEndpoints: IoK8sApiCoreV1NodeDaemonEndpointsToJSON(value.daemonEndpoints),
+    features: IoK8sApiCoreV1NodeFeaturesToJSON(value.features),
     images:
       value.images === undefined
         ? undefined

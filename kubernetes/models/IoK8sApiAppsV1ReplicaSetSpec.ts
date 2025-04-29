@@ -35,7 +35,7 @@ export interface IoK8sApiAppsV1ReplicaSetSpec {
    */
   minReadySeconds?: number;
   /**
-   * Replicas is the number of desired replicas. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller
+   * Replicas is the number of desired pods. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset
    * @type {number}
    * @memberof IoK8sApiAppsV1ReplicaSetSpec
    */

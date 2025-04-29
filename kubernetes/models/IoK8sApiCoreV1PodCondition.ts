@@ -38,6 +38,12 @@ export interface IoK8sApiCoreV1PodCondition {
    */
   message?: string;
   /**
+   * If set, this represents the .metadata.generation that the pod condition was set based upon. This is an alpha field. Enable PodObservedGenerationTracking to be able to use this field.
+   * @type {number}
+   * @memberof IoK8sApiCoreV1PodCondition
+   */
+  observedGeneration?: number;
+  /**
    * Unique, one-word, CamelCase reason for the condition's last transition.
    * @type {string}
    * @memberof IoK8sApiCoreV1PodCondition
@@ -74,6 +80,9 @@ export function IoK8sApiCoreV1PodConditionFromJSONTyped(
       ? undefined
       : json['lastTransitionTime'],
     message: !exists(json, 'message') ? undefined : json['message'],
+    observedGeneration: !exists(json, 'observedGeneration')
+      ? undefined
+      : json['observedGeneration'],
     reason: !exists(json, 'reason') ? undefined : json['reason'],
     status: json['status'],
     type: json['type'],
@@ -92,6 +101,7 @@ export function IoK8sApiCoreV1PodConditionToJSON(value?: IoK8sApiCoreV1PodCondit
     lastTransitionTime:
       value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
     message: value.message,
+    observedGeneration: value.observedGeneration,
     reason: value.reason,
     status: value.status,
     type: value.type,

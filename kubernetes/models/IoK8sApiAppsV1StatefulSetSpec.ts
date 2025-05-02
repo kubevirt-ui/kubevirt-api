@@ -87,7 +87,7 @@ export interface IoK8sApiAppsV1StatefulSetSpec {
    * @type {string}
    * @memberof IoK8sApiAppsV1StatefulSetSpec
    */
-  serviceName: string;
+  serviceName?: string;
   /**
    *
    * @type {IoK8sApiCoreV1PodTemplateSpec}
@@ -137,7 +137,7 @@ export function IoK8sApiAppsV1StatefulSetSpecFromJSONTyped(
       ? undefined
       : json['revisionHistoryLimit'],
     selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
-    serviceName: json['serviceName'],
+    serviceName: !exists(json, 'serviceName') ? undefined : json['serviceName'],
     template: IoK8sApiCoreV1PodTemplateSpecFromJSON(json['template']),
     updateStrategy: !exists(json, 'updateStrategy')
       ? undefined

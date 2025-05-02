@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+import { exists } from '../runtime';
 /**
  * ResourceClaim references one entry in PodSpec.ResourceClaims.
  * @export
@@ -24,6 +25,12 @@ export interface V1ResourceClaim {
    * @memberof V1ResourceClaim
    */
   name: string;
+  /**
+   * Request is the name chosen for a request in the referenced claim. If empty, everything from the claim is made available, otherwise only the result of this request.
+   * @type {string}
+   * @memberof V1ResourceClaim
+   */
+  request?: string;
 }
 
 export function V1ResourceClaimFromJSON(json: any): V1ResourceClaim {
@@ -39,6 +46,7 @@ export function V1ResourceClaimFromJSONTyped(
   }
   return {
     name: json['name'],
+    request: !exists(json, 'request') ? undefined : json['request'],
   };
 }
 
@@ -51,5 +59,6 @@ export function V1ResourceClaimToJSON(value?: V1ResourceClaim | null): any {
   }
   return {
     name: value.name,
+    request: value.request,
   };
 }

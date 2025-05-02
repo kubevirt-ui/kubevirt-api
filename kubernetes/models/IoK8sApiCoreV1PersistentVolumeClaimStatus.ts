@@ -98,7 +98,7 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimStatus {
    */
   conditions?: Array<IoK8sApiCoreV1PersistentVolumeClaimCondition>;
   /**
-   * currentVolumeAttributesClassName is the current name of the VolumeAttributesClass the PVC is using. When unset, there is no VolumeAttributeClass applied to this PersistentVolumeClaim This is an alpha field and requires enabling VolumeAttributesClass feature.
+   * currentVolumeAttributesClassName is the current name of the VolumeAttributesClass the PVC is using. When unset, there is no VolumeAttributeClass applied to this PersistentVolumeClaim This is a beta field and requires enabling VolumeAttributesClass feature (off by default).
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimStatus
    */

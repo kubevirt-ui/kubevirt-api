@@ -23,7 +23,7 @@ import {
 } from './';
 
 /**
- * EnvFromSource represents the source of a set of ConfigMaps
+ * EnvFromSource represents the source of a set of ConfigMaps or Secrets
  * @export
  * @interface IoK8sApiCoreV1EnvFromSource
  */
@@ -35,7 +35,7 @@ export interface IoK8sApiCoreV1EnvFromSource {
    */
   configMapRef?: IoK8sApiCoreV1ConfigMapEnvSource;
   /**
-   * An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
+   * Optional text to prepend to the name of each environment variable. Must be a C_IDENTIFIER.
    * @type {string}
    * @memberof IoK8sApiCoreV1EnvFromSource
    */

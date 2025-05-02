@@ -44,6 +44,12 @@ export interface V1VirtualMachineInstanceNetworkInterface {
    */
   ipAddresses?: Array<string>;
   /**
+   * LinkState Reports the current operational link state`. values: up, down.
+   * @type {string}
+   * @memberof V1VirtualMachineInstanceNetworkInterface
+   */
+  linkState?: string;
+  /**
    * Hardware address of a Virtual Machine interface
    * @type {string}
    * @memberof V1VirtualMachineInstanceNetworkInterface
@@ -87,6 +93,7 @@ export function V1VirtualMachineInstanceNetworkInterfaceFromJSONTyped(
     interfaceName: !exists(json, 'interfaceName') ? undefined : json['interfaceName'],
     ipAddress: !exists(json, 'ipAddress') ? undefined : json['ipAddress'],
     ipAddresses: !exists(json, 'ipAddresses') ? undefined : json['ipAddresses'],
+    linkState: !exists(json, 'linkState') ? undefined : json['linkState'],
     mac: !exists(json, 'mac') ? undefined : json['mac'],
     name: !exists(json, 'name') ? undefined : json['name'],
     podInterfaceName: !exists(json, 'podInterfaceName') ? undefined : json['podInterfaceName'],
@@ -108,6 +115,7 @@ export function V1VirtualMachineInstanceNetworkInterfaceToJSON(
     interfaceName: value.interfaceName,
     ipAddress: value.ipAddress,
     ipAddresses: value.ipAddresses,
+    linkState: value.linkState,
     mac: value.mac,
     name: value.name,
     podInterfaceName: value.podInterfaceName,

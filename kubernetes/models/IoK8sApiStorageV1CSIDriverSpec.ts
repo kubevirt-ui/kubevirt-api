@@ -44,6 +44,16 @@ export interface IoK8sApiStorageV1CSIDriverSpec {
    */
   fsGroupPolicy?: string;
   /**
+   * nodeAllocatableUpdatePeriodSeconds specifies the interval between periodic updates of the CSINode allocatable capacity for this driver. When set, both periodic updates and updates triggered by capacity-related failures are enabled. If not set, no updates occur (neither periodic nor upon detecting capacity-related failures), and the allocatable.count remains static. The minimum allowed value for this field is 10 seconds.
+   *
+   * This is an alpha feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.
+   *
+   * This field is mutable.
+   * @type {number}
+   * @memberof IoK8sApiStorageV1CSIDriverSpec
+   */
+  nodeAllocatableUpdatePeriodSeconds?: number;
+  /**
    * podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations, if set to true. If set to false, pod information will not be passed on mount. Default is false.
    *
    * The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext.
@@ -132,6 +142,9 @@ export function IoK8sApiStorageV1CSIDriverSpecFromJSONTyped(
   return {
     attachRequired: !exists(json, 'attachRequired') ? undefined : json['attachRequired'],
     fsGroupPolicy: !exists(json, 'fsGroupPolicy') ? undefined : json['fsGroupPolicy'],
+    nodeAllocatableUpdatePeriodSeconds: !exists(json, 'nodeAllocatableUpdatePeriodSeconds')
+      ? undefined
+      : json['nodeAllocatableUpdatePeriodSeconds'],
     podInfoOnMount: !exists(json, 'podInfoOnMount') ? undefined : json['podInfoOnMount'],
     requiresRepublish: !exists(json, 'requiresRepublish') ? undefined : json['requiresRepublish'],
     seLinuxMount: !exists(json, 'seLinuxMount') ? undefined : json['seLinuxMount'],
@@ -157,6 +170,7 @@ export function IoK8sApiStorageV1CSIDriverSpecToJSON(
   return {
     attachRequired: value.attachRequired,
     fsGroupPolicy: value.fsGroupPolicy,
+    nodeAllocatableUpdatePeriodSeconds: value.nodeAllocatableUpdatePeriodSeconds,
     podInfoOnMount: value.podInfoOnMount,
     requiresRepublish: value.requiresRepublish,
     seLinuxMount: value.seLinuxMount,

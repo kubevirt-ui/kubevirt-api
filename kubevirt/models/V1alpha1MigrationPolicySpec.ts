@@ -34,6 +34,12 @@ export interface V1alpha1MigrationPolicySpec {
    */
   allowPostCopy?: boolean;
   /**
+   *
+   * @type {boolean}
+   * @memberof V1alpha1MigrationPolicySpec
+   */
+  allowWorkloadDisruption?: boolean;
+  /**
    * Quantity is a fixed-point representation of a number. It provides convenient marshaling/unmarshaling in JSON and YAML, in addition to String() and AsInt64() accessors.
    *
    * The serialization format is:
@@ -71,10 +77,10 @@ export interface V1alpha1MigrationPolicySpec {
    * Non-canonical values will still parse as long as they are well formed, but will be re-emitted in their canonical form. (So always use canonical form, or don't diff.)
    *
    * This format is intended to make it difficult to use these numbers without writing some sort of special handling code in the hopes that that will cause implementors to also use a fixed point implementation.
-   * @type {string}
+   * @type {object}
    * @memberof V1alpha1MigrationPolicySpec
    */
-  bandwidthPerMigration?: string;
+  bandwidthPerMigration?: object;
   /**
    *
    * @type {number}
@@ -103,6 +109,9 @@ export function V1alpha1MigrationPolicySpecFromJSONTyped(
   return {
     allowAutoConverge: !exists(json, 'allowAutoConverge') ? undefined : json['allowAutoConverge'],
     allowPostCopy: !exists(json, 'allowPostCopy') ? undefined : json['allowPostCopy'],
+    allowWorkloadDisruption: !exists(json, 'allowWorkloadDisruption')
+      ? undefined
+      : json['allowWorkloadDisruption'],
     bandwidthPerMigration: !exists(json, 'bandwidthPerMigration')
       ? undefined
       : json['bandwidthPerMigration'],
@@ -123,6 +132,7 @@ export function V1alpha1MigrationPolicySpecToJSON(value?: V1alpha1MigrationPolic
   return {
     allowAutoConverge: value.allowAutoConverge,
     allowPostCopy: value.allowPostCopy,
+    allowWorkloadDisruption: value.allowWorkloadDisruption,
     bandwidthPerMigration: value.bandwidthPerMigration,
     completionTimeoutPerGiB: value.completionTimeoutPerGiB,
     selectors: V1alpha1SelectorsToJSON(value.selectors),

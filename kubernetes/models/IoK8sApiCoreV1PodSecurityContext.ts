@@ -78,6 +78,22 @@ export interface IoK8sApiCoreV1PodSecurityContext {
    */
   runAsUser?: number;
   /**
+   * seLinuxChangePolicy defines how the container's SELinux label is applied to all volumes used by the Pod. It has no effect on nodes that do not support SELinux or to volumes does not support SELinux. Valid values are "MountOption" and "Recursive".
+   *
+   * "Recursive" means relabeling of all files on all Pod volumes by the container runtime. This may be slow for large volumes, but allows mixing privileged and unprivileged Pods sharing the same volume on the same node.
+   *
+   * "MountOption" mounts all eligible Pod volumes with `-o context` mount option. This requires all Pods that share the same volume to use the same SELinux label. It is not possible to share the same volume among privileged and unprivileged Pods. Eligible volumes are in-tree FibreChannel and iSCSI volumes, and all CSI volumes whose CSI driver announces SELinux support by setting spec.seLinuxMount: true in their CSIDriver instance. Other volumes are always re-labelled recursively. "MountOption" value is allowed only when SELinuxMount feature gate is enabled.
+   *
+   * If not specified and SELinuxMount feature gate is enabled, "MountOption" is used. If not specified and SELinuxMount feature gate is disabled, "MountOption" is used for ReadWriteOncePod volumes and "Recursive" for all other volumes.
+   *
+   * This field affects only Pods that have SELinux label set, either in PodSecurityContext or in SecurityContext of all containers.
+   *
+   * All Pods that use the same volume should use the same seLinuxChangePolicy, otherwise some pods can get stuck in ContainerCreating state. Note that this field cannot be set when spec.os.name is windows.
+   * @type {string}
+   * @memberof IoK8sApiCoreV1PodSecurityContext
+   */
+  seLinuxChangePolicy?: string;
+  /**
    *
    * @type {IoK8sApiCoreV1SELinuxOptions}
    * @memberof IoK8sApiCoreV1PodSecurityContext
@@ -90,11 +106,17 @@ export interface IoK8sApiCoreV1PodSecurityContext {
    */
   seccompProfile?: IoK8sApiCoreV1SeccompProfile;
   /**
-   * A list of groups applied to the first process run in each container, in addition to the container's primary GID, the fsGroup (if specified), and group memberships defined in the container image for the uid of the container process. If unspecified, no additional groups are added to any container. Note that group memberships defined in the container image for the uid of the container process are still effective, even if they are not included in this list. Note that this field cannot be set when spec.os.name is windows.
+   * A list of groups applied to the first process run in each container, in addition to the container's primary GID and fsGroup (if specified).  If the SupplementalGroupsPolicy feature is enabled, the supplementalGroupsPolicy field determines whether these are in addition to or instead of any group memberships defined in the container image. If unspecified, no additional groups are added, though group memberships defined in the container image may still be used, depending on the supplementalGroupsPolicy field. Note that this field cannot be set when spec.os.name is windows.
    * @type {Array<number>}
    * @memberof IoK8sApiCoreV1PodSecurityContext
    */
   supplementalGroups?: Array<number>;
+  /**
+   * Defines how supplemental groups of the first container processes are calculated. Valid values are "Merge" and "Strict". If not specified, "Merge" is used. (Alpha) Using the field requires the SupplementalGroupsPolicy feature gate to be enabled and the container runtime must implement support for this feature. Note that this field cannot be set when spec.os.name is windows.
+   * @type {string}
+   * @memberof IoK8sApiCoreV1PodSecurityContext
+   */
+  supplementalGroupsPolicy?: string;
   /**
    * Sysctls hold a list of namespaced sysctls used for the pod. Pods with unsupported sysctls (by the container runtime) might fail to launch. Note that this field cannot be set when spec.os.name is windows.
    * @type {Array<IoK8sApiCoreV1Sysctl>}
@@ -133,6 +155,9 @@ export function IoK8sApiCoreV1PodSecurityContextFromJSONTyped(
     runAsGroup: !exists(json, 'runAsGroup') ? undefined : json['runAsGroup'],
     runAsNonRoot: !exists(json, 'runAsNonRoot') ? undefined : json['runAsNonRoot'],
     runAsUser: !exists(json, 'runAsUser') ? undefined : json['runAsUser'],
+    seLinuxChangePolicy: !exists(json, 'seLinuxChangePolicy')
+      ? undefined
+      : json['seLinuxChangePolicy'],
     seLinuxOptions: !exists(json, 'seLinuxOptions')
       ? undefined
       : IoK8sApiCoreV1SELinuxOptionsFromJSON(json['seLinuxOptions']),
@@ -142,6 +167,9 @@ export function IoK8sApiCoreV1PodSecurityContextFromJSONTyped(
     supplementalGroups: !exists(json, 'supplementalGroups')
       ? undefined
       : json['supplementalGroups'],
+    supplementalGroupsPolicy: !exists(json, 'supplementalGroupsPolicy')
+      ? undefined
+      : json['supplementalGroupsPolicy'],
     sysctls: !exists(json, 'sysctls')
       ? undefined
       : (json['sysctls'] as Array<any>).map(IoK8sApiCoreV1SysctlFromJSON),
@@ -167,9 +195,11 @@ export function IoK8sApiCoreV1PodSecurityContextToJSON(
     runAsGroup: value.runAsGroup,
     runAsNonRoot: value.runAsNonRoot,
     runAsUser: value.runAsUser,
+    seLinuxChangePolicy: value.seLinuxChangePolicy,
     seLinuxOptions: IoK8sApiCoreV1SELinuxOptionsToJSON(value.seLinuxOptions),
     seccompProfile: IoK8sApiCoreV1SeccompProfileToJSON(value.seccompProfile),
     supplementalGroups: value.supplementalGroups,
+    supplementalGroupsPolicy: value.supplementalGroupsPolicy,
     sysctls:
       value.sysctls === undefined
         ? undefined

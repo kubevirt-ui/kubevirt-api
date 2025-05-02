@@ -57,10 +57,10 @@ export interface V1HostDisk {
    * Non-canonical values will still parse as long as they are well formed, but will be re-emitted in their canonical form. (So always use canonical form, or don't diff.)
    *
    * This format is intended to make it difficult to use these numbers without writing some sort of special handling code in the hopes that that will cause implementors to also use a fixed point implementation.
-   * @type {string}
+   * @type {object}
    * @memberof V1HostDisk
    */
-  capacity?: string;
+  capacity?: object;
   /**
    * The path to HostDisk image located on the cluster
    * @type {string}

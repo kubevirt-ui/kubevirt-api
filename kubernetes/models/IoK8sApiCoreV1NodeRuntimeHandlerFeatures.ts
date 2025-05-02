@@ -14,7 +14,7 @@
 
 import { exists } from '../runtime';
 /**
- * NodeRuntimeHandlerFeatures is a set of runtime features.
+ * NodeRuntimeHandlerFeatures is a set of features implemented by the runtime handler.
  * @export
  * @interface IoK8sApiCoreV1NodeRuntimeHandlerFeatures
  */
@@ -25,6 +25,12 @@ export interface IoK8sApiCoreV1NodeRuntimeHandlerFeatures {
    * @memberof IoK8sApiCoreV1NodeRuntimeHandlerFeatures
    */
   recursiveReadOnlyMounts?: boolean;
+  /**
+   * UserNamespaces is set to true if the runtime handler supports UserNamespaces, including for volumes.
+   * @type {boolean}
+   * @memberof IoK8sApiCoreV1NodeRuntimeHandlerFeatures
+   */
+  userNamespaces?: boolean;
 }
 
 export function IoK8sApiCoreV1NodeRuntimeHandlerFeaturesFromJSON(
@@ -44,6 +50,7 @@ export function IoK8sApiCoreV1NodeRuntimeHandlerFeaturesFromJSONTyped(
     recursiveReadOnlyMounts: !exists(json, 'recursiveReadOnlyMounts')
       ? undefined
       : json['recursiveReadOnlyMounts'],
+    userNamespaces: !exists(json, 'userNamespaces') ? undefined : json['userNamespaces'],
   };
 }
 
@@ -58,5 +65,6 @@ export function IoK8sApiCoreV1NodeRuntimeHandlerFeaturesToJSON(
   }
   return {
     recursiveReadOnlyMounts: value.recursiveReadOnlyMounts,
+    userNamespaces: value.userNamespaces,
   };
 }

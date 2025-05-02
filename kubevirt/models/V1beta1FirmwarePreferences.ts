@@ -43,6 +43,8 @@ export interface V1beta1FirmwarePreferences {
   preferredUseBiosSerial?: boolean;
   /**
    * PreferredUseEfi optionally enables EFI
+   *
+   * Deprecated: Will be removed with v1beta2 or v1
    * @type {boolean}
    * @memberof V1beta1FirmwarePreferences
    */
@@ -51,6 +53,8 @@ export interface V1beta1FirmwarePreferences {
    * PreferredUseSecureBoot optionally enables SecureBoot and the OVMF roms will be swapped for SecureBoot-enabled ones.
    *
    * Requires PreferredUseEfi and PreferredSmm to be enabled.
+   *
+   * Deprecated: Will be removed with v1beta2 or v1
    * @type {boolean}
    * @memberof V1beta1FirmwarePreferences
    */

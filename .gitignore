@@ -103,3 +103,6 @@ typings/
 .tern-port
 
 ./package-lock.json
+
+# JetBrains IDE settings files
+.idea

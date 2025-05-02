@@ -32,6 +32,12 @@ export interface V1MigrationConfiguration {
    */
   allowPostCopy?: boolean;
   /**
+   * AllowWorkloadDisruption indicates that the migration shouldn't be canceled after acceptableCompletionTime is exceeded. Instead, if permitted, migration will be switched to post-copy or the VMI will be paused to allow the migration to complete
+   * @type {boolean}
+   * @memberof V1MigrationConfiguration
+   */
+  allowWorkloadDisruption?: boolean;
+  /**
    * Quantity is a fixed-point representation of a number. It provides convenient marshaling/unmarshaling in JSON and YAML, in addition to String() and AsInt64() accessors.
    *
    * The serialization format is:
@@ -69,12 +75,12 @@ export interface V1MigrationConfiguration {
    * Non-canonical values will still parse as long as they are well formed, but will be re-emitted in their canonical form. (So always use canonical form, or don't diff.)
    *
    * This format is intended to make it difficult to use these numbers without writing some sort of special handling code in the hopes that that will cause implementors to also use a fixed point implementation.
-   * @type {string}
+   * @type {object}
    * @memberof V1MigrationConfiguration
    */
-  bandwidthPerMigration?: string;
+  bandwidthPerMigration?: object;
   /**
-   * CompletionTimeoutPerGiB is the maximum number of seconds per GiB a migration is allowed to take. If a live-migration takes longer to migrate than this value multiplied by the size of the VMI, the migration will be cancelled, unless AllowPostCopy is true. Defaults to 150
+   * CompletionTimeoutPerGiB is the maximum number of seconds per GiB a migration is allowed to take. If the timeout is reached, the migration will be either paused, switched to post-copy or cancelled depending on other settings. Defaults to 150
    * @type {number}
    * @memberof V1MigrationConfiguration
    */
@@ -143,6 +149,9 @@ export function V1MigrationConfigurationFromJSONTyped(
   return {
     allowAutoConverge: !exists(json, 'allowAutoConverge') ? undefined : json['allowAutoConverge'],
     allowPostCopy: !exists(json, 'allowPostCopy') ? undefined : json['allowPostCopy'],
+    allowWorkloadDisruption: !exists(json, 'allowWorkloadDisruption')
+      ? undefined
+      : json['allowWorkloadDisruption'],
     bandwidthPerMigration: !exists(json, 'bandwidthPerMigration')
       ? undefined
       : json['bandwidthPerMigration'],
@@ -178,6 +187,7 @@ export function V1MigrationConfigurationToJSON(value?: V1MigrationConfiguration 
   return {
     allowAutoConverge: value.allowAutoConverge,
     allowPostCopy: value.allowPostCopy,
+    allowWorkloadDisruption: value.allowWorkloadDisruption,
     bandwidthPerMigration: value.bandwidthPerMigration,
     completionTimeoutPerGiB: value.completionTimeoutPerGiB,
     disableTLS: value.disableTLS,

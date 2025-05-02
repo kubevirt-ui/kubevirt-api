@@ -20,6 +20,14 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiStorageV1VolumeError {
   /**
+   * errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.
+   *
+   * This is an optional, alpha field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
+   * @type {number}
+   * @memberof IoK8sApiStorageV1VolumeError
+   */
+  errorCode?: number;
+  /**
    * message represents the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.
    * @type {string}
    * @memberof IoK8sApiStorageV1VolumeError
@@ -45,6 +53,7 @@ export function IoK8sApiStorageV1VolumeErrorFromJSONTyped(
     return json;
   }
   return {
+    errorCode: !exists(json, 'errorCode') ? undefined : json['errorCode'],
     message: !exists(json, 'message') ? undefined : json['message'],
     time: !exists(json, 'time') ? undefined : json['time'],
   };
@@ -60,6 +69,7 @@ export function IoK8sApiStorageV1VolumeErrorToJSON(
     return null;
   }
   return {
+    errorCode: value.errorCode,
     message: value.message,
     time: value.time === undefined ? undefined : value.time,
   };

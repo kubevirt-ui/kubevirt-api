@@ -14,16 +14,16 @@
 
 import * as runtime from '../runtime';
 import {
-  IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy,
-  IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding,
-  IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingFromJSON,
-  IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingList,
-  IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingListFromJSON,
-  IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingToJSON,
-  IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyFromJSON,
-  IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyList,
-  IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyListFromJSON,
-  IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyToJSON,
+  IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicy,
+  IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding,
+  IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingFromJSON,
+  IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingList,
+  IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingListFromJSON,
+  IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingToJSON,
+  IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyFromJSON,
+  IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyList,
+  IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyListFromJSON,
+  IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyToJSON,
   IoK8sApimachineryPkgApisMetaV1APIResourceList,
   IoK8sApimachineryPkgApisMetaV1APIResourceListFromJSON,
   IoK8sApimachineryPkgApisMetaV1DeleteOptions,
@@ -34,28 +34,29 @@ import {
   IoK8sApimachineryPkgApisMetaV1WatchEventFromJSON,
 } from '../models';
 
-export interface CreateAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest {
-  body: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy;
+export interface CreateAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest {
+  body: IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicy;
   pretty?: string;
   dryRun?: string;
   fieldManager?: string;
   fieldValidation?: string;
 }
 
-export interface CreateAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest {
-  body: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding;
+export interface CreateAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest {
+  body: IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding;
   pretty?: string;
   dryRun?: string;
   fieldManager?: string;
   fieldValidation?: string;
 }
 
-export interface DeleteAdmissionregistrationV1alpha1CollectionValidatingAdmissionPolicyRequest {
+export interface DeleteAdmissionregistrationV1alpha1CollectionMutatingAdmissionPolicyRequest {
   pretty?: string;
   _continue?: string;
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -67,12 +68,13 @@ export interface DeleteAdmissionregistrationV1alpha1CollectionValidatingAdmissio
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
 
-export interface DeleteAdmissionregistrationV1alpha1CollectionValidatingAdmissionPolicyBindingRequest {
+export interface DeleteAdmissionregistrationV1alpha1CollectionMutatingAdmissionPolicyBindingRequest {
   pretty?: string;
   _continue?: string;
   dryRun?: string;
   fieldSelector?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   labelSelector?: string;
   limit?: number;
   orphanDependents?: boolean;
@@ -84,27 +86,29 @@ export interface DeleteAdmissionregistrationV1alpha1CollectionValidatingAdmissio
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
 
-export interface DeleteAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest {
+export interface DeleteAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest {
   name: string;
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
 
-export interface DeleteAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest {
+export interface DeleteAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest {
   name: string;
   pretty?: string;
   dryRun?: string;
   gracePeriodSeconds?: number;
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
   orphanDependents?: boolean;
   propagationPolicy?: string;
   body?: IoK8sApimachineryPkgApisMetaV1DeleteOptions;
 }
 
-export interface ListAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest {
+export interface ListAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest {
   pretty?: string;
   allowWatchBookmarks?: boolean;
   _continue?: string;
@@ -118,7 +122,7 @@ export interface ListAdmissionregistrationV1alpha1ValidatingAdmissionPolicyReque
   watch?: boolean;
 }
 
-export interface ListAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest {
+export interface ListAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest {
   pretty?: string;
   allowWatchBookmarks?: boolean;
   _continue?: string;
@@ -132,7 +136,7 @@ export interface ListAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindi
   watch?: boolean;
 }
 
-export interface PatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest {
+export interface PatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest {
   name: string;
   body: object;
   pretty?: string;
@@ -142,7 +146,7 @@ export interface PatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequ
   force?: boolean;
 }
 
-export interface PatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest {
+export interface PatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest {
   name: string;
   body: object;
   pretty?: string;
@@ -152,59 +156,35 @@ export interface PatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBind
   force?: boolean;
 }
 
-export interface PatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest {
-  name: string;
-  body: object;
-  pretty?: string;
-  dryRun?: string;
-  fieldManager?: string;
-  fieldValidation?: string;
-  force?: boolean;
-}
-
-export interface ReadAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest {
+export interface ReadAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest {
   name: string;
   pretty?: string;
 }
 
-export interface ReadAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest {
+export interface ReadAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest {
   name: string;
   pretty?: string;
 }
 
-export interface ReadAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest {
+export interface ReplaceAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest {
   name: string;
-  pretty?: string;
-}
-
-export interface ReplaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest {
-  name: string;
-  body: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy;
+  body: IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicy;
   pretty?: string;
   dryRun?: string;
   fieldManager?: string;
   fieldValidation?: string;
 }
 
-export interface ReplaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest {
+export interface ReplaceAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest {
   name: string;
-  body: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding;
+  body: IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding;
   pretty?: string;
   dryRun?: string;
   fieldManager?: string;
   fieldValidation?: string;
 }
 
-export interface ReplaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest {
-  name: string;
-  body: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy;
-  pretty?: string;
-  dryRun?: string;
-  fieldManager?: string;
-  fieldValidation?: string;
-}
-
-export interface WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest {
+export interface WatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest {
   name: string;
   allowWatchBookmarks?: boolean;
   _continue?: string;
@@ -219,7 +199,7 @@ export interface WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequ
   watch?: boolean;
 }
 
-export interface WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest {
+export interface WatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest {
   name: string;
   allowWatchBookmarks?: boolean;
   _continue?: string;
@@ -234,7 +214,7 @@ export interface WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBind
   watch?: boolean;
 }
 
-export interface WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingListRequest {
+export interface WatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingListRequest {
   allowWatchBookmarks?: boolean;
   _continue?: string;
   fieldSelector?: string;
@@ -248,7 +228,7 @@ export interface WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBind
   watch?: boolean;
 }
 
-export interface WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyListRequest {
+export interface WatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyListRequest {
   allowWatchBookmarks?: boolean;
   _continue?: string;
   fieldSelector?: string;
@@ -267,16 +247,16 @@ export interface WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyList
  */
 export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   /**
-   * create a ValidatingAdmissionPolicy
+   * create a MutatingAdmissionPolicy
    */
-  async createAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
-    requestParameters: CreateAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest,
+  async createAdmissionregistrationV1alpha1MutatingAdmissionPolicyRaw(
+    requestParameters: CreateAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy>> {
+  ): Promise<runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicy>> {
     if (requestParameters.body === null || requestParameters.body === undefined) {
       throw new runtime.RequiredError(
         'body',
-        'Required parameter requestParameters.body was null or undefined when calling createAdmissionregistrationV1alpha1ValidatingAdmissionPolicy.',
+        'Required parameter requestParameters.body was null or undefined when calling createAdmissionregistrationV1alpha1MutatingAdmissionPolicy.',
       );
     }
 
@@ -308,11 +288,11 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies`,
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/mutatingadmissionpolicies`,
         method: 'POST',
         headers: headerParameters,
         query: queryParameters,
-        body: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyToJSON(
+        body: IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyToJSON(
           requestParameters.body,
         ),
       },
@@ -320,18 +300,18 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyFromJSON(jsonValue),
+      IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyFromJSON(jsonValue),
     );
   }
 
   /**
-   * create a ValidatingAdmissionPolicy
+   * create a MutatingAdmissionPolicy
    */
-  async createAdmissionregistrationV1alpha1ValidatingAdmissionPolicy(
-    requestParameters: CreateAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest,
+  async createAdmissionregistrationV1alpha1MutatingAdmissionPolicy(
+    requestParameters: CreateAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
-  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy> {
-    const response = await this.createAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
+  ): Promise<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicy> {
+    const response = await this.createAdmissionregistrationV1alpha1MutatingAdmissionPolicyRaw(
       requestParameters,
       initOverrides,
     );
@@ -339,18 +319,18 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * create a ValidatingAdmissionPolicyBinding
+   * create a MutatingAdmissionPolicyBinding
    */
-  async createAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRaw(
-    requestParameters: CreateAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest,
+  async createAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRaw(
+    requestParameters: CreateAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
   ): Promise<
-    runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding>
+    runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding>
   > {
     if (requestParameters.body === null || requestParameters.body === undefined) {
       throw new runtime.RequiredError(
         'body',
-        'Required parameter requestParameters.body was null or undefined when calling createAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding.',
+        'Required parameter requestParameters.body was null or undefined when calling createAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding.',
       );
     }
 
@@ -382,11 +362,11 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicybindings`,
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/mutatingadmissionpolicybindings`,
         method: 'POST',
         headers: headerParameters,
         query: queryParameters,
-        body: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingToJSON(
+        body: IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingToJSON(
           requestParameters.body,
         ),
       },
@@ -394,19 +374,19 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingFromJSON(jsonValue),
+      IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingFromJSON(jsonValue),
     );
   }
 
   /**
-   * create a ValidatingAdmissionPolicyBinding
+   * create a MutatingAdmissionPolicyBinding
    */
-  async createAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding(
-    requestParameters: CreateAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest,
+  async createAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding(
+    requestParameters: CreateAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
-  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding> {
+  ): Promise<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding> {
     const response =
-      await this.createAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRaw(
+      await this.createAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRaw(
         requestParameters,
         initOverrides,
       );
@@ -414,10 +394,10 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * delete collection of ValidatingAdmissionPolicy
+   * delete collection of MutatingAdmissionPolicy
    */
-  async deleteAdmissionregistrationV1alpha1CollectionValidatingAdmissionPolicyRaw(
-    requestParameters: DeleteAdmissionregistrationV1alpha1CollectionValidatingAdmissionPolicyRequest,
+  async deleteAdmissionregistrationV1alpha1CollectionMutatingAdmissionPolicyRaw(
+    requestParameters: DeleteAdmissionregistrationV1alpha1CollectionMutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
   ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1Status>> {
     const queryParameters: any = {};
@@ -440,6 +420,11 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.labelSelector !== undefined) {
@@ -484,7 +469,7 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies`,
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/mutatingadmissionpolicies`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -499,14 +484,14 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * delete collection of ValidatingAdmissionPolicy
+   * delete collection of MutatingAdmissionPolicy
    */
-  async deleteAdmissionregistrationV1alpha1CollectionValidatingAdmissionPolicy(
-    requestParameters: DeleteAdmissionregistrationV1alpha1CollectionValidatingAdmissionPolicyRequest,
+  async deleteAdmissionregistrationV1alpha1CollectionMutatingAdmissionPolicy(
+    requestParameters: DeleteAdmissionregistrationV1alpha1CollectionMutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
   ): Promise<IoK8sApimachineryPkgApisMetaV1Status> {
     const response =
-      await this.deleteAdmissionregistrationV1alpha1CollectionValidatingAdmissionPolicyRaw(
+      await this.deleteAdmissionregistrationV1alpha1CollectionMutatingAdmissionPolicyRaw(
         requestParameters,
         initOverrides,
       );
@@ -514,10 +499,10 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * delete collection of ValidatingAdmissionPolicyBinding
+   * delete collection of MutatingAdmissionPolicyBinding
    */
-  async deleteAdmissionregistrationV1alpha1CollectionValidatingAdmissionPolicyBindingRaw(
-    requestParameters: DeleteAdmissionregistrationV1alpha1CollectionValidatingAdmissionPolicyBindingRequest,
+  async deleteAdmissionregistrationV1alpha1CollectionMutatingAdmissionPolicyBindingRaw(
+    requestParameters: DeleteAdmissionregistrationV1alpha1CollectionMutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
   ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1Status>> {
     const queryParameters: any = {};
@@ -540,6 +525,11 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.labelSelector !== undefined) {
@@ -584,7 +574,7 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicybindings`,
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/mutatingadmissionpolicybindings`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -599,14 +589,14 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * delete collection of ValidatingAdmissionPolicyBinding
+   * delete collection of MutatingAdmissionPolicyBinding
    */
-  async deleteAdmissionregistrationV1alpha1CollectionValidatingAdmissionPolicyBinding(
-    requestParameters: DeleteAdmissionregistrationV1alpha1CollectionValidatingAdmissionPolicyBindingRequest,
+  async deleteAdmissionregistrationV1alpha1CollectionMutatingAdmissionPolicyBinding(
+    requestParameters: DeleteAdmissionregistrationV1alpha1CollectionMutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
   ): Promise<IoK8sApimachineryPkgApisMetaV1Status> {
     const response =
-      await this.deleteAdmissionregistrationV1alpha1CollectionValidatingAdmissionPolicyBindingRaw(
+      await this.deleteAdmissionregistrationV1alpha1CollectionMutatingAdmissionPolicyBindingRaw(
         requestParameters,
         initOverrides,
       );
@@ -614,16 +604,16 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * delete a ValidatingAdmissionPolicy
+   * delete a MutatingAdmissionPolicy
    */
-  async deleteAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
-    requestParameters: DeleteAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest,
+  async deleteAdmissionregistrationV1alpha1MutatingAdmissionPolicyRaw(
+    requestParameters: DeleteAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
   ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1Status>> {
     if (requestParameters.name === null || requestParameters.name === undefined) {
       throw new runtime.RequiredError(
         'name',
-        'Required parameter requestParameters.name was null or undefined when calling deleteAdmissionregistrationV1alpha1ValidatingAdmissionPolicy.',
+        'Required parameter requestParameters.name was null or undefined when calling deleteAdmissionregistrationV1alpha1MutatingAdmissionPolicy.',
       );
     }
 
@@ -639,6 +629,11 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.orphanDependents !== undefined) {
@@ -659,7 +654,7 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies/{name}`.replace(
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/mutatingadmissionpolicies/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -677,13 +672,13 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * delete a ValidatingAdmissionPolicy
+   * delete a MutatingAdmissionPolicy
    */
-  async deleteAdmissionregistrationV1alpha1ValidatingAdmissionPolicy(
-    requestParameters: DeleteAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest,
+  async deleteAdmissionregistrationV1alpha1MutatingAdmissionPolicy(
+    requestParameters: DeleteAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
   ): Promise<IoK8sApimachineryPkgApisMetaV1Status> {
-    const response = await this.deleteAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
+    const response = await this.deleteAdmissionregistrationV1alpha1MutatingAdmissionPolicyRaw(
       requestParameters,
       initOverrides,
     );
@@ -691,16 +686,16 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * delete a ValidatingAdmissionPolicyBinding
+   * delete a MutatingAdmissionPolicyBinding
    */
-  async deleteAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRaw(
-    requestParameters: DeleteAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest,
+  async deleteAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRaw(
+    requestParameters: DeleteAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
   ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1Status>> {
     if (requestParameters.name === null || requestParameters.name === undefined) {
       throw new runtime.RequiredError(
         'name',
-        'Required parameter requestParameters.name was null or undefined when calling deleteAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding.',
+        'Required parameter requestParameters.name was null or undefined when calling deleteAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding.',
       );
     }
 
@@ -716,6 +711,11 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     if (requestParameters.gracePeriodSeconds !== undefined) {
       queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+    }
+
+    if (requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential !== undefined) {
+      queryParameters['ignoreStoreReadErrorWithClusterBreakingPotential'] =
+        requestParameters.ignoreStoreReadErrorWithClusterBreakingPotential;
     }
 
     if (requestParameters.orphanDependents !== undefined) {
@@ -736,7 +736,7 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicybindings/{name}`.replace(
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/mutatingadmissionpolicybindings/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -754,14 +754,14 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * delete a ValidatingAdmissionPolicyBinding
+   * delete a MutatingAdmissionPolicyBinding
    */
-  async deleteAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding(
-    requestParameters: DeleteAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest,
+  async deleteAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding(
+    requestParameters: DeleteAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
   ): Promise<IoK8sApimachineryPkgApisMetaV1Status> {
     const response =
-      await this.deleteAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRaw(
+      await this.deleteAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRaw(
         requestParameters,
         initOverrides,
       );
@@ -808,13 +808,13 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * list or watch objects of kind ValidatingAdmissionPolicy
+   * list or watch objects of kind MutatingAdmissionPolicy
    */
-  async listAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
-    requestParameters: ListAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest,
+  async listAdmissionregistrationV1alpha1MutatingAdmissionPolicyRaw(
+    requestParameters: ListAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
   ): Promise<
-    runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyList>
+    runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyList>
   > {
     const queryParameters: any = {};
 
@@ -870,7 +870,7 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies`,
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/mutatingadmissionpolicies`,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -879,18 +879,18 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyListFromJSON(jsonValue),
+      IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyListFromJSON(jsonValue),
     );
   }
 
   /**
-   * list or watch objects of kind ValidatingAdmissionPolicy
+   * list or watch objects of kind MutatingAdmissionPolicy
    */
-  async listAdmissionregistrationV1alpha1ValidatingAdmissionPolicy(
-    requestParameters: ListAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest,
+  async listAdmissionregistrationV1alpha1MutatingAdmissionPolicy(
+    requestParameters: ListAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
-  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyList> {
-    const response = await this.listAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
+  ): Promise<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyList> {
+    const response = await this.listAdmissionregistrationV1alpha1MutatingAdmissionPolicyRaw(
       requestParameters,
       initOverrides,
     );
@@ -898,13 +898,13 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * list or watch objects of kind ValidatingAdmissionPolicyBinding
+   * list or watch objects of kind MutatingAdmissionPolicyBinding
    */
-  async listAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRaw(
-    requestParameters: ListAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest,
+  async listAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRaw(
+    requestParameters: ListAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
   ): Promise<
-    runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingList>
+    runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingList>
   > {
     const queryParameters: any = {};
 
@@ -960,7 +960,7 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicybindings`,
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/mutatingadmissionpolicybindings`,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -969,43 +969,42 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingListFromJSON(jsonValue),
+      IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingListFromJSON(jsonValue),
     );
   }
 
   /**
-   * list or watch objects of kind ValidatingAdmissionPolicyBinding
+   * list or watch objects of kind MutatingAdmissionPolicyBinding
    */
-  async listAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding(
-    requestParameters: ListAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest,
+  async listAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding(
+    requestParameters: ListAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
-  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingList> {
-    const response =
-      await this.listAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRaw(
-        requestParameters,
-        initOverrides,
-      );
+  ): Promise<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingList> {
+    const response = await this.listAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRaw(
+      requestParameters,
+      initOverrides,
+    );
     return await response.value();
   }
 
   /**
-   * partially update the specified ValidatingAdmissionPolicy
+   * partially update the specified MutatingAdmissionPolicy
    */
-  async patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
-    requestParameters: PatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest,
+  async patchAdmissionregistrationV1alpha1MutatingAdmissionPolicyRaw(
+    requestParameters: PatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy>> {
+  ): Promise<runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicy>> {
     if (requestParameters.name === null || requestParameters.name === undefined) {
       throw new runtime.RequiredError(
         'name',
-        'Required parameter requestParameters.name was null or undefined when calling patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicy.',
+        'Required parameter requestParameters.name was null or undefined when calling patchAdmissionregistrationV1alpha1MutatingAdmissionPolicy.',
       );
     }
 
     if (requestParameters.body === null || requestParameters.body === undefined) {
       throw new runtime.RequiredError(
         'body',
-        'Required parameter requestParameters.body was null or undefined when calling patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicy.',
+        'Required parameter requestParameters.body was null or undefined when calling patchAdmissionregistrationV1alpha1MutatingAdmissionPolicy.',
       );
     }
 
@@ -1041,7 +1040,7 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies/{name}`.replace(
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/mutatingadmissionpolicies/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -1054,18 +1053,18 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyFromJSON(jsonValue),
+      IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyFromJSON(jsonValue),
     );
   }
 
   /**
-   * partially update the specified ValidatingAdmissionPolicy
+   * partially update the specified MutatingAdmissionPolicy
    */
-  async patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicy(
-    requestParameters: PatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest,
+  async patchAdmissionregistrationV1alpha1MutatingAdmissionPolicy(
+    requestParameters: PatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
-  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy> {
-    const response = await this.patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
+  ): Promise<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicy> {
+    const response = await this.patchAdmissionregistrationV1alpha1MutatingAdmissionPolicyRaw(
       requestParameters,
       initOverrides,
     );
@@ -1073,25 +1072,25 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * partially update the specified ValidatingAdmissionPolicyBinding
+   * partially update the specified MutatingAdmissionPolicyBinding
    */
-  async patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRaw(
-    requestParameters: PatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest,
+  async patchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRaw(
+    requestParameters: PatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
   ): Promise<
-    runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding>
+    runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding>
   > {
     if (requestParameters.name === null || requestParameters.name === undefined) {
       throw new runtime.RequiredError(
         'name',
-        'Required parameter requestParameters.name was null or undefined when calling patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding.',
+        'Required parameter requestParameters.name was null or undefined when calling patchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding.',
       );
     }
 
     if (requestParameters.body === null || requestParameters.body === undefined) {
       throw new runtime.RequiredError(
         'body',
-        'Required parameter requestParameters.body was null or undefined when calling patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding.',
+        'Required parameter requestParameters.body was null or undefined when calling patchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding.',
       );
     }
 
@@ -1127,7 +1126,7 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicybindings/{name}`.replace(
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/mutatingadmissionpolicybindings/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -1140,121 +1139,35 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingFromJSON(jsonValue),
+      IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingFromJSON(jsonValue),
     );
   }
 
   /**
-   * partially update the specified ValidatingAdmissionPolicyBinding
+   * partially update the specified MutatingAdmissionPolicyBinding
    */
-  async patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding(
-    requestParameters: PatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest,
+  async patchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding(
+    requestParameters: PatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
-  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding> {
-    const response =
-      await this.patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRaw(
-        requestParameters,
-        initOverrides,
-      );
-    return await response.value();
-  }
-
-  /**
-   * partially update status of the specified ValidatingAdmissionPolicy
-   */
-  async patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRaw(
-    requestParameters: PatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest,
-    initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy>> {
-    if (requestParameters.name === null || requestParameters.name === undefined) {
-      throw new runtime.RequiredError(
-        'name',
-        'Required parameter requestParameters.name was null or undefined when calling patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus.',
-      );
-    }
-
-    if (requestParameters.body === null || requestParameters.body === undefined) {
-      throw new runtime.RequiredError(
-        'body',
-        'Required parameter requestParameters.body was null or undefined when calling patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus.',
-      );
-    }
-
-    const queryParameters: any = {};
-
-    if (requestParameters.pretty !== undefined) {
-      queryParameters['pretty'] = requestParameters.pretty;
-    }
-
-    if (requestParameters.dryRun !== undefined) {
-      queryParameters['dryRun'] = requestParameters.dryRun;
-    }
-
-    if (requestParameters.fieldManager !== undefined) {
-      queryParameters['fieldManager'] = requestParameters.fieldManager;
-    }
-
-    if (requestParameters.fieldValidation !== undefined) {
-      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
-    }
-
-    if (requestParameters.force !== undefined) {
-      queryParameters['force'] = requestParameters.force;
-    }
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    headerParameters['Content-Type'] = 'application/json-patch+json';
-
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
-    }
-
-    const response = await this.request(
-      {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies/{name}/status`.replace(
-          `{${'name'}}`,
-          encodeURIComponent(String(requestParameters.name)),
-        ),
-        method: 'PATCH',
-        headers: headerParameters,
-        query: queryParameters,
-        body: requestParameters.body as any,
-      },
+  ): Promise<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding> {
+    const response = await this.patchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRaw(
+      requestParameters,
       initOverrides,
     );
-
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyFromJSON(jsonValue),
-    );
-  }
-
-  /**
-   * partially update status of the specified ValidatingAdmissionPolicy
-   */
-  async patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus(
-    requestParameters: PatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest,
-    initOverrides?: RequestInit,
-  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy> {
-    const response =
-      await this.patchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRaw(
-        requestParameters,
-        initOverrides,
-      );
     return await response.value();
   }
 
   /**
-   * read the specified ValidatingAdmissionPolicy
+   * read the specified MutatingAdmissionPolicy
    */
-  async readAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
-    requestParameters: ReadAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest,
+  async readAdmissionregistrationV1alpha1MutatingAdmissionPolicyRaw(
+    requestParameters: ReadAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy>> {
+  ): Promise<runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicy>> {
     if (requestParameters.name === null || requestParameters.name === undefined) {
       throw new runtime.RequiredError(
         'name',
-        'Required parameter requestParameters.name was null or undefined when calling readAdmissionregistrationV1alpha1ValidatingAdmissionPolicy.',
+        'Required parameter requestParameters.name was null or undefined when calling readAdmissionregistrationV1alpha1MutatingAdmissionPolicy.',
       );
     }
 
@@ -1272,7 +1185,7 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies/{name}`.replace(
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/mutatingadmissionpolicies/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -1284,18 +1197,18 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyFromJSON(jsonValue),
+      IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyFromJSON(jsonValue),
     );
   }
 
   /**
-   * read the specified ValidatingAdmissionPolicy
+   * read the specified MutatingAdmissionPolicy
    */
-  async readAdmissionregistrationV1alpha1ValidatingAdmissionPolicy(
-    requestParameters: ReadAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest,
+  async readAdmissionregistrationV1alpha1MutatingAdmissionPolicy(
+    requestParameters: ReadAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
-  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy> {
-    const response = await this.readAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
+  ): Promise<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicy> {
+    const response = await this.readAdmissionregistrationV1alpha1MutatingAdmissionPolicyRaw(
       requestParameters,
       initOverrides,
     );
@@ -1303,18 +1216,18 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * read the specified ValidatingAdmissionPolicyBinding
+   * read the specified MutatingAdmissionPolicyBinding
    */
-  async readAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRaw(
-    requestParameters: ReadAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest,
+  async readAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRaw(
+    requestParameters: ReadAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
   ): Promise<
-    runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding>
+    runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding>
   > {
     if (requestParameters.name === null || requestParameters.name === undefined) {
       throw new runtime.RequiredError(
         'name',
-        'Required parameter requestParameters.name was null or undefined when calling readAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding.',
+        'Required parameter requestParameters.name was null or undefined when calling readAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding.',
       );
     }
 
@@ -1332,7 +1245,7 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicybindings/{name}`.replace(
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/mutatingadmissionpolicybindings/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -1344,77 +1257,18 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingFromJSON(jsonValue),
+      IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingFromJSON(jsonValue),
     );
   }
 
   /**
-   * read the specified ValidatingAdmissionPolicyBinding
+   * read the specified MutatingAdmissionPolicyBinding
    */
-  async readAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding(
-    requestParameters: ReadAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest,
+  async readAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding(
+    requestParameters: ReadAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
-  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding> {
-    const response =
-      await this.readAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRaw(
-        requestParameters,
-        initOverrides,
-      );
-    return await response.value();
-  }
-
-  /**
-   * read status of the specified ValidatingAdmissionPolicy
-   */
-  async readAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRaw(
-    requestParameters: ReadAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest,
-    initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy>> {
-    if (requestParameters.name === null || requestParameters.name === undefined) {
-      throw new runtime.RequiredError(
-        'name',
-        'Required parameter requestParameters.name was null or undefined when calling readAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus.',
-      );
-    }
-
-    const queryParameters: any = {};
-
-    if (requestParameters.pretty !== undefined) {
-      queryParameters['pretty'] = requestParameters.pretty;
-    }
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
-    }
-
-    const response = await this.request(
-      {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies/{name}/status`.replace(
-          `{${'name'}}`,
-          encodeURIComponent(String(requestParameters.name)),
-        ),
-        method: 'GET',
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides,
-    );
-
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyFromJSON(jsonValue),
-    );
-  }
-
-  /**
-   * read status of the specified ValidatingAdmissionPolicy
-   */
-  async readAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus(
-    requestParameters: ReadAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest,
-    initOverrides?: RequestInit,
-  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy> {
-    const response = await this.readAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRaw(
+  ): Promise<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding> {
+    const response = await this.readAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRaw(
       requestParameters,
       initOverrides,
     );
@@ -1422,23 +1276,23 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * replace the specified ValidatingAdmissionPolicy
+   * replace the specified MutatingAdmissionPolicy
    */
-  async replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
-    requestParameters: ReplaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest,
+  async replaceAdmissionregistrationV1alpha1MutatingAdmissionPolicyRaw(
+    requestParameters: ReplaceAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy>> {
+  ): Promise<runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicy>> {
     if (requestParameters.name === null || requestParameters.name === undefined) {
       throw new runtime.RequiredError(
         'name',
-        'Required parameter requestParameters.name was null or undefined when calling replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicy.',
+        'Required parameter requestParameters.name was null or undefined when calling replaceAdmissionregistrationV1alpha1MutatingAdmissionPolicy.',
       );
     }
 
     if (requestParameters.body === null || requestParameters.body === undefined) {
       throw new runtime.RequiredError(
         'body',
-        'Required parameter requestParameters.body was null or undefined when calling replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicy.',
+        'Required parameter requestParameters.body was null or undefined when calling replaceAdmissionregistrationV1alpha1MutatingAdmissionPolicy.',
       );
     }
 
@@ -1470,14 +1324,14 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies/{name}`.replace(
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/mutatingadmissionpolicies/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
         method: 'PUT',
         headers: headerParameters,
         query: queryParameters,
-        body: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyToJSON(
+        body: IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyToJSON(
           requestParameters.body,
         ),
       },
@@ -1485,18 +1339,18 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyFromJSON(jsonValue),
+      IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyFromJSON(jsonValue),
     );
   }
 
   /**
-   * replace the specified ValidatingAdmissionPolicy
+   * replace the specified MutatingAdmissionPolicy
    */
-  async replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicy(
-    requestParameters: ReplaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest,
+  async replaceAdmissionregistrationV1alpha1MutatingAdmissionPolicy(
+    requestParameters: ReplaceAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
-  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy> {
-    const response = await this.replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
+  ): Promise<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicy> {
+    const response = await this.replaceAdmissionregistrationV1alpha1MutatingAdmissionPolicyRaw(
       requestParameters,
       initOverrides,
     );
@@ -1504,25 +1358,25 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * replace the specified ValidatingAdmissionPolicyBinding
+   * replace the specified MutatingAdmissionPolicyBinding
    */
-  async replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRaw(
-    requestParameters: ReplaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest,
+  async replaceAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRaw(
+    requestParameters: ReplaceAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
   ): Promise<
-    runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding>
+    runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding>
   > {
     if (requestParameters.name === null || requestParameters.name === undefined) {
       throw new runtime.RequiredError(
         'name',
-        'Required parameter requestParameters.name was null or undefined when calling replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding.',
+        'Required parameter requestParameters.name was null or undefined when calling replaceAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding.',
       );
     }
 
     if (requestParameters.body === null || requestParameters.body === undefined) {
       throw new runtime.RequiredError(
         'body',
-        'Required parameter requestParameters.body was null or undefined when calling replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding.',
+        'Required parameter requestParameters.body was null or undefined when calling replaceAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding.',
       );
     }
 
@@ -1554,14 +1408,14 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicybindings/{name}`.replace(
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/mutatingadmissionpolicybindings/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
         method: 'PUT',
         headers: headerParameters,
         query: queryParameters,
-        body: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingToJSON(
+        body: IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingToJSON(
           requestParameters.body,
         ),
       },
@@ -1569,19 +1423,19 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingFromJSON(jsonValue),
+      IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingFromJSON(jsonValue),
     );
   }
 
   /**
-   * replace the specified ValidatingAdmissionPolicyBinding
+   * replace the specified MutatingAdmissionPolicyBinding
    */
-  async replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding(
-    requestParameters: ReplaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest,
+  async replaceAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding(
+    requestParameters: ReplaceAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
-  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding> {
+  ): Promise<IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding> {
     const response =
-      await this.replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRaw(
+      await this.replaceAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRaw(
         requestParameters,
         initOverrides,
       );
@@ -1589,99 +1443,16 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * replace status of the specified ValidatingAdmissionPolicy
+   * watch changes to an object of kind MutatingAdmissionPolicy. deprecated: use the \'watch\' parameter with a list operation instead, filtered to a single item with the \'fieldSelector\' parameter.
    */
-  async replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRaw(
-    requestParameters: ReplaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest,
-    initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy>> {
-    if (requestParameters.name === null || requestParameters.name === undefined) {
-      throw new runtime.RequiredError(
-        'name',
-        'Required parameter requestParameters.name was null or undefined when calling replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus.',
-      );
-    }
-
-    if (requestParameters.body === null || requestParameters.body === undefined) {
-      throw new runtime.RequiredError(
-        'body',
-        'Required parameter requestParameters.body was null or undefined when calling replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus.',
-      );
-    }
-
-    const queryParameters: any = {};
-
-    if (requestParameters.pretty !== undefined) {
-      queryParameters['pretty'] = requestParameters.pretty;
-    }
-
-    if (requestParameters.dryRun !== undefined) {
-      queryParameters['dryRun'] = requestParameters.dryRun;
-    }
-
-    if (requestParameters.fieldManager !== undefined) {
-      queryParameters['fieldManager'] = requestParameters.fieldManager;
-    }
-
-    if (requestParameters.fieldValidation !== undefined) {
-      queryParameters['fieldValidation'] = requestParameters.fieldValidation;
-    }
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    headerParameters['Content-Type'] = 'application/json';
-
-    if (this.configuration && this.configuration.apiKey) {
-      headerParameters['authorization'] = this.configuration.apiKey('authorization'); // BearerToken authentication
-    }
-
-    const response = await this.request(
-      {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/validatingadmissionpolicies/{name}/status`.replace(
-          `{${'name'}}`,
-          encodeURIComponent(String(requestParameters.name)),
-        ),
-        method: 'PUT',
-        headers: headerParameters,
-        query: queryParameters,
-        body: IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyToJSON(
-          requestParameters.body,
-        ),
-      },
-      initOverrides,
-    );
-
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicyFromJSON(jsonValue),
-    );
-  }
-
-  /**
-   * replace status of the specified ValidatingAdmissionPolicy
-   */
-  async replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatus(
-    requestParameters: ReplaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRequest,
-    initOverrides?: RequestInit,
-  ): Promise<IoK8sApiAdmissionregistrationV1alpha1ValidatingAdmissionPolicy> {
-    const response =
-      await this.replaceAdmissionregistrationV1alpha1ValidatingAdmissionPolicyStatusRaw(
-        requestParameters,
-        initOverrides,
-      );
-    return await response.value();
-  }
-
-  /**
-   * watch changes to an object of kind ValidatingAdmissionPolicy. deprecated: use the \'watch\' parameter with a list operation instead, filtered to a single item with the \'fieldSelector\' parameter.
-   */
-  async watchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
-    requestParameters: WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest,
+  async watchAdmissionregistrationV1alpha1MutatingAdmissionPolicyRaw(
+    requestParameters: WatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
   ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1WatchEvent>> {
     if (requestParameters.name === null || requestParameters.name === undefined) {
       throw new runtime.RequiredError(
         'name',
-        'Required parameter requestParameters.name was null or undefined when calling watchAdmissionregistrationV1alpha1ValidatingAdmissionPolicy.',
+        'Required parameter requestParameters.name was null or undefined when calling watchAdmissionregistrationV1alpha1MutatingAdmissionPolicy.',
       );
     }
 
@@ -1739,7 +1510,7 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/watch/validatingadmissionpolicies/{name}`.replace(
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/watch/mutatingadmissionpolicies/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -1756,13 +1527,13 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * watch changes to an object of kind ValidatingAdmissionPolicy. deprecated: use the \'watch\' parameter with a list operation instead, filtered to a single item with the \'fieldSelector\' parameter.
+   * watch changes to an object of kind MutatingAdmissionPolicy. deprecated: use the \'watch\' parameter with a list operation instead, filtered to a single item with the \'fieldSelector\' parameter.
    */
-  async watchAdmissionregistrationV1alpha1ValidatingAdmissionPolicy(
-    requestParameters: WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRequest,
+  async watchAdmissionregistrationV1alpha1MutatingAdmissionPolicy(
+    requestParameters: WatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyRequest,
     initOverrides?: RequestInit,
   ): Promise<IoK8sApimachineryPkgApisMetaV1WatchEvent> {
-    const response = await this.watchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyRaw(
+    const response = await this.watchAdmissionregistrationV1alpha1MutatingAdmissionPolicyRaw(
       requestParameters,
       initOverrides,
     );
@@ -1770,16 +1541,16 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * watch changes to an object of kind ValidatingAdmissionPolicyBinding. deprecated: use the \'watch\' parameter with a list operation instead, filtered to a single item with the \'fieldSelector\' parameter.
+   * watch changes to an object of kind MutatingAdmissionPolicyBinding. deprecated: use the \'watch\' parameter with a list operation instead, filtered to a single item with the \'fieldSelector\' parameter.
    */
-  async watchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRaw(
-    requestParameters: WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest,
+  async watchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRaw(
+    requestParameters: WatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
   ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1WatchEvent>> {
     if (requestParameters.name === null || requestParameters.name === undefined) {
       throw new runtime.RequiredError(
         'name',
-        'Required parameter requestParameters.name was null or undefined when calling watchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding.',
+        'Required parameter requestParameters.name was null or undefined when calling watchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding.',
       );
     }
 
@@ -1837,7 +1608,7 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/watch/validatingadmissionpolicybindings/{name}`.replace(
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/watch/mutatingadmissionpolicybindings/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -1854,25 +1625,24 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * watch changes to an object of kind ValidatingAdmissionPolicyBinding. deprecated: use the \'watch\' parameter with a list operation instead, filtered to a single item with the \'fieldSelector\' parameter.
+   * watch changes to an object of kind MutatingAdmissionPolicyBinding. deprecated: use the \'watch\' parameter with a list operation instead, filtered to a single item with the \'fieldSelector\' parameter.
    */
-  async watchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBinding(
-    requestParameters: WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRequest,
+  async watchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding(
+    requestParameters: WatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRequest,
     initOverrides?: RequestInit,
   ): Promise<IoK8sApimachineryPkgApisMetaV1WatchEvent> {
-    const response =
-      await this.watchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingRaw(
-        requestParameters,
-        initOverrides,
-      );
+    const response = await this.watchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingRaw(
+      requestParameters,
+      initOverrides,
+    );
     return await response.value();
   }
 
   /**
-   * watch individual changes to a list of ValidatingAdmissionPolicyBinding. deprecated: use the \'watch\' parameter with a list operation instead.
+   * watch individual changes to a list of MutatingAdmissionPolicyBinding. deprecated: use the \'watch\' parameter with a list operation instead.
    */
-  async watchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingListRaw(
-    requestParameters: WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingListRequest,
+  async watchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingListRaw(
+    requestParameters: WatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingListRequest,
     initOverrides?: RequestInit,
   ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1WatchEvent>> {
     const queryParameters: any = {};
@@ -1929,7 +1699,7 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/watch/validatingadmissionpolicybindings`,
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/watch/mutatingadmissionpolicybindings`,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -1943,14 +1713,14 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * watch individual changes to a list of ValidatingAdmissionPolicyBinding. deprecated: use the \'watch\' parameter with a list operation instead.
+   * watch individual changes to a list of MutatingAdmissionPolicyBinding. deprecated: use the \'watch\' parameter with a list operation instead.
    */
-  async watchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingList(
-    requestParameters: WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingListRequest,
+  async watchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingList(
+    requestParameters: WatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingListRequest,
     initOverrides?: RequestInit,
   ): Promise<IoK8sApimachineryPkgApisMetaV1WatchEvent> {
     const response =
-      await this.watchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyBindingListRaw(
+      await this.watchAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingListRaw(
         requestParameters,
         initOverrides,
       );
@@ -1958,10 +1728,10 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * watch individual changes to a list of ValidatingAdmissionPolicy. deprecated: use the \'watch\' parameter with a list operation instead.
+   * watch individual changes to a list of MutatingAdmissionPolicy. deprecated: use the \'watch\' parameter with a list operation instead.
    */
-  async watchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyListRaw(
-    requestParameters: WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyListRequest,
+  async watchAdmissionregistrationV1alpha1MutatingAdmissionPolicyListRaw(
+    requestParameters: WatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyListRequest,
     initOverrides?: RequestInit,
   ): Promise<runtime.ApiResponse<IoK8sApimachineryPkgApisMetaV1WatchEvent>> {
     const queryParameters: any = {};
@@ -2018,7 +1788,7 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/admissionregistration.k8s.io/v1alpha1/watch/validatingadmissionpolicies`,
+        path: `/apis/admissionregistration.k8s.io/v1alpha1/watch/mutatingadmissionpolicies`,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -2032,13 +1802,13 @@ export class AdmissionregistrationV1alpha1Api extends runtime.BaseAPI {
   }
 
   /**
-   * watch individual changes to a list of ValidatingAdmissionPolicy. deprecated: use the \'watch\' parameter with a list operation instead.
+   * watch individual changes to a list of MutatingAdmissionPolicy. deprecated: use the \'watch\' parameter with a list operation instead.
    */
-  async watchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyList(
-    requestParameters: WatchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyListRequest,
+  async watchAdmissionregistrationV1alpha1MutatingAdmissionPolicyList(
+    requestParameters: WatchAdmissionregistrationV1alpha1MutatingAdmissionPolicyListRequest,
     initOverrides?: RequestInit,
   ): Promise<IoK8sApimachineryPkgApisMetaV1WatchEvent> {
-    const response = await this.watchAdmissionregistrationV1alpha1ValidatingAdmissionPolicyListRaw(
+    const response = await this.watchAdmissionregistrationV1alpha1MutatingAdmissionPolicyListRaw(
       requestParameters,
       initOverrides,
     );

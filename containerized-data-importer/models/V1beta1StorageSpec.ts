@@ -17,15 +17,15 @@ import {
   V1LabelSelector,
   V1LabelSelectorFromJSON,
   V1LabelSelectorToJSON,
-  V1ResourceRequirements,
-  V1ResourceRequirementsFromJSON,
-  V1ResourceRequirementsToJSON,
   V1TypedLocalObjectReference,
   V1TypedLocalObjectReferenceFromJSON,
   V1TypedLocalObjectReferenceToJSON,
   V1TypedObjectReference,
   V1TypedObjectReferenceFromJSON,
   V1TypedObjectReferenceToJSON,
+  V1VolumeResourceRequirements,
+  V1VolumeResourceRequirementsFromJSON,
+  V1VolumeResourceRequirementsToJSON,
 } from './';
 
 /**
@@ -39,7 +39,7 @@ export interface V1beta1StorageSpec {
    * @type {Array<string>}
    * @memberof V1beta1StorageSpec
    */
-  accessModes?: Array<string>;
+  accessModes?: Array<V1beta1StorageSpecAccessModesEnum>;
   /**
    *
    * @type {V1TypedLocalObjectReference}
@@ -54,10 +54,10 @@ export interface V1beta1StorageSpec {
   dataSourceRef?: V1TypedObjectReference;
   /**
    *
-   * @type {V1ResourceRequirements}
+   * @type {V1VolumeResourceRequirements}
    * @memberof V1beta1StorageSpec
    */
-  resources?: V1ResourceRequirements;
+  resources?: V1VolumeResourceRequirements;
   /**
    *
    * @type {V1LabelSelector}
@@ -93,6 +93,16 @@ export interface V1beta1StorageSpec {
  * @export
  * @enum {string}
  */
+export enum V1beta1StorageSpecAccessModesEnum {
+  ReadOnlyMany = 'ReadOnlyMany',
+  ReadWriteMany = 'ReadWriteMany',
+  ReadWriteOnce = 'ReadWriteOnce',
+  ReadWriteOncePod = 'ReadWriteOncePod',
+}
+/**
+ * @export
+ * @enum {string}
+ */
 export enum V1beta1StorageSpecVolumeModeEnum {
   Block = 'Block',
   Filesystem = 'Filesystem',
@@ -120,7 +130,7 @@ export function V1beta1StorageSpecFromJSONTyped(
       : V1TypedObjectReferenceFromJSON(json['dataSourceRef']),
     resources: !exists(json, 'resources')
       ? undefined
-      : V1ResourceRequirementsFromJSON(json['resources']),
+      : V1VolumeResourceRequirementsFromJSON(json['resources']),
     selector: !exists(json, 'selector') ? undefined : V1LabelSelectorFromJSON(json['selector']),
     storageClassName: !exists(json, 'storageClassName') ? undefined : json['storageClassName'],
     volumeMode: !exists(json, 'volumeMode') ? undefined : json['volumeMode'],
@@ -139,7 +149,7 @@ export function V1beta1StorageSpecToJSON(value?: V1beta1StorageSpec | null): any
     accessModes: value.accessModes,
     dataSource: V1TypedLocalObjectReferenceToJSON(value.dataSource),
     dataSourceRef: V1TypedObjectReferenceToJSON(value.dataSourceRef),
-    resources: V1ResourceRequirementsToJSON(value.resources),
+    resources: V1VolumeResourceRequirementsToJSON(value.resources),
     selector: V1LabelSelectorToJSON(value.selector),
     storageClassName: value.storageClassName,
     volumeMode: value.volumeMode,

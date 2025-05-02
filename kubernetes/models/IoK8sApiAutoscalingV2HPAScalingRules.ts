@@ -20,13 +20,17 @@ import {
 } from './';
 
 /**
- * HPAScalingRules configures the scaling behavior for one direction. These Rules are applied after calculating DesiredReplicas from metrics for the HPA. They can limit the scaling velocity by specifying scaling policies. They can prevent flapping by specifying the stabilization window, so that the number of replicas is not set instantly, instead, the safest value from the stabilization window is chosen.
+ * HPAScalingRules configures the scaling behavior for one direction via scaling Policy Rules and a configurable metric tolerance.
+ *
+ * Scaling Policy Rules are applied after calculating DesiredReplicas from metrics for the HPA. They can limit the scaling velocity by specifying scaling policies. They can prevent flapping by specifying the stabilization window, so that the number of replicas is not set instantly, instead, the safest value from the stabilization window is chosen.
+ *
+ * The tolerance is applied to the metric values and prevents scaling too eagerly for small metric variations. (Note that setting a tolerance requires enabling the alpha HPAConfigurableTolerance feature gate.)
  * @export
  * @interface IoK8sApiAutoscalingV2HPAScalingRules
  */
 export interface IoK8sApiAutoscalingV2HPAScalingRules {
   /**
-   * policies is a list of potential scaling polices which can be used during scaling. At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+   * policies is a list of potential scaling polices which can be used during scaling. If not set, use the default values: - For scale up: allow doubling the number of pods, or an absolute change of 4 pods in a 15s window. - For scale down: allow all pods to be removed in a 15s window.
    * @type {Array<IoK8sApiAutoscalingV2HPAScalingPolicy>}
    * @memberof IoK8sApiAutoscalingV2HPAScalingRules
    */
@@ -43,6 +47,48 @@ export interface IoK8sApiAutoscalingV2HPAScalingRules {
    * @memberof IoK8sApiAutoscalingV2HPAScalingRules
    */
   stabilizationWindowSeconds?: number;
+  /**
+   * Quantity is a fixed-point representation of a number. It provides convenient marshaling/unmarshaling in JSON and YAML, in addition to String() and AsInt64() accessors.
+   *
+   * The serialization format is:
+   *
+   * ``` <quantity>        ::= <signedNumber><suffix>
+   *
+   * 	(Note that <suffix> may be empty, from the "" case in <decimalSI>.)
+   *
+   * <digit>           ::= 0 | 1 | ... | 9 <digits>          ::= <digit> | <digit><digits> <number>          ::= <digits> | <digits>.<digits> | <digits>. | .<digits> <sign>            ::= "+" | "-" <signedNumber>    ::= <number> | <sign><number> <suffix>          ::= <binarySI> | <decimalExponent> | <decimalSI> <binarySI>        ::= Ki | Mi | Gi | Ti | Pi | Ei
+   *
+   * 	(International System of units; See: http://physics.nist.gov/cuu/Units/binary.html)
+   *
+   * <decimalSI>       ::= m | "" | k | M | G | T | P | E
+   *
+   * 	(Note that 1024 = 1Ki but 1000 = 1k; I didn't choose the capitalization.)
+   *
+   * <decimalExponent> ::= "e" <signedNumber> | "E" <signedNumber> ```
+   *
+   * No matter which of the three exponent forms is used, no quantity may represent a number greater than 2^63-1 in magnitude, nor may it have more than 3 decimal places. Numbers larger or more precise will be capped or rounded up. (E.g.: 0.1m will rounded up to 1m.) This may be extended in the future if we require larger or smaller quantities.
+   *
+   * When a Quantity is parsed from a string, it will remember the type of suffix it had, and will use the same type again when it is serialized.
+   *
+   * Before serializing, Quantity will be put in "canonical form". This means that Exponent/suffix will be adjusted up or down (with a corresponding increase or decrease in Mantissa) such that:
+   *
+   * - No precision is lost - No fractional digits will be emitted - The exponent (or suffix) is as large as possible.
+   *
+   * The sign will be omitted unless the number is negative.
+   *
+   * Examples:
+   *
+   * - 1.5 will be serialized as "1500m" - 1.5Gi will be serialized as "1536Mi"
+   *
+   * Note that the quantity will NEVER be internally represented by a floating point number. That is the whole point of this exercise.
+   *
+   * Non-canonical values will still parse as long as they are well formed, but will be re-emitted in their canonical form. (So always use canonical form, or don't diff.)
+   *
+   * This format is intended to make it difficult to use these numbers without writing some sort of special handling code in the hopes that that will cause implementors to also use a fixed point implementation.
+   * @type {string}
+   * @memberof IoK8sApiAutoscalingV2HPAScalingRules
+   */
+  tolerance?: string;
 }
 
 export function IoK8sApiAutoscalingV2HPAScalingRulesFromJSON(
@@ -66,6 +112,7 @@ export function IoK8sApiAutoscalingV2HPAScalingRulesFromJSONTyped(
     stabilizationWindowSeconds: !exists(json, 'stabilizationWindowSeconds')
       ? undefined
       : json['stabilizationWindowSeconds'],
+    tolerance: !exists(json, 'tolerance') ? undefined : json['tolerance'],
   };
 }
 
@@ -85,5 +132,6 @@ export function IoK8sApiAutoscalingV2HPAScalingRulesToJSON(
         : (value.policies as Array<any>).map(IoK8sApiAutoscalingV2HPAScalingPolicyToJSON),
     selectPolicy: value.selectPolicy,
     stabilizationWindowSeconds: value.stabilizationWindowSeconds,
+    tolerance: value.tolerance,
   };
 }

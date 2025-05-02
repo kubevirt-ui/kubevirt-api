@@ -68,7 +68,7 @@ export interface IoK8sApiAutoscalingV2MetricSpec {
    */
   resource?: IoK8sApiAutoscalingV2ResourceMetricSource;
   /**
-   * type is the type of metric source.  It should be one of "ContainerResource", "External", "Object", "Pods" or "Resource", each mapping to a matching field in the object. Note: "ContainerResource" type is available on when the feature-gate HPAContainerMetrics is enabled
+   * type is the type of metric source.  It should be one of "ContainerResource", "External", "Object", "Pods" or "Resource", each mapping to a matching field in the object.
    * @type {string}
    * @memberof IoK8sApiAutoscalingV2MetricSpec
    */

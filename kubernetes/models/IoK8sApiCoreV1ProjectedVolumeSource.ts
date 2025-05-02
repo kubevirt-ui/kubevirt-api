@@ -32,7 +32,7 @@ export interface IoK8sApiCoreV1ProjectedVolumeSource {
    */
   defaultMode?: number;
   /**
-   * sources is the list of volume projections
+   * sources is the list of volume projections. Each entry in this list handles one source.
    * @type {Array<IoK8sApiCoreV1VolumeProjection>}
    * @memberof IoK8sApiCoreV1ProjectedVolumeSource
    */

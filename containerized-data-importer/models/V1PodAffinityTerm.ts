@@ -28,6 +28,18 @@ export interface V1PodAffinityTerm {
    */
   labelSelector?: V1LabelSelector;
   /**
+   * MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).
+   * @type {Array<string>}
+   * @memberof V1PodAffinityTerm
+   */
+  matchLabelKeys?: Array<string>;
+  /**
+   * MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).
+   * @type {Array<string>}
+   * @memberof V1PodAffinityTerm
+   */
+  mismatchLabelKeys?: Array<string>;
+  /**
    *
    * @type {V1LabelSelector}
    * @memberof V1PodAffinityTerm
@@ -62,6 +74,8 @@ export function V1PodAffinityTermFromJSONTyped(
     labelSelector: !exists(json, 'labelSelector')
       ? undefined
       : V1LabelSelectorFromJSON(json['labelSelector']),
+    matchLabelKeys: !exists(json, 'matchLabelKeys') ? undefined : json['matchLabelKeys'],
+    mismatchLabelKeys: !exists(json, 'mismatchLabelKeys') ? undefined : json['mismatchLabelKeys'],
     namespaceSelector: !exists(json, 'namespaceSelector')
       ? undefined
       : V1LabelSelectorFromJSON(json['namespaceSelector']),
@@ -79,6 +93,8 @@ export function V1PodAffinityTermToJSON(value?: V1PodAffinityTerm | null): any {
   }
   return {
     labelSelector: V1LabelSelectorToJSON(value.labelSelector),
+    matchLabelKeys: value.matchLabelKeys,
+    mismatchLabelKeys: value.mismatchLabelKeys,
     namespaceSelector: V1LabelSelectorToJSON(value.namespaceSelector),
     namespaces: value.namespaces,
     topologyKey: value.topologyKey,

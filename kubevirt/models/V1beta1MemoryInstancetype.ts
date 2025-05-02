@@ -61,10 +61,10 @@ export interface V1beta1MemoryInstancetype {
    * Non-canonical values will still parse as long as they are well formed, but will be re-emitted in their canonical form. (So always use canonical form, or don't diff.)
    *
    * This format is intended to make it difficult to use these numbers without writing some sort of special handling code in the hopes that that will cause implementors to also use a fixed point implementation.
-   * @type {string}
+   * @type {object}
    * @memberof V1beta1MemoryInstancetype
    */
-  guest: string;
+  guest: object;
   /**
    *
    * @type {V1Hugepages}
@@ -109,10 +109,10 @@ export interface V1beta1MemoryInstancetype {
    * Non-canonical values will still parse as long as they are well formed, but will be re-emitted in their canonical form. (So always use canonical form, or don't diff.)
    *
    * This format is intended to make it difficult to use these numbers without writing some sort of special handling code in the hopes that that will cause implementors to also use a fixed point implementation.
-   * @type {string}
+   * @type {object}
    * @memberof V1beta1MemoryInstancetype
    */
-  maxGuest?: string;
+  maxGuest?: object;
   /**
    * OvercommitPercent is the percentage of the guest memory which will be overcommitted. This means that the VMIs parent pod (virt-launcher) will request less physical memory by a factor specified by the OvercommitPercent. Overcommits can lead to memory exhaustion, which in turn can lead to crashes. Use carefully. Defaults to 0
    * @type {number}

@@ -32,7 +32,7 @@ import {
 } from './';
 
 /**
- * Projection that may be projected along with other supported volume types
+ * Projection that may be projected along with other supported volume types. Exactly one of these fields must be set.
  * @export
  * @interface IoK8sApiCoreV1VolumeProjection
  */

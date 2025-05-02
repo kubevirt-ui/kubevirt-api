@@ -97,16 +97,16 @@ import {
   V1alpha1MigrationPolicyList,
   V1alpha1MigrationPolicyListFromJSON,
   V1alpha1MigrationPolicyToJSON,
-  V1alpha1VirtualMachineClone,
-  V1alpha1VirtualMachineCloneFromJSON,
-  V1alpha1VirtualMachineCloneList,
-  V1alpha1VirtualMachineCloneListFromJSON,
-  V1alpha1VirtualMachineCloneToJSON,
   V1alpha1VirtualMachinePool,
   V1alpha1VirtualMachinePoolFromJSON,
   V1alpha1VirtualMachinePoolList,
   V1alpha1VirtualMachinePoolListFromJSON,
   V1alpha1VirtualMachinePoolToJSON,
+  V1beta1VirtualMachineClone,
+  V1beta1VirtualMachineCloneFromJSON,
+  V1beta1VirtualMachineCloneList,
+  V1beta1VirtualMachineCloneListFromJSON,
+  V1beta1VirtualMachineCloneToJSON,
   V1beta1VirtualMachineClusterInstancetype,
   V1beta1VirtualMachineClusterInstancetypeFromJSON,
   V1beta1VirtualMachineClusterInstancetypeList,
@@ -219,7 +219,7 @@ export interface CreateNamespacedVirtualMachineSnapshotContentRequest {
 }
 
 export interface CreateVirtualMachineCloneRequest {
-  body: V1alpha1VirtualMachineClone;
+  body: V1beta1VirtualMachineClone;
 }
 
 export interface CreateVirtualMachineClusterInstancetypeRequest {
@@ -1207,7 +1207,7 @@ export interface ReplaceNamespacedVirtualMachineSnapshotContentRequest {
 
 export interface ReplaceVirtualMachineCloneRequest {
   name: string;
-  body: V1alpha1VirtualMachineClone;
+  body: V1beta1VirtualMachineClone;
 }
 
 export interface ReplaceVirtualMachineClusterInstancetypeRequest {
@@ -1264,6 +1264,11 @@ export interface V1PauseRequest {
 }
 
 export interface V1RemoveMemoryDumpRequest {
+  name: string;
+  namespace: string;
+}
+
+export interface V1ResetRequest {
   name: string;
   namespace: string;
 }
@@ -1391,6 +1396,11 @@ export interface V1alpha3PauseRequest {
 }
 
 export interface V1alpha3RemoveMemoryDumpRequest {
+  name: string;
+  namespace: string;
+}
+
+export interface V1alpha3ResetRequest {
   name: string;
   namespace: string;
 }
@@ -2766,7 +2776,7 @@ export class DefaultApi extends runtime.BaseAPI {
   async createVirtualMachineCloneRaw(
     requestParameters: CreateVirtualMachineCloneRequest,
     initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<V1alpha1VirtualMachineClone>> {
+  ): Promise<runtime.ApiResponse<V1beta1VirtualMachineClone>> {
     if (requestParameters.body === null || requestParameters.body === undefined) {
       throw new runtime.RequiredError(
         'body',
@@ -2782,17 +2792,17 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones`,
+        path: `/apis/clone.kubevirt.io/v1beta1/virtualmachineclones`,
         method: 'POST',
         headers: headerParameters,
         query: queryParameters,
-        body: V1alpha1VirtualMachineCloneToJSON(requestParameters.body),
+        body: V1beta1VirtualMachineCloneToJSON(requestParameters.body),
       },
       initOverrides,
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      V1alpha1VirtualMachineCloneFromJSON(jsonValue),
+      V1beta1VirtualMachineCloneFromJSON(jsonValue),
     );
   }
 
@@ -2802,7 +2812,7 @@ export class DefaultApi extends runtime.BaseAPI {
   async createVirtualMachineClone(
     requestParameters: CreateVirtualMachineCloneRequest,
     initOverrides?: RequestInit,
-  ): Promise<V1alpha1VirtualMachineClone> {
+  ): Promise<V1beta1VirtualMachineClone> {
     const response = await this.createVirtualMachineCloneRaw(requestParameters, initOverrides);
     return await response.value();
   }
@@ -3960,7 +3970,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones`,
+        path: `/apis/clone.kubevirt.io/v1beta1/virtualmachineclones`,
         method: 'DELETE',
         headers: headerParameters,
         query: queryParameters,
@@ -5249,7 +5259,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}`.replace(
+        path: `/apis/clone.kubevirt.io/v1beta1/virtualmachineclones/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -5758,7 +5768,7 @@ export class DefaultApi extends runtime.BaseAPI {
   /**
    * Get KubeVirt API Resources
    */
-  async getAPIResourcesCloneKubevirtIoV1alpha1Raw(
+  async getAPIResourcesCloneKubevirtIoV1beta1Raw(
     initOverrides?: RequestInit,
   ): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
     const queryParameters: any = {};
@@ -5767,7 +5777,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/clone.kubevirt.io/v1alpha1/`,
+        path: `/apis/clone.kubevirt.io/v1beta1/`,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -5783,10 +5793,10 @@ export class DefaultApi extends runtime.BaseAPI {
   /**
    * Get KubeVirt API Resources
    */
-  async getAPIResourcesCloneKubevirtIoV1alpha1(
+  async getAPIResourcesCloneKubevirtIoV1beta1(
     initOverrides?: RequestInit,
   ): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
-    const response = await this.getAPIResourcesCloneKubevirtIoV1alpha1Raw(initOverrides);
+    const response = await this.getAPIResourcesCloneKubevirtIoV1beta1Raw(initOverrides);
     return await response.value();
   }
 
@@ -7319,7 +7329,7 @@ export class DefaultApi extends runtime.BaseAPI {
   async listVirtualMachineCloneRaw(
     requestParameters: ListVirtualMachineCloneRequest,
     initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<V1alpha1VirtualMachineCloneList>> {
+  ): Promise<runtime.ApiResponse<V1beta1VirtualMachineCloneList>> {
     const queryParameters: any = {};
 
     if (requestParameters._continue !== undefined) {
@@ -7358,7 +7368,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones`,
+        path: `/apis/clone.kubevirt.io/v1beta1/virtualmachineclones`,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -7367,7 +7377,7 @@ export class DefaultApi extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      V1alpha1VirtualMachineCloneListFromJSON(jsonValue),
+      V1beta1VirtualMachineCloneListFromJSON(jsonValue),
     );
   }
 
@@ -7377,7 +7387,7 @@ export class DefaultApi extends runtime.BaseAPI {
   async listVirtualMachineClone(
     requestParameters: ListVirtualMachineCloneRequest,
     initOverrides?: RequestInit,
-  ): Promise<V1alpha1VirtualMachineCloneList> {
+  ): Promise<V1beta1VirtualMachineCloneList> {
     const response = await this.listVirtualMachineCloneRaw(requestParameters, initOverrides);
     return await response.value();
   }
@@ -9303,7 +9313,7 @@ export class DefaultApi extends runtime.BaseAPI {
   async patchVirtualMachineCloneRaw(
     requestParameters: PatchVirtualMachineCloneRequest,
     initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<V1alpha1VirtualMachineClone>> {
+  ): Promise<runtime.ApiResponse<V1beta1VirtualMachineClone>> {
     if (requestParameters.name === null || requestParameters.name === undefined) {
       throw new runtime.RequiredError(
         'name',
@@ -9326,7 +9336,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}`.replace(
+        path: `/apis/clone.kubevirt.io/v1beta1/virtualmachineclones/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -9339,7 +9349,7 @@ export class DefaultApi extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      V1alpha1VirtualMachineCloneFromJSON(jsonValue),
+      V1beta1VirtualMachineCloneFromJSON(jsonValue),
     );
   }
 
@@ -9349,7 +9359,7 @@ export class DefaultApi extends runtime.BaseAPI {
   async patchVirtualMachineClone(
     requestParameters: PatchVirtualMachineCloneRequest,
     initOverrides?: RequestInit,
-  ): Promise<V1alpha1VirtualMachineClone> {
+  ): Promise<V1beta1VirtualMachineClone> {
     const response = await this.patchVirtualMachineCloneRaw(requestParameters, initOverrides);
     return await response.value();
   }
@@ -10359,7 +10369,7 @@ export class DefaultApi extends runtime.BaseAPI {
   async readVirtualMachineCloneRaw(
     requestParameters: ReadVirtualMachineCloneRequest,
     initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<V1alpha1VirtualMachineClone>> {
+  ): Promise<runtime.ApiResponse<V1beta1VirtualMachineClone>> {
     if (requestParameters.name === null || requestParameters.name === undefined) {
       throw new runtime.RequiredError(
         'name',
@@ -10381,7 +10391,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}`.replace(
+        path: `/apis/clone.kubevirt.io/v1beta1/virtualmachineclones/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
@@ -10393,7 +10403,7 @@ export class DefaultApi extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      V1alpha1VirtualMachineCloneFromJSON(jsonValue),
+      V1beta1VirtualMachineCloneFromJSON(jsonValue),
     );
   }
 
@@ -10403,7 +10413,7 @@ export class DefaultApi extends runtime.BaseAPI {
   async readVirtualMachineClone(
     requestParameters: ReadVirtualMachineCloneRequest,
     initOverrides?: RequestInit,
-  ): Promise<V1alpha1VirtualMachineClone> {
+  ): Promise<V1beta1VirtualMachineClone> {
     const response = await this.readVirtualMachineCloneRaw(requestParameters, initOverrides);
     return await response.value();
   }
@@ -11440,7 +11450,7 @@ export class DefaultApi extends runtime.BaseAPI {
   async replaceVirtualMachineCloneRaw(
     requestParameters: ReplaceVirtualMachineCloneRequest,
     initOverrides?: RequestInit,
-  ): Promise<runtime.ApiResponse<V1alpha1VirtualMachineClone>> {
+  ): Promise<runtime.ApiResponse<V1beta1VirtualMachineClone>> {
     if (requestParameters.name === null || requestParameters.name === undefined) {
       throw new runtime.RequiredError(
         'name',
@@ -11463,20 +11473,20 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}`.replace(
+        path: `/apis/clone.kubevirt.io/v1beta1/virtualmachineclones/{name}`.replace(
           `{${'name'}}`,
           encodeURIComponent(String(requestParameters.name)),
         ),
         method: 'PUT',
         headers: headerParameters,
         query: queryParameters,
-        body: V1alpha1VirtualMachineCloneToJSON(requestParameters.body),
+        body: V1beta1VirtualMachineCloneToJSON(requestParameters.body),
       },
       initOverrides,
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      V1alpha1VirtualMachineCloneFromJSON(jsonValue),
+      V1beta1VirtualMachineCloneFromJSON(jsonValue),
     );
   }
 
@@ -11486,7 +11496,7 @@ export class DefaultApi extends runtime.BaseAPI {
   async replaceVirtualMachineClone(
     requestParameters: ReplaceVirtualMachineCloneRequest,
     initOverrides?: RequestInit,
-  ): Promise<V1alpha1VirtualMachineClone> {
+  ): Promise<V1beta1VirtualMachineClone> {
     const response = await this.replaceVirtualMachineCloneRaw(requestParameters, initOverrides);
     return await response.value();
   }
@@ -12186,6 +12196,54 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<string> {
     const response = await this.v1RemoveMemoryDumpRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Reset a VirtualMachineInstance object.
+   */
+  async v1ResetRaw(
+    requestParameters: V1ResetRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<string>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1Reset.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1Reset.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/reset`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.TextApiResponse(response) as any;
+  }
+
+  /**
+   * Reset a VirtualMachineInstance object.
+   */
+  async v1Reset(requestParameters: V1ResetRequest, initOverrides?: RequestInit): Promise<string> {
+    const response = await this.v1ResetRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -13534,6 +13592,57 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<string> {
     const response = await this.v1alpha3RemoveMemoryDumpRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Reset a VirtualMachineInstance object.
+   */
+  async v1alpha3ResetRaw(
+    requestParameters: V1alpha3ResetRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<string>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1alpha3Reset.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1alpha3Reset.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/reset`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    );
+
+    return new runtime.TextApiResponse(response) as any;
+  }
+
+  /**
+   * Reset a VirtualMachineInstance object.
+   */
+  async v1alpha3Reset(
+    requestParameters: V1alpha3ResetRequest,
+    initOverrides?: RequestInit,
+  ): Promise<string> {
+    const response = await this.v1alpha3ResetRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -17015,7 +17124,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     const response = await this.request(
       {
-        path: `/apis/clone.kubevirt.io/v1alpha1/watch/virtualmachineclones`,
+        path: `/apis/clone.kubevirt.io/v1beta1/watch/virtualmachineclones`,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,

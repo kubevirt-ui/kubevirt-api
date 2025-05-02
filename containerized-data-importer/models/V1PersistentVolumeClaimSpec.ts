@@ -17,15 +17,15 @@ import {
   V1LabelSelector,
   V1LabelSelectorFromJSON,
   V1LabelSelectorToJSON,
-  V1ResourceRequirements,
-  V1ResourceRequirementsFromJSON,
-  V1ResourceRequirementsToJSON,
   V1TypedLocalObjectReference,
   V1TypedLocalObjectReferenceFromJSON,
   V1TypedLocalObjectReferenceToJSON,
   V1TypedObjectReference,
   V1TypedObjectReferenceFromJSON,
   V1TypedObjectReferenceToJSON,
+  V1VolumeResourceRequirements,
+  V1VolumeResourceRequirementsFromJSON,
+  V1VolumeResourceRequirementsToJSON,
 } from './';
 
 /**
@@ -39,7 +39,7 @@ export interface V1PersistentVolumeClaimSpec {
    * @type {Array<string>}
    * @memberof V1PersistentVolumeClaimSpec
    */
-  accessModes?: Array<string>;
+  accessModes?: Array<V1PersistentVolumeClaimSpecAccessModesEnum>;
   /**
    *
    * @type {V1TypedLocalObjectReference}
@@ -54,10 +54,10 @@ export interface V1PersistentVolumeClaimSpec {
   dataSourceRef?: V1TypedObjectReference;
   /**
    *
-   * @type {V1ResourceRequirements}
+   * @type {V1VolumeResourceRequirements}
    * @memberof V1PersistentVolumeClaimSpec
    */
-  resources?: V1ResourceRequirements;
+  resources?: V1VolumeResourceRequirements;
   /**
    *
    * @type {V1LabelSelector}
@@ -70,6 +70,12 @@ export interface V1PersistentVolumeClaimSpec {
    * @memberof V1PersistentVolumeClaimSpec
    */
   storageClassName?: string;
+  /**
+   * volumeAttributesClassName may be used to set the VolumeAttributesClass used by this claim. If specified, the CSI driver will create or update the volume with the attributes defined in the corresponding VolumeAttributesClass. This has a different purpose than storageClassName, it can be changed after the claim is created. An empty string value means that no VolumeAttributesClass will be applied to the claim but it's not allowed to reset this field to empty string once it is set. If unspecified and the PersistentVolumeClaim is unbound, the default VolumeAttributesClass will be set by the persistentvolume controller if it exists. If the resource referred to by volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as reflected by the modifyVolumeStatus field, until such as a resource exists. More info: https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Beta) Using this field requires the VolumeAttributesClass feature gate to be enabled (off by default).
+   * @type {string}
+   * @memberof V1PersistentVolumeClaimSpec
+   */
+  volumeAttributesClassName?: string;
   /**
    * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
    *
@@ -89,6 +95,16 @@ export interface V1PersistentVolumeClaimSpec {
   volumeName?: string;
 }
 
+/**
+ * @export
+ * @enum {string}
+ */
+export enum V1PersistentVolumeClaimSpecAccessModesEnum {
+  ReadOnlyMany = 'ReadOnlyMany',
+  ReadWriteMany = 'ReadWriteMany',
+  ReadWriteOnce = 'ReadWriteOnce',
+  ReadWriteOncePod = 'ReadWriteOncePod',
+}
 /**
  * @export
  * @enum {string}
@@ -120,9 +136,12 @@ export function V1PersistentVolumeClaimSpecFromJSONTyped(
       : V1TypedObjectReferenceFromJSON(json['dataSourceRef']),
     resources: !exists(json, 'resources')
       ? undefined
-      : V1ResourceRequirementsFromJSON(json['resources']),
+      : V1VolumeResourceRequirementsFromJSON(json['resources']),
     selector: !exists(json, 'selector') ? undefined : V1LabelSelectorFromJSON(json['selector']),
     storageClassName: !exists(json, 'storageClassName') ? undefined : json['storageClassName'],
+    volumeAttributesClassName: !exists(json, 'volumeAttributesClassName')
+      ? undefined
+      : json['volumeAttributesClassName'],
     volumeMode: !exists(json, 'volumeMode') ? undefined : json['volumeMode'],
     volumeName: !exists(json, 'volumeName') ? undefined : json['volumeName'],
   };
@@ -139,9 +158,10 @@ export function V1PersistentVolumeClaimSpecToJSON(value?: V1PersistentVolumeClai
     accessModes: value.accessModes,
     dataSource: V1TypedLocalObjectReferenceToJSON(value.dataSource),
     dataSourceRef: V1TypedObjectReferenceToJSON(value.dataSourceRef),
-    resources: V1ResourceRequirementsToJSON(value.resources),
+    resources: V1VolumeResourceRequirementsToJSON(value.resources),
     selector: V1LabelSelectorToJSON(value.selector),
     storageClassName: value.storageClassName,
+    volumeAttributesClassName: value.volumeAttributesClassName,
     volumeMode: value.volumeMode,
     volumeName: value.volumeName,
   };

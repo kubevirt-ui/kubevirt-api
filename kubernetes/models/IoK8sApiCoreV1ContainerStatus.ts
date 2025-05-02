@@ -17,9 +17,15 @@ import {
   IoK8sApiCoreV1ContainerState,
   IoK8sApiCoreV1ContainerStateFromJSON,
   IoK8sApiCoreV1ContainerStateToJSON,
+  IoK8sApiCoreV1ContainerUser,
+  IoK8sApiCoreV1ContainerUserFromJSON,
+  IoK8sApiCoreV1ContainerUserToJSON,
   IoK8sApiCoreV1ResourceRequirements,
   IoK8sApiCoreV1ResourceRequirementsFromJSON,
   IoK8sApiCoreV1ResourceRequirementsToJSON,
+  IoK8sApiCoreV1ResourceStatus,
+  IoK8sApiCoreV1ResourceStatusFromJSON,
+  IoK8sApiCoreV1ResourceStatusToJSON,
   IoK8sApiCoreV1VolumeMountStatus,
   IoK8sApiCoreV1VolumeMountStatusFromJSON,
   IoK8sApiCoreV1VolumeMountStatusToJSON,
@@ -37,6 +43,12 @@ export interface IoK8sApiCoreV1ContainerStatus {
    * @memberof IoK8sApiCoreV1ContainerStatus
    */
   allocatedResources?: { [key: string]: string };
+  /**
+   * AllocatedResourcesStatus represents the status of various resources allocated for this Pod.
+   * @type {Array<IoK8sApiCoreV1ResourceStatus>}
+   * @memberof IoK8sApiCoreV1ContainerStatus
+   */
+  allocatedResourcesStatus?: Array<IoK8sApiCoreV1ResourceStatus>;
   /**
    * ContainerID is the ID of the container in the format '<type>://<container_id>'. Where type is a container runtime identifier, returned from Version call of CRI API (for example "containerd").
    * @type {string}
@@ -100,6 +112,18 @@ export interface IoK8sApiCoreV1ContainerStatus {
    */
   state?: IoK8sApiCoreV1ContainerState;
   /**
+   * StopSignal reports the effective stop signal for this container
+   * @type {string}
+   * @memberof IoK8sApiCoreV1ContainerStatus
+   */
+  stopSignal?: string;
+  /**
+   *
+   * @type {IoK8sApiCoreV1ContainerUser}
+   * @memberof IoK8sApiCoreV1ContainerStatus
+   */
+  user?: IoK8sApiCoreV1ContainerUser;
+  /**
    * Status of volume mounts.
    * @type {Array<IoK8sApiCoreV1VolumeMountStatus>}
    * @memberof IoK8sApiCoreV1ContainerStatus
@@ -122,6 +146,9 @@ export function IoK8sApiCoreV1ContainerStatusFromJSONTyped(
     allocatedResources: !exists(json, 'allocatedResources')
       ? undefined
       : json['allocatedResources'],
+    allocatedResourcesStatus: !exists(json, 'allocatedResourcesStatus')
+      ? undefined
+      : (json['allocatedResourcesStatus'] as Array<any>).map(IoK8sApiCoreV1ResourceStatusFromJSON),
     containerID: !exists(json, 'containerID') ? undefined : json['containerID'],
     image: json['image'],
     imageID: json['imageID'],
@@ -136,6 +163,8 @@ export function IoK8sApiCoreV1ContainerStatusFromJSONTyped(
     restartCount: json['restartCount'],
     started: !exists(json, 'started') ? undefined : json['started'],
     state: !exists(json, 'state') ? undefined : IoK8sApiCoreV1ContainerStateFromJSON(json['state']),
+    stopSignal: !exists(json, 'stopSignal') ? undefined : json['stopSignal'],
+    user: !exists(json, 'user') ? undefined : IoK8sApiCoreV1ContainerUserFromJSON(json['user']),
     volumeMounts: !exists(json, 'volumeMounts')
       ? undefined
       : (json['volumeMounts'] as Array<any>).map(IoK8sApiCoreV1VolumeMountStatusFromJSON),
@@ -153,6 +182,10 @@ export function IoK8sApiCoreV1ContainerStatusToJSON(
   }
   return {
     allocatedResources: value.allocatedResources,
+    allocatedResourcesStatus:
+      value.allocatedResourcesStatus === undefined
+        ? undefined
+        : (value.allocatedResourcesStatus as Array<any>).map(IoK8sApiCoreV1ResourceStatusToJSON),
     containerID: value.containerID,
     image: value.image,
     imageID: value.imageID,
@@ -163,6 +196,8 @@ export function IoK8sApiCoreV1ContainerStatusToJSON(
     restartCount: value.restartCount,
     started: value.started,
     state: IoK8sApiCoreV1ContainerStateToJSON(value.state),
+    stopSignal: value.stopSignal,
+    user: IoK8sApiCoreV1ContainerUserToJSON(value.user),
     volumeMounts:
       value.volumeMounts === undefined
         ? undefined

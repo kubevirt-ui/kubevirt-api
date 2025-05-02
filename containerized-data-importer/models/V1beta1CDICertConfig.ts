@@ -32,6 +32,12 @@ export interface V1beta1CDICertConfig {
    * @type {V1beta1CertConfig}
    * @memberof V1beta1CDICertConfig
    */
+  client?: V1beta1CertConfig;
+  /**
+   *
+   * @type {V1beta1CertConfig}
+   * @memberof V1beta1CDICertConfig
+   */
   server?: V1beta1CertConfig;
 }
 
@@ -48,6 +54,7 @@ export function V1beta1CDICertConfigFromJSONTyped(
   }
   return {
     ca: !exists(json, 'ca') ? undefined : V1beta1CertConfigFromJSON(json['ca']),
+    client: !exists(json, 'client') ? undefined : V1beta1CertConfigFromJSON(json['client']),
     server: !exists(json, 'server') ? undefined : V1beta1CertConfigFromJSON(json['server']),
   };
 }
@@ -61,6 +68,7 @@ export function V1beta1CDICertConfigToJSON(value?: V1beta1CDICertConfig | null):
   }
   return {
     ca: V1beta1CertConfigToJSON(value.ca),
+    client: V1beta1CertConfigToJSON(value.client),
     server: V1beta1CertConfigToJSON(value.server),
   };
 }

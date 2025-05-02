@@ -44,6 +44,12 @@ export interface V1beta1VirtualMachineRestoreSpec {
    * @type {string}
    * @memberof V1beta1VirtualMachineRestoreSpec
    */
+  targetReadinessPolicy?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof V1beta1VirtualMachineRestoreSpec
+   */
   virtualMachineSnapshotName: string;
 }
 
@@ -63,6 +69,9 @@ export function V1beta1VirtualMachineRestoreSpecFromJSONTyped(
   return {
     patches: !exists(json, 'patches') ? undefined : json['patches'],
     target: K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['target']),
+    targetReadinessPolicy: !exists(json, 'targetReadinessPolicy')
+      ? undefined
+      : json['targetReadinessPolicy'],
     virtualMachineSnapshotName: json['virtualMachineSnapshotName'],
   };
 }
@@ -79,6 +88,7 @@ export function V1beta1VirtualMachineRestoreSpecToJSON(
   return {
     patches: value.patches,
     target: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.target),
+    targetReadinessPolicy: value.targetReadinessPolicy,
     virtualMachineSnapshotName: value.virtualMachineSnapshotName,
   };
 }

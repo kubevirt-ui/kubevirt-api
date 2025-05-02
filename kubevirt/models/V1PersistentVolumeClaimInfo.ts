@@ -27,10 +27,10 @@ export interface V1PersistentVolumeClaimInfo {
   accessModes?: Array<V1PersistentVolumeClaimInfoAccessModesEnum>;
   /**
    * Capacity represents the capacity set on the corresponding PVC status
-   * @type {{ [key: string]: string; }}
+   * @type {{ [key: string]: object; }}
    * @memberof V1PersistentVolumeClaimInfo
    */
-  capacity?: { [key: string]: string };
+  capacity?: { [key: string]: object };
   /**
    * ClaimName is the name of the PVC
    * @type {string}
@@ -51,16 +51,17 @@ export interface V1PersistentVolumeClaimInfo {
   preallocated?: boolean;
   /**
    * Requests represents the resources requested by the corresponding PVC spec
-   * @type {{ [key: string]: string; }}
+   * @type {{ [key: string]: object; }}
    * @memberof V1PersistentVolumeClaimInfo
    */
-  requests?: { [key: string]: string };
+  requests?: { [key: string]: object };
   /**
    * VolumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
    *
    * Possible enum values:
    *  - `"Block"` means the volume will not be formatted with a filesystem and will remain a raw block device.
    *  - `"Filesystem"` means the volume will be or is formatted with a filesystem.
+   *  - `"FromStorageProfile"` means the volume mode will be auto selected by CDI according to a matching StorageProfile
    * @type {string}
    * @memberof V1PersistentVolumeClaimInfo
    */
@@ -84,6 +85,7 @@ export enum V1PersistentVolumeClaimInfoAccessModesEnum {
 export enum V1PersistentVolumeClaimInfoVolumeModeEnum {
   Block = 'Block',
   Filesystem = 'Filesystem',
+  FromStorageProfile = 'FromStorageProfile',
 }
 
 export function V1PersistentVolumeClaimInfoFromJSON(json: any): V1PersistentVolumeClaimInfo {

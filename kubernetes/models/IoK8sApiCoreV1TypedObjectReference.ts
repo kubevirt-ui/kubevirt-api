@@ -14,7 +14,7 @@
 
 import { exists } from '../runtime';
 /**
- *
+ * TypedObjectReference contains enough information to let you locate the typed referenced object
  * @export
  * @interface IoK8sApiCoreV1TypedObjectReference
  */

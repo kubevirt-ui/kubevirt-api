@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+import { exists } from '../runtime';
 /**
  * Info contains versioning information. how we'll want to distribute that information.
  * @export
@@ -30,6 +31,18 @@ export interface IoK8sApimachineryPkgVersionInfo {
    * @memberof IoK8sApimachineryPkgVersionInfo
    */
   compiler: string;
+  /**
+   * EmulationMajor is the major version of the emulation version
+   * @type {string}
+   * @memberof IoK8sApimachineryPkgVersionInfo
+   */
+  emulationMajor?: string;
+  /**
+   * EmulationMinor is the minor version of the emulation version
+   * @type {string}
+   * @memberof IoK8sApimachineryPkgVersionInfo
+   */
+  emulationMinor?: string;
   /**
    *
    * @type {string}
@@ -55,13 +68,25 @@ export interface IoK8sApimachineryPkgVersionInfo {
    */
   goVersion: string;
   /**
-   *
+   * Major is the major version of the binary version
    * @type {string}
    * @memberof IoK8sApimachineryPkgVersionInfo
    */
   major: string;
   /**
-   *
+   * MinCompatibilityMajor is the major version of the minimum compatibility version
+   * @type {string}
+   * @memberof IoK8sApimachineryPkgVersionInfo
+   */
+  minCompatibilityMajor?: string;
+  /**
+   * MinCompatibilityMinor is the minor version of the minimum compatibility version
+   * @type {string}
+   * @memberof IoK8sApimachineryPkgVersionInfo
+   */
+  minCompatibilityMinor?: string;
+  /**
+   * Minor is the minor version of the binary version
    * @type {string}
    * @memberof IoK8sApimachineryPkgVersionInfo
    */
@@ -90,11 +115,19 @@ export function IoK8sApimachineryPkgVersionInfoFromJSONTyped(
   return {
     buildDate: json['buildDate'],
     compiler: json['compiler'],
+    emulationMajor: !exists(json, 'emulationMajor') ? undefined : json['emulationMajor'],
+    emulationMinor: !exists(json, 'emulationMinor') ? undefined : json['emulationMinor'],
     gitCommit: json['gitCommit'],
     gitTreeState: json['gitTreeState'],
     gitVersion: json['gitVersion'],
     goVersion: json['goVersion'],
     major: json['major'],
+    minCompatibilityMajor: !exists(json, 'minCompatibilityMajor')
+      ? undefined
+      : json['minCompatibilityMajor'],
+    minCompatibilityMinor: !exists(json, 'minCompatibilityMinor')
+      ? undefined
+      : json['minCompatibilityMinor'],
     minor: json['minor'],
     platform: json['platform'],
   };
@@ -112,11 +145,15 @@ export function IoK8sApimachineryPkgVersionInfoToJSON(
   return {
     buildDate: value.buildDate,
     compiler: value.compiler,
+    emulationMajor: value.emulationMajor,
+    emulationMinor: value.emulationMinor,
     gitCommit: value.gitCommit,
     gitTreeState: value.gitTreeState,
     gitVersion: value.gitVersion,
     goVersion: value.goVersion,
     major: value.major,
+    minCompatibilityMajor: value.minCompatibilityMajor,
+    minCompatibilityMinor: value.minCompatibilityMinor,
     minor: value.minor,
     platform: value.platform,
   };

@@ -27,10 +27,10 @@ export interface V1PersistentVolumeClaimInfo {
   accessModes?: Array<V1PersistentVolumeClaimInfoAccessModesEnum>;
   /**
    * Capacity represents the capacity set on the corresponding PVC status
-   * @type {{ [key: string]: object; }}
+   * @type {{ [key: string]: string; }}
    * @memberof V1PersistentVolumeClaimInfo
    */
-  capacity?: { [key: string]: object };
+  capacity?: { [key: string]: string };
   /**
    * ClaimName is the name of the PVC
    * @type {string}
@@ -51,10 +51,10 @@ export interface V1PersistentVolumeClaimInfo {
   preallocated?: boolean;
   /**
    * Requests represents the resources requested by the corresponding PVC spec
-   * @type {{ [key: string]: object; }}
+   * @type {{ [key: string]: string; }}
    * @memberof V1PersistentVolumeClaimInfo
    */
-  requests?: { [key: string]: object };
+  requests?: { [key: string]: string };
   /**
    * VolumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
    *

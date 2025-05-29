@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface V1ResourceRequirements {
     /**
      * Limits describes the maximum amount of compute resources allowed. Valid resource keys are "memory" and "cpu".
-     * @type {{ [key: string]: object; }}
+     * @type {{ [key: string]: string; }}
      * @memberof V1ResourceRequirements
      */
-    limits?: { [key: string]: object; };
+    limits?: { [key: string]: string; };
     /**
      * Don't ask the scheduler to take the guest-management overhead into account. Instead put the overhead only into the container's memory limit. This can lead to crashes if all memory is in use on a node. Defaults to false.
      * @type {boolean}
@@ -33,10 +33,10 @@ export interface V1ResourceRequirements {
     overcommitGuestOverhead?: boolean;
     /**
      * Requests is a description of the initial vmi resources. Valid resource keys are "memory" and "cpu".
-     * @type {{ [key: string]: object; }}
+     * @type {{ [key: string]: string; }}
      * @memberof V1ResourceRequirements
      */
-    requests?: { [key: string]: object; };
+    requests?: { [key: string]: string; };
 }
 
 export function V1ResourceRequirementsFromJSON(json: any): V1ResourceRequirements {

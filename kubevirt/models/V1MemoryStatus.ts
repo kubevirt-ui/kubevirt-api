@@ -57,10 +57,10 @@ export interface V1MemoryStatus {
    * Non-canonical values will still parse as long as they are well formed, but will be re-emitted in their canonical form. (So always use canonical form, or don't diff.)
    *
    * This format is intended to make it difficult to use these numbers without writing some sort of special handling code in the hopes that that will cause implementors to also use a fixed point implementation.
-   * @type {object}
+   * @type {string}
    * @memberof V1MemoryStatus
    */
-  guestAtBoot?: object;
+  guestAtBoot?: string;
   /**
    * Quantity is a fixed-point representation of a number. It provides convenient marshaling/unmarshaling in JSON and YAML, in addition to String() and AsInt64() accessors.
    *
@@ -99,10 +99,10 @@ export interface V1MemoryStatus {
    * Non-canonical values will still parse as long as they are well formed, but will be re-emitted in their canonical form. (So always use canonical form, or don't diff.)
    *
    * This format is intended to make it difficult to use these numbers without writing some sort of special handling code in the hopes that that will cause implementors to also use a fixed point implementation.
-   * @type {object}
+   * @type {string}
    * @memberof V1MemoryStatus
    */
-  guestCurrent?: object;
+  guestCurrent?: string;
   /**
    * Quantity is a fixed-point representation of a number. It provides convenient marshaling/unmarshaling in JSON and YAML, in addition to String() and AsInt64() accessors.
    *
@@ -141,10 +141,10 @@ export interface V1MemoryStatus {
    * Non-canonical values will still parse as long as they are well formed, but will be re-emitted in their canonical form. (So always use canonical form, or don't diff.)
    *
    * This format is intended to make it difficult to use these numbers without writing some sort of special handling code in the hopes that that will cause implementors to also use a fixed point implementation.
-   * @type {object}
+   * @type {string}
    * @memberof V1MemoryStatus
    */
-  guestRequested?: object;
+  guestRequested?: string;
 }
 
 export function V1MemoryStatusFromJSON(json: any): V1MemoryStatus {

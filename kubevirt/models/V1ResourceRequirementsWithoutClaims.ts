@@ -21,16 +21,16 @@ import { exists } from '../runtime';
 export interface V1ResourceRequirementsWithoutClaims {
   /**
    * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-   * @type {{ [key: string]: object; }}
+   * @type {{ [key: string]: string; }}
    * @memberof V1ResourceRequirementsWithoutClaims
    */
-  limits?: { [key: string]: object };
+  limits?: { [key: string]: string };
   /**
    * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-   * @type {{ [key: string]: object; }}
+   * @type {{ [key: string]: string; }}
    * @memberof V1ResourceRequirementsWithoutClaims
    */
-  requests?: { [key: string]: object };
+  requests?: { [key: string]: string };
 }
 
 export function V1ResourceRequirementsWithoutClaimsFromJSON(

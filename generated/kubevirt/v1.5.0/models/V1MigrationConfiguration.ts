@@ -75,10 +75,10 @@ export interface V1MigrationConfiguration {
      * Non-canonical values will still parse as long as they are well formed, but will be re-emitted in their canonical form. (So always use canonical form, or don't diff.)
      * 
      * This format is intended to make it difficult to use these numbers without writing some sort of special handling code in the hopes that that will cause implementors to also use a fixed point implementation.
-     * @type {object}
+     * @type {string}
      * @memberof V1MigrationConfiguration
      */
-    bandwidthPerMigration?: object;
+    bandwidthPerMigration?: string;
     /**
      * CompletionTimeoutPerGiB is the maximum number of seconds per GiB a migration is allowed to take. If the timeout is reached, the migration will be either paused, switched to post-copy or cancelled depending on other settings. Defaults to 150
      * @type {number}

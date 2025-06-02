@@ -63,10 +63,10 @@ export interface K8sIoApiCoreV1ResourceFieldSelector {
    * Non-canonical values will still parse as long as they are well formed, but will be re-emitted in their canonical form. (So always use canonical form, or don't diff.)
    *
    * This format is intended to make it difficult to use these numbers without writing some sort of special handling code in the hopes that that will cause implementors to also use a fixed point implementation.
-   * @type {object}
+   * @type {string}
    * @memberof K8sIoApiCoreV1ResourceFieldSelector
    */
-  divisor?: object;
+  divisor?: string;
   /**
    * Required: resource to select
    * @type {string}

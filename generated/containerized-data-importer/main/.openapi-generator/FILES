@@ -63,6 +63,7 @@ models/V1beta1DataImportCronStatus.ts
 models/V1beta1DataSource.ts
 models/V1beta1DataSourceCondition.ts
 models/V1beta1DataSourceList.ts
+models/V1beta1DataSourceRefSourceDataSource.ts
 models/V1beta1DataSourceSource.ts
 models/V1beta1DataSourceSpec.ts
 models/V1beta1DataSourceStatus.ts
@@ -86,6 +87,7 @@ models/V1beta1FilesystemOverhead.ts
 models/V1beta1Flags.ts
 models/V1beta1ImportProxy.ts
 models/V1beta1ImportStatus.ts
+models/V1beta1PlatformOptions.ts
 models/V1beta1StorageSpec.ts
 models/V1beta1TLSSecurityProfile.ts
 models/V1beta1UploadTokenRequest.ts

@@ -55,6 +55,12 @@ export interface V1LogVerbosity {
    * @memberof V1LogVerbosity
    */
   virtOperator?: number;
+  /**
+   *
+   * @type {number}
+   * @memberof V1LogVerbosity
+   */
+  virtSynchronizationController?: number;
 }
 
 export function V1LogVerbosityFromJSON(json: any): V1LogVerbosity {
@@ -75,6 +81,9 @@ export function V1LogVerbosityFromJSONTyped(
     virtHandler: !exists(json, 'virtHandler') ? undefined : json['virtHandler'],
     virtLauncher: !exists(json, 'virtLauncher') ? undefined : json['virtLauncher'],
     virtOperator: !exists(json, 'virtOperator') ? undefined : json['virtOperator'],
+    virtSynchronizationController: !exists(json, 'virtSynchronizationController')
+      ? undefined
+      : json['virtSynchronizationController'],
   };
 }
 
@@ -92,5 +101,6 @@ export function V1LogVerbosityToJSON(value?: V1LogVerbosity | null): any {
     virtHandler: value.virtHandler,
     virtLauncher: value.virtLauncher,
     virtOperator: value.virtOperator,
+    virtSynchronizationController: value.virtSynchronizationController,
   };
 }

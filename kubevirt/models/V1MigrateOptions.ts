@@ -20,6 +20,12 @@ import { exists } from '../runtime';
  */
 export interface V1MigrateOptions {
   /**
+   * AddedNodeSelector is an additional selector that can be used to complement a NodeSelector or NodeAffinity as set on the VM to restrict the set of allowed target nodes for a migration. In case of key collisions, values set on the VM objects are going to be preserved to ensure that addedNodeSelector can only restrict but not bypass constraints already set on the VM object.
+   * @type {{ [key: string]: string; }}
+   * @memberof V1MigrateOptions
+   */
+  addedNodeSelector?: { [key: string]: string };
+  /**
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @type {string}
    * @memberof V1MigrateOptions
@@ -51,6 +57,7 @@ export function V1MigrateOptionsFromJSONTyped(
     return json;
   }
   return {
+    addedNodeSelector: !exists(json, 'addedNodeSelector') ? undefined : json['addedNodeSelector'],
     apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
     dryRun: !exists(json, 'dryRun') ? undefined : json['dryRun'],
     kind: !exists(json, 'kind') ? undefined : json['kind'],
@@ -65,6 +72,7 @@ export function V1MigrateOptionsToJSON(value?: V1MigrateOptions | null): any {
     return null;
   }
   return {
+    addedNodeSelector: value.addedNodeSelector,
     apiVersion: value.apiVersion,
     dryRun: value.dryRun,
     kind: value.kind,

@@ -146,6 +146,12 @@ export interface V1beta1DevicePreferences {
    */
   preferredNetworkInterfaceMultiQueue?: boolean;
   /**
+   * PreferredPanicDeviceModel optionally defines the preferred panic device model to use with panic devices.
+   * @type {string}
+   * @memberof V1beta1DevicePreferences
+   */
+  preferredPanicDeviceModel?: string;
+  /**
    * Rng represents the random device passed from host
    * @type {object}
    * @memberof V1beta1DevicePreferences
@@ -236,6 +242,9 @@ export function V1beta1DevicePreferencesFromJSONTyped(
     preferredNetworkInterfaceMultiQueue: !exists(json, 'preferredNetworkInterfaceMultiQueue')
       ? undefined
       : json['preferredNetworkInterfaceMultiQueue'],
+    preferredPanicDeviceModel: !exists(json, 'preferredPanicDeviceModel')
+      ? undefined
+      : json['preferredPanicDeviceModel'],
     preferredRng: !exists(json, 'preferredRng') ? undefined : json['preferredRng'],
     preferredSoundModel: !exists(json, 'preferredSoundModel')
       ? undefined
@@ -279,6 +288,7 @@ export function V1beta1DevicePreferencesToJSON(value?: V1beta1DevicePreferences 
     preferredInterfaceModel: value.preferredInterfaceModel,
     preferredLunBus: value.preferredLunBus,
     preferredNetworkInterfaceMultiQueue: value.preferredNetworkInterfaceMultiQueue,
+    preferredPanicDeviceModel: value.preferredPanicDeviceModel,
     preferredRng: value.preferredRng,
     preferredSoundModel: value.preferredSoundModel,
     preferredTPM: V1TPMDeviceToJSON(value.preferredTPM),

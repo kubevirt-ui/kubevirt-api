@@ -32,12 +32,18 @@ import {
   V1Interface,
   V1InterfaceFromJSON,
   V1InterfaceToJSON,
+  V1PanicDevice,
+  V1PanicDeviceFromJSON,
+  V1PanicDeviceToJSON,
   V1SoundDevice,
   V1SoundDeviceFromJSON,
   V1SoundDeviceToJSON,
   V1TPMDevice,
   V1TPMDeviceFromJSON,
   V1TPMDeviceToJSON,
+  V1VideoDevice,
+  V1VideoDeviceFromJSON,
+  V1VideoDeviceToJSON,
   V1Watchdog,
   V1WatchdogFromJSON,
   V1WatchdogToJSON,
@@ -160,6 +166,12 @@ export interface V1Devices {
    */
   networkInterfaceMultiqueue?: boolean;
   /**
+   * PanicDevices provides additional crash information when a guest crashes.
+   * @type {Array<V1PanicDevice>}
+   * @memberof V1Devices
+   */
+  panicDevices?: Array<V1PanicDevice>;
+  /**
    * Rng represents the random device passed from host
    * @type {object}
    * @memberof V1Devices
@@ -183,6 +195,12 @@ export interface V1Devices {
    * @memberof V1Devices
    */
   useVirtioTransitional?: boolean;
+  /**
+   *
+   * @type {V1VideoDevice}
+   * @memberof V1Devices
+   */
+  video?: V1VideoDevice;
   /**
    *
    * @type {V1Watchdog}
@@ -238,12 +256,16 @@ export function V1DevicesFromJSONTyped(json: any, _ignoreDiscriminator: boolean)
     networkInterfaceMultiqueue: !exists(json, 'networkInterfaceMultiqueue')
       ? undefined
       : json['networkInterfaceMultiqueue'],
+    panicDevices: !exists(json, 'panicDevices')
+      ? undefined
+      : (json['panicDevices'] as Array<any>).map(V1PanicDeviceFromJSON),
     rng: !exists(json, 'rng') ? undefined : json['rng'],
     sound: !exists(json, 'sound') ? undefined : V1SoundDeviceFromJSON(json['sound']),
     tpm: !exists(json, 'tpm') ? undefined : V1TPMDeviceFromJSON(json['tpm']),
     useVirtioTransitional: !exists(json, 'useVirtioTransitional')
       ? undefined
       : json['useVirtioTransitional'],
+    video: !exists(json, 'video') ? undefined : V1VideoDeviceFromJSON(json['video']),
     watchdog: !exists(json, 'watchdog') ? undefined : V1WatchdogFromJSON(json['watchdog']),
   };
 }
@@ -284,10 +306,15 @@ export function V1DevicesToJSON(value?: V1Devices | null): any {
         : (value.interfaces as Array<any>).map(V1InterfaceToJSON),
     logSerialConsole: value.logSerialConsole,
     networkInterfaceMultiqueue: value.networkInterfaceMultiqueue,
+    panicDevices:
+      value.panicDevices === undefined
+        ? undefined
+        : (value.panicDevices as Array<any>).map(V1PanicDeviceToJSON),
     rng: value.rng,
     sound: V1SoundDeviceToJSON(value.sound),
     tpm: V1TPMDeviceToJSON(value.tpm),
     useVirtioTransitional: value.useVirtioTransitional,
+    video: V1VideoDeviceToJSON(value.video),
     watchdog: V1WatchdogToJSON(value.watchdog),
   };
 }

@@ -22,17 +22,29 @@ import { V1VGPUOptions, V1VGPUOptionsFromJSON, V1VGPUOptionsToJSON } from './';
  */
 export interface V1GPU {
   /**
-   *
+   * ClaimName needs to be provided from the list vmi.spec.resourceClaims[].name where this device is allocated
    * @type {string}
    * @memberof V1GPU
    */
-  deviceName: string;
+  claimName?: string;
+  /**
+   * DeviceName is the name of the device provisioned by device-plugins
+   * @type {string}
+   * @memberof V1GPU
+   */
+  deviceName?: string;
   /**
    * Name of the GPU device as exposed by a device plugin
    * @type {string}
    * @memberof V1GPU
    */
   name: string;
+  /**
+   * RequestName needs to be provided from resourceClaim.spec.devices.requests[].name where this device is requested
+   * @type {string}
+   * @memberof V1GPU
+   */
+  requestName?: string;
   /**
    * If specified, the virtual network interface address and its tag will be provided to the guest via config drive
    * @type {string}
@@ -56,8 +68,10 @@ export function V1GPUFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1
     return json;
   }
   return {
-    deviceName: json['deviceName'],
+    claimName: !exists(json, 'claimName') ? undefined : json['claimName'],
+    deviceName: !exists(json, 'deviceName') ? undefined : json['deviceName'],
     name: json['name'],
+    requestName: !exists(json, 'requestName') ? undefined : json['requestName'],
     tag: !exists(json, 'tag') ? undefined : json['tag'],
     virtualGPUOptions: !exists(json, 'virtualGPUOptions')
       ? undefined
@@ -73,8 +87,10 @@ export function V1GPUToJSON(value?: V1GPU | null): any {
     return null;
   }
   return {
+    claimName: value.claimName,
     deviceName: value.deviceName,
     name: value.name,
+    requestName: value.requestName,
     tag: value.tag,
     virtualGPUOptions: V1VGPUOptionsToJSON(value.virtualGPUOptions),
   };

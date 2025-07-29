@@ -132,6 +132,12 @@ export interface V1KubeVirtSpec {
    */
   serviceMonitorNamespace?: string;
   /**
+   * Specify the port to listen on for VMI status synchronization traffic. Default is 9185
+   * @type {string}
+   * @memberof V1KubeVirtSpec
+   */
+  synchronizationPort?: string;
+  /**
    * Specifies if kubevirt can be deleted if workloads are still present. This is mainly a precaution to avoid accidental data loss
    * @type {string}
    * @memberof V1KubeVirtSpec
@@ -197,6 +203,9 @@ export function V1KubeVirtSpecFromJSONTyped(
     serviceMonitorNamespace: !exists(json, 'serviceMonitorNamespace')
       ? undefined
       : json['serviceMonitorNamespace'],
+    synchronizationPort: !exists(json, 'synchronizationPort')
+      ? undefined
+      : json['synchronizationPort'],
     uninstallStrategy: !exists(json, 'uninstallStrategy') ? undefined : json['uninstallStrategy'],
     workloadUpdateStrategy: !exists(json, 'workloadUpdateStrategy')
       ? undefined
@@ -234,6 +243,7 @@ export function V1KubeVirtSpecToJSON(value?: V1KubeVirtSpec | null): any {
     productName: value.productName,
     productVersion: value.productVersion,
     serviceMonitorNamespace: value.serviceMonitorNamespace,
+    synchronizationPort: value.synchronizationPort,
     uninstallStrategy: value.uninstallStrategy,
     workloadUpdateStrategy: V1KubeVirtWorkloadUpdateStrategyToJSON(value.workloadUpdateStrategy),
     workloads: V1ComponentConfigToJSON(value.workloads),

@@ -13,7 +13,14 @@
  */
 
 import { exists } from '../runtime';
-import { V1I6300ESBWatchdog, V1I6300ESBWatchdogFromJSON, V1I6300ESBWatchdogToJSON } from './';
+import {
+  V1Diag288Watchdog,
+  V1Diag288WatchdogFromJSON,
+  V1Diag288WatchdogToJSON,
+  V1I6300ESBWatchdog,
+  V1I6300ESBWatchdogFromJSON,
+  V1I6300ESBWatchdogToJSON,
+} from './';
 
 /**
  * Named watchdog device.
@@ -21,6 +28,12 @@ import { V1I6300ESBWatchdog, V1I6300ESBWatchdogFromJSON, V1I6300ESBWatchdogToJSO
  * @interface V1Watchdog
  */
 export interface V1Watchdog {
+  /**
+   *
+   * @type {V1Diag288Watchdog}
+   * @memberof V1Watchdog
+   */
+  diag288?: V1Diag288Watchdog;
   /**
    *
    * @type {V1I6300ESBWatchdog}
@@ -44,6 +57,7 @@ export function V1WatchdogFromJSONTyped(json: any, _ignoreDiscriminator: boolean
     return json;
   }
   return {
+    diag288: !exists(json, 'diag288') ? undefined : V1Diag288WatchdogFromJSON(json['diag288']),
     i6300esb: !exists(json, 'i6300esb') ? undefined : V1I6300ESBWatchdogFromJSON(json['i6300esb']),
     name: json['name'],
   };
@@ -57,6 +71,7 @@ export function V1WatchdogToJSON(value?: V1Watchdog | null): any {
     return null;
   }
   return {
+    diag288: V1Diag288WatchdogToJSON(value.diag288),
     i6300esb: V1I6300ESBWatchdogToJSON(value.i6300esb),
     name: value.name,
   };

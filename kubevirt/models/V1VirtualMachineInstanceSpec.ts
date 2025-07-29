@@ -20,6 +20,9 @@ import {
   K8sIoApiCoreV1PodDNSConfig,
   K8sIoApiCoreV1PodDNSConfigFromJSON,
   K8sIoApiCoreV1PodDNSConfigToJSON,
+  K8sIoApiCoreV1PodResourceClaim,
+  K8sIoApiCoreV1PodResourceClaimFromJSON,
+  K8sIoApiCoreV1PodResourceClaimToJSON,
   K8sIoApiCoreV1Toleration,
   K8sIoApiCoreV1TolerationFromJSON,
   K8sIoApiCoreV1TolerationToJSON,
@@ -92,7 +95,7 @@ export interface V1VirtualMachineInstanceSpec {
    */
   domain: V1DomainSpec;
   /**
-   * EvictionStrategy describes the strategy to follow when a node drain occurs. The possible options are: - "None": No action will be taken, according to the specified 'RunStrategy' the VirtualMachine will be restarted or shutdown. - "LiveMigrate": the VirtualMachineInstance will be migrated instead of being shutdown. - "LiveMigrateIfPossible": the same as "LiveMigrate" but only if the VirtualMachine is Live-Migratable, otherwise it will behave as "None". - "External": the VirtualMachineInstance will be protected by a PDB and `vmi.Status.EvacuationNodeName` will be set on eviction. This is mainly useful for cluster-api-provider-kubevirt (capk) which needs a way for VMI's to be blocked from eviction, yet signal capk that eviction has been called on the VMI so the capk controller can handle tearing the VMI down. Details can be found in the commit description https://github.com/kubevirt/kubevirt/commit/c1d77face705c8b126696bac9a3ee3825f27f1fa.
+   * EvictionStrategy describes the strategy to follow when a node drain occurs. The possible options are: - "None": No action will be taken, according to the specified 'RunStrategy' the VirtualMachine will be restarted or shutdown. - "LiveMigrate": the VirtualMachineInstance will be migrated instead of being shutdown. - "LiveMigrateIfPossible": the same as "LiveMigrate" but only if the VirtualMachine is Live-Migratable, otherwise it will behave as "None". - "External": the VirtualMachineInstance will be protected and `vmi.Status.EvacuationNodeName` will be set on eviction. This is mainly useful for cluster-api-provider-kubevirt (capk) which needs a way for VMI's to be blocked from eviction, yet signal capk that eviction has been called on the VMI so the capk controller can handle tearing the VMI down. Details can be found in the commit description https://github.com/kubevirt/kubevirt/commit/c1d77face705c8b126696bac9a3ee3825f27f1fa.
    * @type {string}
    * @memberof V1VirtualMachineInstanceSpec
    */
@@ -133,6 +136,16 @@ export interface V1VirtualMachineInstanceSpec {
    * @memberof V1VirtualMachineInstanceSpec
    */
   readinessProbe?: V1Probe;
+  /**
+   * ResourceClaims define which ResourceClaims must be allocated and reserved before the VMI, hence virt-launcher pod is allowed to start. The resources will be made available to the domain which consumes them by name.
+   *
+   * This is an alpha field and requires enabling the DynamicResourceAllocation feature gate in kubernetes
+   *  https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/
+   * This field should only be configured if one of the feature-gates GPUsWithDRA or HostDevicesWithDRA is enabled. This feature is in alpha.
+   * @type {Array<K8sIoApiCoreV1PodResourceClaim>}
+   * @memberof V1VirtualMachineInstanceSpec
+   */
+  resourceClaims?: Array<K8sIoApiCoreV1PodResourceClaim>;
   /**
    * If specified, the VMI will be dispatched by specified scheduler. If not specified, the VMI will be dispatched by default scheduler.
    * @type {string}
@@ -225,6 +238,9 @@ export function V1VirtualMachineInstanceSpecFromJSONTyped(
     readinessProbe: !exists(json, 'readinessProbe')
       ? undefined
       : V1ProbeFromJSON(json['readinessProbe']),
+    resourceClaims: !exists(json, 'resourceClaims')
+      ? undefined
+      : (json['resourceClaims'] as Array<any>).map(K8sIoApiCoreV1PodResourceClaimFromJSON),
     schedulerName: !exists(json, 'schedulerName') ? undefined : json['schedulerName'],
     startStrategy: !exists(json, 'startStrategy') ? undefined : json['startStrategy'],
     subdomain: !exists(json, 'subdomain') ? undefined : json['subdomain'],
@@ -274,6 +290,10 @@ export function V1VirtualMachineInstanceSpecToJSON(
     nodeSelector: value.nodeSelector,
     priorityClassName: value.priorityClassName,
     readinessProbe: V1ProbeToJSON(value.readinessProbe),
+    resourceClaims:
+      value.resourceClaims === undefined
+        ? undefined
+        : (value.resourceClaims as Array<any>).map(K8sIoApiCoreV1PodResourceClaimToJSON),
     schedulerName: value.schedulerName,
     startStrategy: value.startStrategy,
     subdomain: value.subdomain,

@@ -39,6 +39,10 @@ import {
   V1KubeVirtToJSON,
   V1MigrateOptions,
   V1MigrateOptionsToJSON,
+  V1ObjectGraphNode,
+  V1ObjectGraphNodeFromJSON,
+  V1ObjectGraphOptions,
+  V1ObjectGraphOptionsToJSON,
   V1PauseOptions,
   V1PauseOptionsToJSON,
   V1RemoveVolumeOptions,
@@ -1500,6 +1504,12 @@ export interface V1alpha3vmExpandSpecRequest {
   namespace: string;
 }
 
+export interface V1alpha3vmObjectgraphRequest {
+  name: string;
+  namespace: string;
+  body: V1ObjectGraphOptions;
+}
+
 export interface V1alpha3vmPortForwardRequest {
   name: string;
   namespace: string;
@@ -1523,6 +1533,12 @@ export interface V1alpha3vmiAddvolumeRequest {
   name: string;
   namespace: string;
   body: V1AddVolumeOptions;
+}
+
+export interface V1alpha3vmiObjectgraphRequest {
+  name: string;
+  namespace: string;
+  body: V1ObjectGraphOptions;
 }
 
 export interface V1alpha3vmiPortForwardRequest {
@@ -1560,6 +1576,12 @@ export interface V1vmExpandSpecRequest {
   namespace: string;
 }
 
+export interface V1vmObjectgraphRequest {
+  name: string;
+  namespace: string;
+  body: V1ObjectGraphOptions;
+}
+
 export interface V1vmPortForwardRequest {
   name: string;
   namespace: string;
@@ -1583,6 +1605,12 @@ export interface V1vmiAddvolumeRequest {
   name: string;
   namespace: string;
   body: V1AddVolumeOptions;
+}
+
+export interface V1vmiObjectgraphRequest {
+  name: string;
+  namespace: string;
+  body: V1ObjectGraphOptions;
 }
 
 export interface V1vmiPortForwardRequest {
@@ -14739,6 +14767,69 @@ export class DefaultApi extends runtime.BaseAPI {
   }
 
   /**
+   * Get graph of objects related to a Virtual Machine
+   */
+  async v1alpha3vmObjectgraphRaw(
+    requestParameters: V1alpha3vmObjectgraphRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1ObjectGraphNode>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1alpha3vmObjectgraph.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1alpha3vmObjectgraph.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling v1alpha3vmObjectgraph.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/objectgraph`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1ObjectGraphOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1ObjectGraphNodeFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get graph of objects related to a Virtual Machine
+   */
+  async v1alpha3vmObjectgraph(
+    requestParameters: V1alpha3vmObjectgraphRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1ObjectGraphNode> {
+    const response = await this.v1alpha3vmObjectgraphRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
    * Open a websocket connection forwarding traffic to the running VMI for the specified VirtualMachine and port.
    */
   async v1alpha3vmPortForwardRaw(
@@ -14981,6 +15072,69 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<string> {
     const response = await this.v1alpha3vmiAddvolumeRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get graph of objects related to a Virtual Machine Instance
+   */
+  async v1alpha3vmiObjectgraphRaw(
+    requestParameters: V1alpha3vmiObjectgraphRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1ObjectGraphNode>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1alpha3vmiObjectgraph.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1alpha3vmiObjectgraph.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling v1alpha3vmiObjectgraph.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/objectgraph`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1ObjectGraphOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1ObjectGraphNodeFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get graph of objects related to a Virtual Machine Instance
+   */
+  async v1alpha3vmiObjectgraph(
+    requestParameters: V1alpha3vmiObjectgraphRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1ObjectGraphNode> {
+    const response = await this.v1alpha3vmiObjectgraphRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
@@ -15445,6 +15599,69 @@ export class DefaultApi extends runtime.BaseAPI {
   }
 
   /**
+   * Get graph of objects related to a Virtual Machine
+   */
+  async v1vmObjectgraphRaw(
+    requestParameters: V1vmObjectgraphRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1ObjectGraphNode>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1vmObjectgraph.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1vmObjectgraph.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling v1vmObjectgraph.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/objectgraph`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1ObjectGraphOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1ObjectGraphNodeFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get graph of objects related to a Virtual Machine
+   */
+  async v1vmObjectgraph(
+    requestParameters: V1vmObjectgraphRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1ObjectGraphNode> {
+    const response = await this.v1vmObjectgraphRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
    * Open a websocket connection forwarding traffic to the running VMI for the specified VirtualMachine and port.
    */
   async v1vmPortForwardRaw(
@@ -15687,6 +15904,69 @@ export class DefaultApi extends runtime.BaseAPI {
     initOverrides?: RequestInit,
   ): Promise<string> {
     const response = await this.v1vmiAddvolumeRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Get graph of objects related to a Virtual Machine Instance
+   */
+  async v1vmiObjectgraphRaw(
+    requestParameters: V1vmiObjectgraphRequest,
+    initOverrides?: RequestInit,
+  ): Promise<runtime.ApiResponse<V1ObjectGraphNode>> {
+    if (requestParameters.name === null || requestParameters.name === undefined) {
+      throw new runtime.RequiredError(
+        'name',
+        'Required parameter requestParameters.name was null or undefined when calling v1vmiObjectgraph.',
+      );
+    }
+
+    if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+      throw new runtime.RequiredError(
+        'namespace',
+        'Required parameter requestParameters.namespace was null or undefined when calling v1vmiObjectgraph.',
+      );
+    }
+
+    if (requestParameters.body === null || requestParameters.body === undefined) {
+      throw new runtime.RequiredError(
+        'body',
+        'Required parameter requestParameters.body was null or undefined when calling v1vmiObjectgraph.',
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request(
+      {
+        path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/objectgraph`
+          .replace(`{${'name'}}`, encodeURIComponent(String(requestParameters.name)))
+          .replace(`{${'namespace'}}`, encodeURIComponent(String(requestParameters.namespace))),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+        body: V1ObjectGraphOptionsToJSON(requestParameters.body),
+      },
+      initOverrides,
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      V1ObjectGraphNodeFromJSON(jsonValue),
+    );
+  }
+
+  /**
+   * Get graph of objects related to a Virtual Machine Instance
+   */
+  async v1vmiObjectgraph(
+    requestParameters: V1vmiObjectgraphRequest,
+    initOverrides?: RequestInit,
+  ): Promise<V1ObjectGraphNode> {
+    const response = await this.v1vmiObjectgraphRaw(requestParameters, initOverrides);
     return await response.value();
   }
 

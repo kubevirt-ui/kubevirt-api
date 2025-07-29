@@ -14,7 +14,7 @@
 
 import { exists } from '../runtime';
 /**
- * VolumeRestore contains the data neeed to restore a PVC
+ * VolumeRestore contains the data needed to restore a PVC
  * @export
  * @interface V1beta1VolumeRestore
  */

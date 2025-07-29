@@ -17,6 +17,12 @@ import {
   V1MigrationConfiguration,
   V1MigrationConfigurationFromJSON,
   V1MigrationConfigurationToJSON,
+  V1VirtualMachineInstanceMigrationSourceState,
+  V1VirtualMachineInstanceMigrationSourceStateFromJSON,
+  V1VirtualMachineInstanceMigrationSourceStateToJSON,
+  V1VirtualMachineInstanceMigrationTargetState,
+  V1VirtualMachineInstanceMigrationTargetStateFromJSON,
+  V1VirtualMachineInstanceMigrationTargetStateToJSON,
 } from './';
 
 /**
@@ -68,6 +74,12 @@ export interface V1VirtualMachineInstanceMigrationState {
    */
   migrationConfiguration?: V1MigrationConfiguration;
   /**
+   * The type of migration network, either 'pod' or 'migration'
+   * @type {string}
+   * @memberof V1VirtualMachineInstanceMigrationState
+   */
+  migrationNetworkType?: string;
+  /**
    * Name of the migration policy. If string is empty, no policy is matched
    * @type {string}
    * @memberof V1VirtualMachineInstanceMigrationState
@@ -103,6 +115,12 @@ export interface V1VirtualMachineInstanceMigrationState {
    * @memberof V1VirtualMachineInstanceMigrationState
    */
   sourcePod?: string;
+  /**
+   *
+   * @type {V1VirtualMachineInstanceMigrationSourceState}
+   * @memberof V1VirtualMachineInstanceMigrationState
+   */
+  sourceState?: V1VirtualMachineInstanceMigrationSourceState;
   /**
    * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
    * @type {string}
@@ -169,6 +187,12 @@ export interface V1VirtualMachineInstanceMigrationState {
    * @memberof V1VirtualMachineInstanceMigrationState
    */
   targetPod?: string;
+  /**
+   *
+   * @type {V1VirtualMachineInstanceMigrationTargetState}
+   * @memberof V1VirtualMachineInstanceMigrationState
+   */
+  targetState?: V1VirtualMachineInstanceMigrationTargetState;
 }
 
 export function V1VirtualMachineInstanceMigrationStateFromJSON(
@@ -194,6 +218,9 @@ export function V1VirtualMachineInstanceMigrationStateFromJSONTyped(
     migrationConfiguration: !exists(json, 'migrationConfiguration')
       ? undefined
       : V1MigrationConfigurationFromJSON(json['migrationConfiguration']),
+    migrationNetworkType: !exists(json, 'migrationNetworkType')
+      ? undefined
+      : json['migrationNetworkType'],
     migrationPolicyName: !exists(json, 'migrationPolicyName')
       ? undefined
       : json['migrationPolicyName'],
@@ -204,6 +231,9 @@ export function V1VirtualMachineInstanceMigrationStateFromJSONTyped(
       ? undefined
       : json['sourcePersistentStatePVCName'],
     sourcePod: !exists(json, 'sourcePod') ? undefined : json['sourcePod'],
+    sourceState: !exists(json, 'sourceState')
+      ? undefined
+      : V1VirtualMachineInstanceMigrationSourceStateFromJSON(json['sourceState']),
     startTimestamp: !exists(json, 'startTimestamp') ? undefined : json['startTimestamp'],
     targetAttachmentPodUID: !exists(json, 'targetAttachmentPodUID')
       ? undefined
@@ -227,6 +257,9 @@ export function V1VirtualMachineInstanceMigrationStateFromJSONTyped(
       ? undefined
       : json['targetPersistentStatePVCName'],
     targetPod: !exists(json, 'targetPod') ? undefined : json['targetPod'],
+    targetState: !exists(json, 'targetState')
+      ? undefined
+      : V1VirtualMachineInstanceMigrationTargetStateFromJSON(json['targetState']),
   };
 }
 
@@ -247,12 +280,14 @@ export function V1VirtualMachineInstanceMigrationStateToJSON(
     failed: value.failed,
     failureReason: value.failureReason,
     migrationConfiguration: V1MigrationConfigurationToJSON(value.migrationConfiguration),
+    migrationNetworkType: value.migrationNetworkType,
     migrationPolicyName: value.migrationPolicyName,
     migrationUid: value.migrationUid,
     mode: value.mode,
     sourceNode: value.sourceNode,
     sourcePersistentStatePVCName: value.sourcePersistentStatePVCName,
     sourcePod: value.sourcePod,
+    sourceState: V1VirtualMachineInstanceMigrationSourceStateToJSON(value.sourceState),
     startTimestamp: value.startTimestamp === undefined ? undefined : value.startTimestamp,
     targetAttachmentPodUID: value.targetAttachmentPodUID,
     targetCPUSet: value.targetCPUSet,
@@ -267,5 +302,6 @@ export function V1VirtualMachineInstanceMigrationStateToJSON(
     targetNodeTopology: value.targetNodeTopology,
     targetPersistentStatePVCName: value.targetPersistentStatePVCName,
     targetPod: value.targetPod,
+    targetState: V1VirtualMachineInstanceMigrationTargetStateToJSON(value.targetState),
   };
 }

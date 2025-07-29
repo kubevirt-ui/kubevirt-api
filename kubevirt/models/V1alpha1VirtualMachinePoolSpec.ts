@@ -20,6 +20,9 @@ import {
   V1alpha1VirtualMachinePoolNameGeneration,
   V1alpha1VirtualMachinePoolNameGenerationFromJSON,
   V1alpha1VirtualMachinePoolNameGenerationToJSON,
+  V1alpha1VirtualMachinePoolScaleInStrategy,
+  V1alpha1VirtualMachinePoolScaleInStrategyFromJSON,
+  V1alpha1VirtualMachinePoolScaleInStrategyToJSON,
   V1alpha1VirtualMachineTemplateSpec,
   V1alpha1VirtualMachineTemplateSpecFromJSON,
   V1alpha1VirtualMachineTemplateSpecToJSON,
@@ -31,6 +34,12 @@ import {
  * @interface V1alpha1VirtualMachinePoolSpec
  */
 export interface V1alpha1VirtualMachinePoolSpec {
+  /**
+   * IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.
+   * @type {string}
+   * @memberof V1alpha1VirtualMachinePoolSpec
+   */
+  maxUnavailable?: string;
   /**
    *
    * @type {V1alpha1VirtualMachinePoolNameGeneration}
@@ -49,6 +58,12 @@ export interface V1alpha1VirtualMachinePoolSpec {
    * @memberof V1alpha1VirtualMachinePoolSpec
    */
   replicas?: number;
+  /**
+   *
+   * @type {V1alpha1VirtualMachinePoolScaleInStrategy}
+   * @memberof V1alpha1VirtualMachinePoolSpec
+   */
+  scaleInStrategy?: V1alpha1VirtualMachinePoolScaleInStrategy;
   /**
    *
    * @type {K8sIoApimachineryPkgApisMetaV1LabelSelector}
@@ -75,11 +90,15 @@ export function V1alpha1VirtualMachinePoolSpecFromJSONTyped(
     return json;
   }
   return {
+    maxUnavailable: !exists(json, 'maxUnavailable') ? undefined : json['maxUnavailable'],
     nameGeneration: !exists(json, 'nameGeneration')
       ? undefined
       : V1alpha1VirtualMachinePoolNameGenerationFromJSON(json['nameGeneration']),
     paused: !exists(json, 'paused') ? undefined : json['paused'],
     replicas: !exists(json, 'replicas') ? undefined : json['replicas'],
+    scaleInStrategy: !exists(json, 'scaleInStrategy')
+      ? undefined
+      : V1alpha1VirtualMachinePoolScaleInStrategyFromJSON(json['scaleInStrategy']),
     selector: K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
     virtualMachineTemplate: V1alpha1VirtualMachineTemplateSpecFromJSON(
       json['virtualMachineTemplate'],
@@ -97,9 +116,11 @@ export function V1alpha1VirtualMachinePoolSpecToJSON(
     return null;
   }
   return {
+    maxUnavailable: value.maxUnavailable,
     nameGeneration: V1alpha1VirtualMachinePoolNameGenerationToJSON(value.nameGeneration),
     paused: value.paused,
     replicas: value.replicas,
+    scaleInStrategy: V1alpha1VirtualMachinePoolScaleInStrategyToJSON(value.scaleInStrategy),
     selector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
     virtualMachineTemplate: V1alpha1VirtualMachineTemplateSpecToJSON(value.virtualMachineTemplate),
   };

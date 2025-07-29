@@ -98,7 +98,7 @@ export interface V1DomainSpec {
    */
   ioThreads?: V1DiskIOThreads;
   /**
-   * Controls whether or not disks will share IOThreads. Omitting IOThreadsPolicy disables use of IOThreads. One of: shared, auto
+   * Controls whether or not disks will share IOThreads. Omitting IOThreadsPolicy disables use of IOThreads. One of: shared, auto, supplementalPool
    * @type {string}
    * @memberof V1DomainSpec
    */

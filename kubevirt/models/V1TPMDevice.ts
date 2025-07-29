@@ -20,6 +20,12 @@ import { exists } from '../runtime';
  */
 export interface V1TPMDevice {
   /**
+   * Enabled allows a user to explicitly disable the vTPM even when one is enabled by a preference referenced by the VirtualMachine Defaults to True
+   * @type {boolean}
+   * @memberof V1TPMDevice
+   */
+  enabled?: boolean;
+  /**
    * Persistent indicates the state of the TPM device should be kept accross reboots Defaults to false
    * @type {boolean}
    * @memberof V1TPMDevice
@@ -36,6 +42,7 @@ export function V1TPMDeviceFromJSONTyped(json: any, _ignoreDiscriminator: boolea
     return json;
   }
   return {
+    enabled: !exists(json, 'enabled') ? undefined : json['enabled'],
     persistent: !exists(json, 'persistent') ? undefined : json['persistent'],
   };
 }
@@ -48,6 +55,7 @@ export function V1TPMDeviceToJSON(value?: V1TPMDevice | null): any {
     return null;
   }
   return {
+    enabled: value.enabled,
     persistent: value.persistent,
   };
 }

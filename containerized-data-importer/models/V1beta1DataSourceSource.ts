@@ -14,6 +14,9 @@
 
 import { exists } from '../runtime';
 import {
+  V1beta1DataSourceRefSourceDataSource,
+  V1beta1DataSourceRefSourceDataSourceFromJSON,
+  V1beta1DataSourceRefSourceDataSourceToJSON,
   V1beta1DataVolumeSourcePVC,
   V1beta1DataVolumeSourcePVCFromJSON,
   V1beta1DataVolumeSourcePVCToJSON,
@@ -28,6 +31,12 @@ import {
  * @interface V1beta1DataSourceSource
  */
 export interface V1beta1DataSourceSource {
+  /**
+   *
+   * @type {V1beta1DataSourceRefSourceDataSource}
+   * @memberof V1beta1DataSourceSource
+   */
+  dataSource?: V1beta1DataSourceRefSourceDataSource;
   /**
    *
    * @type {V1beta1DataVolumeSourcePVC}
@@ -54,6 +63,9 @@ export function V1beta1DataSourceSourceFromJSONTyped(
     return json;
   }
   return {
+    dataSource: !exists(json, 'dataSource')
+      ? undefined
+      : V1beta1DataSourceRefSourceDataSourceFromJSON(json['dataSource']),
     pvc: !exists(json, 'pvc') ? undefined : V1beta1DataVolumeSourcePVCFromJSON(json['pvc']),
     snapshot: !exists(json, 'snapshot')
       ? undefined
@@ -69,6 +81,7 @@ export function V1beta1DataSourceSourceToJSON(value?: V1beta1DataSourceSource | 
     return null;
   }
   return {
+    dataSource: V1beta1DataSourceRefSourceDataSourceToJSON(value.dataSource),
     pvc: V1beta1DataVolumeSourcePVCToJSON(value.pvc),
     snapshot: V1beta1DataVolumeSourceSnapshotToJSON(value.snapshot),
   };

@@ -20,17 +20,29 @@ import { exists } from '../runtime';
  */
 export interface V1HostDevice {
   /**
-   * DeviceName is the resource name of the host device exposed by a device plugin
+   * ClaimName needs to be provided from the list vmi.spec.resourceClaims[].name where this device is allocated
    * @type {string}
    * @memberof V1HostDevice
    */
-  deviceName: string;
+  claimName?: string;
+  /**
+   * DeviceName is the name of the device provisioned by device-plugins
+   * @type {string}
+   * @memberof V1HostDevice
+   */
+  deviceName?: string;
   /**
    *
    * @type {string}
    * @memberof V1HostDevice
    */
   name: string;
+  /**
+   * RequestName needs to be provided from resourceClaim.spec.devices.requests[].name where this device is requested
+   * @type {string}
+   * @memberof V1HostDevice
+   */
+  requestName?: string;
   /**
    * If specified, the virtual network interface address and its tag will be provided to the guest via config drive
    * @type {string}
@@ -48,8 +60,10 @@ export function V1HostDeviceFromJSONTyped(json: any, _ignoreDiscriminator: boole
     return json;
   }
   return {
-    deviceName: json['deviceName'],
+    claimName: !exists(json, 'claimName') ? undefined : json['claimName'],
+    deviceName: !exists(json, 'deviceName') ? undefined : json['deviceName'],
     name: json['name'],
+    requestName: !exists(json, 'requestName') ? undefined : json['requestName'],
     tag: !exists(json, 'tag') ? undefined : json['tag'],
   };
 }
@@ -62,8 +76,10 @@ export function V1HostDeviceToJSON(value?: V1HostDevice | null): any {
     return null;
   }
   return {
+    claimName: value.claimName,
     deviceName: value.deviceName,
     name: value.name,
+    requestName: value.requestName,
     tag: value.tag,
   };
 }

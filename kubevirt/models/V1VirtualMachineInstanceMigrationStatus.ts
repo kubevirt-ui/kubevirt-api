@@ -55,6 +55,12 @@ export interface V1VirtualMachineInstanceMigrationStatus {
    * @memberof V1VirtualMachineInstanceMigrationStatus
    */
   phaseTransitionTimestamps?: Array<V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp>;
+  /**
+   * The synchronization addresses one can use to connect to the synchronization controller, includes the port, if multiple addresses are available, the first one is reported in the synchronizationAddress field.
+   * @type {Array<string>}
+   * @memberof V1VirtualMachineInstanceMigrationStatus
+   */
+  synchronizationAddresses?: Array<string>;
 }
 
 export function V1VirtualMachineInstanceMigrationStatusFromJSON(
@@ -83,6 +89,9 @@ export function V1VirtualMachineInstanceMigrationStatusFromJSONTyped(
       : (json['phaseTransitionTimestamps'] as Array<any>).map(
           V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSON,
         ),
+    synchronizationAddresses: !exists(json, 'synchronizationAddresses')
+      ? undefined
+      : json['synchronizationAddresses'],
   };
 }
 
@@ -108,5 +117,6 @@ export function V1VirtualMachineInstanceMigrationStatusToJSON(
         : (value.phaseTransitionTimestamps as Array<any>).map(
             V1VirtualMachineInstanceMigrationPhaseTransitionTimestampToJSON,
           ),
+    synchronizationAddresses: value.synchronizationAddresses,
   };
 }

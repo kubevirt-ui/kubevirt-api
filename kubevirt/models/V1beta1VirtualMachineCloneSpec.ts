@@ -53,6 +53,12 @@ export interface V1beta1VirtualMachineCloneSpec {
    */
   newSMBiosSerial?: string;
   /**
+   * Patches holds JSON patches to apply to target. Patches should fit the target's Kind. Example: '{"op": "add", "path": "/spec/template/metadata/labels/example", "value": "new-label"}'
+   * @type {Array<string>}
+   * @memberof V1beta1VirtualMachineCloneSpec
+   */
+  patches?: Array<string>;
+  /**
    *
    * @type {K8sIoApiCoreV1TypedLocalObjectReference}
    * @memberof V1beta1VirtualMachineCloneSpec
@@ -88,6 +94,7 @@ export function V1beta1VirtualMachineCloneSpecFromJSONTyped(
     labelFilters: !exists(json, 'labelFilters') ? undefined : json['labelFilters'],
     newMacAddresses: !exists(json, 'newMacAddresses') ? undefined : json['newMacAddresses'],
     newSMBiosSerial: !exists(json, 'newSMBiosSerial') ? undefined : json['newSMBiosSerial'],
+    patches: !exists(json, 'patches') ? undefined : json['patches'],
     source: K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['source']),
     target: !exists(json, 'target')
       ? undefined
@@ -112,6 +119,7 @@ export function V1beta1VirtualMachineCloneSpecToJSON(
     labelFilters: value.labelFilters,
     newMacAddresses: value.newMacAddresses,
     newSMBiosSerial: value.newSMBiosSerial,
+    patches: value.patches,
     source: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.source),
     target: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.target),
     template: V1beta1VirtualMachineCloneTemplateFiltersToJSON(value.template),

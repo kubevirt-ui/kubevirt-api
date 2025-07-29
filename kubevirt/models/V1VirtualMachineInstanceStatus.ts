@@ -17,6 +17,9 @@ import {
   V1CPUTopology,
   V1CPUTopologyFromJSON,
   V1CPUTopologyToJSON,
+  V1DeviceStatus,
+  V1DeviceStatusFromJSON,
+  V1DeviceStatusToJSON,
   V1KernelBootStatus,
   V1KernelBootStatusFromJSON,
   V1KernelBootStatusToJSON,
@@ -83,13 +86,19 @@ export interface V1VirtualMachineInstanceStatus {
    */
   currentCPUTopology?: V1CPUTopology;
   /**
+   *
+   * @type {V1DeviceStatus}
+   * @memberof V1VirtualMachineInstanceStatus
+   */
+  deviceStatus?: V1DeviceStatus;
+  /**
    * EvacuationNodeName is used to track the eviction process of a VMI. It stores the name of the node that we want to evacuate. It is meant to be used by KubeVirt core components only and can't be set or modified by users.
    * @type {string}
    * @memberof V1VirtualMachineInstanceStatus
    */
   evacuationNodeName?: string;
   /**
-   * FSFreezeStatus is the state of the fs of the guest it can be either frozen or thawed
+   * FSFreezeStatus indicates whether a freeze operation was requested for the guest filesystem. It will be set to "frozen" if the request was made, or unset otherwise. This does not reflect the actual state of the guest filesystem.
    * @type {string}
    * @memberof V1VirtualMachineInstanceStatus
    */
@@ -251,6 +260,9 @@ export function V1VirtualMachineInstanceStatusFromJSONTyped(
     currentCPUTopology: !exists(json, 'currentCPUTopology')
       ? undefined
       : V1CPUTopologyFromJSON(json['currentCPUTopology']),
+    deviceStatus: !exists(json, 'deviceStatus')
+      ? undefined
+      : V1DeviceStatusFromJSON(json['deviceStatus']),
     evacuationNodeName: !exists(json, 'evacuationNodeName')
       ? undefined
       : json['evacuationNodeName'],
@@ -319,6 +331,7 @@ export function V1VirtualMachineInstanceStatusToJSON(
         ? undefined
         : (value.conditions as Array<any>).map(V1VirtualMachineInstanceConditionToJSON),
     currentCPUTopology: V1CPUTopologyToJSON(value.currentCPUTopology),
+    deviceStatus: V1DeviceStatusToJSON(value.deviceStatus),
     evacuationNodeName: value.evacuationNodeName,
     fsFreezeStatus: value.fsFreezeStatus,
     guestOSInfo: V1VirtualMachineInstanceGuestOSInfoToJSON(value.guestOSInfo),

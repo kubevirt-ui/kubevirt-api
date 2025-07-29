@@ -4,7 +4,7 @@ set -eu
 OPENAPI_GENERATOR_CLI=./node_modules/.bin/openapi-generator-cli
 
 # Use released versions
-KUBEVIRT_RELEASE=v1.5.0
+KUBEVIRT_RELEASE=main
 CDI_RELEASE=main
 KUBERNETES_RELEASE=v1.33.0
 OPENSHIFT_CONSOLE_COMMIT=main

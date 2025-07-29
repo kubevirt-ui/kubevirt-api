@@ -17,10 +17,13 @@ import {
   K8sIoApiCoreV1TypedLocalObjectReference,
   K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
   K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
+  V1beta1VolumeRestoreOverride,
+  V1beta1VolumeRestoreOverrideFromJSON,
+  V1beta1VolumeRestoreOverrideToJSON,
 } from './';
 
 /**
- * VirtualMachineRestoreSpec is the spec for a VirtualMachineRestoreresource
+ * VirtualMachineRestoreSpec is the spec for a VirtualMachineRestore resource
  * @export
  * @interface V1beta1VirtualMachineRestoreSpec
  */
@@ -51,6 +54,18 @@ export interface V1beta1VirtualMachineRestoreSpec {
    * @memberof V1beta1VirtualMachineRestoreSpec
    */
   virtualMachineSnapshotName: string;
+  /**
+   * VolumeRestoreOverrides gives the option to change properties of each restored volume For example, specifying the name of the restored volume, or adding labels/annotations to it
+   * @type {Array<V1beta1VolumeRestoreOverride>}
+   * @memberof V1beta1VirtualMachineRestoreSpec
+   */
+  volumeRestoreOverrides?: Array<V1beta1VolumeRestoreOverride>;
+  /**
+   *
+   * @type {string}
+   * @memberof V1beta1VirtualMachineRestoreSpec
+   */
+  volumeRestorePolicy?: string;
 }
 
 export function V1beta1VirtualMachineRestoreSpecFromJSON(
@@ -73,6 +88,12 @@ export function V1beta1VirtualMachineRestoreSpecFromJSONTyped(
       ? undefined
       : json['targetReadinessPolicy'],
     virtualMachineSnapshotName: json['virtualMachineSnapshotName'],
+    volumeRestoreOverrides: !exists(json, 'volumeRestoreOverrides')
+      ? undefined
+      : (json['volumeRestoreOverrides'] as Array<any>).map(V1beta1VolumeRestoreOverrideFromJSON),
+    volumeRestorePolicy: !exists(json, 'volumeRestorePolicy')
+      ? undefined
+      : json['volumeRestorePolicy'],
   };
 }
 
@@ -90,5 +111,10 @@ export function V1beta1VirtualMachineRestoreSpecToJSON(
     target: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.target),
     targetReadinessPolicy: value.targetReadinessPolicy,
     virtualMachineSnapshotName: value.virtualMachineSnapshotName,
+    volumeRestoreOverrides:
+      value.volumeRestoreOverrides === undefined
+        ? undefined
+        : (value.volumeRestoreOverrides as Array<any>).map(V1beta1VolumeRestoreOverrideToJSON),
+    volumeRestorePolicy: value.volumeRestorePolicy,
   };
 }

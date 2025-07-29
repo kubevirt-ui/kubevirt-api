@@ -49,6 +49,12 @@ export interface V1ArchConfiguration {
    * @memberof V1ArchConfiguration
    */
   ppc64le?: V1ArchSpecificConfiguration;
+  /**
+   *
+   * @type {V1ArchSpecificConfiguration}
+   * @memberof V1ArchConfiguration
+   */
+  s390x?: V1ArchSpecificConfiguration;
 }
 
 export function V1ArchConfigurationFromJSON(json: any): V1ArchConfiguration {
@@ -71,6 +77,7 @@ export function V1ArchConfigurationFromJSONTyped(
     ppc64le: !exists(json, 'ppc64le')
       ? undefined
       : V1ArchSpecificConfigurationFromJSON(json['ppc64le']),
+    s390x: !exists(json, 's390x') ? undefined : V1ArchSpecificConfigurationFromJSON(json['s390x']),
   };
 }
 
@@ -86,5 +93,6 @@ export function V1ArchConfigurationToJSON(value?: V1ArchConfiguration | null): a
     arm64: V1ArchSpecificConfigurationToJSON(value.arm64),
     defaultArchitecture: value.defaultArchitecture,
     ppc64le: V1ArchSpecificConfigurationToJSON(value.ppc64le),
+    s390x: V1ArchSpecificConfigurationToJSON(value.s390x),
   };
 }

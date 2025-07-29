@@ -23,7 +23,7 @@ import {
 } from './';
 
 /**
- * VirtualMachineRestoreStatus is the spec for a VirtualMachineRestoreresource
+ * VirtualMachineRestoreStatus is the status for a VirtualMachineRestore resource
  * @export
  * @interface V1beta1VirtualMachineRestoreStatus
  */

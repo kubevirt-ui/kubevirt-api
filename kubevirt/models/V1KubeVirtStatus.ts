@@ -96,6 +96,12 @@ export interface V1KubeVirtStatus {
   phase?: string;
   /**
    *
+   * @type {Array<string>}
+   * @memberof V1KubeVirtStatus
+   */
+  synchronizationAddresses?: Array<string>;
+  /**
+   *
    * @type {string}
    * @memberof V1KubeVirtStatus
    */
@@ -164,6 +170,9 @@ export function V1KubeVirtStatusFromJSONTyped(
       ? undefined
       : json['outdatedVirtualMachineInstanceWorkloads'],
     phase: !exists(json, 'phase') ? undefined : json['phase'],
+    synchronizationAddresses: !exists(json, 'synchronizationAddresses')
+      ? undefined
+      : json['synchronizationAddresses'],
     targetDeploymentConfig: !exists(json, 'targetDeploymentConfig')
       ? undefined
       : json['targetDeploymentConfig'],
@@ -204,6 +213,7 @@ export function V1KubeVirtStatusToJSON(value?: V1KubeVirtStatus | null): any {
     operatorVersion: value.operatorVersion,
     outdatedVirtualMachineInstanceWorkloads: value.outdatedVirtualMachineInstanceWorkloads,
     phase: value.phase,
+    synchronizationAddresses: value.synchronizationAddresses,
     targetDeploymentConfig: value.targetDeploymentConfig,
     targetDeploymentID: value.targetDeploymentID,
     targetKubeVirtRegistry: value.targetKubeVirtRegistry,

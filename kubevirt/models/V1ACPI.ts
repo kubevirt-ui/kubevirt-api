@@ -20,6 +20,12 @@ import { exists } from '../runtime';
  */
 export interface V1ACPI {
   /**
+   * Similar to SlicNameRef, another ACPI entry that is used in more recent Windows versions. The above points to the spec of MSDM too.
+   * @type {string}
+   * @memberof V1ACPI
+   */
+  msdmNameRef?: string;
+  /**
    * SlicNameRef should match the volume name of a secret object. The data in the secret should be a binary blob that follows the ACPI SLIC standard, see: https://learn.microsoft.com/en-us/previous-versions/windows/hardware/design/dn653305(v=vs.85)
    * @type {string}
    * @memberof V1ACPI
@@ -36,6 +42,7 @@ export function V1ACPIFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V
     return json;
   }
   return {
+    msdmNameRef: !exists(json, 'msdmNameRef') ? undefined : json['msdmNameRef'],
     slicNameRef: !exists(json, 'slicNameRef') ? undefined : json['slicNameRef'],
   };
 }
@@ -48,6 +55,7 @@ export function V1ACPIToJSON(value?: V1ACPI | null): any {
     return null;
   }
   return {
+    msdmNameRef: value.msdmNameRef,
     slicNameRef: value.slicNameRef,
   };
 }

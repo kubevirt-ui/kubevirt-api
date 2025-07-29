@@ -20,13 +20,13 @@ import { exists } from '../runtime';
  */
 export interface K8sIoApiCoreV1PodDNSConfigOption {
   /**
-   * Required.
+   * Name is this DNS resolver option's name. Required.
    * @type {string}
    * @memberof K8sIoApiCoreV1PodDNSConfigOption
    */
   name?: string;
   /**
-   *
+   * Value is this DNS resolver option's value.
    * @type {string}
    * @memberof K8sIoApiCoreV1PodDNSConfigOption
    */

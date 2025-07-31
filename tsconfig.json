@@ -11,6 +11,8 @@
     "allowJs": true,
     "experimentalDecorators": true,
     "sourceMap": true,
+    "declaration": true,
+    "emitDeclarationOnly": false,
   },
   "include": ["./kubevirt", "./console", "./kubernetes", "./containerized-data-importer"],
   "exclude": ["**/node_modules", "**/dist"]

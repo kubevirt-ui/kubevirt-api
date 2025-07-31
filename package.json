@@ -3,11 +3,26 @@
   "version": "1.4.0",
   "description": "kubevirt OpenAPI automation for TypeScript",
   "files": [
-    "containerized-data-importer/*",
-    "kubevirt/*",
-    "kubernetes/*",
-    "console/*"
+    "dist"
   ],
+  "exports": {
+    "./console": {
+      "types": "./dist/console/index.d.ts",
+      "default": "./dist/console/index.js"
+    },
+    "./containerized-data-importer": {
+      "types": "./dist/containerized-data-importer/index.d.ts",
+      "default": "./dist/containerized-data-importer/index.js"
+    },
+    "./kubevirt": {
+      "types": "./dist/kubevirt/index.d.ts",
+      "default": "./dist/kubevirt/index.js"
+    },
+    "./kubernetes": {
+      "types": "./dist/kubernetes/index.d.ts",
+      "default": "./dist/kubernetes/index.js"
+    }
+  },
   "scripts": {
     "generate": "bash ./scripts/generate.sh",
     "generate:fix-console": "bash ./scripts/fix-console-models.sh",
@@ -17,7 +32,8 @@
     "clean:all": "rm -rf ./docs ./generated ./kubevirt ./containerized-data-importer ./console/core/index.ts ./console-core-models.ts ./kubernetes swagger-*.json",
     "lint": "eslint console kubevirt kubernetes containerized-data-importer --color --no-inline-config",
     "lint:fix": "yarn lint --fix",
-    "test": "echo \"It's all OK\" && exit 0"
+    "test": "echo \"It's all OK\" && exit 0",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",

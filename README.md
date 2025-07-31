@@ -24,7 +24,7 @@ http://kubevirt.io/api-reference/master/index.html
 
 ```bash
 # Add to your project
-yarn add @kubevirt-ui/kubevirt-api
+npm install @kubevirt-ui/kubevirt-api
 ```
 
 ```typescript
@@ -42,7 +42,7 @@ import VirtualMachineModel from '@kubevirt-ui/kubevirt-api/console/models/Virtua
 1. Make sure you have all dependencies installed
 
 ```bash
-yarn
+npm install
 ```
 
 2. Go to the `scripts/generate.sh` script and modify the package's version the latest available version.
@@ -50,29 +50,29 @@ yarn
 3. It is essential to remove old API first
 
 ```bash
-yarn clean:all
+npm run clean:all
 ```
 
 4. Generate the new API
 
 ```bash
-yarn generate
+npm run generate
 ```
 
 5. Fix generated API errors:
 
 ```bash
-yarn generate:fix
+npm run generate:fix
 ```
 
 6. Run linter: (if necesarry fix issues and re-run)
 
 ```bash
-yarn lint:fix
+npm run lint:fix
 ```
 
 7. Generate docs:
 
 ```bash
-yarn generate:docs
+npm run generate:docs
 ```

@@ -1,0 +1,16 @@
+export enum InterfaceType {
+  ETHERNET = 'ethernet',
+  BOND = 'bond',
+  LINUX_BRIDGE = 'linux-bridge',
+  OVS_BRIDGE = 'ovs-bridge',
+  OVS_PORT = 'ovs-port',
+  OVS_INTERFACE = 'ovs-interface',
+  VLAN = 'vlan',
+  VXLAN = 'vxlan',
+  VRF = 'vrf',
+  INFINIBAND = 'infiniband',
+  MAC_VLAN = 'mac-vlan',
+  MAC_VTAP = 'mac-vtap',
+  VETH = 'veth',
+  LOOPBACK = 'loopback',
+}

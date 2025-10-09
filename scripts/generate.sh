@@ -42,3 +42,7 @@ mkdir -p ./kubernetes
 cp -rf ./generated/kubevirt/${KUBEVIRT_RELEASE}/* ./kubevirt/
 cp -rf ./generated/containerized-data-importer/${CDI_RELEASE}/* ./containerized-data-importer/
 cp -rf ./generated/kubernetes/${KUBERNETES_RELEASE}/* ./kubernetes/
+
+# Generate nmstate types
+chmod +x ./scripts/generate-nmstate.sh
+./scripts/generate-nmstate.sh

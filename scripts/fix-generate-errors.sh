@@ -36,3 +36,7 @@ cp -fr console-core-models.ts console/core/index.ts
 # Fix broken comments
 chmod +x ./scripts/fix-comments-parsing-errors.sh
 ./scripts/fix-comments-parsing-errors.sh
+
+# Fix nmstate unused vars
+chmod +x ./scripts/fix-nmstate-unused-vars.sh
+./scripts/fix-nmstate-unused-vars.sh

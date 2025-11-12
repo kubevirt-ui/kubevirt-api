@@ -7,7 +7,7 @@ const KubeDeschedulerModel = {
   apiGroup: 'operator.openshift.io',
   apiVersion: 'v1',
   abbr: 'KD',
-  namespaced: false,
+  namespaced: true,
   crd: true,
   plural: 'kubedeschedulers',
 };

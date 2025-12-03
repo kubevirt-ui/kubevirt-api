@@ -2,6 +2,7 @@ import { NodeNetworkConfigurationInterfaceBridgePort } from './NodeNetworkConfig
 
 export interface NodeNetworkConfigurationInterfaceBridge {
   port?: NodeNetworkConfigurationInterfaceBridgePort[];
+  ['allow-extra-patch-ports']?: boolean;
   options?: {
     /** The mask of group address to forward. */
     'group-forward-mask'?: number;

@@ -1,6 +1,6 @@
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const KubeDeschedulerModel = {
+export const KubeDeschedulerModel = {
   kind: 'KubeDescheduler',
   label: 'KubeDescheduler',
   labelPlural: 'KubeDeschedulers',
@@ -14,5 +14,3 @@ const KubeDeschedulerModel = {
 
 export const KubeDeschedulerModelGroupVersionKind = modelToGroupVersionKind(KubeDeschedulerModel);
 export const KubeDeschedulerModelRef = modelToRef(KubeDeschedulerModel);
-
-export default KubeDeschedulerModel;

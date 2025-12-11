@@ -2,7 +2,7 @@ import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-t
 
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const ConsoleQuickStartModel: K8sModel = {
+export const ConsoleQuickStartModel: K8sModel = {
   kind: 'ConsoleQuickStart',
   label: 'ConsoleQuickStart',
   labelPlural: 'ConsoleQuickStarts',
@@ -18,5 +18,3 @@ const ConsoleQuickStartModel: K8sModel = {
 export const ConsoleQuickStartModelGroupVersionKind =
   modelToGroupVersionKind(ConsoleQuickStartModel);
 export const ConsoleQuickStartModelRef = modelToRef(ConsoleQuickStartModel);
-
-export default ConsoleQuickStartModel;

@@ -2,7 +2,7 @@ import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-t
 
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const StorageProfileModel: K8sModel = {
+export const StorageProfileModel: K8sModel = {
   label: 'StorageProfile',
   labelPlural: 'StorageProfiles',
   apiVersion: 'v1beta1',
@@ -17,5 +17,3 @@ const StorageProfileModel: K8sModel = {
 
 export const StorageProfileModelGroupVersionKind = modelToGroupVersionKind(StorageProfileModel);
 export const StorageProfileModelRef = modelToRef(StorageProfileModel);
-
-export default StorageProfileModel;

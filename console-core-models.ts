@@ -1158,23 +1158,6 @@ export const ConsoleLinkModel: K8sModel = {
   crd: true,
 };
 
-export const ConsoleCLIDownloadModel: K8sModel = {
-  label: 'ConsoleCLIDownload',
-  // t('public~ConsoleCLIDownload')
-  labelKey: 'public~ConsoleCLIDownload',
-  labelPlural: 'ConsoleCLIDownloads',
-  // t('public~ConsoleCLIDownloads')
-  labelPluralKey: 'public~ConsoleCLIDownloads',
-  apiVersion: 'v1',
-  apiGroup: 'console.openshift.io',
-  plural: 'consoleclidownloads',
-  abbr: 'CCD',
-  namespaced: false,
-  kind: 'ConsoleCLIDownload',
-  id: 'consoleclidownload',
-  crd: true,
-};
-
 export const ConsoleNotificationModel: K8sModel = {
   label: 'ConsoleNotification',
   // t('public~ConsoleNotification')

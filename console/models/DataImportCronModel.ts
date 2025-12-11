@@ -2,7 +2,7 @@ import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-t
 
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const DataImportCronModel: K8sModel = {
+export const DataImportCronModel: K8sModel = {
   label: 'DataImportCron',
   labelPlural: 'DataImportCrons',
   apiVersion: 'v1beta1',
@@ -17,5 +17,3 @@ const DataImportCronModel: K8sModel = {
 
 export const DataImportCronModelGroupVersionKind = modelToGroupVersionKind(DataImportCronModel);
 export const DataImportCronModelRef = modelToRef(DataImportCronModel);
-
-export default DataImportCronModel;

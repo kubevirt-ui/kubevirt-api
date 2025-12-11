@@ -2,7 +2,7 @@ import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-t
 
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const MigrationPolicyModel: K8sModel = {
+export const MigrationPolicyModel: K8sModel = {
   label: 'MigrationPolicy',
   labelKey: 'MigrationPolicy',
   labelPlural: 'MigrationPolicies',
@@ -19,5 +19,3 @@ const MigrationPolicyModel: K8sModel = {
 
 export const MigrationPolicyModelGroupVersionKind = modelToGroupVersionKind(MigrationPolicyModel);
 export const MigrationPolicyModelRef = modelToRef(MigrationPolicyModel);
-
-export default MigrationPolicyModel;

@@ -2,7 +2,7 @@ import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-t
 
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const VirtualMachineClusterInstancetypeModel: K8sModel = {
+export const VirtualMachineClusterInstancetypeModel: K8sModel = {
   label: 'VirtualMachineClusterInstancetype',
   labelPlural: 'VirtualMachineClusterInstancetypes',
   apiVersion: 'v1beta1',
@@ -21,5 +21,3 @@ export const VirtualMachineClusterInstancetypeModelGroupVersionKind = modelToGro
 export const VirtualMachineClusterInstancetypeModelRef = modelToRef(
   VirtualMachineClusterInstancetypeModel,
 );
-
-export default VirtualMachineClusterInstancetypeModel;

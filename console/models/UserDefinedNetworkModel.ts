@@ -1,7 +1,7 @@
 import { K8sModel } from '@openshift-console/dynamic-plugin-sdk';
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const UserDefinedNetworkModel: K8sModel = {
+export const UserDefinedNetworkModel: K8sModel = {
   abbr: 'UDN',
   apiGroup: 'k8s.ovn.org',
   apiVersion: 'v1',
@@ -19,5 +19,3 @@ const UserDefinedNetworkModel: K8sModel = {
 export const UserDefinedNetworkModelGroupVersionKind =
   modelToGroupVersionKind(UserDefinedNetworkModel);
 export const UserDefinedNetworkModelRef = modelToRef(UserDefinedNetworkModel);
-
-export default UserDefinedNetworkModel;

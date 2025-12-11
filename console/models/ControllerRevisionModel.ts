@@ -2,7 +2,7 @@ import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-t
 
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const ControllerRevisionModel: K8sModel = {
+export const ControllerRevisionModel: K8sModel = {
   id: 'controllerrevision',
   kind: 'ControllerRevision',
   apiGroup: 'apps',
@@ -16,5 +16,3 @@ const ControllerRevisionModel: K8sModel = {
 export const ControllerRevisionModelGroupVersionKind =
   modelToGroupVersionKind(ControllerRevisionModel);
 export const ControllerRevisionModelRef = modelToRef(ControllerRevisionModel);
-
-export default ControllerRevisionModel;

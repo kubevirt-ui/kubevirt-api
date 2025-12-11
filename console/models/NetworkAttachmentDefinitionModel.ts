@@ -2,7 +2,7 @@ import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-t
 
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const NetworkAttachmentDefinitionModel: K8sModel = {
+export const NetworkAttachmentDefinitionModel: K8sModel = {
   label: 'Network Attachment Definition',
   labelPlural: 'Network Attachment Definitions',
   apiVersion: 'v1',
@@ -20,5 +20,3 @@ export const NetworkAttachmentDefinitionModelGroupVersionKind = modelToGroupVers
   NetworkAttachmentDefinitionModel,
 );
 export const NetworkAttachmentDefinitionModelRef = modelToRef(NetworkAttachmentDefinitionModel);
-
-export default NetworkAttachmentDefinitionModel;

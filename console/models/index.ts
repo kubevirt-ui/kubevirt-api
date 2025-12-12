@@ -16,6 +16,7 @@ export * from './MigrationPolicyModel';
 export * from './ControllerRevisionModel';
 export * from './NetworkAddonsConfigModel';
 export * from './NetworkAttachmentDefinitionModel';
+export * from './ProcessedTemplatesModel';
 export * from './PackageManifestModel';
 export * from './SriovNetworkNodePolicyModel';
 export * from './StorageProfileModel';

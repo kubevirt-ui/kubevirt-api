@@ -2,7 +2,7 @@ import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-t
 
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const CDIConfigModel: K8sModel = {
+export const CDIConfigModel: K8sModel = {
   label: 'CDIConfig',
   labelPlural: 'CDIConfigs',
   apiVersion: 'v1beta1',
@@ -17,5 +17,3 @@ const CDIConfigModel: K8sModel = {
 
 export const CDIConfigModelGroupVersionKind = modelToGroupVersionKind(CDIConfigModel);
 export const CDIConfigModelRef = modelToRef(CDIConfigModel);
-
-export default CDIConfigModel;

@@ -2,7 +2,7 @@ import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-t
 
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const DataSourceModel: K8sModel = {
+export const DataSourceModel: K8sModel = {
   label: 'DataSource',
   labelPlural: 'DataSources',
   apiVersion: 'v1beta1',
@@ -17,5 +17,3 @@ const DataSourceModel: K8sModel = {
 
 export const DataSourceModelGroupVersionKind = modelToGroupVersionKind(DataSourceModel);
 export const DataSourceModelRef = modelToRef(DataSourceModel);
-
-export default DataSourceModel;

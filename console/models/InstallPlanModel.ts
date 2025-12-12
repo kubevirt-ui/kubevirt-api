@@ -2,7 +2,7 @@ import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-t
 
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const InstallPlanModel: K8sModel = {
+export const InstallPlanModel: K8sModel = {
   kind: 'InstallPlan',
   label: 'InstallPlan',
   labelKey: 'InstallPlan',
@@ -19,5 +19,3 @@ const InstallPlanModel: K8sModel = {
 
 export const InstallPlanModelGroupVersionKind = modelToGroupVersionKind(InstallPlanModel);
 export const InstallPlanModelRef = modelToRef(InstallPlanModel);
-
-export default InstallPlanModel;

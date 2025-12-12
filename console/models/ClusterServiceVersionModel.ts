@@ -2,7 +2,7 @@ import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-t
 
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const ClusterServiceVersionModel: K8sModel = {
+export const ClusterServiceVersionModel: K8sModel = {
   kind: 'ClusterServiceVersion',
   label: 'ClusterServiceVersion',
   labelKey: 'ClusterServiceVersion',
@@ -22,5 +22,3 @@ export const ClusterServiceVersionModelGroupVersionKind = modelToGroupVersionKin
   ClusterServiceVersionModel,
 );
 export const ClusterServiceVersionModelRef = modelToRef(ClusterServiceVersionModel);
-
-export default ClusterServiceVersionModel;

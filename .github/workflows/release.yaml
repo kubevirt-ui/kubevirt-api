@@ -24,5 +24,3 @@ jobs:
           yarn install --frozen-lockfile --ignore-scripts
       - run: yarn build
       - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_FOR_KUBEVIRT_UI_EXT }}

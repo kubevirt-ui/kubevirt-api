@@ -69,7 +69,7 @@
     "lint": "eslint console kubevirt kubernetes containerized-data-importer nmstate --color --no-inline-config",
     "lint:fix": "yarn lint --fix",
     "build": "tsup",
-    "test": "echo \"It's all OK\" && exit 0"
+    "test": "tsc --noEmit -p ./tsconfig.json"
   },
   "repository": {
     "type": "git",

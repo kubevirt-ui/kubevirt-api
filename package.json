@@ -68,7 +68,7 @@
     "clean:all": "rimraf ./docs ./generated ./kubevirt ./containerized-data-importer ./console/core/index.ts ./console-core-models.ts ./kubernetes ./nmstate/models ./nmstate/index.ts ./nmstate/runtime.ts swagger-*.json",
     "lint": "eslint console kubevirt kubernetes containerized-data-importer nmstate --color --no-inline-config",
     "lint:fix": "yarn lint --fix",
-    "build": "tsup",
+    "build": "yarn test && tsup",
     "test": "tsc --noEmit -p ./tsconfig.json"
   },
   "repository": {

@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1AddVolumeOptions,
-  V1AddVolumeOptionsFromJSON,
-  V1AddVolumeOptionsToJSON,
-  V1RemoveVolumeOptions,
-  V1RemoveVolumeOptionsFromJSON,
-  V1RemoveVolumeOptionsToJSON,
-} from './';
-
+import type { V1AddVolumeOptions } from './V1AddVolumeOptions';
+import type { V1RemoveVolumeOptions } from './V1RemoveVolumeOptions';
 /**
  *
  * @export
@@ -42,38 +34,6 @@ export interface V1VirtualMachineVolumeRequest {
   removeVolumeOptions?: V1RemoveVolumeOptions;
 }
 
-export function V1VirtualMachineVolumeRequestFromJSON(json: any): V1VirtualMachineVolumeRequest {
-  return V1VirtualMachineVolumeRequestFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineVolumeRequestFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineVolumeRequest {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    addVolumeOptions: !exists(json, 'addVolumeOptions')
-      ? undefined
-      : V1AddVolumeOptionsFromJSON(json['addVolumeOptions']),
-    removeVolumeOptions: !exists(json, 'removeVolumeOptions')
-      ? undefined
-      : V1RemoveVolumeOptionsFromJSON(json['removeVolumeOptions']),
-  };
-}
-
-export function V1VirtualMachineVolumeRequestToJSON(
-  value?: V1VirtualMachineVolumeRequest | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    addVolumeOptions: V1AddVolumeOptionsToJSON(value.addVolumeOptions),
-    removeVolumeOptions: V1RemoveVolumeOptionsToJSON(value.removeVolumeOptions),
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineVolumeRequest interface.
+ */

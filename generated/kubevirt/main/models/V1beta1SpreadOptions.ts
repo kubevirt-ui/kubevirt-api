@@ -37,6 +37,15 @@ export interface V1beta1SpreadOptions {
     ratio?: number;
 }
 
+/**
+ * Check if a given object implements the V1beta1SpreadOptions interface.
+ */
+export function instanceOfV1beta1SpreadOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1beta1SpreadOptionsFromJSON(json: any): V1beta1SpreadOptions {
     return V1beta1SpreadOptionsFromJSONTyped(json, false);
 }

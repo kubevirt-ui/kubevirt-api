@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -27,30 +26,6 @@ export interface V1VideoDevice {
   type?: string;
 }
 
-export function V1VideoDeviceFromJSON(json: any): V1VideoDevice {
-  return V1VideoDeviceFromJSONTyped(json, false);
-}
-
-export function V1VideoDeviceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VideoDevice {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    type: !exists(json, 'type') ? undefined : json['type'],
-  };
-}
-
-export function V1VideoDeviceToJSON(value?: V1VideoDevice | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    type: value.type,
-  };
-}
+/**
+ * Check if a given object implements the V1VideoDevice interface.
+ */

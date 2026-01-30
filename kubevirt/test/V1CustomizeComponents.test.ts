@@ -2,8 +2,8 @@ import { V1CustomizeComponents } from '../models/V1CustomizeComponents';
 
 export const testObject: V1CustomizeComponents = {
   flags: {
-    api: { 'v': '4' },
-    controller: { 'v': '4' },
+    api: { v: '4' },
+    controller: { v: '4' },
   },
   patches: [
     {

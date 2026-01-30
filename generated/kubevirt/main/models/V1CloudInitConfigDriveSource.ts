@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1LocalObjectReference } from './K8sIoApiCoreV1LocalObjectReference';
 import {
-    K8sIoApiCoreV1LocalObjectReference,
     K8sIoApiCoreV1LocalObjectReferenceFromJSON,
     K8sIoApiCoreV1LocalObjectReferenceFromJSONTyped,
     K8sIoApiCoreV1LocalObjectReferenceToJSON,
-} from './';
+} from './K8sIoApiCoreV1LocalObjectReference';
 
 /**
  * Represents a cloud-init config drive user data source. More info: https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html
@@ -62,6 +62,15 @@ export interface V1CloudInitConfigDriveSource {
      * @memberof V1CloudInitConfigDriveSource
      */
     userDataBase64?: string;
+}
+
+/**
+ * Check if a given object implements the V1CloudInitConfigDriveSource interface.
+ */
+export function instanceOfV1CloudInitConfigDriveSource(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1CloudInitConfigDriveSourceFromJSON(json: any): V1CloudInitConfigDriveSource {

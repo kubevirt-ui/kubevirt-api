@@ -12,12 +12,7 @@
  * Do not edit the class manually.
  */
 
-import {
-  K8sIoApiCoreV1NodeSelectorTerm,
-  K8sIoApiCoreV1NodeSelectorTermFromJSON,
-  K8sIoApiCoreV1NodeSelectorTermToJSON,
-} from './';
-
+import type { K8sIoApiCoreV1NodeSelectorTerm } from './K8sIoApiCoreV1NodeSelectorTerm';
 /**
  * An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
  * @export
@@ -38,36 +33,6 @@ export interface K8sIoApiCoreV1PreferredSchedulingTerm {
   weight: number;
 }
 
-export function K8sIoApiCoreV1PreferredSchedulingTermFromJSON(
-  json: any,
-): K8sIoApiCoreV1PreferredSchedulingTerm {
-  return K8sIoApiCoreV1PreferredSchedulingTermFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1PreferredSchedulingTermFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApiCoreV1PreferredSchedulingTerm {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preference: K8sIoApiCoreV1NodeSelectorTermFromJSON(json['preference']),
-    weight: json['weight'],
-  };
-}
-
-export function K8sIoApiCoreV1PreferredSchedulingTermToJSON(
-  value?: K8sIoApiCoreV1PreferredSchedulingTerm | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preference: K8sIoApiCoreV1NodeSelectorTermToJSON(value.preference),
-    weight: value.weight,
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApiCoreV1PreferredSchedulingTerm interface.
+ */

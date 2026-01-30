@@ -69,6 +69,15 @@ export interface V1SEVMeasurementInfo {
     policy?: number;
 }
 
+/**
+ * Check if a given object implements the V1SEVMeasurementInfo interface.
+ */
+export function instanceOfV1SEVMeasurementInfo(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1SEVMeasurementInfoFromJSON(json: any): V1SEVMeasurementInfo {
     return V1SEVMeasurementInfoFromJSONTyped(json, false);
 }

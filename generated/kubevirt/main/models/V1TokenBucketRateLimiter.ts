@@ -33,6 +33,17 @@ export interface V1TokenBucketRateLimiter {
     qps: number;
 }
 
+/**
+ * Check if a given object implements the V1TokenBucketRateLimiter interface.
+ */
+export function instanceOfV1TokenBucketRateLimiter(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "burst" in value;
+    isInstance = isInstance && "qps" in value;
+
+    return isInstance;
+}
+
 export function V1TokenBucketRateLimiterFromJSON(json: any): V1TokenBucketRateLimiter {
     return V1TokenBucketRateLimiterFromJSONTyped(json, false);
 }

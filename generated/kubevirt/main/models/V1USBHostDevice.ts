@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1USBSelector } from './V1USBSelector';
 import {
-    V1USBSelector,
     V1USBSelectorFromJSON,
     V1USBSelectorFromJSONTyped,
     V1USBSelectorToJSON,
-} from './';
+} from './V1USBSelector';
 
 /**
  * 
@@ -44,6 +44,16 @@ export interface V1USBHostDevice {
      * @memberof V1USBHostDevice
      */
     selectors?: Array<V1USBSelector>;
+}
+
+/**
+ * Check if a given object implements the V1USBHostDevice interface.
+ */
+export function instanceOfV1USBHostDevice(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "resourceName" in value;
+
+    return isInstance;
 }
 
 export function V1USBHostDeviceFromJSON(json: any): V1USBHostDevice {

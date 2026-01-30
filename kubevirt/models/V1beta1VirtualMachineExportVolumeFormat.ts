@@ -32,36 +32,6 @@ export interface V1beta1VirtualMachineExportVolumeFormat {
   url: string;
 }
 
-export function V1beta1VirtualMachineExportVolumeFormatFromJSON(
-  json: any,
-): V1beta1VirtualMachineExportVolumeFormat {
-  return V1beta1VirtualMachineExportVolumeFormatFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineExportVolumeFormatFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineExportVolumeFormat {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    format: json['format'],
-    url: json['url'],
-  };
-}
-
-export function V1beta1VirtualMachineExportVolumeFormatToJSON(
-  value?: V1beta1VirtualMachineExportVolumeFormat | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    format: value.format,
-    url: value.url,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineExportVolumeFormat interface.
+ */

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1VirtualMachineInstanceReplicaSetCondition } from './V1VirtualMachineInstanceReplicaSetCondition';
 import {
-    V1VirtualMachineInstanceReplicaSetCondition,
     V1VirtualMachineInstanceReplicaSetConditionFromJSON,
     V1VirtualMachineInstanceReplicaSetConditionFromJSONTyped,
     V1VirtualMachineInstanceReplicaSetConditionToJSON,
-} from './';
+} from './V1VirtualMachineInstanceReplicaSetCondition';
 
 /**
  * 
@@ -50,6 +50,15 @@ export interface V1VirtualMachineInstanceReplicaSetStatus {
      * @memberof V1VirtualMachineInstanceReplicaSetStatus
      */
     replicas?: number;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceReplicaSetStatus interface.
+ */
+export function instanceOfV1VirtualMachineInstanceReplicaSetStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceReplicaSetStatusFromJSON(json: any): V1VirtualMachineInstanceReplicaSetStatus {

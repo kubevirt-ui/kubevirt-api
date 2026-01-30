@@ -33,6 +33,17 @@ export interface V1beta1DataVolumeSourceSnapshot {
     namespace: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1DataVolumeSourceSnapshot interface.
+ */
+export function instanceOfV1beta1DataVolumeSourceSnapshot(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "namespace" in value;
+
+    return isInstance;
+}
+
 export function V1beta1DataVolumeSourceSnapshotFromJSON(json: any): V1beta1DataVolumeSourceSnapshot {
     return V1beta1DataVolumeSourceSnapshotFromJSONTyped(json, false);
 }

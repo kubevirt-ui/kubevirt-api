@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PciHostDevice represents a host PCI device allowed for passthrough
  * @export
@@ -39,36 +38,6 @@ export interface V1PciHostDevice {
   resourceName: string;
 }
 
-export function V1PciHostDeviceFromJSON(json: any): V1PciHostDevice {
-  return V1PciHostDeviceFromJSONTyped(json, false);
-}
-
-export function V1PciHostDeviceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1PciHostDevice {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    externalResourceProvider: !exists(json, 'externalResourceProvider')
-      ? undefined
-      : json['externalResourceProvider'],
-    pciVendorSelector: json['pciVendorSelector'],
-    resourceName: json['resourceName'],
-  };
-}
-
-export function V1PciHostDeviceToJSON(value?: V1PciHostDevice | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    externalResourceProvider: value.externalResourceProvider,
-    pciVendorSelector: value.pciVendorSelector,
-    resourceName: value.resourceName,
-  };
-}
+/**
+ * Check if a given object implements the V1PciHostDevice interface.
+ */

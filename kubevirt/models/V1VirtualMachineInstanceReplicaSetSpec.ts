@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1LabelSelector,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-  V1VirtualMachineInstanceTemplateSpec,
-  V1VirtualMachineInstanceTemplateSpecFromJSON,
-  V1VirtualMachineInstanceTemplateSpecToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
+import type { V1VirtualMachineInstanceTemplateSpec } from './V1VirtualMachineInstanceTemplateSpec';
 /**
  *
  * @export
@@ -54,40 +46,6 @@ export interface V1VirtualMachineInstanceReplicaSetSpec {
   template: V1VirtualMachineInstanceTemplateSpec;
 }
 
-export function V1VirtualMachineInstanceReplicaSetSpecFromJSON(
-  json: any,
-): V1VirtualMachineInstanceReplicaSetSpec {
-  return V1VirtualMachineInstanceReplicaSetSpecFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceReplicaSetSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceReplicaSetSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    paused: !exists(json, 'paused') ? undefined : json['paused'],
-    replicas: !exists(json, 'replicas') ? undefined : json['replicas'],
-    selector: K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
-    template: V1VirtualMachineInstanceTemplateSpecFromJSON(json['template']),
-  };
-}
-
-export function V1VirtualMachineInstanceReplicaSetSpecToJSON(
-  value?: V1VirtualMachineInstanceReplicaSetSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    paused: value.paused,
-    replicas: value.replicas,
-    selector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
-    template: V1VirtualMachineInstanceTemplateSpecToJSON(value.template),
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceReplicaSetSpec interface.
+ */

@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1APIResource,
-  K8sIoApimachineryPkgApisMetaV1APIResourceFromJSON,
-  K8sIoApimachineryPkgApisMetaV1APIResourceToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1APIResource } from './K8sIoApimachineryPkgApisMetaV1APIResource';
 /**
  * APIResourceList is a list of APIResource, it is used to expose the name of the resources supported in a specific group and version, and if the resource is namespaced.
  * @export
@@ -51,42 +45,6 @@ export interface K8sIoApimachineryPkgApisMetaV1APIResourceList {
   resources: Array<K8sIoApimachineryPkgApisMetaV1APIResource>;
 }
 
-export function K8sIoApimachineryPkgApisMetaV1APIResourceListFromJSON(
-  json: any,
-): K8sIoApimachineryPkgApisMetaV1APIResourceList {
-  return K8sIoApimachineryPkgApisMetaV1APIResourceListFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1APIResourceListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApimachineryPkgApisMetaV1APIResourceList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    groupVersion: json['groupVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    resources: (json['resources'] as Array<any>).map(
-      K8sIoApimachineryPkgApisMetaV1APIResourceFromJSON,
-    ),
-  };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1APIResourceListToJSON(
-  value?: K8sIoApimachineryPkgApisMetaV1APIResourceList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    groupVersion: value.groupVersion,
-    kind: value.kind,
-    resources: (value.resources as Array<any>).map(K8sIoApimachineryPkgApisMetaV1APIResourceToJSON),
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1APIResourceList interface.
+ */

@@ -45,6 +45,17 @@ export interface V1VirtualMachineCondition {
     type: string;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineCondition interface.
+ */
+export function instanceOfV1VirtualMachineCondition(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "status" in value;
+    isInstance = isInstance && "type" in value;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineConditionFromJSON(json: any): V1VirtualMachineCondition {
     return V1VirtualMachineConditionFromJSONTyped(json, false);
 }

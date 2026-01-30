@@ -39,6 +39,17 @@ export interface V1MediatedHostDevice {
     resourceName: string;
 }
 
+/**
+ * Check if a given object implements the V1MediatedHostDevice interface.
+ */
+export function instanceOfV1MediatedHostDevice(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "mdevNameSelector" in value;
+    isInstance = isInstance && "resourceName" in value;
+
+    return isInstance;
+}
+
 export function V1MediatedHostDeviceFromJSON(json: any): V1MediatedHostDevice {
     return V1MediatedHostDeviceFromJSONTyped(json, false);
 }

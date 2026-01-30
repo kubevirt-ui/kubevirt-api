@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1DownwardAPIVolumeFile } from './K8sIoApiCoreV1DownwardAPIVolumeFile';
 import {
-    K8sIoApiCoreV1DownwardAPIVolumeFile,
     K8sIoApiCoreV1DownwardAPIVolumeFileFromJSON,
     K8sIoApiCoreV1DownwardAPIVolumeFileFromJSONTyped,
     K8sIoApiCoreV1DownwardAPIVolumeFileToJSON,
-} from './';
+} from './K8sIoApiCoreV1DownwardAPIVolumeFile';
 
 /**
  * DownwardAPIVolumeSource represents a volume containing downward API info.
@@ -38,6 +38,15 @@ export interface V1DownwardAPIVolumeSource {
      * @memberof V1DownwardAPIVolumeSource
      */
     volumeLabel?: string;
+}
+
+/**
+ * Check if a given object implements the V1DownwardAPIVolumeSource interface.
+ */
+export function instanceOfV1DownwardAPIVolumeSource(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1DownwardAPIVolumeSourceFromJSON(json: any): V1DownwardAPIVolumeSource {

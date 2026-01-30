@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -27,32 +26,6 @@ export interface V1DiskIOThreads {
   supplementalPoolThreadCount?: number;
 }
 
-export function V1DiskIOThreadsFromJSON(json: any): V1DiskIOThreads {
-  return V1DiskIOThreadsFromJSONTyped(json, false);
-}
-
-export function V1DiskIOThreadsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DiskIOThreads {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    supplementalPoolThreadCount: !exists(json, 'supplementalPoolThreadCount')
-      ? undefined
-      : json['supplementalPoolThreadCount'],
-  };
-}
-
-export function V1DiskIOThreadsToJSON(value?: V1DiskIOThreads | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    supplementalPoolThreadCount: value.supplementalPoolThreadCount,
-  };
-}
+/**
+ * Check if a given object implements the V1DiskIOThreads interface.
+ */

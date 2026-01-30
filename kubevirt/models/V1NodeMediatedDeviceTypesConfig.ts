@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * NodeMediatedDeviceTypesConfig holds information about MDEV types to be defined in a specific node that matches the NodeSelector field.
  * @export
@@ -39,42 +38,6 @@ export interface V1NodeMediatedDeviceTypesConfig {
   nodeSelector: { [key: string]: string };
 }
 
-export function V1NodeMediatedDeviceTypesConfigFromJSON(
-  json: any,
-): V1NodeMediatedDeviceTypesConfig {
-  return V1NodeMediatedDeviceTypesConfigFromJSONTyped(json, false);
-}
-
-export function V1NodeMediatedDeviceTypesConfigFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1NodeMediatedDeviceTypesConfig {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    mediatedDeviceTypes: !exists(json, 'mediatedDeviceTypes')
-      ? undefined
-      : json['mediatedDeviceTypes'],
-    mediatedDevicesTypes: !exists(json, 'mediatedDevicesTypes')
-      ? undefined
-      : json['mediatedDevicesTypes'],
-    nodeSelector: json['nodeSelector'],
-  };
-}
-
-export function V1NodeMediatedDeviceTypesConfigToJSON(
-  value?: V1NodeMediatedDeviceTypesConfig | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    mediatedDeviceTypes: value.mediatedDeviceTypes,
-    mediatedDevicesTypes: value.mediatedDevicesTypes,
-    nodeSelector: value.nodeSelector,
-  };
-}
+/**
+ * Check if a given object implements the V1NodeMediatedDeviceTypesConfig interface.
+ */

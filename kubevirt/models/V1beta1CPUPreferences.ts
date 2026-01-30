@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1CPUFeature,
-  V1CPUFeatureFromJSON,
-  V1CPUFeatureToJSON,
-  V1beta1SpreadOptions,
-  V1beta1SpreadOptionsFromJSON,
-  V1beta1SpreadOptionsToJSON,
-} from './';
-
+import type { V1CPUFeature } from './V1CPUFeature';
+import type { V1beta1SpreadOptions } from './V1beta1SpreadOptions';
 /**
  * CPUPreferences contains various optional CPU preferences.
  * @export
@@ -48,43 +40,6 @@ export interface V1beta1CPUPreferences {
   spreadOptions?: V1beta1SpreadOptions;
 }
 
-export function V1beta1CPUPreferencesFromJSON(json: any): V1beta1CPUPreferences {
-  return V1beta1CPUPreferencesFromJSONTyped(json, false);
-}
-
-export function V1beta1CPUPreferencesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1CPUPreferences {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredCPUFeatures: !exists(json, 'preferredCPUFeatures')
-      ? undefined
-      : (json['preferredCPUFeatures'] as Array<any>).map(V1CPUFeatureFromJSON),
-    preferredCPUTopology: !exists(json, 'preferredCPUTopology')
-      ? undefined
-      : json['preferredCPUTopology'],
-    spreadOptions: !exists(json, 'spreadOptions')
-      ? undefined
-      : V1beta1SpreadOptionsFromJSON(json['spreadOptions']),
-  };
-}
-
-export function V1beta1CPUPreferencesToJSON(value?: V1beta1CPUPreferences | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredCPUFeatures:
-      value.preferredCPUFeatures === undefined
-        ? undefined
-        : (value.preferredCPUFeatures as Array<any>).map(V1CPUFeatureToJSON),
-    preferredCPUTopology: value.preferredCPUTopology,
-    spreadOptions: V1beta1SpreadOptionsToJSON(value.spreadOptions),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1CPUPreferences interface.
+ */

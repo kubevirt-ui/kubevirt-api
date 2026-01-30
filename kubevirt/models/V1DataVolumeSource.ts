@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -33,32 +32,6 @@ export interface V1DataVolumeSource {
   name: string;
 }
 
-export function V1DataVolumeSourceFromJSON(json: any): V1DataVolumeSource {
-  return V1DataVolumeSourceFromJSONTyped(json, false);
-}
-
-export function V1DataVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DataVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    hotpluggable: !exists(json, 'hotpluggable') ? undefined : json['hotpluggable'],
-    name: json['name'],
-  };
-}
-
-export function V1DataVolumeSourceToJSON(value?: V1DataVolumeSource | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    hotpluggable: value.hotpluggable,
-    name: value.name,
-  };
-}
+/**
+ * Check if a given object implements the V1DataVolumeSource interface.
+ */

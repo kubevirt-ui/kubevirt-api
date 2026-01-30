@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1SSHPublicKeyAccessCredential } from './V1SSHPublicKeyAccessCredential';
 import {
-    V1SSHPublicKeyAccessCredential,
     V1SSHPublicKeyAccessCredentialFromJSON,
     V1SSHPublicKeyAccessCredentialFromJSONTyped,
     V1SSHPublicKeyAccessCredentialToJSON,
-    V1UserPasswordAccessCredential,
+} from './V1SSHPublicKeyAccessCredential';
+import type { V1UserPasswordAccessCredential } from './V1UserPasswordAccessCredential';
+import {
     V1UserPasswordAccessCredentialFromJSON,
     V1UserPasswordAccessCredentialFromJSONTyped,
     V1UserPasswordAccessCredentialToJSON,
-} from './';
+} from './V1UserPasswordAccessCredential';
 
 /**
  * AccessCredential represents a credential source that can be used to authorize remote access to the vm guest Only one of its members may be specified.
@@ -42,6 +44,15 @@ export interface V1AccessCredential {
      * @memberof V1AccessCredential
      */
     userPassword?: V1UserPasswordAccessCredential;
+}
+
+/**
+ * Check if a given object implements the V1AccessCredential interface.
+ */
+export function instanceOfV1AccessCredential(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1AccessCredentialFromJSON(json: any): V1AccessCredential {

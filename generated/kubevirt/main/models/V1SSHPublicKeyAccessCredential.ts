@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1SSHPublicKeyAccessCredentialPropagationMethod } from './V1SSHPublicKeyAccessCredentialPropagationMethod';
 import {
-    V1SSHPublicKeyAccessCredentialPropagationMethod,
     V1SSHPublicKeyAccessCredentialPropagationMethodFromJSON,
     V1SSHPublicKeyAccessCredentialPropagationMethodFromJSONTyped,
     V1SSHPublicKeyAccessCredentialPropagationMethodToJSON,
-    V1SSHPublicKeyAccessCredentialSource,
+} from './V1SSHPublicKeyAccessCredentialPropagationMethod';
+import type { V1SSHPublicKeyAccessCredentialSource } from './V1SSHPublicKeyAccessCredentialSource';
+import {
     V1SSHPublicKeyAccessCredentialSourceFromJSON,
     V1SSHPublicKeyAccessCredentialSourceFromJSONTyped,
     V1SSHPublicKeyAccessCredentialSourceToJSON,
-} from './';
+} from './V1SSHPublicKeyAccessCredentialSource';
 
 /**
  * SSHPublicKeyAccessCredential represents a source and propagation method for injecting ssh public keys into a vm guest
@@ -42,6 +44,17 @@ export interface V1SSHPublicKeyAccessCredential {
      * @memberof V1SSHPublicKeyAccessCredential
      */
     source: V1SSHPublicKeyAccessCredentialSource;
+}
+
+/**
+ * Check if a given object implements the V1SSHPublicKeyAccessCredential interface.
+ */
+export function instanceOfV1SSHPublicKeyAccessCredential(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "propagationMethod" in value;
+    isInstance = isInstance && "source" in value;
+
+    return isInstance;
 }
 
 export function V1SSHPublicKeyAccessCredentialFromJSON(json: any): V1SSHPublicKeyAccessCredential {

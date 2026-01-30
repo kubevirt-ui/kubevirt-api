@@ -12,9 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1NodePlacement, V1NodePlacementFromJSON, V1NodePlacementToJSON } from './';
-
+import type { V1NodePlacement } from './V1NodePlacement';
 /**
  *
  * @export
@@ -35,34 +33,6 @@ export interface V1ComponentConfig {
   replicas?: number;
 }
 
-export function V1ComponentConfigFromJSON(json: any): V1ComponentConfig {
-  return V1ComponentConfigFromJSONTyped(json, false);
-}
-
-export function V1ComponentConfigFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1ComponentConfig {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    nodePlacement: !exists(json, 'nodePlacement')
-      ? undefined
-      : V1NodePlacementFromJSON(json['nodePlacement']),
-    replicas: !exists(json, 'replicas') ? undefined : json['replicas'],
-  };
-}
-
-export function V1ComponentConfigToJSON(value?: V1ComponentConfig | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    nodePlacement: V1NodePlacementToJSON(value.nodePlacement),
-    replicas: value.replicas,
-  };
-}
+/**
+ * Check if a given object implements the V1ComponentConfig interface.
+ */

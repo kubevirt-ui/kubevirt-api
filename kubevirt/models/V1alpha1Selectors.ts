@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -33,34 +32,6 @@ export interface V1alpha1Selectors {
   virtualMachineInstanceSelector?: { [key: string]: string };
 }
 
-export function V1alpha1SelectorsFromJSON(json: any): V1alpha1Selectors {
-  return V1alpha1SelectorsFromJSONTyped(json, false);
-}
-
-export function V1alpha1SelectorsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1alpha1Selectors {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    namespaceSelector: !exists(json, 'namespaceSelector') ? undefined : json['namespaceSelector'],
-    virtualMachineInstanceSelector: !exists(json, 'virtualMachineInstanceSelector')
-      ? undefined
-      : json['virtualMachineInstanceSelector'],
-  };
-}
-
-export function V1alpha1SelectorsToJSON(value?: V1alpha1Selectors | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    namespaceSelector: value.namespaceSelector,
-    virtualMachineInstanceSelector: value.virtualMachineInstanceSelector,
-  };
-}
+/**
+ * Check if a given object implements the V1alpha1Selectors interface.
+ */

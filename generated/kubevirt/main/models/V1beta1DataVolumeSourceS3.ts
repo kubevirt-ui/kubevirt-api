@@ -39,6 +39,16 @@ export interface V1beta1DataVolumeSourceS3 {
     url: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1DataVolumeSourceS3 interface.
+ */
+export function instanceOfV1beta1DataVolumeSourceS3(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "url" in value;
+
+    return isInstance;
+}
+
 export function V1beta1DataVolumeSourceS3FromJSON(json: any): V1beta1DataVolumeSourceS3 {
     return V1beta1DataVolumeSourceS3FromJSONTyped(json, false);
 }

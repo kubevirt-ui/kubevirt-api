@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * SEVMeasurementInfo contains information about the guest launch measurement.
  * @export
@@ -69,44 +68,6 @@ export interface V1SEVMeasurementInfo {
   policy?: number;
 }
 
-export function V1SEVMeasurementInfoFromJSON(json: any): V1SEVMeasurementInfo {
-  return V1SEVMeasurementInfoFromJSONTyped(json, false);
-}
-
-export function V1SEVMeasurementInfoFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1SEVMeasurementInfo {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiMajor: !exists(json, 'apiMajor') ? undefined : json['apiMajor'],
-    apiMinor: !exists(json, 'apiMinor') ? undefined : json['apiMinor'],
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    buildID: !exists(json, 'buildID') ? undefined : json['buildID'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    loaderSHA: !exists(json, 'loaderSHA') ? undefined : json['loaderSHA'],
-    measurement: !exists(json, 'measurement') ? undefined : json['measurement'],
-    policy: !exists(json, 'policy') ? undefined : json['policy'],
-  };
-}
-
-export function V1SEVMeasurementInfoToJSON(value?: V1SEVMeasurementInfo | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiMajor: value.apiMajor,
-    apiMinor: value.apiMinor,
-    apiVersion: value.apiVersion,
-    buildID: value.buildID,
-    kind: value.kind,
-    loaderSHA: value.loaderSHA,
-    measurement: value.measurement,
-    policy: value.policy,
-  };
-}
+/**
+ * Check if a given object implements the V1SEVMeasurementInfo interface.
+ */

@@ -27,6 +27,16 @@ export interface V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation {
     users: Array<string>;
 }
 
+/**
+ * Check if a given object implements the V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation interface.
+ */
+export function instanceOfV1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "users" in value;
+
+    return isInstance;
+}
+
 export function V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSON(json: any): V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation {
     return V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSONTyped(json, false);
 }

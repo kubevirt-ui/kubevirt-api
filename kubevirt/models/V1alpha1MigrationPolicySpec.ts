@@ -12,9 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1alpha1Selectors, V1alpha1SelectorsFromJSON, V1alpha1SelectorsToJSON } from './';
-
+import type { V1alpha1Selectors } from './V1alpha1Selectors';
 /**
  *
  * @export
@@ -95,46 +93,6 @@ export interface V1alpha1MigrationPolicySpec {
   selectors: V1alpha1Selectors;
 }
 
-export function V1alpha1MigrationPolicySpecFromJSON(json: any): V1alpha1MigrationPolicySpec {
-  return V1alpha1MigrationPolicySpecFromJSONTyped(json, false);
-}
-
-export function V1alpha1MigrationPolicySpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1alpha1MigrationPolicySpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    allowAutoConverge: !exists(json, 'allowAutoConverge') ? undefined : json['allowAutoConverge'],
-    allowPostCopy: !exists(json, 'allowPostCopy') ? undefined : json['allowPostCopy'],
-    allowWorkloadDisruption: !exists(json, 'allowWorkloadDisruption')
-      ? undefined
-      : json['allowWorkloadDisruption'],
-    bandwidthPerMigration: !exists(json, 'bandwidthPerMigration')
-      ? undefined
-      : json['bandwidthPerMigration'],
-    completionTimeoutPerGiB: !exists(json, 'completionTimeoutPerGiB')
-      ? undefined
-      : json['completionTimeoutPerGiB'],
-    selectors: V1alpha1SelectorsFromJSON(json['selectors']),
-  };
-}
-
-export function V1alpha1MigrationPolicySpecToJSON(value?: V1alpha1MigrationPolicySpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    allowAutoConverge: value.allowAutoConverge,
-    allowPostCopy: value.allowPostCopy,
-    allowWorkloadDisruption: value.allowWorkloadDisruption,
-    bandwidthPerMigration: value.bandwidthPerMigration,
-    completionTimeoutPerGiB: value.completionTimeoutPerGiB,
-    selectors: V1alpha1SelectorsToJSON(value.selectors),
-  };
-}
+/**
+ * Check if a given object implements the V1alpha1MigrationPolicySpec interface.
+ */

@@ -67,6 +67,15 @@ export interface K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry {
     time?: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry {
     return K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSONTyped(json, false);
 }
@@ -83,7 +92,7 @@ export function K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSONTyped(js
         'manager': !exists(json, 'manager') ? undefined : json['manager'],
         'operation': !exists(json, 'operation') ? undefined : json['operation'],
         'subresource': !exists(json, 'subresource') ? undefined : json['subresource'],
-        'time': !exists(json, 'time') ? undefined : (new Date(json['time'])),
+        'time': !exists(json, 'time') ? undefined : json['time'],
     };
 }
 
@@ -102,7 +111,7 @@ export function K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryToJSON(value?: K
         'manager': value.manager,
         'operation': value.operation,
         'subresource': value.subresource,
-        'time': value.time === undefined ? undefined : (value.time.toISOString()),
+        'time': value.time,
     };
 }
 

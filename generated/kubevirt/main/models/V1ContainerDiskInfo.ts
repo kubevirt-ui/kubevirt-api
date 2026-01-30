@@ -27,6 +27,15 @@ export interface V1ContainerDiskInfo {
     checksum?: number;
 }
 
+/**
+ * Check if a given object implements the V1ContainerDiskInfo interface.
+ */
+export function instanceOfV1ContainerDiskInfo(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ContainerDiskInfoFromJSON(json: any): V1ContainerDiskInfo {
     return V1ContainerDiskInfoFromJSONTyped(json, false);
 }

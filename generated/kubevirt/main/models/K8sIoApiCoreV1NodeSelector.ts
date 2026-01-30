@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1NodeSelectorTerm } from './K8sIoApiCoreV1NodeSelectorTerm';
 import {
-    K8sIoApiCoreV1NodeSelectorTerm,
     K8sIoApiCoreV1NodeSelectorTermFromJSON,
     K8sIoApiCoreV1NodeSelectorTermFromJSONTyped,
     K8sIoApiCoreV1NodeSelectorTermToJSON,
-} from './';
+} from './K8sIoApiCoreV1NodeSelectorTerm';
 
 /**
  * A node selector represents the union of the results of one or more label queries over a set of nodes; that is, it represents the OR of the selectors represented by the node selector terms.
@@ -32,6 +32,16 @@ export interface K8sIoApiCoreV1NodeSelector {
      * @memberof K8sIoApiCoreV1NodeSelector
      */
     nodeSelectorTerms: Array<K8sIoApiCoreV1NodeSelectorTerm>;
+}
+
+/**
+ * Check if a given object implements the K8sIoApiCoreV1NodeSelector interface.
+ */
+export function instanceOfK8sIoApiCoreV1NodeSelector(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "nodeSelectorTerms" in value;
+
+    return isInstance;
 }
 
 export function K8sIoApiCoreV1NodeSelectorFromJSON(json: any): K8sIoApiCoreV1NodeSelector {

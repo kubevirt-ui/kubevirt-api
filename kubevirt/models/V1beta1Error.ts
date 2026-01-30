@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Error is the last error encountered during the snapshot/restore
  * @export
@@ -33,29 +32,6 @@ export interface V1beta1Error {
   time?: string;
 }
 
-export function V1beta1ErrorFromJSON(json: any): V1beta1Error {
-  return V1beta1ErrorFromJSONTyped(json, false);
-}
-
-export function V1beta1ErrorFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1beta1Error {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    message: !exists(json, 'message') ? undefined : json['message'],
-    time: !exists(json, 'time') ? undefined : json['time'],
-  };
-}
-
-export function V1beta1ErrorToJSON(value?: V1beta1Error | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    message: value.message,
-    time: value.time === undefined ? undefined : value.time,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1Error interface.
+ */

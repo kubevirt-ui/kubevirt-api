@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * HotplugVolumeStatus represents the hotplug status of the volume
  * @export
@@ -33,32 +32,6 @@ export interface V1HotplugVolumeStatus {
   attachPodUID?: string;
 }
 
-export function V1HotplugVolumeStatusFromJSON(json: any): V1HotplugVolumeStatus {
-  return V1HotplugVolumeStatusFromJSONTyped(json, false);
-}
-
-export function V1HotplugVolumeStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1HotplugVolumeStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    attachPodName: !exists(json, 'attachPodName') ? undefined : json['attachPodName'],
-    attachPodUID: !exists(json, 'attachPodUID') ? undefined : json['attachPodUID'],
-  };
-}
-
-export function V1HotplugVolumeStatusToJSON(value?: V1HotplugVolumeStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    attachPodName: value.attachPodName,
-    attachPodUID: value.attachPodUID,
-  };
-}
+/**
+ * Check if a given object implements the V1HotplugVolumeStatus interface.
+ */

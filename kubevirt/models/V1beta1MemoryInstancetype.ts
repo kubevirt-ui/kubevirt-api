@@ -12,9 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1Hugepages, V1HugepagesFromJSON, V1HugepagesToJSON } from './';
-
+import type { V1Hugepages } from './V1Hugepages';
 /**
  * MemoryInstancetype contains the Memory related configuration of a given VirtualMachineInstancetypeSpec.
  *
@@ -121,36 +119,6 @@ export interface V1beta1MemoryInstancetype {
   overcommitPercent?: number;
 }
 
-export function V1beta1MemoryInstancetypeFromJSON(json: any): V1beta1MemoryInstancetype {
-  return V1beta1MemoryInstancetypeFromJSONTyped(json, false);
-}
-
-export function V1beta1MemoryInstancetypeFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1MemoryInstancetype {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    guest: json['guest'],
-    hugepages: !exists(json, 'hugepages') ? undefined : V1HugepagesFromJSON(json['hugepages']),
-    maxGuest: !exists(json, 'maxGuest') ? undefined : json['maxGuest'],
-    overcommitPercent: !exists(json, 'overcommitPercent') ? undefined : json['overcommitPercent'],
-  };
-}
-
-export function V1beta1MemoryInstancetypeToJSON(value?: V1beta1MemoryInstancetype | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    guest: value.guest,
-    hugepages: V1HugepagesToJSON(value.hugepages),
-    maxGuest: value.maxGuest,
-    overcommitPercent: value.overcommitPercent,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1MemoryInstancetype interface.
+ */

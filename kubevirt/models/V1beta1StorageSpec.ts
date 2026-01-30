@@ -12,22 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApiCoreV1TypedLocalObjectReference,
-  K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
-  K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-  K8sIoApiCoreV1TypedObjectReference,
-  K8sIoApiCoreV1TypedObjectReferenceFromJSON,
-  K8sIoApiCoreV1TypedObjectReferenceToJSON,
-  K8sIoApiCoreV1VolumeResourceRequirements,
-  K8sIoApiCoreV1VolumeResourceRequirementsFromJSON,
-  K8sIoApiCoreV1VolumeResourceRequirementsToJSON,
-  K8sIoApimachineryPkgApisMetaV1LabelSelector,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './';
-
+import type { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
+import type { K8sIoApiCoreV1TypedObjectReference } from './K8sIoApiCoreV1TypedObjectReference';
+import type { K8sIoApiCoreV1VolumeResourceRequirements } from './K8sIoApiCoreV1VolumeResourceRequirements';
+import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 /**
  * StorageSpec defines the Storage type specification
  * @export
@@ -91,70 +79,27 @@ export interface V1beta1StorageSpec {
 
 /**
  * @export
- * @enum {string}
  */
-export enum V1beta1StorageSpecAccessModesEnum {
-  ReadOnlyMany = 'ReadOnlyMany',
-  ReadWriteMany = 'ReadWriteMany',
-  ReadWriteOnce = 'ReadWriteOnce',
-  ReadWriteOncePod = 'ReadWriteOncePod',
-}
+export const V1beta1StorageSpecAccessModesEnum = {
+  ReadOnlyMany: 'ReadOnlyMany',
+  ReadWriteMany: 'ReadWriteMany',
+  ReadWriteOnce: 'ReadWriteOnce',
+  ReadWriteOncePod: 'ReadWriteOncePod',
+} as const;
+export type V1beta1StorageSpecAccessModesEnum =
+  typeof V1beta1StorageSpecAccessModesEnum[keyof typeof V1beta1StorageSpecAccessModesEnum];
+
 /**
  * @export
- * @enum {string}
  */
-export enum V1beta1StorageSpecVolumeModeEnum {
-  Block = 'Block',
-  Filesystem = 'Filesystem',
-  FromStorageProfile = 'FromStorageProfile',
-}
+export const V1beta1StorageSpecVolumeModeEnum = {
+  Block: 'Block',
+  Filesystem: 'Filesystem',
+  FromStorageProfile: 'FromStorageProfile',
+} as const;
+export type V1beta1StorageSpecVolumeModeEnum =
+  typeof V1beta1StorageSpecVolumeModeEnum[keyof typeof V1beta1StorageSpecVolumeModeEnum];
 
-export function V1beta1StorageSpecFromJSON(json: any): V1beta1StorageSpec {
-  return V1beta1StorageSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1StorageSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1StorageSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    accessModes: !exists(json, 'accessModes') ? undefined : json['accessModes'],
-    dataSource: !exists(json, 'dataSource')
-      ? undefined
-      : K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['dataSource']),
-    dataSourceRef: !exists(json, 'dataSourceRef')
-      ? undefined
-      : K8sIoApiCoreV1TypedObjectReferenceFromJSON(json['dataSourceRef']),
-    resources: !exists(json, 'resources')
-      ? undefined
-      : K8sIoApiCoreV1VolumeResourceRequirementsFromJSON(json['resources']),
-    selector: !exists(json, 'selector')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
-    storageClassName: !exists(json, 'storageClassName') ? undefined : json['storageClassName'],
-    volumeMode: !exists(json, 'volumeMode') ? undefined : json['volumeMode'],
-    volumeName: !exists(json, 'volumeName') ? undefined : json['volumeName'],
-  };
-}
-
-export function V1beta1StorageSpecToJSON(value?: V1beta1StorageSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    accessModes: value.accessModes,
-    dataSource: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.dataSource),
-    dataSourceRef: K8sIoApiCoreV1TypedObjectReferenceToJSON(value.dataSourceRef),
-    resources: K8sIoApiCoreV1VolumeResourceRequirementsToJSON(value.resources),
-    selector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
-    storageClassName: value.storageClassName,
-    volumeMode: value.volumeMode,
-    volumeName: value.volumeName,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1StorageSpec interface.
+ */

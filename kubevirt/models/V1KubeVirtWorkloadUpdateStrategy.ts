@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * KubeVirtWorkloadUpdateStrategy defines options related to updating a KubeVirt install
  * @export
@@ -43,42 +42,6 @@ export interface V1KubeVirtWorkloadUpdateStrategy {
   workloadUpdateMethods?: Array<string>;
 }
 
-export function V1KubeVirtWorkloadUpdateStrategyFromJSON(
-  json: any,
-): V1KubeVirtWorkloadUpdateStrategy {
-  return V1KubeVirtWorkloadUpdateStrategyFromJSONTyped(json, false);
-}
-
-export function V1KubeVirtWorkloadUpdateStrategyFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1KubeVirtWorkloadUpdateStrategy {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    batchEvictionInterval: !exists(json, 'batchEvictionInterval')
-      ? undefined
-      : json['batchEvictionInterval'],
-    batchEvictionSize: !exists(json, 'batchEvictionSize') ? undefined : json['batchEvictionSize'],
-    workloadUpdateMethods: !exists(json, 'workloadUpdateMethods')
-      ? undefined
-      : json['workloadUpdateMethods'],
-  };
-}
-
-export function V1KubeVirtWorkloadUpdateStrategyToJSON(
-  value?: V1KubeVirtWorkloadUpdateStrategy | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    batchEvictionInterval: value.batchEvictionInterval,
-    batchEvictionSize: value.batchEvictionSize,
-    workloadUpdateMethods: value.workloadUpdateMethods,
-  };
-}
+/**
+ * Check if a given object implements the V1KubeVirtWorkloadUpdateStrategy interface.
+ */

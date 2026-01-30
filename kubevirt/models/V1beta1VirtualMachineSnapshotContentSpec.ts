@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1beta1SourceSpec,
-  V1beta1SourceSpecFromJSON,
-  V1beta1SourceSpecToJSON,
-  V1beta1VolumeBackup,
-  V1beta1VolumeBackupFromJSON,
-  V1beta1VolumeBackupToJSON,
-} from './';
-
+import type { V1beta1SourceSpec } from './V1beta1SourceSpec';
+import type { V1beta1VolumeBackup } from './V1beta1VolumeBackup';
 /**
  * VirtualMachineSnapshotContentSpec is the spec for a VirtualMachineSnapshotContent resource
  * @export
@@ -48,45 +40,6 @@ export interface V1beta1VirtualMachineSnapshotContentSpec {
   volumeBackups?: Array<V1beta1VolumeBackup>;
 }
 
-export function V1beta1VirtualMachineSnapshotContentSpecFromJSON(
-  json: any,
-): V1beta1VirtualMachineSnapshotContentSpec {
-  return V1beta1VirtualMachineSnapshotContentSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineSnapshotContentSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineSnapshotContentSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    source: V1beta1SourceSpecFromJSON(json['source']),
-    virtualMachineSnapshotName: !exists(json, 'virtualMachineSnapshotName')
-      ? undefined
-      : json['virtualMachineSnapshotName'],
-    volumeBackups: !exists(json, 'volumeBackups')
-      ? undefined
-      : (json['volumeBackups'] as Array<any>).map(V1beta1VolumeBackupFromJSON),
-  };
-}
-
-export function V1beta1VirtualMachineSnapshotContentSpecToJSON(
-  value?: V1beta1VirtualMachineSnapshotContentSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    source: V1beta1SourceSpecToJSON(value.source),
-    virtualMachineSnapshotName: value.virtualMachineSnapshotName,
-    volumeBackups:
-      value.volumeBackups === undefined
-        ? undefined
-        : (value.volumeBackups as Array<any>).map(V1beta1VolumeBackupToJSON),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineSnapshotContentSpec interface.
+ */

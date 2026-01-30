@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1CertConfig } from './V1CertConfig';
 import {
-    V1CertConfig,
     V1CertConfigFromJSON,
     V1CertConfigFromJSONTyped,
     V1CertConfigToJSON,
-} from './';
+} from './V1CertConfig';
 
 /**
  * 
@@ -56,6 +56,15 @@ export interface V1KubeVirtSelfSignConfiguration {
      * @memberof V1KubeVirtSelfSignConfiguration
      */
     server?: V1CertConfig;
+}
+
+/**
+ * Check if a given object implements the V1KubeVirtSelfSignConfiguration interface.
+ */
+export function instanceOfV1KubeVirtSelfSignConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1KubeVirtSelfSignConfigurationFromJSON(json: any): V1KubeVirtSelfSignConfiguration {

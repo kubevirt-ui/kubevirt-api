@@ -27,6 +27,16 @@ export interface V1AccessCredentialSecretSource {
     secretName: string;
 }
 
+/**
+ * Check if a given object implements the V1AccessCredentialSecretSource interface.
+ */
+export function instanceOfV1AccessCredentialSecretSource(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "secretName" in value;
+
+    return isInstance;
+}
+
 export function V1AccessCredentialSecretSourceFromJSON(json: any): V1AccessCredentialSecretSource {
     return V1AccessCredentialSecretSourceFromJSONTyped(json, false);
 }

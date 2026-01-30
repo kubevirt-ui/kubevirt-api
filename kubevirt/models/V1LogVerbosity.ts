@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * LogVerbosity sets log verbosity level of  various components
  * @export
@@ -63,44 +62,6 @@ export interface V1LogVerbosity {
   virtSynchronizationController?: number;
 }
 
-export function V1LogVerbosityFromJSON(json: any): V1LogVerbosity {
-  return V1LogVerbosityFromJSONTyped(json, false);
-}
-
-export function V1LogVerbosityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1LogVerbosity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    nodeVerbosity: !exists(json, 'nodeVerbosity') ? undefined : json['nodeVerbosity'],
-    virtAPI: !exists(json, 'virtAPI') ? undefined : json['virtAPI'],
-    virtController: !exists(json, 'virtController') ? undefined : json['virtController'],
-    virtHandler: !exists(json, 'virtHandler') ? undefined : json['virtHandler'],
-    virtLauncher: !exists(json, 'virtLauncher') ? undefined : json['virtLauncher'],
-    virtOperator: !exists(json, 'virtOperator') ? undefined : json['virtOperator'],
-    virtSynchronizationController: !exists(json, 'virtSynchronizationController')
-      ? undefined
-      : json['virtSynchronizationController'],
-  };
-}
-
-export function V1LogVerbosityToJSON(value?: V1LogVerbosity | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    nodeVerbosity: value.nodeVerbosity,
-    virtAPI: value.virtAPI,
-    virtController: value.virtController,
-    virtHandler: value.virtHandler,
-    virtLauncher: value.virtLauncher,
-    virtOperator: value.virtOperator,
-    virtSynchronizationController: value.virtSynchronizationController,
-  };
-}
+/**
+ * Check if a given object implements the V1LogVerbosity interface.
+ */

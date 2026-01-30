@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -69,48 +68,6 @@ export interface V1VirtualMachineInstanceGuestOSInfo {
   versionId?: string;
 }
 
-export function V1VirtualMachineInstanceGuestOSInfoFromJSON(
-  json: any,
-): V1VirtualMachineInstanceGuestOSInfo {
-  return V1VirtualMachineInstanceGuestOSInfoFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceGuestOSInfoFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceGuestOSInfo {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    id: !exists(json, 'id') ? undefined : json['id'],
-    kernelRelease: !exists(json, 'kernelRelease') ? undefined : json['kernelRelease'],
-    kernelVersion: !exists(json, 'kernelVersion') ? undefined : json['kernelVersion'],
-    machine: !exists(json, 'machine') ? undefined : json['machine'],
-    name: !exists(json, 'name') ? undefined : json['name'],
-    prettyName: !exists(json, 'prettyName') ? undefined : json['prettyName'],
-    version: !exists(json, 'version') ? undefined : json['version'],
-    versionId: !exists(json, 'versionId') ? undefined : json['versionId'],
-  };
-}
-
-export function V1VirtualMachineInstanceGuestOSInfoToJSON(
-  value?: V1VirtualMachineInstanceGuestOSInfo | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    id: value.id,
-    kernelRelease: value.kernelRelease,
-    kernelVersion: value.kernelVersion,
-    machine: value.machine,
-    name: value.name,
-    prettyName: value.prettyName,
-    version: value.version,
-    versionId: value.versionId,
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceGuestOSInfo interface.
+ */

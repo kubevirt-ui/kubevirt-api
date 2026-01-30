@@ -32,32 +32,6 @@ export interface V1DHCPPrivateOptions {
   value: string;
 }
 
-export function V1DHCPPrivateOptionsFromJSON(json: any): V1DHCPPrivateOptions {
-  return V1DHCPPrivateOptionsFromJSONTyped(json, false);
-}
-
-export function V1DHCPPrivateOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DHCPPrivateOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    option: json['option'],
-    value: json['value'],
-  };
-}
-
-export function V1DHCPPrivateOptionsToJSON(value?: V1DHCPPrivateOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    option: value.option,
-    value: value.value,
-  };
-}
+/**
+ * Check if a given object implements the V1DHCPPrivateOptions interface.
+ */

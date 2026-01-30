@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1VirtualMachineInstanceReplicaSetCondition,
-  V1VirtualMachineInstanceReplicaSetConditionFromJSON,
-  V1VirtualMachineInstanceReplicaSetConditionToJSON,
-} from './';
-
+import type { V1VirtualMachineInstanceReplicaSetCondition } from './V1VirtualMachineInstanceReplicaSetCondition';
 /**
  *
  * @export
@@ -51,45 +45,6 @@ export interface V1VirtualMachineInstanceReplicaSetStatus {
   replicas?: number;
 }
 
-export function V1VirtualMachineInstanceReplicaSetStatusFromJSON(
-  json: any,
-): V1VirtualMachineInstanceReplicaSetStatus {
-  return V1VirtualMachineInstanceReplicaSetStatusFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceReplicaSetStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceReplicaSetStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(V1VirtualMachineInstanceReplicaSetConditionFromJSON),
-    labelSelector: !exists(json, 'labelSelector') ? undefined : json['labelSelector'],
-    readyReplicas: !exists(json, 'readyReplicas') ? undefined : json['readyReplicas'],
-    replicas: !exists(json, 'replicas') ? undefined : json['replicas'],
-  };
-}
-
-export function V1VirtualMachineInstanceReplicaSetStatusToJSON(
-  value?: V1VirtualMachineInstanceReplicaSetStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(V1VirtualMachineInstanceReplicaSetConditionToJSON),
-    labelSelector: value.labelSelector,
-    readyReplicas: value.readyReplicas,
-    replicas: value.replicas,
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceReplicaSetStatus interface.
+ */

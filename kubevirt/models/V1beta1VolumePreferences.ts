@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -27,32 +26,6 @@ export interface V1beta1VolumePreferences {
   preferredStorageClassName?: string;
 }
 
-export function V1beta1VolumePreferencesFromJSON(json: any): V1beta1VolumePreferences {
-  return V1beta1VolumePreferencesFromJSONTyped(json, false);
-}
-
-export function V1beta1VolumePreferencesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VolumePreferences {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredStorageClassName: !exists(json, 'preferredStorageClassName')
-      ? undefined
-      : json['preferredStorageClassName'],
-  };
-}
-
-export function V1beta1VolumePreferencesToJSON(value?: V1beta1VolumePreferences | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredStorageClassName: value.preferredStorageClassName,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VolumePreferences interface.
+ */

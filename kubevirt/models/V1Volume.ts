@@ -12,52 +12,20 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1CloudInitConfigDriveSource,
-  V1CloudInitConfigDriveSourceFromJSON,
-  V1CloudInitConfigDriveSourceToJSON,
-  V1CloudInitNoCloudSource,
-  V1CloudInitNoCloudSourceFromJSON,
-  V1CloudInitNoCloudSourceToJSON,
-  V1ConfigMapVolumeSource,
-  V1ConfigMapVolumeSourceFromJSON,
-  V1ConfigMapVolumeSourceToJSON,
-  V1ContainerDiskSource,
-  V1ContainerDiskSourceFromJSON,
-  V1ContainerDiskSourceToJSON,
-  V1DataVolumeSource,
-  V1DataVolumeSourceFromJSON,
-  V1DataVolumeSourceToJSON,
-  V1DownwardAPIVolumeSource,
-  V1DownwardAPIVolumeSourceFromJSON,
-  V1DownwardAPIVolumeSourceToJSON,
-  V1EmptyDiskSource,
-  V1EmptyDiskSourceFromJSON,
-  V1EmptyDiskSourceToJSON,
-  V1EphemeralVolumeSource,
-  V1EphemeralVolumeSourceFromJSON,
-  V1EphemeralVolumeSourceToJSON,
-  V1HostDisk,
-  V1HostDiskFromJSON,
-  V1HostDiskToJSON,
-  V1MemoryDumpVolumeSource,
-  V1MemoryDumpVolumeSourceFromJSON,
-  V1MemoryDumpVolumeSourceToJSON,
-  V1PersistentVolumeClaimVolumeSource,
-  V1PersistentVolumeClaimVolumeSourceFromJSON,
-  V1PersistentVolumeClaimVolumeSourceToJSON,
-  V1SecretVolumeSource,
-  V1SecretVolumeSourceFromJSON,
-  V1SecretVolumeSourceToJSON,
-  V1ServiceAccountVolumeSource,
-  V1ServiceAccountVolumeSourceFromJSON,
-  V1ServiceAccountVolumeSourceToJSON,
-  V1SysprepSource,
-  V1SysprepSourceFromJSON,
-  V1SysprepSourceToJSON,
-} from './';
-
+import type { V1CloudInitConfigDriveSource } from './V1CloudInitConfigDriveSource';
+import type { V1CloudInitNoCloudSource } from './V1CloudInitNoCloudSource';
+import type { V1ConfigMapVolumeSource } from './V1ConfigMapVolumeSource';
+import type { V1ContainerDiskSource } from './V1ContainerDiskSource';
+import type { V1DataVolumeSource } from './V1DataVolumeSource';
+import type { V1DownwardAPIVolumeSource } from './V1DownwardAPIVolumeSource';
+import type { V1EmptyDiskSource } from './V1EmptyDiskSource';
+import type { V1EphemeralVolumeSource } from './V1EphemeralVolumeSource';
+import type { V1HostDisk } from './V1HostDisk';
+import type { V1MemoryDumpVolumeSource } from './V1MemoryDumpVolumeSource';
+import type { V1PersistentVolumeClaimVolumeSource } from './V1PersistentVolumeClaimVolumeSource';
+import type { V1SecretVolumeSource } from './V1SecretVolumeSource';
+import type { V1ServiceAccountVolumeSource } from './V1ServiceAccountVolumeSource';
+import type { V1SysprepSource } from './V1SysprepSource';
 /**
  * Volume represents a named volume in a vmi.
  * @export
@@ -162,79 +130,6 @@ export interface V1Volume {
   sysprep?: V1SysprepSource;
 }
 
-export function V1VolumeFromJSON(json: any): V1Volume {
-  return V1VolumeFromJSONTyped(json, false);
-}
-
-export function V1VolumeFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Volume {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    cloudInitConfigDrive: !exists(json, 'cloudInitConfigDrive')
-      ? undefined
-      : V1CloudInitConfigDriveSourceFromJSON(json['cloudInitConfigDrive']),
-    cloudInitNoCloud: !exists(json, 'cloudInitNoCloud')
-      ? undefined
-      : V1CloudInitNoCloudSourceFromJSON(json['cloudInitNoCloud']),
-    configMap: !exists(json, 'configMap')
-      ? undefined
-      : V1ConfigMapVolumeSourceFromJSON(json['configMap']),
-    containerDisk: !exists(json, 'containerDisk')
-      ? undefined
-      : V1ContainerDiskSourceFromJSON(json['containerDisk']),
-    dataVolume: !exists(json, 'dataVolume')
-      ? undefined
-      : V1DataVolumeSourceFromJSON(json['dataVolume']),
-    downwardAPI: !exists(json, 'downwardAPI')
-      ? undefined
-      : V1DownwardAPIVolumeSourceFromJSON(json['downwardAPI']),
-    downwardMetrics: !exists(json, 'downwardMetrics') ? undefined : json['downwardMetrics'],
-    emptyDisk: !exists(json, 'emptyDisk')
-      ? undefined
-      : V1EmptyDiskSourceFromJSON(json['emptyDisk']),
-    ephemeral: !exists(json, 'ephemeral')
-      ? undefined
-      : V1EphemeralVolumeSourceFromJSON(json['ephemeral']),
-    hostDisk: !exists(json, 'hostDisk') ? undefined : V1HostDiskFromJSON(json['hostDisk']),
-    memoryDump: !exists(json, 'memoryDump')
-      ? undefined
-      : V1MemoryDumpVolumeSourceFromJSON(json['memoryDump']),
-    name: json['name'],
-    persistentVolumeClaim: !exists(json, 'persistentVolumeClaim')
-      ? undefined
-      : V1PersistentVolumeClaimVolumeSourceFromJSON(json['persistentVolumeClaim']),
-    secret: !exists(json, 'secret') ? undefined : V1SecretVolumeSourceFromJSON(json['secret']),
-    serviceAccount: !exists(json, 'serviceAccount')
-      ? undefined
-      : V1ServiceAccountVolumeSourceFromJSON(json['serviceAccount']),
-    sysprep: !exists(json, 'sysprep') ? undefined : V1SysprepSourceFromJSON(json['sysprep']),
-  };
-}
-
-export function V1VolumeToJSON(value?: V1Volume | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    cloudInitConfigDrive: V1CloudInitConfigDriveSourceToJSON(value.cloudInitConfigDrive),
-    cloudInitNoCloud: V1CloudInitNoCloudSourceToJSON(value.cloudInitNoCloud),
-    configMap: V1ConfigMapVolumeSourceToJSON(value.configMap),
-    containerDisk: V1ContainerDiskSourceToJSON(value.containerDisk),
-    dataVolume: V1DataVolumeSourceToJSON(value.dataVolume),
-    downwardAPI: V1DownwardAPIVolumeSourceToJSON(value.downwardAPI),
-    downwardMetrics: value.downwardMetrics,
-    emptyDisk: V1EmptyDiskSourceToJSON(value.emptyDisk),
-    ephemeral: V1EphemeralVolumeSourceToJSON(value.ephemeral),
-    hostDisk: V1HostDiskToJSON(value.hostDisk),
-    memoryDump: V1MemoryDumpVolumeSourceToJSON(value.memoryDump),
-    name: value.name,
-    persistentVolumeClaim: V1PersistentVolumeClaimVolumeSourceToJSON(value.persistentVolumeClaim),
-    secret: V1SecretVolumeSourceToJSON(value.secret),
-    serviceAccount: V1ServiceAccountVolumeSourceToJSON(value.serviceAccount),
-    sysprep: V1SysprepSourceToJSON(value.sysprep),
-  };
-}
+/**
+ * Check if a given object implements the V1Volume interface.
+ */

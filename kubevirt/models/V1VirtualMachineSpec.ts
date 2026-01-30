@@ -12,22 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1DataVolumeTemplateSpec,
-  V1DataVolumeTemplateSpecFromJSON,
-  V1DataVolumeTemplateSpecToJSON,
-  V1InstancetypeMatcher,
-  V1InstancetypeMatcherFromJSON,
-  V1InstancetypeMatcherToJSON,
-  V1PreferenceMatcher,
-  V1PreferenceMatcherFromJSON,
-  V1PreferenceMatcherToJSON,
-  V1VirtualMachineInstanceTemplateSpec,
-  V1VirtualMachineInstanceTemplateSpecFromJSON,
-  V1VirtualMachineInstanceTemplateSpecToJSON,
-} from './';
-
+import type { V1DataVolumeTemplateSpec } from './V1DataVolumeTemplateSpec';
+import type { V1InstancetypeMatcher } from './V1InstancetypeMatcher';
+import type { V1PreferenceMatcher } from './V1PreferenceMatcher';
+import type { V1VirtualMachineInstanceTemplateSpec } from './V1VirtualMachineInstanceTemplateSpec';
 /**
  * VirtualMachineSpec describes how the proper VirtualMachine should look like
  * @export
@@ -53,7 +41,7 @@ export interface V1VirtualMachineSpec {
    */
   preference?: V1PreferenceMatcher;
   /**
-   * Running state indicates the requested running state of the VirtualMachineInstance mutually exclusive with Running
+   * Running state indicates the requested running state of the VirtualMachineInstance mutually exclusive with Running Following are allowed values: - "Always": VMI should always be running. - "Halted": VMI should never be running. - "Manual": VMI can be started/stopped using API endpoints. - "RerunOnFailure": VMI will initially be running and restarted if a failure occurs, but will not be restarted upon successful completion. - "Once": VMI will run once and not be restarted upon completion regardless if the completion is of phase Failure or Success.
    * @type {string}
    * @memberof V1VirtualMachineSpec
    */
@@ -78,53 +66,6 @@ export interface V1VirtualMachineSpec {
   updateVolumesStrategy?: string;
 }
 
-export function V1VirtualMachineSpecFromJSON(json: any): V1VirtualMachineSpec {
-  return V1VirtualMachineSpecFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    dataVolumeTemplates: !exists(json, 'dataVolumeTemplates')
-      ? undefined
-      : (json['dataVolumeTemplates'] as Array<any>).map(V1DataVolumeTemplateSpecFromJSON),
-    instancetype: !exists(json, 'instancetype')
-      ? undefined
-      : V1InstancetypeMatcherFromJSON(json['instancetype']),
-    preference: !exists(json, 'preference')
-      ? undefined
-      : V1PreferenceMatcherFromJSON(json['preference']),
-    runStrategy: !exists(json, 'runStrategy') ? undefined : json['runStrategy'],
-    running: !exists(json, 'running') ? undefined : json['running'],
-    template: V1VirtualMachineInstanceTemplateSpecFromJSON(json['template']),
-    updateVolumesStrategy: !exists(json, 'updateVolumesStrategy')
-      ? undefined
-      : json['updateVolumesStrategy'],
-  };
-}
-
-export function V1VirtualMachineSpecToJSON(value?: V1VirtualMachineSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    dataVolumeTemplates:
-      value.dataVolumeTemplates === undefined
-        ? undefined
-        : (value.dataVolumeTemplates as Array<any>).map(V1DataVolumeTemplateSpecToJSON),
-    instancetype: V1InstancetypeMatcherToJSON(value.instancetype),
-    preference: V1PreferenceMatcherToJSON(value.preference),
-    runStrategy: value.runStrategy,
-    running: value.running,
-    template: V1VirtualMachineInstanceTemplateSpecToJSON(value.template),
-    updateVolumesStrategy: value.updateVolumesStrategy,
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineSpec interface.
+ */

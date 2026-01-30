@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * KubeVirtCondition represents a condition of a KubeVirt deployment
  * @export
@@ -45,36 +44,6 @@ export interface V1KubeVirtCondition {
   type: string;
 }
 
-export function V1KubeVirtConditionFromJSON(json: any): V1KubeVirtCondition {
-  return V1KubeVirtConditionFromJSONTyped(json, false);
-}
-
-export function V1KubeVirtConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1KubeVirtCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function V1KubeVirtConditionToJSON(value?: V1KubeVirtCondition | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
-}
+/**
+ * Check if a given object implements the V1KubeVirtCondition interface.
+ */

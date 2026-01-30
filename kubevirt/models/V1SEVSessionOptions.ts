@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * SEVSessionOptions is used to provide SEV session parameters.
  * @export
@@ -33,32 +32,6 @@ export interface V1SEVSessionOptions {
   session?: string;
 }
 
-export function V1SEVSessionOptionsFromJSON(json: any): V1SEVSessionOptions {
-  return V1SEVSessionOptionsFromJSONTyped(json, false);
-}
-
-export function V1SEVSessionOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1SEVSessionOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    dhCert: !exists(json, 'dhCert') ? undefined : json['dhCert'],
-    session: !exists(json, 'session') ? undefined : json['session'],
-  };
-}
-
-export function V1SEVSessionOptionsToJSON(value?: V1SEVSessionOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    dhCert: value.dhCert,
-    session: value.session,
-  };
-}
+/**
+ * Check if a given object implements the V1SEVSessionOptions interface.
+ */

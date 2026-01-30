@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -75,50 +74,6 @@ export interface V1VirtualMachineInstanceNetworkInterface {
   queueCount?: number;
 }
 
-export function V1VirtualMachineInstanceNetworkInterfaceFromJSON(
-  json: any,
-): V1VirtualMachineInstanceNetworkInterface {
-  return V1VirtualMachineInstanceNetworkInterfaceFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceNetworkInterfaceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceNetworkInterface {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    infoSource: !exists(json, 'infoSource') ? undefined : json['infoSource'],
-    interfaceName: !exists(json, 'interfaceName') ? undefined : json['interfaceName'],
-    ipAddress: !exists(json, 'ipAddress') ? undefined : json['ipAddress'],
-    ipAddresses: !exists(json, 'ipAddresses') ? undefined : json['ipAddresses'],
-    linkState: !exists(json, 'linkState') ? undefined : json['linkState'],
-    mac: !exists(json, 'mac') ? undefined : json['mac'],
-    name: !exists(json, 'name') ? undefined : json['name'],
-    podInterfaceName: !exists(json, 'podInterfaceName') ? undefined : json['podInterfaceName'],
-    queueCount: !exists(json, 'queueCount') ? undefined : json['queueCount'],
-  };
-}
-
-export function V1VirtualMachineInstanceNetworkInterfaceToJSON(
-  value?: V1VirtualMachineInstanceNetworkInterface | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    infoSource: value.infoSource,
-    interfaceName: value.interfaceName,
-    ipAddress: value.ipAddress,
-    ipAddresses: value.ipAddresses,
-    linkState: value.linkState,
-    mac: value.mac,
-    name: value.name,
-    podInterfaceName: value.podInterfaceName,
-    queueCount: value.queueCount,
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceNetworkInterface interface.
+ */

@@ -81,6 +81,17 @@ export interface V1HostDisk {
     type: string;
 }
 
+/**
+ * Check if a given object implements the V1HostDisk interface.
+ */
+export function instanceOfV1HostDisk(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "path" in value;
+    isInstance = isInstance && "type" in value;
+
+    return isInstance;
+}
+
 export function V1HostDiskFromJSON(json: any): V1HostDisk {
     return V1HostDiskFromJSONTyped(json, false);
 }

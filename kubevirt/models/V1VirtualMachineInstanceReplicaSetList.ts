@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ListMeta,
-  K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-  V1VirtualMachineInstanceReplicaSet,
-  V1VirtualMachineInstanceReplicaSetFromJSON,
-  V1VirtualMachineInstanceReplicaSetToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1VirtualMachineInstanceReplicaSet } from './V1VirtualMachineInstanceReplicaSet';
 /**
  * VMIList is a list of VMIs
  * @export
@@ -54,42 +46,6 @@ export interface V1VirtualMachineInstanceReplicaSetList {
   metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
 
-export function V1VirtualMachineInstanceReplicaSetListFromJSON(
-  json: any,
-): V1VirtualMachineInstanceReplicaSetList {
-  return V1VirtualMachineInstanceReplicaSetListFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceReplicaSetListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceReplicaSetList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1VirtualMachineInstanceReplicaSetFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function V1VirtualMachineInstanceReplicaSetListToJSON(
-  value?: V1VirtualMachineInstanceReplicaSetList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1VirtualMachineInstanceReplicaSetToJSON),
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceReplicaSetList interface.
+ */

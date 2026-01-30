@@ -39,6 +39,15 @@ export interface V1RTCTimer {
     track?: string;
 }
 
+/**
+ * Check if a given object implements the V1RTCTimer interface.
+ */
+export function instanceOfV1RTCTimer(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1RTCTimerFromJSON(json: any): V1RTCTimer {
     return V1RTCTimerFromJSONTyped(json, false);
 }

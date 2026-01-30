@@ -13,24 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1DataVolumeTemplateSpec } from './V1DataVolumeTemplateSpec';
 import {
-    V1DataVolumeTemplateSpec,
     V1DataVolumeTemplateSpecFromJSON,
     V1DataVolumeTemplateSpecFromJSONTyped,
     V1DataVolumeTemplateSpecToJSON,
-    V1InstancetypeMatcher,
+} from './V1DataVolumeTemplateSpec';
+import type { V1InstancetypeMatcher } from './V1InstancetypeMatcher';
+import {
     V1InstancetypeMatcherFromJSON,
     V1InstancetypeMatcherFromJSONTyped,
     V1InstancetypeMatcherToJSON,
-    V1PreferenceMatcher,
+} from './V1InstancetypeMatcher';
+import type { V1PreferenceMatcher } from './V1PreferenceMatcher';
+import {
     V1PreferenceMatcherFromJSON,
     V1PreferenceMatcherFromJSONTyped,
     V1PreferenceMatcherToJSON,
-    V1VirtualMachineInstanceTemplateSpec,
+} from './V1PreferenceMatcher';
+import type { V1VirtualMachineInstanceTemplateSpec } from './V1VirtualMachineInstanceTemplateSpec';
+import {
     V1VirtualMachineInstanceTemplateSpecFromJSON,
     V1VirtualMachineInstanceTemplateSpecFromJSONTyped,
     V1VirtualMachineInstanceTemplateSpecToJSON,
-} from './';
+} from './V1VirtualMachineInstanceTemplateSpec';
 
 /**
  * VirtualMachineSpec describes how the proper VirtualMachine should look like
@@ -57,7 +63,7 @@ export interface V1VirtualMachineSpec {
      */
     preference?: V1PreferenceMatcher;
     /**
-     * Running state indicates the requested running state of the VirtualMachineInstance mutually exclusive with Running
+     * Running state indicates the requested running state of the VirtualMachineInstance mutually exclusive with Running Following are allowed values: - "Always": VMI should always be running. - "Halted": VMI should never be running. - "Manual": VMI can be started/stopped using API endpoints. - "RerunOnFailure": VMI will initially be running and restarted if a failure occurs, but will not be restarted upon successful completion. - "Once": VMI will run once and not be restarted upon completion regardless if the completion is of phase Failure or Success.
      * @type {string}
      * @memberof V1VirtualMachineSpec
      */
@@ -80,6 +86,16 @@ export interface V1VirtualMachineSpec {
      * @memberof V1VirtualMachineSpec
      */
     updateVolumesStrategy?: string;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineSpec interface.
+ */
+export function instanceOfV1VirtualMachineSpec(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "template" in value;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineSpecFromJSON(json: any): V1VirtualMachineSpec {

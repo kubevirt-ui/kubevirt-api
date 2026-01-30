@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -45,40 +44,6 @@ export interface V1VirtualMachineInstanceMigrationCondition {
   type: string;
 }
 
-export function V1VirtualMachineInstanceMigrationConditionFromJSON(
-  json: any,
-): V1VirtualMachineInstanceMigrationCondition {
-  return V1VirtualMachineInstanceMigrationConditionFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceMigrationConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceMigrationCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function V1VirtualMachineInstanceMigrationConditionToJSON(
-  value?: V1VirtualMachineInstanceMigrationCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationCondition interface.
+ */

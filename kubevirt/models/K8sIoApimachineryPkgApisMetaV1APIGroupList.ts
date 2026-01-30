@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1APIGroup,
-  K8sIoApimachineryPkgApisMetaV1APIGroupFromJSON,
-  K8sIoApimachineryPkgApisMetaV1APIGroupToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1APIGroup } from './K8sIoApimachineryPkgApisMetaV1APIGroup';
 /**
  * APIGroupList is a list of APIGroup, to allow clients to discover the API at /apis.
  * @export
@@ -45,38 +39,6 @@ export interface K8sIoApimachineryPkgApisMetaV1APIGroupList {
   kind?: string;
 }
 
-export function K8sIoApimachineryPkgApisMetaV1APIGroupListFromJSON(
-  json: any,
-): K8sIoApimachineryPkgApisMetaV1APIGroupList {
-  return K8sIoApimachineryPkgApisMetaV1APIGroupListFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1APIGroupListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApimachineryPkgApisMetaV1APIGroupList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    groups: (json['groups'] as Array<any>).map(K8sIoApimachineryPkgApisMetaV1APIGroupFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-  };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1APIGroupListToJSON(
-  value?: K8sIoApimachineryPkgApisMetaV1APIGroupList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    groups: (value.groups as Array<any>).map(K8sIoApimachineryPkgApisMetaV1APIGroupToJSON),
-    kind: value.kind,
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1APIGroupList interface.
+ */

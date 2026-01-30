@@ -27,6 +27,16 @@ export interface V1VirtualMachineInstanceMigrationTarget {
     migrationID: string;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationTarget interface.
+ */
+export function instanceOfV1VirtualMachineInstanceMigrationTarget(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "migrationID" in value;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineInstanceMigrationTargetFromJSON(json: any): V1VirtualMachineInstanceMigrationTarget {
     return V1VirtualMachineInstanceMigrationTargetFromJSONTyped(json, false);
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -39,36 +38,6 @@ export interface V1ResourceRequirements {
   requests?: { [key: string]: string };
 }
 
-export function V1ResourceRequirementsFromJSON(json: any): V1ResourceRequirements {
-  return V1ResourceRequirementsFromJSONTyped(json, false);
-}
-
-export function V1ResourceRequirementsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1ResourceRequirements {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    limits: !exists(json, 'limits') ? undefined : json['limits'],
-    overcommitGuestOverhead: !exists(json, 'overcommitGuestOverhead')
-      ? undefined
-      : json['overcommitGuestOverhead'],
-    requests: !exists(json, 'requests') ? undefined : json['requests'],
-  };
-}
-
-export function V1ResourceRequirementsToJSON(value?: V1ResourceRequirements | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    limits: value.limits,
-    overcommitGuestOverhead: value.overcommitGuestOverhead,
-    requests: value.requests,
-  };
-}
+/**
+ * Check if a given object implements the V1ResourceRequirements interface.
+ */

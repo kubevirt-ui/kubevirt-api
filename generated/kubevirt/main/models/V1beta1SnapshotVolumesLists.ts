@@ -33,6 +33,15 @@ export interface V1beta1SnapshotVolumesLists {
     includedVolumes?: Array<string>;
 }
 
+/**
+ * Check if a given object implements the V1beta1SnapshotVolumesLists interface.
+ */
+export function instanceOfV1beta1SnapshotVolumesLists(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1beta1SnapshotVolumesListsFromJSON(json: any): V1beta1SnapshotVolumesLists {
     return V1beta1SnapshotVolumesListsFromJSONTyped(json, false);
 }

@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ListMeta,
-  K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-  V1VirtualMachineInstancePreset,
-  V1VirtualMachineInstancePresetFromJSON,
-  V1VirtualMachineInstancePresetToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1VirtualMachineInstancePreset } from './V1VirtualMachineInstancePreset';
 /**
  * VirtualMachineInstancePresetList is a list of VirtualMachinePresets
  * @export
@@ -54,42 +46,6 @@ export interface V1VirtualMachineInstancePresetList {
   metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
 
-export function V1VirtualMachineInstancePresetListFromJSON(
-  json: any,
-): V1VirtualMachineInstancePresetList {
-  return V1VirtualMachineInstancePresetListFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstancePresetListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstancePresetList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1VirtualMachineInstancePresetFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function V1VirtualMachineInstancePresetListToJSON(
-  value?: V1VirtualMachineInstancePresetList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1VirtualMachineInstancePresetToJSON),
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstancePresetList interface.
+ */

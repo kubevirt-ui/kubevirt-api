@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ListMeta,
-  K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-  V1VirtualMachineInstance,
-  V1VirtualMachineInstanceFromJSON,
-  V1VirtualMachineInstanceToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1VirtualMachineInstance } from './V1VirtualMachineInstance';
 /**
  * VirtualMachineInstanceList is a list of VirtualMachines
  * @export
@@ -54,40 +46,6 @@ export interface V1VirtualMachineInstanceList {
   metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
 
-export function V1VirtualMachineInstanceListFromJSON(json: any): V1VirtualMachineInstanceList {
-  return V1VirtualMachineInstanceListFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1VirtualMachineInstanceFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function V1VirtualMachineInstanceListToJSON(
-  value?: V1VirtualMachineInstanceList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1VirtualMachineInstanceToJSON),
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceList interface.
+ */

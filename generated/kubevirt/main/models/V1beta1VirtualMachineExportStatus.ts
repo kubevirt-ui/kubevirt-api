@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1beta1Condition } from './V1beta1Condition';
 import {
-    V1beta1Condition,
     V1beta1ConditionFromJSON,
     V1beta1ConditionFromJSONTyped,
     V1beta1ConditionToJSON,
-    V1beta1VirtualMachineExportLinks,
+} from './V1beta1Condition';
+import type { V1beta1VirtualMachineExportLinks } from './V1beta1VirtualMachineExportLinks';
+import {
     V1beta1VirtualMachineExportLinksFromJSON,
     V1beta1VirtualMachineExportLinksFromJSONTyped,
     V1beta1VirtualMachineExportLinksToJSON,
-} from './';
+} from './V1beta1VirtualMachineExportLinks';
 
 /**
  * VirtualMachineExportStatus is the status for a VirtualMachineExport resource
@@ -74,6 +76,15 @@ export interface V1beta1VirtualMachineExportStatus {
     virtualMachineName?: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1VirtualMachineExportStatus interface.
+ */
+export function instanceOfV1beta1VirtualMachineExportStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1beta1VirtualMachineExportStatusFromJSON(json: any): V1beta1VirtualMachineExportStatus {
     return V1beta1VirtualMachineExportStatusFromJSONTyped(json, false);
 }
@@ -89,7 +100,7 @@ export function V1beta1VirtualMachineExportStatusFromJSONTyped(json: any, ignore
         'phase': !exists(json, 'phase') ? undefined : json['phase'],
         'serviceName': !exists(json, 'serviceName') ? undefined : json['serviceName'],
         'tokenSecretRef': !exists(json, 'tokenSecretRef') ? undefined : json['tokenSecretRef'],
-        'ttlExpirationTime': !exists(json, 'ttlExpirationTime') ? undefined : (new Date(json['ttlExpirationTime'])),
+        'ttlExpirationTime': !exists(json, 'ttlExpirationTime') ? undefined : json['ttlExpirationTime'],
         'virtualMachineName': !exists(json, 'virtualMachineName') ? undefined : json['virtualMachineName'],
     };
 }
@@ -108,7 +119,7 @@ export function V1beta1VirtualMachineExportStatusToJSON(value?: V1beta1VirtualMa
         'phase': value.phase,
         'serviceName': value.serviceName,
         'tokenSecretRef': value.tokenSecretRef,
-        'ttlExpirationTime': value.ttlExpirationTime === undefined ? undefined : (value.ttlExpirationTime.toISOString()),
+        'ttlExpirationTime': value.ttlExpirationTime,
         'virtualMachineName': value.virtualMachineName,
     };
 }

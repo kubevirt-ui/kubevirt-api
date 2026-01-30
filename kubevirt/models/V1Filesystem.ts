@@ -32,29 +32,6 @@ export interface V1Filesystem {
   virtiofs: object;
 }
 
-export function V1FilesystemFromJSON(json: any): V1Filesystem {
-  return V1FilesystemFromJSONTyped(json, false);
-}
-
-export function V1FilesystemFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Filesystem {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    virtiofs: json['virtiofs'],
-  };
-}
-
-export function V1FilesystemToJSON(value?: V1Filesystem | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    virtiofs: value.virtiofs,
-  };
-}
+/**
+ * Check if a given object implements the V1Filesystem interface.
+ */

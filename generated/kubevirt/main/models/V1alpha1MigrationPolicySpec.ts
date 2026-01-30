@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1alpha1Selectors } from './V1alpha1Selectors';
 import {
-    V1alpha1Selectors,
     V1alpha1SelectorsFromJSON,
     V1alpha1SelectorsFromJSONTyped,
     V1alpha1SelectorsToJSON,
-} from './';
+} from './V1alpha1Selectors';
 
 /**
  * 
@@ -98,6 +98,16 @@ export interface V1alpha1MigrationPolicySpec {
      * @memberof V1alpha1MigrationPolicySpec
      */
     selectors: V1alpha1Selectors;
+}
+
+/**
+ * Check if a given object implements the V1alpha1MigrationPolicySpec interface.
+ */
+export function instanceOfV1alpha1MigrationPolicySpec(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "selectors" in value;
+
+    return isInstance;
 }
 
 export function V1alpha1MigrationPolicySpecFromJSON(json: any): V1alpha1MigrationPolicySpec {

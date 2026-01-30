@@ -39,6 +39,15 @@ export interface V1CDRomTarget {
     tray?: string;
 }
 
+/**
+ * Check if a given object implements the V1CDRomTarget interface.
+ */
+export function instanceOfV1CDRomTarget(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1CDRomTargetFromJSON(json: any): V1CDRomTarget {
     return V1CDRomTargetFromJSONTyped(json, false);
 }

@@ -33,6 +33,16 @@ export interface V1DataVolumeSource {
     name: string;
 }
 
+/**
+ * Check if a given object implements the V1DataVolumeSource interface.
+ */
+export function instanceOfV1DataVolumeSource(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
+}
+
 export function V1DataVolumeSourceFromJSON(json: any): V1DataVolumeSource {
     return V1DataVolumeSourceFromJSONTyped(json, false);
 }

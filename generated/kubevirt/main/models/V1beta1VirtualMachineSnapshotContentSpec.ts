@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1beta1SourceSpec } from './V1beta1SourceSpec';
 import {
-    V1beta1SourceSpec,
     V1beta1SourceSpecFromJSON,
     V1beta1SourceSpecFromJSONTyped,
     V1beta1SourceSpecToJSON,
-    V1beta1VolumeBackup,
+} from './V1beta1SourceSpec';
+import type { V1beta1VolumeBackup } from './V1beta1VolumeBackup';
+import {
     V1beta1VolumeBackupFromJSON,
     V1beta1VolumeBackupFromJSONTyped,
     V1beta1VolumeBackupToJSON,
-} from './';
+} from './V1beta1VolumeBackup';
 
 /**
  * VirtualMachineSnapshotContentSpec is the spec for a VirtualMachineSnapshotContent resource
@@ -48,6 +50,16 @@ export interface V1beta1VirtualMachineSnapshotContentSpec {
      * @memberof V1beta1VirtualMachineSnapshotContentSpec
      */
     volumeBackups?: Array<V1beta1VolumeBackup>;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineSnapshotContentSpec interface.
+ */
+export function instanceOfV1beta1VirtualMachineSnapshotContentSpec(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "source" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineSnapshotContentSpecFromJSON(json: any): V1beta1VirtualMachineSnapshotContentSpec {

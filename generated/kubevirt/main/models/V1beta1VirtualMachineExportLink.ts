@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1beta1VirtualMachineExportManifest } from './V1beta1VirtualMachineExportManifest';
 import {
-    V1beta1VirtualMachineExportManifest,
     V1beta1VirtualMachineExportManifestFromJSON,
     V1beta1VirtualMachineExportManifestFromJSONTyped,
     V1beta1VirtualMachineExportManifestToJSON,
-    V1beta1VirtualMachineExportVolume,
+} from './V1beta1VirtualMachineExportManifest';
+import type { V1beta1VirtualMachineExportVolume } from './V1beta1VirtualMachineExportVolume';
+import {
     V1beta1VirtualMachineExportVolumeFromJSON,
     V1beta1VirtualMachineExportVolumeFromJSONTyped,
     V1beta1VirtualMachineExportVolumeToJSON,
-} from './';
+} from './V1beta1VirtualMachineExportVolume';
 
 /**
  * VirtualMachineExportLink contains a list of volumes available for export, as well as the URLs to obtain these volumes
@@ -48,6 +50,16 @@ export interface V1beta1VirtualMachineExportLink {
      * @memberof V1beta1VirtualMachineExportLink
      */
     volumes?: Array<V1beta1VirtualMachineExportVolume>;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineExportLink interface.
+ */
+export function instanceOfV1beta1VirtualMachineExportLink(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "cert" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineExportLinkFromJSON(json: any): V1beta1VirtualMachineExportLink {

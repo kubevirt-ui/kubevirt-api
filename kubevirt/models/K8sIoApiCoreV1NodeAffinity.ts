@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApiCoreV1NodeSelector,
-  K8sIoApiCoreV1NodeSelectorFromJSON,
-  K8sIoApiCoreV1NodeSelectorToJSON,
-  K8sIoApiCoreV1PreferredSchedulingTerm,
-  K8sIoApiCoreV1PreferredSchedulingTermFromJSON,
-  K8sIoApiCoreV1PreferredSchedulingTermToJSON,
-} from './';
-
+import type { K8sIoApiCoreV1NodeSelector } from './K8sIoApiCoreV1NodeSelector';
+import type { K8sIoApiCoreV1PreferredSchedulingTerm } from './K8sIoApiCoreV1PreferredSchedulingTerm';
 /**
  * Node affinity is a group of node affinity scheduling rules.
  * @export
@@ -42,51 +34,6 @@ export interface K8sIoApiCoreV1NodeAffinity {
   requiredDuringSchedulingIgnoredDuringExecution?: K8sIoApiCoreV1NodeSelector;
 }
 
-export function K8sIoApiCoreV1NodeAffinityFromJSON(json: any): K8sIoApiCoreV1NodeAffinity {
-  return K8sIoApiCoreV1NodeAffinityFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1NodeAffinityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApiCoreV1NodeAffinity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'preferredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : (json['preferredDuringSchedulingIgnoredDuringExecution'] as Array<any>).map(
-          K8sIoApiCoreV1PreferredSchedulingTermFromJSON,
-        ),
-    requiredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'requiredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : K8sIoApiCoreV1NodeSelectorFromJSON(json['requiredDuringSchedulingIgnoredDuringExecution']),
-  };
-}
-
-export function K8sIoApiCoreV1NodeAffinityToJSON(value?: K8sIoApiCoreV1NodeAffinity | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution:
-      value.preferredDuringSchedulingIgnoredDuringExecution === undefined
-        ? undefined
-        : (value.preferredDuringSchedulingIgnoredDuringExecution as Array<any>).map(
-            K8sIoApiCoreV1PreferredSchedulingTermToJSON,
-          ),
-    requiredDuringSchedulingIgnoredDuringExecution: K8sIoApiCoreV1NodeSelectorToJSON(
-      value.requiredDuringSchedulingIgnoredDuringExecution,
-    ),
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApiCoreV1NodeAffinity interface.
+ */

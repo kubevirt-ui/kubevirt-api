@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ObjectMeta,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-  V1beta1VirtualMachineInstancetypeSpec,
-  V1beta1VirtualMachineInstancetypeSpecFromJSON,
-  V1beta1VirtualMachineInstancetypeSpecToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1beta1VirtualMachineInstancetypeSpec } from './V1beta1VirtualMachineInstancetypeSpec';
 /**
  * VirtualMachineInstancetype resource contains quantitative and resource related VirtualMachine configuration that can be used by multiple VirtualMachine resources.
  * @export
@@ -54,42 +46,6 @@ export interface V1beta1VirtualMachineInstancetype {
   spec: V1beta1VirtualMachineInstancetypeSpec;
 }
 
-export function V1beta1VirtualMachineInstancetypeFromJSON(
-  json: any,
-): V1beta1VirtualMachineInstancetype {
-  return V1beta1VirtualMachineInstancetypeFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineInstancetypeFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineInstancetype {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: V1beta1VirtualMachineInstancetypeSpecFromJSON(json['spec']),
-  };
-}
-
-export function V1beta1VirtualMachineInstancetypeToJSON(
-  value?: V1beta1VirtualMachineInstancetype | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: V1beta1VirtualMachineInstancetypeSpecToJSON(value.spec),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineInstancetype interface.
+ */

@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApiCoreV1ObjectFieldSelector,
-  K8sIoApiCoreV1ObjectFieldSelectorFromJSON,
-  K8sIoApiCoreV1ObjectFieldSelectorToJSON,
-  K8sIoApiCoreV1ResourceFieldSelector,
-  K8sIoApiCoreV1ResourceFieldSelectorFromJSON,
-  K8sIoApiCoreV1ResourceFieldSelectorToJSON,
-} from './';
-
+import type { K8sIoApiCoreV1ObjectFieldSelector } from './K8sIoApiCoreV1ObjectFieldSelector';
+import type { K8sIoApiCoreV1ResourceFieldSelector } from './K8sIoApiCoreV1ResourceFieldSelector';
 /**
  * DownwardAPIVolumeFile represents information to create the file containing the pod field
  * @export
@@ -54,44 +46,6 @@ export interface K8sIoApiCoreV1DownwardAPIVolumeFile {
   resourceFieldRef?: K8sIoApiCoreV1ResourceFieldSelector;
 }
 
-export function K8sIoApiCoreV1DownwardAPIVolumeFileFromJSON(
-  json: any,
-): K8sIoApiCoreV1DownwardAPIVolumeFile {
-  return K8sIoApiCoreV1DownwardAPIVolumeFileFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1DownwardAPIVolumeFileFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApiCoreV1DownwardAPIVolumeFile {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fieldRef: !exists(json, 'fieldRef')
-      ? undefined
-      : K8sIoApiCoreV1ObjectFieldSelectorFromJSON(json['fieldRef']),
-    mode: !exists(json, 'mode') ? undefined : json['mode'],
-    path: json['path'],
-    resourceFieldRef: !exists(json, 'resourceFieldRef')
-      ? undefined
-      : K8sIoApiCoreV1ResourceFieldSelectorFromJSON(json['resourceFieldRef']),
-  };
-}
-
-export function K8sIoApiCoreV1DownwardAPIVolumeFileToJSON(
-  value?: K8sIoApiCoreV1DownwardAPIVolumeFile | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fieldRef: K8sIoApiCoreV1ObjectFieldSelectorToJSON(value.fieldRef),
-    mode: value.mode,
-    path: value.path,
-    resourceFieldRef: K8sIoApiCoreV1ResourceFieldSelectorToJSON(value.resourceFieldRef),
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApiCoreV1DownwardAPIVolumeFile interface.
+ */

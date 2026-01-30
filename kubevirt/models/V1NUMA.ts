@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -27,29 +26,6 @@ export interface V1NUMA {
   guestMappingPassthrough?: object;
 }
 
-export function V1NUMAFromJSON(json: any): V1NUMA {
-  return V1NUMAFromJSONTyped(json, false);
-}
-
-export function V1NUMAFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1NUMA {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    guestMappingPassthrough: !exists(json, 'guestMappingPassthrough')
-      ? undefined
-      : json['guestMappingPassthrough'],
-  };
-}
-
-export function V1NUMAToJSON(value?: V1NUMA | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    guestMappingPassthrough: value.guestMappingPassthrough,
-  };
-}
+/**
+ * Check if a given object implements the V1NUMA interface.
+ */

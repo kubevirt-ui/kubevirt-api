@@ -12,9 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1CustomProfile, V1CustomProfileFromJSON, V1CustomProfileToJSON } from './';
-
+import type { V1CustomProfile } from './V1CustomProfile';
 /**
  *
  * @export
@@ -29,36 +27,6 @@ export interface V1VirtualMachineInstanceProfile {
   customProfile?: V1CustomProfile;
 }
 
-export function V1VirtualMachineInstanceProfileFromJSON(
-  json: any,
-): V1VirtualMachineInstanceProfile {
-  return V1VirtualMachineInstanceProfileFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceProfileFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceProfile {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    customProfile: !exists(json, 'customProfile')
-      ? undefined
-      : V1CustomProfileFromJSON(json['customProfile']),
-  };
-}
-
-export function V1VirtualMachineInstanceProfileToJSON(
-  value?: V1VirtualMachineInstanceProfile | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    customProfile: V1CustomProfileToJSON(value.customProfile),
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceProfile interface.
+ */

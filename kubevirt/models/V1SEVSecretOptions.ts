@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * SEVSecretOptions is used to provide a secret for a running guest.
  * @export
@@ -33,32 +32,6 @@ export interface V1SEVSecretOptions {
   secret?: string;
 }
 
-export function V1SEVSecretOptionsFromJSON(json: any): V1SEVSecretOptions {
-  return V1SEVSecretOptionsFromJSONTyped(json, false);
-}
-
-export function V1SEVSecretOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1SEVSecretOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    header: !exists(json, 'header') ? undefined : json['header'],
-    secret: !exists(json, 'secret') ? undefined : json['secret'],
-  };
-}
-
-export function V1SEVSecretOptionsToJSON(value?: V1SEVSecretOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    header: value.header,
-    secret: value.secret,
-  };
-}
+/**
+ * Check if a given object implements the V1SEVSecretOptions interface.
+ */

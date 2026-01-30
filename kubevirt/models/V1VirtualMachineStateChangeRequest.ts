@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -39,38 +38,6 @@ export interface V1VirtualMachineStateChangeRequest {
   uid?: string;
 }
 
-export function V1VirtualMachineStateChangeRequestFromJSON(
-  json: any,
-): V1VirtualMachineStateChangeRequest {
-  return V1VirtualMachineStateChangeRequestFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineStateChangeRequestFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineStateChangeRequest {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    action: json['action'],
-    data: !exists(json, 'data') ? undefined : json['data'],
-    uid: !exists(json, 'uid') ? undefined : json['uid'],
-  };
-}
-
-export function V1VirtualMachineStateChangeRequestToJSON(
-  value?: V1VirtualMachineStateChangeRequest | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    action: value.action,
-    data: value.data,
-    uid: value.uid,
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineStateChangeRequest interface.
+ */

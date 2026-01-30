@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ListMeta,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-    V1beta1VirtualMachineClusterPreference,
+} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1beta1VirtualMachineClusterPreference } from './V1beta1VirtualMachineClusterPreference';
+import {
     V1beta1VirtualMachineClusterPreferenceFromJSON,
     V1beta1VirtualMachineClusterPreferenceFromJSONTyped,
     V1beta1VirtualMachineClusterPreferenceToJSON,
-} from './';
+} from './V1beta1VirtualMachineClusterPreference';
 
 /**
  * VirtualMachineClusterPreferenceList is a list of VirtualMachineClusterPreference resources.
@@ -54,6 +56,16 @@ export interface V1beta1VirtualMachineClusterPreferenceList {
      * @memberof V1beta1VirtualMachineClusterPreferenceList
      */
     metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineClusterPreferenceList interface.
+ */
+export function instanceOfV1beta1VirtualMachineClusterPreferenceList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "items" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineClusterPreferenceListFromJSON(json: any): V1beta1VirtualMachineClusterPreferenceList {

@@ -49,6 +49,16 @@ export interface K8sIoApiCoreV1PodResourceClaim {
     resourceClaimTemplateName?: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApiCoreV1PodResourceClaim interface.
+ */
+export function instanceOfK8sIoApiCoreV1PodResourceClaim(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
+}
+
 export function K8sIoApiCoreV1PodResourceClaimFromJSON(json: any): K8sIoApiCoreV1PodResourceClaim {
     return K8sIoApiCoreV1PodResourceClaimFromJSONTyped(json, false);
 }

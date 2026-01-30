@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1GenerationStatus } from './V1GenerationStatus';
 import {
-    V1GenerationStatus,
     V1GenerationStatusFromJSON,
     V1GenerationStatusFromJSONTyped,
     V1GenerationStatusToJSON,
-    V1KubeVirtCondition,
+} from './V1GenerationStatus';
+import type { V1KubeVirtCondition } from './V1KubeVirtCondition';
+import {
     V1KubeVirtConditionFromJSON,
     V1KubeVirtConditionFromJSONTyped,
     V1KubeVirtConditionToJSON,
-} from './';
+} from './V1KubeVirtCondition';
 
 /**
  * KubeVirtStatus represents information pertaining to a KubeVirt deployment.
@@ -126,6 +128,15 @@ export interface V1KubeVirtStatus {
      * @memberof V1KubeVirtStatus
      */
     targetKubeVirtVersion?: string;
+}
+
+/**
+ * Check if a given object implements the V1KubeVirtStatus interface.
+ */
+export function instanceOfV1KubeVirtStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1KubeVirtStatusFromJSON(json: any): V1KubeVirtStatus {

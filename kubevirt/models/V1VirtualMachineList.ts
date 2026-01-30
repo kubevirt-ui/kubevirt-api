@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ListMeta,
-  K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-  V1VirtualMachine,
-  V1VirtualMachineFromJSON,
-  V1VirtualMachineToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1VirtualMachine } from './V1VirtualMachine';
 /**
  * VirtualMachineList is a list of virtualmachines
  * @export
@@ -54,38 +46,6 @@ export interface V1VirtualMachineList {
   metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
 
-export function V1VirtualMachineListFromJSON(json: any): V1VirtualMachineList {
-  return V1VirtualMachineListFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1VirtualMachineFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function V1VirtualMachineListToJSON(value?: V1VirtualMachineList | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1VirtualMachineToJSON),
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineList interface.
+ */

@@ -12,19 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApiCoreV1ExecAction,
-  K8sIoApiCoreV1ExecActionFromJSON,
-  K8sIoApiCoreV1ExecActionToJSON,
-  K8sIoApiCoreV1HTTPGetAction,
-  K8sIoApiCoreV1HTTPGetActionFromJSON,
-  K8sIoApiCoreV1HTTPGetActionToJSON,
-  K8sIoApiCoreV1TCPSocketAction,
-  K8sIoApiCoreV1TCPSocketActionFromJSON,
-  K8sIoApiCoreV1TCPSocketActionToJSON,
-} from './';
-
+import type { K8sIoApiCoreV1ExecAction } from './K8sIoApiCoreV1ExecAction';
+import type { K8sIoApiCoreV1HTTPGetAction } from './K8sIoApiCoreV1HTTPGetAction';
+import type { K8sIoApiCoreV1TCPSocketAction } from './K8sIoApiCoreV1TCPSocketAction';
 /**
  * Probe describes a health check to be performed against a VirtualMachineInstance to determine whether it is alive or ready to receive traffic.
  * @export
@@ -87,49 +77,6 @@ export interface V1Probe {
   timeoutSeconds?: number;
 }
 
-export function V1ProbeFromJSON(json: any): V1Probe {
-  return V1ProbeFromJSONTyped(json, false);
-}
-
-export function V1ProbeFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Probe {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    exec: !exists(json, 'exec') ? undefined : K8sIoApiCoreV1ExecActionFromJSON(json['exec']),
-    failureThreshold: !exists(json, 'failureThreshold') ? undefined : json['failureThreshold'],
-    guestAgentPing: !exists(json, 'guestAgentPing') ? undefined : json['guestAgentPing'],
-    httpGet: !exists(json, 'httpGet')
-      ? undefined
-      : K8sIoApiCoreV1HTTPGetActionFromJSON(json['httpGet']),
-    initialDelaySeconds: !exists(json, 'initialDelaySeconds')
-      ? undefined
-      : json['initialDelaySeconds'],
-    periodSeconds: !exists(json, 'periodSeconds') ? undefined : json['periodSeconds'],
-    successThreshold: !exists(json, 'successThreshold') ? undefined : json['successThreshold'],
-    tcpSocket: !exists(json, 'tcpSocket')
-      ? undefined
-      : K8sIoApiCoreV1TCPSocketActionFromJSON(json['tcpSocket']),
-    timeoutSeconds: !exists(json, 'timeoutSeconds') ? undefined : json['timeoutSeconds'],
-  };
-}
-
-export function V1ProbeToJSON(value?: V1Probe | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    exec: K8sIoApiCoreV1ExecActionToJSON(value.exec),
-    failureThreshold: value.failureThreshold,
-    guestAgentPing: value.guestAgentPing,
-    httpGet: K8sIoApiCoreV1HTTPGetActionToJSON(value.httpGet),
-    initialDelaySeconds: value.initialDelaySeconds,
-    periodSeconds: value.periodSeconds,
-    successThreshold: value.successThreshold,
-    tcpSocket: K8sIoApiCoreV1TCPSocketActionToJSON(value.tcpSocket),
-    timeoutSeconds: value.timeoutSeconds,
-  };
-}
+/**
+ * Check if a given object implements the V1Probe interface.
+ */

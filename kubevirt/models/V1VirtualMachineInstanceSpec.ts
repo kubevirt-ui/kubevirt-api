@@ -12,40 +12,17 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApiCoreV1Affinity,
-  K8sIoApiCoreV1AffinityFromJSON,
-  K8sIoApiCoreV1AffinityToJSON,
-  K8sIoApiCoreV1PodDNSConfig,
-  K8sIoApiCoreV1PodDNSConfigFromJSON,
-  K8sIoApiCoreV1PodDNSConfigToJSON,
-  K8sIoApiCoreV1PodResourceClaim,
-  K8sIoApiCoreV1PodResourceClaimFromJSON,
-  K8sIoApiCoreV1PodResourceClaimToJSON,
-  K8sIoApiCoreV1Toleration,
-  K8sIoApiCoreV1TolerationFromJSON,
-  K8sIoApiCoreV1TolerationToJSON,
-  K8sIoApiCoreV1TopologySpreadConstraint,
-  K8sIoApiCoreV1TopologySpreadConstraintFromJSON,
-  K8sIoApiCoreV1TopologySpreadConstraintToJSON,
-  V1AccessCredential,
-  V1AccessCredentialFromJSON,
-  V1AccessCredentialToJSON,
-  V1DomainSpec,
-  V1DomainSpecFromJSON,
-  V1DomainSpecToJSON,
-  V1Network,
-  V1NetworkFromJSON,
-  V1NetworkToJSON,
-  V1Probe,
-  V1ProbeFromJSON,
-  V1ProbeToJSON,
-  V1Volume,
-  V1VolumeFromJSON,
-  V1VolumeToJSON,
-} from './';
-
+import type { K8sIoApiCoreV1Affinity } from './K8sIoApiCoreV1Affinity';
+import type { K8sIoApiCoreV1PodDNSConfig } from './K8sIoApiCoreV1PodDNSConfig';
+import type { K8sIoApiCoreV1PodResourceClaim } from './K8sIoApiCoreV1PodResourceClaim';
+import type { K8sIoApiCoreV1Toleration } from './K8sIoApiCoreV1Toleration';
+import type { K8sIoApiCoreV1TopologySpreadConstraint } from './K8sIoApiCoreV1TopologySpreadConstraint';
+import type { V1AccessCredential } from './V1AccessCredential';
+import type { V1DomainSpec } from './V1DomainSpec';
+import type { V1Network } from './V1Network';
+import type { V1Probe } from './V1Probe';
+import type { V1UtilityVolume } from './V1UtilityVolume';
+import type { V1Volume } from './V1Volume';
 /**
  * VirtualMachineInstanceSpec is a description of a VirtualMachineInstance.
  * @export
@@ -183,6 +160,12 @@ export interface V1VirtualMachineInstanceSpec {
    */
   topologySpreadConstraints?: Array<K8sIoApiCoreV1TopologySpreadConstraint>;
   /**
+   * List of utility volumes that can be mounted to the vmi virt-launcher pod without having a matching disk in the domain. Used to collect data for various operational workflows.
+   * @type {Array<V1UtilityVolume>}
+   * @memberof V1VirtualMachineInstanceSpec
+   */
+  utilityVolumes?: Array<V1UtilityVolume>;
+  /**
    * List of volumes that can be mounted by disks belonging to the vmi.
    * @type {Array<V1Volume>}
    * @memberof V1VirtualMachineInstanceSpec
@@ -192,123 +175,16 @@ export interface V1VirtualMachineInstanceSpec {
 
 /**
  * @export
- * @enum {string}
  */
-export enum V1VirtualMachineInstanceSpecDnsPolicyEnum {
-  ClusterFirst = 'ClusterFirst',
-  ClusterFirstWithHostNet = 'ClusterFirstWithHostNet',
-  Default = 'Default',
-  None = 'None',
-}
+export const V1VirtualMachineInstanceSpecDnsPolicyEnum = {
+  ClusterFirst: 'ClusterFirst',
+  ClusterFirstWithHostNet: 'ClusterFirstWithHostNet',
+  Default: 'Default',
+  None: 'None',
+} as const;
+export type V1VirtualMachineInstanceSpecDnsPolicyEnum =
+  typeof V1VirtualMachineInstanceSpecDnsPolicyEnum[keyof typeof V1VirtualMachineInstanceSpecDnsPolicyEnum];
 
-export function V1VirtualMachineInstanceSpecFromJSON(json: any): V1VirtualMachineInstanceSpec {
-  return V1VirtualMachineInstanceSpecFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    accessCredentials: !exists(json, 'accessCredentials')
-      ? undefined
-      : (json['accessCredentials'] as Array<any>).map(V1AccessCredentialFromJSON),
-    affinity: !exists(json, 'affinity')
-      ? undefined
-      : K8sIoApiCoreV1AffinityFromJSON(json['affinity']),
-    architecture: !exists(json, 'architecture') ? undefined : json['architecture'],
-    dnsConfig: !exists(json, 'dnsConfig')
-      ? undefined
-      : K8sIoApiCoreV1PodDNSConfigFromJSON(json['dnsConfig']),
-    dnsPolicy: !exists(json, 'dnsPolicy') ? undefined : json['dnsPolicy'],
-    domain: V1DomainSpecFromJSON(json['domain']),
-    evictionStrategy: !exists(json, 'evictionStrategy') ? undefined : json['evictionStrategy'],
-    hostname: !exists(json, 'hostname') ? undefined : json['hostname'],
-    livenessProbe: !exists(json, 'livenessProbe')
-      ? undefined
-      : V1ProbeFromJSON(json['livenessProbe']),
-    networks: !exists(json, 'networks')
-      ? undefined
-      : (json['networks'] as Array<any>).map(V1NetworkFromJSON),
-    nodeSelector: !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
-    priorityClassName: !exists(json, 'priorityClassName') ? undefined : json['priorityClassName'],
-    readinessProbe: !exists(json, 'readinessProbe')
-      ? undefined
-      : V1ProbeFromJSON(json['readinessProbe']),
-    resourceClaims: !exists(json, 'resourceClaims')
-      ? undefined
-      : (json['resourceClaims'] as Array<any>).map(K8sIoApiCoreV1PodResourceClaimFromJSON),
-    schedulerName: !exists(json, 'schedulerName') ? undefined : json['schedulerName'],
-    startStrategy: !exists(json, 'startStrategy') ? undefined : json['startStrategy'],
-    subdomain: !exists(json, 'subdomain') ? undefined : json['subdomain'],
-    terminationGracePeriodSeconds: !exists(json, 'terminationGracePeriodSeconds')
-      ? undefined
-      : json['terminationGracePeriodSeconds'],
-    tolerations: !exists(json, 'tolerations')
-      ? undefined
-      : (json['tolerations'] as Array<any>).map(K8sIoApiCoreV1TolerationFromJSON),
-    topologySpreadConstraints: !exists(json, 'topologySpreadConstraints')
-      ? undefined
-      : (json['topologySpreadConstraints'] as Array<any>).map(
-          K8sIoApiCoreV1TopologySpreadConstraintFromJSON,
-        ),
-    volumes: !exists(json, 'volumes')
-      ? undefined
-      : (json['volumes'] as Array<any>).map(V1VolumeFromJSON),
-  };
-}
-
-export function V1VirtualMachineInstanceSpecToJSON(
-  value?: V1VirtualMachineInstanceSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    accessCredentials:
-      value.accessCredentials === undefined
-        ? undefined
-        : (value.accessCredentials as Array<any>).map(V1AccessCredentialToJSON),
-    affinity: K8sIoApiCoreV1AffinityToJSON(value.affinity),
-    architecture: value.architecture,
-    dnsConfig: K8sIoApiCoreV1PodDNSConfigToJSON(value.dnsConfig),
-    dnsPolicy: value.dnsPolicy,
-    domain: V1DomainSpecToJSON(value.domain),
-    evictionStrategy: value.evictionStrategy,
-    hostname: value.hostname,
-    livenessProbe: V1ProbeToJSON(value.livenessProbe),
-    networks:
-      value.networks === undefined
-        ? undefined
-        : (value.networks as Array<any>).map(V1NetworkToJSON),
-    nodeSelector: value.nodeSelector,
-    priorityClassName: value.priorityClassName,
-    readinessProbe: V1ProbeToJSON(value.readinessProbe),
-    resourceClaims:
-      value.resourceClaims === undefined
-        ? undefined
-        : (value.resourceClaims as Array<any>).map(K8sIoApiCoreV1PodResourceClaimToJSON),
-    schedulerName: value.schedulerName,
-    startStrategy: value.startStrategy,
-    subdomain: value.subdomain,
-    terminationGracePeriodSeconds: value.terminationGracePeriodSeconds,
-    tolerations:
-      value.tolerations === undefined
-        ? undefined
-        : (value.tolerations as Array<any>).map(K8sIoApiCoreV1TolerationToJSON),
-    topologySpreadConstraints:
-      value.topologySpreadConstraints === undefined
-        ? undefined
-        : (value.topologySpreadConstraints as Array<any>).map(
-            K8sIoApiCoreV1TopologySpreadConstraintToJSON,
-          ),
-    volumes:
-      value.volumes === undefined ? undefined : (value.volumes as Array<any>).map(V1VolumeToJSON),
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceSpec interface.
+ */

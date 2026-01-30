@@ -12,9 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1DeviceAttribute, V1DeviceAttributeFromJSON, V1DeviceAttributeToJSON } from './';
-
+import type { V1DeviceAttribute } from './V1DeviceAttribute';
 /**
  * DeviceResourceClaimStatus has to be before SyncVMI call from virt-handler to virt-launcher
  * @export
@@ -41,36 +39,6 @@ export interface V1DeviceResourceClaimStatus {
   resourceClaimName?: string;
 }
 
-export function V1DeviceResourceClaimStatusFromJSON(json: any): V1DeviceResourceClaimStatus {
-  return V1DeviceResourceClaimStatusFromJSONTyped(json, false);
-}
-
-export function V1DeviceResourceClaimStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DeviceResourceClaimStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    attributes: !exists(json, 'attributes')
-      ? undefined
-      : V1DeviceAttributeFromJSON(json['attributes']),
-    name: !exists(json, 'name') ? undefined : json['name'],
-    resourceClaimName: !exists(json, 'resourceClaimName') ? undefined : json['resourceClaimName'],
-  };
-}
-
-export function V1DeviceResourceClaimStatusToJSON(value?: V1DeviceResourceClaimStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    attributes: V1DeviceAttributeToJSON(value.attributes),
-    name: value.name,
-    resourceClaimName: value.resourceClaimName,
-  };
-}
+/**
+ * Check if a given object implements the V1DeviceResourceClaimStatus interface.
+ */

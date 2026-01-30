@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ListMeta,
-  K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-  K8sIoApimachineryPkgApisMetaV1StatusDetails,
-  K8sIoApimachineryPkgApisMetaV1StatusDetailsFromJSON,
-  K8sIoApimachineryPkgApisMetaV1StatusDetailsToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { K8sIoApimachineryPkgApisMetaV1StatusDetails } from './K8sIoApimachineryPkgApisMetaV1StatusDetails';
 /**
  * Status is a return value for calls that don't return other objects.
  * @export
@@ -78,52 +70,6 @@ export interface K8sIoApimachineryPkgApisMetaV1Status {
   status?: string;
 }
 
-export function K8sIoApimachineryPkgApisMetaV1StatusFromJSON(
-  json: any,
-): K8sIoApimachineryPkgApisMetaV1Status {
-  return K8sIoApimachineryPkgApisMetaV1StatusFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1StatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApimachineryPkgApisMetaV1Status {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    code: !exists(json, 'code') ? undefined : json['code'],
-    details: !exists(json, 'details')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1StatusDetailsFromJSON(json['details']),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: !exists(json, 'status') ? undefined : json['status'],
-  };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1StatusToJSON(
-  value?: K8sIoApimachineryPkgApisMetaV1Status | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    code: value.code,
-    details: K8sIoApimachineryPkgApisMetaV1StatusDetailsToJSON(value.details),
-    kind: value.kind,
-    message: value.message,
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-    reason: value.reason,
-    status: value.status,
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1Status interface.
+ */

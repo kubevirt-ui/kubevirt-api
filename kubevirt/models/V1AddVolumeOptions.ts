@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1Disk,
-  V1DiskFromJSON,
-  V1DiskToJSON,
-  V1HotplugVolumeSource,
-  V1HotplugVolumeSourceFromJSON,
-  V1HotplugVolumeSourceToJSON,
-} from './';
-
+import type { V1Disk } from './V1Disk';
+import type { V1HotplugVolumeSource } from './V1HotplugVolumeSource';
 /**
  * AddVolumeOptions is provided when dynamically hot plugging a volume and disk
  * @export
@@ -54,36 +46,6 @@ export interface V1AddVolumeOptions {
   volumeSource: V1HotplugVolumeSource;
 }
 
-export function V1AddVolumeOptionsFromJSON(json: any): V1AddVolumeOptions {
-  return V1AddVolumeOptionsFromJSONTyped(json, false);
-}
-
-export function V1AddVolumeOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1AddVolumeOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    disk: V1DiskFromJSON(json['disk']),
-    dryRun: !exists(json, 'dryRun') ? undefined : json['dryRun'],
-    name: json['name'],
-    volumeSource: V1HotplugVolumeSourceFromJSON(json['volumeSource']),
-  };
-}
-
-export function V1AddVolumeOptionsToJSON(value?: V1AddVolumeOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    disk: V1DiskToJSON(value.disk),
-    dryRun: value.dryRun,
-    name: value.name,
-    volumeSource: V1HotplugVolumeSourceToJSON(value.volumeSource),
-  };
-}
+/**
+ * Check if a given object implements the V1AddVolumeOptions interface.
+ */

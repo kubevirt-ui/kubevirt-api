@@ -13,20 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1beta1Condition } from './V1beta1Condition';
 import {
-    V1beta1Condition,
     V1beta1ConditionFromJSON,
     V1beta1ConditionFromJSONTyped,
     V1beta1ConditionToJSON,
-    V1beta1Error,
+} from './V1beta1Condition';
+import type { V1beta1Error } from './V1beta1Error';
+import {
     V1beta1ErrorFromJSON,
     V1beta1ErrorFromJSONTyped,
     V1beta1ErrorToJSON,
-    V1beta1SnapshotVolumesLists,
+} from './V1beta1Error';
+import type { V1beta1SnapshotVolumesLists } from './V1beta1SnapshotVolumesLists';
+import {
     V1beta1SnapshotVolumesListsFromJSON,
     V1beta1SnapshotVolumesListsFromJSONTyped,
     V1beta1SnapshotVolumesListsToJSON,
-} from './';
+} from './V1beta1SnapshotVolumesLists';
+import type { V1beta1SourceIndication } from './V1beta1SourceIndication';
+import {
+    V1beta1SourceIndicationFromJSON,
+    V1beta1SourceIndicationFromJSONTyped,
+    V1beta1SourceIndicationToJSON,
+} from './V1beta1SourceIndication';
 
 /**
  * VirtualMachineSnapshotStatus is the status for a VirtualMachineSnapshot resource
@@ -53,7 +63,7 @@ export interface V1beta1VirtualMachineSnapshotStatus {
      */
     error?: V1beta1Error;
     /**
-     * 
+     * Deprecated: Use SourceIndications instead. This field will be removed in a future version.
      * @type {Array<string>}
      * @memberof V1beta1VirtualMachineSnapshotStatus
      */
@@ -78,6 +88,12 @@ export interface V1beta1VirtualMachineSnapshotStatus {
     snapshotVolumes?: V1beta1SnapshotVolumesLists;
     /**
      * 
+     * @type {Array<V1beta1SourceIndication>}
+     * @memberof V1beta1VirtualMachineSnapshotStatus
+     */
+    sourceIndications?: Array<V1beta1SourceIndication>;
+    /**
+     * 
      * @type {string}
      * @memberof V1beta1VirtualMachineSnapshotStatus
      */
@@ -88,6 +104,15 @@ export interface V1beta1VirtualMachineSnapshotStatus {
      * @memberof V1beta1VirtualMachineSnapshotStatus
      */
     virtualMachineSnapshotContentName?: string;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineSnapshotStatus interface.
+ */
+export function instanceOfV1beta1VirtualMachineSnapshotStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineSnapshotStatusFromJSON(json: any): V1beta1VirtualMachineSnapshotStatus {
@@ -101,12 +126,13 @@ export function V1beta1VirtualMachineSnapshotStatusFromJSONTyped(json: any, igno
     return {
         
         'conditions': !exists(json, 'conditions') ? undefined : ((json['conditions'] as Array<any>).map(V1beta1ConditionFromJSON)),
-        'creationTime': !exists(json, 'creationTime') ? undefined : (new Date(json['creationTime'])),
+        'creationTime': !exists(json, 'creationTime') ? undefined : json['creationTime'],
         'error': !exists(json, 'error') ? undefined : V1beta1ErrorFromJSON(json['error']),
         'indications': !exists(json, 'indications') ? undefined : json['indications'],
         'phase': !exists(json, 'phase') ? undefined : json['phase'],
         'readyToUse': !exists(json, 'readyToUse') ? undefined : json['readyToUse'],
         'snapshotVolumes': !exists(json, 'snapshotVolumes') ? undefined : V1beta1SnapshotVolumesListsFromJSON(json['snapshotVolumes']),
+        'sourceIndications': !exists(json, 'sourceIndications') ? undefined : ((json['sourceIndications'] as Array<any>).map(V1beta1SourceIndicationFromJSON)),
         'sourceUID': !exists(json, 'sourceUID') ? undefined : json['sourceUID'],
         'virtualMachineSnapshotContentName': !exists(json, 'virtualMachineSnapshotContentName') ? undefined : json['virtualMachineSnapshotContentName'],
     };
@@ -122,12 +148,13 @@ export function V1beta1VirtualMachineSnapshotStatusToJSON(value?: V1beta1Virtual
     return {
         
         'conditions': value.conditions === undefined ? undefined : ((value.conditions as Array<any>).map(V1beta1ConditionToJSON)),
-        'creationTime': value.creationTime === undefined ? undefined : (value.creationTime.toISOString()),
+        'creationTime': value.creationTime,
         'error': V1beta1ErrorToJSON(value.error),
         'indications': value.indications,
         'phase': value.phase,
         'readyToUse': value.readyToUse,
         'snapshotVolumes': V1beta1SnapshotVolumesListsToJSON(value.snapshotVolumes),
+        'sourceIndications': value.sourceIndications === undefined ? undefined : ((value.sourceIndications as Array<any>).map(V1beta1SourceIndicationToJSON)),
         'sourceUID': value.sourceUID,
         'virtualMachineSnapshotContentName': value.virtualMachineSnapshotContentName,
     };

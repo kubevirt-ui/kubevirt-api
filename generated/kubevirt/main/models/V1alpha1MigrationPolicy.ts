@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1alpha1MigrationPolicySpec,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1alpha1MigrationPolicySpec } from './V1alpha1MigrationPolicySpec';
+import {
     V1alpha1MigrationPolicySpecFromJSON,
     V1alpha1MigrationPolicySpecFromJSONTyped,
     V1alpha1MigrationPolicySpecToJSON,
-} from './';
+} from './V1alpha1MigrationPolicySpec';
 
 /**
  * MigrationPolicy holds migration policy (i.e. configurations) to apply to a VM or group of VMs
@@ -60,6 +62,16 @@ export interface V1alpha1MigrationPolicy {
      * @memberof V1alpha1MigrationPolicy
      */
     status?: object;
+}
+
+/**
+ * Check if a given object implements the V1alpha1MigrationPolicy interface.
+ */
+export function instanceOfV1alpha1MigrationPolicy(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "spec" in value;
+
+    return isInstance;
 }
 
 export function V1alpha1MigrationPolicyFromJSON(json: any): V1alpha1MigrationPolicy {

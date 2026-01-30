@@ -44,36 +44,6 @@ export interface V1CustomizeComponentsPatch {
   type: string;
 }
 
-export function V1CustomizeComponentsPatchFromJSON(json: any): V1CustomizeComponentsPatch {
-  return V1CustomizeComponentsPatchFromJSONTyped(json, false);
-}
-
-export function V1CustomizeComponentsPatchFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1CustomizeComponentsPatch {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    patch: json['patch'],
-    resourceName: json['resourceName'],
-    resourceType: json['resourceType'],
-    type: json['type'],
-  };
-}
-
-export function V1CustomizeComponentsPatchToJSON(value?: V1CustomizeComponentsPatch | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    patch: value.patch,
-    resourceName: value.resourceName,
-    resourceType: value.resourceType,
-    type: value.type,
-  };
-}
+/**
+ * Check if a given object implements the V1CustomizeComponentsPatch interface.
+ */

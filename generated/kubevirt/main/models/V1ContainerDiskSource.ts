@@ -50,14 +50,26 @@ export interface V1ContainerDiskSource {
     path?: string;
 }
 
+
 /**
-* @export
-* @enum {string}
-*/
-export enum V1ContainerDiskSourceImagePullPolicyEnum {
-    Always = 'Always',
-    IfNotPresent = 'IfNotPresent',
-    Never = 'Never'
+ * @export
+ */
+export const V1ContainerDiskSourceImagePullPolicyEnum = {
+    Always: 'Always',
+    IfNotPresent: 'IfNotPresent',
+    Never: 'Never'
+} as const;
+export type V1ContainerDiskSourceImagePullPolicyEnum = typeof V1ContainerDiskSourceImagePullPolicyEnum[keyof typeof V1ContainerDiskSourceImagePullPolicyEnum];
+
+
+/**
+ * Check if a given object implements the V1ContainerDiskSource interface.
+ */
+export function instanceOfV1ContainerDiskSource(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "image" in value;
+
+    return isInstance;
 }
 
 export function V1ContainerDiskSourceFromJSON(json: any): V1ContainerDiskSource {

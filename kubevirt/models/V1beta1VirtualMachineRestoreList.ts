@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ListMeta,
-  K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-  V1beta1VirtualMachineRestore,
-  V1beta1VirtualMachineRestoreFromJSON,
-  V1beta1VirtualMachineRestoreToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1beta1VirtualMachineRestore } from './V1beta1VirtualMachineRestore';
 /**
  * VirtualMachineRestoreList is a list of VirtualMachineRestore resources
  * @export
@@ -54,40 +46,6 @@ export interface V1beta1VirtualMachineRestoreList {
   metadata: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
 
-export function V1beta1VirtualMachineRestoreListFromJSON(
-  json: any,
-): V1beta1VirtualMachineRestoreList {
-  return V1beta1VirtualMachineRestoreListFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineRestoreListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineRestoreList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1beta1VirtualMachineRestoreFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function V1beta1VirtualMachineRestoreListToJSON(
-  value?: V1beta1VirtualMachineRestoreList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1beta1VirtualMachineRestoreToJSON),
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineRestoreList interface.
+ */

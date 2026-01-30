@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * VirtualMachineInstancePhaseTransitionTimestamp gives a timestamp in relation to when a phase is set on a vmi
  * @export
@@ -33,39 +32,6 @@ export interface V1VirtualMachineInstancePhaseTransitionTimestamp {
   phaseTransitionTimestamp?: string;
 }
 
-export function V1VirtualMachineInstancePhaseTransitionTimestampFromJSON(
-  json: any,
-): V1VirtualMachineInstancePhaseTransitionTimestamp {
-  return V1VirtualMachineInstancePhaseTransitionTimestampFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstancePhaseTransitionTimestampFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstancePhaseTransitionTimestamp {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    phase: !exists(json, 'phase') ? undefined : json['phase'],
-    phaseTransitionTimestamp: !exists(json, 'phaseTransitionTimestamp')
-      ? undefined
-      : json['phaseTransitionTimestamp'],
-  };
-}
-
-export function V1VirtualMachineInstancePhaseTransitionTimestampToJSON(
-  value?: V1VirtualMachineInstancePhaseTransitionTimestamp | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    phase: value.phase,
-    phaseTransitionTimestamp:
-      value.phaseTransitionTimestamp === undefined ? undefined : value.phaseTransitionTimestamp,
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstancePhaseTransitionTimestamp interface.
+ */

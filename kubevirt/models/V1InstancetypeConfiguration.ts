@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -27,30 +26,6 @@ export interface V1InstancetypeConfiguration {
   referencePolicy?: string;
 }
 
-export function V1InstancetypeConfigurationFromJSON(json: any): V1InstancetypeConfiguration {
-  return V1InstancetypeConfigurationFromJSONTyped(json, false);
-}
-
-export function V1InstancetypeConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1InstancetypeConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    referencePolicy: !exists(json, 'referencePolicy') ? undefined : json['referencePolicy'],
-  };
-}
-
-export function V1InstancetypeConfigurationToJSON(value?: V1InstancetypeConfiguration | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    referencePolicy: value.referencePolicy,
-  };
-}
+/**
+ * Check if a given object implements the V1InstancetypeConfiguration interface.
+ */

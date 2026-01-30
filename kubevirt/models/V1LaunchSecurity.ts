@@ -12,9 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1SEV, V1SEVFromJSON, V1SEVToJSON } from './';
-
+import type { V1SEV } from './V1SEV';
 /**
  *
  * @export
@@ -27,32 +25,20 @@ export interface V1LaunchSecurity {
    * @memberof V1LaunchSecurity
    */
   sev?: V1SEV;
+  /**
+   *
+   * @type {object}
+   * @memberof V1LaunchSecurity
+   */
+  snp?: object;
+  /**
+   *
+   * @type {object}
+   * @memberof V1LaunchSecurity
+   */
+  tdx?: object;
 }
 
-export function V1LaunchSecurityFromJSON(json: any): V1LaunchSecurity {
-  return V1LaunchSecurityFromJSONTyped(json, false);
-}
-
-export function V1LaunchSecurityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1LaunchSecurity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    sev: !exists(json, 'sev') ? undefined : V1SEVFromJSON(json['sev']),
-  };
-}
-
-export function V1LaunchSecurityToJSON(value?: V1LaunchSecurity | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    sev: V1SEVToJSON(value.sev),
-  };
-}
+/**
+ * Check if a given object implements the V1LaunchSecurity interface.
+ */

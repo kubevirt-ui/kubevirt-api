@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1InitrdInfo } from './V1InitrdInfo';
 import {
-    V1InitrdInfo,
     V1InitrdInfoFromJSON,
     V1InitrdInfoFromJSONTyped,
     V1InitrdInfoToJSON,
-    V1KernelInfo,
+} from './V1InitrdInfo';
+import type { V1KernelInfo } from './V1KernelInfo';
+import {
     V1KernelInfoFromJSON,
     V1KernelInfoFromJSONTyped,
     V1KernelInfoToJSON,
-} from './';
+} from './V1KernelInfo';
 
 /**
  * KernelBootStatus contains info about the kernelBootContainer
@@ -42,6 +44,15 @@ export interface V1KernelBootStatus {
      * @memberof V1KernelBootStatus
      */
     kernelInfo?: V1KernelInfo;
+}
+
+/**
+ * Check if a given object implements the V1KernelBootStatus interface.
+ */
+export function instanceOfV1KernelBootStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1KernelBootStatusFromJSON(json: any): V1KernelBootStatus {

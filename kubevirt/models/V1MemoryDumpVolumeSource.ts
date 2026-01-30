@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -39,34 +38,6 @@ export interface V1MemoryDumpVolumeSource {
   readOnly?: boolean;
 }
 
-export function V1MemoryDumpVolumeSourceFromJSON(json: any): V1MemoryDumpVolumeSource {
-  return V1MemoryDumpVolumeSourceFromJSONTyped(json, false);
-}
-
-export function V1MemoryDumpVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1MemoryDumpVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    claimName: json['claimName'],
-    hotpluggable: !exists(json, 'hotpluggable') ? undefined : json['hotpluggable'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-  };
-}
-
-export function V1MemoryDumpVolumeSourceToJSON(value?: V1MemoryDumpVolumeSource | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    claimName: value.claimName,
-    hotpluggable: value.hotpluggable,
-    readOnly: value.readOnly,
-  };
-}
+/**
+ * Check if a given object implements the V1MemoryDumpVolumeSource interface.
+ */

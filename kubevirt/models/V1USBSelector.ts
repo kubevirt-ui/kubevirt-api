@@ -32,32 +32,6 @@ export interface V1USBSelector {
   vendor: string;
 }
 
-export function V1USBSelectorFromJSON(json: any): V1USBSelector {
-  return V1USBSelectorFromJSONTyped(json, false);
-}
-
-export function V1USBSelectorFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1USBSelector {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    product: json['product'],
-    vendor: json['vendor'],
-  };
-}
-
-export function V1USBSelectorToJSON(value?: V1USBSelector | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    product: value.product,
-    vendor: value.vendor,
-  };
-}
+/**
+ * Check if a given object implements the V1USBSelector interface.
+ */

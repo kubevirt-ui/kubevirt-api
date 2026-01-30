@@ -12,19 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1MigrationConfiguration,
-  V1MigrationConfigurationFromJSON,
-  V1MigrationConfigurationToJSON,
-  V1VirtualMachineInstanceMigrationSourceState,
-  V1VirtualMachineInstanceMigrationSourceStateFromJSON,
-  V1VirtualMachineInstanceMigrationSourceStateToJSON,
-  V1VirtualMachineInstanceMigrationTargetState,
-  V1VirtualMachineInstanceMigrationTargetStateFromJSON,
-  V1VirtualMachineInstanceMigrationTargetStateToJSON,
-} from './';
-
+import type { V1MigrationConfiguration } from './V1MigrationConfiguration';
+import type { V1VirtualMachineInstanceMigrationSourceState } from './V1VirtualMachineInstanceMigrationSourceState';
+import type { V1VirtualMachineInstanceMigrationTargetState } from './V1VirtualMachineInstanceMigrationTargetState';
 /**
  *
  * @export
@@ -195,113 +185,6 @@ export interface V1VirtualMachineInstanceMigrationState {
   targetState?: V1VirtualMachineInstanceMigrationTargetState;
 }
 
-export function V1VirtualMachineInstanceMigrationStateFromJSON(
-  json: any,
-): V1VirtualMachineInstanceMigrationState {
-  return V1VirtualMachineInstanceMigrationStateFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceMigrationStateFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceMigrationState {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    abortRequested: !exists(json, 'abortRequested') ? undefined : json['abortRequested'],
-    abortStatus: !exists(json, 'abortStatus') ? undefined : json['abortStatus'],
-    completed: !exists(json, 'completed') ? undefined : json['completed'],
-    endTimestamp: !exists(json, 'endTimestamp') ? undefined : json['endTimestamp'],
-    failed: !exists(json, 'failed') ? undefined : json['failed'],
-    failureReason: !exists(json, 'failureReason') ? undefined : json['failureReason'],
-    migrationConfiguration: !exists(json, 'migrationConfiguration')
-      ? undefined
-      : V1MigrationConfigurationFromJSON(json['migrationConfiguration']),
-    migrationNetworkType: !exists(json, 'migrationNetworkType')
-      ? undefined
-      : json['migrationNetworkType'],
-    migrationPolicyName: !exists(json, 'migrationPolicyName')
-      ? undefined
-      : json['migrationPolicyName'],
-    migrationUid: !exists(json, 'migrationUid') ? undefined : json['migrationUid'],
-    mode: !exists(json, 'mode') ? undefined : json['mode'],
-    sourceNode: !exists(json, 'sourceNode') ? undefined : json['sourceNode'],
-    sourcePersistentStatePVCName: !exists(json, 'sourcePersistentStatePVCName')
-      ? undefined
-      : json['sourcePersistentStatePVCName'],
-    sourcePod: !exists(json, 'sourcePod') ? undefined : json['sourcePod'],
-    sourceState: !exists(json, 'sourceState')
-      ? undefined
-      : V1VirtualMachineInstanceMigrationSourceStateFromJSON(json['sourceState']),
-    startTimestamp: !exists(json, 'startTimestamp') ? undefined : json['startTimestamp'],
-    targetAttachmentPodUID: !exists(json, 'targetAttachmentPodUID')
-      ? undefined
-      : json['targetAttachmentPodUID'],
-    targetCPUSet: !exists(json, 'targetCPUSet') ? undefined : json['targetCPUSet'],
-    targetDirectMigrationNodePorts: !exists(json, 'targetDirectMigrationNodePorts')
-      ? undefined
-      : json['targetDirectMigrationNodePorts'],
-    targetNode: !exists(json, 'targetNode') ? undefined : json['targetNode'],
-    targetNodeAddress: !exists(json, 'targetNodeAddress') ? undefined : json['targetNodeAddress'],
-    targetNodeDomainDetected: !exists(json, 'targetNodeDomainDetected')
-      ? undefined
-      : json['targetNodeDomainDetected'],
-    targetNodeDomainReadyTimestamp: !exists(json, 'targetNodeDomainReadyTimestamp')
-      ? undefined
-      : json['targetNodeDomainReadyTimestamp'],
-    targetNodeTopology: !exists(json, 'targetNodeTopology')
-      ? undefined
-      : json['targetNodeTopology'],
-    targetPersistentStatePVCName: !exists(json, 'targetPersistentStatePVCName')
-      ? undefined
-      : json['targetPersistentStatePVCName'],
-    targetPod: !exists(json, 'targetPod') ? undefined : json['targetPod'],
-    targetState: !exists(json, 'targetState')
-      ? undefined
-      : V1VirtualMachineInstanceMigrationTargetStateFromJSON(json['targetState']),
-  };
-}
-
-export function V1VirtualMachineInstanceMigrationStateToJSON(
-  value?: V1VirtualMachineInstanceMigrationState | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    abortRequested: value.abortRequested,
-    abortStatus: value.abortStatus,
-    completed: value.completed,
-    endTimestamp: value.endTimestamp === undefined ? undefined : value.endTimestamp,
-    failed: value.failed,
-    failureReason: value.failureReason,
-    migrationConfiguration: V1MigrationConfigurationToJSON(value.migrationConfiguration),
-    migrationNetworkType: value.migrationNetworkType,
-    migrationPolicyName: value.migrationPolicyName,
-    migrationUid: value.migrationUid,
-    mode: value.mode,
-    sourceNode: value.sourceNode,
-    sourcePersistentStatePVCName: value.sourcePersistentStatePVCName,
-    sourcePod: value.sourcePod,
-    sourceState: V1VirtualMachineInstanceMigrationSourceStateToJSON(value.sourceState),
-    startTimestamp: value.startTimestamp === undefined ? undefined : value.startTimestamp,
-    targetAttachmentPodUID: value.targetAttachmentPodUID,
-    targetCPUSet: value.targetCPUSet,
-    targetDirectMigrationNodePorts: value.targetDirectMigrationNodePorts,
-    targetNode: value.targetNode,
-    targetNodeAddress: value.targetNodeAddress,
-    targetNodeDomainDetected: value.targetNodeDomainDetected,
-    targetNodeDomainReadyTimestamp:
-      value.targetNodeDomainReadyTimestamp === undefined
-        ? undefined
-        : value.targetNodeDomainReadyTimestamp,
-    targetNodeTopology: value.targetNodeTopology,
-    targetPersistentStatePVCName: value.targetPersistentStatePVCName,
-    targetPod: value.targetPod,
-    targetState: V1VirtualMachineInstanceMigrationTargetStateToJSON(value.targetState),
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationState interface.
+ */

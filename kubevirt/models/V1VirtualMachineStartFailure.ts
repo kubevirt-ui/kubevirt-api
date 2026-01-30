@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * VirtualMachineStartFailure tracks VMIs which failed to transition successfully to running using the VM status
  * @export
@@ -39,41 +38,6 @@ export interface V1VirtualMachineStartFailure {
   retryAfterTimestamp?: string;
 }
 
-export function V1VirtualMachineStartFailureFromJSON(json: any): V1VirtualMachineStartFailure {
-  return V1VirtualMachineStartFailureFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineStartFailureFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineStartFailure {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    consecutiveFailCount: !exists(json, 'consecutiveFailCount')
-      ? undefined
-      : json['consecutiveFailCount'],
-    lastFailedVMIUID: !exists(json, 'lastFailedVMIUID') ? undefined : json['lastFailedVMIUID'],
-    retryAfterTimestamp: !exists(json, 'retryAfterTimestamp')
-      ? undefined
-      : json['retryAfterTimestamp'],
-  };
-}
-
-export function V1VirtualMachineStartFailureToJSON(
-  value?: V1VirtualMachineStartFailure | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    consecutiveFailCount: value.consecutiveFailCount,
-    lastFailedVMIUID: value.lastFailedVMIUID,
-    retryAfterTimestamp:
-      value.retryAfterTimestamp === undefined ? undefined : value.retryAfterTimestamp,
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineStartFailure interface.
+ */

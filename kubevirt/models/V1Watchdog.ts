@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1Diag288Watchdog,
-  V1Diag288WatchdogFromJSON,
-  V1Diag288WatchdogToJSON,
-  V1I6300ESBWatchdog,
-  V1I6300ESBWatchdogFromJSON,
-  V1I6300ESBWatchdogToJSON,
-} from './';
-
+import type { V1Diag288Watchdog } from './V1Diag288Watchdog';
+import type { V1I6300ESBWatchdog } from './V1I6300ESBWatchdog';
 /**
  * Named watchdog device.
  * @export
@@ -48,31 +40,6 @@ export interface V1Watchdog {
   name: string;
 }
 
-export function V1WatchdogFromJSON(json: any): V1Watchdog {
-  return V1WatchdogFromJSONTyped(json, false);
-}
-
-export function V1WatchdogFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Watchdog {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    diag288: !exists(json, 'diag288') ? undefined : V1Diag288WatchdogFromJSON(json['diag288']),
-    i6300esb: !exists(json, 'i6300esb') ? undefined : V1I6300ESBWatchdogFromJSON(json['i6300esb']),
-    name: json['name'],
-  };
-}
-
-export function V1WatchdogToJSON(value?: V1Watchdog | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    diag288: V1Diag288WatchdogToJSON(value.diag288),
-    i6300esb: V1I6300ESBWatchdogToJSON(value.i6300esb),
-    name: value.name,
-  };
-}
+/**
+ * Check if a given object implements the V1Watchdog interface.
+ */

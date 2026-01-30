@@ -13,24 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1GuestAgentCommandInfo } from './V1GuestAgentCommandInfo';
 import {
-    V1GuestAgentCommandInfo,
     V1GuestAgentCommandInfoFromJSON,
     V1GuestAgentCommandInfoFromJSONTyped,
     V1GuestAgentCommandInfoToJSON,
-    V1VirtualMachineInstanceFileSystemInfo,
+} from './V1GuestAgentCommandInfo';
+import type { V1VirtualMachineInstanceFileSystemInfo } from './V1VirtualMachineInstanceFileSystemInfo';
+import {
     V1VirtualMachineInstanceFileSystemInfoFromJSON,
     V1VirtualMachineInstanceFileSystemInfoFromJSONTyped,
     V1VirtualMachineInstanceFileSystemInfoToJSON,
-    V1VirtualMachineInstanceGuestOSInfo,
+} from './V1VirtualMachineInstanceFileSystemInfo';
+import type { V1VirtualMachineInstanceGuestOSInfo } from './V1VirtualMachineInstanceGuestOSInfo';
+import {
     V1VirtualMachineInstanceGuestOSInfoFromJSON,
     V1VirtualMachineInstanceGuestOSInfoFromJSONTyped,
     V1VirtualMachineInstanceGuestOSInfoToJSON,
-    V1VirtualMachineInstanceGuestOSUser,
+} from './V1VirtualMachineInstanceGuestOSInfo';
+import type { V1VirtualMachineInstanceGuestOSUser } from './V1VirtualMachineInstanceGuestOSUser';
+import {
     V1VirtualMachineInstanceGuestOSUserFromJSON,
     V1VirtualMachineInstanceGuestOSUserFromJSONTyped,
     V1VirtualMachineInstanceGuestOSUserToJSON,
-} from './';
+} from './V1VirtualMachineInstanceGuestOSUser';
 
 /**
  * VirtualMachineInstanceGuestAgentInfo represents information from the installed guest agent
@@ -98,6 +104,15 @@ export interface V1VirtualMachineInstanceGuestAgentInfo {
      * @memberof V1VirtualMachineInstanceGuestAgentInfo
      */
     userList?: Array<V1VirtualMachineInstanceGuestOSUser>;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceGuestAgentInfo interface.
+ */
+export function instanceOfV1VirtualMachineInstanceGuestAgentInfo(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceGuestAgentInfoFromJSON(json: any): V1VirtualMachineInstanceGuestAgentInfo {

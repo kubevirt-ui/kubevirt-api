@@ -45,6 +45,17 @@ export interface V1VirtualMachineInstanceMigrationCondition {
     type: string;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationCondition interface.
+ */
+export function instanceOfV1VirtualMachineInstanceMigrationCondition(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "status" in value;
+    isInstance = isInstance && "type" in value;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineInstanceMigrationConditionFromJSON(json: any): V1VirtualMachineInstanceMigrationCondition {
     return V1VirtualMachineInstanceMigrationConditionFromJSONTyped(json, false);
 }

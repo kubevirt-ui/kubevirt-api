@@ -12,25 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1FeatureAPIC,
-  V1FeatureAPICFromJSON,
-  V1FeatureAPICToJSON,
-  V1FeatureHyperv,
-  V1FeatureHypervFromJSON,
-  V1FeatureHypervToJSON,
-  V1FeatureKVM,
-  V1FeatureKVMFromJSON,
-  V1FeatureKVMToJSON,
-  V1FeatureState,
-  V1FeatureStateFromJSON,
-  V1FeatureStateToJSON,
-  V1HyperVPassthrough,
-  V1HyperVPassthroughFromJSON,
-  V1HyperVPassthroughToJSON,
-} from './';
-
+import type { V1FeatureAPIC } from './V1FeatureAPIC';
+import type { V1FeatureHyperv } from './V1FeatureHyperv';
+import type { V1FeatureKVM } from './V1FeatureKVM';
+import type { V1FeatureState } from './V1FeatureState';
+import type { V1HyperVPassthrough } from './V1HyperVPassthrough';
 /**
  *
  * @export
@@ -81,43 +67,6 @@ export interface V1Features {
   smm?: V1FeatureState;
 }
 
-export function V1FeaturesFromJSON(json: any): V1Features {
-  return V1FeaturesFromJSONTyped(json, false);
-}
-
-export function V1FeaturesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Features {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    acpi: !exists(json, 'acpi') ? undefined : V1FeatureStateFromJSON(json['acpi']),
-    apic: !exists(json, 'apic') ? undefined : V1FeatureAPICFromJSON(json['apic']),
-    hyperv: !exists(json, 'hyperv') ? undefined : V1FeatureHypervFromJSON(json['hyperv']),
-    hypervPassthrough: !exists(json, 'hypervPassthrough')
-      ? undefined
-      : V1HyperVPassthroughFromJSON(json['hypervPassthrough']),
-    kvm: !exists(json, 'kvm') ? undefined : V1FeatureKVMFromJSON(json['kvm']),
-    pvspinlock: !exists(json, 'pvspinlock')
-      ? undefined
-      : V1FeatureStateFromJSON(json['pvspinlock']),
-    smm: !exists(json, 'smm') ? undefined : V1FeatureStateFromJSON(json['smm']),
-  };
-}
-
-export function V1FeaturesToJSON(value?: V1Features | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    acpi: V1FeatureStateToJSON(value.acpi),
-    apic: V1FeatureAPICToJSON(value.apic),
-    hyperv: V1FeatureHypervToJSON(value.hyperv),
-    hypervPassthrough: V1HyperVPassthroughToJSON(value.hypervPassthrough),
-    kvm: V1FeatureKVMToJSON(value.kvm),
-    pvspinlock: V1FeatureStateToJSON(value.pvspinlock),
-    smm: V1FeatureStateToJSON(value.smm),
-  };
-}
+/**
+ * Check if a given object implements the V1Features interface.
+ */

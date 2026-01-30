@@ -27,6 +27,15 @@ export interface V1ClockOffsetUTC {
     offsetSeconds?: number;
 }
 
+/**
+ * Check if a given object implements the V1ClockOffsetUTC interface.
+ */
+export function instanceOfV1ClockOffsetUTC(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ClockOffsetUTCFromJSON(json: any): V1ClockOffsetUTC {
     return V1ClockOffsetUTCFromJSONTyped(json, false);
 }

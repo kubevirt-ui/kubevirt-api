@@ -45,6 +45,19 @@ export interface V1CustomizeComponentsPatch {
     type: string;
 }
 
+/**
+ * Check if a given object implements the V1CustomizeComponentsPatch interface.
+ */
+export function instanceOfV1CustomizeComponentsPatch(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "patch" in value;
+    isInstance = isInstance && "resourceName" in value;
+    isInstance = isInstance && "resourceType" in value;
+    isInstance = isInstance && "type" in value;
+
+    return isInstance;
+}
+
 export function V1CustomizeComponentsPatchFromJSON(json: any): V1CustomizeComponentsPatch {
     return V1CustomizeComponentsPatchFromJSONTyped(json, false);
 }

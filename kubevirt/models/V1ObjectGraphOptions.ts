@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1LabelSelector,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 /**
  * ObjectGraphOptions holds options for the object graph.
  * @export
@@ -39,36 +33,6 @@ export interface V1ObjectGraphOptions {
   labelSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
 }
 
-export function V1ObjectGraphOptionsFromJSON(json: any): V1ObjectGraphOptions {
-  return V1ObjectGraphOptionsFromJSONTyped(json, false);
-}
-
-export function V1ObjectGraphOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1ObjectGraphOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    includeOptionalNodes: !exists(json, 'includeOptionalNodes')
-      ? undefined
-      : json['includeOptionalNodes'],
-    labelSelector: !exists(json, 'labelSelector')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['labelSelector']),
-  };
-}
-
-export function V1ObjectGraphOptionsToJSON(value?: V1ObjectGraphOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    includeOptionalNodes: value.includeOptionalNodes,
-    labelSelector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.labelSelector),
-  };
-}
+/**
+ * Check if a given object implements the V1ObjectGraphOptions interface.
+ */

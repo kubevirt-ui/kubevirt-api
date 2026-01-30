@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -27,27 +26,6 @@ export interface V1KVMTimer {
   present?: boolean;
 }
 
-export function V1KVMTimerFromJSON(json: any): V1KVMTimer {
-  return V1KVMTimerFromJSONTyped(json, false);
-}
-
-export function V1KVMTimerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KVMTimer {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    present: !exists(json, 'present') ? undefined : json['present'],
-  };
-}
-
-export function V1KVMTimerToJSON(value?: V1KVMTimer | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    present: value.present,
-  };
-}
+/**
+ * Check if a given object implements the V1KVMTimer interface.
+ */

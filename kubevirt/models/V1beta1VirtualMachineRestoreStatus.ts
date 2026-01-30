@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1beta1Condition,
-  V1beta1ConditionFromJSON,
-  V1beta1ConditionToJSON,
-  V1beta1VolumeRestore,
-  V1beta1VolumeRestoreFromJSON,
-  V1beta1VolumeRestoreToJSON,
-} from './';
-
+import type { V1beta1Condition } from './V1beta1Condition';
+import type { V1beta1VolumeRestore } from './V1beta1VolumeRestore';
 /**
  * VirtualMachineRestoreStatus is the status for a VirtualMachineRestore resource
  * @export
@@ -60,54 +52,6 @@ export interface V1beta1VirtualMachineRestoreStatus {
   restores?: Array<V1beta1VolumeRestore>;
 }
 
-export function V1beta1VirtualMachineRestoreStatusFromJSON(
-  json: any,
-): V1beta1VirtualMachineRestoreStatus {
-  return V1beta1VirtualMachineRestoreStatusFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineRestoreStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineRestoreStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    complete: !exists(json, 'complete') ? undefined : json['complete'],
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(V1beta1ConditionFromJSON),
-    deletedDataVolumes: !exists(json, 'deletedDataVolumes')
-      ? undefined
-      : json['deletedDataVolumes'],
-    restoreTime: !exists(json, 'restoreTime') ? undefined : json['restoreTime'],
-    restores: !exists(json, 'restores')
-      ? undefined
-      : (json['restores'] as Array<any>).map(V1beta1VolumeRestoreFromJSON),
-  };
-}
-
-export function V1beta1VirtualMachineRestoreStatusToJSON(
-  value?: V1beta1VirtualMachineRestoreStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    complete: value.complete,
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(V1beta1ConditionToJSON),
-    deletedDataVolumes: value.deletedDataVolumes,
-    restoreTime: value.restoreTime === undefined ? undefined : value.restoreTime,
-    restores:
-      value.restores === undefined
-        ? undefined
-        : (value.restores as Array<any>).map(V1beta1VolumeRestoreToJSON),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineRestoreStatus interface.
+ */

@@ -12,9 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1USBSelector, V1USBSelectorFromJSON, V1USBSelectorToJSON } from './';
-
+import type { V1USBSelector } from './V1USBSelector';
 /**
  *
  * @export
@@ -41,41 +39,6 @@ export interface V1USBHostDevice {
   selectors?: Array<V1USBSelector>;
 }
 
-export function V1USBHostDeviceFromJSON(json: any): V1USBHostDevice {
-  return V1USBHostDeviceFromJSONTyped(json, false);
-}
-
-export function V1USBHostDeviceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1USBHostDevice {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    externalResourceProvider: !exists(json, 'externalResourceProvider')
-      ? undefined
-      : json['externalResourceProvider'],
-    resourceName: json['resourceName'],
-    selectors: !exists(json, 'selectors')
-      ? undefined
-      : (json['selectors'] as Array<any>).map(V1USBSelectorFromJSON),
-  };
-}
-
-export function V1USBHostDeviceToJSON(value?: V1USBHostDevice | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    externalResourceProvider: value.externalResourceProvider,
-    resourceName: value.resourceName,
-    selectors:
-      value.selectors === undefined
-        ? undefined
-        : (value.selectors as Array<any>).map(V1USBSelectorToJSON),
-  };
-}
+/**
+ * Check if a given object implements the V1USBHostDevice interface.
+ */

@@ -51,6 +51,15 @@ export interface V1SMBiosConfiguration {
     version?: string;
 }
 
+/**
+ * Check if a given object implements the V1SMBiosConfiguration interface.
+ */
+export function instanceOfV1SMBiosConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1SMBiosConfigurationFromJSON(json: any): V1SMBiosConfiguration {
     return V1SMBiosConfigurationFromJSONTyped(json, false);
 }

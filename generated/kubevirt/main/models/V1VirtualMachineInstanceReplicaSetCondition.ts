@@ -45,6 +45,17 @@ export interface V1VirtualMachineInstanceReplicaSetCondition {
     type: string;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceReplicaSetCondition interface.
+ */
+export function instanceOfV1VirtualMachineInstanceReplicaSetCondition(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "status" in value;
+    isInstance = isInstance && "type" in value;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineInstanceReplicaSetConditionFromJSON(json: any): V1VirtualMachineInstanceReplicaSetCondition {
     return V1VirtualMachineInstanceReplicaSetConditionFromJSONTyped(json, false);
 }

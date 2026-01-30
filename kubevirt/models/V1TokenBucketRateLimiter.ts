@@ -32,32 +32,6 @@ export interface V1TokenBucketRateLimiter {
   qps: number;
 }
 
-export function V1TokenBucketRateLimiterFromJSON(json: any): V1TokenBucketRateLimiter {
-  return V1TokenBucketRateLimiterFromJSONTyped(json, false);
-}
-
-export function V1TokenBucketRateLimiterFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1TokenBucketRateLimiter {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    burst: json['burst'],
-    qps: json['qps'],
-  };
-}
-
-export function V1TokenBucketRateLimiterToJSON(value?: V1TokenBucketRateLimiter | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    burst: value.burst,
-    qps: value.qps,
-  };
-}
+/**
+ * Check if a given object implements the V1TokenBucketRateLimiter interface.
+ */

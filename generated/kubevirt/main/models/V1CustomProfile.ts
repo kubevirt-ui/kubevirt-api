@@ -33,6 +33,15 @@ export interface V1CustomProfile {
     runtimeDefaultProfile?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1CustomProfile interface.
+ */
+export function instanceOfV1CustomProfile(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1CustomProfileFromJSON(json: any): V1CustomProfile {
     return V1CustomProfileFromJSONTyped(json, false);
 }

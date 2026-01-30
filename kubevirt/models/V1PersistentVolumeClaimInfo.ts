@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PersistentVolumeClaimInfo contains the relavant information virt-handler needs cached about a PVC
  * @export
@@ -70,62 +69,27 @@ export interface V1PersistentVolumeClaimInfo {
 
 /**
  * @export
- * @enum {string}
  */
-export enum V1PersistentVolumeClaimInfoAccessModesEnum {
-  ReadOnlyMany = 'ReadOnlyMany',
-  ReadWriteMany = 'ReadWriteMany',
-  ReadWriteOnce = 'ReadWriteOnce',
-  ReadWriteOncePod = 'ReadWriteOncePod',
-}
+export const V1PersistentVolumeClaimInfoAccessModesEnum = {
+  ReadOnlyMany: 'ReadOnlyMany',
+  ReadWriteMany: 'ReadWriteMany',
+  ReadWriteOnce: 'ReadWriteOnce',
+  ReadWriteOncePod: 'ReadWriteOncePod',
+} as const;
+export type V1PersistentVolumeClaimInfoAccessModesEnum =
+  typeof V1PersistentVolumeClaimInfoAccessModesEnum[keyof typeof V1PersistentVolumeClaimInfoAccessModesEnum];
+
 /**
  * @export
- * @enum {string}
  */
-export enum V1PersistentVolumeClaimInfoVolumeModeEnum {
-  Block = 'Block',
-  Filesystem = 'Filesystem',
-  FromStorageProfile = 'FromStorageProfile',
-}
+export const V1PersistentVolumeClaimInfoVolumeModeEnum = {
+  Block: 'Block',
+  Filesystem: 'Filesystem',
+  FromStorageProfile: 'FromStorageProfile',
+} as const;
+export type V1PersistentVolumeClaimInfoVolumeModeEnum =
+  typeof V1PersistentVolumeClaimInfoVolumeModeEnum[keyof typeof V1PersistentVolumeClaimInfoVolumeModeEnum];
 
-export function V1PersistentVolumeClaimInfoFromJSON(json: any): V1PersistentVolumeClaimInfo {
-  return V1PersistentVolumeClaimInfoFromJSONTyped(json, false);
-}
-
-export function V1PersistentVolumeClaimInfoFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1PersistentVolumeClaimInfo {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    accessModes: !exists(json, 'accessModes') ? undefined : json['accessModes'],
-    capacity: !exists(json, 'capacity') ? undefined : json['capacity'],
-    claimName: !exists(json, 'claimName') ? undefined : json['claimName'],
-    filesystemOverhead: !exists(json, 'filesystemOverhead')
-      ? undefined
-      : json['filesystemOverhead'],
-    preallocated: !exists(json, 'preallocated') ? undefined : json['preallocated'],
-    requests: !exists(json, 'requests') ? undefined : json['requests'],
-    volumeMode: !exists(json, 'volumeMode') ? undefined : json['volumeMode'],
-  };
-}
-
-export function V1PersistentVolumeClaimInfoToJSON(value?: V1PersistentVolumeClaimInfo | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    accessModes: value.accessModes,
-    capacity: value.capacity,
-    claimName: value.claimName,
-    filesystemOverhead: value.filesystemOverhead,
-    preallocated: value.preallocated,
-    requests: value.requests,
-    volumeMode: value.volumeMode,
-  };
-}
+/**
+ * Check if a given object implements the V1PersistentVolumeClaimInfo interface.
+ */

@@ -45,6 +45,15 @@ export interface K8sIoApimachineryPkgApisMetaV1ListMeta {
     selfLink?: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1ListMeta interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1ListMeta(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1ListMeta {
     return K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped(json, false);
 }

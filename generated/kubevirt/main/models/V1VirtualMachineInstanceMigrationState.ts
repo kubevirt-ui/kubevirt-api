@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1MigrationConfiguration } from './V1MigrationConfiguration';
 import {
-    V1MigrationConfiguration,
     V1MigrationConfigurationFromJSON,
     V1MigrationConfigurationFromJSONTyped,
     V1MigrationConfigurationToJSON,
-    V1VirtualMachineInstanceMigrationSourceState,
+} from './V1MigrationConfiguration';
+import type { V1VirtualMachineInstanceMigrationSourceState } from './V1VirtualMachineInstanceMigrationSourceState';
+import {
     V1VirtualMachineInstanceMigrationSourceStateFromJSON,
     V1VirtualMachineInstanceMigrationSourceStateFromJSONTyped,
     V1VirtualMachineInstanceMigrationSourceStateToJSON,
-    V1VirtualMachineInstanceMigrationTargetState,
+} from './V1VirtualMachineInstanceMigrationSourceState';
+import type { V1VirtualMachineInstanceMigrationTargetState } from './V1VirtualMachineInstanceMigrationTargetState';
+import {
     V1VirtualMachineInstanceMigrationTargetStateFromJSON,
     V1VirtualMachineInstanceMigrationTargetStateFromJSONTyped,
     V1VirtualMachineInstanceMigrationTargetStateToJSON,
-} from './';
+} from './V1VirtualMachineInstanceMigrationTargetState';
 
 /**
  * 
@@ -198,6 +202,15 @@ export interface V1VirtualMachineInstanceMigrationState {
     targetState?: V1VirtualMachineInstanceMigrationTargetState;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationState interface.
+ */
+export function instanceOfV1VirtualMachineInstanceMigrationState(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineInstanceMigrationStateFromJSON(json: any): V1VirtualMachineInstanceMigrationState {
     return V1VirtualMachineInstanceMigrationStateFromJSONTyped(json, false);
 }
@@ -211,7 +224,7 @@ export function V1VirtualMachineInstanceMigrationStateFromJSONTyped(json: any, i
         'abortRequested': !exists(json, 'abortRequested') ? undefined : json['abortRequested'],
         'abortStatus': !exists(json, 'abortStatus') ? undefined : json['abortStatus'],
         'completed': !exists(json, 'completed') ? undefined : json['completed'],
-        'endTimestamp': !exists(json, 'endTimestamp') ? undefined : (new Date(json['endTimestamp'])),
+        'endTimestamp': !exists(json, 'endTimestamp') ? undefined : json['endTimestamp'],
         'failed': !exists(json, 'failed') ? undefined : json['failed'],
         'failureReason': !exists(json, 'failureReason') ? undefined : json['failureReason'],
         'migrationConfiguration': !exists(json, 'migrationConfiguration') ? undefined : V1MigrationConfigurationFromJSON(json['migrationConfiguration']),
@@ -223,14 +236,14 @@ export function V1VirtualMachineInstanceMigrationStateFromJSONTyped(json: any, i
         'sourcePersistentStatePVCName': !exists(json, 'sourcePersistentStatePVCName') ? undefined : json['sourcePersistentStatePVCName'],
         'sourcePod': !exists(json, 'sourcePod') ? undefined : json['sourcePod'],
         'sourceState': !exists(json, 'sourceState') ? undefined : V1VirtualMachineInstanceMigrationSourceStateFromJSON(json['sourceState']),
-        'startTimestamp': !exists(json, 'startTimestamp') ? undefined : (new Date(json['startTimestamp'])),
+        'startTimestamp': !exists(json, 'startTimestamp') ? undefined : json['startTimestamp'],
         'targetAttachmentPodUID': !exists(json, 'targetAttachmentPodUID') ? undefined : json['targetAttachmentPodUID'],
         'targetCPUSet': !exists(json, 'targetCPUSet') ? undefined : json['targetCPUSet'],
         'targetDirectMigrationNodePorts': !exists(json, 'targetDirectMigrationNodePorts') ? undefined : json['targetDirectMigrationNodePorts'],
         'targetNode': !exists(json, 'targetNode') ? undefined : json['targetNode'],
         'targetNodeAddress': !exists(json, 'targetNodeAddress') ? undefined : json['targetNodeAddress'],
         'targetNodeDomainDetected': !exists(json, 'targetNodeDomainDetected') ? undefined : json['targetNodeDomainDetected'],
-        'targetNodeDomainReadyTimestamp': !exists(json, 'targetNodeDomainReadyTimestamp') ? undefined : (new Date(json['targetNodeDomainReadyTimestamp'])),
+        'targetNodeDomainReadyTimestamp': !exists(json, 'targetNodeDomainReadyTimestamp') ? undefined : json['targetNodeDomainReadyTimestamp'],
         'targetNodeTopology': !exists(json, 'targetNodeTopology') ? undefined : json['targetNodeTopology'],
         'targetPersistentStatePVCName': !exists(json, 'targetPersistentStatePVCName') ? undefined : json['targetPersistentStatePVCName'],
         'targetPod': !exists(json, 'targetPod') ? undefined : json['targetPod'],
@@ -250,7 +263,7 @@ export function V1VirtualMachineInstanceMigrationStateToJSON(value?: V1VirtualMa
         'abortRequested': value.abortRequested,
         'abortStatus': value.abortStatus,
         'completed': value.completed,
-        'endTimestamp': value.endTimestamp === undefined ? undefined : (value.endTimestamp.toISOString()),
+        'endTimestamp': value.endTimestamp,
         'failed': value.failed,
         'failureReason': value.failureReason,
         'migrationConfiguration': V1MigrationConfigurationToJSON(value.migrationConfiguration),
@@ -262,14 +275,14 @@ export function V1VirtualMachineInstanceMigrationStateToJSON(value?: V1VirtualMa
         'sourcePersistentStatePVCName': value.sourcePersistentStatePVCName,
         'sourcePod': value.sourcePod,
         'sourceState': V1VirtualMachineInstanceMigrationSourceStateToJSON(value.sourceState),
-        'startTimestamp': value.startTimestamp === undefined ? undefined : (value.startTimestamp.toISOString()),
+        'startTimestamp': value.startTimestamp,
         'targetAttachmentPodUID': value.targetAttachmentPodUID,
         'targetCPUSet': value.targetCPUSet,
         'targetDirectMigrationNodePorts': value.targetDirectMigrationNodePorts,
         'targetNode': value.targetNode,
         'targetNodeAddress': value.targetNodeAddress,
         'targetNodeDomainDetected': value.targetNodeDomainDetected,
-        'targetNodeDomainReadyTimestamp': value.targetNodeDomainReadyTimestamp === undefined ? undefined : (value.targetNodeDomainReadyTimestamp.toISOString()),
+        'targetNodeDomainReadyTimestamp': value.targetNodeDomainReadyTimestamp,
         'targetNodeTopology': value.targetNodeTopology,
         'targetPersistentStatePVCName': value.targetPersistentStatePVCName,
         'targetPod': value.targetPod,

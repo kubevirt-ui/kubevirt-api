@@ -27,6 +27,15 @@ export interface V1NUMA {
     guestMappingPassthrough?: object;
 }
 
+/**
+ * Check if a given object implements the V1NUMA interface.
+ */
+export function instanceOfV1NUMA(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1NUMAFromJSON(json: any): V1NUMA {
     return V1NUMAFromJSONTyped(json, false);
 }

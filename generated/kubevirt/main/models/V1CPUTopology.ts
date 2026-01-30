@@ -39,6 +39,15 @@ export interface V1CPUTopology {
     threads?: number;
 }
 
+/**
+ * Check if a given object implements the V1CPUTopology interface.
+ */
+export function instanceOfV1CPUTopology(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1CPUTopologyFromJSON(json: any): V1CPUTopology {
     return V1CPUTopologyFromJSONTyped(json, false);
 }

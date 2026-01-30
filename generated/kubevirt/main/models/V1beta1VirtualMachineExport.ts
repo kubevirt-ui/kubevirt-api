@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1beta1VirtualMachineExportSpec,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1beta1VirtualMachineExportSpec } from './V1beta1VirtualMachineExportSpec';
+import {
     V1beta1VirtualMachineExportSpecFromJSON,
     V1beta1VirtualMachineExportSpecFromJSONTyped,
     V1beta1VirtualMachineExportSpecToJSON,
-    V1beta1VirtualMachineExportStatus,
+} from './V1beta1VirtualMachineExportSpec';
+import type { V1beta1VirtualMachineExportStatus } from './V1beta1VirtualMachineExportStatus';
+import {
     V1beta1VirtualMachineExportStatusFromJSON,
     V1beta1VirtualMachineExportStatusFromJSONTyped,
     V1beta1VirtualMachineExportStatusToJSON,
-} from './';
+} from './V1beta1VirtualMachineExportStatus';
 
 /**
  * VirtualMachineExport defines the operation of exporting a VM source
@@ -64,6 +68,16 @@ export interface V1beta1VirtualMachineExport {
      * @memberof V1beta1VirtualMachineExport
      */
     status?: V1beta1VirtualMachineExportStatus;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineExport interface.
+ */
+export function instanceOfV1beta1VirtualMachineExport(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "spec" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineExportFromJSON(json: any): V1beta1VirtualMachineExport {

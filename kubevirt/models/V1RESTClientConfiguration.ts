@@ -12,9 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1RateLimiter, V1RateLimiterFromJSON, V1RateLimiterToJSON } from './';
-
+import type { V1RateLimiter } from './V1RateLimiter';
 /**
  * RESTClientConfiguration allows configuring certain aspects of the k8s rest client.
  * @export
@@ -29,32 +27,6 @@ export interface V1RESTClientConfiguration {
   rateLimiter?: V1RateLimiter;
 }
 
-export function V1RESTClientConfigurationFromJSON(json: any): V1RESTClientConfiguration {
-  return V1RESTClientConfigurationFromJSONTyped(json, false);
-}
-
-export function V1RESTClientConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1RESTClientConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    rateLimiter: !exists(json, 'rateLimiter')
-      ? undefined
-      : V1RateLimiterFromJSON(json['rateLimiter']),
-  };
-}
-
-export function V1RESTClientConfigurationToJSON(value?: V1RESTClientConfiguration | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    rateLimiter: V1RateLimiterToJSON(value.rateLimiter),
-  };
-}
+/**
+ * Check if a given object implements the V1RESTClientConfiguration interface.
+ */

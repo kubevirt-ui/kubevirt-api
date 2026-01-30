@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ListMeta,
-  K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-  V1alpha1MigrationPolicy,
-  V1alpha1MigrationPolicyFromJSON,
-  V1alpha1MigrationPolicyToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1alpha1MigrationPolicy } from './V1alpha1MigrationPolicy';
 /**
  * MigrationPolicyList is a list of MigrationPolicy
  * @export
@@ -54,38 +46,6 @@ export interface V1alpha1MigrationPolicyList {
   metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
 
-export function V1alpha1MigrationPolicyListFromJSON(json: any): V1alpha1MigrationPolicyList {
-  return V1alpha1MigrationPolicyListFromJSONTyped(json, false);
-}
-
-export function V1alpha1MigrationPolicyListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1alpha1MigrationPolicyList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1alpha1MigrationPolicyFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function V1alpha1MigrationPolicyListToJSON(value?: V1alpha1MigrationPolicyList | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1alpha1MigrationPolicyToJSON),
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
-}
+/**
+ * Check if a given object implements the V1alpha1MigrationPolicyList interface.
+ */

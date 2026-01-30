@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1Preconditions } from './K8sIoApimachineryPkgApisMetaV1Preconditions';
 import {
-    K8sIoApimachineryPkgApisMetaV1Preconditions,
     K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSON,
     K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1PreconditionsToJSON,
-} from './';
+} from './K8sIoApimachineryPkgApisMetaV1Preconditions';
 
 /**
  * DeleteOptions may be provided when deleting an API object.
@@ -74,6 +74,15 @@ export interface K8sIoApimachineryPkgApisMetaV1DeleteOptions {
      * @memberof K8sIoApimachineryPkgApisMetaV1DeleteOptions
      */
     propagationPolicy?: string;
+}
+
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1DeleteOptions interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1DeleteOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function K8sIoApimachineryPkgApisMetaV1DeleteOptionsFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1DeleteOptions {

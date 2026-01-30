@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1NodePlacement } from './V1NodePlacement';
 import {
-    V1NodePlacement,
     V1NodePlacementFromJSON,
     V1NodePlacementFromJSONTyped,
     V1NodePlacementToJSON,
-} from './';
+} from './V1NodePlacement';
 
 /**
  * 
@@ -38,6 +38,15 @@ export interface V1ComponentConfig {
      * @memberof V1ComponentConfig
      */
     replicas?: number;
+}
+
+/**
+ * Check if a given object implements the V1ComponentConfig interface.
+ */
+export function instanceOfV1ComponentConfig(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ComponentConfigFromJSON(json: any): V1ComponentConfig {

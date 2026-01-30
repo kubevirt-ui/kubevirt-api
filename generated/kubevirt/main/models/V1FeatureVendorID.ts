@@ -33,6 +33,15 @@ export interface V1FeatureVendorID {
     vendorid?: string;
 }
 
+/**
+ * Check if a given object implements the V1FeatureVendorID interface.
+ */
+export function instanceOfV1FeatureVendorID(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1FeatureVendorIDFromJSON(json: any): V1FeatureVendorID {
     return V1FeatureVendorIDFromJSONTyped(json, false);
 }

@@ -62,34 +62,6 @@ export interface V1beta1MemoryPreferenceRequirement {
   guest: string;
 }
 
-export function V1beta1MemoryPreferenceRequirementFromJSON(
-  json: any,
-): V1beta1MemoryPreferenceRequirement {
-  return V1beta1MemoryPreferenceRequirementFromJSONTyped(json, false);
-}
-
-export function V1beta1MemoryPreferenceRequirementFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1MemoryPreferenceRequirement {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    guest: json['guest'],
-  };
-}
-
-export function V1beta1MemoryPreferenceRequirementToJSON(
-  value?: V1beta1MemoryPreferenceRequirement | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    guest: value.guest,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1MemoryPreferenceRequirement interface.
+ */

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -147,34 +146,6 @@ export interface V1MemoryStatus {
   guestRequested?: string;
 }
 
-export function V1MemoryStatusFromJSON(json: any): V1MemoryStatus {
-  return V1MemoryStatusFromJSONTyped(json, false);
-}
-
-export function V1MemoryStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1MemoryStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    guestAtBoot: !exists(json, 'guestAtBoot') ? undefined : json['guestAtBoot'],
-    guestCurrent: !exists(json, 'guestCurrent') ? undefined : json['guestCurrent'],
-    guestRequested: !exists(json, 'guestRequested') ? undefined : json['guestRequested'],
-  };
-}
-
-export function V1MemoryStatusToJSON(value?: V1MemoryStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    guestAtBoot: value.guestAtBoot,
-    guestCurrent: value.guestCurrent,
-    guestRequested: value.guestRequested,
-  };
-}
+/**
+ * Check if a given object implements the V1MemoryStatus interface.
+ */

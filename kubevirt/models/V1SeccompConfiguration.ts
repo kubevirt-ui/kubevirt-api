@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1VirtualMachineInstanceProfile,
-  V1VirtualMachineInstanceProfileFromJSON,
-  V1VirtualMachineInstanceProfileToJSON,
-} from './';
-
+import type { V1VirtualMachineInstanceProfile } from './V1VirtualMachineInstanceProfile';
 /**
  * SeccompConfiguration holds Seccomp configuration for Kubevirt components
  * @export
@@ -33,34 +27,6 @@ export interface V1SeccompConfiguration {
   virtualMachineInstanceProfile?: V1VirtualMachineInstanceProfile;
 }
 
-export function V1SeccompConfigurationFromJSON(json: any): V1SeccompConfiguration {
-  return V1SeccompConfigurationFromJSONTyped(json, false);
-}
-
-export function V1SeccompConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1SeccompConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    virtualMachineInstanceProfile: !exists(json, 'virtualMachineInstanceProfile')
-      ? undefined
-      : V1VirtualMachineInstanceProfileFromJSON(json['virtualMachineInstanceProfile']),
-  };
-}
-
-export function V1SeccompConfigurationToJSON(value?: V1SeccompConfiguration | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    virtualMachineInstanceProfile: V1VirtualMachineInstanceProfileToJSON(
-      value.virtualMachineInstanceProfile,
-    ),
-  };
-}
+/**
+ * Check if a given object implements the V1SeccompConfiguration interface.
+ */

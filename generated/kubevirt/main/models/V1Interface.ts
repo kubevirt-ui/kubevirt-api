@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1DHCPOptions } from './V1DHCPOptions';
 import {
-    V1DHCPOptions,
     V1DHCPOptionsFromJSON,
     V1DHCPOptionsFromJSONTyped,
     V1DHCPOptionsToJSON,
-    V1PluginBinding,
+} from './V1DHCPOptions';
+import type { V1PluginBinding } from './V1PluginBinding';
+import {
     V1PluginBindingFromJSON,
     V1PluginBindingFromJSONTyped,
     V1PluginBindingToJSON,
-    V1Port,
+} from './V1PluginBinding';
+import type { V1Port } from './V1Port';
+import {
     V1PortFromJSON,
     V1PortFromJSONTyped,
     V1PortToJSON,
-} from './';
+} from './V1Port';
 
 /**
  * 
@@ -136,6 +140,16 @@ export interface V1Interface {
      * @memberof V1Interface
      */
     tag?: string;
+}
+
+/**
+ * Check if a given object implements the V1Interface interface.
+ */
+export function instanceOfV1Interface(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
 }
 
 export function V1InterfaceFromJSON(json: any): V1Interface {

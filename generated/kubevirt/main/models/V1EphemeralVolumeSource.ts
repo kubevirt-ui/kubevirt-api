@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1PersistentVolumeClaimVolumeSource } from './K8sIoApiCoreV1PersistentVolumeClaimVolumeSource';
 import {
-    K8sIoApiCoreV1PersistentVolumeClaimVolumeSource,
     K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceFromJSON,
     K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceFromJSONTyped,
     K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceToJSON,
-} from './';
+} from './K8sIoApiCoreV1PersistentVolumeClaimVolumeSource';
 
 /**
  * 
@@ -32,6 +32,15 @@ export interface V1EphemeralVolumeSource {
      * @memberof V1EphemeralVolumeSource
      */
     persistentVolumeClaim?: K8sIoApiCoreV1PersistentVolumeClaimVolumeSource;
+}
+
+/**
+ * Check if a given object implements the V1EphemeralVolumeSource interface.
+ */
+export function instanceOfV1EphemeralVolumeSource(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1EphemeralVolumeSourceFromJSON(json: any): V1EphemeralVolumeSource {

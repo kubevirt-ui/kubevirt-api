@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 import {
-    K8sIoApimachineryPkgApisMetaV1LabelSelector,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './';
+} from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 
 /**
  * KSMConfiguration holds information about KSM.
@@ -32,6 +32,15 @@ export interface V1KSMConfiguration {
      * @memberof V1KSMConfiguration
      */
     nodeLabelSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
+}
+
+/**
+ * Check if a given object implements the V1KSMConfiguration interface.
+ */
+export function instanceOfV1KSMConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1KSMConfigurationFromJSON(json: any): V1KSMConfiguration {

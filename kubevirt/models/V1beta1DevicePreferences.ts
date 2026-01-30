@@ -12,19 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1BlockSize,
-  V1BlockSizeFromJSON,
-  V1BlockSizeToJSON,
-  V1TPMDevice,
-  V1TPMDeviceFromJSON,
-  V1TPMDeviceToJSON,
-  V1VGPUOptions,
-  V1VGPUOptionsFromJSON,
-  V1VGPUOptionsToJSON,
-} from './';
-
+import type { V1BlockSize } from './V1BlockSize';
+import type { V1TPMDevice } from './V1TPMDevice';
+import type { V1VGPUOptions } from './V1VGPUOptions';
 /**
  * DevicePreferences contains various optional Device preferences.
  * @export
@@ -183,116 +173,6 @@ export interface V1beta1DevicePreferences {
   preferredVirtualGPUOptions?: V1VGPUOptions;
 }
 
-export function V1beta1DevicePreferencesFromJSON(json: any): V1beta1DevicePreferences {
-  return V1beta1DevicePreferencesFromJSONTyped(json, false);
-}
-
-export function V1beta1DevicePreferencesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DevicePreferences {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredAutoattachGraphicsDevice: !exists(json, 'preferredAutoattachGraphicsDevice')
-      ? undefined
-      : json['preferredAutoattachGraphicsDevice'],
-    preferredAutoattachInputDevice: !exists(json, 'preferredAutoattachInputDevice')
-      ? undefined
-      : json['preferredAutoattachInputDevice'],
-    preferredAutoattachMemBalloon: !exists(json, 'preferredAutoattachMemBalloon')
-      ? undefined
-      : json['preferredAutoattachMemBalloon'],
-    preferredAutoattachPodInterface: !exists(json, 'preferredAutoattachPodInterface')
-      ? undefined
-      : json['preferredAutoattachPodInterface'],
-    preferredAutoattachSerialConsole: !exists(json, 'preferredAutoattachSerialConsole')
-      ? undefined
-      : json['preferredAutoattachSerialConsole'],
-    preferredBlockMultiQueue: !exists(json, 'preferredBlockMultiQueue')
-      ? undefined
-      : json['preferredBlockMultiQueue'],
-    preferredCdromBus: !exists(json, 'preferredCdromBus') ? undefined : json['preferredCdromBus'],
-    preferredDisableHotplug: !exists(json, 'preferredDisableHotplug')
-      ? undefined
-      : json['preferredDisableHotplug'],
-    preferredDiskBlockSize: !exists(json, 'preferredDiskBlockSize')
-      ? undefined
-      : V1BlockSizeFromJSON(json['preferredDiskBlockSize']),
-    preferredDiskBus: !exists(json, 'preferredDiskBus') ? undefined : json['preferredDiskBus'],
-    preferredDiskCache: !exists(json, 'preferredDiskCache')
-      ? undefined
-      : json['preferredDiskCache'],
-    preferredDiskDedicatedIoThread: !exists(json, 'preferredDiskDedicatedIoThread')
-      ? undefined
-      : json['preferredDiskDedicatedIoThread'],
-    preferredDiskIO: !exists(json, 'preferredDiskIO') ? undefined : json['preferredDiskIO'],
-    preferredInputBus: !exists(json, 'preferredInputBus') ? undefined : json['preferredInputBus'],
-    preferredInputType: !exists(json, 'preferredInputType')
-      ? undefined
-      : json['preferredInputType'],
-    preferredInterfaceMasquerade: !exists(json, 'preferredInterfaceMasquerade')
-      ? undefined
-      : json['preferredInterfaceMasquerade'],
-    preferredInterfaceModel: !exists(json, 'preferredInterfaceModel')
-      ? undefined
-      : json['preferredInterfaceModel'],
-    preferredLunBus: !exists(json, 'preferredLunBus') ? undefined : json['preferredLunBus'],
-    preferredNetworkInterfaceMultiQueue: !exists(json, 'preferredNetworkInterfaceMultiQueue')
-      ? undefined
-      : json['preferredNetworkInterfaceMultiQueue'],
-    preferredPanicDeviceModel: !exists(json, 'preferredPanicDeviceModel')
-      ? undefined
-      : json['preferredPanicDeviceModel'],
-    preferredRng: !exists(json, 'preferredRng') ? undefined : json['preferredRng'],
-    preferredSoundModel: !exists(json, 'preferredSoundModel')
-      ? undefined
-      : json['preferredSoundModel'],
-    preferredTPM: !exists(json, 'preferredTPM')
-      ? undefined
-      : V1TPMDeviceFromJSON(json['preferredTPM']),
-    preferredUseVirtioTransitional: !exists(json, 'preferredUseVirtioTransitional')
-      ? undefined
-      : json['preferredUseVirtioTransitional'],
-    preferredVirtualGPUOptions: !exists(json, 'preferredVirtualGPUOptions')
-      ? undefined
-      : V1VGPUOptionsFromJSON(json['preferredVirtualGPUOptions']),
-  };
-}
-
-export function V1beta1DevicePreferencesToJSON(value?: V1beta1DevicePreferences | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredAutoattachGraphicsDevice: value.preferredAutoattachGraphicsDevice,
-    preferredAutoattachInputDevice: value.preferredAutoattachInputDevice,
-    preferredAutoattachMemBalloon: value.preferredAutoattachMemBalloon,
-    preferredAutoattachPodInterface: value.preferredAutoattachPodInterface,
-    preferredAutoattachSerialConsole: value.preferredAutoattachSerialConsole,
-    preferredBlockMultiQueue: value.preferredBlockMultiQueue,
-    preferredCdromBus: value.preferredCdromBus,
-    preferredDisableHotplug: value.preferredDisableHotplug,
-    preferredDiskBlockSize: V1BlockSizeToJSON(value.preferredDiskBlockSize),
-    preferredDiskBus: value.preferredDiskBus,
-    preferredDiskCache: value.preferredDiskCache,
-    preferredDiskDedicatedIoThread: value.preferredDiskDedicatedIoThread,
-    preferredDiskIO: value.preferredDiskIO,
-    preferredInputBus: value.preferredInputBus,
-    preferredInputType: value.preferredInputType,
-    preferredInterfaceMasquerade: value.preferredInterfaceMasquerade,
-    preferredInterfaceModel: value.preferredInterfaceModel,
-    preferredLunBus: value.preferredLunBus,
-    preferredNetworkInterfaceMultiQueue: value.preferredNetworkInterfaceMultiQueue,
-    preferredPanicDeviceModel: value.preferredPanicDeviceModel,
-    preferredRng: value.preferredRng,
-    preferredSoundModel: value.preferredSoundModel,
-    preferredTPM: V1TPMDeviceToJSON(value.preferredTPM),
-    preferredUseVirtioTransitional: value.preferredUseVirtioTransitional,
-    preferredVirtualGPUOptions: V1VGPUOptionsToJSON(value.preferredVirtualGPUOptions),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1DevicePreferences interface.
+ */

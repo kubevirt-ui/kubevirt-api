@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace. Directly attached to the vmi via qemu. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
  * @export
@@ -39,38 +38,6 @@ export interface V1PersistentVolumeClaimVolumeSource {
   readOnly?: boolean;
 }
 
-export function V1PersistentVolumeClaimVolumeSourceFromJSON(
-  json: any,
-): V1PersistentVolumeClaimVolumeSource {
-  return V1PersistentVolumeClaimVolumeSourceFromJSONTyped(json, false);
-}
-
-export function V1PersistentVolumeClaimVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1PersistentVolumeClaimVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    claimName: json['claimName'],
-    hotpluggable: !exists(json, 'hotpluggable') ? undefined : json['hotpluggable'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-  };
-}
-
-export function V1PersistentVolumeClaimVolumeSourceToJSON(
-  value?: V1PersistentVolumeClaimVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    claimName: value.claimName,
-    hotpluggable: value.hotpluggable,
-    readOnly: value.readOnly,
-  };
-}
+/**
+ * Check if a given object implements the V1PersistentVolumeClaimVolumeSource interface.
+ */

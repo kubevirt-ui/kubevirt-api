@@ -12,19 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApiCoreV1NodeAffinity,
-  K8sIoApiCoreV1NodeAffinityFromJSON,
-  K8sIoApiCoreV1NodeAffinityToJSON,
-  K8sIoApiCoreV1PodAffinity,
-  K8sIoApiCoreV1PodAffinityFromJSON,
-  K8sIoApiCoreV1PodAffinityToJSON,
-  K8sIoApiCoreV1PodAntiAffinity,
-  K8sIoApiCoreV1PodAntiAffinityFromJSON,
-  K8sIoApiCoreV1PodAntiAffinityToJSON,
-} from './';
-
+import type { K8sIoApiCoreV1NodeAffinity } from './K8sIoApiCoreV1NodeAffinity';
+import type { K8sIoApiCoreV1PodAffinity } from './K8sIoApiCoreV1PodAffinity';
+import type { K8sIoApiCoreV1PodAntiAffinity } from './K8sIoApiCoreV1PodAntiAffinity';
 /**
  * Affinity is a group of affinity scheduling rules.
  * @export
@@ -51,40 +41,6 @@ export interface K8sIoApiCoreV1Affinity {
   podAntiAffinity?: K8sIoApiCoreV1PodAntiAffinity;
 }
 
-export function K8sIoApiCoreV1AffinityFromJSON(json: any): K8sIoApiCoreV1Affinity {
-  return K8sIoApiCoreV1AffinityFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1AffinityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApiCoreV1Affinity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    nodeAffinity: !exists(json, 'nodeAffinity')
-      ? undefined
-      : K8sIoApiCoreV1NodeAffinityFromJSON(json['nodeAffinity']),
-    podAffinity: !exists(json, 'podAffinity')
-      ? undefined
-      : K8sIoApiCoreV1PodAffinityFromJSON(json['podAffinity']),
-    podAntiAffinity: !exists(json, 'podAntiAffinity')
-      ? undefined
-      : K8sIoApiCoreV1PodAntiAffinityFromJSON(json['podAntiAffinity']),
-  };
-}
-
-export function K8sIoApiCoreV1AffinityToJSON(value?: K8sIoApiCoreV1Affinity | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    nodeAffinity: K8sIoApiCoreV1NodeAffinityToJSON(value.nodeAffinity),
-    podAffinity: K8sIoApiCoreV1PodAffinityToJSON(value.podAffinity),
-    podAntiAffinity: K8sIoApiCoreV1PodAntiAffinityToJSON(value.podAntiAffinity),
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApiCoreV1Affinity interface.
+ */

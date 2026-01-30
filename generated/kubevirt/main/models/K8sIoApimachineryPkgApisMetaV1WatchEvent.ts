@@ -70,6 +70,17 @@ export interface K8sIoApimachineryPkgApisMetaV1WatchEvent {
     type: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1WatchEvent interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1WatchEvent(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "object" in value;
+    isInstance = isInstance && "type" in value;
+
+    return isInstance;
+}
+
 export function K8sIoApimachineryPkgApisMetaV1WatchEventFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1WatchEvent {
     return K8sIoApimachineryPkgApisMetaV1WatchEventFromJSONTyped(json, false);
 }

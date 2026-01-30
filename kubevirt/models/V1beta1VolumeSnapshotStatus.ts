@@ -12,9 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1beta1Error, V1beta1ErrorFromJSON, V1beta1ErrorToJSON } from './';
-
+import type { V1beta1Error } from './V1beta1Error';
 /**
  * VolumeSnapshotStatus is the status of a VolumeSnapshot
  * @export
@@ -47,36 +45,6 @@ export interface V1beta1VolumeSnapshotStatus {
   volumeSnapshotName: string;
 }
 
-export function V1beta1VolumeSnapshotStatusFromJSON(json: any): V1beta1VolumeSnapshotStatus {
-  return V1beta1VolumeSnapshotStatusFromJSONTyped(json, false);
-}
-
-export function V1beta1VolumeSnapshotStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VolumeSnapshotStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    creationTime: !exists(json, 'creationTime') ? undefined : json['creationTime'],
-    error: !exists(json, 'error') ? undefined : V1beta1ErrorFromJSON(json['error']),
-    readyToUse: !exists(json, 'readyToUse') ? undefined : json['readyToUse'],
-    volumeSnapshotName: json['volumeSnapshotName'],
-  };
-}
-
-export function V1beta1VolumeSnapshotStatusToJSON(value?: V1beta1VolumeSnapshotStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    creationTime: value.creationTime === undefined ? undefined : value.creationTime,
-    error: V1beta1ErrorToJSON(value.error),
-    readyToUse: value.readyToUse,
-    volumeSnapshotName: value.volumeSnapshotName,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VolumeSnapshotStatus interface.
+ */

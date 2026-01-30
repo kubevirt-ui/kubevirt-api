@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -39,34 +38,6 @@ export interface V1VolumeSnapshotStatus {
   reason?: string;
 }
 
-export function V1VolumeSnapshotStatusFromJSON(json: any): V1VolumeSnapshotStatus {
-  return V1VolumeSnapshotStatusFromJSONTyped(json, false);
-}
-
-export function V1VolumeSnapshotStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VolumeSnapshotStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    enabled: json['enabled'],
-    name: json['name'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-  };
-}
-
-export function V1VolumeSnapshotStatusToJSON(value?: V1VolumeSnapshotStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    enabled: value.enabled,
-    name: value.name,
-    reason: value.reason,
-  };
-}
+/**
+ * Check if a given object implements the V1VolumeSnapshotStatus interface.
+ */

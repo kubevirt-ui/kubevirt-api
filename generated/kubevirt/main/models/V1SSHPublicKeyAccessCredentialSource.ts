@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1AccessCredentialSecretSource } from './V1AccessCredentialSecretSource';
 import {
-    V1AccessCredentialSecretSource,
     V1AccessCredentialSecretSourceFromJSON,
     V1AccessCredentialSecretSourceFromJSONTyped,
     V1AccessCredentialSecretSourceToJSON,
-} from './';
+} from './V1AccessCredentialSecretSource';
 
 /**
  * SSHPublicKeyAccessCredentialSource represents where to retrieve the ssh key credentials Only one of its members may be specified.
@@ -32,6 +32,15 @@ export interface V1SSHPublicKeyAccessCredentialSource {
      * @memberof V1SSHPublicKeyAccessCredentialSource
      */
     secret?: V1AccessCredentialSecretSource;
+}
+
+/**
+ * Check if a given object implements the V1SSHPublicKeyAccessCredentialSource interface.
+ */
+export function instanceOfV1SSHPublicKeyAccessCredentialSource(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1SSHPublicKeyAccessCredentialSourceFromJSON(json: any): V1SSHPublicKeyAccessCredentialSource {

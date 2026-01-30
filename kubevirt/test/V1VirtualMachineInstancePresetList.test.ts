@@ -7,7 +7,7 @@ export const testObject: V1VirtualMachineInstancePresetList = {
     {
       spec: {
         selector: {
-          matchLabels: { 'preset': 'my-preset' },
+          matchLabels: { preset: 'my-preset' },
         },
       },
     },

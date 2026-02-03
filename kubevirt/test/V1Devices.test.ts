@@ -1,0 +1,35 @@
+import { V1Devices } from '../models/V1Devices';
+
+export const testObject: V1Devices = {
+  autoattachGraphicsDevice: true,
+  autoattachInputDevice: true,
+  autoattachMemBalloon: true,
+  autoattachPodInterface: true,
+  autoattachSerialConsole: true,
+  autoattachVSOCK: false,
+  blockMultiQueue: false,
+  clientPassthrough: {},
+  disableHotplug: false,
+  disks: [
+    {
+      name: 'rootdisk',
+      disk: { bus: 'virtio' },
+      bootOrder: 1,
+    },
+  ],
+  downwardMetrics: {},
+  filesystems: [],
+  gpus: [{ name: 'gpu0', deviceName: 'nvidia.com/TU104GL' }],
+  hostDevices: [],
+  inputs: [{ name: 'tablet', type: 'tablet', bus: 'usb' }],
+  interfaces: [{ name: 'default', masquerade: {} }],
+  logSerialConsole: true,
+  networkInterfaceMultiqueue: true,
+  panicDevices: [],
+  rng: {},
+  sound: { name: 'sound0', model: 'ich9' },
+  tpm: { enabled: true, persistent: true },
+  useVirtioTransitional: false,
+  video: {},
+  watchdog: { name: 'watchdog', i6300esb: { action: 'reset' } },
+};

@@ -39,6 +39,17 @@ export interface K8sIoApiCoreV1TypedLocalObjectReference {
     name: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApiCoreV1TypedLocalObjectReference interface.
+ */
+export function instanceOfK8sIoApiCoreV1TypedLocalObjectReference(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "kind" in value;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
+}
+
 export function K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json: any): K8sIoApiCoreV1TypedLocalObjectReference {
     return K8sIoApiCoreV1TypedLocalObjectReferenceFromJSONTyped(json, false);
 }

@@ -33,6 +33,17 @@ export interface K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery {
     version: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "groupVersion" in value;
+    isInstance = isInstance && "version" in value;
+
+    return isInstance;
+}
+
 export function K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery {
     return K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSONTyped(json, false);
 }

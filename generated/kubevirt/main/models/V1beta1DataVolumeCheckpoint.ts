@@ -33,6 +33,17 @@ export interface V1beta1DataVolumeCheckpoint {
     previous: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1DataVolumeCheckpoint interface.
+ */
+export function instanceOfV1beta1DataVolumeCheckpoint(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "current" in value;
+    isInstance = isInstance && "previous" in value;
+
+    return isInstance;
+}
+
 export function V1beta1DataVolumeCheckpointFromJSON(json: any): V1beta1DataVolumeCheckpoint {
     return V1beta1DataVolumeCheckpointFromJSONTyped(json, false);
 }

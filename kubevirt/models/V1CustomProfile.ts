@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -33,34 +32,6 @@ export interface V1CustomProfile {
   runtimeDefaultProfile?: boolean;
 }
 
-export function V1CustomProfileFromJSON(json: any): V1CustomProfile {
-  return V1CustomProfileFromJSONTyped(json, false);
-}
-
-export function V1CustomProfileFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1CustomProfile {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    localhostProfile: !exists(json, 'localhostProfile') ? undefined : json['localhostProfile'],
-    runtimeDefaultProfile: !exists(json, 'runtimeDefaultProfile')
-      ? undefined
-      : json['runtimeDefaultProfile'],
-  };
-}
-
-export function V1CustomProfileToJSON(value?: V1CustomProfile | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    localhostProfile: value.localhostProfile,
-    runtimeDefaultProfile: value.runtimeDefaultProfile,
-  };
-}
+/**
+ * Check if a given object implements the V1CustomProfile interface.
+ */

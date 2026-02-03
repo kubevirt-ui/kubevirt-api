@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1VolumeMigrationState } from './V1VolumeMigrationState';
 import {
-    V1VolumeMigrationState,
     V1VolumeMigrationStateFromJSON,
     V1VolumeMigrationStateFromJSONTyped,
     V1VolumeMigrationStateToJSON,
-} from './';
+} from './V1VolumeMigrationState';
 
 /**
  * 
@@ -32,6 +32,15 @@ export interface V1VolumeUpdateState {
      * @memberof V1VolumeUpdateState
      */
     volumeMigrationState?: V1VolumeMigrationState;
+}
+
+/**
+ * Check if a given object implements the V1VolumeUpdateState interface.
+ */
+export function instanceOfV1VolumeUpdateState(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1VolumeUpdateStateFromJSON(json: any): V1VolumeUpdateState {

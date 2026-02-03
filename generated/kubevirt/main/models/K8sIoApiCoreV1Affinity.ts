@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1NodeAffinity } from './K8sIoApiCoreV1NodeAffinity';
 import {
-    K8sIoApiCoreV1NodeAffinity,
     K8sIoApiCoreV1NodeAffinityFromJSON,
     K8sIoApiCoreV1NodeAffinityFromJSONTyped,
     K8sIoApiCoreV1NodeAffinityToJSON,
-    K8sIoApiCoreV1PodAffinity,
+} from './K8sIoApiCoreV1NodeAffinity';
+import type { K8sIoApiCoreV1PodAffinity } from './K8sIoApiCoreV1PodAffinity';
+import {
     K8sIoApiCoreV1PodAffinityFromJSON,
     K8sIoApiCoreV1PodAffinityFromJSONTyped,
     K8sIoApiCoreV1PodAffinityToJSON,
-    K8sIoApiCoreV1PodAntiAffinity,
+} from './K8sIoApiCoreV1PodAffinity';
+import type { K8sIoApiCoreV1PodAntiAffinity } from './K8sIoApiCoreV1PodAntiAffinity';
+import {
     K8sIoApiCoreV1PodAntiAffinityFromJSON,
     K8sIoApiCoreV1PodAntiAffinityFromJSONTyped,
     K8sIoApiCoreV1PodAntiAffinityToJSON,
-} from './';
+} from './K8sIoApiCoreV1PodAntiAffinity';
 
 /**
  * Affinity is a group of affinity scheduling rules.
@@ -52,6 +56,15 @@ export interface K8sIoApiCoreV1Affinity {
      * @memberof K8sIoApiCoreV1Affinity
      */
     podAntiAffinity?: K8sIoApiCoreV1PodAntiAffinity;
+}
+
+/**
+ * Check if a given object implements the K8sIoApiCoreV1Affinity interface.
+ */
+export function instanceOfK8sIoApiCoreV1Affinity(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function K8sIoApiCoreV1AffinityFromJSON(json: any): K8sIoApiCoreV1Affinity {

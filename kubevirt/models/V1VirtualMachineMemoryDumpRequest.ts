@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * VirtualMachineMemoryDumpRequest represent the memory dump request phase and info
  * @export
@@ -63,46 +62,6 @@ export interface V1VirtualMachineMemoryDumpRequest {
   startTimestamp?: string;
 }
 
-export function V1VirtualMachineMemoryDumpRequestFromJSON(
-  json: any,
-): V1VirtualMachineMemoryDumpRequest {
-  return V1VirtualMachineMemoryDumpRequestFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineMemoryDumpRequestFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineMemoryDumpRequest {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    claimName: json['claimName'],
-    endTimestamp: !exists(json, 'endTimestamp') ? undefined : json['endTimestamp'],
-    fileName: !exists(json, 'fileName') ? undefined : json['fileName'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    phase: json['phase'],
-    remove: !exists(json, 'remove') ? undefined : json['remove'],
-    startTimestamp: !exists(json, 'startTimestamp') ? undefined : json['startTimestamp'],
-  };
-}
-
-export function V1VirtualMachineMemoryDumpRequestToJSON(
-  value?: V1VirtualMachineMemoryDumpRequest | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    claimName: value.claimName,
-    endTimestamp: value.endTimestamp === undefined ? undefined : value.endTimestamp,
-    fileName: value.fileName,
-    message: value.message,
-    phase: value.phase,
-    remove: value.remove,
-    startTimestamp: value.startTimestamp === undefined ? undefined : value.startTimestamp,
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineMemoryDumpRequest interface.
+ */

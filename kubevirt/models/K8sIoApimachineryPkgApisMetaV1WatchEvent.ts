@@ -69,36 +69,6 @@ export interface K8sIoApimachineryPkgApisMetaV1WatchEvent {
   type: string;
 }
 
-export function K8sIoApimachineryPkgApisMetaV1WatchEventFromJSON(
-  json: any,
-): K8sIoApimachineryPkgApisMetaV1WatchEvent {
-  return K8sIoApimachineryPkgApisMetaV1WatchEventFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1WatchEventFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApimachineryPkgApisMetaV1WatchEvent {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    object: json['object'],
-    type: json['type'],
-  };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1WatchEventToJSON(
-  value?: K8sIoApimachineryPkgApisMetaV1WatchEvent | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    object: value.object,
-    type: value.type,
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1WatchEvent interface.
+ */

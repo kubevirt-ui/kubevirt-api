@@ -12,15 +12,8 @@
  * Do not edit the class manually.
  */
 
-import {
-  V1SSHPublicKeyAccessCredentialPropagationMethod,
-  V1SSHPublicKeyAccessCredentialPropagationMethodFromJSON,
-  V1SSHPublicKeyAccessCredentialPropagationMethodToJSON,
-  V1SSHPublicKeyAccessCredentialSource,
-  V1SSHPublicKeyAccessCredentialSourceFromJSON,
-  V1SSHPublicKeyAccessCredentialSourceToJSON,
-} from './';
-
+import type { V1SSHPublicKeyAccessCredentialPropagationMethod } from './V1SSHPublicKeyAccessCredentialPropagationMethod';
+import type { V1SSHPublicKeyAccessCredentialSource } from './V1SSHPublicKeyAccessCredentialSource';
 /**
  * SSHPublicKeyAccessCredential represents a source and propagation method for injecting ssh public keys into a vm guest
  * @export
@@ -41,38 +34,6 @@ export interface V1SSHPublicKeyAccessCredential {
   source: V1SSHPublicKeyAccessCredentialSource;
 }
 
-export function V1SSHPublicKeyAccessCredentialFromJSON(json: any): V1SSHPublicKeyAccessCredential {
-  return V1SSHPublicKeyAccessCredentialFromJSONTyped(json, false);
-}
-
-export function V1SSHPublicKeyAccessCredentialFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1SSHPublicKeyAccessCredential {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    propagationMethod: V1SSHPublicKeyAccessCredentialPropagationMethodFromJSON(
-      json['propagationMethod'],
-    ),
-    source: V1SSHPublicKeyAccessCredentialSourceFromJSON(json['source']),
-  };
-}
-
-export function V1SSHPublicKeyAccessCredentialToJSON(
-  value?: V1SSHPublicKeyAccessCredential | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    propagationMethod: V1SSHPublicKeyAccessCredentialPropagationMethodToJSON(
-      value.propagationMethod,
-    ),
-    source: V1SSHPublicKeyAccessCredentialSourceToJSON(value.source),
-  };
-}
+/**
+ * Check if a given object implements the V1SSHPublicKeyAccessCredential interface.
+ */

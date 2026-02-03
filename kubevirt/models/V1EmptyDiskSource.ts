@@ -62,30 +62,6 @@ export interface V1EmptyDiskSource {
   capacity: string;
 }
 
-export function V1EmptyDiskSourceFromJSON(json: any): V1EmptyDiskSource {
-  return V1EmptyDiskSourceFromJSONTyped(json, false);
-}
-
-export function V1EmptyDiskSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1EmptyDiskSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    capacity: json['capacity'],
-  };
-}
-
-export function V1EmptyDiskSourceToJSON(value?: V1EmptyDiskSource | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    capacity: value.capacity,
-  };
-}
+/**
+ * Check if a given object implements the V1EmptyDiskSource interface.
+ */

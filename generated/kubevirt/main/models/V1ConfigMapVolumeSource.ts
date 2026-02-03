@@ -39,6 +39,15 @@ export interface V1ConfigMapVolumeSource {
     volumeLabel?: string;
 }
 
+/**
+ * Check if a given object implements the V1ConfigMapVolumeSource interface.
+ */
+export function instanceOfV1ConfigMapVolumeSource(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ConfigMapVolumeSourceFromJSON(json: any): V1ConfigMapVolumeSource {
     return V1ConfigMapVolumeSourceFromJSONTyped(json, false);
 }

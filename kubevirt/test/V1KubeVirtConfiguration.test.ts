@@ -1,4 +1,7 @@
-import { V1KubeVirtConfiguration, V1KubeVirtConfigurationImagePullPolicyEnum } from '../models/V1KubeVirtConfiguration';
+import {
+  V1KubeVirtConfiguration,
+  V1KubeVirtConfigurationImagePullPolicyEnum,
+} from '../models/V1KubeVirtConfiguration';
 
 export const testObject: V1KubeVirtConfiguration = {
   cpuModel: 'host-model',

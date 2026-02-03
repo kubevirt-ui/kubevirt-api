@@ -27,6 +27,15 @@ export interface V1FeatureKVM {
     hidden?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1FeatureKVM interface.
+ */
+export function instanceOfV1FeatureKVM(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1FeatureKVMFromJSON(json: any): V1FeatureKVM {
     return V1FeatureKVMFromJSONTyped(json, false);
 }

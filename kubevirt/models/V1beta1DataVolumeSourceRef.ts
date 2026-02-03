@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * DataVolumeSourceRef defines an indirect reference to the source of data for the DataVolume
  * @export
@@ -39,34 +38,6 @@ export interface V1beta1DataVolumeSourceRef {
   namespace?: string;
 }
 
-export function V1beta1DataVolumeSourceRefFromJSON(json: any): V1beta1DataVolumeSourceRef {
-  return V1beta1DataVolumeSourceRefFromJSONTyped(json, false);
-}
-
-export function V1beta1DataVolumeSourceRefFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataVolumeSourceRef {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    kind: json['kind'],
-    name: json['name'],
-    namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
-  };
-}
-
-export function V1beta1DataVolumeSourceRefToJSON(value?: V1beta1DataVolumeSourceRef | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    kind: value.kind,
-    name: value.name,
-    namespace: value.namespace,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1DataVolumeSourceRef interface.
+ */

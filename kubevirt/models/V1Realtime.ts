@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Realtime holds the tuning knobs specific for realtime workloads.
  * @export
@@ -27,27 +26,6 @@ export interface V1Realtime {
   mask?: string;
 }
 
-export function V1RealtimeFromJSON(json: any): V1Realtime {
-  return V1RealtimeFromJSONTyped(json, false);
-}
-
-export function V1RealtimeFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Realtime {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    mask: !exists(json, 'mask') ? undefined : json['mask'],
-  };
-}
-
-export function V1RealtimeToJSON(value?: V1Realtime | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    mask: value.mask,
-  };
-}
+/**
+ * Check if a given object implements the V1Realtime interface.
+ */

@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1MultusNetwork,
-  V1MultusNetworkFromJSON,
-  V1MultusNetworkToJSON,
-  V1PodNetwork,
-  V1PodNetworkFromJSON,
-  V1PodNetworkToJSON,
-} from './';
-
+import type { V1MultusNetwork } from './V1MultusNetwork';
+import type { V1PodNetwork } from './V1PodNetwork';
 /**
  * Network represents a network type and a resource that should be connected to the vm.
  * @export
@@ -48,31 +40,6 @@ export interface V1Network {
   pod?: V1PodNetwork;
 }
 
-export function V1NetworkFromJSON(json: any): V1Network {
-  return V1NetworkFromJSONTyped(json, false);
-}
-
-export function V1NetworkFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Network {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    multus: !exists(json, 'multus') ? undefined : V1MultusNetworkFromJSON(json['multus']),
-    name: json['name'],
-    pod: !exists(json, 'pod') ? undefined : V1PodNetworkFromJSON(json['pod']),
-  };
-}
-
-export function V1NetworkToJSON(value?: V1Network | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    multus: V1MultusNetworkToJSON(value.multus),
-    name: value.name,
-    pod: V1PodNetworkToJSON(value.pod),
-  };
-}
+/**
+ * Check if a given object implements the V1Network interface.
+ */

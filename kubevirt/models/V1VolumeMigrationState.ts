@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1StorageMigratedVolumeInfo,
-  V1StorageMigratedVolumeInfoFromJSON,
-  V1StorageMigratedVolumeInfoToJSON,
-} from './';
-
+import type { V1StorageMigratedVolumeInfo } from './V1StorageMigratedVolumeInfo';
 /**
  *
  * @export
@@ -33,35 +27,6 @@ export interface V1VolumeMigrationState {
   migratedVolumes?: Array<V1StorageMigratedVolumeInfo>;
 }
 
-export function V1VolumeMigrationStateFromJSON(json: any): V1VolumeMigrationState {
-  return V1VolumeMigrationStateFromJSONTyped(json, false);
-}
-
-export function V1VolumeMigrationStateFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VolumeMigrationState {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    migratedVolumes: !exists(json, 'migratedVolumes')
-      ? undefined
-      : (json['migratedVolumes'] as Array<any>).map(V1StorageMigratedVolumeInfoFromJSON),
-  };
-}
-
-export function V1VolumeMigrationStateToJSON(value?: V1VolumeMigrationState | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    migratedVolumes:
-      value.migratedVolumes === undefined
-        ? undefined
-        : (value.migratedVolumes as Array<any>).map(V1StorageMigratedVolumeInfoToJSON),
-  };
-}
+/**
+ * Check if a given object implements the V1VolumeMigrationState interface.
+ */

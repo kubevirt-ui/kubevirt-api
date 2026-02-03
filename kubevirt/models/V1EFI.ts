@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * If set, EFI will be used instead of BIOS.
  * @export
@@ -33,29 +32,6 @@ export interface V1EFI {
   secureBoot?: boolean;
 }
 
-export function V1EFIFromJSON(json: any): V1EFI {
-  return V1EFIFromJSONTyped(json, false);
-}
-
-export function V1EFIFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1EFI {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    persistent: !exists(json, 'persistent') ? undefined : json['persistent'],
-    secureBoot: !exists(json, 'secureBoot') ? undefined : json['secureBoot'],
-  };
-}
-
-export function V1EFIToJSON(value?: V1EFI | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    persistent: value.persistent,
-    secureBoot: value.secureBoot,
-  };
-}
+/**
+ * Check if a given object implements the V1EFI interface.
+ */

@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery,
-  K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSON,
-  K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryToJSON,
-  K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR,
-  K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery } from './K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery';
+import type { K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR } from './K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR';
 /**
  * APIGroup contains the name, the supported versions, and the preferred version of a group.
  * @export
@@ -66,61 +58,6 @@ export interface K8sIoApimachineryPkgApisMetaV1APIGroup {
   versions: Array<K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery>;
 }
 
-export function K8sIoApimachineryPkgApisMetaV1APIGroupFromJSON(
-  json: any,
-): K8sIoApimachineryPkgApisMetaV1APIGroup {
-  return K8sIoApimachineryPkgApisMetaV1APIGroupFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1APIGroupFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApimachineryPkgApisMetaV1APIGroup {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    name: json['name'],
-    preferredVersion: !exists(json, 'preferredVersion')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSON(json['preferredVersion']),
-    serverAddressByClientCIDRs: !exists(json, 'serverAddressByClientCIDRs')
-      ? undefined
-      : (json['serverAddressByClientCIDRs'] as Array<any>).map(
-          K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSON,
-        ),
-    versions: (json['versions'] as Array<any>).map(
-      K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSON,
-    ),
-  };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1APIGroupToJSON(
-  value?: K8sIoApimachineryPkgApisMetaV1APIGroup | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    name: value.name,
-    preferredVersion: K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryToJSON(
-      value.preferredVersion,
-    ),
-    serverAddressByClientCIDRs:
-      value.serverAddressByClientCIDRs === undefined
-        ? undefined
-        : (value.serverAddressByClientCIDRs as Array<any>).map(
-            K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRToJSON,
-          ),
-    versions: (value.versions as Array<any>).map(
-      K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryToJSON,
-    ),
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1APIGroup interface.
+ */

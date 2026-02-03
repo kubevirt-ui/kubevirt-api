@@ -32,36 +32,6 @@ export interface V1beta1VirtualMachineExportManifest {
   url: string;
 }
 
-export function V1beta1VirtualMachineExportManifestFromJSON(
-  json: any,
-): V1beta1VirtualMachineExportManifest {
-  return V1beta1VirtualMachineExportManifestFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineExportManifestFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineExportManifest {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    type: json['type'],
-    url: json['url'],
-  };
-}
-
-export function V1beta1VirtualMachineExportManifestToJSON(
-  value?: V1beta1VirtualMachineExportManifest | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    type: value.type,
-    url: value.url,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineExportManifest interface.
+ */

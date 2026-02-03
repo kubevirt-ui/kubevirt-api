@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApiCoreV1PersistentVolumeClaimSpec,
-  K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSON,
-  K8sIoApiCoreV1PersistentVolumeClaimSpecToJSON,
-  K8sIoApimachineryPkgApisMetaV1ObjectMeta,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-} from './';
-
+import type { K8sIoApiCoreV1PersistentVolumeClaimSpec } from './K8sIoApiCoreV1PersistentVolumeClaimSpec';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 /**
  *
  * @export
@@ -42,38 +34,6 @@ export interface V1beta1PersistentVolumeClaim {
   spec?: K8sIoApiCoreV1PersistentVolumeClaimSpec;
 }
 
-export function V1beta1PersistentVolumeClaimFromJSON(json: any): V1beta1PersistentVolumeClaim {
-  return V1beta1PersistentVolumeClaimFromJSONTyped(json, false);
-}
-
-export function V1beta1PersistentVolumeClaimFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1PersistentVolumeClaim {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec')
-      ? undefined
-      : K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSON(json['spec']),
-  };
-}
-
-export function V1beta1PersistentVolumeClaimToJSON(
-  value?: V1beta1PersistentVolumeClaim | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    metadata: K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: K8sIoApiCoreV1PersistentVolumeClaimSpecToJSON(value.spec),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1PersistentVolumeClaim interface.
+ */

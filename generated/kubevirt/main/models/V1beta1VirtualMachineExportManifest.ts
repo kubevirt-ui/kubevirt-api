@@ -33,6 +33,17 @@ export interface V1beta1VirtualMachineExportManifest {
     url: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1VirtualMachineExportManifest interface.
+ */
+export function instanceOfV1beta1VirtualMachineExportManifest(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "type" in value;
+    isInstance = isInstance && "url" in value;
+
+    return isInstance;
+}
+
 export function V1beta1VirtualMachineExportManifestFromJSON(json: any): V1beta1VirtualMachineExportManifest {
     return V1beta1VirtualMachineExportManifestFromJSONTyped(json, false);
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -39,31 +38,6 @@ export interface V1RTCTimer {
   track?: string;
 }
 
-export function V1RTCTimerFromJSON(json: any): V1RTCTimer {
-  return V1RTCTimerFromJSONTyped(json, false);
-}
-
-export function V1RTCTimerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1RTCTimer {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    present: !exists(json, 'present') ? undefined : json['present'],
-    tickPolicy: !exists(json, 'tickPolicy') ? undefined : json['tickPolicy'],
-    track: !exists(json, 'track') ? undefined : json['track'],
-  };
-}
-
-export function V1RTCTimerToJSON(value?: V1RTCTimer | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    present: value.present,
-    tickPolicy: value.tickPolicy,
-    track: value.track,
-  };
-}
+/**
+ * Check if a given object implements the V1RTCTimer interface.
+ */

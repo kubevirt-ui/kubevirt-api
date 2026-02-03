@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * CPUFeature allows specifying a CPU feature.
  * @export
@@ -33,29 +32,6 @@ export interface V1CPUFeature {
   policy?: string;
 }
 
-export function V1CPUFeatureFromJSON(json: any): V1CPUFeature {
-  return V1CPUFeatureFromJSONTyped(json, false);
-}
-
-export function V1CPUFeatureFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1CPUFeature {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    policy: !exists(json, 'policy') ? undefined : json['policy'],
-  };
-}
-
-export function V1CPUFeatureToJSON(value?: V1CPUFeature | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    policy: value.policy,
-  };
-}
+/**
+ * Check if a given object implements the V1CPUFeature interface.
+ */

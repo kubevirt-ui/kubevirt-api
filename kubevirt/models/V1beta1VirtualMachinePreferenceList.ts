@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ListMeta,
-  K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-  V1beta1VirtualMachinePreference,
-  V1beta1VirtualMachinePreferenceFromJSON,
-  V1beta1VirtualMachinePreferenceToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1beta1VirtualMachinePreference } from './V1beta1VirtualMachinePreference';
 /**
  * VirtualMachinePreferenceList is a list of VirtualMachinePreference resources.
  * @export
@@ -54,42 +46,6 @@ export interface V1beta1VirtualMachinePreferenceList {
   metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
 
-export function V1beta1VirtualMachinePreferenceListFromJSON(
-  json: any,
-): V1beta1VirtualMachinePreferenceList {
-  return V1beta1VirtualMachinePreferenceListFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachinePreferenceListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachinePreferenceList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1beta1VirtualMachinePreferenceFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function V1beta1VirtualMachinePreferenceListToJSON(
-  value?: V1beta1VirtualMachinePreferenceList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1beta1VirtualMachinePreferenceToJSON),
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachinePreferenceList interface.
+ */

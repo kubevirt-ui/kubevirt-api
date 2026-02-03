@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1beta1VirtualMachineExportLink } from './V1beta1VirtualMachineExportLink';
 import {
-    V1beta1VirtualMachineExportLink,
     V1beta1VirtualMachineExportLinkFromJSON,
     V1beta1VirtualMachineExportLinkFromJSONTyped,
     V1beta1VirtualMachineExportLinkToJSON,
-} from './';
+} from './V1beta1VirtualMachineExportLink';
 
 /**
  * VirtualMachineExportLinks contains the links that point the exported VM resources
@@ -38,6 +38,15 @@ export interface V1beta1VirtualMachineExportLinks {
      * @memberof V1beta1VirtualMachineExportLinks
      */
     internal?: V1beta1VirtualMachineExportLink;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineExportLinks interface.
+ */
+export function instanceOfV1beta1VirtualMachineExportLinks(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineExportLinksFromJSON(json: any): V1beta1VirtualMachineExportLinks {

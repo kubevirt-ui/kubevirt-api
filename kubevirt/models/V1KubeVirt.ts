@@ -12,19 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ObjectMeta,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-  V1KubeVirtSpec,
-  V1KubeVirtSpecFromJSON,
-  V1KubeVirtSpecToJSON,
-  V1KubeVirtStatus,
-  V1KubeVirtStatusFromJSON,
-  V1KubeVirtStatusToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1KubeVirtSpec } from './V1KubeVirtSpec';
+import type { V1KubeVirtStatus } from './V1KubeVirtStatus';
 /**
  * KubeVirt represents the object deploying all KubeVirt resources
  * @export
@@ -63,37 +53,6 @@ export interface V1KubeVirt {
   status?: V1KubeVirtStatus;
 }
 
-export function V1KubeVirtFromJSON(json: any): V1KubeVirt {
-  return V1KubeVirtFromJSONTyped(json, false);
-}
-
-export function V1KubeVirtFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KubeVirt {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: V1KubeVirtSpecFromJSON(json['spec']),
-    status: !exists(json, 'status') ? undefined : V1KubeVirtStatusFromJSON(json['status']),
-  };
-}
-
-export function V1KubeVirtToJSON(value?: V1KubeVirt | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: V1KubeVirtSpecToJSON(value.spec),
-    status: V1KubeVirtStatusToJSON(value.status),
-  };
-}
+/**
+ * Check if a given object implements the V1KubeVirt interface.
+ */

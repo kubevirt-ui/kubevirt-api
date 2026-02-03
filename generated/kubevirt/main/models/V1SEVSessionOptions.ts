@@ -33,6 +33,15 @@ export interface V1SEVSessionOptions {
     session?: string;
 }
 
+/**
+ * Check if a given object implements the V1SEVSessionOptions interface.
+ */
+export function instanceOfV1SEVSessionOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1SEVSessionOptionsFromJSON(json: any): V1SEVSessionOptions {
     return V1SEVSessionOptionsFromJSONTyped(json, false);
 }

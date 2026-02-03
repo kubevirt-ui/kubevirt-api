@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1DeviceStatusInfo } from './V1DeviceStatusInfo';
 import {
-    V1DeviceStatusInfo,
     V1DeviceStatusInfoFromJSON,
     V1DeviceStatusInfoFromJSONTyped,
     V1DeviceStatusInfoToJSON,
-} from './';
+} from './V1DeviceStatusInfo';
 
 /**
  * DeviceStatus has the information of all devices allocated spec.domain.devices
@@ -38,6 +38,15 @@ export interface V1DeviceStatus {
      * @memberof V1DeviceStatus
      */
     hostDeviceStatuses?: Array<V1DeviceStatusInfo>;
+}
+
+/**
+ * Check if a given object implements the V1DeviceStatus interface.
+ */
+export function instanceOfV1DeviceStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1DeviceStatusFromJSON(json: any): V1DeviceStatus {

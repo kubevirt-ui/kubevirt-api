@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1InterfaceBindingMigration } from './V1InterfaceBindingMigration';
 import {
-    V1InterfaceBindingMigration,
     V1InterfaceBindingMigrationFromJSON,
     V1InterfaceBindingMigrationFromJSONTyped,
     V1InterfaceBindingMigrationToJSON,
-    V1ResourceRequirementsWithoutClaims,
+} from './V1InterfaceBindingMigration';
+import type { V1ResourceRequirementsWithoutClaims } from './V1ResourceRequirementsWithoutClaims';
+import {
     V1ResourceRequirementsWithoutClaimsFromJSON,
     V1ResourceRequirementsWithoutClaimsFromJSONTyped,
     V1ResourceRequirementsWithoutClaimsToJSON,
-} from './';
+} from './V1ResourceRequirementsWithoutClaims';
 
 /**
  * 
@@ -66,6 +68,15 @@ export interface V1InterfaceBindingPlugin {
      * @memberof V1InterfaceBindingPlugin
      */
     sidecarImage?: string;
+}
+
+/**
+ * Check if a given object implements the V1InterfaceBindingPlugin interface.
+ */
+export function instanceOfV1InterfaceBindingPlugin(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1InterfaceBindingPluginFromJSON(json: any): V1InterfaceBindingPlugin {

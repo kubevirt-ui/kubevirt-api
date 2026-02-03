@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ContainerDiskInfo shows info about the containerdisk
  * @export
@@ -27,30 +26,6 @@ export interface V1ContainerDiskInfo {
   checksum?: number;
 }
 
-export function V1ContainerDiskInfoFromJSON(json: any): V1ContainerDiskInfo {
-  return V1ContainerDiskInfoFromJSONTyped(json, false);
-}
-
-export function V1ContainerDiskInfoFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1ContainerDiskInfo {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    checksum: !exists(json, 'checksum') ? undefined : json['checksum'],
-  };
-}
-
-export function V1ContainerDiskInfoToJSON(value?: V1ContainerDiskInfo | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    checksum: value.checksum,
-  };
-}
+/**
+ * Check if a given object implements the V1ContainerDiskInfo interface.
+ */

@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1VolumeMigrationState,
-  V1VolumeMigrationStateFromJSON,
-  V1VolumeMigrationStateToJSON,
-} from './';
-
+import type { V1VolumeMigrationState } from './V1VolumeMigrationState';
 /**
  *
  * @export
@@ -33,32 +27,6 @@ export interface V1VolumeUpdateState {
   volumeMigrationState?: V1VolumeMigrationState;
 }
 
-export function V1VolumeUpdateStateFromJSON(json: any): V1VolumeUpdateState {
-  return V1VolumeUpdateStateFromJSONTyped(json, false);
-}
-
-export function V1VolumeUpdateStateFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VolumeUpdateState {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    volumeMigrationState: !exists(json, 'volumeMigrationState')
-      ? undefined
-      : V1VolumeMigrationStateFromJSON(json['volumeMigrationState']),
-  };
-}
-
-export function V1VolumeUpdateStateToJSON(value?: V1VolumeUpdateState | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    volumeMigrationState: V1VolumeMigrationStateToJSON(value.volumeMigrationState),
-  };
-}
+/**
+ * Check if a given object implements the V1VolumeUpdateState interface.
+ */

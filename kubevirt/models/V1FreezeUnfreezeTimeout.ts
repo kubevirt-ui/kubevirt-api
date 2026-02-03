@@ -26,30 +26,6 @@ export interface V1FreezeUnfreezeTimeout {
   unfreezeTimeout: string;
 }
 
-export function V1FreezeUnfreezeTimeoutFromJSON(json: any): V1FreezeUnfreezeTimeout {
-  return V1FreezeUnfreezeTimeoutFromJSONTyped(json, false);
-}
-
-export function V1FreezeUnfreezeTimeoutFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1FreezeUnfreezeTimeout {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    unfreezeTimeout: json['unfreezeTimeout'],
-  };
-}
-
-export function V1FreezeUnfreezeTimeoutToJSON(value?: V1FreezeUnfreezeTimeout | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    unfreezeTimeout: value.unfreezeTimeout,
-  };
-}
+/**
+ * Check if a given object implements the V1FreezeUnfreezeTimeout interface.
+ */

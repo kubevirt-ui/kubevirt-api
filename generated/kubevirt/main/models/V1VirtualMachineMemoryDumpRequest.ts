@@ -63,6 +63,17 @@ export interface V1VirtualMachineMemoryDumpRequest {
     startTimestamp?: string;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineMemoryDumpRequest interface.
+ */
+export function instanceOfV1VirtualMachineMemoryDumpRequest(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "claimName" in value;
+    isInstance = isInstance && "phase" in value;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineMemoryDumpRequestFromJSON(json: any): V1VirtualMachineMemoryDumpRequest {
     return V1VirtualMachineMemoryDumpRequestFromJSONTyped(json, false);
 }
@@ -74,12 +85,12 @@ export function V1VirtualMachineMemoryDumpRequestFromJSONTyped(json: any, ignore
     return {
         
         'claimName': json['claimName'],
-        'endTimestamp': !exists(json, 'endTimestamp') ? undefined : (new Date(json['endTimestamp'])),
+        'endTimestamp': !exists(json, 'endTimestamp') ? undefined : json['endTimestamp'],
         'fileName': !exists(json, 'fileName') ? undefined : json['fileName'],
         'message': !exists(json, 'message') ? undefined : json['message'],
         'phase': json['phase'],
         'remove': !exists(json, 'remove') ? undefined : json['remove'],
-        'startTimestamp': !exists(json, 'startTimestamp') ? undefined : (new Date(json['startTimestamp'])),
+        'startTimestamp': !exists(json, 'startTimestamp') ? undefined : json['startTimestamp'],
     };
 }
 
@@ -93,12 +104,12 @@ export function V1VirtualMachineMemoryDumpRequestToJSON(value?: V1VirtualMachine
     return {
         
         'claimName': value.claimName,
-        'endTimestamp': value.endTimestamp === undefined ? undefined : (value.endTimestamp.toISOString()),
+        'endTimestamp': value.endTimestamp,
         'fileName': value.fileName,
         'message': value.message,
         'phase': value.phase,
         'remove': value.remove,
-        'startTimestamp': value.startTimestamp === undefined ? undefined : (value.startTimestamp.toISOString()),
+        'startTimestamp': value.startTimestamp,
     };
 }
 

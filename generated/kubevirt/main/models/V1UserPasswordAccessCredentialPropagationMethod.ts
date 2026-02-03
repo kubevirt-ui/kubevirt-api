@@ -27,6 +27,15 @@ export interface V1UserPasswordAccessCredentialPropagationMethod {
     qemuGuestAgent?: object;
 }
 
+/**
+ * Check if a given object implements the V1UserPasswordAccessCredentialPropagationMethod interface.
+ */
+export function instanceOfV1UserPasswordAccessCredentialPropagationMethod(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1UserPasswordAccessCredentialPropagationMethodFromJSON(json: any): V1UserPasswordAccessCredentialPropagationMethod {
     return V1UserPasswordAccessCredentialPropagationMethodFromJSONTyped(json, false);
 }

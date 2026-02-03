@@ -33,6 +33,16 @@ export interface V1CPUFeature {
     policy?: string;
 }
 
+/**
+ * Check if a given object implements the V1CPUFeature interface.
+ */
+export function instanceOfV1CPUFeature(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
+}
+
 export function V1CPUFeatureFromJSON(json: any): V1CPUFeature {
     return V1CPUFeatureFromJSONTyped(json, false);
 }

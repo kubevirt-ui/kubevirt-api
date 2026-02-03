@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * StartOptions may be provided on start request.
  * @export
@@ -45,36 +44,6 @@ export interface V1StartOptions {
   paused?: boolean;
 }
 
-export function V1StartOptionsFromJSON(json: any): V1StartOptions {
-  return V1StartOptionsFromJSONTyped(json, false);
-}
-
-export function V1StartOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1StartOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    dryRun: !exists(json, 'dryRun') ? undefined : json['dryRun'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    paused: !exists(json, 'paused') ? undefined : json['paused'],
-  };
-}
-
-export function V1StartOptionsToJSON(value?: V1StartOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    dryRun: value.dryRun,
-    kind: value.kind,
-    paused: value.paused,
-  };
-}
+/**
+ * Check if a given object implements the V1StartOptions interface.
+ */

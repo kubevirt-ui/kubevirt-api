@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Represents a docker image with an embedded disk.
  * @export
@@ -52,44 +51,15 @@ export interface V1ContainerDiskSource {
 
 /**
  * @export
- * @enum {string}
  */
-export enum V1ContainerDiskSourceImagePullPolicyEnum {
-  Always = 'Always',
-  IfNotPresent = 'IfNotPresent',
-  Never = 'Never',
-}
+export const V1ContainerDiskSourceImagePullPolicyEnum = {
+  Always: 'Always',
+  IfNotPresent: 'IfNotPresent',
+  Never: 'Never',
+} as const;
+export type V1ContainerDiskSourceImagePullPolicyEnum =
+  typeof V1ContainerDiskSourceImagePullPolicyEnum[keyof typeof V1ContainerDiskSourceImagePullPolicyEnum];
 
-export function V1ContainerDiskSourceFromJSON(json: any): V1ContainerDiskSource {
-  return V1ContainerDiskSourceFromJSONTyped(json, false);
-}
-
-export function V1ContainerDiskSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1ContainerDiskSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    image: json['image'],
-    imagePullPolicy: !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
-    imagePullSecret: !exists(json, 'imagePullSecret') ? undefined : json['imagePullSecret'],
-    path: !exists(json, 'path') ? undefined : json['path'],
-  };
-}
-
-export function V1ContainerDiskSourceToJSON(value?: V1ContainerDiskSource | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    image: value.image,
-    imagePullPolicy: value.imagePullPolicy,
-    imagePullSecret: value.imagePullSecret,
-    path: value.path,
-  };
-}
+/**
+ * Check if a given object implements the V1ContainerDiskSource interface.
+ */

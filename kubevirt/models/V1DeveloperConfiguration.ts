@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1DiskVerification,
-  V1DiskVerificationFromJSON,
-  V1DiskVerificationToJSON,
-  V1LogVerbosity,
-  V1LogVerbosityFromJSON,
-  V1LogVerbosityToJSON,
-} from './';
-
+import type { V1DiskVerification } from './V1DiskVerification';
+import type { V1LogVerbosity } from './V1LogVerbosity';
 /**
  * DeveloperConfiguration holds developer options
  * @export
@@ -96,62 +88,6 @@ export interface V1DeveloperConfiguration {
   useEmulation?: boolean;
 }
 
-export function V1DeveloperConfigurationFromJSON(json: any): V1DeveloperConfiguration {
-  return V1DeveloperConfigurationFromJSONTyped(json, false);
-}
-
-export function V1DeveloperConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DeveloperConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    clusterProfiler: !exists(json, 'clusterProfiler') ? undefined : json['clusterProfiler'],
-    cpuAllocationRatio: !exists(json, 'cpuAllocationRatio')
-      ? undefined
-      : json['cpuAllocationRatio'],
-    diskVerification: !exists(json, 'diskVerification')
-      ? undefined
-      : V1DiskVerificationFromJSON(json['diskVerification']),
-    featureGates: !exists(json, 'featureGates') ? undefined : json['featureGates'],
-    logVerbosity: !exists(json, 'logVerbosity')
-      ? undefined
-      : V1LogVerbosityFromJSON(json['logVerbosity']),
-    memoryOvercommit: !exists(json, 'memoryOvercommit') ? undefined : json['memoryOvercommit'],
-    minimumClusterTSCFrequency: !exists(json, 'minimumClusterTSCFrequency')
-      ? undefined
-      : json['minimumClusterTSCFrequency'],
-    minimumReservePVCBytes: !exists(json, 'minimumReservePVCBytes')
-      ? undefined
-      : json['minimumReservePVCBytes'],
-    nodeSelectors: !exists(json, 'nodeSelectors') ? undefined : json['nodeSelectors'],
-    pvcTolerateLessSpaceUpToPercent: !exists(json, 'pvcTolerateLessSpaceUpToPercent')
-      ? undefined
-      : json['pvcTolerateLessSpaceUpToPercent'],
-    useEmulation: !exists(json, 'useEmulation') ? undefined : json['useEmulation'],
-  };
-}
-
-export function V1DeveloperConfigurationToJSON(value?: V1DeveloperConfiguration | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    clusterProfiler: value.clusterProfiler,
-    cpuAllocationRatio: value.cpuAllocationRatio,
-    diskVerification: V1DiskVerificationToJSON(value.diskVerification),
-    featureGates: value.featureGates,
-    logVerbosity: V1LogVerbosityToJSON(value.logVerbosity),
-    memoryOvercommit: value.memoryOvercommit,
-    minimumClusterTSCFrequency: value.minimumClusterTSCFrequency,
-    minimumReservePVCBytes: value.minimumReservePVCBytes,
-    nodeSelectors: value.nodeSelectors,
-    pvcTolerateLessSpaceUpToPercent: value.pvcTolerateLessSpaceUpToPercent,
-    useEmulation: value.useEmulation,
-  };
-}
+/**
+ * Check if a given object implements the V1DeveloperConfiguration interface.
+ */

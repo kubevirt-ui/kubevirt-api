@@ -32,32 +32,6 @@ export interface K8sIoApiCoreV1HTTPHeader {
   value: string;
 }
 
-export function K8sIoApiCoreV1HTTPHeaderFromJSON(json: any): K8sIoApiCoreV1HTTPHeader {
-  return K8sIoApiCoreV1HTTPHeaderFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1HTTPHeaderFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApiCoreV1HTTPHeader {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    value: json['value'],
-  };
-}
-
-export function K8sIoApiCoreV1HTTPHeaderToJSON(value?: K8sIoApiCoreV1HTTPHeader | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    value: value.value,
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApiCoreV1HTTPHeader interface.
+ */

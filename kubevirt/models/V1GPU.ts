@@ -12,9 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1VGPUOptions, V1VGPUOptionsFromJSON, V1VGPUOptionsToJSON } from './';
-
+import type { V1VGPUOptions } from './V1VGPUOptions';
 /**
  *
  * @export
@@ -59,39 +57,6 @@ export interface V1GPU {
   virtualGPUOptions?: V1VGPUOptions;
 }
 
-export function V1GPUFromJSON(json: any): V1GPU {
-  return V1GPUFromJSONTyped(json, false);
-}
-
-export function V1GPUFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1GPU {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    claimName: !exists(json, 'claimName') ? undefined : json['claimName'],
-    deviceName: !exists(json, 'deviceName') ? undefined : json['deviceName'],
-    name: json['name'],
-    requestName: !exists(json, 'requestName') ? undefined : json['requestName'],
-    tag: !exists(json, 'tag') ? undefined : json['tag'],
-    virtualGPUOptions: !exists(json, 'virtualGPUOptions')
-      ? undefined
-      : V1VGPUOptionsFromJSON(json['virtualGPUOptions']),
-  };
-}
-
-export function V1GPUToJSON(value?: V1GPU | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    claimName: value.claimName,
-    deviceName: value.deviceName,
-    name: value.name,
-    requestName: value.requestName,
-    tag: value.tag,
-    virtualGPUOptions: V1VGPUOptionsToJSON(value.virtualGPUOptions),
-  };
-}
+/**
+ * Check if a given object implements the V1GPU interface.
+ */

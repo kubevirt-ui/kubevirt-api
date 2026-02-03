@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1beta1VirtualMachineSnapshotSpec,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1beta1VirtualMachineSnapshotSpec } from './V1beta1VirtualMachineSnapshotSpec';
+import {
     V1beta1VirtualMachineSnapshotSpecFromJSON,
     V1beta1VirtualMachineSnapshotSpecFromJSONTyped,
     V1beta1VirtualMachineSnapshotSpecToJSON,
-    V1beta1VirtualMachineSnapshotStatus,
+} from './V1beta1VirtualMachineSnapshotSpec';
+import type { V1beta1VirtualMachineSnapshotStatus } from './V1beta1VirtualMachineSnapshotStatus';
+import {
     V1beta1VirtualMachineSnapshotStatusFromJSON,
     V1beta1VirtualMachineSnapshotStatusFromJSONTyped,
     V1beta1VirtualMachineSnapshotStatusToJSON,
-} from './';
+} from './V1beta1VirtualMachineSnapshotStatus';
 
 /**
  * VirtualMachineSnapshot defines the operation of snapshotting a VM
@@ -64,6 +68,16 @@ export interface V1beta1VirtualMachineSnapshot {
      * @memberof V1beta1VirtualMachineSnapshot
      */
     status?: V1beta1VirtualMachineSnapshotStatus;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineSnapshot interface.
+ */
+export function instanceOfV1beta1VirtualMachineSnapshot(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "spec" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineSnapshotFromJSON(json: any): V1beta1VirtualMachineSnapshot {

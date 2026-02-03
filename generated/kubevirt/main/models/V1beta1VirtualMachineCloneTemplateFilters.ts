@@ -33,6 +33,15 @@ export interface V1beta1VirtualMachineCloneTemplateFilters {
     labelFilters?: Array<string>;
 }
 
+/**
+ * Check if a given object implements the V1beta1VirtualMachineCloneTemplateFilters interface.
+ */
+export function instanceOfV1beta1VirtualMachineCloneTemplateFilters(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1beta1VirtualMachineCloneTemplateFiltersFromJSON(json: any): V1beta1VirtualMachineCloneTemplateFilters {
     return V1beta1VirtualMachineCloneTemplateFiltersFromJSONTyped(json, false);
 }

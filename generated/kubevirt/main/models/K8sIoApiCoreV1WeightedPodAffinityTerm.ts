@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1PodAffinityTerm } from './K8sIoApiCoreV1PodAffinityTerm';
 import {
-    K8sIoApiCoreV1PodAffinityTerm,
     K8sIoApiCoreV1PodAffinityTermFromJSON,
     K8sIoApiCoreV1PodAffinityTermFromJSONTyped,
     K8sIoApiCoreV1PodAffinityTermToJSON,
-} from './';
+} from './K8sIoApiCoreV1PodAffinityTerm';
 
 /**
  * The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)
@@ -38,6 +38,17 @@ export interface K8sIoApiCoreV1WeightedPodAffinityTerm {
      * @memberof K8sIoApiCoreV1WeightedPodAffinityTerm
      */
     weight: number;
+}
+
+/**
+ * Check if a given object implements the K8sIoApiCoreV1WeightedPodAffinityTerm interface.
+ */
+export function instanceOfK8sIoApiCoreV1WeightedPodAffinityTerm(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "podAffinityTerm" in value;
+    isInstance = isInstance && "weight" in value;
+
+    return isInstance;
 }
 
 export function K8sIoApiCoreV1WeightedPodAffinityTermFromJSON(json: any): K8sIoApiCoreV1WeightedPodAffinityTerm {

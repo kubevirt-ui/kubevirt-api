@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSON,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement } from './K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement';
 /**
  * A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
  * @export
@@ -39,45 +33,6 @@ export interface K8sIoApimachineryPkgApisMetaV1LabelSelector {
   matchLabels?: { [key: string]: string };
 }
 
-export function K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(
-  json: any,
-): K8sIoApimachineryPkgApisMetaV1LabelSelector {
-  return K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApimachineryPkgApisMetaV1LabelSelector {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    matchExpressions: !exists(json, 'matchExpressions')
-      ? undefined
-      : (json['matchExpressions'] as Array<any>).map(
-          K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSON,
-        ),
-    matchLabels: !exists(json, 'matchLabels') ? undefined : json['matchLabels'],
-  };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(
-  value?: K8sIoApimachineryPkgApisMetaV1LabelSelector | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    matchExpressions:
-      value.matchExpressions === undefined
-        ? undefined
-        : (value.matchExpressions as Array<any>).map(
-            K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementToJSON,
-          ),
-    matchLabels: value.matchLabels,
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1LabelSelector interface.
+ */

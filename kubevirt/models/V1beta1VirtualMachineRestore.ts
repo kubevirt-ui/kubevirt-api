@@ -12,19 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ObjectMeta,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-  V1beta1VirtualMachineRestoreSpec,
-  V1beta1VirtualMachineRestoreSpecFromJSON,
-  V1beta1VirtualMachineRestoreSpecToJSON,
-  V1beta1VirtualMachineRestoreStatus,
-  V1beta1VirtualMachineRestoreStatusFromJSON,
-  V1beta1VirtualMachineRestoreStatusToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1beta1VirtualMachineRestoreSpec } from './V1beta1VirtualMachineRestoreSpec';
+import type { V1beta1VirtualMachineRestoreStatus } from './V1beta1VirtualMachineRestoreStatus';
 /**
  * VirtualMachineRestore defines the operation of restoring a VM
  * @export
@@ -63,44 +53,6 @@ export interface V1beta1VirtualMachineRestore {
   status?: V1beta1VirtualMachineRestoreStatus;
 }
 
-export function V1beta1VirtualMachineRestoreFromJSON(json: any): V1beta1VirtualMachineRestore {
-  return V1beta1VirtualMachineRestoreFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineRestoreFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineRestore {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: V1beta1VirtualMachineRestoreSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : V1beta1VirtualMachineRestoreStatusFromJSON(json['status']),
-  };
-}
-
-export function V1beta1VirtualMachineRestoreToJSON(
-  value?: V1beta1VirtualMachineRestore | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: V1beta1VirtualMachineRestoreSpecToJSON(value.spec),
-    status: V1beta1VirtualMachineRestoreStatusToJSON(value.status),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineRestore interface.
+ */

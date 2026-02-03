@@ -12,22 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1BlockSize,
-  V1BlockSizeFromJSON,
-  V1BlockSizeToJSON,
-  V1CDRomTarget,
-  V1CDRomTargetFromJSON,
-  V1CDRomTargetToJSON,
-  V1DiskTarget,
-  V1DiskTargetFromJSON,
-  V1DiskTargetToJSON,
-  V1LunTarget,
-  V1LunTargetFromJSON,
-  V1LunTargetToJSON,
-} from './';
-
+import type { V1BlockSize } from './V1BlockSize';
+import type { V1CDRomTarget } from './V1CDRomTarget';
+import type { V1DiskTarget } from './V1DiskTarget';
+import type { V1LunTarget } from './V1LunTarget';
 /**
  *
  * @export
@@ -58,6 +46,12 @@ export interface V1Disk {
    * @memberof V1Disk
    */
   cdrom?: V1CDRomTarget;
+  /**
+   * ChangedBlockTracking indicates this disk should have CBT option Defaults to false.
+   * @type {boolean}
+   * @memberof V1Disk
+   */
+  changedBlockTracking?: boolean;
   /**
    * dedicatedIOThread indicates this disk should have an exclusive IO Thread. Enabling this implies useIOThreads = true. Defaults to false.
    * @type {boolean}
@@ -114,51 +108,6 @@ export interface V1Disk {
   tag?: string;
 }
 
-export function V1DiskFromJSON(json: any): V1Disk {
-  return V1DiskFromJSONTyped(json, false);
-}
-
-export function V1DiskFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Disk {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    blockSize: !exists(json, 'blockSize') ? undefined : V1BlockSizeFromJSON(json['blockSize']),
-    bootOrder: !exists(json, 'bootOrder') ? undefined : json['bootOrder'],
-    cache: !exists(json, 'cache') ? undefined : json['cache'],
-    cdrom: !exists(json, 'cdrom') ? undefined : V1CDRomTargetFromJSON(json['cdrom']),
-    dedicatedIOThread: !exists(json, 'dedicatedIOThread') ? undefined : json['dedicatedIOThread'],
-    disk: !exists(json, 'disk') ? undefined : V1DiskTargetFromJSON(json['disk']),
-    errorPolicy: !exists(json, 'errorPolicy') ? undefined : json['errorPolicy'],
-    io: !exists(json, 'io') ? undefined : json['io'],
-    lun: !exists(json, 'lun') ? undefined : V1LunTargetFromJSON(json['lun']),
-    name: json['name'],
-    serial: !exists(json, 'serial') ? undefined : json['serial'],
-    shareable: !exists(json, 'shareable') ? undefined : json['shareable'],
-    tag: !exists(json, 'tag') ? undefined : json['tag'],
-  };
-}
-
-export function V1DiskToJSON(value?: V1Disk | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    blockSize: V1BlockSizeToJSON(value.blockSize),
-    bootOrder: value.bootOrder,
-    cache: value.cache,
-    cdrom: V1CDRomTargetToJSON(value.cdrom),
-    dedicatedIOThread: value.dedicatedIOThread,
-    disk: V1DiskTargetToJSON(value.disk),
-    errorPolicy: value.errorPolicy,
-    io: value.io,
-    lun: V1LunTargetToJSON(value.lun),
-    name: value.name,
-    serial: value.serial,
-    shareable: value.shareable,
-    tag: value.tag,
-  };
-}
+/**
+ * Check if a given object implements the V1Disk interface.
+ */

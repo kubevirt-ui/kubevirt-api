@@ -33,6 +33,15 @@ export interface K8sIoApiCoreV1PodDNSConfigOption {
     value?: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApiCoreV1PodDNSConfigOption interface.
+ */
+export function instanceOfK8sIoApiCoreV1PodDNSConfigOption(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function K8sIoApiCoreV1PodDNSConfigOptionFromJSON(json: any): K8sIoApiCoreV1PodDNSConfigOption {
     return K8sIoApiCoreV1PodDNSConfigOptionFromJSONTyped(json, false);
 }

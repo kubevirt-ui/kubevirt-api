@@ -45,6 +45,15 @@ export interface V1RestartOptions {
     kind?: string;
 }
 
+/**
+ * Check if a given object implements the V1RestartOptions interface.
+ */
+export function instanceOfV1RestartOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1RestartOptionsFromJSON(json: any): V1RestartOptions {
     return V1RestartOptionsFromJSONTyped(json, false);
 }

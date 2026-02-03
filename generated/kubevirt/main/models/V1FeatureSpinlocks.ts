@@ -33,6 +33,15 @@ export interface V1FeatureSpinlocks {
     spinlocks?: number;
 }
 
+/**
+ * Check if a given object implements the V1FeatureSpinlocks interface.
+ */
+export function instanceOfV1FeatureSpinlocks(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1FeatureSpinlocksFromJSON(json: any): V1FeatureSpinlocks {
     return V1FeatureSpinlocksFromJSONTyped(json, false);
 }

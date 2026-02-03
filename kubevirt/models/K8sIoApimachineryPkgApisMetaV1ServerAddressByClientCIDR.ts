@@ -32,36 +32,6 @@ export interface K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR {
   serverAddress: string;
 }
 
-export function K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSON(
-  json: any,
-): K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR {
-  return K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    clientCIDR: json['clientCIDR'],
-    serverAddress: json['serverAddress'],
-  };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRToJSON(
-  value?: K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    clientCIDR: value.clientCIDR,
-    serverAddress: value.serverAddress,
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR interface.
+ */

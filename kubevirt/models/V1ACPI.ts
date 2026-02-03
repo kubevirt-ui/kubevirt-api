@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -33,29 +32,6 @@ export interface V1ACPI {
   slicNameRef?: string;
 }
 
-export function V1ACPIFromJSON(json: any): V1ACPI {
-  return V1ACPIFromJSONTyped(json, false);
-}
-
-export function V1ACPIFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ACPI {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    msdmNameRef: !exists(json, 'msdmNameRef') ? undefined : json['msdmNameRef'],
-    slicNameRef: !exists(json, 'slicNameRef') ? undefined : json['slicNameRef'],
-  };
-}
-
-export function V1ACPIToJSON(value?: V1ACPI | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    msdmNameRef: value.msdmNameRef,
-    slicNameRef: value.slicNameRef,
-  };
-}
+/**
+ * Check if a given object implements the V1ACPI interface.
+ */

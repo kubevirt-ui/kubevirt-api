@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1NodeSelector } from './K8sIoApiCoreV1NodeSelector';
 import {
-    K8sIoApiCoreV1NodeSelector,
     K8sIoApiCoreV1NodeSelectorFromJSON,
     K8sIoApiCoreV1NodeSelectorFromJSONTyped,
     K8sIoApiCoreV1NodeSelectorToJSON,
-    K8sIoApiCoreV1PreferredSchedulingTerm,
+} from './K8sIoApiCoreV1NodeSelector';
+import type { K8sIoApiCoreV1PreferredSchedulingTerm } from './K8sIoApiCoreV1PreferredSchedulingTerm';
+import {
     K8sIoApiCoreV1PreferredSchedulingTermFromJSON,
     K8sIoApiCoreV1PreferredSchedulingTermFromJSONTyped,
     K8sIoApiCoreV1PreferredSchedulingTermToJSON,
-} from './';
+} from './K8sIoApiCoreV1PreferredSchedulingTerm';
 
 /**
  * Node affinity is a group of node affinity scheduling rules.
@@ -42,6 +44,15 @@ export interface K8sIoApiCoreV1NodeAffinity {
      * @memberof K8sIoApiCoreV1NodeAffinity
      */
     requiredDuringSchedulingIgnoredDuringExecution?: K8sIoApiCoreV1NodeSelector;
+}
+
+/**
+ * Check if a given object implements the K8sIoApiCoreV1NodeAffinity interface.
+ */
+export function instanceOfK8sIoApiCoreV1NodeAffinity(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function K8sIoApiCoreV1NodeAffinityFromJSON(json: any): K8sIoApiCoreV1NodeAffinity {

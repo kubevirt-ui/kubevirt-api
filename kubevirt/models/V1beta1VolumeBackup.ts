@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1beta1PersistentVolumeClaim,
-  V1beta1PersistentVolumeClaimFromJSON,
-  V1beta1PersistentVolumeClaimToJSON,
-} from './';
-
+import type { V1beta1PersistentVolumeClaim } from './V1beta1PersistentVolumeClaim';
 /**
  * VolumeBackup contains the data neeed to restore a PVC
  * @export
@@ -45,36 +39,6 @@ export interface V1beta1VolumeBackup {
   volumeSnapshotName?: string;
 }
 
-export function V1beta1VolumeBackupFromJSON(json: any): V1beta1VolumeBackup {
-  return V1beta1VolumeBackupFromJSONTyped(json, false);
-}
-
-export function V1beta1VolumeBackupFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VolumeBackup {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    persistentVolumeClaim: V1beta1PersistentVolumeClaimFromJSON(json['persistentVolumeClaim']),
-    volumeName: json['volumeName'],
-    volumeSnapshotName: !exists(json, 'volumeSnapshotName')
-      ? undefined
-      : json['volumeSnapshotName'],
-  };
-}
-
-export function V1beta1VolumeBackupToJSON(value?: V1beta1VolumeBackup | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    persistentVolumeClaim: V1beta1PersistentVolumeClaimToJSON(value.persistentVolumeClaim),
-    volumeName: value.volumeName,
-    volumeSnapshotName: value.volumeSnapshotName,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VolumeBackup interface.
+ */

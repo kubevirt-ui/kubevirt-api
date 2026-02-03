@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1PodDNSConfigOption } from './K8sIoApiCoreV1PodDNSConfigOption';
 import {
-    K8sIoApiCoreV1PodDNSConfigOption,
     K8sIoApiCoreV1PodDNSConfigOptionFromJSON,
     K8sIoApiCoreV1PodDNSConfigOptionFromJSONTyped,
     K8sIoApiCoreV1PodDNSConfigOptionToJSON,
-} from './';
+} from './K8sIoApiCoreV1PodDNSConfigOption';
 
 /**
  * PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.
@@ -44,6 +44,15 @@ export interface K8sIoApiCoreV1PodDNSConfig {
      * @memberof K8sIoApiCoreV1PodDNSConfig
      */
     searches?: Array<string>;
+}
+
+/**
+ * Check if a given object implements the K8sIoApiCoreV1PodDNSConfig interface.
+ */
+export function instanceOfK8sIoApiCoreV1PodDNSConfig(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function K8sIoApiCoreV1PodDNSConfigFromJSON(json: any): K8sIoApiCoreV1PodDNSConfig {

@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1beta1VirtualMachineExportLink,
-  V1beta1VirtualMachineExportLinkFromJSON,
-  V1beta1VirtualMachineExportLinkToJSON,
-} from './';
-
+import type { V1beta1VirtualMachineExportLink } from './V1beta1VirtualMachineExportLink';
 /**
  * VirtualMachineExportLinks contains the links that point the exported VM resources
  * @export
@@ -39,40 +33,6 @@ export interface V1beta1VirtualMachineExportLinks {
   internal?: V1beta1VirtualMachineExportLink;
 }
 
-export function V1beta1VirtualMachineExportLinksFromJSON(
-  json: any,
-): V1beta1VirtualMachineExportLinks {
-  return V1beta1VirtualMachineExportLinksFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineExportLinksFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineExportLinks {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    external: !exists(json, 'external')
-      ? undefined
-      : V1beta1VirtualMachineExportLinkFromJSON(json['external']),
-    internal: !exists(json, 'internal')
-      ? undefined
-      : V1beta1VirtualMachineExportLinkFromJSON(json['internal']),
-  };
-}
-
-export function V1beta1VirtualMachineExportLinksToJSON(
-  value?: V1beta1VirtualMachineExportLinks | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    external: V1beta1VirtualMachineExportLinkToJSON(value.external),
-    internal: V1beta1VirtualMachineExportLinkToJSON(value.internal),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineExportLinks interface.
+ */

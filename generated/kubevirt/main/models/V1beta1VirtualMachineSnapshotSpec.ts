@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
 import {
-    K8sIoApiCoreV1TypedLocalObjectReference,
     K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
     K8sIoApiCoreV1TypedLocalObjectReferenceFromJSONTyped,
     K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-} from './';
+} from './K8sIoApiCoreV1TypedLocalObjectReference';
 
 /**
  * VirtualMachineSnapshotSpec is the spec for a VirtualMachineSnapshot resource
@@ -44,6 +44,16 @@ export interface V1beta1VirtualMachineSnapshotSpec {
      * @memberof V1beta1VirtualMachineSnapshotSpec
      */
     source: K8sIoApiCoreV1TypedLocalObjectReference;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineSnapshotSpec interface.
+ */
+export function instanceOfV1beta1VirtualMachineSnapshotSpec(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "source" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineSnapshotSpecFromJSON(json: any): V1beta1VirtualMachineSnapshotSpec {

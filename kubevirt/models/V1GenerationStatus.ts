@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * GenerationStatus keeps track of the generation for a given resource so that decisions about forced updates can be made.
  * @export
@@ -57,40 +56,6 @@ export interface V1GenerationStatus {
   resource: string;
 }
 
-export function V1GenerationStatusFromJSON(json: any): V1GenerationStatus {
-  return V1GenerationStatusFromJSONTyped(json, false);
-}
-
-export function V1GenerationStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1GenerationStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    group: json['group'],
-    hash: !exists(json, 'hash') ? undefined : json['hash'],
-    lastGeneration: json['lastGeneration'],
-    name: json['name'],
-    namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
-    resource: json['resource'],
-  };
-}
-
-export function V1GenerationStatusToJSON(value?: V1GenerationStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    group: value.group,
-    hash: value.hash,
-    lastGeneration: value.lastGeneration,
-    name: value.name,
-    namespace: value.namespace,
-    resource: value.resource,
-  };
-}
+/**
+ * Check if a given object implements the V1GenerationStatus interface.
+ */

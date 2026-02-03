@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -27,30 +26,6 @@ export interface V1PanicDevice {
   model?: string;
 }
 
-export function V1PanicDeviceFromJSON(json: any): V1PanicDevice {
-  return V1PanicDeviceFromJSONTyped(json, false);
-}
-
-export function V1PanicDeviceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1PanicDevice {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    model: !exists(json, 'model') ? undefined : json['model'],
-  };
-}
-
-export function V1PanicDeviceToJSON(value?: V1PanicDevice | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    model: value.model,
-  };
-}
+/**
+ * Check if a given object implements the V1PanicDevice interface.
+ */

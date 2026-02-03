@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1beta1Error } from './V1beta1Error';
 import {
-    V1beta1Error,
     V1beta1ErrorFromJSON,
     V1beta1ErrorFromJSONTyped,
     V1beta1ErrorToJSON,
-    V1beta1VolumeSnapshotStatus,
+} from './V1beta1Error';
+import type { V1beta1VolumeSnapshotStatus } from './V1beta1VolumeSnapshotStatus';
+import {
     V1beta1VolumeSnapshotStatusFromJSON,
     V1beta1VolumeSnapshotStatusFromJSONTyped,
     V1beta1VolumeSnapshotStatusToJSON,
-} from './';
+} from './V1beta1VolumeSnapshotStatus';
 
 /**
  * VirtualMachineSnapshotContentStatus is the status for a VirtualMachineSnapshotStatus resource
@@ -56,6 +58,15 @@ export interface V1beta1VirtualMachineSnapshotContentStatus {
     volumeSnapshotStatus?: Array<V1beta1VolumeSnapshotStatus>;
 }
 
+/**
+ * Check if a given object implements the V1beta1VirtualMachineSnapshotContentStatus interface.
+ */
+export function instanceOfV1beta1VirtualMachineSnapshotContentStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1beta1VirtualMachineSnapshotContentStatusFromJSON(json: any): V1beta1VirtualMachineSnapshotContentStatus {
     return V1beta1VirtualMachineSnapshotContentStatusFromJSONTyped(json, false);
 }
@@ -66,7 +77,7 @@ export function V1beta1VirtualMachineSnapshotContentStatusFromJSONTyped(json: an
     }
     return {
         
-        'creationTime': !exists(json, 'creationTime') ? undefined : (new Date(json['creationTime'])),
+        'creationTime': !exists(json, 'creationTime') ? undefined : json['creationTime'],
         'error': !exists(json, 'error') ? undefined : V1beta1ErrorFromJSON(json['error']),
         'readyToUse': !exists(json, 'readyToUse') ? undefined : json['readyToUse'],
         'volumeSnapshotStatus': !exists(json, 'volumeSnapshotStatus') ? undefined : ((json['volumeSnapshotStatus'] as Array<any>).map(V1beta1VolumeSnapshotStatusFromJSON)),
@@ -82,7 +93,7 @@ export function V1beta1VirtualMachineSnapshotContentStatusToJSON(value?: V1beta1
     }
     return {
         
-        'creationTime': value.creationTime === undefined ? undefined : (value.creationTime.toISOString()),
+        'creationTime': value.creationTime,
         'error': V1beta1ErrorToJSON(value.error),
         'readyToUse': value.readyToUse,
         'volumeSnapshotStatus': value.volumeSnapshotStatus === undefined ? undefined : ((value.volumeSnapshotStatus as Array<any>).map(V1beta1VolumeSnapshotStatusToJSON)),

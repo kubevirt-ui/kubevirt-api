@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * APIResource specifies the name of a resource and whether it is namespaced.
  * @export
@@ -81,54 +80,6 @@ export interface K8sIoApimachineryPkgApisMetaV1APIResource {
   version?: string;
 }
 
-export function K8sIoApimachineryPkgApisMetaV1APIResourceFromJSON(
-  json: any,
-): K8sIoApimachineryPkgApisMetaV1APIResource {
-  return K8sIoApimachineryPkgApisMetaV1APIResourceFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1APIResourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApimachineryPkgApisMetaV1APIResource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    categories: !exists(json, 'categories') ? undefined : json['categories'],
-    group: !exists(json, 'group') ? undefined : json['group'],
-    kind: json['kind'],
-    name: json['name'],
-    namespaced: json['namespaced'],
-    shortNames: !exists(json, 'shortNames') ? undefined : json['shortNames'],
-    singularName: json['singularName'],
-    storageVersionHash: !exists(json, 'storageVersionHash')
-      ? undefined
-      : json['storageVersionHash'],
-    verbs: json['verbs'],
-    version: !exists(json, 'version') ? undefined : json['version'],
-  };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1APIResourceToJSON(
-  value?: K8sIoApimachineryPkgApisMetaV1APIResource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    categories: value.categories,
-    group: value.group,
-    kind: value.kind,
-    name: value.name,
-    namespaced: value.namespaced,
-    shortNames: value.shortNames,
-    singularName: value.singularName,
-    storageVersionHash: value.storageVersionHash,
-    verbs: value.verbs,
-    version: value.version,
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1APIResource interface.
+ */

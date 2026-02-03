@@ -27,6 +27,16 @@ export interface K8sIoApimachineryPkgApisMetaV1RootPaths {
     paths: Array<string>;
 }
 
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1RootPaths interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1RootPaths(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "paths" in value;
+
+    return isInstance;
+}
+
 export function K8sIoApimachineryPkgApisMetaV1RootPathsFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1RootPaths {
     return K8sIoApimachineryPkgApisMetaV1RootPathsFromJSONTyped(json, false);
 }

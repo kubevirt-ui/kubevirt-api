@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * SecretVolumeSource adapts a Secret into a volume.
  * @export
@@ -39,34 +38,6 @@ export interface V1SecretVolumeSource {
   volumeLabel?: string;
 }
 
-export function V1SecretVolumeSourceFromJSON(json: any): V1SecretVolumeSource {
-  return V1SecretVolumeSourceFromJSONTyped(json, false);
-}
-
-export function V1SecretVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1SecretVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    optional: !exists(json, 'optional') ? undefined : json['optional'],
-    secretName: !exists(json, 'secretName') ? undefined : json['secretName'],
-    volumeLabel: !exists(json, 'volumeLabel') ? undefined : json['volumeLabel'],
-  };
-}
-
-export function V1SecretVolumeSourceToJSON(value?: V1SecretVolumeSource | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    optional: value.optional,
-    secretName: value.secretName,
-    volumeLabel: value.volumeLabel,
-  };
-}
+/**
+ * Check if a given object implements the V1SecretVolumeSource interface.
+ */

@@ -13,28 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1FeatureAPIC } from './V1FeatureAPIC';
 import {
-    V1FeatureAPIC,
     V1FeatureAPICFromJSON,
     V1FeatureAPICFromJSONTyped,
     V1FeatureAPICToJSON,
-    V1FeatureHyperv,
+} from './V1FeatureAPIC';
+import type { V1FeatureHyperv } from './V1FeatureHyperv';
+import {
     V1FeatureHypervFromJSON,
     V1FeatureHypervFromJSONTyped,
     V1FeatureHypervToJSON,
-    V1FeatureKVM,
+} from './V1FeatureHyperv';
+import type { V1FeatureKVM } from './V1FeatureKVM';
+import {
     V1FeatureKVMFromJSON,
     V1FeatureKVMFromJSONTyped,
     V1FeatureKVMToJSON,
-    V1FeatureState,
+} from './V1FeatureKVM';
+import type { V1FeatureState } from './V1FeatureState';
+import {
     V1FeatureStateFromJSON,
     V1FeatureStateFromJSONTyped,
     V1FeatureStateToJSON,
-    V1HyperVPassthrough,
+} from './V1FeatureState';
+import type { V1HyperVPassthrough } from './V1HyperVPassthrough';
+import {
     V1HyperVPassthroughFromJSON,
     V1HyperVPassthroughFromJSONTyped,
     V1HyperVPassthroughToJSON,
-} from './';
+} from './V1HyperVPassthrough';
 
 /**
  * 
@@ -84,6 +92,15 @@ export interface V1Features {
      * @memberof V1Features
      */
     smm?: V1FeatureState;
+}
+
+/**
+ * Check if a given object implements the V1Features interface.
+ */
+export function instanceOfV1Features(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1FeaturesFromJSON(json: any): V1Features {

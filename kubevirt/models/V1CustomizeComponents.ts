@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1CustomizeComponentsPatch,
-  V1CustomizeComponentsPatchFromJSON,
-  V1CustomizeComponentsPatchToJSON,
-  V1Flags,
-  V1FlagsFromJSON,
-  V1FlagsToJSON,
-} from './';
-
+import type { V1CustomizeComponentsPatch } from './V1CustomizeComponentsPatch';
+import type { V1Flags } from './V1Flags';
 /**
  *
  * @export
@@ -42,37 +34,6 @@ export interface V1CustomizeComponents {
   patches?: Array<V1CustomizeComponentsPatch>;
 }
 
-export function V1CustomizeComponentsFromJSON(json: any): V1CustomizeComponents {
-  return V1CustomizeComponentsFromJSONTyped(json, false);
-}
-
-export function V1CustomizeComponentsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1CustomizeComponents {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    flags: !exists(json, 'flags') ? undefined : V1FlagsFromJSON(json['flags']),
-    patches: !exists(json, 'patches')
-      ? undefined
-      : (json['patches'] as Array<any>).map(V1CustomizeComponentsPatchFromJSON),
-  };
-}
-
-export function V1CustomizeComponentsToJSON(value?: V1CustomizeComponents | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    flags: V1FlagsToJSON(value.flags),
-    patches:
-      value.patches === undefined
-        ? undefined
-        : (value.patches as Array<any>).map(V1CustomizeComponentsPatchToJSON),
-  };
-}
+/**
+ * Check if a given object implements the V1CustomizeComponents interface.
+ */

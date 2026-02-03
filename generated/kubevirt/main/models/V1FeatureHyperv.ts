@@ -13,24 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1FeatureSpinlocks } from './V1FeatureSpinlocks';
 import {
-    V1FeatureSpinlocks,
     V1FeatureSpinlocksFromJSON,
     V1FeatureSpinlocksFromJSONTyped,
     V1FeatureSpinlocksToJSON,
-    V1FeatureState,
+} from './V1FeatureSpinlocks';
+import type { V1FeatureState } from './V1FeatureState';
+import {
     V1FeatureStateFromJSON,
     V1FeatureStateFromJSONTyped,
     V1FeatureStateToJSON,
-    V1FeatureVendorID,
+} from './V1FeatureState';
+import type { V1FeatureVendorID } from './V1FeatureVendorID';
+import {
     V1FeatureVendorIDFromJSON,
     V1FeatureVendorIDFromJSONTyped,
     V1FeatureVendorIDToJSON,
-    V1SyNICTimer,
+} from './V1FeatureVendorID';
+import type { V1SyNICTimer } from './V1SyNICTimer';
+import {
     V1SyNICTimerFromJSON,
     V1SyNICTimerFromJSONTyped,
     V1SyNICTimerToJSON,
-} from './';
+} from './V1SyNICTimer';
+import type { V1TLBFlush } from './V1TLBFlush';
+import {
+    V1TLBFlushFromJSON,
+    V1TLBFlushFromJSONTyped,
+    V1TLBFlushToJSON,
+} from './V1TLBFlush';
 
 /**
  * Hyperv specific features.
@@ -100,10 +112,10 @@ export interface V1FeatureHyperv {
     synictimer?: V1SyNICTimer;
     /**
      * 
-     * @type {V1FeatureState}
+     * @type {V1TLBFlush}
      * @memberof V1FeatureHyperv
      */
-    tlbflush?: V1FeatureState;
+    tlbflush?: V1TLBFlush;
     /**
      * 
      * @type {V1FeatureState}
@@ -122,6 +134,15 @@ export interface V1FeatureHyperv {
      * @memberof V1FeatureHyperv
      */
     vpindex?: V1FeatureState;
+}
+
+/**
+ * Check if a given object implements the V1FeatureHyperv interface.
+ */
+export function instanceOfV1FeatureHyperv(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1FeatureHypervFromJSON(json: any): V1FeatureHyperv {
@@ -144,7 +165,7 @@ export function V1FeatureHypervFromJSONTyped(json: any, ignoreDiscriminator: boo
         'spinlocks': !exists(json, 'spinlocks') ? undefined : V1FeatureSpinlocksFromJSON(json['spinlocks']),
         'synic': !exists(json, 'synic') ? undefined : V1FeatureStateFromJSON(json['synic']),
         'synictimer': !exists(json, 'synictimer') ? undefined : V1SyNICTimerFromJSON(json['synictimer']),
-        'tlbflush': !exists(json, 'tlbflush') ? undefined : V1FeatureStateFromJSON(json['tlbflush']),
+        'tlbflush': !exists(json, 'tlbflush') ? undefined : V1TLBFlushFromJSON(json['tlbflush']),
         'vapic': !exists(json, 'vapic') ? undefined : V1FeatureStateFromJSON(json['vapic']),
         'vendorid': !exists(json, 'vendorid') ? undefined : V1FeatureVendorIDFromJSON(json['vendorid']),
         'vpindex': !exists(json, 'vpindex') ? undefined : V1FeatureStateFromJSON(json['vpindex']),
@@ -170,7 +191,7 @@ export function V1FeatureHypervToJSON(value?: V1FeatureHyperv | null): any {
         'spinlocks': V1FeatureSpinlocksToJSON(value.spinlocks),
         'synic': V1FeatureStateToJSON(value.synic),
         'synictimer': V1SyNICTimerToJSON(value.synictimer),
-        'tlbflush': V1FeatureStateToJSON(value.tlbflush),
+        'tlbflush': V1TLBFlushToJSON(value.tlbflush),
         'vapic': V1FeatureStateToJSON(value.vapic),
         'vendorid': V1FeatureVendorIDToJSON(value.vendorid),
         'vpindex': V1FeatureStateToJSON(value.vpindex),

@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ClockOffset } from './V1ClockOffset';
 import {
-    V1ClockOffset,
     V1ClockOffsetFromJSON,
     V1ClockOffsetFromJSONTyped,
     V1ClockOffsetToJSON,
-    V1Timer,
+} from './V1ClockOffset';
+import type { V1Timer } from './V1Timer';
+import {
     V1TimerFromJSON,
     V1TimerFromJSONTyped,
     V1TimerToJSON,
-} from './';
+} from './V1Timer';
 
 /**
  * ClockPreferences contains various optional defaults for Clock.
@@ -42,6 +44,15 @@ export interface V1beta1ClockPreferences {
      * @memberof V1beta1ClockPreferences
      */
     preferredTimer?: V1Timer;
+}
+
+/**
+ * Check if a given object implements the V1beta1ClockPreferences interface.
+ */
+export function instanceOfV1beta1ClockPreferences(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1beta1ClockPreferencesFromJSON(json: any): V1beta1ClockPreferences {

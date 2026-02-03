@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
 import {
-    K8sIoApiCoreV1TypedLocalObjectReference,
     K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
     K8sIoApiCoreV1TypedLocalObjectReferenceFromJSONTyped,
     K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-    V1beta1VirtualMachineCloneTemplateFilters,
+} from './K8sIoApiCoreV1TypedLocalObjectReference';
+import type { V1beta1VirtualMachineCloneTemplateFilters } from './V1beta1VirtualMachineCloneTemplateFilters';
+import {
     V1beta1VirtualMachineCloneTemplateFiltersFromJSON,
     V1beta1VirtualMachineCloneTemplateFiltersFromJSONTyped,
     V1beta1VirtualMachineCloneTemplateFiltersToJSON,
-} from './';
+} from './V1beta1VirtualMachineCloneTemplateFilters';
 
 /**
  * 
@@ -78,6 +80,22 @@ export interface V1beta1VirtualMachineCloneSpec {
      * @memberof V1beta1VirtualMachineCloneSpec
      */
     template?: V1beta1VirtualMachineCloneTemplateFilters;
+    /**
+     * VolumeNamePolicy defines how to handle volume naming during the clone operation
+     * @type {string}
+     * @memberof V1beta1VirtualMachineCloneSpec
+     */
+    volumeNamePolicy?: string;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineCloneSpec interface.
+ */
+export function instanceOfV1beta1VirtualMachineCloneSpec(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "source" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineCloneSpecFromJSON(json: any): V1beta1VirtualMachineCloneSpec {
@@ -98,6 +116,7 @@ export function V1beta1VirtualMachineCloneSpecFromJSONTyped(json: any, ignoreDis
         'source': K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['source']),
         'target': !exists(json, 'target') ? undefined : K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['target']),
         'template': !exists(json, 'template') ? undefined : V1beta1VirtualMachineCloneTemplateFiltersFromJSON(json['template']),
+        'volumeNamePolicy': !exists(json, 'volumeNamePolicy') ? undefined : json['volumeNamePolicy'],
     };
 }
 
@@ -118,6 +137,7 @@ export function V1beta1VirtualMachineCloneSpecToJSON(value?: V1beta1VirtualMachi
         'source': K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.source),
         'target': K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.target),
         'template': V1beta1VirtualMachineCloneTemplateFiltersToJSON(value.template),
+        'volumeNamePolicy': value.volumeNamePolicy,
     };
 }
 

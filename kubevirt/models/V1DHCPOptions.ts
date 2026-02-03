@@ -12,9 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1DHCPPrivateOptions, V1DHCPPrivateOptionsFromJSON, V1DHCPPrivateOptionsToJSON } from './';
-
+import type { V1DHCPPrivateOptions } from './V1DHCPPrivateOptions';
 /**
  * Extra DHCP options to use in the interface.
  * @export
@@ -47,41 +45,6 @@ export interface V1DHCPOptions {
   tftpServerName?: string;
 }
 
-export function V1DHCPOptionsFromJSON(json: any): V1DHCPOptions {
-  return V1DHCPOptionsFromJSONTyped(json, false);
-}
-
-export function V1DHCPOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DHCPOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    bootFileName: !exists(json, 'bootFileName') ? undefined : json['bootFileName'],
-    ntpServers: !exists(json, 'ntpServers') ? undefined : json['ntpServers'],
-    privateOptions: !exists(json, 'privateOptions')
-      ? undefined
-      : (json['privateOptions'] as Array<any>).map(V1DHCPPrivateOptionsFromJSON),
-    tftpServerName: !exists(json, 'tftpServerName') ? undefined : json['tftpServerName'],
-  };
-}
-
-export function V1DHCPOptionsToJSON(value?: V1DHCPOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    bootFileName: value.bootFileName,
-    ntpServers: value.ntpServers,
-    privateOptions:
-      value.privateOptions === undefined
-        ? undefined
-        : (value.privateOptions as Array<any>).map(V1DHCPPrivateOptionsToJSON),
-    tftpServerName: value.tftpServerName,
-  };
-}
+/**
+ * Check if a given object implements the V1DHCPOptions interface.
+ */

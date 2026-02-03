@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ObjectMeta,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-  V1VirtualMachineInstanceSpec,
-  V1VirtualMachineInstanceSpecFromJSON,
-  V1VirtualMachineInstanceSpecToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1VirtualMachineInstanceSpec } from './V1VirtualMachineInstanceSpec';
 /**
  *
  * @export
@@ -42,38 +34,6 @@ export interface V1VirtualMachineInstanceTemplateSpec {
   spec?: V1VirtualMachineInstanceSpec;
 }
 
-export function V1VirtualMachineInstanceTemplateSpecFromJSON(
-  json: any,
-): V1VirtualMachineInstanceTemplateSpec {
-  return V1VirtualMachineInstanceTemplateSpecFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceTemplateSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceTemplateSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec') ? undefined : V1VirtualMachineInstanceSpecFromJSON(json['spec']),
-  };
-}
-
-export function V1VirtualMachineInstanceTemplateSpecToJSON(
-  value?: V1VirtualMachineInstanceTemplateSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    metadata: K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: V1VirtualMachineInstanceSpecToJSON(value.spec),
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceTemplateSpec interface.
+ */

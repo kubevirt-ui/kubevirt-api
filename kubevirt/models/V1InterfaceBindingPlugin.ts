@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1InterfaceBindingMigration,
-  V1InterfaceBindingMigrationFromJSON,
-  V1InterfaceBindingMigrationToJSON,
-  V1ResourceRequirementsWithoutClaims,
-  V1ResourceRequirementsWithoutClaimsFromJSON,
-  V1ResourceRequirementsWithoutClaimsToJSON,
-} from './';
-
+import type { V1InterfaceBindingMigration } from './V1InterfaceBindingMigration';
+import type { V1ResourceRequirementsWithoutClaims } from './V1ResourceRequirementsWithoutClaims';
 /**
  *
  * @export
@@ -66,50 +58,6 @@ export interface V1InterfaceBindingPlugin {
   sidecarImage?: string;
 }
 
-export function V1InterfaceBindingPluginFromJSON(json: any): V1InterfaceBindingPlugin {
-  return V1InterfaceBindingPluginFromJSONTyped(json, false);
-}
-
-export function V1InterfaceBindingPluginFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1InterfaceBindingPlugin {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    computeResourceOverhead: !exists(json, 'computeResourceOverhead')
-      ? undefined
-      : V1ResourceRequirementsWithoutClaimsFromJSON(json['computeResourceOverhead']),
-    domainAttachmentType: !exists(json, 'domainAttachmentType')
-      ? undefined
-      : json['domainAttachmentType'],
-    downwardAPI: !exists(json, 'downwardAPI') ? undefined : json['downwardAPI'],
-    migration: !exists(json, 'migration')
-      ? undefined
-      : V1InterfaceBindingMigrationFromJSON(json['migration']),
-    networkAttachmentDefinition: !exists(json, 'networkAttachmentDefinition')
-      ? undefined
-      : json['networkAttachmentDefinition'],
-    sidecarImage: !exists(json, 'sidecarImage') ? undefined : json['sidecarImage'],
-  };
-}
-
-export function V1InterfaceBindingPluginToJSON(value?: V1InterfaceBindingPlugin | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    computeResourceOverhead: V1ResourceRequirementsWithoutClaimsToJSON(
-      value.computeResourceOverhead,
-    ),
-    domainAttachmentType: value.domainAttachmentType,
-    downwardAPI: value.downwardAPI,
-    migration: V1InterfaceBindingMigrationToJSON(value.migration),
-    networkAttachmentDefinition: value.networkAttachmentDefinition,
-    sidecarImage: value.sidecarImage,
-  };
-}
+/**
+ * Check if a given object implements the V1InterfaceBindingPlugin interface.
+ */

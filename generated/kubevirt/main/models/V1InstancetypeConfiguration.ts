@@ -27,6 +27,15 @@ export interface V1InstancetypeConfiguration {
     referencePolicy?: string;
 }
 
+/**
+ * Check if a given object implements the V1InstancetypeConfiguration interface.
+ */
+export function instanceOfV1InstancetypeConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1InstancetypeConfigurationFromJSON(json: any): V1InstancetypeConfiguration {
     return V1InstancetypeConfigurationFromJSONTyped(json, false);
 }

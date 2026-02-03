@@ -33,6 +33,15 @@ export interface V1EFI {
     secureBoot?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1EFI interface.
+ */
+export function instanceOfV1EFI(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1EFIFromJSON(json: any): V1EFI {
     return V1EFIFromJSONTyped(json, false);
 }

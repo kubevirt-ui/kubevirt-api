@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1CustomProfile } from './V1CustomProfile';
 import {
-    V1CustomProfile,
     V1CustomProfileFromJSON,
     V1CustomProfileFromJSONTyped,
     V1CustomProfileToJSON,
-} from './';
+} from './V1CustomProfile';
 
 /**
  * 
@@ -32,6 +32,15 @@ export interface V1VirtualMachineInstanceProfile {
      * @memberof V1VirtualMachineInstanceProfile
      */
     customProfile?: V1CustomProfile;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceProfile interface.
+ */
+export function instanceOfV1VirtualMachineInstanceProfile(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceProfileFromJSON(json: any): V1VirtualMachineInstanceProfile {

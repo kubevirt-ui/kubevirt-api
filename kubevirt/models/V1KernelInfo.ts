@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * KernelInfo show info about the kernel image
  * @export
@@ -27,27 +26,6 @@ export interface V1KernelInfo {
   checksum?: number;
 }
 
-export function V1KernelInfoFromJSON(json: any): V1KernelInfo {
-  return V1KernelInfoFromJSONTyped(json, false);
-}
-
-export function V1KernelInfoFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KernelInfo {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    checksum: !exists(json, 'checksum') ? undefined : json['checksum'],
-  };
-}
-
-export function V1KernelInfoToJSON(value?: V1KernelInfo | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    checksum: value.checksum,
-  };
-}
+/**
+ * Check if a given object implements the V1KernelInfo interface.
+ */

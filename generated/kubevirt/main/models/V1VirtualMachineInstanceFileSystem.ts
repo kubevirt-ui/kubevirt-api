@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1VirtualMachineInstanceFileSystemDisk } from './V1VirtualMachineInstanceFileSystemDisk';
 import {
-    V1VirtualMachineInstanceFileSystemDisk,
     V1VirtualMachineInstanceFileSystemDiskFromJSON,
     V1VirtualMachineInstanceFileSystemDiskFromJSONTyped,
     V1VirtualMachineInstanceFileSystemDiskToJSON,
-} from './';
+} from './V1VirtualMachineInstanceFileSystemDisk';
 
 /**
  * VirtualMachineInstanceFileSystem represents guest os disk
@@ -62,6 +62,20 @@ export interface V1VirtualMachineInstanceFileSystem {
      * @memberof V1VirtualMachineInstanceFileSystem
      */
     usedBytes: number;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceFileSystem interface.
+ */
+export function instanceOfV1VirtualMachineInstanceFileSystem(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "diskName" in value;
+    isInstance = isInstance && "fileSystemType" in value;
+    isInstance = isInstance && "mountPoint" in value;
+    isInstance = isInstance && "totalBytes" in value;
+    isInstance = isInstance && "usedBytes" in value;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceFileSystemFromJSON(json: any): V1VirtualMachineInstanceFileSystem {

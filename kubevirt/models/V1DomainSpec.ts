@@ -12,43 +12,17 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1CPU,
-  V1CPUFromJSON,
-  V1CPUToJSON,
-  V1Chassis,
-  V1ChassisFromJSON,
-  V1ChassisToJSON,
-  V1Clock,
-  V1ClockFromJSON,
-  V1ClockToJSON,
-  V1Devices,
-  V1DevicesFromJSON,
-  V1DevicesToJSON,
-  V1DiskIOThreads,
-  V1DiskIOThreadsFromJSON,
-  V1DiskIOThreadsToJSON,
-  V1Features,
-  V1FeaturesFromJSON,
-  V1FeaturesToJSON,
-  V1Firmware,
-  V1FirmwareFromJSON,
-  V1FirmwareToJSON,
-  V1LaunchSecurity,
-  V1LaunchSecurityFromJSON,
-  V1LaunchSecurityToJSON,
-  V1Machine,
-  V1MachineFromJSON,
-  V1MachineToJSON,
-  V1Memory,
-  V1MemoryFromJSON,
-  V1MemoryToJSON,
-  V1ResourceRequirements,
-  V1ResourceRequirementsFromJSON,
-  V1ResourceRequirementsToJSON,
-} from './';
-
+import type { V1CPU } from './V1CPU';
+import type { V1Chassis } from './V1Chassis';
+import type { V1Clock } from './V1Clock';
+import type { V1Devices } from './V1Devices';
+import type { V1DiskIOThreads } from './V1DiskIOThreads';
+import type { V1Features } from './V1Features';
+import type { V1Firmware } from './V1Firmware';
+import type { V1LaunchSecurity } from './V1LaunchSecurity';
+import type { V1Machine } from './V1Machine';
+import type { V1Memory } from './V1Memory';
+import type { V1ResourceRequirements } from './V1ResourceRequirements';
 /**
  *
  * @export
@@ -129,53 +103,6 @@ export interface V1DomainSpec {
   resources?: V1ResourceRequirements;
 }
 
-export function V1DomainSpecFromJSON(json: any): V1DomainSpec {
-  return V1DomainSpecFromJSONTyped(json, false);
-}
-
-export function V1DomainSpecFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1DomainSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    chassis: !exists(json, 'chassis') ? undefined : V1ChassisFromJSON(json['chassis']),
-    clock: !exists(json, 'clock') ? undefined : V1ClockFromJSON(json['clock']),
-    cpu: !exists(json, 'cpu') ? undefined : V1CPUFromJSON(json['cpu']),
-    devices: V1DevicesFromJSON(json['devices']),
-    features: !exists(json, 'features') ? undefined : V1FeaturesFromJSON(json['features']),
-    firmware: !exists(json, 'firmware') ? undefined : V1FirmwareFromJSON(json['firmware']),
-    ioThreads: !exists(json, 'ioThreads') ? undefined : V1DiskIOThreadsFromJSON(json['ioThreads']),
-    ioThreadsPolicy: !exists(json, 'ioThreadsPolicy') ? undefined : json['ioThreadsPolicy'],
-    launchSecurity: !exists(json, 'launchSecurity')
-      ? undefined
-      : V1LaunchSecurityFromJSON(json['launchSecurity']),
-    machine: !exists(json, 'machine') ? undefined : V1MachineFromJSON(json['machine']),
-    memory: !exists(json, 'memory') ? undefined : V1MemoryFromJSON(json['memory']),
-    resources: !exists(json, 'resources')
-      ? undefined
-      : V1ResourceRequirementsFromJSON(json['resources']),
-  };
-}
-
-export function V1DomainSpecToJSON(value?: V1DomainSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    chassis: V1ChassisToJSON(value.chassis),
-    clock: V1ClockToJSON(value.clock),
-    cpu: V1CPUToJSON(value.cpu),
-    devices: V1DevicesToJSON(value.devices),
-    features: V1FeaturesToJSON(value.features),
-    firmware: V1FirmwareToJSON(value.firmware),
-    ioThreads: V1DiskIOThreadsToJSON(value.ioThreads),
-    ioThreadsPolicy: value.ioThreadsPolicy,
-    launchSecurity: V1LaunchSecurityToJSON(value.launchSecurity),
-    machine: V1MachineToJSON(value.machine),
-    memory: V1MemoryToJSON(value.memory),
-    resources: V1ResourceRequirementsToJSON(value.resources),
-  };
-}
+/**
+ * Check if a given object implements the V1DomainSpec interface.
+ */

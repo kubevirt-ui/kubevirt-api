@@ -27,6 +27,15 @@ export interface K8sIoApiCoreV1ExecAction {
     command?: Array<string>;
 }
 
+/**
+ * Check if a given object implements the K8sIoApiCoreV1ExecAction interface.
+ */
+export function instanceOfK8sIoApiCoreV1ExecAction(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function K8sIoApiCoreV1ExecActionFromJSON(json: any): K8sIoApiCoreV1ExecAction {
     return K8sIoApiCoreV1ExecActionFromJSONTyped(json, false);
 }

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 import {
-    K8sIoApimachineryPkgApisMetaV1LabelSelector,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './';
+} from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 
 /**
  * TopologySpreadConstraint specifies how to spread matching pods among the given topology.
@@ -57,7 +57,7 @@ export interface K8sIoApiCoreV1TopologySpreadConstraint {
     /**
      * NodeAffinityPolicy indicates how we will treat Pod's nodeAffinity/nodeSelector when calculating pod topology spread skew. Options are: - Honor: only nodes matching nodeAffinity/nodeSelector are included in the calculations. - Ignore: nodeAffinity/nodeSelector are ignored. All nodes are included in the calculations.
      * 
-     * If this value is nil, the behavior is equivalent to the Honor policy. This is a beta-level feature default enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.
+     * If this value is nil, the behavior is equivalent to the Honor policy.
      * 
      * Possible enum values:
      *  - `"Honor"` means use this scheduling directive when calculating pod topology spread skew.
@@ -69,7 +69,7 @@ export interface K8sIoApiCoreV1TopologySpreadConstraint {
     /**
      * NodeTaintsPolicy indicates how we will treat node taints when calculating pod topology spread skew. Options are: - Honor: nodes without taints, along with tainted nodes for which the incoming pod has a toleration, are included. - Ignore: node taints are ignored. All nodes are included.
      * 
-     * If this value is nil, the behavior is equivalent to the Ignore policy. This is a beta-level feature default enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.
+     * If this value is nil, the behavior is equivalent to the Ignore policy.
      * 
      * Possible enum values:
      *  - `"Honor"` means use this scheduling directive when calculating pod topology spread skew.
@@ -99,27 +99,45 @@ export interface K8sIoApiCoreV1TopologySpreadConstraint {
     whenUnsatisfiable: K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum;
 }
 
+
 /**
-* @export
-* @enum {string}
-*/
-export enum K8sIoApiCoreV1TopologySpreadConstraintNodeAffinityPolicyEnum {
-    Honor = 'Honor',
-    Ignore = 'Ignore'
-}/**
-* @export
-* @enum {string}
-*/
-export enum K8sIoApiCoreV1TopologySpreadConstraintNodeTaintsPolicyEnum {
-    Honor = 'Honor',
-    Ignore = 'Ignore'
-}/**
-* @export
-* @enum {string}
-*/
-export enum K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum {
-    DoNotSchedule = 'DoNotSchedule',
-    ScheduleAnyway = 'ScheduleAnyway'
+ * @export
+ */
+export const K8sIoApiCoreV1TopologySpreadConstraintNodeAffinityPolicyEnum = {
+    Honor: 'Honor',
+    Ignore: 'Ignore'
+} as const;
+export type K8sIoApiCoreV1TopologySpreadConstraintNodeAffinityPolicyEnum = typeof K8sIoApiCoreV1TopologySpreadConstraintNodeAffinityPolicyEnum[keyof typeof K8sIoApiCoreV1TopologySpreadConstraintNodeAffinityPolicyEnum];
+
+/**
+ * @export
+ */
+export const K8sIoApiCoreV1TopologySpreadConstraintNodeTaintsPolicyEnum = {
+    Honor: 'Honor',
+    Ignore: 'Ignore'
+} as const;
+export type K8sIoApiCoreV1TopologySpreadConstraintNodeTaintsPolicyEnum = typeof K8sIoApiCoreV1TopologySpreadConstraintNodeTaintsPolicyEnum[keyof typeof K8sIoApiCoreV1TopologySpreadConstraintNodeTaintsPolicyEnum];
+
+/**
+ * @export
+ */
+export const K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum = {
+    DoNotSchedule: 'DoNotSchedule',
+    ScheduleAnyway: 'ScheduleAnyway'
+} as const;
+export type K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum = typeof K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum[keyof typeof K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum];
+
+
+/**
+ * Check if a given object implements the K8sIoApiCoreV1TopologySpreadConstraint interface.
+ */
+export function instanceOfK8sIoApiCoreV1TopologySpreadConstraint(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "maxSkew" in value;
+    isInstance = isInstance && "topologyKey" in value;
+    isInstance = isInstance && "whenUnsatisfiable" in value;
+
+    return isInstance;
 }
 
 export function K8sIoApiCoreV1TopologySpreadConstraintFromJSON(json: any): K8sIoApiCoreV1TopologySpreadConstraint {

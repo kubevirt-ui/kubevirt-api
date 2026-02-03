@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApiCoreV1TypedLocalObjectReference,
-  K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
-  K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-  V1beta1VolumeRestoreOverride,
-  V1beta1VolumeRestoreOverrideFromJSON,
-  V1beta1VolumeRestoreOverrideToJSON,
-} from './';
-
+import type { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
+import type { V1beta1VolumeRestoreOverride } from './V1beta1VolumeRestoreOverride';
 /**
  * VirtualMachineRestoreSpec is the spec for a VirtualMachineRestore resource
  * @export
@@ -55,6 +47,12 @@ export interface V1beta1VirtualMachineRestoreSpec {
    */
   virtualMachineSnapshotName: string;
   /**
+   *
+   * @type {string}
+   * @memberof V1beta1VirtualMachineRestoreSpec
+   */
+  volumeOwnershipPolicy?: string;
+  /**
    * VolumeRestoreOverrides gives the option to change properties of each restored volume For example, specifying the name of the restored volume, or adding labels/annotations to it
    * @type {Array<V1beta1VolumeRestoreOverride>}
    * @memberof V1beta1VirtualMachineRestoreSpec
@@ -68,53 +66,6 @@ export interface V1beta1VirtualMachineRestoreSpec {
   volumeRestorePolicy?: string;
 }
 
-export function V1beta1VirtualMachineRestoreSpecFromJSON(
-  json: any,
-): V1beta1VirtualMachineRestoreSpec {
-  return V1beta1VirtualMachineRestoreSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineRestoreSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineRestoreSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    patches: !exists(json, 'patches') ? undefined : json['patches'],
-    target: K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['target']),
-    targetReadinessPolicy: !exists(json, 'targetReadinessPolicy')
-      ? undefined
-      : json['targetReadinessPolicy'],
-    virtualMachineSnapshotName: json['virtualMachineSnapshotName'],
-    volumeRestoreOverrides: !exists(json, 'volumeRestoreOverrides')
-      ? undefined
-      : (json['volumeRestoreOverrides'] as Array<any>).map(V1beta1VolumeRestoreOverrideFromJSON),
-    volumeRestorePolicy: !exists(json, 'volumeRestorePolicy')
-      ? undefined
-      : json['volumeRestorePolicy'],
-  };
-}
-
-export function V1beta1VirtualMachineRestoreSpecToJSON(
-  value?: V1beta1VirtualMachineRestoreSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    patches: value.patches,
-    target: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.target),
-    targetReadinessPolicy: value.targetReadinessPolicy,
-    virtualMachineSnapshotName: value.virtualMachineSnapshotName,
-    volumeRestoreOverrides:
-      value.volumeRestoreOverrides === undefined
-        ? undefined
-        : (value.volumeRestoreOverrides as Array<any>).map(V1beta1VolumeRestoreOverrideToJSON),
-    volumeRestorePolicy: value.volumeRestorePolicy,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineRestoreSpec interface.
+ */

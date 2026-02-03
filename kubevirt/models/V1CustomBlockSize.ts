@@ -23,41 +23,21 @@ export interface V1CustomBlockSize {
    * @type {number}
    * @memberof V1CustomBlockSize
    */
-  logical: number;
+  discardGranularity?: number;
   /**
    *
    * @type {number}
    * @memberof V1CustomBlockSize
    */
-  physical: number;
+  logical?: number;
+  /**
+   *
+   * @type {number}
+   * @memberof V1CustomBlockSize
+   */
+  physical?: number;
 }
 
-export function V1CustomBlockSizeFromJSON(json: any): V1CustomBlockSize {
-  return V1CustomBlockSizeFromJSONTyped(json, false);
-}
-
-export function V1CustomBlockSizeFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1CustomBlockSize {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    logical: json['logical'],
-    physical: json['physical'],
-  };
-}
-
-export function V1CustomBlockSizeToJSON(value?: V1CustomBlockSize | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    logical: value.logical,
-    physical: value.physical,
-  };
-}
+/**
+ * Check if a given object implements the V1CustomBlockSize interface.
+ */

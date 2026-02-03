@@ -32,36 +32,6 @@ export interface V1beta1DataVolumeSourceSnapshot {
   namespace: string;
 }
 
-export function V1beta1DataVolumeSourceSnapshotFromJSON(
-  json: any,
-): V1beta1DataVolumeSourceSnapshot {
-  return V1beta1DataVolumeSourceSnapshotFromJSONTyped(json, false);
-}
-
-export function V1beta1DataVolumeSourceSnapshotFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataVolumeSourceSnapshot {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    namespace: json['namespace'],
-  };
-}
-
-export function V1beta1DataVolumeSourceSnapshotToJSON(
-  value?: V1beta1DataVolumeSourceSnapshot | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    namespace: value.namespace,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1DataVolumeSourceSnapshot interface.
+ */

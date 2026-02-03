@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1beta1VirtualMachineExportManifest,
-  V1beta1VirtualMachineExportManifestFromJSON,
-  V1beta1VirtualMachineExportManifestToJSON,
-  V1beta1VirtualMachineExportVolume,
-  V1beta1VirtualMachineExportVolumeFromJSON,
-  V1beta1VirtualMachineExportVolumeToJSON,
-} from './';
-
+import type { V1beta1VirtualMachineExportManifest } from './V1beta1VirtualMachineExportManifest';
+import type { V1beta1VirtualMachineExportVolume } from './V1beta1VirtualMachineExportVolume';
 /**
  * VirtualMachineExportLink contains a list of volumes available for export, as well as the URLs to obtain these volumes
  * @export
@@ -48,48 +40,6 @@ export interface V1beta1VirtualMachineExportLink {
   volumes?: Array<V1beta1VirtualMachineExportVolume>;
 }
 
-export function V1beta1VirtualMachineExportLinkFromJSON(
-  json: any,
-): V1beta1VirtualMachineExportLink {
-  return V1beta1VirtualMachineExportLinkFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineExportLinkFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineExportLink {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    cert: json['cert'],
-    manifests: !exists(json, 'manifests')
-      ? undefined
-      : (json['manifests'] as Array<any>).map(V1beta1VirtualMachineExportManifestFromJSON),
-    volumes: !exists(json, 'volumes')
-      ? undefined
-      : (json['volumes'] as Array<any>).map(V1beta1VirtualMachineExportVolumeFromJSON),
-  };
-}
-
-export function V1beta1VirtualMachineExportLinkToJSON(
-  value?: V1beta1VirtualMachineExportLink | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    cert: value.cert,
-    manifests:
-      value.manifests === undefined
-        ? undefined
-        : (value.manifests as Array<any>).map(V1beta1VirtualMachineExportManifestToJSON),
-    volumes:
-      value.volumes === undefined
-        ? undefined
-        : (value.volumes as Array<any>).map(V1beta1VirtualMachineExportVolumeToJSON),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineExportLink interface.
+ */

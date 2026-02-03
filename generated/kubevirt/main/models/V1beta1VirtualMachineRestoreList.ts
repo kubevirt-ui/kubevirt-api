@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ListMeta,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-    V1beta1VirtualMachineRestore,
+} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1beta1VirtualMachineRestore } from './V1beta1VirtualMachineRestore';
+import {
     V1beta1VirtualMachineRestoreFromJSON,
     V1beta1VirtualMachineRestoreFromJSONTyped,
     V1beta1VirtualMachineRestoreToJSON,
-} from './';
+} from './V1beta1VirtualMachineRestore';
 
 /**
  * VirtualMachineRestoreList is a list of VirtualMachineRestore resources
@@ -54,6 +56,17 @@ export interface V1beta1VirtualMachineRestoreList {
      * @memberof V1beta1VirtualMachineRestoreList
      */
     metadata: K8sIoApimachineryPkgApisMetaV1ListMeta;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineRestoreList interface.
+ */
+export function instanceOfV1beta1VirtualMachineRestoreList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "items" in value;
+    isInstance = isInstance && "metadata" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineRestoreListFromJSON(json: any): V1beta1VirtualMachineRestoreList {

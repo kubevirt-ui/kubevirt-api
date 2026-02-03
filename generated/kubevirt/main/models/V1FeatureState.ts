@@ -27,6 +27,15 @@ export interface V1FeatureState {
     enabled?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1FeatureState interface.
+ */
+export function instanceOfV1FeatureState(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1FeatureStateFromJSON(json: any): V1FeatureState {
     return V1FeatureStateFromJSONTyped(json, false);
 }

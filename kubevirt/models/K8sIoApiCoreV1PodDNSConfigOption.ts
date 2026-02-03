@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PodDNSConfigOption defines DNS resolver options of a pod.
  * @export
@@ -33,36 +32,6 @@ export interface K8sIoApiCoreV1PodDNSConfigOption {
   value?: string;
 }
 
-export function K8sIoApiCoreV1PodDNSConfigOptionFromJSON(
-  json: any,
-): K8sIoApiCoreV1PodDNSConfigOption {
-  return K8sIoApiCoreV1PodDNSConfigOptionFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1PodDNSConfigOptionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApiCoreV1PodDNSConfigOption {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: !exists(json, 'name') ? undefined : json['name'],
-    value: !exists(json, 'value') ? undefined : json['value'],
-  };
-}
-
-export function K8sIoApiCoreV1PodDNSConfigOptionToJSON(
-  value?: K8sIoApiCoreV1PodDNSConfigOption | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    value: value.value,
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApiCoreV1PodDNSConfigOption interface.
+ */

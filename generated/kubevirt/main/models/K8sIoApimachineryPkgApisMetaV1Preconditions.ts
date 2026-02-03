@@ -33,6 +33,15 @@ export interface K8sIoApimachineryPkgApisMetaV1Preconditions {
     uid?: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1Preconditions interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1Preconditions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1Preconditions {
     return K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSONTyped(json, false);
 }

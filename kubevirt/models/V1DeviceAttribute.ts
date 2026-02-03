@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * DeviceAttribute must have exactly one field set.
  * @export
@@ -33,32 +32,6 @@ export interface V1DeviceAttribute {
   pciAddress?: string;
 }
 
-export function V1DeviceAttributeFromJSON(json: any): V1DeviceAttribute {
-  return V1DeviceAttributeFromJSONTyped(json, false);
-}
-
-export function V1DeviceAttributeFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DeviceAttribute {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    mDevUUID: !exists(json, 'mDevUUID') ? undefined : json['mDevUUID'],
-    pciAddress: !exists(json, 'pciAddress') ? undefined : json['pciAddress'],
-  };
-}
-
-export function V1DeviceAttributeToJSON(value?: V1DeviceAttribute | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    mDevUUID: value.mDevUUID,
-    pciAddress: value.pciAddress,
-  };
-}
+/**
+ * Check if a given object implements the V1DeviceAttribute interface.
+ */

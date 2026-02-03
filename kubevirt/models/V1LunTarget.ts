@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -39,31 +38,6 @@ export interface V1LunTarget {
   reservation?: boolean;
 }
 
-export function V1LunTargetFromJSON(json: any): V1LunTarget {
-  return V1LunTargetFromJSONTyped(json, false);
-}
-
-export function V1LunTargetFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1LunTarget {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    bus: !exists(json, 'bus') ? undefined : json['bus'],
-    readonly: !exists(json, 'readonly') ? undefined : json['readonly'],
-    reservation: !exists(json, 'reservation') ? undefined : json['reservation'],
-  };
-}
-
-export function V1LunTargetToJSON(value?: V1LunTarget | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    bus: value.bus,
-    readonly: value.readonly,
-    reservation: value.reservation,
-  };
-}
+/**
+ * Check if a given object implements the V1LunTarget interface.
+ */

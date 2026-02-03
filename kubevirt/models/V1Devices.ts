@@ -12,43 +12,17 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1Disk,
-  V1DiskFromJSON,
-  V1DiskToJSON,
-  V1Filesystem,
-  V1FilesystemFromJSON,
-  V1FilesystemToJSON,
-  V1GPU,
-  V1GPUFromJSON,
-  V1GPUToJSON,
-  V1HostDevice,
-  V1HostDeviceFromJSON,
-  V1HostDeviceToJSON,
-  V1Input,
-  V1InputFromJSON,
-  V1InputToJSON,
-  V1Interface,
-  V1InterfaceFromJSON,
-  V1InterfaceToJSON,
-  V1PanicDevice,
-  V1PanicDeviceFromJSON,
-  V1PanicDeviceToJSON,
-  V1SoundDevice,
-  V1SoundDeviceFromJSON,
-  V1SoundDeviceToJSON,
-  V1TPMDevice,
-  V1TPMDeviceFromJSON,
-  V1TPMDeviceToJSON,
-  V1VideoDevice,
-  V1VideoDeviceFromJSON,
-  V1VideoDeviceToJSON,
-  V1Watchdog,
-  V1WatchdogFromJSON,
-  V1WatchdogToJSON,
-} from './';
-
+import type { V1Disk } from './V1Disk';
+import type { V1Filesystem } from './V1Filesystem';
+import type { V1GPU } from './V1GPU';
+import type { V1HostDevice } from './V1HostDevice';
+import type { V1Input } from './V1Input';
+import type { V1Interface } from './V1Interface';
+import type { V1PanicDevice } from './V1PanicDevice';
+import type { V1SoundDevice } from './V1SoundDevice';
+import type { V1TPMDevice } from './V1TPMDevice';
+import type { V1VideoDevice } from './V1VideoDevice';
+import type { V1Watchdog } from './V1Watchdog';
 /**
  *
  * @export
@@ -209,112 +183,6 @@ export interface V1Devices {
   watchdog?: V1Watchdog;
 }
 
-export function V1DevicesFromJSON(json: any): V1Devices {
-  return V1DevicesFromJSONTyped(json, false);
-}
-
-export function V1DevicesFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Devices {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    autoattachGraphicsDevice: !exists(json, 'autoattachGraphicsDevice')
-      ? undefined
-      : json['autoattachGraphicsDevice'],
-    autoattachInputDevice: !exists(json, 'autoattachInputDevice')
-      ? undefined
-      : json['autoattachInputDevice'],
-    autoattachMemBalloon: !exists(json, 'autoattachMemBalloon')
-      ? undefined
-      : json['autoattachMemBalloon'],
-    autoattachPodInterface: !exists(json, 'autoattachPodInterface')
-      ? undefined
-      : json['autoattachPodInterface'],
-    autoattachSerialConsole: !exists(json, 'autoattachSerialConsole')
-      ? undefined
-      : json['autoattachSerialConsole'],
-    autoattachVSOCK: !exists(json, 'autoattachVSOCK') ? undefined : json['autoattachVSOCK'],
-    blockMultiQueue: !exists(json, 'blockMultiQueue') ? undefined : json['blockMultiQueue'],
-    clientPassthrough: !exists(json, 'clientPassthrough') ? undefined : json['clientPassthrough'],
-    disableHotplug: !exists(json, 'disableHotplug') ? undefined : json['disableHotplug'],
-    disks: !exists(json, 'disks') ? undefined : (json['disks'] as Array<any>).map(V1DiskFromJSON),
-    downwardMetrics: !exists(json, 'downwardMetrics') ? undefined : json['downwardMetrics'],
-    filesystems: !exists(json, 'filesystems')
-      ? undefined
-      : (json['filesystems'] as Array<any>).map(V1FilesystemFromJSON),
-    gpus: !exists(json, 'gpus') ? undefined : (json['gpus'] as Array<any>).map(V1GPUFromJSON),
-    hostDevices: !exists(json, 'hostDevices')
-      ? undefined
-      : (json['hostDevices'] as Array<any>).map(V1HostDeviceFromJSON),
-    inputs: !exists(json, 'inputs')
-      ? undefined
-      : (json['inputs'] as Array<any>).map(V1InputFromJSON),
-    interfaces: !exists(json, 'interfaces')
-      ? undefined
-      : (json['interfaces'] as Array<any>).map(V1InterfaceFromJSON),
-    logSerialConsole: !exists(json, 'logSerialConsole') ? undefined : json['logSerialConsole'],
-    networkInterfaceMultiqueue: !exists(json, 'networkInterfaceMultiqueue')
-      ? undefined
-      : json['networkInterfaceMultiqueue'],
-    panicDevices: !exists(json, 'panicDevices')
-      ? undefined
-      : (json['panicDevices'] as Array<any>).map(V1PanicDeviceFromJSON),
-    rng: !exists(json, 'rng') ? undefined : json['rng'],
-    sound: !exists(json, 'sound') ? undefined : V1SoundDeviceFromJSON(json['sound']),
-    tpm: !exists(json, 'tpm') ? undefined : V1TPMDeviceFromJSON(json['tpm']),
-    useVirtioTransitional: !exists(json, 'useVirtioTransitional')
-      ? undefined
-      : json['useVirtioTransitional'],
-    video: !exists(json, 'video') ? undefined : V1VideoDeviceFromJSON(json['video']),
-    watchdog: !exists(json, 'watchdog') ? undefined : V1WatchdogFromJSON(json['watchdog']),
-  };
-}
-
-export function V1DevicesToJSON(value?: V1Devices | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    autoattachGraphicsDevice: value.autoattachGraphicsDevice,
-    autoattachInputDevice: value.autoattachInputDevice,
-    autoattachMemBalloon: value.autoattachMemBalloon,
-    autoattachPodInterface: value.autoattachPodInterface,
-    autoattachSerialConsole: value.autoattachSerialConsole,
-    autoattachVSOCK: value.autoattachVSOCK,
-    blockMultiQueue: value.blockMultiQueue,
-    clientPassthrough: value.clientPassthrough,
-    disableHotplug: value.disableHotplug,
-    disks: value.disks === undefined ? undefined : (value.disks as Array<any>).map(V1DiskToJSON),
-    downwardMetrics: value.downwardMetrics,
-    filesystems:
-      value.filesystems === undefined
-        ? undefined
-        : (value.filesystems as Array<any>).map(V1FilesystemToJSON),
-    gpus: value.gpus === undefined ? undefined : (value.gpus as Array<any>).map(V1GPUToJSON),
-    hostDevices:
-      value.hostDevices === undefined
-        ? undefined
-        : (value.hostDevices as Array<any>).map(V1HostDeviceToJSON),
-    inputs:
-      value.inputs === undefined ? undefined : (value.inputs as Array<any>).map(V1InputToJSON),
-    interfaces:
-      value.interfaces === undefined
-        ? undefined
-        : (value.interfaces as Array<any>).map(V1InterfaceToJSON),
-    logSerialConsole: value.logSerialConsole,
-    networkInterfaceMultiqueue: value.networkInterfaceMultiqueue,
-    panicDevices:
-      value.panicDevices === undefined
-        ? undefined
-        : (value.panicDevices as Array<any>).map(V1PanicDeviceToJSON),
-    rng: value.rng,
-    sound: V1SoundDeviceToJSON(value.sound),
-    tpm: V1TPMDeviceToJSON(value.tpm),
-    useVirtioTransitional: value.useVirtioTransitional,
-    video: V1VideoDeviceToJSON(value.video),
-    watchdog: V1WatchdogToJSON(value.watchdog),
-  };
-}
+/**
+ * Check if a given object implements the V1Devices interface.
+ */

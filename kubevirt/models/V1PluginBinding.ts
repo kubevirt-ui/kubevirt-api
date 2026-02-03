@@ -26,30 +26,6 @@ export interface V1PluginBinding {
   name: string;
 }
 
-export function V1PluginBindingFromJSON(json: any): V1PluginBinding {
-  return V1PluginBindingFromJSONTyped(json, false);
-}
-
-export function V1PluginBindingFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1PluginBinding {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-  };
-}
-
-export function V1PluginBindingToJSON(value?: V1PluginBinding | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-  };
-}
+/**
+ * Check if a given object implements the V1PluginBinding interface.
+ */

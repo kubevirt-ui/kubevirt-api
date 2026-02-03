@@ -12,22 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1ContainerDiskInfo,
-  V1ContainerDiskInfoFromJSON,
-  V1ContainerDiskInfoToJSON,
-  V1DomainMemoryDumpInfo,
-  V1DomainMemoryDumpInfoFromJSON,
-  V1DomainMemoryDumpInfoToJSON,
-  V1HotplugVolumeStatus,
-  V1HotplugVolumeStatusFromJSON,
-  V1HotplugVolumeStatusToJSON,
-  V1PersistentVolumeClaimInfo,
-  V1PersistentVolumeClaimInfoFromJSON,
-  V1PersistentVolumeClaimInfoToJSON,
-} from './';
-
+import type { V1ContainerDiskInfo } from './V1ContainerDiskInfo';
+import type { V1DomainMemoryDumpInfo } from './V1DomainMemoryDumpInfo';
+import type { V1HotplugVolumeStatus } from './V1HotplugVolumeStatus';
+import type { V1PersistentVolumeClaimInfo } from './V1PersistentVolumeClaimInfo';
 /**
  * VolumeStatus represents information about the status of volumes attached to the VirtualMachineInstance.
  * @export
@@ -96,56 +84,6 @@ export interface V1VolumeStatus {
   target: string;
 }
 
-export function V1VolumeStatusFromJSON(json: any): V1VolumeStatus {
-  return V1VolumeStatusFromJSONTyped(json, false);
-}
-
-export function V1VolumeStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VolumeStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    containerDiskVolume: !exists(json, 'containerDiskVolume')
-      ? undefined
-      : V1ContainerDiskInfoFromJSON(json['containerDiskVolume']),
-    hotplugVolume: !exists(json, 'hotplugVolume')
-      ? undefined
-      : V1HotplugVolumeStatusFromJSON(json['hotplugVolume']),
-    memoryDumpVolume: !exists(json, 'memoryDumpVolume')
-      ? undefined
-      : V1DomainMemoryDumpInfoFromJSON(json['memoryDumpVolume']),
-    message: !exists(json, 'message') ? undefined : json['message'],
-    name: json['name'],
-    persistentVolumeClaimInfo: !exists(json, 'persistentVolumeClaimInfo')
-      ? undefined
-      : V1PersistentVolumeClaimInfoFromJSON(json['persistentVolumeClaimInfo']),
-    phase: !exists(json, 'phase') ? undefined : json['phase'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    size: !exists(json, 'size') ? undefined : json['size'],
-    target: json['target'],
-  };
-}
-
-export function V1VolumeStatusToJSON(value?: V1VolumeStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    containerDiskVolume: V1ContainerDiskInfoToJSON(value.containerDiskVolume),
-    hotplugVolume: V1HotplugVolumeStatusToJSON(value.hotplugVolume),
-    memoryDumpVolume: V1DomainMemoryDumpInfoToJSON(value.memoryDumpVolume),
-    message: value.message,
-    name: value.name,
-    persistentVolumeClaimInfo: V1PersistentVolumeClaimInfoToJSON(value.persistentVolumeClaimInfo),
-    phase: value.phase,
-    reason: value.reason,
-    size: value.size,
-    target: value.target,
-  };
-}
+/**
+ * Check if a given object implements the V1VolumeStatus interface.
+ */

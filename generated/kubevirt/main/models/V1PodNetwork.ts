@@ -33,6 +33,15 @@ export interface V1PodNetwork {
     vmNetworkCIDR?: string;
 }
 
+/**
+ * Check if a given object implements the V1PodNetwork interface.
+ */
+export function instanceOfV1PodNetwork(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1PodNetworkFromJSON(json: any): V1PodNetwork {
     return V1PodNetworkFromJSONTyped(json, false);
 }

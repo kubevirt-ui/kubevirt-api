@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ListMeta,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-    V1VirtualMachineInstance,
+} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1VirtualMachineInstance } from './V1VirtualMachineInstance';
+import {
     V1VirtualMachineInstanceFromJSON,
     V1VirtualMachineInstanceFromJSONTyped,
     V1VirtualMachineInstanceToJSON,
-} from './';
+} from './V1VirtualMachineInstance';
 
 /**
  * VirtualMachineInstanceList is a list of VirtualMachines
@@ -54,6 +56,16 @@ export interface V1VirtualMachineInstanceList {
      * @memberof V1VirtualMachineInstanceList
      */
     metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceList interface.
+ */
+export function instanceOfV1VirtualMachineInstanceList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "items" in value;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceListFromJSON(json: any): V1VirtualMachineInstanceList {

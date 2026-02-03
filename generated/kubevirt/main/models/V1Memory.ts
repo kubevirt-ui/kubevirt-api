@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Hugepages } from './V1Hugepages';
 import {
-    V1Hugepages,
     V1HugepagesFromJSON,
     V1HugepagesFromJSONTyped,
     V1HugepagesToJSON,
-} from './';
+} from './V1Hugepages';
 
 /**
  * Memory allows specifying the VirtualMachineInstance memory features.
@@ -116,6 +116,15 @@ export interface V1Memory {
      * @memberof V1Memory
      */
     maxGuest?: string;
+}
+
+/**
+ * Check if a given object implements the V1Memory interface.
+ */
+export function instanceOfV1Memory(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1MemoryFromJSON(json: any): V1Memory {

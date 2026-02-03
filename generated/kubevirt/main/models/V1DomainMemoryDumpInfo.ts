@@ -45,6 +45,15 @@ export interface V1DomainMemoryDumpInfo {
     targetFileName?: string;
 }
 
+/**
+ * Check if a given object implements the V1DomainMemoryDumpInfo interface.
+ */
+export function instanceOfV1DomainMemoryDumpInfo(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1DomainMemoryDumpInfoFromJSON(json: any): V1DomainMemoryDumpInfo {
     return V1DomainMemoryDumpInfoFromJSONTyped(json, false);
 }
@@ -56,8 +65,8 @@ export function V1DomainMemoryDumpInfoFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'claimName': !exists(json, 'claimName') ? undefined : json['claimName'],
-        'endTimestamp': !exists(json, 'endTimestamp') ? undefined : (new Date(json['endTimestamp'])),
-        'startTimestamp': !exists(json, 'startTimestamp') ? undefined : (new Date(json['startTimestamp'])),
+        'endTimestamp': !exists(json, 'endTimestamp') ? undefined : json['endTimestamp'],
+        'startTimestamp': !exists(json, 'startTimestamp') ? undefined : json['startTimestamp'],
         'targetFileName': !exists(json, 'targetFileName') ? undefined : json['targetFileName'],
     };
 }
@@ -72,8 +81,8 @@ export function V1DomainMemoryDumpInfoToJSON(value?: V1DomainMemoryDumpInfo | nu
     return {
         
         'claimName': value.claimName,
-        'endTimestamp': value.endTimestamp === undefined ? undefined : (value.endTimestamp.toISOString()),
-        'startTimestamp': value.startTimestamp === undefined ? undefined : (value.startTimestamp.toISOString()),
+        'endTimestamp': value.endTimestamp,
+        'startTimestamp': value.startTimestamp,
         'targetFileName': value.targetFileName,
     };
 }

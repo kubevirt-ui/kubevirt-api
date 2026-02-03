@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1InterfaceBindingPlugin } from './V1InterfaceBindingPlugin';
 import {
-    V1InterfaceBindingPlugin,
     V1InterfaceBindingPluginFromJSON,
     V1InterfaceBindingPluginFromJSONTyped,
     V1InterfaceBindingPluginToJSON,
-} from './';
+} from './V1InterfaceBindingPlugin';
 
 /**
  * NetworkConfiguration holds network options
@@ -50,6 +50,15 @@ export interface V1NetworkConfiguration {
      * @memberof V1NetworkConfiguration
      */
     permitSlirpInterface?: boolean;
+}
+
+/**
+ * Check if a given object implements the V1NetworkConfiguration interface.
+ */
+export function instanceOfV1NetworkConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1NetworkConfigurationFromJSON(json: any): V1NetworkConfiguration {

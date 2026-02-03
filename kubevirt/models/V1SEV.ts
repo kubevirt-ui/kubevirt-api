@@ -12,9 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1SEVPolicy, V1SEVPolicyFromJSON, V1SEVPolicyToJSON } from './';
-
+import type { V1SEVPolicy } from './V1SEVPolicy';
 /**
  *
  * @export
@@ -47,33 +45,6 @@ export interface V1SEV {
   session?: string;
 }
 
-export function V1SEVFromJSON(json: any): V1SEV {
-  return V1SEVFromJSONTyped(json, false);
-}
-
-export function V1SEVFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SEV {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    attestation: !exists(json, 'attestation') ? undefined : json['attestation'],
-    dhCert: !exists(json, 'dhCert') ? undefined : json['dhCert'],
-    policy: !exists(json, 'policy') ? undefined : V1SEVPolicyFromJSON(json['policy']),
-    session: !exists(json, 'session') ? undefined : json['session'],
-  };
-}
-
-export function V1SEVToJSON(value?: V1SEV | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    attestation: value.attestation,
-    dhCert: value.dhCert,
-    policy: V1SEVPolicyToJSON(value.policy),
-    session: value.session,
-  };
-}
+/**
+ * Check if a given object implements the V1SEV interface.
+ */

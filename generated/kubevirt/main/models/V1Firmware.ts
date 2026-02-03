@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ACPI } from './V1ACPI';
 import {
-    V1ACPI,
     V1ACPIFromJSON,
     V1ACPIFromJSONTyped,
     V1ACPIToJSON,
-    V1Bootloader,
+} from './V1ACPI';
+import type { V1Bootloader } from './V1Bootloader';
+import {
     V1BootloaderFromJSON,
     V1BootloaderFromJSONTyped,
     V1BootloaderToJSON,
-    V1KernelBoot,
+} from './V1Bootloader';
+import type { V1KernelBoot } from './V1KernelBoot';
+import {
     V1KernelBootFromJSON,
     V1KernelBootFromJSONTyped,
     V1KernelBootToJSON,
-} from './';
+} from './V1KernelBoot';
 
 /**
  * 
@@ -64,6 +68,15 @@ export interface V1Firmware {
      * @memberof V1Firmware
      */
     uuid?: string;
+}
+
+/**
+ * Check if a given object implements the V1Firmware interface.
+ */
+export function instanceOfV1Firmware(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1FirmwareFromJSON(json: any): V1Firmware {

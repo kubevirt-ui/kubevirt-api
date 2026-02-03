@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1AddVolumeOptions } from './V1AddVolumeOptions';
 import {
-    V1AddVolumeOptions,
     V1AddVolumeOptionsFromJSON,
     V1AddVolumeOptionsFromJSONTyped,
     V1AddVolumeOptionsToJSON,
-    V1RemoveVolumeOptions,
+} from './V1AddVolumeOptions';
+import type { V1RemoveVolumeOptions } from './V1RemoveVolumeOptions';
+import {
     V1RemoveVolumeOptionsFromJSON,
     V1RemoveVolumeOptionsFromJSONTyped,
     V1RemoveVolumeOptionsToJSON,
-} from './';
+} from './V1RemoveVolumeOptions';
 
 /**
  * 
@@ -42,6 +44,15 @@ export interface V1VirtualMachineVolumeRequest {
      * @memberof V1VirtualMachineVolumeRequest
      */
     removeVolumeOptions?: V1RemoveVolumeOptions;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineVolumeRequest interface.
+ */
+export function instanceOfV1VirtualMachineVolumeRequest(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineVolumeRequestFromJSON(json: any): V1VirtualMachineVolumeRequest {

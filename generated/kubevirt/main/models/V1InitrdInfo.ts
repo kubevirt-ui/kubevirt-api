@@ -27,6 +27,15 @@ export interface V1InitrdInfo {
     checksum?: number;
 }
 
+/**
+ * Check if a given object implements the V1InitrdInfo interface.
+ */
+export function instanceOfV1InitrdInfo(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1InitrdInfoFromJSON(json: any): V1InitrdInfo {
     return V1InitrdInfoFromJSONTyped(json, false);
 }

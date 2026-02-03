@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApiCoreV1PodAffinityTerm,
-  K8sIoApiCoreV1PodAffinityTermFromJSON,
-  K8sIoApiCoreV1PodAffinityTermToJSON,
-  K8sIoApiCoreV1WeightedPodAffinityTerm,
-  K8sIoApiCoreV1WeightedPodAffinityTermFromJSON,
-  K8sIoApiCoreV1WeightedPodAffinityTermToJSON,
-} from './';
-
+import type { K8sIoApiCoreV1PodAffinityTerm } from './K8sIoApiCoreV1PodAffinityTerm';
+import type { K8sIoApiCoreV1WeightedPodAffinityTerm } from './K8sIoApiCoreV1WeightedPodAffinityTerm';
 /**
  * Pod affinity is a group of inter pod affinity scheduling rules.
  * @export
@@ -42,56 +34,6 @@ export interface K8sIoApiCoreV1PodAffinity {
   requiredDuringSchedulingIgnoredDuringExecution?: Array<K8sIoApiCoreV1PodAffinityTerm>;
 }
 
-export function K8sIoApiCoreV1PodAffinityFromJSON(json: any): K8sIoApiCoreV1PodAffinity {
-  return K8sIoApiCoreV1PodAffinityFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1PodAffinityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApiCoreV1PodAffinity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'preferredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : (json['preferredDuringSchedulingIgnoredDuringExecution'] as Array<any>).map(
-          K8sIoApiCoreV1WeightedPodAffinityTermFromJSON,
-        ),
-    requiredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'requiredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : (json['requiredDuringSchedulingIgnoredDuringExecution'] as Array<any>).map(
-          K8sIoApiCoreV1PodAffinityTermFromJSON,
-        ),
-  };
-}
-
-export function K8sIoApiCoreV1PodAffinityToJSON(value?: K8sIoApiCoreV1PodAffinity | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution:
-      value.preferredDuringSchedulingIgnoredDuringExecution === undefined
-        ? undefined
-        : (value.preferredDuringSchedulingIgnoredDuringExecution as Array<any>).map(
-            K8sIoApiCoreV1WeightedPodAffinityTermToJSON,
-          ),
-    requiredDuringSchedulingIgnoredDuringExecution:
-      value.requiredDuringSchedulingIgnoredDuringExecution === undefined
-        ? undefined
-        : (value.requiredDuringSchedulingIgnoredDuringExecution as Array<any>).map(
-            K8sIoApiCoreV1PodAffinityTermToJSON,
-          ),
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApiCoreV1PodAffinity interface.
+ */

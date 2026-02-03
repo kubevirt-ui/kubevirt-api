@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1ClockOffset,
-  V1ClockOffsetFromJSON,
-  V1ClockOffsetToJSON,
-  V1Timer,
-  V1TimerFromJSON,
-  V1TimerToJSON,
-} from './';
-
+import type { V1ClockOffset } from './V1ClockOffset';
+import type { V1Timer } from './V1Timer';
 /**
  * ClockPreferences contains various optional defaults for Clock.
  * @export
@@ -42,36 +34,6 @@ export interface V1beta1ClockPreferences {
   preferredTimer?: V1Timer;
 }
 
-export function V1beta1ClockPreferencesFromJSON(json: any): V1beta1ClockPreferences {
-  return V1beta1ClockPreferencesFromJSONTyped(json, false);
-}
-
-export function V1beta1ClockPreferencesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1ClockPreferences {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredClockOffset: !exists(json, 'preferredClockOffset')
-      ? undefined
-      : V1ClockOffsetFromJSON(json['preferredClockOffset']),
-    preferredTimer: !exists(json, 'preferredTimer')
-      ? undefined
-      : V1TimerFromJSON(json['preferredTimer']),
-  };
-}
-
-export function V1beta1ClockPreferencesToJSON(value?: V1beta1ClockPreferences | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredClockOffset: V1ClockOffsetToJSON(value.preferredClockOffset),
-    preferredTimer: V1TimerToJSON(value.preferredTimer),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1ClockPreferences interface.
+ */

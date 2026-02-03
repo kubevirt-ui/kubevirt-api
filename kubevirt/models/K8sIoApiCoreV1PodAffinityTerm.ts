@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1LabelSelector,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 /**
  * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running
  * @export
@@ -32,13 +26,13 @@ export interface K8sIoApiCoreV1PodAffinityTerm {
    */
   labelSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
   /**
-   * MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).
+   * MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn't set.
    * @type {Array<string>}
    * @memberof K8sIoApiCoreV1PodAffinityTerm
    */
   matchLabelKeys?: Array<string>;
   /**
-   * MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).
+   * MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn't set.
    * @type {Array<string>}
    * @memberof K8sIoApiCoreV1PodAffinityTerm
    */
@@ -63,46 +57,6 @@ export interface K8sIoApiCoreV1PodAffinityTerm {
   topologyKey: string;
 }
 
-export function K8sIoApiCoreV1PodAffinityTermFromJSON(json: any): K8sIoApiCoreV1PodAffinityTerm {
-  return K8sIoApiCoreV1PodAffinityTermFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1PodAffinityTermFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApiCoreV1PodAffinityTerm {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    labelSelector: !exists(json, 'labelSelector')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['labelSelector']),
-    matchLabelKeys: !exists(json, 'matchLabelKeys') ? undefined : json['matchLabelKeys'],
-    mismatchLabelKeys: !exists(json, 'mismatchLabelKeys') ? undefined : json['mismatchLabelKeys'],
-    namespaceSelector: !exists(json, 'namespaceSelector')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['namespaceSelector']),
-    namespaces: !exists(json, 'namespaces') ? undefined : json['namespaces'],
-    topologyKey: json['topologyKey'],
-  };
-}
-
-export function K8sIoApiCoreV1PodAffinityTermToJSON(
-  value?: K8sIoApiCoreV1PodAffinityTerm | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    labelSelector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.labelSelector),
-    matchLabelKeys: value.matchLabelKeys,
-    mismatchLabelKeys: value.mismatchLabelKeys,
-    namespaceSelector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.namespaceSelector),
-    namespaces: value.namespaces,
-    topologyKey: value.topologyKey,
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApiCoreV1PodAffinityTerm interface.
+ */

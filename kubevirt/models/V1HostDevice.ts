@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -51,35 +50,6 @@ export interface V1HostDevice {
   tag?: string;
 }
 
-export function V1HostDeviceFromJSON(json: any): V1HostDevice {
-  return V1HostDeviceFromJSONTyped(json, false);
-}
-
-export function V1HostDeviceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1HostDevice {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    claimName: !exists(json, 'claimName') ? undefined : json['claimName'],
-    deviceName: !exists(json, 'deviceName') ? undefined : json['deviceName'],
-    name: json['name'],
-    requestName: !exists(json, 'requestName') ? undefined : json['requestName'],
-    tag: !exists(json, 'tag') ? undefined : json['tag'],
-  };
-}
-
-export function V1HostDeviceToJSON(value?: V1HostDevice | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    claimName: value.claimName,
-    deviceName: value.deviceName,
-    name: value.name,
-    requestName: value.requestName,
-    tag: value.tag,
-  };
-}
+/**
+ * Check if a given object implements the V1HostDevice interface.
+ */

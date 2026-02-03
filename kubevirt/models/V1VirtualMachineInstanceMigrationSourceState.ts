@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -81,56 +80,6 @@ export interface V1VirtualMachineInstanceMigrationSourceState {
   virtualMachineInstanceUID?: string;
 }
 
-export function V1VirtualMachineInstanceMigrationSourceStateFromJSON(
-  json: any,
-): V1VirtualMachineInstanceMigrationSourceState {
-  return V1VirtualMachineInstanceMigrationSourceStateFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceMigrationSourceStateFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceMigrationSourceState {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    domainName: !exists(json, 'domainName') ? undefined : json['domainName'],
-    domainNamespace: !exists(json, 'domainNamespace') ? undefined : json['domainNamespace'],
-    migrationUID: !exists(json, 'migrationUID') ? undefined : json['migrationUID'],
-    node: !exists(json, 'node') ? undefined : json['node'],
-    nodeSelectors: !exists(json, 'nodeSelectors') ? undefined : json['nodeSelectors'],
-    persistentStatePVCName: !exists(json, 'persistentStatePVCName')
-      ? undefined
-      : json['persistentStatePVCName'],
-    pod: !exists(json, 'pod') ? undefined : json['pod'],
-    selinuxContext: !exists(json, 'selinuxContext') ? undefined : json['selinuxContext'],
-    syncAddress: !exists(json, 'syncAddress') ? undefined : json['syncAddress'],
-    virtualMachineInstanceUID: !exists(json, 'virtualMachineInstanceUID')
-      ? undefined
-      : json['virtualMachineInstanceUID'],
-  };
-}
-
-export function V1VirtualMachineInstanceMigrationSourceStateToJSON(
-  value?: V1VirtualMachineInstanceMigrationSourceState | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    domainName: value.domainName,
-    domainNamespace: value.domainNamespace,
-    migrationUID: value.migrationUID,
-    node: value.node,
-    nodeSelectors: value.nodeSelectors,
-    persistentStatePVCName: value.persistentStatePVCName,
-    pod: value.pod,
-    selinuxContext: value.selinuxContext,
-    syncAddress: value.syncAddress,
-    virtualMachineInstanceUID: value.virtualMachineInstanceUID,
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationSourceState interface.
+ */

@@ -33,6 +33,17 @@ export interface V1beta1DataVolumeSourcePVC {
     namespace: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1DataVolumeSourcePVC interface.
+ */
+export function instanceOfV1beta1DataVolumeSourcePVC(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "namespace" in value;
+
+    return isInstance;
+}
+
 export function V1beta1DataVolumeSourcePVCFromJSON(json: any): V1beta1DataVolumeSourcePVC {
     return V1beta1DataVolumeSourcePVCFromJSONTyped(json, false);
 }

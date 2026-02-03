@@ -75,6 +75,15 @@ export interface V1LiveUpdateConfiguration {
     maxHotplugRatio?: number;
 }
 
+/**
+ * Check if a given object implements the V1LiveUpdateConfiguration interface.
+ */
+export function instanceOfV1LiveUpdateConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1LiveUpdateConfigurationFromJSON(json: any): V1LiveUpdateConfiguration {
     return V1LiveUpdateConfigurationFromJSONTyped(json, false);
 }

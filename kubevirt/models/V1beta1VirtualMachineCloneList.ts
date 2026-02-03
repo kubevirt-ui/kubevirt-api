@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ListMeta,
-  K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-  V1beta1VirtualMachineClone,
-  V1beta1VirtualMachineCloneFromJSON,
-  V1beta1VirtualMachineCloneToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1beta1VirtualMachineClone } from './V1beta1VirtualMachineClone';
 /**
  * VirtualMachineCloneList is a list of MigrationPolicy
  * @export
@@ -54,40 +46,6 @@ export interface V1beta1VirtualMachineCloneList {
   metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
 
-export function V1beta1VirtualMachineCloneListFromJSON(json: any): V1beta1VirtualMachineCloneList {
-  return V1beta1VirtualMachineCloneListFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineCloneListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineCloneList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1beta1VirtualMachineCloneFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function V1beta1VirtualMachineCloneListToJSON(
-  value?: V1beta1VirtualMachineCloneList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1beta1VirtualMachineCloneToJSON),
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineCloneList interface.
+ */

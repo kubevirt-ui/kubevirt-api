@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1ControllerRevisionRef,
-  V1ControllerRevisionRefFromJSON,
-  V1ControllerRevisionRefToJSON,
-} from './';
-
+import type { V1ControllerRevisionRef } from './V1ControllerRevisionRef';
 /**
  *
  * @export
@@ -57,42 +51,6 @@ export interface V1InstancetypeStatusRef {
   name?: string;
 }
 
-export function V1InstancetypeStatusRefFromJSON(json: any): V1InstancetypeStatusRef {
-  return V1InstancetypeStatusRefFromJSONTyped(json, false);
-}
-
-export function V1InstancetypeStatusRefFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1InstancetypeStatusRef {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    controllerRevisionRef: !exists(json, 'controllerRevisionRef')
-      ? undefined
-      : V1ControllerRevisionRefFromJSON(json['controllerRevisionRef']),
-    inferFromVolume: !exists(json, 'inferFromVolume') ? undefined : json['inferFromVolume'],
-    inferFromVolumeFailurePolicy: !exists(json, 'inferFromVolumeFailurePolicy')
-      ? undefined
-      : json['inferFromVolumeFailurePolicy'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    name: !exists(json, 'name') ? undefined : json['name'],
-  };
-}
-
-export function V1InstancetypeStatusRefToJSON(value?: V1InstancetypeStatusRef | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    controllerRevisionRef: V1ControllerRevisionRefToJSON(value.controllerRevisionRef),
-    inferFromVolume: value.inferFromVolume,
-    inferFromVolumeFailurePolicy: value.inferFromVolumeFailurePolicy,
-    kind: value.kind,
-    name: value.name,
-  };
-}
+/**
+ * Check if a given object implements the V1InstancetypeStatusRef interface.
+ */

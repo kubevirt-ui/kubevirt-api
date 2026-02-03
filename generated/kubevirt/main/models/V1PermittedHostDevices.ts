@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1MediatedHostDevice } from './V1MediatedHostDevice';
 import {
-    V1MediatedHostDevice,
     V1MediatedHostDeviceFromJSON,
     V1MediatedHostDeviceFromJSONTyped,
     V1MediatedHostDeviceToJSON,
-    V1PciHostDevice,
+} from './V1MediatedHostDevice';
+import type { V1PciHostDevice } from './V1PciHostDevice';
+import {
     V1PciHostDeviceFromJSON,
     V1PciHostDeviceFromJSONTyped,
     V1PciHostDeviceToJSON,
-    V1USBHostDevice,
+} from './V1PciHostDevice';
+import type { V1USBHostDevice } from './V1USBHostDevice';
+import {
     V1USBHostDeviceFromJSON,
     V1USBHostDeviceFromJSONTyped,
     V1USBHostDeviceToJSON,
-} from './';
+} from './V1USBHostDevice';
 
 /**
  * PermittedHostDevices holds information about devices allowed for passthrough
@@ -52,6 +56,15 @@ export interface V1PermittedHostDevices {
      * @memberof V1PermittedHostDevices
      */
     usb?: Array<V1USBHostDevice>;
+}
+
+/**
+ * Check if a given object implements the V1PermittedHostDevices interface.
+ */
+export function instanceOfV1PermittedHostDevices(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1PermittedHostDevicesFromJSON(json: any): V1PermittedHostDevices {

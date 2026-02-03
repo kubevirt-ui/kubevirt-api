@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1KernelBootContainer,
-  V1KernelBootContainerFromJSON,
-  V1KernelBootContainerToJSON,
-} from './';
-
+import type { V1KernelBootContainer } from './V1KernelBootContainer';
 /**
  * Represents the firmware blob used to assist in the kernel boot process. Used for setting the kernel, initrd and command line arguments
  * @export
@@ -39,31 +33,6 @@ export interface V1KernelBoot {
   kernelArgs?: string;
 }
 
-export function V1KernelBootFromJSON(json: any): V1KernelBoot {
-  return V1KernelBootFromJSONTyped(json, false);
-}
-
-export function V1KernelBootFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KernelBoot {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    container: !exists(json, 'container')
-      ? undefined
-      : V1KernelBootContainerFromJSON(json['container']),
-    kernelArgs: !exists(json, 'kernelArgs') ? undefined : json['kernelArgs'],
-  };
-}
-
-export function V1KernelBootToJSON(value?: V1KernelBoot | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    container: V1KernelBootContainerToJSON(value.container),
-    kernelArgs: value.kernelArgs,
-  };
-}
+/**
+ * Check if a given object implements the V1KernelBoot interface.
+ */

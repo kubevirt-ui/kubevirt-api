@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApiCoreV1TypedLocalObjectReference,
-  K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
-  K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-} from './';
-
+import type { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
 /**
  * VirtualMachineSnapshotSpec is the spec for a VirtualMachineSnapshot resource
  * @export
@@ -45,38 +39,6 @@ export interface V1beta1VirtualMachineSnapshotSpec {
   source: K8sIoApiCoreV1TypedLocalObjectReference;
 }
 
-export function V1beta1VirtualMachineSnapshotSpecFromJSON(
-  json: any,
-): V1beta1VirtualMachineSnapshotSpec {
-  return V1beta1VirtualMachineSnapshotSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineSnapshotSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineSnapshotSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    deletionPolicy: !exists(json, 'deletionPolicy') ? undefined : json['deletionPolicy'],
-    failureDeadline: !exists(json, 'failureDeadline') ? undefined : json['failureDeadline'],
-    source: K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['source']),
-  };
-}
-
-export function V1beta1VirtualMachineSnapshotSpecToJSON(
-  value?: V1beta1VirtualMachineSnapshotSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    deletionPolicy: value.deletionPolicy,
-    failureDeadline: value.failureDeadline,
-    source: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.source),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineSnapshotSpec interface.
+ */

@@ -45,6 +45,17 @@ export interface V1beta1DataVolumeSourceImageIO {
     url: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1DataVolumeSourceImageIO interface.
+ */
+export function instanceOfV1beta1DataVolumeSourceImageIO(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "diskId" in value;
+    isInstance = isInstance && "url" in value;
+
+    return isInstance;
+}
+
 export function V1beta1DataVolumeSourceImageIOFromJSON(json: any): V1beta1DataVolumeSourceImageIO {
     return V1beta1DataVolumeSourceImageIOFromJSONTyped(json, false);
 }

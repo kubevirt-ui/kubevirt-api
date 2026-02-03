@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1NUMA } from './V1NUMA';
 import {
-    V1NUMA,
     V1NUMAFromJSON,
     V1NUMAFromJSONTyped,
     V1NUMAToJSON,
-    V1Realtime,
+} from './V1NUMA';
+import type { V1Realtime } from './V1Realtime';
+import {
     V1RealtimeFromJSON,
     V1RealtimeFromJSONTyped,
     V1RealtimeToJSON,
-} from './';
+} from './V1Realtime';
 
 /**
  * CPUInstancetype contains the CPU related configuration of a given VirtualMachineInstancetypeSpec.
@@ -76,6 +78,16 @@ export interface V1beta1CPUInstancetype {
      * @memberof V1beta1CPUInstancetype
      */
     realtime?: V1Realtime;
+}
+
+/**
+ * Check if a given object implements the V1beta1CPUInstancetype interface.
+ */
+export function instanceOfV1beta1CPUInstancetype(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "guest" in value;
+
+    return isInstance;
 }
 
 export function V1beta1CPUInstancetypeFromJSON(json: any): V1beta1CPUInstancetype {

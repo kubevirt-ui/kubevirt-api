@@ -32,36 +32,6 @@ export interface V1VirtualMachineInstanceMigrationSource {
   migrationID: string;
 }
 
-export function V1VirtualMachineInstanceMigrationSourceFromJSON(
-  json: any,
-): V1VirtualMachineInstanceMigrationSource {
-  return V1VirtualMachineInstanceMigrationSourceFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceMigrationSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceMigrationSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    connectURL: json['connectURL'],
-    migrationID: json['migrationID'],
-  };
-}
-
-export function V1VirtualMachineInstanceMigrationSourceToJSON(
-  value?: V1VirtualMachineInstanceMigrationSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    connectURL: value.connectURL,
-    migrationID: value.migrationID,
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationSource interface.
+ */

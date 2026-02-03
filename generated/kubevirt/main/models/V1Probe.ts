@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1ExecAction } from './K8sIoApiCoreV1ExecAction';
 import {
-    K8sIoApiCoreV1ExecAction,
     K8sIoApiCoreV1ExecActionFromJSON,
     K8sIoApiCoreV1ExecActionFromJSONTyped,
     K8sIoApiCoreV1ExecActionToJSON,
-    K8sIoApiCoreV1HTTPGetAction,
+} from './K8sIoApiCoreV1ExecAction';
+import type { K8sIoApiCoreV1HTTPGetAction } from './K8sIoApiCoreV1HTTPGetAction';
+import {
     K8sIoApiCoreV1HTTPGetActionFromJSON,
     K8sIoApiCoreV1HTTPGetActionFromJSONTyped,
     K8sIoApiCoreV1HTTPGetActionToJSON,
-    K8sIoApiCoreV1TCPSocketAction,
+} from './K8sIoApiCoreV1HTTPGetAction';
+import type { K8sIoApiCoreV1TCPSocketAction } from './K8sIoApiCoreV1TCPSocketAction';
+import {
     K8sIoApiCoreV1TCPSocketActionFromJSON,
     K8sIoApiCoreV1TCPSocketActionFromJSONTyped,
     K8sIoApiCoreV1TCPSocketActionToJSON,
-} from './';
+} from './K8sIoApiCoreV1TCPSocketAction';
 
 /**
  * Probe describes a health check to be performed against a VirtualMachineInstance to determine whether it is alive or ready to receive traffic.
@@ -88,6 +92,15 @@ export interface V1Probe {
      * @memberof V1Probe
      */
     timeoutSeconds?: number;
+}
+
+/**
+ * Check if a given object implements the V1Probe interface.
+ */
+export function instanceOfV1Probe(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ProbeFromJSON(json: any): V1Probe {

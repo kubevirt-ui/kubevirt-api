@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1StatusCause } from './K8sIoApimachineryPkgApisMetaV1StatusCause';
 import {
-    K8sIoApimachineryPkgApisMetaV1StatusCause,
     K8sIoApimachineryPkgApisMetaV1StatusCauseFromJSON,
     K8sIoApimachineryPkgApisMetaV1StatusCauseFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1StatusCauseToJSON,
-} from './';
+} from './K8sIoApimachineryPkgApisMetaV1StatusCause';
 
 /**
  * StatusDetails is a set of additional properties that MAY be set by the server to provide additional information about a response. The Reason field of a Status object defines what attributes will be set. Clients must ignore fields that do not match the defined type of each attribute, and should assume that any attribute may be empty, invalid, or under defined.
@@ -62,6 +62,15 @@ export interface K8sIoApimachineryPkgApisMetaV1StatusDetails {
      * @memberof K8sIoApimachineryPkgApisMetaV1StatusDetails
      */
     uid?: string;
+}
+
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1StatusDetails interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1StatusDetails(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function K8sIoApimachineryPkgApisMetaV1StatusDetailsFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1StatusDetails {

@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1VirtualMachineInstanceFileSystemDisk,
-  V1VirtualMachineInstanceFileSystemDiskFromJSON,
-  V1VirtualMachineInstanceFileSystemDiskToJSON,
-} from './';
-
+import type { V1VirtualMachineInstanceFileSystemDisk } from './V1VirtualMachineInstanceFileSystemDisk';
 /**
  * VirtualMachineInstanceFileSystem represents guest os disk
  * @export
@@ -63,49 +57,6 @@ export interface V1VirtualMachineInstanceFileSystem {
   usedBytes: number;
 }
 
-export function V1VirtualMachineInstanceFileSystemFromJSON(
-  json: any,
-): V1VirtualMachineInstanceFileSystem {
-  return V1VirtualMachineInstanceFileSystemFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceFileSystemFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceFileSystem {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    disk: !exists(json, 'disk')
-      ? undefined
-      : (json['disk'] as Array<any>).map(V1VirtualMachineInstanceFileSystemDiskFromJSON),
-    diskName: json['diskName'],
-    fileSystemType: json['fileSystemType'],
-    mountPoint: json['mountPoint'],
-    totalBytes: json['totalBytes'],
-    usedBytes: json['usedBytes'],
-  };
-}
-
-export function V1VirtualMachineInstanceFileSystemToJSON(
-  value?: V1VirtualMachineInstanceFileSystem | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    disk:
-      value.disk === undefined
-        ? undefined
-        : (value.disk as Array<any>).map(V1VirtualMachineInstanceFileSystemDiskToJSON),
-    diskName: value.diskName,
-    fileSystemType: value.fileSystemType,
-    mountPoint: value.mountPoint,
-    totalBytes: value.totalBytes,
-    usedBytes: value.usedBytes,
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceFileSystem interface.
+ */

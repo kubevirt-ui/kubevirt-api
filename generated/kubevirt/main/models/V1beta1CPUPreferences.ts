@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1CPUFeature } from './V1CPUFeature';
 import {
-    V1CPUFeature,
     V1CPUFeatureFromJSON,
     V1CPUFeatureFromJSONTyped,
     V1CPUFeatureToJSON,
-    V1beta1SpreadOptions,
+} from './V1CPUFeature';
+import type { V1beta1SpreadOptions } from './V1beta1SpreadOptions';
+import {
     V1beta1SpreadOptionsFromJSON,
     V1beta1SpreadOptionsFromJSONTyped,
     V1beta1SpreadOptionsToJSON,
-} from './';
+} from './V1beta1SpreadOptions';
 
 /**
  * CPUPreferences contains various optional CPU preferences.
@@ -48,6 +50,15 @@ export interface V1beta1CPUPreferences {
      * @memberof V1beta1CPUPreferences
      */
     spreadOptions?: V1beta1SpreadOptions;
+}
+
+/**
+ * Check if a given object implements the V1beta1CPUPreferences interface.
+ */
+export function instanceOfV1beta1CPUPreferences(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1beta1CPUPreferencesFromJSON(json: any): V1beta1CPUPreferences {

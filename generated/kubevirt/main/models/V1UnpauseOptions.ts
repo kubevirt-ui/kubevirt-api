@@ -39,6 +39,15 @@ export interface V1UnpauseOptions {
     kind?: string;
 }
 
+/**
+ * Check if a given object implements the V1UnpauseOptions interface.
+ */
+export function instanceOfV1UnpauseOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1UnpauseOptionsFromJSON(json: any): V1UnpauseOptions {
     return V1UnpauseOptionsFromJSONTyped(json, false);
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PauseOptions may be provided on pause request.
  * @export
@@ -39,34 +38,6 @@ export interface V1PauseOptions {
   kind?: string;
 }
 
-export function V1PauseOptionsFromJSON(json: any): V1PauseOptions {
-  return V1PauseOptionsFromJSONTyped(json, false);
-}
-
-export function V1PauseOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1PauseOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    dryRun: !exists(json, 'dryRun') ? undefined : json['dryRun'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-  };
-}
-
-export function V1PauseOptionsToJSON(value?: V1PauseOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    dryRun: value.dryRun,
-    kind: value.kind,
-  };
-}
+/**
+ * Check if a given object implements the V1PauseOptions interface.
+ */

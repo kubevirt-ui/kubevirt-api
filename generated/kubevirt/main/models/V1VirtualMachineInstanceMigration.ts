@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1VirtualMachineInstanceMigrationSpec,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1VirtualMachineInstanceMigrationSpec } from './V1VirtualMachineInstanceMigrationSpec';
+import {
     V1VirtualMachineInstanceMigrationSpecFromJSON,
     V1VirtualMachineInstanceMigrationSpecFromJSONTyped,
     V1VirtualMachineInstanceMigrationSpecToJSON,
-    V1VirtualMachineInstanceMigrationStatus,
+} from './V1VirtualMachineInstanceMigrationSpec';
+import type { V1VirtualMachineInstanceMigrationStatus } from './V1VirtualMachineInstanceMigrationStatus';
+import {
     V1VirtualMachineInstanceMigrationStatusFromJSON,
     V1VirtualMachineInstanceMigrationStatusFromJSONTyped,
     V1VirtualMachineInstanceMigrationStatusToJSON,
-} from './';
+} from './V1VirtualMachineInstanceMigrationStatus';
 
 /**
  * VirtualMachineInstanceMigration represents the object tracking a VMI's migration to another host in the cluster
@@ -64,6 +68,16 @@ export interface V1VirtualMachineInstanceMigration {
      * @memberof V1VirtualMachineInstanceMigration
      */
     status?: V1VirtualMachineInstanceMigrationStatus;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigration interface.
+ */
+export function instanceOfV1VirtualMachineInstanceMigration(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "spec" in value;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceMigrationFromJSON(json: any): V1VirtualMachineInstanceMigration {

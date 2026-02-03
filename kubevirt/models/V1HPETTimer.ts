@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -33,29 +32,6 @@ export interface V1HPETTimer {
   tickPolicy?: string;
 }
 
-export function V1HPETTimerFromJSON(json: any): V1HPETTimer {
-  return V1HPETTimerFromJSONTyped(json, false);
-}
-
-export function V1HPETTimerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1HPETTimer {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    present: !exists(json, 'present') ? undefined : json['present'],
-    tickPolicy: !exists(json, 'tickPolicy') ? undefined : json['tickPolicy'],
-  };
-}
-
-export function V1HPETTimerToJSON(value?: V1HPETTimer | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    present: value.present,
-    tickPolicy: value.tickPolicy,
-  };
-}
+/**
+ * Check if a given object implements the V1HPETTimer interface.
+ */

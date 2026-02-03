@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * UTC sets the guest clock to UTC on each boot.
  * @export
@@ -27,30 +26,6 @@ export interface V1ClockOffsetUTC {
   offsetSeconds?: number;
 }
 
-export function V1ClockOffsetUTCFromJSON(json: any): V1ClockOffsetUTC {
-  return V1ClockOffsetUTCFromJSONTyped(json, false);
-}
-
-export function V1ClockOffsetUTCFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1ClockOffsetUTC {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    offsetSeconds: !exists(json, 'offsetSeconds') ? undefined : json['offsetSeconds'],
-  };
-}
-
-export function V1ClockOffsetUTCToJSON(value?: V1ClockOffsetUTC | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    offsetSeconds: value.offsetSeconds,
-  };
-}
+/**
+ * Check if a given object implements the V1ClockOffsetUTC interface.
+ */

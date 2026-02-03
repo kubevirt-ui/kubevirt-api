@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.
  * @export
@@ -67,46 +66,6 @@ export interface K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry {
   time?: string;
 }
 
-export function K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSON(
-  json: any,
-): K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry {
-  return K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    fieldsType: !exists(json, 'fieldsType') ? undefined : json['fieldsType'],
-    fieldsV1: !exists(json, 'fieldsV1') ? undefined : json['fieldsV1'],
-    manager: !exists(json, 'manager') ? undefined : json['manager'],
-    operation: !exists(json, 'operation') ? undefined : json['operation'],
-    subresource: !exists(json, 'subresource') ? undefined : json['subresource'],
-    time: !exists(json, 'time') ? undefined : json['time'],
-  };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryToJSON(
-  value?: K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    fieldsType: value.fieldsType,
-    fieldsV1: value.fieldsV1,
-    manager: value.manager,
-    operation: value.operation,
-    subresource: value.subresource,
-    time: value.time === undefined ? undefined : value.time,
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry interface.
+ */

@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1PersistentVolumeClaimSpec } from './K8sIoApiCoreV1PersistentVolumeClaimSpec';
 import {
-    K8sIoApiCoreV1PersistentVolumeClaimSpec,
     K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSON,
     K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSONTyped,
     K8sIoApiCoreV1PersistentVolumeClaimSpecToJSON,
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
+} from './K8sIoApiCoreV1PersistentVolumeClaimSpec';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import {
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-} from './';
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 
 /**
  * 
@@ -42,6 +44,15 @@ export interface V1beta1PersistentVolumeClaim {
      * @memberof V1beta1PersistentVolumeClaim
      */
     spec?: K8sIoApiCoreV1PersistentVolumeClaimSpec;
+}
+
+/**
+ * Check if a given object implements the V1beta1PersistentVolumeClaim interface.
+ */
+export function instanceOfV1beta1PersistentVolumeClaim(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1beta1PersistentVolumeClaimFromJSON(json: any): V1beta1PersistentVolumeClaim {

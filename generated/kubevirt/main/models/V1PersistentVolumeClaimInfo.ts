@@ -68,23 +68,36 @@ export interface V1PersistentVolumeClaimInfo {
     volumeMode?: V1PersistentVolumeClaimInfoVolumeModeEnum;
 }
 
+
 /**
-* @export
-* @enum {string}
-*/
-export enum V1PersistentVolumeClaimInfoAccessModesEnum {
-    ReadOnlyMany = 'ReadOnlyMany',
-    ReadWriteMany = 'ReadWriteMany',
-    ReadWriteOnce = 'ReadWriteOnce',
-    ReadWriteOncePod = 'ReadWriteOncePod'
-}/**
-* @export
-* @enum {string}
-*/
-export enum V1PersistentVolumeClaimInfoVolumeModeEnum {
-    Block = 'Block',
-    Filesystem = 'Filesystem',
-    FromStorageProfile = 'FromStorageProfile'
+ * @export
+ */
+export const V1PersistentVolumeClaimInfoAccessModesEnum = {
+    ReadOnlyMany: 'ReadOnlyMany',
+    ReadWriteMany: 'ReadWriteMany',
+    ReadWriteOnce: 'ReadWriteOnce',
+    ReadWriteOncePod: 'ReadWriteOncePod'
+} as const;
+export type V1PersistentVolumeClaimInfoAccessModesEnum = typeof V1PersistentVolumeClaimInfoAccessModesEnum[keyof typeof V1PersistentVolumeClaimInfoAccessModesEnum];
+
+/**
+ * @export
+ */
+export const V1PersistentVolumeClaimInfoVolumeModeEnum = {
+    Block: 'Block',
+    Filesystem: 'Filesystem',
+    FromStorageProfile: 'FromStorageProfile'
+} as const;
+export type V1PersistentVolumeClaimInfoVolumeModeEnum = typeof V1PersistentVolumeClaimInfoVolumeModeEnum[keyof typeof V1PersistentVolumeClaimInfoVolumeModeEnum];
+
+
+/**
+ * Check if a given object implements the V1PersistentVolumeClaimInfo interface.
+ */
+export function instanceOfV1PersistentVolumeClaimInfo(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1PersistentVolumeClaimInfoFromJSON(json: any): V1PersistentVolumeClaimInfo {

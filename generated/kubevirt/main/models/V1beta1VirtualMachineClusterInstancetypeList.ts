@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ListMeta,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-    V1beta1VirtualMachineClusterInstancetype,
+} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1beta1VirtualMachineClusterInstancetype } from './V1beta1VirtualMachineClusterInstancetype';
+import {
     V1beta1VirtualMachineClusterInstancetypeFromJSON,
     V1beta1VirtualMachineClusterInstancetypeFromJSONTyped,
     V1beta1VirtualMachineClusterInstancetypeToJSON,
-} from './';
+} from './V1beta1VirtualMachineClusterInstancetype';
 
 /**
  * VirtualMachineClusterInstancetypeList is a list of VirtualMachineClusterInstancetype resources.
@@ -54,6 +56,16 @@ export interface V1beta1VirtualMachineClusterInstancetypeList {
      * @memberof V1beta1VirtualMachineClusterInstancetypeList
      */
     metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineClusterInstancetypeList interface.
+ */
+export function instanceOfV1beta1VirtualMachineClusterInstancetypeList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "items" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineClusterInstancetypeListFromJSON(json: any): V1beta1VirtualMachineClusterInstancetypeList {

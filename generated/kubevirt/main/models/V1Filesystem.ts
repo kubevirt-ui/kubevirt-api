@@ -33,6 +33,17 @@ export interface V1Filesystem {
     virtiofs: object;
 }
 
+/**
+ * Check if a given object implements the V1Filesystem interface.
+ */
+export function instanceOfV1Filesystem(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "virtiofs" in value;
+
+    return isInstance;
+}
+
 export function V1FilesystemFromJSON(json: any): V1Filesystem {
     return V1FilesystemFromJSONTyped(json, false);
 }

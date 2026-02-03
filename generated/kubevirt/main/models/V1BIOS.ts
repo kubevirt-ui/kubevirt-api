@@ -27,6 +27,15 @@ export interface V1BIOS {
     useSerial?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1BIOS interface.
+ */
+export function instanceOfV1BIOS(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1BIOSFromJSON(json: any): V1BIOS {
     return V1BIOSFromJSONTyped(json, false);
 }

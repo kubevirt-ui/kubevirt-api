@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1beta1VirtualMachinePreferenceSpec,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1beta1VirtualMachinePreferenceSpec } from './V1beta1VirtualMachinePreferenceSpec';
+import {
     V1beta1VirtualMachinePreferenceSpecFromJSON,
     V1beta1VirtualMachinePreferenceSpecFromJSONTyped,
     V1beta1VirtualMachinePreferenceSpecToJSON,
-} from './';
+} from './V1beta1VirtualMachinePreferenceSpec';
 
 /**
  * VirtualMachinePreference resource contains optional preferences related to the VirtualMachine.
@@ -54,6 +56,16 @@ export interface V1beta1VirtualMachinePreference {
      * @memberof V1beta1VirtualMachinePreference
      */
     spec: V1beta1VirtualMachinePreferenceSpec;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachinePreference interface.
+ */
+export function instanceOfV1beta1VirtualMachinePreference(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "spec" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachinePreferenceFromJSON(json: any): V1beta1VirtualMachinePreference {

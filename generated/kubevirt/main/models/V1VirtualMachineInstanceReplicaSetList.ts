@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ListMeta,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-    V1VirtualMachineInstanceReplicaSet,
+} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1VirtualMachineInstanceReplicaSet } from './V1VirtualMachineInstanceReplicaSet';
+import {
     V1VirtualMachineInstanceReplicaSetFromJSON,
     V1VirtualMachineInstanceReplicaSetFromJSONTyped,
     V1VirtualMachineInstanceReplicaSetToJSON,
-} from './';
+} from './V1VirtualMachineInstanceReplicaSet';
 
 /**
  * VMIList is a list of VMIs
@@ -54,6 +56,16 @@ export interface V1VirtualMachineInstanceReplicaSetList {
      * @memberof V1VirtualMachineInstanceReplicaSetList
      */
     metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceReplicaSetList interface.
+ */
+export function instanceOfV1VirtualMachineInstanceReplicaSetList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "items" in value;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceReplicaSetListFromJSON(json: any): V1VirtualMachineInstanceReplicaSetList {

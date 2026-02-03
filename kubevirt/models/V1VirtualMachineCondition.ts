@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * VirtualMachineCondition represents the state of VirtualMachine
  * @export
@@ -45,36 +44,6 @@ export interface V1VirtualMachineCondition {
   type: string;
 }
 
-export function V1VirtualMachineConditionFromJSON(json: any): V1VirtualMachineCondition {
-  return V1VirtualMachineConditionFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function V1VirtualMachineConditionToJSON(value?: V1VirtualMachineCondition | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineCondition interface.
+ */

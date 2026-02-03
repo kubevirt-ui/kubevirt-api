@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1beta1VirtualMachineExportVolumeFormat } from './V1beta1VirtualMachineExportVolumeFormat';
 import {
-    V1beta1VirtualMachineExportVolumeFormat,
     V1beta1VirtualMachineExportVolumeFormatFromJSON,
     V1beta1VirtualMachineExportVolumeFormatFromJSONTyped,
     V1beta1VirtualMachineExportVolumeFormatToJSON,
-} from './';
+} from './V1beta1VirtualMachineExportVolumeFormat';
 
 /**
  * VirtualMachineExportVolume contains the name and available formats for the exported volume
@@ -38,6 +38,16 @@ export interface V1beta1VirtualMachineExportVolume {
      * @memberof V1beta1VirtualMachineExportVolume
      */
     name: string;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineExportVolume interface.
+ */
+export function instanceOfV1beta1VirtualMachineExportVolume(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineExportVolumeFromJSON(json: any): V1beta1VirtualMachineExportVolume {

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.
  * @export
@@ -33,36 +32,6 @@ export interface K8sIoApimachineryPkgApisMetaV1Preconditions {
   uid?: string;
 }
 
-export function K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSON(
-  json: any,
-): K8sIoApimachineryPkgApisMetaV1Preconditions {
-  return K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApimachineryPkgApisMetaV1Preconditions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    resourceVersion: !exists(json, 'resourceVersion') ? undefined : json['resourceVersion'],
-    uid: !exists(json, 'uid') ? undefined : json['uid'],
-  };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1PreconditionsToJSON(
-  value?: K8sIoApimachineryPkgApisMetaV1Preconditions | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    resourceVersion: value.resourceVersion,
-    uid: value.uid,
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1Preconditions interface.
+ */

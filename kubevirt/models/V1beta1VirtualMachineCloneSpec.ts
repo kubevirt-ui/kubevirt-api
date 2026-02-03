@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApiCoreV1TypedLocalObjectReference,
-  K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
-  K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-  V1beta1VirtualMachineCloneTemplateFilters,
-  V1beta1VirtualMachineCloneTemplateFiltersFromJSON,
-  V1beta1VirtualMachineCloneTemplateFiltersToJSON,
-} from './';
-
+import type { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
+import type { V1beta1VirtualMachineCloneTemplateFilters } from './V1beta1VirtualMachineCloneTemplateFilters';
 /**
  *
  * @export
@@ -76,52 +68,14 @@ export interface V1beta1VirtualMachineCloneSpec {
    * @memberof V1beta1VirtualMachineCloneSpec
    */
   template?: V1beta1VirtualMachineCloneTemplateFilters;
+  /**
+   * VolumeNamePolicy defines how to handle volume naming during the clone operation
+   * @type {string}
+   * @memberof V1beta1VirtualMachineCloneSpec
+   */
+  volumeNamePolicy?: string;
 }
 
-export function V1beta1VirtualMachineCloneSpecFromJSON(json: any): V1beta1VirtualMachineCloneSpec {
-  return V1beta1VirtualMachineCloneSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineCloneSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineCloneSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    annotationFilters: !exists(json, 'annotationFilters') ? undefined : json['annotationFilters'],
-    labelFilters: !exists(json, 'labelFilters') ? undefined : json['labelFilters'],
-    newMacAddresses: !exists(json, 'newMacAddresses') ? undefined : json['newMacAddresses'],
-    newSMBiosSerial: !exists(json, 'newSMBiosSerial') ? undefined : json['newSMBiosSerial'],
-    patches: !exists(json, 'patches') ? undefined : json['patches'],
-    source: K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['source']),
-    target: !exists(json, 'target')
-      ? undefined
-      : K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['target']),
-    template: !exists(json, 'template')
-      ? undefined
-      : V1beta1VirtualMachineCloneTemplateFiltersFromJSON(json['template']),
-  };
-}
-
-export function V1beta1VirtualMachineCloneSpecToJSON(
-  value?: V1beta1VirtualMachineCloneSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    annotationFilters: value.annotationFilters,
-    labelFilters: value.labelFilters,
-    newMacAddresses: value.newMacAddresses,
-    newSMBiosSerial: value.newSMBiosSerial,
-    patches: value.patches,
-    source: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.source),
-    target: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.target),
-    template: V1beta1VirtualMachineCloneTemplateFiltersToJSON(value.template),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineCloneSpec interface.
+ */

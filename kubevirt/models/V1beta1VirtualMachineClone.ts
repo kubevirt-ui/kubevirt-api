@@ -12,19 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ObjectMeta,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-  V1beta1VirtualMachineCloneSpec,
-  V1beta1VirtualMachineCloneSpecFromJSON,
-  V1beta1VirtualMachineCloneSpecToJSON,
-  V1beta1VirtualMachineCloneStatus,
-  V1beta1VirtualMachineCloneStatusFromJSON,
-  V1beta1VirtualMachineCloneStatusToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1beta1VirtualMachineCloneSpec } from './V1beta1VirtualMachineCloneSpec';
+import type { V1beta1VirtualMachineCloneStatus } from './V1beta1VirtualMachineCloneStatus';
 /**
  * VirtualMachineClone is a CRD that clones one VM into another.
  * @export
@@ -63,42 +53,6 @@ export interface V1beta1VirtualMachineClone {
   status?: V1beta1VirtualMachineCloneStatus;
 }
 
-export function V1beta1VirtualMachineCloneFromJSON(json: any): V1beta1VirtualMachineClone {
-  return V1beta1VirtualMachineCloneFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineCloneFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineClone {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: V1beta1VirtualMachineCloneSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : V1beta1VirtualMachineCloneStatusFromJSON(json['status']),
-  };
-}
-
-export function V1beta1VirtualMachineCloneToJSON(value?: V1beta1VirtualMachineClone | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: V1beta1VirtualMachineCloneSpecToJSON(value.spec),
-    status: V1beta1VirtualMachineCloneStatusToJSON(value.status),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineClone interface.
+ */

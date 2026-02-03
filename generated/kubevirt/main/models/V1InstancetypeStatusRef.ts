@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ControllerRevisionRef } from './V1ControllerRevisionRef';
 import {
-    V1ControllerRevisionRef,
     V1ControllerRevisionRefFromJSON,
     V1ControllerRevisionRefFromJSONTyped,
     V1ControllerRevisionRefToJSON,
-} from './';
+} from './V1ControllerRevisionRef';
 
 /**
  * 
@@ -56,6 +56,15 @@ export interface V1InstancetypeStatusRef {
      * @memberof V1InstancetypeStatusRef
      */
     name?: string;
+}
+
+/**
+ * Check if a given object implements the V1InstancetypeStatusRef interface.
+ */
+export function instanceOfV1InstancetypeStatusRef(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1InstancetypeStatusRefFromJSON(json: any): V1InstancetypeStatusRef {

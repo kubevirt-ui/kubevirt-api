@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ListMeta,
-  K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-  V1VirtualMachineInstanceMigration,
-  V1VirtualMachineInstanceMigrationFromJSON,
-  V1VirtualMachineInstanceMigrationToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1VirtualMachineInstanceMigration } from './V1VirtualMachineInstanceMigration';
 /**
  * VirtualMachineInstanceMigrationList is a list of VirtualMachineMigrations
  * @export
@@ -54,42 +46,6 @@ export interface V1VirtualMachineInstanceMigrationList {
   metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
 
-export function V1VirtualMachineInstanceMigrationListFromJSON(
-  json: any,
-): V1VirtualMachineInstanceMigrationList {
-  return V1VirtualMachineInstanceMigrationListFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceMigrationListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceMigrationList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1VirtualMachineInstanceMigrationFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function V1VirtualMachineInstanceMigrationListToJSON(
-  value?: V1VirtualMachineInstanceMigrationList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1VirtualMachineInstanceMigrationToJSON),
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationList interface.
+ */

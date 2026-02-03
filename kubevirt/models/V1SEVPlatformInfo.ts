@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * SEVPlatformInfo contains information about the AMD SEV features for the node.
  * @export
@@ -45,36 +44,6 @@ export interface V1SEVPlatformInfo {
   pdh?: string;
 }
 
-export function V1SEVPlatformInfoFromJSON(json: any): V1SEVPlatformInfo {
-  return V1SEVPlatformInfoFromJSONTyped(json, false);
-}
-
-export function V1SEVPlatformInfoFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1SEVPlatformInfo {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    certChain: !exists(json, 'certChain') ? undefined : json['certChain'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    pdh: !exists(json, 'pdh') ? undefined : json['pdh'],
-  };
-}
-
-export function V1SEVPlatformInfoToJSON(value?: V1SEVPlatformInfo | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    certChain: value.certChain,
-    kind: value.kind,
-    pdh: value.pdh,
-  };
-}
+/**
+ * Check if a given object implements the V1SEVPlatformInfo interface.
+ */

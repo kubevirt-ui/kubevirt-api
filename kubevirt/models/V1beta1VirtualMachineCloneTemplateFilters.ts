@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -33,36 +32,6 @@ export interface V1beta1VirtualMachineCloneTemplateFilters {
   labelFilters?: Array<string>;
 }
 
-export function V1beta1VirtualMachineCloneTemplateFiltersFromJSON(
-  json: any,
-): V1beta1VirtualMachineCloneTemplateFilters {
-  return V1beta1VirtualMachineCloneTemplateFiltersFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineCloneTemplateFiltersFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineCloneTemplateFilters {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    annotationFilters: !exists(json, 'annotationFilters') ? undefined : json['annotationFilters'],
-    labelFilters: !exists(json, 'labelFilters') ? undefined : json['labelFilters'],
-  };
-}
-
-export function V1beta1VirtualMachineCloneTemplateFiltersToJSON(
-  value?: V1beta1VirtualMachineCloneTemplateFilters | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    annotationFilters: value.annotationFilters,
-    labelFilters: value.labelFilters,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineCloneTemplateFilters interface.
+ */

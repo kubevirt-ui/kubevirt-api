@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1beta1VirtualMachine,
-  V1beta1VirtualMachineFromJSON,
-  V1beta1VirtualMachineToJSON,
-} from './';
-
+import type { V1beta1VirtualMachine } from './V1beta1VirtualMachine';
 /**
  * SourceSpec contains the appropriate spec for the resource being snapshotted
  * @export
@@ -33,32 +27,6 @@ export interface V1beta1SourceSpec {
   virtualMachine?: V1beta1VirtualMachine;
 }
 
-export function V1beta1SourceSpecFromJSON(json: any): V1beta1SourceSpec {
-  return V1beta1SourceSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1SourceSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1SourceSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    virtualMachine: !exists(json, 'virtualMachine')
-      ? undefined
-      : V1beta1VirtualMachineFromJSON(json['virtualMachine']),
-  };
-}
-
-export function V1beta1SourceSpecToJSON(value?: V1beta1SourceSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    virtualMachine: V1beta1VirtualMachineToJSON(value.virtualMachine),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1SourceSpec interface.
+ */

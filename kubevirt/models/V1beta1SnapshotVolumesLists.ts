@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * SnapshotVolumesLists includes the list of volumes which were included in the snapshot and volumes which were excluded from the snapshot
  * @export
@@ -33,32 +32,6 @@ export interface V1beta1SnapshotVolumesLists {
   includedVolumes?: Array<string>;
 }
 
-export function V1beta1SnapshotVolumesListsFromJSON(json: any): V1beta1SnapshotVolumesLists {
-  return V1beta1SnapshotVolumesListsFromJSONTyped(json, false);
-}
-
-export function V1beta1SnapshotVolumesListsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1SnapshotVolumesLists {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    excludedVolumes: !exists(json, 'excludedVolumes') ? undefined : json['excludedVolumes'],
-    includedVolumes: !exists(json, 'includedVolumes') ? undefined : json['includedVolumes'],
-  };
-}
-
-export function V1beta1SnapshotVolumesListsToJSON(value?: V1beta1SnapshotVolumesLists | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    excludedVolumes: value.excludedVolumes,
-    includedVolumes: value.includedVolumes,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1SnapshotVolumesLists interface.
+ */

@@ -1,48 +1,37 @@
 #!/usr/bin/env bash
+# Main orchestrator script that calls all individual generation scripts
+# Each script can also be run independently
+
 set -eu
 
-OPENAPI_GENERATOR_CLI=./node_modules/.bin/openapi-generator-cli
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Use released versions
-KUBEVIRT_RELEASE=main
-CDI_RELEASE=main
-KUBERNETES_RELEASE=v1.33.0
-OPENSHIFT_CONSOLE_COMMIT=main
+echo "=========================================="
+echo "Starting full API generation"
+echo "=========================================="
 
-GENERATOR=typescript-fetch
+# Make all scripts executable
+chmod +x "${SCRIPT_DIR}/generate-kubevirt.sh"
+chmod +x "${SCRIPT_DIR}/generate-cdi.sh"
+chmod +x "${SCRIPT_DIR}/generate-kubernetes.sh"
+chmod +x "${SCRIPT_DIR}/generate-console.sh"
+chmod +x "${SCRIPT_DIR}/generate-nmstate.sh"
 
-## -----------------------------------------------------------
-## Fetch OpenAPI declaration files and process them
+# Generate KubeVirt types
+"${SCRIPT_DIR}/generate-kubevirt.sh"
 
-# Download swagger openapi specs
-curl https://raw.githubusercontent.com/kubevirt/kubevirt/${KUBEVIRT_RELEASE}/api/openapi-spec/swagger.json -o swagger-kubevirt.json
-curl https://raw.githubusercontent.com/kubevirt/containerized-data-importer/${CDI_RELEASE}/api/openapi-spec/swagger.json -o swagger-containerized-data-importer.json
-curl https://raw.githubusercontent.com/kubernetes/kubernetes/${KUBERNETES_RELEASE}/api/openapi-spec/swagger.json -o swagger-kubernetes.json
-curl https://raw.githubusercontent.com/openshift/console/${OPENSHIFT_CONSOLE_COMMIT}/frontend/public/models/index.ts -o console-core-models.ts
+# Generate CDI types
+"${SCRIPT_DIR}/generate-cdi.sh"
 
-# Fix creationTimestamp in swagger file
-chmod +x ./scripts/fix-timestamp.sh
-./scripts/fix-timestamp.sh
+# Generate Kubernetes types
+"${SCRIPT_DIR}/generate-kubernetes.sh"
 
-# Fix k8s.io.apimachinery.pkg.api.resource.Quantity in kubevirt swagger file
-chmod +x ./scripts/fix-k8s-quantity.sh
-./scripts/fix-k8s-quantity.sh
+# Generate Console types
+"${SCRIPT_DIR}/generate-console.sh"
 
-# Generate TypeScript types
-${OPENAPI_GENERATOR_CLI} generate -i swagger-kubevirt.json -g ${GENERATOR} -o ./generated/kubevirt/${KUBEVIRT_RELEASE}/ --skip-validate-spec --type-mappings=Date=string
-${OPENAPI_GENERATOR_CLI} generate -i swagger-containerized-data-importer.json -g ${GENERATOR} -o ./generated/containerized-data-importer/${CDI_RELEASE}/ --skip-validate-spec --type-mappings=Date=string
-${OPENAPI_GENERATOR_CLI} generate -i swagger-kubernetes.json -g ${GENERATOR} -o ./generated/kubernetes/${KUBERNETES_RELEASE}/ --skip-validate-spec --type-mappings=Date=string
+# Generate NMState types
+"${SCRIPT_DIR}/generate-nmstate.sh"
 
-# Create dist folder
-mkdir -p ./kubevirt
-mkdir -p ./containerized-data-importer
-mkdir -p ./kubernetes
-
-# Copy models to dist folder
-cp -rf ./generated/kubevirt/${KUBEVIRT_RELEASE}/* ./kubevirt/
-cp -rf ./generated/containerized-data-importer/${CDI_RELEASE}/* ./containerized-data-importer/
-cp -rf ./generated/kubernetes/${KUBERNETES_RELEASE}/* ./kubernetes/
-
-# Generate nmstate types
-chmod +x ./scripts/generate-nmstate.sh
-./scripts/generate-nmstate.sh
+echo "=========================================="
+echo "All API types generated successfully!"
+echo "=========================================="

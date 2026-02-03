@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApiCoreV1PodAffinityTerm,
-  K8sIoApiCoreV1PodAffinityTermFromJSON,
-  K8sIoApiCoreV1PodAffinityTermToJSON,
-  K8sIoApiCoreV1WeightedPodAffinityTerm,
-  K8sIoApiCoreV1WeightedPodAffinityTermFromJSON,
-  K8sIoApiCoreV1WeightedPodAffinityTermToJSON,
-} from './';
-
+import type { K8sIoApiCoreV1PodAffinityTerm } from './K8sIoApiCoreV1PodAffinityTerm';
+import type { K8sIoApiCoreV1WeightedPodAffinityTerm } from './K8sIoApiCoreV1WeightedPodAffinityTerm';
 /**
  * Pod anti affinity is a group of inter pod anti affinity scheduling rules.
  * @export
@@ -29,7 +21,7 @@ import {
  */
 export interface K8sIoApiCoreV1PodAntiAffinity {
   /**
-   * The scheduler will prefer to schedule pods to nodes that satisfy the anti-affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
+   * The scheduler will prefer to schedule pods to nodes that satisfy the anti-affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and subtracting "weight" from the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
    * @type {Array<K8sIoApiCoreV1WeightedPodAffinityTerm>}
    * @memberof K8sIoApiCoreV1PodAntiAffinity
    */
@@ -42,58 +34,6 @@ export interface K8sIoApiCoreV1PodAntiAffinity {
   requiredDuringSchedulingIgnoredDuringExecution?: Array<K8sIoApiCoreV1PodAffinityTerm>;
 }
 
-export function K8sIoApiCoreV1PodAntiAffinityFromJSON(json: any): K8sIoApiCoreV1PodAntiAffinity {
-  return K8sIoApiCoreV1PodAntiAffinityFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1PodAntiAffinityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApiCoreV1PodAntiAffinity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'preferredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : (json['preferredDuringSchedulingIgnoredDuringExecution'] as Array<any>).map(
-          K8sIoApiCoreV1WeightedPodAffinityTermFromJSON,
-        ),
-    requiredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'requiredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : (json['requiredDuringSchedulingIgnoredDuringExecution'] as Array<any>).map(
-          K8sIoApiCoreV1PodAffinityTermFromJSON,
-        ),
-  };
-}
-
-export function K8sIoApiCoreV1PodAntiAffinityToJSON(
-  value?: K8sIoApiCoreV1PodAntiAffinity | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution:
-      value.preferredDuringSchedulingIgnoredDuringExecution === undefined
-        ? undefined
-        : (value.preferredDuringSchedulingIgnoredDuringExecution as Array<any>).map(
-            K8sIoApiCoreV1WeightedPodAffinityTermToJSON,
-          ),
-    requiredDuringSchedulingIgnoredDuringExecution:
-      value.requiredDuringSchedulingIgnoredDuringExecution === undefined
-        ? undefined
-        : (value.requiredDuringSchedulingIgnoredDuringExecution as Array<any>).map(
-            K8sIoApiCoreV1PodAffinityTermToJSON,
-          ),
-  };
-}
+/**
+ * Check if a given object implements the K8sIoApiCoreV1PodAntiAffinity interface.
+ */

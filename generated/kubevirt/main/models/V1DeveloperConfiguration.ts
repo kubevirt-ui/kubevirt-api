@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1DiskVerification } from './V1DiskVerification';
 import {
-    V1DiskVerification,
     V1DiskVerificationFromJSON,
     V1DiskVerificationFromJSONTyped,
     V1DiskVerificationToJSON,
-    V1LogVerbosity,
+} from './V1DiskVerification';
+import type { V1LogVerbosity } from './V1LogVerbosity';
+import {
     V1LogVerbosityFromJSON,
     V1LogVerbosityFromJSONTyped,
     V1LogVerbosityToJSON,
-} from './';
+} from './V1LogVerbosity';
 
 /**
  * DeveloperConfiguration holds developer options
@@ -96,6 +98,15 @@ export interface V1DeveloperConfiguration {
      * @memberof V1DeveloperConfiguration
      */
     useEmulation?: boolean;
+}
+
+/**
+ * Check if a given object implements the V1DeveloperConfiguration interface.
+ */
+export function instanceOfV1DeveloperConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1DeveloperConfigurationFromJSON(json: any): V1DeveloperConfiguration {

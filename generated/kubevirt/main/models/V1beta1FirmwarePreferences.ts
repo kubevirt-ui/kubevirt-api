@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1EFI } from './V1EFI';
 import {
-    V1EFI,
     V1EFIFromJSON,
     V1EFIFromJSONTyped,
     V1EFIToJSON,
-} from './';
+} from './V1EFI';
 
 /**
  * FirmwarePreferences contains various optional defaults for Firmware.
@@ -64,6 +64,15 @@ export interface V1beta1FirmwarePreferences {
      * @memberof V1beta1FirmwarePreferences
      */
     preferredUseSecureBoot?: boolean;
+}
+
+/**
+ * Check if a given object implements the V1beta1FirmwarePreferences interface.
+ */
+export function instanceOfV1beta1FirmwarePreferences(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1beta1FirmwarePreferencesFromJSON(json: any): V1beta1FirmwarePreferences {

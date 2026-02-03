@@ -27,6 +27,15 @@ export interface V1Hugepages {
     pageSize?: string;
 }
 
+/**
+ * Check if a given object implements the V1Hugepages interface.
+ */
+export function instanceOfV1Hugepages(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HugepagesFromJSON(json: any): V1Hugepages {
     return V1HugepagesFromJSONTyped(json, false);
 }

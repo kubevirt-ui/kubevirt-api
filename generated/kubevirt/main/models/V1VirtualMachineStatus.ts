@@ -13,40 +13,60 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ChangedBlockTrackingStatus } from './V1ChangedBlockTrackingStatus';
 import {
-    V1InstancetypeStatusRef,
+    V1ChangedBlockTrackingStatusFromJSON,
+    V1ChangedBlockTrackingStatusFromJSONTyped,
+    V1ChangedBlockTrackingStatusToJSON,
+} from './V1ChangedBlockTrackingStatus';
+import type { V1InstancetypeStatusRef } from './V1InstancetypeStatusRef';
+import {
     V1InstancetypeStatusRefFromJSON,
     V1InstancetypeStatusRefFromJSONTyped,
     V1InstancetypeStatusRefToJSON,
-    V1VirtualMachineCondition,
+} from './V1InstancetypeStatusRef';
+import type { V1VirtualMachineCondition } from './V1VirtualMachineCondition';
+import {
     V1VirtualMachineConditionFromJSON,
     V1VirtualMachineConditionFromJSONTyped,
     V1VirtualMachineConditionToJSON,
-    V1VirtualMachineMemoryDumpRequest,
+} from './V1VirtualMachineCondition';
+import type { V1VirtualMachineMemoryDumpRequest } from './V1VirtualMachineMemoryDumpRequest';
+import {
     V1VirtualMachineMemoryDumpRequestFromJSON,
     V1VirtualMachineMemoryDumpRequestFromJSONTyped,
     V1VirtualMachineMemoryDumpRequestToJSON,
-    V1VirtualMachineStartFailure,
+} from './V1VirtualMachineMemoryDumpRequest';
+import type { V1VirtualMachineStartFailure } from './V1VirtualMachineStartFailure';
+import {
     V1VirtualMachineStartFailureFromJSON,
     V1VirtualMachineStartFailureFromJSONTyped,
     V1VirtualMachineStartFailureToJSON,
-    V1VirtualMachineStateChangeRequest,
+} from './V1VirtualMachineStartFailure';
+import type { V1VirtualMachineStateChangeRequest } from './V1VirtualMachineStateChangeRequest';
+import {
     V1VirtualMachineStateChangeRequestFromJSON,
     V1VirtualMachineStateChangeRequestFromJSONTyped,
     V1VirtualMachineStateChangeRequestToJSON,
-    V1VirtualMachineVolumeRequest,
+} from './V1VirtualMachineStateChangeRequest';
+import type { V1VirtualMachineVolumeRequest } from './V1VirtualMachineVolumeRequest';
+import {
     V1VirtualMachineVolumeRequestFromJSON,
     V1VirtualMachineVolumeRequestFromJSONTyped,
     V1VirtualMachineVolumeRequestToJSON,
-    V1VolumeSnapshotStatus,
+} from './V1VirtualMachineVolumeRequest';
+import type { V1VolumeSnapshotStatus } from './V1VolumeSnapshotStatus';
+import {
     V1VolumeSnapshotStatusFromJSON,
     V1VolumeSnapshotStatusFromJSONTyped,
     V1VolumeSnapshotStatusToJSON,
-    V1VolumeUpdateState,
+} from './V1VolumeSnapshotStatus';
+import type { V1VolumeUpdateState } from './V1VolumeUpdateState';
+import {
     V1VolumeUpdateStateFromJSON,
     V1VolumeUpdateStateFromJSONTyped,
     V1VolumeUpdateStateToJSON,
-} from './';
+} from './V1VolumeUpdateState';
 
 /**
  * VirtualMachineStatus represents the status returned by the controller to describe how the VirtualMachine is doing
@@ -54,6 +74,12 @@ import {
  * @interface V1VirtualMachineStatus
  */
 export interface V1VirtualMachineStatus {
+    /**
+     * 
+     * @type {V1ChangedBlockTrackingStatus}
+     * @memberof V1VirtualMachineStatus
+     */
+    changedBlockTracking?: V1ChangedBlockTrackingStatus;
     /**
      * Hold the state information of the VirtualMachine and its VirtualMachineInstance
      * @type {Array<V1VirtualMachineCondition>}
@@ -158,6 +184,15 @@ export interface V1VirtualMachineStatus {
     volumeUpdateState?: V1VolumeUpdateState;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineStatus interface.
+ */
+export function instanceOfV1VirtualMachineStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineStatusFromJSON(json: any): V1VirtualMachineStatus {
     return V1VirtualMachineStatusFromJSONTyped(json, false);
 }
@@ -168,6 +203,7 @@ export function V1VirtualMachineStatusFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
+        'changedBlockTracking': !exists(json, 'changedBlockTracking') ? undefined : V1ChangedBlockTrackingStatusFromJSON(json['changedBlockTracking']),
         'conditions': !exists(json, 'conditions') ? undefined : ((json['conditions'] as Array<any>).map(V1VirtualMachineConditionFromJSON)),
         'created': !exists(json, 'created') ? undefined : json['created'],
         'desiredGeneration': !exists(json, 'desiredGeneration') ? undefined : json['desiredGeneration'],
@@ -197,6 +233,7 @@ export function V1VirtualMachineStatusToJSON(value?: V1VirtualMachineStatus | nu
     }
     return {
         
+        'changedBlockTracking': V1ChangedBlockTrackingStatusToJSON(value.changedBlockTracking),
         'conditions': value.conditions === undefined ? undefined : ((value.conditions as Array<any>).map(V1VirtualMachineConditionToJSON)),
         'created': value.created,
         'desiredGeneration': value.desiredGeneration,

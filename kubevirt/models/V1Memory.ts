@@ -12,9 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1Hugepages, V1HugepagesFromJSON, V1HugepagesToJSON } from './';
-
+import type { V1Hugepages } from './V1Hugepages';
 /**
  * Memory allows specifying the VirtualMachineInstance memory features.
  * @export
@@ -113,31 +111,6 @@ export interface V1Memory {
   maxGuest?: string;
 }
 
-export function V1MemoryFromJSON(json: any): V1Memory {
-  return V1MemoryFromJSONTyped(json, false);
-}
-
-export function V1MemoryFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Memory {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    guest: !exists(json, 'guest') ? undefined : json['guest'],
-    hugepages: !exists(json, 'hugepages') ? undefined : V1HugepagesFromJSON(json['hugepages']),
-    maxGuest: !exists(json, 'maxGuest') ? undefined : json['maxGuest'],
-  };
-}
-
-export function V1MemoryToJSON(value?: V1Memory | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    guest: value.guest,
-    hugepages: V1HugepagesToJSON(value.hugepages),
-    maxGuest: value.maxGuest,
-  };
-}
+/**
+ * Check if a given object implements the V1Memory interface.
+ */

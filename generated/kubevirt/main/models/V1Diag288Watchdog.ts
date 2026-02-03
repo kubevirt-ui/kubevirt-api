@@ -27,6 +27,15 @@ export interface V1Diag288Watchdog {
     action?: string;
 }
 
+/**
+ * Check if a given object implements the V1Diag288Watchdog interface.
+ */
+export function instanceOfV1Diag288Watchdog(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1Diag288WatchdogFromJSON(json: any): V1Diag288Watchdog {
     return V1Diag288WatchdogFromJSONTyped(json, false);
 }

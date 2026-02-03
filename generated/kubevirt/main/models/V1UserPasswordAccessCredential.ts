@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1UserPasswordAccessCredentialPropagationMethod } from './V1UserPasswordAccessCredentialPropagationMethod';
 import {
-    V1UserPasswordAccessCredentialPropagationMethod,
     V1UserPasswordAccessCredentialPropagationMethodFromJSON,
     V1UserPasswordAccessCredentialPropagationMethodFromJSONTyped,
     V1UserPasswordAccessCredentialPropagationMethodToJSON,
-    V1UserPasswordAccessCredentialSource,
+} from './V1UserPasswordAccessCredentialPropagationMethod';
+import type { V1UserPasswordAccessCredentialSource } from './V1UserPasswordAccessCredentialSource';
+import {
     V1UserPasswordAccessCredentialSourceFromJSON,
     V1UserPasswordAccessCredentialSourceFromJSONTyped,
     V1UserPasswordAccessCredentialSourceToJSON,
-} from './';
+} from './V1UserPasswordAccessCredentialSource';
 
 /**
  * UserPasswordAccessCredential represents a source and propagation method for injecting user passwords into a vm guest Only one of its members may be specified.
@@ -42,6 +44,17 @@ export interface V1UserPasswordAccessCredential {
      * @memberof V1UserPasswordAccessCredential
      */
     source: V1UserPasswordAccessCredentialSource;
+}
+
+/**
+ * Check if a given object implements the V1UserPasswordAccessCredential interface.
+ */
+export function instanceOfV1UserPasswordAccessCredential(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "propagationMethod" in value;
+    isInstance = isInstance && "source" in value;
+
+    return isInstance;
 }
 
 export function V1UserPasswordAccessCredentialFromJSON(json: any): V1UserPasswordAccessCredential {

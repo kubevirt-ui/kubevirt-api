@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * UnpauseOptions may be provided on unpause request.
  * @export
@@ -39,34 +38,6 @@ export interface V1UnpauseOptions {
   kind?: string;
 }
 
-export function V1UnpauseOptionsFromJSON(json: any): V1UnpauseOptions {
-  return V1UnpauseOptionsFromJSONTyped(json, false);
-}
-
-export function V1UnpauseOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1UnpauseOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    dryRun: !exists(json, 'dryRun') ? undefined : json['dryRun'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-  };
-}
-
-export function V1UnpauseOptionsToJSON(value?: V1UnpauseOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    dryRun: value.dryRun,
-    kind: value.kind,
-  };
-}
+/**
+ * Check if a given object implements the V1UnpauseOptions interface.
+ */

@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 import {
-    K8sIoApimachineryPkgApisMetaV1LabelSelector,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-    V1DomainSpec,
+} from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
+import type { V1DomainSpec } from './V1DomainSpec';
+import {
     V1DomainSpecFromJSON,
     V1DomainSpecFromJSONTyped,
     V1DomainSpecToJSON,
-} from './';
+} from './V1DomainSpec';
 
 /**
  * 
@@ -42,6 +44,16 @@ export interface V1VirtualMachineInstancePresetSpec {
      * @memberof V1VirtualMachineInstancePresetSpec
      */
     selector: K8sIoApimachineryPkgApisMetaV1LabelSelector;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstancePresetSpec interface.
+ */
+export function instanceOfV1VirtualMachineInstancePresetSpec(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "selector" in value;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstancePresetSpecFromJSON(json: any): V1VirtualMachineInstancePresetSpec {

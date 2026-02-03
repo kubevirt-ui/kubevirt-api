@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * MigrationConfiguration holds migration options. Can be overridden for specific groups of VMs though migration policies. Visit https://kubevirt.io/user-guide/operations/migration_policies/ for more information.
  * @export
@@ -133,70 +132,14 @@ export interface V1MigrationConfiguration {
    * @memberof V1MigrationConfiguration
    */
   unsafeMigrationOverride?: boolean;
+  /**
+   * UtilityVolumesTimeout is the maximum number of seconds a migration can wait in Pending state for utility volumes to be detached. If utility volumes are still present after this timeout, the migration will be marked as Failed. Defaults to 150
+   * @type {number}
+   * @memberof V1MigrationConfiguration
+   */
+  utilityVolumesTimeout?: number;
 }
 
-export function V1MigrationConfigurationFromJSON(json: any): V1MigrationConfiguration {
-  return V1MigrationConfigurationFromJSONTyped(json, false);
-}
-
-export function V1MigrationConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1MigrationConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    allowAutoConverge: !exists(json, 'allowAutoConverge') ? undefined : json['allowAutoConverge'],
-    allowPostCopy: !exists(json, 'allowPostCopy') ? undefined : json['allowPostCopy'],
-    allowWorkloadDisruption: !exists(json, 'allowWorkloadDisruption')
-      ? undefined
-      : json['allowWorkloadDisruption'],
-    bandwidthPerMigration: !exists(json, 'bandwidthPerMigration')
-      ? undefined
-      : json['bandwidthPerMigration'],
-    completionTimeoutPerGiB: !exists(json, 'completionTimeoutPerGiB')
-      ? undefined
-      : json['completionTimeoutPerGiB'],
-    disableTLS: !exists(json, 'disableTLS') ? undefined : json['disableTLS'],
-    matchSELinuxLevelOnMigration: !exists(json, 'matchSELinuxLevelOnMigration')
-      ? undefined
-      : json['matchSELinuxLevelOnMigration'],
-    network: !exists(json, 'network') ? undefined : json['network'],
-    nodeDrainTaintKey: !exists(json, 'nodeDrainTaintKey') ? undefined : json['nodeDrainTaintKey'],
-    parallelMigrationsPerCluster: !exists(json, 'parallelMigrationsPerCluster')
-      ? undefined
-      : json['parallelMigrationsPerCluster'],
-    parallelOutboundMigrationsPerNode: !exists(json, 'parallelOutboundMigrationsPerNode')
-      ? undefined
-      : json['parallelOutboundMigrationsPerNode'],
-    progressTimeout: !exists(json, 'progressTimeout') ? undefined : json['progressTimeout'],
-    unsafeMigrationOverride: !exists(json, 'unsafeMigrationOverride')
-      ? undefined
-      : json['unsafeMigrationOverride'],
-  };
-}
-
-export function V1MigrationConfigurationToJSON(value?: V1MigrationConfiguration | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    allowAutoConverge: value.allowAutoConverge,
-    allowPostCopy: value.allowPostCopy,
-    allowWorkloadDisruption: value.allowWorkloadDisruption,
-    bandwidthPerMigration: value.bandwidthPerMigration,
-    completionTimeoutPerGiB: value.completionTimeoutPerGiB,
-    disableTLS: value.disableTLS,
-    matchSELinuxLevelOnMigration: value.matchSELinuxLevelOnMigration,
-    network: value.network,
-    nodeDrainTaintKey: value.nodeDrainTaintKey,
-    parallelMigrationsPerCluster: value.parallelMigrationsPerCluster,
-    parallelOutboundMigrationsPerNode: value.parallelOutboundMigrationsPerNode,
-    progressTimeout: value.progressTimeout,
-    unsafeMigrationOverride: value.unsafeMigrationOverride,
-  };
-}
+/**
+ * Check if a given object implements the V1MigrationConfiguration interface.
+ */

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * DataVolumeSourceS3 provides the parameters to create a Data Volume from an S3 source
  * @export
@@ -39,34 +38,6 @@ export interface V1beta1DataVolumeSourceS3 {
   url: string;
 }
 
-export function V1beta1DataVolumeSourceS3FromJSON(json: any): V1beta1DataVolumeSourceS3 {
-  return V1beta1DataVolumeSourceS3FromJSONTyped(json, false);
-}
-
-export function V1beta1DataVolumeSourceS3FromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataVolumeSourceS3 {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    certConfigMap: !exists(json, 'certConfigMap') ? undefined : json['certConfigMap'],
-    secretRef: !exists(json, 'secretRef') ? undefined : json['secretRef'],
-    url: json['url'],
-  };
-}
-
-export function V1beta1DataVolumeSourceS3ToJSON(value?: V1beta1DataVolumeSourceS3 | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    certConfigMap: value.certConfigMap,
-    secretRef: value.secretRef,
-    url: value.url,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1DataVolumeSourceS3 interface.
+ */

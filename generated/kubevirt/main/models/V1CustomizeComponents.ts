@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1CustomizeComponentsPatch } from './V1CustomizeComponentsPatch';
 import {
-    V1CustomizeComponentsPatch,
     V1CustomizeComponentsPatchFromJSON,
     V1CustomizeComponentsPatchFromJSONTyped,
     V1CustomizeComponentsPatchToJSON,
-    V1Flags,
+} from './V1CustomizeComponentsPatch';
+import type { V1Flags } from './V1Flags';
+import {
     V1FlagsFromJSON,
     V1FlagsFromJSONTyped,
     V1FlagsToJSON,
-} from './';
+} from './V1Flags';
 
 /**
  * 
@@ -42,6 +44,15 @@ export interface V1CustomizeComponents {
      * @memberof V1CustomizeComponents
      */
     patches?: Array<V1CustomizeComponentsPatch>;
+}
+
+/**
+ * Check if a given object implements the V1CustomizeComponents interface.
+ */
+export function instanceOfV1CustomizeComponents(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1CustomizeComponentsFromJSON(json: any): V1CustomizeComponents {

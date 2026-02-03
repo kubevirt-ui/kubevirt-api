@@ -27,6 +27,15 @@ export interface V1CommonInstancetypesDeployment {
     enabled?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1CommonInstancetypesDeployment interface.
+ */
+export function instanceOfV1CommonInstancetypesDeployment(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1CommonInstancetypesDeploymentFromJSON(json: any): V1CommonInstancetypesDeployment {
     return V1CommonInstancetypesDeploymentFromJSONTyped(json, false);
 }

@@ -60,21 +60,34 @@ export interface K8sIoApiCoreV1Toleration {
     value?: string;
 }
 
+
 /**
-* @export
-* @enum {string}
-*/
-export enum K8sIoApiCoreV1TolerationEffectEnum {
-    NoExecute = 'NoExecute',
-    NoSchedule = 'NoSchedule',
-    PreferNoSchedule = 'PreferNoSchedule'
-}/**
-* @export
-* @enum {string}
-*/
-export enum K8sIoApiCoreV1TolerationOperatorEnum {
-    Equal = 'Equal',
-    Exists = 'Exists'
+ * @export
+ */
+export const K8sIoApiCoreV1TolerationEffectEnum = {
+    NoExecute: 'NoExecute',
+    NoSchedule: 'NoSchedule',
+    PreferNoSchedule: 'PreferNoSchedule'
+} as const;
+export type K8sIoApiCoreV1TolerationEffectEnum = typeof K8sIoApiCoreV1TolerationEffectEnum[keyof typeof K8sIoApiCoreV1TolerationEffectEnum];
+
+/**
+ * @export
+ */
+export const K8sIoApiCoreV1TolerationOperatorEnum = {
+    Equal: 'Equal',
+    Exists: 'Exists'
+} as const;
+export type K8sIoApiCoreV1TolerationOperatorEnum = typeof K8sIoApiCoreV1TolerationOperatorEnum[keyof typeof K8sIoApiCoreV1TolerationOperatorEnum];
+
+
+/**
+ * Check if a given object implements the K8sIoApiCoreV1Toleration interface.
+ */
+export function instanceOfK8sIoApiCoreV1Toleration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function K8sIoApiCoreV1TolerationFromJSON(json: any): K8sIoApiCoreV1Toleration {

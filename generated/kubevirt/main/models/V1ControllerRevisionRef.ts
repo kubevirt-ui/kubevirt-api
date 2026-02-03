@@ -27,6 +27,15 @@ export interface V1ControllerRevisionRef {
     name?: string;
 }
 
+/**
+ * Check if a given object implements the V1ControllerRevisionRef interface.
+ */
+export function instanceOfV1ControllerRevisionRef(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ControllerRevisionRefFromJSON(json: any): V1ControllerRevisionRef {
     return V1ControllerRevisionRefFromJSONTyped(json, false);
 }

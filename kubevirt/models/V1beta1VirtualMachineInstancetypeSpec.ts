@@ -12,25 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1GPU,
-  V1GPUFromJSON,
-  V1GPUToJSON,
-  V1HostDevice,
-  V1HostDeviceFromJSON,
-  V1HostDeviceToJSON,
-  V1LaunchSecurity,
-  V1LaunchSecurityFromJSON,
-  V1LaunchSecurityToJSON,
-  V1beta1CPUInstancetype,
-  V1beta1CPUInstancetypeFromJSON,
-  V1beta1CPUInstancetypeToJSON,
-  V1beta1MemoryInstancetype,
-  V1beta1MemoryInstancetypeFromJSON,
-  V1beta1MemoryInstancetypeToJSON,
-} from './';
-
+import type { V1DiskIOThreads } from './V1DiskIOThreads';
+import type { V1GPU } from './V1GPU';
+import type { V1HostDevice } from './V1HostDevice';
+import type { V1LaunchSecurity } from './V1LaunchSecurity';
+import type { V1beta1CPUInstancetype } from './V1beta1CPUInstancetype';
+import type { V1beta1MemoryInstancetype } from './V1beta1MemoryInstancetype';
 /**
  * VirtualMachineInstancetypeSpec is a description of the VirtualMachineInstancetype or VirtualMachineClusterInstancetype.
  *
@@ -63,6 +50,12 @@ export interface V1beta1VirtualMachineInstancetypeSpec {
    * @memberof V1beta1VirtualMachineInstancetypeSpec
    */
   hostDevices?: Array<V1HostDevice>;
+  /**
+   *
+   * @type {V1DiskIOThreads}
+   * @memberof V1beta1VirtualMachineInstancetypeSpec
+   */
+  ioThreads?: V1DiskIOThreads;
   /**
    * Optionally defines the IOThreadsPolicy to be used by the instancetype.
    * @type {string}
@@ -99,57 +92,6 @@ export interface V1beta1VirtualMachineInstancetypeSpec {
   schedulerName?: string;
 }
 
-export function V1beta1VirtualMachineInstancetypeSpecFromJSON(
-  json: any,
-): V1beta1VirtualMachineInstancetypeSpec {
-  return V1beta1VirtualMachineInstancetypeSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineInstancetypeSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineInstancetypeSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    annotations: !exists(json, 'annotations') ? undefined : json['annotations'],
-    cpu: V1beta1CPUInstancetypeFromJSON(json['cpu']),
-    gpus: !exists(json, 'gpus') ? undefined : (json['gpus'] as Array<any>).map(V1GPUFromJSON),
-    hostDevices: !exists(json, 'hostDevices')
-      ? undefined
-      : (json['hostDevices'] as Array<any>).map(V1HostDeviceFromJSON),
-    ioThreadsPolicy: !exists(json, 'ioThreadsPolicy') ? undefined : json['ioThreadsPolicy'],
-    launchSecurity: !exists(json, 'launchSecurity')
-      ? undefined
-      : V1LaunchSecurityFromJSON(json['launchSecurity']),
-    memory: V1beta1MemoryInstancetypeFromJSON(json['memory']),
-    nodeSelector: !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
-    schedulerName: !exists(json, 'schedulerName') ? undefined : json['schedulerName'],
-  };
-}
-
-export function V1beta1VirtualMachineInstancetypeSpecToJSON(
-  value?: V1beta1VirtualMachineInstancetypeSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    annotations: value.annotations,
-    cpu: V1beta1CPUInstancetypeToJSON(value.cpu),
-    gpus: value.gpus === undefined ? undefined : (value.gpus as Array<any>).map(V1GPUToJSON),
-    hostDevices:
-      value.hostDevices === undefined
-        ? undefined
-        : (value.hostDevices as Array<any>).map(V1HostDeviceToJSON),
-    ioThreadsPolicy: value.ioThreadsPolicy,
-    launchSecurity: V1LaunchSecurityToJSON(value.launchSecurity),
-    memory: V1beta1MemoryInstancetypeToJSON(value.memory),
-    nodeSelector: value.nodeSelector,
-    schedulerName: value.schedulerName,
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineInstancetypeSpec interface.
+ */

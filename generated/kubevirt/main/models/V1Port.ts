@@ -39,6 +39,16 @@ export interface V1Port {
     protocol?: string;
 }
 
+/**
+ * Check if a given object implements the V1Port interface.
+ */
+export function instanceOfV1Port(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "port" in value;
+
+    return isInstance;
+}
+
 export function V1PortFromJSON(json: any): V1Port {
     return V1PortFromJSONTyped(json, false);
 }

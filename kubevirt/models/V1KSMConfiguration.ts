@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1LabelSelector,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 /**
  * KSMConfiguration holds information about KSM.
  * @export
@@ -33,32 +27,6 @@ export interface V1KSMConfiguration {
   nodeLabelSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
 }
 
-export function V1KSMConfigurationFromJSON(json: any): V1KSMConfiguration {
-  return V1KSMConfigurationFromJSONTyped(json, false);
-}
-
-export function V1KSMConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1KSMConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    nodeLabelSelector: !exists(json, 'nodeLabelSelector')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['nodeLabelSelector']),
-  };
-}
-
-export function V1KSMConfigurationToJSON(value?: V1KSMConfiguration | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    nodeLabelSelector: K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.nodeLabelSelector),
-  };
-}
+/**
+ * Check if a given object implements the V1KSMConfiguration interface.
+ */

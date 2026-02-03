@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1RESTClientConfiguration,
-  V1RESTClientConfigurationFromJSON,
-  V1RESTClientConfigurationToJSON,
-} from './';
-
+import type { V1RESTClientConfiguration } from './V1RESTClientConfiguration';
 /**
  * ReloadableComponentConfiguration holds all generic k8s configuration options which can be reloaded by components without requiring a restart.
  * @export
@@ -33,36 +27,6 @@ export interface V1ReloadableComponentConfiguration {
   restClient?: V1RESTClientConfiguration;
 }
 
-export function V1ReloadableComponentConfigurationFromJSON(
-  json: any,
-): V1ReloadableComponentConfiguration {
-  return V1ReloadableComponentConfigurationFromJSONTyped(json, false);
-}
-
-export function V1ReloadableComponentConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1ReloadableComponentConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    restClient: !exists(json, 'restClient')
-      ? undefined
-      : V1RESTClientConfigurationFromJSON(json['restClient']),
-  };
-}
-
-export function V1ReloadableComponentConfigurationToJSON(
-  value?: V1ReloadableComponentConfiguration | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    restClient: V1RESTClientConfigurationToJSON(value.restClient),
-  };
-}
+/**
+ * Check if a given object implements the V1ReloadableComponentConfiguration interface.
+ */

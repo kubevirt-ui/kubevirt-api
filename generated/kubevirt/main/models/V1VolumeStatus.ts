@@ -13,24 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ContainerDiskInfo } from './V1ContainerDiskInfo';
 import {
-    V1ContainerDiskInfo,
     V1ContainerDiskInfoFromJSON,
     V1ContainerDiskInfoFromJSONTyped,
     V1ContainerDiskInfoToJSON,
-    V1DomainMemoryDumpInfo,
+} from './V1ContainerDiskInfo';
+import type { V1DomainMemoryDumpInfo } from './V1DomainMemoryDumpInfo';
+import {
     V1DomainMemoryDumpInfoFromJSON,
     V1DomainMemoryDumpInfoFromJSONTyped,
     V1DomainMemoryDumpInfoToJSON,
-    V1HotplugVolumeStatus,
+} from './V1DomainMemoryDumpInfo';
+import type { V1HotplugVolumeStatus } from './V1HotplugVolumeStatus';
+import {
     V1HotplugVolumeStatusFromJSON,
     V1HotplugVolumeStatusFromJSONTyped,
     V1HotplugVolumeStatusToJSON,
-    V1PersistentVolumeClaimInfo,
+} from './V1HotplugVolumeStatus';
+import type { V1PersistentVolumeClaimInfo } from './V1PersistentVolumeClaimInfo';
+import {
     V1PersistentVolumeClaimInfoFromJSON,
     V1PersistentVolumeClaimInfoFromJSONTyped,
     V1PersistentVolumeClaimInfoToJSON,
-} from './';
+} from './V1PersistentVolumeClaimInfo';
 
 /**
  * VolumeStatus represents information about the status of volumes attached to the VirtualMachineInstance.
@@ -98,6 +104,17 @@ export interface V1VolumeStatus {
      * @memberof V1VolumeStatus
      */
     target: string;
+}
+
+/**
+ * Check if a given object implements the V1VolumeStatus interface.
+ */
+export function instanceOfV1VolumeStatus(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "target" in value;
+
+    return isInstance;
 }
 
 export function V1VolumeStatusFromJSON(json: any): V1VolumeStatus {

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1NodeSelectorRequirement } from './K8sIoApiCoreV1NodeSelectorRequirement';
 import {
-    K8sIoApiCoreV1NodeSelectorRequirement,
     K8sIoApiCoreV1NodeSelectorRequirementFromJSON,
     K8sIoApiCoreV1NodeSelectorRequirementFromJSONTyped,
     K8sIoApiCoreV1NodeSelectorRequirementToJSON,
-} from './';
+} from './K8sIoApiCoreV1NodeSelectorRequirement';
 
 /**
  * A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
@@ -38,6 +38,15 @@ export interface K8sIoApiCoreV1NodeSelectorTerm {
      * @memberof K8sIoApiCoreV1NodeSelectorTerm
      */
     matchFields?: Array<K8sIoApiCoreV1NodeSelectorRequirement>;
+}
+
+/**
+ * Check if a given object implements the K8sIoApiCoreV1NodeSelectorTerm interface.
+ */
+export function instanceOfK8sIoApiCoreV1NodeSelectorTerm(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function K8sIoApiCoreV1NodeSelectorTermFromJSON(json: any): K8sIoApiCoreV1NodeSelectorTerm {

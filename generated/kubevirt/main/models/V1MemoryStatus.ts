@@ -147,6 +147,15 @@ export interface V1MemoryStatus {
     guestRequested?: string;
 }
 
+/**
+ * Check if a given object implements the V1MemoryStatus interface.
+ */
+export function instanceOfV1MemoryStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1MemoryStatusFromJSON(json: any): V1MemoryStatus {
     return V1MemoryStatusFromJSONTyped(json, false);
 }

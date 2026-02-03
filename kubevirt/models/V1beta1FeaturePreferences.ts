@@ -12,22 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1FeatureAPIC,
-  V1FeatureAPICFromJSON,
-  V1FeatureAPICToJSON,
-  V1FeatureHyperv,
-  V1FeatureHypervFromJSON,
-  V1FeatureHypervToJSON,
-  V1FeatureKVM,
-  V1FeatureKVMFromJSON,
-  V1FeatureKVMToJSON,
-  V1FeatureState,
-  V1FeatureStateFromJSON,
-  V1FeatureStateToJSON,
-} from './';
-
+import type { V1FeatureAPIC } from './V1FeatureAPIC';
+import type { V1FeatureHyperv } from './V1FeatureHyperv';
+import type { V1FeatureKVM } from './V1FeatureKVM';
+import type { V1FeatureState } from './V1FeatureState';
 /**
  * FeaturePreferences contains various optional defaults for Features.
  * @export
@@ -72,52 +60,6 @@ export interface V1beta1FeaturePreferences {
   preferredSmm?: V1FeatureState;
 }
 
-export function V1beta1FeaturePreferencesFromJSON(json: any): V1beta1FeaturePreferences {
-  return V1beta1FeaturePreferencesFromJSONTyped(json, false);
-}
-
-export function V1beta1FeaturePreferencesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1FeaturePreferences {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredAcpi: !exists(json, 'preferredAcpi')
-      ? undefined
-      : V1FeatureStateFromJSON(json['preferredAcpi']),
-    preferredApic: !exists(json, 'preferredApic')
-      ? undefined
-      : V1FeatureAPICFromJSON(json['preferredApic']),
-    preferredHyperv: !exists(json, 'preferredHyperv')
-      ? undefined
-      : V1FeatureHypervFromJSON(json['preferredHyperv']),
-    preferredKvm: !exists(json, 'preferredKvm')
-      ? undefined
-      : V1FeatureKVMFromJSON(json['preferredKvm']),
-    preferredPvspinlock: !exists(json, 'preferredPvspinlock')
-      ? undefined
-      : V1FeatureStateFromJSON(json['preferredPvspinlock']),
-    preferredSmm: !exists(json, 'preferredSmm')
-      ? undefined
-      : V1FeatureStateFromJSON(json['preferredSmm']),
-  };
-}
-
-export function V1beta1FeaturePreferencesToJSON(value?: V1beta1FeaturePreferences | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredAcpi: V1FeatureStateToJSON(value.preferredAcpi),
-    preferredApic: V1FeatureAPICToJSON(value.preferredApic),
-    preferredHyperv: V1FeatureHypervToJSON(value.preferredHyperv),
-    preferredKvm: V1FeatureKVMToJSON(value.preferredKvm),
-    preferredPvspinlock: V1FeatureStateToJSON(value.preferredPvspinlock),
-    preferredSmm: V1FeatureStateToJSON(value.preferredSmm),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1FeaturePreferences interface.
+ */

@@ -14,185 +14,199 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  K8sIoApimachineryPkgApisMetaV1APIGroup,
+  K8sIoApimachineryPkgApisMetaV1APIGroupList,
+  K8sIoApimachineryPkgApisMetaV1APIResourceList,
+  K8sIoApimachineryPkgApisMetaV1DeleteOptions,
+  K8sIoApimachineryPkgApisMetaV1RootPaths,
+  K8sIoApimachineryPkgApisMetaV1Status,
+  K8sIoApimachineryPkgApisMetaV1WatchEvent,
+  V1AddVolumeOptions,
+  V1EvacuateCancelOptions,
+  V1FreezeUnfreezeTimeout,
+  V1KubeVirt,
+  V1KubeVirtList,
+  V1MigrateOptions,
+  V1ObjectGraphNode,
+  V1ObjectGraphOptions,
+  V1PauseOptions,
+  V1RemoveVolumeOptions,
+  V1RestartOptions,
+  V1SEVMeasurementInfo,
+  V1SEVPlatformInfo,
+  V1SEVSecretOptions,
+  V1SEVSessionOptions,
+  V1StartOptions,
+  V1StopOptions,
+  V1UnpauseOptions,
+  V1VirtualMachine,
+  V1VirtualMachineInstance,
+  V1VirtualMachineInstanceFileSystemList,
+  V1VirtualMachineInstanceGuestAgentInfo,
+  V1VirtualMachineInstanceGuestOSUserList,
+  V1VirtualMachineInstanceList,
+  V1VirtualMachineInstanceMigration,
+  V1VirtualMachineInstanceMigrationList,
+  V1VirtualMachineInstancePreset,
+  V1VirtualMachineInstancePresetList,
+  V1VirtualMachineInstanceReplicaSet,
+  V1VirtualMachineInstanceReplicaSetList,
+  V1VirtualMachineList,
+  V1VirtualMachineMemoryDumpRequest,
+  V1alpha1BackupOptions,
+  V1alpha1MigrationPolicy,
+  V1alpha1MigrationPolicyList,
+  V1alpha1VirtualMachineBackup,
+  V1alpha1VirtualMachineBackupList,
+  V1beta1VirtualMachineClone,
+  V1beta1VirtualMachineCloneList,
+  V1beta1VirtualMachineClusterInstancetype,
+  V1beta1VirtualMachineClusterInstancetypeList,
+  V1beta1VirtualMachineClusterPreference,
+  V1beta1VirtualMachineClusterPreferenceList,
+  V1beta1VirtualMachineExport,
+  V1beta1VirtualMachineExportList,
+  V1beta1VirtualMachineInstancetype,
+  V1beta1VirtualMachineInstancetypeList,
+  V1beta1VirtualMachinePool,
+  V1beta1VirtualMachinePoolList,
+  V1beta1VirtualMachinePreference,
+  V1beta1VirtualMachinePreferenceList,
+  V1beta1VirtualMachineRestore,
+  V1beta1VirtualMachineRestoreList,
+  V1beta1VirtualMachineSnapshot,
+  V1beta1VirtualMachineSnapshotContent,
+  V1beta1VirtualMachineSnapshotContentList,
+  V1beta1VirtualMachineSnapshotList,
+} from '../models';
 import {
-    K8sIoApimachineryPkgApisMetaV1APIGroup,
     K8sIoApimachineryPkgApisMetaV1APIGroupFromJSON,
     K8sIoApimachineryPkgApisMetaV1APIGroupToJSON,
-    K8sIoApimachineryPkgApisMetaV1APIGroupList,
     K8sIoApimachineryPkgApisMetaV1APIGroupListFromJSON,
     K8sIoApimachineryPkgApisMetaV1APIGroupListToJSON,
-    K8sIoApimachineryPkgApisMetaV1APIResourceList,
     K8sIoApimachineryPkgApisMetaV1APIResourceListFromJSON,
     K8sIoApimachineryPkgApisMetaV1APIResourceListToJSON,
-    K8sIoApimachineryPkgApisMetaV1DeleteOptions,
     K8sIoApimachineryPkgApisMetaV1DeleteOptionsFromJSON,
     K8sIoApimachineryPkgApisMetaV1DeleteOptionsToJSON,
-    K8sIoApimachineryPkgApisMetaV1RootPaths,
     K8sIoApimachineryPkgApisMetaV1RootPathsFromJSON,
     K8sIoApimachineryPkgApisMetaV1RootPathsToJSON,
-    K8sIoApimachineryPkgApisMetaV1Status,
     K8sIoApimachineryPkgApisMetaV1StatusFromJSON,
     K8sIoApimachineryPkgApisMetaV1StatusToJSON,
-    K8sIoApimachineryPkgApisMetaV1WatchEvent,
     K8sIoApimachineryPkgApisMetaV1WatchEventFromJSON,
     K8sIoApimachineryPkgApisMetaV1WatchEventToJSON,
-    V1AddVolumeOptions,
     V1AddVolumeOptionsFromJSON,
     V1AddVolumeOptionsToJSON,
-    V1FreezeUnfreezeTimeout,
+    V1EvacuateCancelOptionsFromJSON,
+    V1EvacuateCancelOptionsToJSON,
     V1FreezeUnfreezeTimeoutFromJSON,
     V1FreezeUnfreezeTimeoutToJSON,
-    V1KubeVirt,
     V1KubeVirtFromJSON,
     V1KubeVirtToJSON,
-    V1KubeVirtList,
     V1KubeVirtListFromJSON,
     V1KubeVirtListToJSON,
-    V1MigrateOptions,
     V1MigrateOptionsFromJSON,
     V1MigrateOptionsToJSON,
-    V1ObjectGraphNode,
     V1ObjectGraphNodeFromJSON,
     V1ObjectGraphNodeToJSON,
-    V1ObjectGraphOptions,
     V1ObjectGraphOptionsFromJSON,
     V1ObjectGraphOptionsToJSON,
-    V1PauseOptions,
     V1PauseOptionsFromJSON,
     V1PauseOptionsToJSON,
-    V1RemoveVolumeOptions,
     V1RemoveVolumeOptionsFromJSON,
     V1RemoveVolumeOptionsToJSON,
-    V1RestartOptions,
     V1RestartOptionsFromJSON,
     V1RestartOptionsToJSON,
-    V1SEVMeasurementInfo,
     V1SEVMeasurementInfoFromJSON,
     V1SEVMeasurementInfoToJSON,
-    V1SEVPlatformInfo,
     V1SEVPlatformInfoFromJSON,
     V1SEVPlatformInfoToJSON,
-    V1SEVSecretOptions,
     V1SEVSecretOptionsFromJSON,
     V1SEVSecretOptionsToJSON,
-    V1SEVSessionOptions,
     V1SEVSessionOptionsFromJSON,
     V1SEVSessionOptionsToJSON,
-    V1StartOptions,
     V1StartOptionsFromJSON,
     V1StartOptionsToJSON,
-    V1StopOptions,
     V1StopOptionsFromJSON,
     V1StopOptionsToJSON,
-    V1UnpauseOptions,
     V1UnpauseOptionsFromJSON,
     V1UnpauseOptionsToJSON,
-    V1VirtualMachine,
     V1VirtualMachineFromJSON,
     V1VirtualMachineToJSON,
-    V1VirtualMachineInstance,
     V1VirtualMachineInstanceFromJSON,
     V1VirtualMachineInstanceToJSON,
-    V1VirtualMachineInstanceFileSystemList,
     V1VirtualMachineInstanceFileSystemListFromJSON,
     V1VirtualMachineInstanceFileSystemListToJSON,
-    V1VirtualMachineInstanceGuestAgentInfo,
     V1VirtualMachineInstanceGuestAgentInfoFromJSON,
     V1VirtualMachineInstanceGuestAgentInfoToJSON,
-    V1VirtualMachineInstanceGuestOSUserList,
     V1VirtualMachineInstanceGuestOSUserListFromJSON,
     V1VirtualMachineInstanceGuestOSUserListToJSON,
-    V1VirtualMachineInstanceList,
     V1VirtualMachineInstanceListFromJSON,
     V1VirtualMachineInstanceListToJSON,
-    V1VirtualMachineInstanceMigration,
     V1VirtualMachineInstanceMigrationFromJSON,
     V1VirtualMachineInstanceMigrationToJSON,
-    V1VirtualMachineInstanceMigrationList,
     V1VirtualMachineInstanceMigrationListFromJSON,
     V1VirtualMachineInstanceMigrationListToJSON,
-    V1VirtualMachineInstancePreset,
     V1VirtualMachineInstancePresetFromJSON,
     V1VirtualMachineInstancePresetToJSON,
-    V1VirtualMachineInstancePresetList,
     V1VirtualMachineInstancePresetListFromJSON,
     V1VirtualMachineInstancePresetListToJSON,
-    V1VirtualMachineInstanceReplicaSet,
     V1VirtualMachineInstanceReplicaSetFromJSON,
     V1VirtualMachineInstanceReplicaSetToJSON,
-    V1VirtualMachineInstanceReplicaSetList,
     V1VirtualMachineInstanceReplicaSetListFromJSON,
     V1VirtualMachineInstanceReplicaSetListToJSON,
-    V1VirtualMachineList,
     V1VirtualMachineListFromJSON,
     V1VirtualMachineListToJSON,
-    V1VirtualMachineMemoryDumpRequest,
     V1VirtualMachineMemoryDumpRequestFromJSON,
     V1VirtualMachineMemoryDumpRequestToJSON,
-    V1alpha1MigrationPolicy,
+    V1alpha1BackupOptionsFromJSON,
+    V1alpha1BackupOptionsToJSON,
     V1alpha1MigrationPolicyFromJSON,
     V1alpha1MigrationPolicyToJSON,
-    V1alpha1MigrationPolicyList,
     V1alpha1MigrationPolicyListFromJSON,
     V1alpha1MigrationPolicyListToJSON,
-    V1alpha1VirtualMachinePool,
-    V1alpha1VirtualMachinePoolFromJSON,
-    V1alpha1VirtualMachinePoolToJSON,
-    V1alpha1VirtualMachinePoolList,
-    V1alpha1VirtualMachinePoolListFromJSON,
-    V1alpha1VirtualMachinePoolListToJSON,
-    V1beta1VirtualMachineClone,
+    V1alpha1VirtualMachineBackupFromJSON,
+    V1alpha1VirtualMachineBackupToJSON,
+    V1alpha1VirtualMachineBackupListFromJSON,
+    V1alpha1VirtualMachineBackupListToJSON,
     V1beta1VirtualMachineCloneFromJSON,
     V1beta1VirtualMachineCloneToJSON,
-    V1beta1VirtualMachineCloneList,
     V1beta1VirtualMachineCloneListFromJSON,
     V1beta1VirtualMachineCloneListToJSON,
-    V1beta1VirtualMachineClusterInstancetype,
     V1beta1VirtualMachineClusterInstancetypeFromJSON,
     V1beta1VirtualMachineClusterInstancetypeToJSON,
-    V1beta1VirtualMachineClusterInstancetypeList,
     V1beta1VirtualMachineClusterInstancetypeListFromJSON,
     V1beta1VirtualMachineClusterInstancetypeListToJSON,
-    V1beta1VirtualMachineClusterPreference,
     V1beta1VirtualMachineClusterPreferenceFromJSON,
     V1beta1VirtualMachineClusterPreferenceToJSON,
-    V1beta1VirtualMachineClusterPreferenceList,
     V1beta1VirtualMachineClusterPreferenceListFromJSON,
     V1beta1VirtualMachineClusterPreferenceListToJSON,
-    V1beta1VirtualMachineExport,
     V1beta1VirtualMachineExportFromJSON,
     V1beta1VirtualMachineExportToJSON,
-    V1beta1VirtualMachineExportList,
     V1beta1VirtualMachineExportListFromJSON,
     V1beta1VirtualMachineExportListToJSON,
-    V1beta1VirtualMachineInstancetype,
     V1beta1VirtualMachineInstancetypeFromJSON,
     V1beta1VirtualMachineInstancetypeToJSON,
-    V1beta1VirtualMachineInstancetypeList,
     V1beta1VirtualMachineInstancetypeListFromJSON,
     V1beta1VirtualMachineInstancetypeListToJSON,
-    V1beta1VirtualMachinePreference,
+    V1beta1VirtualMachinePoolFromJSON,
+    V1beta1VirtualMachinePoolToJSON,
+    V1beta1VirtualMachinePoolListFromJSON,
+    V1beta1VirtualMachinePoolListToJSON,
     V1beta1VirtualMachinePreferenceFromJSON,
     V1beta1VirtualMachinePreferenceToJSON,
-    V1beta1VirtualMachinePreferenceList,
     V1beta1VirtualMachinePreferenceListFromJSON,
     V1beta1VirtualMachinePreferenceListToJSON,
-    V1beta1VirtualMachineRestore,
     V1beta1VirtualMachineRestoreFromJSON,
     V1beta1VirtualMachineRestoreToJSON,
-    V1beta1VirtualMachineRestoreList,
     V1beta1VirtualMachineRestoreListFromJSON,
     V1beta1VirtualMachineRestoreListToJSON,
-    V1beta1VirtualMachineSnapshot,
     V1beta1VirtualMachineSnapshotFromJSON,
     V1beta1VirtualMachineSnapshotToJSON,
-    V1beta1VirtualMachineSnapshotContent,
     V1beta1VirtualMachineSnapshotContentFromJSON,
     V1beta1VirtualMachineSnapshotContentToJSON,
-    V1beta1VirtualMachineSnapshotContentList,
     V1beta1VirtualMachineSnapshotContentListFromJSON,
     V1beta1VirtualMachineSnapshotContentListToJSON,
-    V1beta1VirtualMachineSnapshotList,
     V1beta1VirtualMachineSnapshotListFromJSON,
     V1beta1VirtualMachineSnapshotListToJSON,
 } from '../models';
@@ -209,6 +223,11 @@ export interface CreateNamespacedKubeVirtRequest {
 export interface CreateNamespacedVirtualMachineRequest {
     namespace: string;
     body: V1VirtualMachine;
+}
+
+export interface CreateNamespacedVirtualMachineBackupRequest {
+    namespace: string;
+    body: V1alpha1VirtualMachineBackup;
 }
 
 export interface CreateNamespacedVirtualMachineExportRequest {
@@ -243,7 +262,7 @@ export interface CreateNamespacedVirtualMachineInstancetypeRequest {
 
 export interface CreateNamespacedVirtualMachinePoolRequest {
     namespace: string;
-    body: V1alpha1VirtualMachinePool;
+    body: V1beta1VirtualMachinePool;
 }
 
 export interface CreateNamespacedVirtualMachinePreferenceRequest {
@@ -301,6 +320,17 @@ export interface DeleteCollectionNamespacedKubeVirtRequest {
 }
 
 export interface DeleteCollectionNamespacedVirtualMachineRequest {
+    _continue?: string;
+    fieldSelector?: string;
+    includeUninitialized?: boolean;
+    labelSelector?: string;
+    limit?: number;
+    resourceVersion?: string;
+    timeoutSeconds?: number;
+    watch?: boolean;
+}
+
+export interface DeleteCollectionNamespacedVirtualMachineBackupRequest {
     _continue?: string;
     fieldSelector?: string;
     includeUninitialized?: boolean;
@@ -491,6 +521,15 @@ export interface DeleteNamespacedVirtualMachineRequest {
     propagationPolicy?: string;
 }
 
+export interface DeleteNamespacedVirtualMachineBackupRequest {
+    name: string;
+    namespace: string;
+    body: K8sIoApimachineryPkgApisMetaV1DeleteOptions;
+    gracePeriodSeconds?: number;
+    orphanDependents?: boolean;
+    propagationPolicy?: string;
+}
+
 export interface DeleteNamespacedVirtualMachineExportRequest {
     name: string;
     namespace: string;
@@ -660,6 +699,18 @@ export interface ListNamespacedVirtualMachineRequest {
     watch?: boolean;
 }
 
+export interface ListNamespacedVirtualMachineBackupRequest {
+    namespace: string;
+    _continue?: string;
+    fieldSelector?: string;
+    includeUninitialized?: boolean;
+    labelSelector?: string;
+    limit?: number;
+    resourceVersion?: string;
+    timeoutSeconds?: number;
+    watch?: boolean;
+}
+
 export interface ListNamespacedVirtualMachineExportRequest {
     namespace: string;
     _continue?: string;
@@ -782,6 +833,17 @@ export interface ListNamespacedVirtualMachineSnapshotRequest {
 
 export interface ListNamespacedVirtualMachineSnapshotContentRequest {
     namespace: string;
+    _continue?: string;
+    fieldSelector?: string;
+    includeUninitialized?: boolean;
+    labelSelector?: string;
+    limit?: number;
+    resourceVersion?: string;
+    timeoutSeconds?: number;
+    watch?: boolean;
+}
+
+export interface ListVirtualMachineBackupForAllNamespacesRequest {
     _continue?: string;
     fieldSelector?: string;
     includeUninitialized?: boolean;
@@ -974,6 +1036,12 @@ export interface PatchNamespacedVirtualMachineRequest {
     body: object;
 }
 
+export interface PatchNamespacedVirtualMachineBackupRequest {
+    name: string;
+    namespace: string;
+    body: object;
+}
+
 export interface PatchNamespacedVirtualMachineExportRequest {
     name: string;
     namespace: string;
@@ -1069,6 +1137,13 @@ export interface ReadNamespacedKubeVirtRequest {
 }
 
 export interface ReadNamespacedVirtualMachineRequest {
+    name: string;
+    namespace: string;
+    exact?: boolean;
+    _export?: boolean;
+}
+
+export interface ReadNamespacedVirtualMachineBackupRequest {
     name: string;
     namespace: string;
     exact?: boolean;
@@ -1187,6 +1262,12 @@ export interface ReplaceNamespacedVirtualMachineRequest {
     body: V1VirtualMachine;
 }
 
+export interface ReplaceNamespacedVirtualMachineBackupRequest {
+    name: string;
+    namespace: string;
+    body: V1alpha1VirtualMachineBackup;
+}
+
 export interface ReplaceNamespacedVirtualMachineExportRequest {
     name: string;
     namespace: string;
@@ -1226,7 +1307,7 @@ export interface ReplaceNamespacedVirtualMachineInstancetypeRequest {
 export interface ReplaceNamespacedVirtualMachinePoolRequest {
     name: string;
     namespace: string;
-    body: V1alpha1VirtualMachinePool;
+    body: V1beta1VirtualMachinePool;
 }
 
 export interface ReplaceNamespacedVirtualMachinePreferenceRequest {
@@ -1266,6 +1347,12 @@ export interface ReplaceVirtualMachineClusterInstancetypeRequest {
 export interface ReplaceVirtualMachineClusterPreferenceRequest {
     name: string;
     body: V1beta1VirtualMachineClusterPreference;
+}
+
+export interface V1BackupRequest {
+    name: string;
+    namespace: string;
+    body: V1alpha1BackupOptions;
 }
 
 export interface V1ConsoleRequest {
@@ -1385,6 +1472,7 @@ export interface V1UserlistRequest {
 export interface V1VNCRequest {
     name: string;
     namespace: string;
+    preserveSession?: boolean;
 }
 
 export interface V1VNCScreenshotRequest {
@@ -1398,6 +1486,12 @@ export interface V1VSOCKRequest {
     namespace: string;
     port: number;
     tls?: boolean;
+}
+
+export interface V1alpha3BackupRequest {
+    name: string;
+    namespace: string;
+    body: V1alpha1BackupOptions;
 }
 
 export interface V1alpha3ConsoleRequest {
@@ -1517,6 +1611,7 @@ export interface V1alpha3UserlistRequest {
 export interface V1alpha3VNCRequest {
     name: string;
     namespace: string;
+    preserveSession?: boolean;
 }
 
 export interface V1alpha3VNCScreenshotRequest {
@@ -1541,6 +1636,12 @@ export interface V1alpha3vmAddvolumeRequest {
     name: string;
     namespace: string;
     body: V1AddVolumeOptions;
+}
+
+export interface V1alpha3vmEvacuatecancelRequest {
+    name: string;
+    namespace: string;
+    body: V1EvacuateCancelOptions;
 }
 
 export interface V1alpha3vmExpandSpecRequest {
@@ -1579,6 +1680,12 @@ export interface V1alpha3vmiAddvolumeRequest {
     body: V1AddVolumeOptions;
 }
 
+export interface V1alpha3vmiEvacuatecancelRequest {
+    name: string;
+    namespace: string;
+    body: V1EvacuateCancelOptions;
+}
+
 export interface V1alpha3vmiObjectgraphRequest {
     name: string;
     namespace: string;
@@ -1615,6 +1722,12 @@ export interface V1vmAddvolumeRequest {
     body: V1AddVolumeOptions;
 }
 
+export interface V1vmEvacuatecancelRequest {
+    name: string;
+    namespace: string;
+    body: V1EvacuateCancelOptions;
+}
+
 export interface V1vmExpandSpecRequest {
     name: string;
     namespace: string;
@@ -1649,6 +1762,12 @@ export interface V1vmiAddvolumeRequest {
     name: string;
     namespace: string;
     body: V1AddVolumeOptions;
+}
+
+export interface V1vmiEvacuatecancelRequest {
+    name: string;
+    namespace: string;
+    body: V1EvacuateCancelOptions;
 }
 
 export interface V1vmiObjectgraphRequest {
@@ -1711,6 +1830,18 @@ export interface WatchNamespacedKubeVirtRequest {
 }
 
 export interface WatchNamespacedVirtualMachineRequest {
+    namespace: string;
+    _continue?: string;
+    fieldSelector?: string;
+    includeUninitialized?: boolean;
+    labelSelector?: string;
+    limit?: number;
+    resourceVersion?: string;
+    timeoutSeconds?: number;
+    watch?: boolean;
+}
+
+export interface WatchNamespacedVirtualMachineBackupRequest {
     namespace: string;
     _continue?: string;
     fieldSelector?: string;
@@ -1844,6 +1975,17 @@ export interface WatchNamespacedVirtualMachineSnapshotRequest {
 
 export interface WatchNamespacedVirtualMachineSnapshotContentRequest {
     namespace: string;
+    _continue?: string;
+    fieldSelector?: string;
+    includeUninitialized?: boolean;
+    labelSelector?: string;
+    limit?: number;
+    resourceVersion?: string;
+    timeoutSeconds?: number;
+    watch?: boolean;
+}
+
+export interface WatchVirtualMachineBackupListForAllNamespacesRequest {
     _continue?: string;
     fieldSelector?: string;
     includeUninitialized?: boolean;
@@ -2027,7 +2169,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a MigrationPolicy object.
      */
-    async createMigrationPolicyRaw(requestParameters: CreateMigrationPolicyRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1alpha1MigrationPolicy>> {
+    async createMigrationPolicyRaw(requestParameters: CreateMigrationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1alpha1MigrationPolicy>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling createMigrationPolicy.');
         }
@@ -2052,7 +2194,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a MigrationPolicy object.
      */
-    async createMigrationPolicy(requestParameters: CreateMigrationPolicyRequest, initOverrides?: RequestInit): Promise<V1alpha1MigrationPolicy> {
+    async createMigrationPolicy(requestParameters: CreateMigrationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1alpha1MigrationPolicy> {
         const response = await this.createMigrationPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2060,7 +2202,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a KubeVirt object.
      */
-    async createNamespacedKubeVirtRaw(requestParameters: CreateNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1KubeVirt>> {
+    async createNamespacedKubeVirtRaw(requestParameters: CreateNamespacedKubeVirtRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1KubeVirt>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedKubeVirt.');
         }
@@ -2089,7 +2231,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a KubeVirt object.
      */
-    async createNamespacedKubeVirt(requestParameters: CreateNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<V1KubeVirt> {
+    async createNamespacedKubeVirt(requestParameters: CreateNamespacedKubeVirtRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1KubeVirt> {
         const response = await this.createNamespacedKubeVirtRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2097,7 +2239,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachine object.
      */
-    async createNamespacedVirtualMachineRaw(requestParameters: CreateNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachine>> {
+    async createNamespacedVirtualMachineRaw(requestParameters: CreateNamespacedVirtualMachineRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachine>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedVirtualMachine.');
         }
@@ -2126,15 +2268,52 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachine object.
      */
-    async createNamespacedVirtualMachine(requestParameters: CreateNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<V1VirtualMachine> {
+    async createNamespacedVirtualMachine(requestParameters: CreateNamespacedVirtualMachineRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachine> {
         const response = await this.createNamespacedVirtualMachineRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Create a VirtualMachineBackup object.
+     */
+    async createNamespacedVirtualMachineBackupRaw(requestParameters: CreateNamespacedVirtualMachineBackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1alpha1VirtualMachineBackup>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedVirtualMachineBackup.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling createNamespacedVirtualMachineBackup.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/apis/backup.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinebackups`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1alpha1VirtualMachineBackupToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1alpha1VirtualMachineBackupFromJSON(jsonValue));
+    }
+
+    /**
+     * Create a VirtualMachineBackup object.
+     */
+    async createNamespacedVirtualMachineBackup(requestParameters: CreateNamespacedVirtualMachineBackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1alpha1VirtualMachineBackup> {
+        const response = await this.createNamespacedVirtualMachineBackupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Create a VirtualMachineExport object.
      */
-    async createNamespacedVirtualMachineExportRaw(requestParameters: CreateNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineExport>> {
+    async createNamespacedVirtualMachineExportRaw(requestParameters: CreateNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineExport>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedVirtualMachineExport.');
         }
@@ -2163,7 +2342,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineExport object.
      */
-    async createNamespacedVirtualMachineExport(requestParameters: CreateNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineExport> {
+    async createNamespacedVirtualMachineExport(requestParameters: CreateNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineExport> {
         const response = await this.createNamespacedVirtualMachineExportRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2171,7 +2350,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineInstance object.
      */
-    async createNamespacedVirtualMachineInstanceRaw(requestParameters: CreateNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstance>> {
+    async createNamespacedVirtualMachineInstanceRaw(requestParameters: CreateNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstance>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedVirtualMachineInstance.');
         }
@@ -2200,7 +2379,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineInstance object.
      */
-    async createNamespacedVirtualMachineInstance(requestParameters: CreateNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstance> {
+    async createNamespacedVirtualMachineInstance(requestParameters: CreateNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstance> {
         const response = await this.createNamespacedVirtualMachineInstanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2208,7 +2387,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineInstanceMigration object.
      */
-    async createNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: CreateNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceMigration>> {
+    async createNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: CreateNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceMigration>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedVirtualMachineInstanceMigration.');
         }
@@ -2237,7 +2416,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineInstanceMigration object.
      */
-    async createNamespacedVirtualMachineInstanceMigration(requestParameters: CreateNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceMigration> {
+    async createNamespacedVirtualMachineInstanceMigration(requestParameters: CreateNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceMigration> {
         const response = await this.createNamespacedVirtualMachineInstanceMigrationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2245,7 +2424,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineInstancePreset object.
      */
-    async createNamespacedVirtualMachineInstancePresetRaw(requestParameters: CreateNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstancePreset>> {
+    async createNamespacedVirtualMachineInstancePresetRaw(requestParameters: CreateNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstancePreset>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedVirtualMachineInstancePreset.');
         }
@@ -2274,7 +2453,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineInstancePreset object.
      */
-    async createNamespacedVirtualMachineInstancePreset(requestParameters: CreateNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstancePreset> {
+    async createNamespacedVirtualMachineInstancePreset(requestParameters: CreateNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstancePreset> {
         const response = await this.createNamespacedVirtualMachineInstancePresetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2282,7 +2461,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineInstanceReplicaSet object.
      */
-    async createNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: CreateNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceReplicaSet>> {
+    async createNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: CreateNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceReplicaSet>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedVirtualMachineInstanceReplicaSet.');
         }
@@ -2311,7 +2490,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineInstanceReplicaSet object.
      */
-    async createNamespacedVirtualMachineInstanceReplicaSet(requestParameters: CreateNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceReplicaSet> {
+    async createNamespacedVirtualMachineInstanceReplicaSet(requestParameters: CreateNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceReplicaSet> {
         const response = await this.createNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2319,7 +2498,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineInstancetype object.
      */
-    async createNamespacedVirtualMachineInstancetypeRaw(requestParameters: CreateNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineInstancetype>> {
+    async createNamespacedVirtualMachineInstancetypeRaw(requestParameters: CreateNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineInstancetype>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedVirtualMachineInstancetype.');
         }
@@ -2348,7 +2527,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineInstancetype object.
      */
-    async createNamespacedVirtualMachineInstancetype(requestParameters: CreateNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineInstancetype> {
+    async createNamespacedVirtualMachineInstancetype(requestParameters: CreateNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineInstancetype> {
         const response = await this.createNamespacedVirtualMachineInstancetypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2356,7 +2535,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachinePool object.
      */
-    async createNamespacedVirtualMachinePoolRaw(requestParameters: CreateNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1alpha1VirtualMachinePool>> {
+    async createNamespacedVirtualMachinePoolRaw(requestParameters: CreateNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachinePool>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedVirtualMachinePool.');
         }
@@ -2372,20 +2551,20 @@ export class DefaultApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         const response = await this.request({
-            path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            path: `/apis/pool.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepools`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: V1alpha1VirtualMachinePoolToJSON(requestParameters.body),
+            body: V1beta1VirtualMachinePoolToJSON(requestParameters.body),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1alpha1VirtualMachinePoolFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1VirtualMachinePoolFromJSON(jsonValue));
     }
 
     /**
      * Create a VirtualMachinePool object.
      */
-    async createNamespacedVirtualMachinePool(requestParameters: CreateNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<V1alpha1VirtualMachinePool> {
+    async createNamespacedVirtualMachinePool(requestParameters: CreateNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachinePool> {
         const response = await this.createNamespacedVirtualMachinePoolRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2393,7 +2572,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachinePreference object.
      */
-    async createNamespacedVirtualMachinePreferenceRaw(requestParameters: CreateNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachinePreference>> {
+    async createNamespacedVirtualMachinePreferenceRaw(requestParameters: CreateNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachinePreference>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedVirtualMachinePreference.');
         }
@@ -2422,7 +2601,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachinePreference object.
      */
-    async createNamespacedVirtualMachinePreference(requestParameters: CreateNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachinePreference> {
+    async createNamespacedVirtualMachinePreference(requestParameters: CreateNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachinePreference> {
         const response = await this.createNamespacedVirtualMachinePreferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2430,7 +2609,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineRestore object.
      */
-    async createNamespacedVirtualMachineRestoreRaw(requestParameters: CreateNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineRestore>> {
+    async createNamespacedVirtualMachineRestoreRaw(requestParameters: CreateNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineRestore>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedVirtualMachineRestore.');
         }
@@ -2459,7 +2638,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineRestore object.
      */
-    async createNamespacedVirtualMachineRestore(requestParameters: CreateNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineRestore> {
+    async createNamespacedVirtualMachineRestore(requestParameters: CreateNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineRestore> {
         const response = await this.createNamespacedVirtualMachineRestoreRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2467,7 +2646,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineSnapshot object.
      */
-    async createNamespacedVirtualMachineSnapshotRaw(requestParameters: CreateNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshot>> {
+    async createNamespacedVirtualMachineSnapshotRaw(requestParameters: CreateNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshot>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedVirtualMachineSnapshot.');
         }
@@ -2496,7 +2675,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineSnapshot object.
      */
-    async createNamespacedVirtualMachineSnapshot(requestParameters: CreateNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineSnapshot> {
+    async createNamespacedVirtualMachineSnapshot(requestParameters: CreateNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineSnapshot> {
         const response = await this.createNamespacedVirtualMachineSnapshotRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2504,7 +2683,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineSnapshotContent object.
      */
-    async createNamespacedVirtualMachineSnapshotContentRaw(requestParameters: CreateNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotContent>> {
+    async createNamespacedVirtualMachineSnapshotContentRaw(requestParameters: CreateNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotContent>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling createNamespacedVirtualMachineSnapshotContent.');
         }
@@ -2533,7 +2712,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineSnapshotContent object.
      */
-    async createNamespacedVirtualMachineSnapshotContent(requestParameters: CreateNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineSnapshotContent> {
+    async createNamespacedVirtualMachineSnapshotContent(requestParameters: CreateNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineSnapshotContent> {
         const response = await this.createNamespacedVirtualMachineSnapshotContentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2541,7 +2720,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineClone object.
      */
-    async createVirtualMachineCloneRaw(requestParameters: CreateVirtualMachineCloneRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineClone>> {
+    async createVirtualMachineCloneRaw(requestParameters: CreateVirtualMachineCloneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineClone>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling createVirtualMachineClone.');
         }
@@ -2566,7 +2745,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineClone object.
      */
-    async createVirtualMachineClone(requestParameters: CreateVirtualMachineCloneRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineClone> {
+    async createVirtualMachineClone(requestParameters: CreateVirtualMachineCloneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineClone> {
         const response = await this.createVirtualMachineCloneRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2574,7 +2753,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineClusterInstancetype object.
      */
-    async createVirtualMachineClusterInstancetypeRaw(requestParameters: CreateVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterInstancetype>> {
+    async createVirtualMachineClusterInstancetypeRaw(requestParameters: CreateVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterInstancetype>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling createVirtualMachineClusterInstancetype.');
         }
@@ -2599,7 +2778,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineClusterInstancetype object.
      */
-    async createVirtualMachineClusterInstancetype(requestParameters: CreateVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineClusterInstancetype> {
+    async createVirtualMachineClusterInstancetype(requestParameters: CreateVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineClusterInstancetype> {
         const response = await this.createVirtualMachineClusterInstancetypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2607,7 +2786,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineClusterPreference object.
      */
-    async createVirtualMachineClusterPreferenceRaw(requestParameters: CreateVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterPreference>> {
+    async createVirtualMachineClusterPreferenceRaw(requestParameters: CreateVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterPreference>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling createVirtualMachineClusterPreference.');
         }
@@ -2632,7 +2811,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Create a VirtualMachineClusterPreference object.
      */
-    async createVirtualMachineClusterPreference(requestParameters: CreateVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineClusterPreference> {
+    async createVirtualMachineClusterPreference(requestParameters: CreateVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineClusterPreference> {
         const response = await this.createVirtualMachineClusterPreferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2640,7 +2819,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of MigrationPolicy objects.
      */
-    async deleteCollectionMigrationPolicyRaw(requestParameters: DeleteCollectionMigrationPolicyRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionMigrationPolicyRaw(requestParameters: DeleteCollectionMigrationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -2690,7 +2869,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of MigrationPolicy objects.
      */
-    async deleteCollectionMigrationPolicy(requestParameters: DeleteCollectionMigrationPolicyRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionMigrationPolicy(requestParameters: DeleteCollectionMigrationPolicyRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionMigrationPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2698,7 +2877,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of KubeVirt objects.
      */
-    async deleteCollectionNamespacedKubeVirtRaw(requestParameters: DeleteCollectionNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionNamespacedKubeVirtRaw(requestParameters: DeleteCollectionNamespacedKubeVirtRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -2748,7 +2927,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of KubeVirt objects.
      */
-    async deleteCollectionNamespacedKubeVirt(requestParameters: DeleteCollectionNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionNamespacedKubeVirt(requestParameters: DeleteCollectionNamespacedKubeVirtRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionNamespacedKubeVirtRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2756,7 +2935,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachine objects.
      */
-    async deleteCollectionNamespacedVirtualMachineRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionNamespacedVirtualMachineRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -2806,15 +2985,73 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachine objects.
      */
-    async deleteCollectionNamespacedVirtualMachine(requestParameters: DeleteCollectionNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionNamespacedVirtualMachine(requestParameters: DeleteCollectionNamespacedVirtualMachineRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionNamespacedVirtualMachineRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete a collection of VirtualMachineBackup objects.
+     */
+    async deleteCollectionNamespacedVirtualMachineBackupRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineBackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+        const queryParameters: any = {};
+
+        if (requestParameters._continue !== undefined) {
+            queryParameters['continue'] = requestParameters._continue;
+        }
+
+        if (requestParameters.fieldSelector !== undefined) {
+            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+        }
+
+        if (requestParameters.includeUninitialized !== undefined) {
+            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+        }
+
+        if (requestParameters.labelSelector !== undefined) {
+            queryParameters['labelSelector'] = requestParameters.labelSelector;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.resourceVersion !== undefined) {
+            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+        }
+
+        if (requestParameters.timeoutSeconds !== undefined) {
+            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+        }
+
+        if (requestParameters.watch !== undefined) {
+            queryParameters['watch'] = requestParameters.watch;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/apis/backup.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinebackups`,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => K8sIoApimachineryPkgApisMetaV1StatusFromJSON(jsonValue));
+    }
+
+    /**
+     * Delete a collection of VirtualMachineBackup objects.
+     */
+    async deleteCollectionNamespacedVirtualMachineBackup(requestParameters: DeleteCollectionNamespacedVirtualMachineBackupRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+        const response = await this.deleteCollectionNamespacedVirtualMachineBackupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Delete a collection of VirtualMachineExport objects.
      */
-    async deleteCollectionNamespacedVirtualMachineExportRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionNamespacedVirtualMachineExportRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -2864,7 +3101,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineExport objects.
      */
-    async deleteCollectionNamespacedVirtualMachineExport(requestParameters: DeleteCollectionNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionNamespacedVirtualMachineExport(requestParameters: DeleteCollectionNamespacedVirtualMachineExportRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionNamespacedVirtualMachineExportRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2872,7 +3109,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineInstance objects.
      */
-    async deleteCollectionNamespacedVirtualMachineInstanceRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionNamespacedVirtualMachineInstanceRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -2922,7 +3159,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineInstance objects.
      */
-    async deleteCollectionNamespacedVirtualMachineInstance(requestParameters: DeleteCollectionNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionNamespacedVirtualMachineInstance(requestParameters: DeleteCollectionNamespacedVirtualMachineInstanceRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionNamespacedVirtualMachineInstanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2930,7 +3167,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineInstanceMigration objects.
      */
-    async deleteCollectionNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -2980,7 +3217,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineInstanceMigration objects.
      */
-    async deleteCollectionNamespacedVirtualMachineInstanceMigration(requestParameters: DeleteCollectionNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionNamespacedVirtualMachineInstanceMigration(requestParameters: DeleteCollectionNamespacedVirtualMachineInstanceMigrationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionNamespacedVirtualMachineInstanceMigrationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2988,7 +3225,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineInstancePreset objects.
      */
-    async deleteCollectionNamespacedVirtualMachineInstancePresetRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionNamespacedVirtualMachineInstancePresetRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -3038,7 +3275,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineInstancePreset objects.
      */
-    async deleteCollectionNamespacedVirtualMachineInstancePreset(requestParameters: DeleteCollectionNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionNamespacedVirtualMachineInstancePreset(requestParameters: DeleteCollectionNamespacedVirtualMachineInstancePresetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionNamespacedVirtualMachineInstancePresetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3046,7 +3283,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineInstanceReplicaSet objects.
      */
-    async deleteCollectionNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -3096,7 +3333,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineInstanceReplicaSet objects.
      */
-    async deleteCollectionNamespacedVirtualMachineInstanceReplicaSet(requestParameters: DeleteCollectionNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionNamespacedVirtualMachineInstanceReplicaSet(requestParameters: DeleteCollectionNamespacedVirtualMachineInstanceReplicaSetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3104,7 +3341,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineInstancetype objects.
      */
-    async deleteCollectionNamespacedVirtualMachineInstancetypeRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionNamespacedVirtualMachineInstancetypeRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -3154,7 +3391,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineInstancetype objects.
      */
-    async deleteCollectionNamespacedVirtualMachineInstancetype(requestParameters: DeleteCollectionNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionNamespacedVirtualMachineInstancetype(requestParameters: DeleteCollectionNamespacedVirtualMachineInstancetypeRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionNamespacedVirtualMachineInstancetypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3162,7 +3399,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachinePool objects.
      */
-    async deleteCollectionNamespacedVirtualMachinePoolRaw(requestParameters: DeleteCollectionNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionNamespacedVirtualMachinePoolRaw(requestParameters: DeleteCollectionNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -3200,7 +3437,7 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools`,
+            path: `/apis/pool.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepools`,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
@@ -3212,7 +3449,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachinePool objects.
      */
-    async deleteCollectionNamespacedVirtualMachinePool(requestParameters: DeleteCollectionNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionNamespacedVirtualMachinePool(requestParameters: DeleteCollectionNamespacedVirtualMachinePoolRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionNamespacedVirtualMachinePoolRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3220,7 +3457,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachinePreference objects.
      */
-    async deleteCollectionNamespacedVirtualMachinePreferenceRaw(requestParameters: DeleteCollectionNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionNamespacedVirtualMachinePreferenceRaw(requestParameters: DeleteCollectionNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -3270,7 +3507,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachinePreference objects.
      */
-    async deleteCollectionNamespacedVirtualMachinePreference(requestParameters: DeleteCollectionNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionNamespacedVirtualMachinePreference(requestParameters: DeleteCollectionNamespacedVirtualMachinePreferenceRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionNamespacedVirtualMachinePreferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3278,7 +3515,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineRestore objects.
      */
-    async deleteCollectionNamespacedVirtualMachineRestoreRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionNamespacedVirtualMachineRestoreRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -3328,7 +3565,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineRestore objects.
      */
-    async deleteCollectionNamespacedVirtualMachineRestore(requestParameters: DeleteCollectionNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionNamespacedVirtualMachineRestore(requestParameters: DeleteCollectionNamespacedVirtualMachineRestoreRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionNamespacedVirtualMachineRestoreRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3336,7 +3573,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineSnapshot objects.
      */
-    async deleteCollectionNamespacedVirtualMachineSnapshotRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionNamespacedVirtualMachineSnapshotRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -3386,7 +3623,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineSnapshot objects.
      */
-    async deleteCollectionNamespacedVirtualMachineSnapshot(requestParameters: DeleteCollectionNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionNamespacedVirtualMachineSnapshot(requestParameters: DeleteCollectionNamespacedVirtualMachineSnapshotRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionNamespacedVirtualMachineSnapshotRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3394,7 +3631,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineSnapshotContent objects.
      */
-    async deleteCollectionNamespacedVirtualMachineSnapshotContentRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionNamespacedVirtualMachineSnapshotContentRaw(requestParameters: DeleteCollectionNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -3444,7 +3681,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineSnapshotContent objects.
      */
-    async deleteCollectionNamespacedVirtualMachineSnapshotContent(requestParameters: DeleteCollectionNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionNamespacedVirtualMachineSnapshotContent(requestParameters: DeleteCollectionNamespacedVirtualMachineSnapshotContentRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionNamespacedVirtualMachineSnapshotContentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3452,7 +3689,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineClone objects.
      */
-    async deleteCollectionVirtualMachineCloneRaw(requestParameters: DeleteCollectionVirtualMachineCloneRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionVirtualMachineCloneRaw(requestParameters: DeleteCollectionVirtualMachineCloneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -3502,7 +3739,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineClone objects.
      */
-    async deleteCollectionVirtualMachineClone(requestParameters: DeleteCollectionVirtualMachineCloneRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionVirtualMachineClone(requestParameters: DeleteCollectionVirtualMachineCloneRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionVirtualMachineCloneRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3510,7 +3747,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineClusterInstancetype objects.
      */
-    async deleteCollectionVirtualMachineClusterInstancetypeRaw(requestParameters: DeleteCollectionVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionVirtualMachineClusterInstancetypeRaw(requestParameters: DeleteCollectionVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -3560,7 +3797,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineClusterInstancetype objects.
      */
-    async deleteCollectionVirtualMachineClusterInstancetype(requestParameters: DeleteCollectionVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionVirtualMachineClusterInstancetype(requestParameters: DeleteCollectionVirtualMachineClusterInstancetypeRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionVirtualMachineClusterInstancetypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3568,7 +3805,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineClusterPreference objects.
      */
-    async deleteCollectionVirtualMachineClusterPreferenceRaw(requestParameters: DeleteCollectionVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteCollectionVirtualMachineClusterPreferenceRaw(requestParameters: DeleteCollectionVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -3618,7 +3855,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a collection of VirtualMachineClusterPreference objects.
      */
-    async deleteCollectionVirtualMachineClusterPreference(requestParameters: DeleteCollectionVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteCollectionVirtualMachineClusterPreference(requestParameters: DeleteCollectionVirtualMachineClusterPreferenceRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteCollectionVirtualMachineClusterPreferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3626,7 +3863,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a MigrationPolicy object.
      */
-    async deleteMigrationPolicyRaw(requestParameters: DeleteMigrationPolicyRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteMigrationPolicyRaw(requestParameters: DeleteMigrationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteMigrationPolicy.');
         }
@@ -3667,7 +3904,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a MigrationPolicy object.
      */
-    async deleteMigrationPolicy(requestParameters: DeleteMigrationPolicyRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteMigrationPolicy(requestParameters: DeleteMigrationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteMigrationPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3675,7 +3912,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a KubeVirt object.
      */
-    async deleteNamespacedKubeVirtRaw(requestParameters: DeleteNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteNamespacedKubeVirtRaw(requestParameters: DeleteNamespacedKubeVirtRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedKubeVirt.');
         }
@@ -3720,7 +3957,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a KubeVirt object.
      */
-    async deleteNamespacedKubeVirt(requestParameters: DeleteNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteNamespacedKubeVirt(requestParameters: DeleteNamespacedKubeVirtRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteNamespacedKubeVirtRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3728,7 +3965,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachine object.
      */
-    async deleteNamespacedVirtualMachineRaw(requestParameters: DeleteNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteNamespacedVirtualMachineRaw(requestParameters: DeleteNamespacedVirtualMachineRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedVirtualMachine.');
         }
@@ -3773,15 +4010,68 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachine object.
      */
-    async deleteNamespacedVirtualMachine(requestParameters: DeleteNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteNamespacedVirtualMachine(requestParameters: DeleteNamespacedVirtualMachineRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteNamespacedVirtualMachineRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete a VirtualMachineBackup object.
+     */
+    async deleteNamespacedVirtualMachineBackupRaw(requestParameters: DeleteNamespacedVirtualMachineBackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedVirtualMachineBackup.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling deleteNamespacedVirtualMachineBackup.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling deleteNamespacedVirtualMachineBackup.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.gracePeriodSeconds !== undefined) {
+            queryParameters['gracePeriodSeconds'] = requestParameters.gracePeriodSeconds;
+        }
+
+        if (requestParameters.orphanDependents !== undefined) {
+            queryParameters['orphanDependents'] = requestParameters.orphanDependents;
+        }
+
+        if (requestParameters.propagationPolicy !== undefined) {
+            queryParameters['propagationPolicy'] = requestParameters.propagationPolicy;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/apis/backup.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinebackups/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+            body: K8sIoApimachineryPkgApisMetaV1DeleteOptionsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => K8sIoApimachineryPkgApisMetaV1StatusFromJSON(jsonValue));
+    }
+
+    /**
+     * Delete a VirtualMachineBackup object.
+     */
+    async deleteNamespacedVirtualMachineBackup(requestParameters: DeleteNamespacedVirtualMachineBackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+        const response = await this.deleteNamespacedVirtualMachineBackupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Delete a VirtualMachineExport object.
      */
-    async deleteNamespacedVirtualMachineExportRaw(requestParameters: DeleteNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteNamespacedVirtualMachineExportRaw(requestParameters: DeleteNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedVirtualMachineExport.');
         }
@@ -3826,7 +4116,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineExport object.
      */
-    async deleteNamespacedVirtualMachineExport(requestParameters: DeleteNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteNamespacedVirtualMachineExport(requestParameters: DeleteNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteNamespacedVirtualMachineExportRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3834,7 +4124,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineInstance object.
      */
-    async deleteNamespacedVirtualMachineInstanceRaw(requestParameters: DeleteNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteNamespacedVirtualMachineInstanceRaw(requestParameters: DeleteNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedVirtualMachineInstance.');
         }
@@ -3879,7 +4169,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineInstance object.
      */
-    async deleteNamespacedVirtualMachineInstance(requestParameters: DeleteNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteNamespacedVirtualMachineInstance(requestParameters: DeleteNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteNamespacedVirtualMachineInstanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3887,7 +4177,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineInstanceMigration object.
      */
-    async deleteNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: DeleteNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: DeleteNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedVirtualMachineInstanceMigration.');
         }
@@ -3932,7 +4222,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineInstanceMigration object.
      */
-    async deleteNamespacedVirtualMachineInstanceMigration(requestParameters: DeleteNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteNamespacedVirtualMachineInstanceMigration(requestParameters: DeleteNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteNamespacedVirtualMachineInstanceMigrationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3940,7 +4230,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineInstancePreset object.
      */
-    async deleteNamespacedVirtualMachineInstancePresetRaw(requestParameters: DeleteNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteNamespacedVirtualMachineInstancePresetRaw(requestParameters: DeleteNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedVirtualMachineInstancePreset.');
         }
@@ -3985,7 +4275,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineInstancePreset object.
      */
-    async deleteNamespacedVirtualMachineInstancePreset(requestParameters: DeleteNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteNamespacedVirtualMachineInstancePreset(requestParameters: DeleteNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteNamespacedVirtualMachineInstancePresetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3993,7 +4283,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineInstanceReplicaSet object.
      */
-    async deleteNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: DeleteNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: DeleteNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedVirtualMachineInstanceReplicaSet.');
         }
@@ -4038,7 +4328,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineInstanceReplicaSet object.
      */
-    async deleteNamespacedVirtualMachineInstanceReplicaSet(requestParameters: DeleteNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteNamespacedVirtualMachineInstanceReplicaSet(requestParameters: DeleteNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4046,7 +4336,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineInstancetype object.
      */
-    async deleteNamespacedVirtualMachineInstancetypeRaw(requestParameters: DeleteNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteNamespacedVirtualMachineInstancetypeRaw(requestParameters: DeleteNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedVirtualMachineInstancetype.');
         }
@@ -4091,7 +4381,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineInstancetype object.
      */
-    async deleteNamespacedVirtualMachineInstancetype(requestParameters: DeleteNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteNamespacedVirtualMachineInstancetype(requestParameters: DeleteNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteNamespacedVirtualMachineInstancetypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4099,7 +4389,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachinePool object.
      */
-    async deleteNamespacedVirtualMachinePoolRaw(requestParameters: DeleteNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteNamespacedVirtualMachinePoolRaw(requestParameters: DeleteNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedVirtualMachinePool.');
         }
@@ -4131,7 +4421,7 @@ export class DefaultApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         const response = await this.request({
-            path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            path: `/apis/pool.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepools/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
@@ -4144,7 +4434,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachinePool object.
      */
-    async deleteNamespacedVirtualMachinePool(requestParameters: DeleteNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteNamespacedVirtualMachinePool(requestParameters: DeleteNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteNamespacedVirtualMachinePoolRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4152,7 +4442,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachinePreference object.
      */
-    async deleteNamespacedVirtualMachinePreferenceRaw(requestParameters: DeleteNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteNamespacedVirtualMachinePreferenceRaw(requestParameters: DeleteNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedVirtualMachinePreference.');
         }
@@ -4197,7 +4487,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachinePreference object.
      */
-    async deleteNamespacedVirtualMachinePreference(requestParameters: DeleteNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteNamespacedVirtualMachinePreference(requestParameters: DeleteNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteNamespacedVirtualMachinePreferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4205,7 +4495,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineRestore object.
      */
-    async deleteNamespacedVirtualMachineRestoreRaw(requestParameters: DeleteNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteNamespacedVirtualMachineRestoreRaw(requestParameters: DeleteNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedVirtualMachineRestore.');
         }
@@ -4250,7 +4540,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineRestore object.
      */
-    async deleteNamespacedVirtualMachineRestore(requestParameters: DeleteNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteNamespacedVirtualMachineRestore(requestParameters: DeleteNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteNamespacedVirtualMachineRestoreRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4258,7 +4548,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineSnapshot object.
      */
-    async deleteNamespacedVirtualMachineSnapshotRaw(requestParameters: DeleteNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteNamespacedVirtualMachineSnapshotRaw(requestParameters: DeleteNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedVirtualMachineSnapshot.');
         }
@@ -4303,7 +4593,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineSnapshot object.
      */
-    async deleteNamespacedVirtualMachineSnapshot(requestParameters: DeleteNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteNamespacedVirtualMachineSnapshot(requestParameters: DeleteNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteNamespacedVirtualMachineSnapshotRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4311,7 +4601,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineSnapshotContent object.
      */
-    async deleteNamespacedVirtualMachineSnapshotContentRaw(requestParameters: DeleteNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteNamespacedVirtualMachineSnapshotContentRaw(requestParameters: DeleteNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteNamespacedVirtualMachineSnapshotContent.');
         }
@@ -4356,7 +4646,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineSnapshotContent object.
      */
-    async deleteNamespacedVirtualMachineSnapshotContent(requestParameters: DeleteNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteNamespacedVirtualMachineSnapshotContent(requestParameters: DeleteNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteNamespacedVirtualMachineSnapshotContentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4364,7 +4654,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineClone object.
      */
-    async deleteVirtualMachineCloneRaw(requestParameters: DeleteVirtualMachineCloneRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteVirtualMachineCloneRaw(requestParameters: DeleteVirtualMachineCloneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteVirtualMachineClone.');
         }
@@ -4405,7 +4695,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineClone object.
      */
-    async deleteVirtualMachineClone(requestParameters: DeleteVirtualMachineCloneRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteVirtualMachineClone(requestParameters: DeleteVirtualMachineCloneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteVirtualMachineCloneRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4413,7 +4703,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineClusterInstancetype object.
      */
-    async deleteVirtualMachineClusterInstancetypeRaw(requestParameters: DeleteVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteVirtualMachineClusterInstancetypeRaw(requestParameters: DeleteVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteVirtualMachineClusterInstancetype.');
         }
@@ -4454,7 +4744,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineClusterInstancetype object.
      */
-    async deleteVirtualMachineClusterInstancetype(requestParameters: DeleteVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteVirtualMachineClusterInstancetype(requestParameters: DeleteVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteVirtualMachineClusterInstancetypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4462,7 +4752,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineClusterPreference object.
      */
-    async deleteVirtualMachineClusterPreferenceRaw(requestParameters: DeleteVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
+    async deleteVirtualMachineClusterPreferenceRaw(requestParameters: DeleteVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1Status>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteVirtualMachineClusterPreference.');
         }
@@ -4503,7 +4793,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Delete a VirtualMachineClusterPreference object.
      */
-    async deleteVirtualMachineClusterPreference(requestParameters: DeleteVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
+    async deleteVirtualMachineClusterPreference(requestParameters: DeleteVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1Status> {
         const response = await this.deleteVirtualMachineClusterPreferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4511,7 +4801,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Health endpoint
      */
-    async func13Raw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async func15Raw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4529,13 +4819,13 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Health endpoint
      */
-    async func13(initOverrides?: RequestInit): Promise<void> {
-        await this.func13Raw(initOverrides);
+    async func15(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.func15Raw(initOverrides);
     }
 
     /**
      */
-    async func6Raw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async func6Raw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4552,14 +4842,40 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      */
-    async func6(initOverrides?: RequestInit): Promise<void> {
+    async func6(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.func6Raw(initOverrides);
     }
 
     /**
      * Get a KubeVirt API group
      */
-    async getAPIGroupCloneKubevirtIoRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
+    async getAPIGroupBackupKubevirtIoRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/apis/backup.kubevirt.io/`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => K8sIoApimachineryPkgApisMetaV1APIGroupFromJSON(jsonValue));
+    }
+
+    /**
+     * Get a KubeVirt API group
+     */
+    async getAPIGroupBackupKubevirtIo(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
+        const response = await this.getAPIGroupBackupKubevirtIoRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get a KubeVirt API group
+     */
+    async getAPIGroupCloneKubevirtIoRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4577,7 +4893,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API group
      */
-    async getAPIGroupCloneKubevirtIo(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
+    async getAPIGroupCloneKubevirtIo(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
         const response = await this.getAPIGroupCloneKubevirtIoRaw(initOverrides);
         return await response.value();
     }
@@ -4585,7 +4901,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API group
      */
-    async getAPIGroupExportKubevirtIoRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
+    async getAPIGroupExportKubevirtIoRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4603,7 +4919,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API group
      */
-    async getAPIGroupExportKubevirtIo(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
+    async getAPIGroupExportKubevirtIo(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
         const response = await this.getAPIGroupExportKubevirtIoRaw(initOverrides);
         return await response.value();
     }
@@ -4611,7 +4927,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API group
      */
-    async getAPIGroupInstancetypeKubevirtIoRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
+    async getAPIGroupInstancetypeKubevirtIoRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4629,7 +4945,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API group
      */
-    async getAPIGroupInstancetypeKubevirtIo(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
+    async getAPIGroupInstancetypeKubevirtIo(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
         const response = await this.getAPIGroupInstancetypeKubevirtIoRaw(initOverrides);
         return await response.value();
     }
@@ -4637,7 +4953,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API group
      */
-    async getAPIGroupKubevirtIoRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
+    async getAPIGroupKubevirtIoRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4655,7 +4971,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API group
      */
-    async getAPIGroupKubevirtIo(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
+    async getAPIGroupKubevirtIo(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
         const response = await this.getAPIGroupKubevirtIoRaw(initOverrides);
         return await response.value();
     }
@@ -4663,7 +4979,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API GroupList
      */
-    async getAPIGroupListRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroupList>> {
+    async getAPIGroupListRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroupList>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4681,7 +4997,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API GroupList
      */
-    async getAPIGroupList(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIGroupList> {
+    async getAPIGroupList(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIGroupList> {
         const response = await this.getAPIGroupListRaw(initOverrides);
         return await response.value();
     }
@@ -4689,7 +5005,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API group
      */
-    async getAPIGroupMigrationsKubevirtIoRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
+    async getAPIGroupMigrationsKubevirtIoRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4707,7 +5023,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API group
      */
-    async getAPIGroupMigrationsKubevirtIo(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
+    async getAPIGroupMigrationsKubevirtIo(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
         const response = await this.getAPIGroupMigrationsKubevirtIoRaw(initOverrides);
         return await response.value();
     }
@@ -4715,7 +5031,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API group
      */
-    async getAPIGroupPoolKubevirtIoRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
+    async getAPIGroupPoolKubevirtIoRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4733,7 +5049,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API group
      */
-    async getAPIGroupPoolKubevirtIo(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
+    async getAPIGroupPoolKubevirtIo(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
         const response = await this.getAPIGroupPoolKubevirtIoRaw(initOverrides);
         return await response.value();
     }
@@ -4741,7 +5057,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API group
      */
-    async getAPIGroupSnapshotKubevirtIoRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
+    async getAPIGroupSnapshotKubevirtIoRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4759,7 +5075,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API group
      */
-    async getAPIGroupSnapshotKubevirtIo(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
+    async getAPIGroupSnapshotKubevirtIo(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
         const response = await this.getAPIGroupSnapshotKubevirtIoRaw(initOverrides);
         return await response.value();
     }
@@ -4767,7 +5083,33 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get KubeVirt API Resources
      */
-    async getAPIResourcesCloneKubevirtIoV1beta1Raw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
+    async getAPIResourcesBackupKubevirtIoV1alpha1Raw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/apis/backup.kubevirt.io/v1alpha1/`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => K8sIoApimachineryPkgApisMetaV1APIResourceListFromJSON(jsonValue));
+    }
+
+    /**
+     * Get KubeVirt API Resources
+     */
+    async getAPIResourcesBackupKubevirtIoV1alpha1(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
+        const response = await this.getAPIResourcesBackupKubevirtIoV1alpha1Raw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get KubeVirt API Resources
+     */
+    async getAPIResourcesCloneKubevirtIoV1beta1Raw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4785,7 +5127,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get KubeVirt API Resources
      */
-    async getAPIResourcesCloneKubevirtIoV1beta1(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
+    async getAPIResourcesCloneKubevirtIoV1beta1(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
         const response = await this.getAPIResourcesCloneKubevirtIoV1beta1Raw(initOverrides);
         return await response.value();
     }
@@ -4793,7 +5135,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get KubeVirt API Resources
      */
-    async getAPIResourcesExportKubevirtIoV1beta1Raw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
+    async getAPIResourcesExportKubevirtIoV1beta1Raw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4811,7 +5153,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get KubeVirt API Resources
      */
-    async getAPIResourcesExportKubevirtIoV1beta1(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
+    async getAPIResourcesExportKubevirtIoV1beta1(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
         const response = await this.getAPIResourcesExportKubevirtIoV1beta1Raw(initOverrides);
         return await response.value();
     }
@@ -4819,7 +5161,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get KubeVirt API Resources
      */
-    async getAPIResourcesInstancetypeKubevirtIoV1beta1Raw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
+    async getAPIResourcesInstancetypeKubevirtIoV1beta1Raw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4837,7 +5179,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get KubeVirt API Resources
      */
-    async getAPIResourcesInstancetypeKubevirtIoV1beta1(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
+    async getAPIResourcesInstancetypeKubevirtIoV1beta1(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
         const response = await this.getAPIResourcesInstancetypeKubevirtIoV1beta1Raw(initOverrides);
         return await response.value();
     }
@@ -4845,7 +5187,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get KubeVirt API Resources
      */
-    async getAPIResourcesKubevirtIoV1Raw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
+    async getAPIResourcesKubevirtIoV1Raw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4863,7 +5205,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get KubeVirt API Resources
      */
-    async getAPIResourcesKubevirtIoV1(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
+    async getAPIResourcesKubevirtIoV1(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
         const response = await this.getAPIResourcesKubevirtIoV1Raw(initOverrides);
         return await response.value();
     }
@@ -4871,7 +5213,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get KubeVirt API Resources
      */
-    async getAPIResourcesMigrationsKubevirtIoV1alpha1Raw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
+    async getAPIResourcesMigrationsKubevirtIoV1alpha1Raw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4889,7 +5231,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get KubeVirt API Resources
      */
-    async getAPIResourcesMigrationsKubevirtIoV1alpha1(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
+    async getAPIResourcesMigrationsKubevirtIoV1alpha1(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
         const response = await this.getAPIResourcesMigrationsKubevirtIoV1alpha1Raw(initOverrides);
         return await response.value();
     }
@@ -4897,13 +5239,13 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get KubeVirt API Resources
      */
-    async getAPIResourcesPoolKubevirtIoV1alpha1Raw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
+    async getAPIResourcesPoolKubevirtIoV1beta1Raw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/apis/pool.kubevirt.io/v1alpha1/`,
+            path: `/apis/pool.kubevirt.io/v1beta1/`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -4915,15 +5257,15 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get KubeVirt API Resources
      */
-    async getAPIResourcesPoolKubevirtIoV1alpha1(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
-        const response = await this.getAPIResourcesPoolKubevirtIoV1alpha1Raw(initOverrides);
+    async getAPIResourcesPoolKubevirtIoV1beta1(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
+        const response = await this.getAPIResourcesPoolKubevirtIoV1beta1Raw(initOverrides);
         return await response.value();
     }
 
     /**
      * Get KubeVirt API Resources
      */
-    async getAPIResourcesSnapshotKubevirtIoV1beta1Raw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
+    async getAPIResourcesSnapshotKubevirtIoV1beta1Raw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4941,7 +5283,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get KubeVirt API Resources
      */
-    async getAPIResourcesSnapshotKubevirtIoV1beta1(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
+    async getAPIResourcesSnapshotKubevirtIoV1beta1(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
         const response = await this.getAPIResourcesSnapshotKubevirtIoV1beta1Raw(initOverrides);
         return await response.value();
     }
@@ -4949,7 +5291,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get KubeVirt API root paths
      */
-    async getRootPathsRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1RootPaths>> {
+    async getRootPathsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1RootPaths>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4967,7 +5309,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get KubeVirt API root paths
      */
-    async getRootPaths(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1RootPaths> {
+    async getRootPaths(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1RootPaths> {
         const response = await this.getRootPathsRaw(initOverrides);
         return await response.value();
     }
@@ -4975,7 +5317,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * dump profiler results endpoint
      */
-    async handleDumpProfilerRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async handleDumpProfilerRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4993,14 +5335,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * dump profiler results endpoint
      */
-    async handleDumpProfiler(initOverrides?: RequestInit): Promise<void> {
+    async handleDumpProfiler(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.handleDumpProfilerRaw(initOverrides);
     }
 
     /**
      * start profiler endpoint
      */
-    async handleStartProfilerRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async handleStartProfilerRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5018,14 +5360,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * start profiler endpoint
      */
-    async handleStartProfiler(initOverrides?: RequestInit): Promise<void> {
+    async handleStartProfiler(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.handleStartProfilerRaw(initOverrides);
     }
 
     /**
      * stop profiler endpoint
      */
-    async handleStopProfilerRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async handleStopProfilerRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5043,14 +5385,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * stop profiler endpoint
      */
-    async handleStopProfiler(initOverrides?: RequestInit): Promise<void> {
+    async handleStopProfiler(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.handleStopProfilerRaw(initOverrides);
     }
 
     /**
      * Get a list of all KubeVirt objects.
      */
-    async listKubeVirtForAllNamespacesRaw(requestParameters: ListKubeVirtForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1KubeVirtList>> {
+    async listKubeVirtForAllNamespacesRaw(requestParameters: ListKubeVirtForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1KubeVirtList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -5100,7 +5442,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all KubeVirt objects.
      */
-    async listKubeVirtForAllNamespaces(requestParameters: ListKubeVirtForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1KubeVirtList> {
+    async listKubeVirtForAllNamespaces(requestParameters: ListKubeVirtForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1KubeVirtList> {
         const response = await this.listKubeVirtForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5108,7 +5450,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of MigrationPolicy objects.
      */
-    async listMigrationPolicyRaw(requestParameters: ListMigrationPolicyRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1alpha1MigrationPolicyList>> {
+    async listMigrationPolicyRaw(requestParameters: ListMigrationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1alpha1MigrationPolicyList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -5158,7 +5500,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of MigrationPolicy objects.
      */
-    async listMigrationPolicy(requestParameters: ListMigrationPolicyRequest, initOverrides?: RequestInit): Promise<V1alpha1MigrationPolicyList> {
+    async listMigrationPolicy(requestParameters: ListMigrationPolicyRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1alpha1MigrationPolicyList> {
         const response = await this.listMigrationPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5166,7 +5508,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of KubeVirt objects.
      */
-    async listNamespacedKubeVirtRaw(requestParameters: ListNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1KubeVirtList>> {
+    async listNamespacedKubeVirtRaw(requestParameters: ListNamespacedKubeVirtRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1KubeVirtList>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedKubeVirt.');
         }
@@ -5220,7 +5562,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of KubeVirt objects.
      */
-    async listNamespacedKubeVirt(requestParameters: ListNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<V1KubeVirtList> {
+    async listNamespacedKubeVirt(requestParameters: ListNamespacedKubeVirtRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1KubeVirtList> {
         const response = await this.listNamespacedKubeVirtRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5228,7 +5570,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachine objects.
      */
-    async listNamespacedVirtualMachineRaw(requestParameters: ListNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineList>> {
+    async listNamespacedVirtualMachineRaw(requestParameters: ListNamespacedVirtualMachineRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineList>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedVirtualMachine.');
         }
@@ -5282,15 +5624,77 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachine objects.
      */
-    async listNamespacedVirtualMachine(requestParameters: ListNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineList> {
+    async listNamespacedVirtualMachine(requestParameters: ListNamespacedVirtualMachineRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineList> {
         const response = await this.listNamespacedVirtualMachineRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get a list of VirtualMachineBackup objects.
+     */
+    async listNamespacedVirtualMachineBackupRaw(requestParameters: ListNamespacedVirtualMachineBackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1alpha1VirtualMachineBackupList>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedVirtualMachineBackup.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters._continue !== undefined) {
+            queryParameters['continue'] = requestParameters._continue;
+        }
+
+        if (requestParameters.fieldSelector !== undefined) {
+            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+        }
+
+        if (requestParameters.includeUninitialized !== undefined) {
+            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+        }
+
+        if (requestParameters.labelSelector !== undefined) {
+            queryParameters['labelSelector'] = requestParameters.labelSelector;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.resourceVersion !== undefined) {
+            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+        }
+
+        if (requestParameters.timeoutSeconds !== undefined) {
+            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+        }
+
+        if (requestParameters.watch !== undefined) {
+            queryParameters['watch'] = requestParameters.watch;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/apis/backup.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinebackups`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1alpha1VirtualMachineBackupListFromJSON(jsonValue));
+    }
+
+    /**
+     * Get a list of VirtualMachineBackup objects.
+     */
+    async listNamespacedVirtualMachineBackup(requestParameters: ListNamespacedVirtualMachineBackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1alpha1VirtualMachineBackupList> {
+        const response = await this.listNamespacedVirtualMachineBackupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Get a list of VirtualMachineExport objects.
      */
-    async listNamespacedVirtualMachineExportRaw(requestParameters: ListNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineExportList>> {
+    async listNamespacedVirtualMachineExportRaw(requestParameters: ListNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineExportList>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedVirtualMachineExport.');
         }
@@ -5344,7 +5748,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineExport objects.
      */
-    async listNamespacedVirtualMachineExport(requestParameters: ListNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineExportList> {
+    async listNamespacedVirtualMachineExport(requestParameters: ListNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineExportList> {
         const response = await this.listNamespacedVirtualMachineExportRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5352,7 +5756,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineInstance objects.
      */
-    async listNamespacedVirtualMachineInstanceRaw(requestParameters: ListNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceList>> {
+    async listNamespacedVirtualMachineInstanceRaw(requestParameters: ListNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceList>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedVirtualMachineInstance.');
         }
@@ -5406,7 +5810,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineInstance objects.
      */
-    async listNamespacedVirtualMachineInstance(requestParameters: ListNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceList> {
+    async listNamespacedVirtualMachineInstance(requestParameters: ListNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceList> {
         const response = await this.listNamespacedVirtualMachineInstanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5414,7 +5818,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineInstanceMigration objects.
      */
-    async listNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: ListNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceMigrationList>> {
+    async listNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: ListNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceMigrationList>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedVirtualMachineInstanceMigration.');
         }
@@ -5468,7 +5872,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineInstanceMigration objects.
      */
-    async listNamespacedVirtualMachineInstanceMigration(requestParameters: ListNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceMigrationList> {
+    async listNamespacedVirtualMachineInstanceMigration(requestParameters: ListNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceMigrationList> {
         const response = await this.listNamespacedVirtualMachineInstanceMigrationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5476,7 +5880,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineInstancePreset objects.
      */
-    async listNamespacedVirtualMachineInstancePresetRaw(requestParameters: ListNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstancePresetList>> {
+    async listNamespacedVirtualMachineInstancePresetRaw(requestParameters: ListNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstancePresetList>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedVirtualMachineInstancePreset.');
         }
@@ -5530,7 +5934,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineInstancePreset objects.
      */
-    async listNamespacedVirtualMachineInstancePreset(requestParameters: ListNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstancePresetList> {
+    async listNamespacedVirtualMachineInstancePreset(requestParameters: ListNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstancePresetList> {
         const response = await this.listNamespacedVirtualMachineInstancePresetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5538,7 +5942,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineInstanceReplicaSet objects.
      */
-    async listNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: ListNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceReplicaSetList>> {
+    async listNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: ListNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceReplicaSetList>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedVirtualMachineInstanceReplicaSet.');
         }
@@ -5592,7 +5996,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineInstanceReplicaSet objects.
      */
-    async listNamespacedVirtualMachineInstanceReplicaSet(requestParameters: ListNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceReplicaSetList> {
+    async listNamespacedVirtualMachineInstanceReplicaSet(requestParameters: ListNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceReplicaSetList> {
         const response = await this.listNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5600,7 +6004,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineInstancetype objects.
      */
-    async listNamespacedVirtualMachineInstancetypeRaw(requestParameters: ListNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineInstancetypeList>> {
+    async listNamespacedVirtualMachineInstancetypeRaw(requestParameters: ListNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineInstancetypeList>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedVirtualMachineInstancetype.');
         }
@@ -5654,7 +6058,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineInstancetype objects.
      */
-    async listNamespacedVirtualMachineInstancetype(requestParameters: ListNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineInstancetypeList> {
+    async listNamespacedVirtualMachineInstancetype(requestParameters: ListNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineInstancetypeList> {
         const response = await this.listNamespacedVirtualMachineInstancetypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5662,7 +6066,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachinePool objects.
      */
-    async listNamespacedVirtualMachinePoolRaw(requestParameters: ListNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1alpha1VirtualMachinePoolList>> {
+    async listNamespacedVirtualMachinePoolRaw(requestParameters: ListNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachinePoolList>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedVirtualMachinePool.');
         }
@@ -5704,19 +6108,19 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            path: `/apis/pool.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepools`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1alpha1VirtualMachinePoolListFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1VirtualMachinePoolListFromJSON(jsonValue));
     }
 
     /**
      * Get a list of VirtualMachinePool objects.
      */
-    async listNamespacedVirtualMachinePool(requestParameters: ListNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<V1alpha1VirtualMachinePoolList> {
+    async listNamespacedVirtualMachinePool(requestParameters: ListNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachinePoolList> {
         const response = await this.listNamespacedVirtualMachinePoolRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5724,7 +6128,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachinePreference objects.
      */
-    async listNamespacedVirtualMachinePreferenceRaw(requestParameters: ListNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachinePreferenceList>> {
+    async listNamespacedVirtualMachinePreferenceRaw(requestParameters: ListNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachinePreferenceList>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedVirtualMachinePreference.');
         }
@@ -5778,7 +6182,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachinePreference objects.
      */
-    async listNamespacedVirtualMachinePreference(requestParameters: ListNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachinePreferenceList> {
+    async listNamespacedVirtualMachinePreference(requestParameters: ListNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachinePreferenceList> {
         const response = await this.listNamespacedVirtualMachinePreferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5786,7 +6190,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineRestore objects.
      */
-    async listNamespacedVirtualMachineRestoreRaw(requestParameters: ListNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineRestoreList>> {
+    async listNamespacedVirtualMachineRestoreRaw(requestParameters: ListNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineRestoreList>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedVirtualMachineRestore.');
         }
@@ -5840,7 +6244,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineRestore objects.
      */
-    async listNamespacedVirtualMachineRestore(requestParameters: ListNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineRestoreList> {
+    async listNamespacedVirtualMachineRestore(requestParameters: ListNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineRestoreList> {
         const response = await this.listNamespacedVirtualMachineRestoreRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5848,7 +6252,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineSnapshot objects.
      */
-    async listNamespacedVirtualMachineSnapshotRaw(requestParameters: ListNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotList>> {
+    async listNamespacedVirtualMachineSnapshotRaw(requestParameters: ListNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotList>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedVirtualMachineSnapshot.');
         }
@@ -5902,7 +6306,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineSnapshot objects.
      */
-    async listNamespacedVirtualMachineSnapshot(requestParameters: ListNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineSnapshotList> {
+    async listNamespacedVirtualMachineSnapshot(requestParameters: ListNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineSnapshotList> {
         const response = await this.listNamespacedVirtualMachineSnapshotRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5910,7 +6314,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineSnapshotContent objects.
      */
-    async listNamespacedVirtualMachineSnapshotContentRaw(requestParameters: ListNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotContentList>> {
+    async listNamespacedVirtualMachineSnapshotContentRaw(requestParameters: ListNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotContentList>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling listNamespacedVirtualMachineSnapshotContent.');
         }
@@ -5964,15 +6368,73 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineSnapshotContent objects.
      */
-    async listNamespacedVirtualMachineSnapshotContent(requestParameters: ListNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineSnapshotContentList> {
+    async listNamespacedVirtualMachineSnapshotContent(requestParameters: ListNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineSnapshotContentList> {
         const response = await this.listNamespacedVirtualMachineSnapshotContentRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get a list of all VirtualMachineBackup objects.
+     */
+    async listVirtualMachineBackupForAllNamespacesRaw(requestParameters: ListVirtualMachineBackupForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1alpha1VirtualMachineBackupList>> {
+        const queryParameters: any = {};
+
+        if (requestParameters._continue !== undefined) {
+            queryParameters['continue'] = requestParameters._continue;
+        }
+
+        if (requestParameters.fieldSelector !== undefined) {
+            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+        }
+
+        if (requestParameters.includeUninitialized !== undefined) {
+            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+        }
+
+        if (requestParameters.labelSelector !== undefined) {
+            queryParameters['labelSelector'] = requestParameters.labelSelector;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.resourceVersion !== undefined) {
+            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+        }
+
+        if (requestParameters.timeoutSeconds !== undefined) {
+            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+        }
+
+        if (requestParameters.watch !== undefined) {
+            queryParameters['watch'] = requestParameters.watch;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/apis/backup.kubevirt.io/v1alpha1/virtualmachinebackups`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1alpha1VirtualMachineBackupListFromJSON(jsonValue));
+    }
+
+    /**
+     * Get a list of all VirtualMachineBackup objects.
+     */
+    async listVirtualMachineBackupForAllNamespaces(requestParameters: ListVirtualMachineBackupForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1alpha1VirtualMachineBackupList> {
+        const response = await this.listVirtualMachineBackupForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Get a list of VirtualMachineClone objects.
      */
-    async listVirtualMachineCloneRaw(requestParameters: ListVirtualMachineCloneRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineCloneList>> {
+    async listVirtualMachineCloneRaw(requestParameters: ListVirtualMachineCloneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineCloneList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -6022,7 +6484,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineClone objects.
      */
-    async listVirtualMachineClone(requestParameters: ListVirtualMachineCloneRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineCloneList> {
+    async listVirtualMachineClone(requestParameters: ListVirtualMachineCloneRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineCloneList> {
         const response = await this.listVirtualMachineCloneRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6030,7 +6492,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineClusterInstancetype objects.
      */
-    async listVirtualMachineClusterInstancetypeRaw(requestParameters: ListVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterInstancetypeList>> {
+    async listVirtualMachineClusterInstancetypeRaw(requestParameters: ListVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterInstancetypeList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -6080,7 +6542,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineClusterInstancetype objects.
      */
-    async listVirtualMachineClusterInstancetype(requestParameters: ListVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineClusterInstancetypeList> {
+    async listVirtualMachineClusterInstancetype(requestParameters: ListVirtualMachineClusterInstancetypeRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineClusterInstancetypeList> {
         const response = await this.listVirtualMachineClusterInstancetypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6088,7 +6550,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineClusterPreference objects.
      */
-    async listVirtualMachineClusterPreferenceRaw(requestParameters: ListVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterPreferenceList>> {
+    async listVirtualMachineClusterPreferenceRaw(requestParameters: ListVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterPreferenceList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -6138,7 +6600,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of VirtualMachineClusterPreference objects.
      */
-    async listVirtualMachineClusterPreference(requestParameters: ListVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineClusterPreferenceList> {
+    async listVirtualMachineClusterPreference(requestParameters: ListVirtualMachineClusterPreferenceRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineClusterPreferenceList> {
         const response = await this.listVirtualMachineClusterPreferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6146,7 +6608,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineExport objects.
      */
-    async listVirtualMachineExportForAllNamespacesRaw(requestParameters: ListVirtualMachineExportForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineExportList>> {
+    async listVirtualMachineExportForAllNamespacesRaw(requestParameters: ListVirtualMachineExportForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineExportList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -6196,7 +6658,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineExport objects.
      */
-    async listVirtualMachineExportForAllNamespaces(requestParameters: ListVirtualMachineExportForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineExportList> {
+    async listVirtualMachineExportForAllNamespaces(requestParameters: ListVirtualMachineExportForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineExportList> {
         const response = await this.listVirtualMachineExportForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6204,7 +6666,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachine objects.
      */
-    async listVirtualMachineForAllNamespacesRaw(requestParameters: ListVirtualMachineForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineList>> {
+    async listVirtualMachineForAllNamespacesRaw(requestParameters: ListVirtualMachineForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -6254,7 +6716,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachine objects.
      */
-    async listVirtualMachineForAllNamespaces(requestParameters: ListVirtualMachineForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineList> {
+    async listVirtualMachineForAllNamespaces(requestParameters: ListVirtualMachineForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineList> {
         const response = await this.listVirtualMachineForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6262,7 +6724,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineInstance objects.
      */
-    async listVirtualMachineInstanceForAllNamespacesRaw(requestParameters: ListVirtualMachineInstanceForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceList>> {
+    async listVirtualMachineInstanceForAllNamespacesRaw(requestParameters: ListVirtualMachineInstanceForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -6312,7 +6774,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineInstance objects.
      */
-    async listVirtualMachineInstanceForAllNamespaces(requestParameters: ListVirtualMachineInstanceForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceList> {
+    async listVirtualMachineInstanceForAllNamespaces(requestParameters: ListVirtualMachineInstanceForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceList> {
         const response = await this.listVirtualMachineInstanceForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6320,7 +6782,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineInstanceMigration objects.
      */
-    async listVirtualMachineInstanceMigrationForAllNamespacesRaw(requestParameters: ListVirtualMachineInstanceMigrationForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceMigrationList>> {
+    async listVirtualMachineInstanceMigrationForAllNamespacesRaw(requestParameters: ListVirtualMachineInstanceMigrationForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceMigrationList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -6370,7 +6832,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineInstanceMigration objects.
      */
-    async listVirtualMachineInstanceMigrationForAllNamespaces(requestParameters: ListVirtualMachineInstanceMigrationForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceMigrationList> {
+    async listVirtualMachineInstanceMigrationForAllNamespaces(requestParameters: ListVirtualMachineInstanceMigrationForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceMigrationList> {
         const response = await this.listVirtualMachineInstanceMigrationForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6378,7 +6840,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineInstancePreset objects.
      */
-    async listVirtualMachineInstancePresetForAllNamespacesRaw(requestParameters: ListVirtualMachineInstancePresetForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstancePresetList>> {
+    async listVirtualMachineInstancePresetForAllNamespacesRaw(requestParameters: ListVirtualMachineInstancePresetForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstancePresetList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -6428,7 +6890,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineInstancePreset objects.
      */
-    async listVirtualMachineInstancePresetForAllNamespaces(requestParameters: ListVirtualMachineInstancePresetForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstancePresetList> {
+    async listVirtualMachineInstancePresetForAllNamespaces(requestParameters: ListVirtualMachineInstancePresetForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstancePresetList> {
         const response = await this.listVirtualMachineInstancePresetForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6436,7 +6898,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineInstanceReplicaSet objects.
      */
-    async listVirtualMachineInstanceReplicaSetForAllNamespacesRaw(requestParameters: ListVirtualMachineInstanceReplicaSetForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceReplicaSetList>> {
+    async listVirtualMachineInstanceReplicaSetForAllNamespacesRaw(requestParameters: ListVirtualMachineInstanceReplicaSetForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceReplicaSetList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -6486,7 +6948,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineInstanceReplicaSet objects.
      */
-    async listVirtualMachineInstanceReplicaSetForAllNamespaces(requestParameters: ListVirtualMachineInstanceReplicaSetForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceReplicaSetList> {
+    async listVirtualMachineInstanceReplicaSetForAllNamespaces(requestParameters: ListVirtualMachineInstanceReplicaSetForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceReplicaSetList> {
         const response = await this.listVirtualMachineInstanceReplicaSetForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6494,7 +6956,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineInstancetype objects.
      */
-    async listVirtualMachineInstancetypeForAllNamespacesRaw(requestParameters: ListVirtualMachineInstancetypeForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineInstancetypeList>> {
+    async listVirtualMachineInstancetypeForAllNamespacesRaw(requestParameters: ListVirtualMachineInstancetypeForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineInstancetypeList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -6544,7 +7006,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineInstancetype objects.
      */
-    async listVirtualMachineInstancetypeForAllNamespaces(requestParameters: ListVirtualMachineInstancetypeForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineInstancetypeList> {
+    async listVirtualMachineInstancetypeForAllNamespaces(requestParameters: ListVirtualMachineInstancetypeForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineInstancetypeList> {
         const response = await this.listVirtualMachineInstancetypeForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6552,7 +7014,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachinePool objects.
      */
-    async listVirtualMachinePoolForAllNamespacesRaw(requestParameters: ListVirtualMachinePoolForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1alpha1VirtualMachinePoolList>> {
+    async listVirtualMachinePoolForAllNamespacesRaw(requestParameters: ListVirtualMachinePoolForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachinePoolList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -6590,19 +7052,19 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/apis/pool.kubevirt.io/v1alpha1/virtualmachinepools`,
+            path: `/apis/pool.kubevirt.io/v1beta1/virtualmachinepools`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1alpha1VirtualMachinePoolListFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1VirtualMachinePoolListFromJSON(jsonValue));
     }
 
     /**
      * Get a list of all VirtualMachinePool objects.
      */
-    async listVirtualMachinePoolForAllNamespaces(requestParameters: ListVirtualMachinePoolForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1alpha1VirtualMachinePoolList> {
+    async listVirtualMachinePoolForAllNamespaces(requestParameters: ListVirtualMachinePoolForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachinePoolList> {
         const response = await this.listVirtualMachinePoolForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6610,7 +7072,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachinePreference objects.
      */
-    async listVirtualMachinePreferenceForAllNamespacesRaw(requestParameters: ListVirtualMachinePreferenceForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachinePreferenceList>> {
+    async listVirtualMachinePreferenceForAllNamespacesRaw(requestParameters: ListVirtualMachinePreferenceForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachinePreferenceList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -6660,7 +7122,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachinePreference objects.
      */
-    async listVirtualMachinePreferenceForAllNamespaces(requestParameters: ListVirtualMachinePreferenceForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachinePreferenceList> {
+    async listVirtualMachinePreferenceForAllNamespaces(requestParameters: ListVirtualMachinePreferenceForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachinePreferenceList> {
         const response = await this.listVirtualMachinePreferenceForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6668,7 +7130,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineRestore objects.
      */
-    async listVirtualMachineRestoreForAllNamespacesRaw(requestParameters: ListVirtualMachineRestoreForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineRestoreList>> {
+    async listVirtualMachineRestoreForAllNamespacesRaw(requestParameters: ListVirtualMachineRestoreForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineRestoreList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -6718,7 +7180,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineRestore objects.
      */
-    async listVirtualMachineRestoreForAllNamespaces(requestParameters: ListVirtualMachineRestoreForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineRestoreList> {
+    async listVirtualMachineRestoreForAllNamespaces(requestParameters: ListVirtualMachineRestoreForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineRestoreList> {
         const response = await this.listVirtualMachineRestoreForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6726,7 +7188,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineSnapshotContent objects.
      */
-    async listVirtualMachineSnapshotContentForAllNamespacesRaw(requestParameters: ListVirtualMachineSnapshotContentForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotContentList>> {
+    async listVirtualMachineSnapshotContentForAllNamespacesRaw(requestParameters: ListVirtualMachineSnapshotContentForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotContentList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -6776,7 +7238,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineSnapshotContent objects.
      */
-    async listVirtualMachineSnapshotContentForAllNamespaces(requestParameters: ListVirtualMachineSnapshotContentForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineSnapshotContentList> {
+    async listVirtualMachineSnapshotContentForAllNamespaces(requestParameters: ListVirtualMachineSnapshotContentForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineSnapshotContentList> {
         const response = await this.listVirtualMachineSnapshotContentForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6784,7 +7246,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineSnapshot objects.
      */
-    async listVirtualMachineSnapshotForAllNamespacesRaw(requestParameters: ListVirtualMachineSnapshotForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotList>> {
+    async listVirtualMachineSnapshotForAllNamespacesRaw(requestParameters: ListVirtualMachineSnapshotForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotList>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -6834,7 +7296,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a list of all VirtualMachineSnapshot objects.
      */
-    async listVirtualMachineSnapshotForAllNamespaces(requestParameters: ListVirtualMachineSnapshotForAllNamespacesRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineSnapshotList> {
+    async listVirtualMachineSnapshotForAllNamespaces(requestParameters: ListVirtualMachineSnapshotForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineSnapshotList> {
         const response = await this.listVirtualMachineSnapshotForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6842,7 +7304,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a MigrationPolicy object.
      */
-    async patchMigrationPolicyRaw(requestParameters: PatchMigrationPolicyRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1alpha1MigrationPolicy>> {
+    async patchMigrationPolicyRaw(requestParameters: PatchMigrationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1alpha1MigrationPolicy>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchMigrationPolicy.');
         }
@@ -6871,7 +7333,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a MigrationPolicy object.
      */
-    async patchMigrationPolicy(requestParameters: PatchMigrationPolicyRequest, initOverrides?: RequestInit): Promise<V1alpha1MigrationPolicy> {
+    async patchMigrationPolicy(requestParameters: PatchMigrationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1alpha1MigrationPolicy> {
         const response = await this.patchMigrationPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6879,7 +7341,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a KubeVirt object.
      */
-    async patchNamespacedKubeVirtRaw(requestParameters: PatchNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1KubeVirt>> {
+    async patchNamespacedKubeVirtRaw(requestParameters: PatchNamespacedKubeVirtRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1KubeVirt>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedKubeVirt.');
         }
@@ -6912,7 +7374,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a KubeVirt object.
      */
-    async patchNamespacedKubeVirt(requestParameters: PatchNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<V1KubeVirt> {
+    async patchNamespacedKubeVirt(requestParameters: PatchNamespacedKubeVirtRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1KubeVirt> {
         const response = await this.patchNamespacedKubeVirtRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6920,7 +7382,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachine object.
      */
-    async patchNamespacedVirtualMachineRaw(requestParameters: PatchNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachine>> {
+    async patchNamespacedVirtualMachineRaw(requestParameters: PatchNamespacedVirtualMachineRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachine>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedVirtualMachine.');
         }
@@ -6953,15 +7415,56 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachine object.
      */
-    async patchNamespacedVirtualMachine(requestParameters: PatchNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<V1VirtualMachine> {
+    async patchNamespacedVirtualMachine(requestParameters: PatchNamespacedVirtualMachineRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachine> {
         const response = await this.patchNamespacedVirtualMachineRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Patch a VirtualMachineBackup object.
+     */
+    async patchNamespacedVirtualMachineBackupRaw(requestParameters: PatchNamespacedVirtualMachineBackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1alpha1VirtualMachineBackup>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedVirtualMachineBackup.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling patchNamespacedVirtualMachineBackup.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling patchNamespacedVirtualMachineBackup.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json-patch+json';
+
+        const response = await this.request({
+            path: `/apis/backup.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinebackups/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters.body as any,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1alpha1VirtualMachineBackupFromJSON(jsonValue));
+    }
+
+    /**
+     * Patch a VirtualMachineBackup object.
+     */
+    async patchNamespacedVirtualMachineBackup(requestParameters: PatchNamespacedVirtualMachineBackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1alpha1VirtualMachineBackup> {
+        const response = await this.patchNamespacedVirtualMachineBackupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Patch a VirtualMachineExport object.
      */
-    async patchNamespacedVirtualMachineExportRaw(requestParameters: PatchNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineExport>> {
+    async patchNamespacedVirtualMachineExportRaw(requestParameters: PatchNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineExport>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedVirtualMachineExport.');
         }
@@ -6994,7 +7497,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineExport object.
      */
-    async patchNamespacedVirtualMachineExport(requestParameters: PatchNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineExport> {
+    async patchNamespacedVirtualMachineExport(requestParameters: PatchNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineExport> {
         const response = await this.patchNamespacedVirtualMachineExportRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7002,7 +7505,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineInstance object.
      */
-    async patchNamespacedVirtualMachineInstanceRaw(requestParameters: PatchNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstance>> {
+    async patchNamespacedVirtualMachineInstanceRaw(requestParameters: PatchNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstance>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedVirtualMachineInstance.');
         }
@@ -7035,7 +7538,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineInstance object.
      */
-    async patchNamespacedVirtualMachineInstance(requestParameters: PatchNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstance> {
+    async patchNamespacedVirtualMachineInstance(requestParameters: PatchNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstance> {
         const response = await this.patchNamespacedVirtualMachineInstanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7043,7 +7546,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineInstanceMigration object.
      */
-    async patchNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: PatchNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceMigration>> {
+    async patchNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: PatchNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceMigration>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedVirtualMachineInstanceMigration.');
         }
@@ -7076,7 +7579,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineInstanceMigration object.
      */
-    async patchNamespacedVirtualMachineInstanceMigration(requestParameters: PatchNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceMigration> {
+    async patchNamespacedVirtualMachineInstanceMigration(requestParameters: PatchNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceMigration> {
         const response = await this.patchNamespacedVirtualMachineInstanceMigrationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7084,7 +7587,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineInstancePreset object.
      */
-    async patchNamespacedVirtualMachineInstancePresetRaw(requestParameters: PatchNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstancePreset>> {
+    async patchNamespacedVirtualMachineInstancePresetRaw(requestParameters: PatchNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstancePreset>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedVirtualMachineInstancePreset.');
         }
@@ -7117,7 +7620,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineInstancePreset object.
      */
-    async patchNamespacedVirtualMachineInstancePreset(requestParameters: PatchNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstancePreset> {
+    async patchNamespacedVirtualMachineInstancePreset(requestParameters: PatchNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstancePreset> {
         const response = await this.patchNamespacedVirtualMachineInstancePresetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7125,7 +7628,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineInstanceReplicaSet object.
      */
-    async patchNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: PatchNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceReplicaSet>> {
+    async patchNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: PatchNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceReplicaSet>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedVirtualMachineInstanceReplicaSet.');
         }
@@ -7158,7 +7661,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineInstanceReplicaSet object.
      */
-    async patchNamespacedVirtualMachineInstanceReplicaSet(requestParameters: PatchNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceReplicaSet> {
+    async patchNamespacedVirtualMachineInstanceReplicaSet(requestParameters: PatchNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceReplicaSet> {
         const response = await this.patchNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7166,7 +7669,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineInstancetype object.
      */
-    async patchNamespacedVirtualMachineInstancetypeRaw(requestParameters: PatchNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineInstancetype>> {
+    async patchNamespacedVirtualMachineInstancetypeRaw(requestParameters: PatchNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineInstancetype>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedVirtualMachineInstancetype.');
         }
@@ -7199,7 +7702,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineInstancetype object.
      */
-    async patchNamespacedVirtualMachineInstancetype(requestParameters: PatchNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineInstancetype> {
+    async patchNamespacedVirtualMachineInstancetype(requestParameters: PatchNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineInstancetype> {
         const response = await this.patchNamespacedVirtualMachineInstancetypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7207,7 +7710,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachinePool object.
      */
-    async patchNamespacedVirtualMachinePoolRaw(requestParameters: PatchNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1alpha1VirtualMachinePool>> {
+    async patchNamespacedVirtualMachinePoolRaw(requestParameters: PatchNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachinePool>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedVirtualMachinePool.');
         }
@@ -7227,20 +7730,20 @@ export class DefaultApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json-patch+json';
 
         const response = await this.request({
-            path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            path: `/apis/pool.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepools/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
             body: requestParameters.body as any,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1alpha1VirtualMachinePoolFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1VirtualMachinePoolFromJSON(jsonValue));
     }
 
     /**
      * Patch a VirtualMachinePool object.
      */
-    async patchNamespacedVirtualMachinePool(requestParameters: PatchNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<V1alpha1VirtualMachinePool> {
+    async patchNamespacedVirtualMachinePool(requestParameters: PatchNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachinePool> {
         const response = await this.patchNamespacedVirtualMachinePoolRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7248,7 +7751,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachinePreference object.
      */
-    async patchNamespacedVirtualMachinePreferenceRaw(requestParameters: PatchNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachinePreference>> {
+    async patchNamespacedVirtualMachinePreferenceRaw(requestParameters: PatchNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachinePreference>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedVirtualMachinePreference.');
         }
@@ -7281,7 +7784,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachinePreference object.
      */
-    async patchNamespacedVirtualMachinePreference(requestParameters: PatchNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachinePreference> {
+    async patchNamespacedVirtualMachinePreference(requestParameters: PatchNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachinePreference> {
         const response = await this.patchNamespacedVirtualMachinePreferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7289,7 +7792,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineRestore object.
      */
-    async patchNamespacedVirtualMachineRestoreRaw(requestParameters: PatchNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineRestore>> {
+    async patchNamespacedVirtualMachineRestoreRaw(requestParameters: PatchNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineRestore>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedVirtualMachineRestore.');
         }
@@ -7322,7 +7825,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineRestore object.
      */
-    async patchNamespacedVirtualMachineRestore(requestParameters: PatchNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineRestore> {
+    async patchNamespacedVirtualMachineRestore(requestParameters: PatchNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineRestore> {
         const response = await this.patchNamespacedVirtualMachineRestoreRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7330,7 +7833,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineSnapshot object.
      */
-    async patchNamespacedVirtualMachineSnapshotRaw(requestParameters: PatchNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshot>> {
+    async patchNamespacedVirtualMachineSnapshotRaw(requestParameters: PatchNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshot>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedVirtualMachineSnapshot.');
         }
@@ -7363,7 +7866,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineSnapshot object.
      */
-    async patchNamespacedVirtualMachineSnapshot(requestParameters: PatchNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineSnapshot> {
+    async patchNamespacedVirtualMachineSnapshot(requestParameters: PatchNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineSnapshot> {
         const response = await this.patchNamespacedVirtualMachineSnapshotRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7371,7 +7874,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineSnapshotContent object.
      */
-    async patchNamespacedVirtualMachineSnapshotContentRaw(requestParameters: PatchNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotContent>> {
+    async patchNamespacedVirtualMachineSnapshotContentRaw(requestParameters: PatchNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotContent>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchNamespacedVirtualMachineSnapshotContent.');
         }
@@ -7404,7 +7907,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineSnapshotContent object.
      */
-    async patchNamespacedVirtualMachineSnapshotContent(requestParameters: PatchNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineSnapshotContent> {
+    async patchNamespacedVirtualMachineSnapshotContent(requestParameters: PatchNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineSnapshotContent> {
         const response = await this.patchNamespacedVirtualMachineSnapshotContentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7412,7 +7915,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineClone object.
      */
-    async patchVirtualMachineCloneRaw(requestParameters: PatchVirtualMachineCloneRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineClone>> {
+    async patchVirtualMachineCloneRaw(requestParameters: PatchVirtualMachineCloneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineClone>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchVirtualMachineClone.');
         }
@@ -7441,7 +7944,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineClone object.
      */
-    async patchVirtualMachineClone(requestParameters: PatchVirtualMachineCloneRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineClone> {
+    async patchVirtualMachineClone(requestParameters: PatchVirtualMachineCloneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineClone> {
         const response = await this.patchVirtualMachineCloneRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7449,7 +7952,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineClusterInstancetype object.
      */
-    async patchVirtualMachineClusterInstancetypeRaw(requestParameters: PatchVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterInstancetype>> {
+    async patchVirtualMachineClusterInstancetypeRaw(requestParameters: PatchVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterInstancetype>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchVirtualMachineClusterInstancetype.');
         }
@@ -7478,7 +7981,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineClusterInstancetype object.
      */
-    async patchVirtualMachineClusterInstancetype(requestParameters: PatchVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineClusterInstancetype> {
+    async patchVirtualMachineClusterInstancetype(requestParameters: PatchVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineClusterInstancetype> {
         const response = await this.patchVirtualMachineClusterInstancetypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7486,7 +7989,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineClusterPreference object.
      */
-    async patchVirtualMachineClusterPreferenceRaw(requestParameters: PatchVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterPreference>> {
+    async patchVirtualMachineClusterPreferenceRaw(requestParameters: PatchVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterPreference>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling patchVirtualMachineClusterPreference.');
         }
@@ -7515,7 +8018,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Patch a VirtualMachineClusterPreference object.
      */
-    async patchVirtualMachineClusterPreference(requestParameters: PatchVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineClusterPreference> {
+    async patchVirtualMachineClusterPreference(requestParameters: PatchVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineClusterPreference> {
         const response = await this.patchVirtualMachineClusterPreferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7523,7 +8026,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a MigrationPolicy object.
      */
-    async readMigrationPolicyRaw(requestParameters: ReadMigrationPolicyRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1alpha1MigrationPolicy>> {
+    async readMigrationPolicyRaw(requestParameters: ReadMigrationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1alpha1MigrationPolicy>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readMigrationPolicy.');
         }
@@ -7553,7 +8056,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a MigrationPolicy object.
      */
-    async readMigrationPolicy(requestParameters: ReadMigrationPolicyRequest, initOverrides?: RequestInit): Promise<V1alpha1MigrationPolicy> {
+    async readMigrationPolicy(requestParameters: ReadMigrationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1alpha1MigrationPolicy> {
         const response = await this.readMigrationPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7561,7 +8064,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt object.
      */
-    async readNamespacedKubeVirtRaw(requestParameters: ReadNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1KubeVirt>> {
+    async readNamespacedKubeVirtRaw(requestParameters: ReadNamespacedKubeVirtRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1KubeVirt>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedKubeVirt.');
         }
@@ -7595,7 +8098,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt object.
      */
-    async readNamespacedKubeVirt(requestParameters: ReadNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<V1KubeVirt> {
+    async readNamespacedKubeVirt(requestParameters: ReadNamespacedKubeVirtRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1KubeVirt> {
         const response = await this.readNamespacedKubeVirtRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7603,7 +8106,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachine object.
      */
-    async readNamespacedVirtualMachineRaw(requestParameters: ReadNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachine>> {
+    async readNamespacedVirtualMachineRaw(requestParameters: ReadNamespacedVirtualMachineRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachine>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedVirtualMachine.');
         }
@@ -7637,15 +8140,57 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachine object.
      */
-    async readNamespacedVirtualMachine(requestParameters: ReadNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<V1VirtualMachine> {
+    async readNamespacedVirtualMachine(requestParameters: ReadNamespacedVirtualMachineRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachine> {
         const response = await this.readNamespacedVirtualMachineRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get a VirtualMachineBackup object.
+     */
+    async readNamespacedVirtualMachineBackupRaw(requestParameters: ReadNamespacedVirtualMachineBackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1alpha1VirtualMachineBackup>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedVirtualMachineBackup.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling readNamespacedVirtualMachineBackup.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.exact !== undefined) {
+            queryParameters['exact'] = requestParameters.exact;
+        }
+
+        if (requestParameters._export !== undefined) {
+            queryParameters['export'] = requestParameters._export;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/apis/backup.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinebackups/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1alpha1VirtualMachineBackupFromJSON(jsonValue));
+    }
+
+    /**
+     * Get a VirtualMachineBackup object.
+     */
+    async readNamespacedVirtualMachineBackup(requestParameters: ReadNamespacedVirtualMachineBackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1alpha1VirtualMachineBackup> {
+        const response = await this.readNamespacedVirtualMachineBackupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Get a VirtualMachineExport object.
      */
-    async readNamespacedVirtualMachineExportRaw(requestParameters: ReadNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineExport>> {
+    async readNamespacedVirtualMachineExportRaw(requestParameters: ReadNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineExport>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedVirtualMachineExport.');
         }
@@ -7679,7 +8224,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineExport object.
      */
-    async readNamespacedVirtualMachineExport(requestParameters: ReadNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineExport> {
+    async readNamespacedVirtualMachineExport(requestParameters: ReadNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineExport> {
         const response = await this.readNamespacedVirtualMachineExportRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7687,7 +8232,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineInstance object.
      */
-    async readNamespacedVirtualMachineInstanceRaw(requestParameters: ReadNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstance>> {
+    async readNamespacedVirtualMachineInstanceRaw(requestParameters: ReadNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstance>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedVirtualMachineInstance.');
         }
@@ -7721,7 +8266,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineInstance object.
      */
-    async readNamespacedVirtualMachineInstance(requestParameters: ReadNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstance> {
+    async readNamespacedVirtualMachineInstance(requestParameters: ReadNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstance> {
         const response = await this.readNamespacedVirtualMachineInstanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7729,7 +8274,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineInstanceMigration object.
      */
-    async readNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: ReadNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceMigration>> {
+    async readNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: ReadNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceMigration>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedVirtualMachineInstanceMigration.');
         }
@@ -7763,7 +8308,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineInstanceMigration object.
      */
-    async readNamespacedVirtualMachineInstanceMigration(requestParameters: ReadNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceMigration> {
+    async readNamespacedVirtualMachineInstanceMigration(requestParameters: ReadNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceMigration> {
         const response = await this.readNamespacedVirtualMachineInstanceMigrationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7771,7 +8316,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineInstancePreset object.
      */
-    async readNamespacedVirtualMachineInstancePresetRaw(requestParameters: ReadNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstancePreset>> {
+    async readNamespacedVirtualMachineInstancePresetRaw(requestParameters: ReadNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstancePreset>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedVirtualMachineInstancePreset.');
         }
@@ -7805,7 +8350,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineInstancePreset object.
      */
-    async readNamespacedVirtualMachineInstancePreset(requestParameters: ReadNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstancePreset> {
+    async readNamespacedVirtualMachineInstancePreset(requestParameters: ReadNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstancePreset> {
         const response = await this.readNamespacedVirtualMachineInstancePresetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7813,7 +8358,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineInstanceReplicaSet object.
      */
-    async readNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: ReadNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceReplicaSet>> {
+    async readNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: ReadNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceReplicaSet>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedVirtualMachineInstanceReplicaSet.');
         }
@@ -7847,7 +8392,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineInstanceReplicaSet object.
      */
-    async readNamespacedVirtualMachineInstanceReplicaSet(requestParameters: ReadNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceReplicaSet> {
+    async readNamespacedVirtualMachineInstanceReplicaSet(requestParameters: ReadNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceReplicaSet> {
         const response = await this.readNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7855,7 +8400,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineInstancetype object.
      */
-    async readNamespacedVirtualMachineInstancetypeRaw(requestParameters: ReadNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineInstancetype>> {
+    async readNamespacedVirtualMachineInstancetypeRaw(requestParameters: ReadNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineInstancetype>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedVirtualMachineInstancetype.');
         }
@@ -7889,7 +8434,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineInstancetype object.
      */
-    async readNamespacedVirtualMachineInstancetype(requestParameters: ReadNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineInstancetype> {
+    async readNamespacedVirtualMachineInstancetype(requestParameters: ReadNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineInstancetype> {
         const response = await this.readNamespacedVirtualMachineInstancetypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7897,7 +8442,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachinePool object.
      */
-    async readNamespacedVirtualMachinePoolRaw(requestParameters: ReadNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1alpha1VirtualMachinePool>> {
+    async readNamespacedVirtualMachinePoolRaw(requestParameters: ReadNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachinePool>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedVirtualMachinePool.');
         }
@@ -7919,19 +8464,19 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            path: `/apis/pool.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepools/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1alpha1VirtualMachinePoolFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1VirtualMachinePoolFromJSON(jsonValue));
     }
 
     /**
      * Get a VirtualMachinePool object.
      */
-    async readNamespacedVirtualMachinePool(requestParameters: ReadNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<V1alpha1VirtualMachinePool> {
+    async readNamespacedVirtualMachinePool(requestParameters: ReadNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachinePool> {
         const response = await this.readNamespacedVirtualMachinePoolRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7939,7 +8484,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachinePreference object.
      */
-    async readNamespacedVirtualMachinePreferenceRaw(requestParameters: ReadNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachinePreference>> {
+    async readNamespacedVirtualMachinePreferenceRaw(requestParameters: ReadNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachinePreference>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedVirtualMachinePreference.');
         }
@@ -7973,7 +8518,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachinePreference object.
      */
-    async readNamespacedVirtualMachinePreference(requestParameters: ReadNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachinePreference> {
+    async readNamespacedVirtualMachinePreference(requestParameters: ReadNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachinePreference> {
         const response = await this.readNamespacedVirtualMachinePreferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -7981,7 +8526,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineRestore object.
      */
-    async readNamespacedVirtualMachineRestoreRaw(requestParameters: ReadNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineRestore>> {
+    async readNamespacedVirtualMachineRestoreRaw(requestParameters: ReadNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineRestore>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedVirtualMachineRestore.');
         }
@@ -8015,7 +8560,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineRestore object.
      */
-    async readNamespacedVirtualMachineRestore(requestParameters: ReadNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineRestore> {
+    async readNamespacedVirtualMachineRestore(requestParameters: ReadNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineRestore> {
         const response = await this.readNamespacedVirtualMachineRestoreRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8023,7 +8568,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineSnapshot object.
      */
-    async readNamespacedVirtualMachineSnapshotRaw(requestParameters: ReadNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshot>> {
+    async readNamespacedVirtualMachineSnapshotRaw(requestParameters: ReadNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshot>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedVirtualMachineSnapshot.');
         }
@@ -8057,7 +8602,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineSnapshot object.
      */
-    async readNamespacedVirtualMachineSnapshot(requestParameters: ReadNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineSnapshot> {
+    async readNamespacedVirtualMachineSnapshot(requestParameters: ReadNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineSnapshot> {
         const response = await this.readNamespacedVirtualMachineSnapshotRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8065,7 +8610,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineSnapshotContent object.
      */
-    async readNamespacedVirtualMachineSnapshotContentRaw(requestParameters: ReadNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotContent>> {
+    async readNamespacedVirtualMachineSnapshotContentRaw(requestParameters: ReadNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotContent>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readNamespacedVirtualMachineSnapshotContent.');
         }
@@ -8099,7 +8644,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineSnapshotContent object.
      */
-    async readNamespacedVirtualMachineSnapshotContent(requestParameters: ReadNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineSnapshotContent> {
+    async readNamespacedVirtualMachineSnapshotContent(requestParameters: ReadNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineSnapshotContent> {
         const response = await this.readNamespacedVirtualMachineSnapshotContentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8107,7 +8652,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineClone object.
      */
-    async readVirtualMachineCloneRaw(requestParameters: ReadVirtualMachineCloneRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineClone>> {
+    async readVirtualMachineCloneRaw(requestParameters: ReadVirtualMachineCloneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineClone>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readVirtualMachineClone.');
         }
@@ -8137,7 +8682,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineClone object.
      */
-    async readVirtualMachineClone(requestParameters: ReadVirtualMachineCloneRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineClone> {
+    async readVirtualMachineClone(requestParameters: ReadVirtualMachineCloneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineClone> {
         const response = await this.readVirtualMachineCloneRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8145,7 +8690,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineClusterInstancetype object.
      */
-    async readVirtualMachineClusterInstancetypeRaw(requestParameters: ReadVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterInstancetype>> {
+    async readVirtualMachineClusterInstancetypeRaw(requestParameters: ReadVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterInstancetype>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readVirtualMachineClusterInstancetype.');
         }
@@ -8175,7 +8720,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineClusterInstancetype object.
      */
-    async readVirtualMachineClusterInstancetype(requestParameters: ReadVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineClusterInstancetype> {
+    async readVirtualMachineClusterInstancetype(requestParameters: ReadVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineClusterInstancetype> {
         const response = await this.readVirtualMachineClusterInstancetypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8183,7 +8728,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineClusterPreference object.
      */
-    async readVirtualMachineClusterPreferenceRaw(requestParameters: ReadVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterPreference>> {
+    async readVirtualMachineClusterPreferenceRaw(requestParameters: ReadVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterPreference>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling readVirtualMachineClusterPreference.');
         }
@@ -8213,7 +8758,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a VirtualMachineClusterPreference object.
      */
-    async readVirtualMachineClusterPreference(requestParameters: ReadVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineClusterPreference> {
+    async readVirtualMachineClusterPreference(requestParameters: ReadVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineClusterPreference> {
         const response = await this.readVirtualMachineClusterPreferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8221,7 +8766,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a MigrationPolicy object.
      */
-    async replaceMigrationPolicyRaw(requestParameters: ReplaceMigrationPolicyRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1alpha1MigrationPolicy>> {
+    async replaceMigrationPolicyRaw(requestParameters: ReplaceMigrationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1alpha1MigrationPolicy>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceMigrationPolicy.');
         }
@@ -8250,7 +8795,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a MigrationPolicy object.
      */
-    async replaceMigrationPolicy(requestParameters: ReplaceMigrationPolicyRequest, initOverrides?: RequestInit): Promise<V1alpha1MigrationPolicy> {
+    async replaceMigrationPolicy(requestParameters: ReplaceMigrationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1alpha1MigrationPolicy> {
         const response = await this.replaceMigrationPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8258,7 +8803,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a KubeVirt object.
      */
-    async replaceNamespacedKubeVirtRaw(requestParameters: ReplaceNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1KubeVirt>> {
+    async replaceNamespacedKubeVirtRaw(requestParameters: ReplaceNamespacedKubeVirtRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1KubeVirt>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedKubeVirt.');
         }
@@ -8291,7 +8836,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a KubeVirt object.
      */
-    async replaceNamespacedKubeVirt(requestParameters: ReplaceNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<V1KubeVirt> {
+    async replaceNamespacedKubeVirt(requestParameters: ReplaceNamespacedKubeVirtRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1KubeVirt> {
         const response = await this.replaceNamespacedKubeVirtRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8299,7 +8844,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachine object.
      */
-    async replaceNamespacedVirtualMachineRaw(requestParameters: ReplaceNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachine>> {
+    async replaceNamespacedVirtualMachineRaw(requestParameters: ReplaceNamespacedVirtualMachineRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachine>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedVirtualMachine.');
         }
@@ -8332,15 +8877,56 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachine object.
      */
-    async replaceNamespacedVirtualMachine(requestParameters: ReplaceNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<V1VirtualMachine> {
+    async replaceNamespacedVirtualMachine(requestParameters: ReplaceNamespacedVirtualMachineRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachine> {
         const response = await this.replaceNamespacedVirtualMachineRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update a VirtualMachineBackup object.
+     */
+    async replaceNamespacedVirtualMachineBackupRaw(requestParameters: ReplaceNamespacedVirtualMachineBackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1alpha1VirtualMachineBackup>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedVirtualMachineBackup.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling replaceNamespacedVirtualMachineBackup.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling replaceNamespacedVirtualMachineBackup.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/apis/backup.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinebackups/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1alpha1VirtualMachineBackupToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1alpha1VirtualMachineBackupFromJSON(jsonValue));
+    }
+
+    /**
+     * Update a VirtualMachineBackup object.
+     */
+    async replaceNamespacedVirtualMachineBackup(requestParameters: ReplaceNamespacedVirtualMachineBackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1alpha1VirtualMachineBackup> {
+        const response = await this.replaceNamespacedVirtualMachineBackupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Update a VirtualMachineExport object.
      */
-    async replaceNamespacedVirtualMachineExportRaw(requestParameters: ReplaceNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineExport>> {
+    async replaceNamespacedVirtualMachineExportRaw(requestParameters: ReplaceNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineExport>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedVirtualMachineExport.');
         }
@@ -8373,7 +8959,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineExport object.
      */
-    async replaceNamespacedVirtualMachineExport(requestParameters: ReplaceNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineExport> {
+    async replaceNamespacedVirtualMachineExport(requestParameters: ReplaceNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineExport> {
         const response = await this.replaceNamespacedVirtualMachineExportRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8381,7 +8967,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineInstance object.
      */
-    async replaceNamespacedVirtualMachineInstanceRaw(requestParameters: ReplaceNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstance>> {
+    async replaceNamespacedVirtualMachineInstanceRaw(requestParameters: ReplaceNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstance>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedVirtualMachineInstance.');
         }
@@ -8414,7 +9000,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineInstance object.
      */
-    async replaceNamespacedVirtualMachineInstance(requestParameters: ReplaceNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstance> {
+    async replaceNamespacedVirtualMachineInstance(requestParameters: ReplaceNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstance> {
         const response = await this.replaceNamespacedVirtualMachineInstanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8422,7 +9008,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineInstanceMigration object.
      */
-    async replaceNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: ReplaceNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceMigration>> {
+    async replaceNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: ReplaceNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceMigration>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedVirtualMachineInstanceMigration.');
         }
@@ -8455,7 +9041,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineInstanceMigration object.
      */
-    async replaceNamespacedVirtualMachineInstanceMigration(requestParameters: ReplaceNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceMigration> {
+    async replaceNamespacedVirtualMachineInstanceMigration(requestParameters: ReplaceNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceMigration> {
         const response = await this.replaceNamespacedVirtualMachineInstanceMigrationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8463,7 +9049,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineInstancePreset object.
      */
-    async replaceNamespacedVirtualMachineInstancePresetRaw(requestParameters: ReplaceNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstancePreset>> {
+    async replaceNamespacedVirtualMachineInstancePresetRaw(requestParameters: ReplaceNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstancePreset>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedVirtualMachineInstancePreset.');
         }
@@ -8496,7 +9082,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineInstancePreset object.
      */
-    async replaceNamespacedVirtualMachineInstancePreset(requestParameters: ReplaceNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstancePreset> {
+    async replaceNamespacedVirtualMachineInstancePreset(requestParameters: ReplaceNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstancePreset> {
         const response = await this.replaceNamespacedVirtualMachineInstancePresetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8504,7 +9090,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineInstanceReplicaSet object.
      */
-    async replaceNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: ReplaceNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceReplicaSet>> {
+    async replaceNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: ReplaceNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceReplicaSet>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedVirtualMachineInstanceReplicaSet.');
         }
@@ -8537,7 +9123,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineInstanceReplicaSet object.
      */
-    async replaceNamespacedVirtualMachineInstanceReplicaSet(requestParameters: ReplaceNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceReplicaSet> {
+    async replaceNamespacedVirtualMachineInstanceReplicaSet(requestParameters: ReplaceNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceReplicaSet> {
         const response = await this.replaceNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8545,7 +9131,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineInstancetype object.
      */
-    async replaceNamespacedVirtualMachineInstancetypeRaw(requestParameters: ReplaceNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineInstancetype>> {
+    async replaceNamespacedVirtualMachineInstancetypeRaw(requestParameters: ReplaceNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineInstancetype>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedVirtualMachineInstancetype.');
         }
@@ -8578,7 +9164,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineInstancetype object.
      */
-    async replaceNamespacedVirtualMachineInstancetype(requestParameters: ReplaceNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineInstancetype> {
+    async replaceNamespacedVirtualMachineInstancetype(requestParameters: ReplaceNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineInstancetype> {
         const response = await this.replaceNamespacedVirtualMachineInstancetypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8586,7 +9172,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachinePool object.
      */
-    async replaceNamespacedVirtualMachinePoolRaw(requestParameters: ReplaceNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1alpha1VirtualMachinePool>> {
+    async replaceNamespacedVirtualMachinePoolRaw(requestParameters: ReplaceNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachinePool>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedVirtualMachinePool.');
         }
@@ -8606,20 +9192,20 @@ export class DefaultApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         const response = await this.request({
-            path: `/apis/pool.kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepools/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            path: `/apis/pool.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachinepools/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: V1alpha1VirtualMachinePoolToJSON(requestParameters.body),
+            body: V1beta1VirtualMachinePoolToJSON(requestParameters.body),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1alpha1VirtualMachinePoolFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => V1beta1VirtualMachinePoolFromJSON(jsonValue));
     }
 
     /**
      * Update a VirtualMachinePool object.
      */
-    async replaceNamespacedVirtualMachinePool(requestParameters: ReplaceNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<V1alpha1VirtualMachinePool> {
+    async replaceNamespacedVirtualMachinePool(requestParameters: ReplaceNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachinePool> {
         const response = await this.replaceNamespacedVirtualMachinePoolRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8627,7 +9213,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachinePreference object.
      */
-    async replaceNamespacedVirtualMachinePreferenceRaw(requestParameters: ReplaceNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachinePreference>> {
+    async replaceNamespacedVirtualMachinePreferenceRaw(requestParameters: ReplaceNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachinePreference>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedVirtualMachinePreference.');
         }
@@ -8660,7 +9246,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachinePreference object.
      */
-    async replaceNamespacedVirtualMachinePreference(requestParameters: ReplaceNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachinePreference> {
+    async replaceNamespacedVirtualMachinePreference(requestParameters: ReplaceNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachinePreference> {
         const response = await this.replaceNamespacedVirtualMachinePreferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8668,7 +9254,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineRestore object.
      */
-    async replaceNamespacedVirtualMachineRestoreRaw(requestParameters: ReplaceNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineRestore>> {
+    async replaceNamespacedVirtualMachineRestoreRaw(requestParameters: ReplaceNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineRestore>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedVirtualMachineRestore.');
         }
@@ -8701,7 +9287,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineRestore object.
      */
-    async replaceNamespacedVirtualMachineRestore(requestParameters: ReplaceNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineRestore> {
+    async replaceNamespacedVirtualMachineRestore(requestParameters: ReplaceNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineRestore> {
         const response = await this.replaceNamespacedVirtualMachineRestoreRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8709,7 +9295,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineSnapshot object.
      */
-    async replaceNamespacedVirtualMachineSnapshotRaw(requestParameters: ReplaceNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshot>> {
+    async replaceNamespacedVirtualMachineSnapshotRaw(requestParameters: ReplaceNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshot>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedVirtualMachineSnapshot.');
         }
@@ -8742,7 +9328,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineSnapshot object.
      */
-    async replaceNamespacedVirtualMachineSnapshot(requestParameters: ReplaceNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineSnapshot> {
+    async replaceNamespacedVirtualMachineSnapshot(requestParameters: ReplaceNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineSnapshot> {
         const response = await this.replaceNamespacedVirtualMachineSnapshotRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8750,7 +9336,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineSnapshotContent object.
      */
-    async replaceNamespacedVirtualMachineSnapshotContentRaw(requestParameters: ReplaceNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotContent>> {
+    async replaceNamespacedVirtualMachineSnapshotContentRaw(requestParameters: ReplaceNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineSnapshotContent>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceNamespacedVirtualMachineSnapshotContent.');
         }
@@ -8783,7 +9369,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineSnapshotContent object.
      */
-    async replaceNamespacedVirtualMachineSnapshotContent(requestParameters: ReplaceNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineSnapshotContent> {
+    async replaceNamespacedVirtualMachineSnapshotContent(requestParameters: ReplaceNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineSnapshotContent> {
         const response = await this.replaceNamespacedVirtualMachineSnapshotContentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8791,7 +9377,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineClone object.
      */
-    async replaceVirtualMachineCloneRaw(requestParameters: ReplaceVirtualMachineCloneRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineClone>> {
+    async replaceVirtualMachineCloneRaw(requestParameters: ReplaceVirtualMachineCloneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineClone>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceVirtualMachineClone.');
         }
@@ -8820,7 +9406,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineClone object.
      */
-    async replaceVirtualMachineClone(requestParameters: ReplaceVirtualMachineCloneRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineClone> {
+    async replaceVirtualMachineClone(requestParameters: ReplaceVirtualMachineCloneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineClone> {
         const response = await this.replaceVirtualMachineCloneRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8828,7 +9414,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineClusterInstancetype object.
      */
-    async replaceVirtualMachineClusterInstancetypeRaw(requestParameters: ReplaceVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterInstancetype>> {
+    async replaceVirtualMachineClusterInstancetypeRaw(requestParameters: ReplaceVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterInstancetype>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceVirtualMachineClusterInstancetype.');
         }
@@ -8857,7 +9443,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineClusterInstancetype object.
      */
-    async replaceVirtualMachineClusterInstancetype(requestParameters: ReplaceVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineClusterInstancetype> {
+    async replaceVirtualMachineClusterInstancetype(requestParameters: ReplaceVirtualMachineClusterInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineClusterInstancetype> {
         const response = await this.replaceVirtualMachineClusterInstancetypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8865,7 +9451,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineClusterPreference object.
      */
-    async replaceVirtualMachineClusterPreferenceRaw(requestParameters: ReplaceVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterPreference>> {
+    async replaceVirtualMachineClusterPreferenceRaw(requestParameters: ReplaceVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1beta1VirtualMachineClusterPreference>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling replaceVirtualMachineClusterPreference.');
         }
@@ -8894,15 +9480,56 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Update a VirtualMachineClusterPreference object.
      */
-    async replaceVirtualMachineClusterPreference(requestParameters: ReplaceVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit): Promise<V1beta1VirtualMachineClusterPreference> {
+    async replaceVirtualMachineClusterPreference(requestParameters: ReplaceVirtualMachineClusterPreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1beta1VirtualMachineClusterPreference> {
         const response = await this.replaceVirtualMachineClusterPreferenceRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Initiate a VirtualMachineInstance backup.
+     */
+    async v1BackupRaw(requestParameters: V1BackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1Backup.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling v1Backup.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling v1Backup.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/backup`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1alpha1BackupOptionsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.TextApiResponse(response) as any;
+    }
+
+    /**
+     * Initiate a VirtualMachineInstance backup.
+     */
+    async v1Backup(requestParameters: V1BackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.v1BackupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Health endpoint
      */
-    async v1CheckHealthRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1CheckHealthRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -8920,7 +9547,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Health endpoint
      */
-    async v1CheckHealth(initOverrides?: RequestInit): Promise<string> {
+    async v1CheckHealth(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1CheckHealthRaw(initOverrides);
         return await response.value();
     }
@@ -8928,7 +9555,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection to a serial console on the specified VirtualMachineInstance.
      */
-    async v1ConsoleRaw(requestParameters: V1ConsoleRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1ConsoleRaw(requestParameters: V1ConsoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1Console.');
         }
@@ -8954,14 +9581,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection to a serial console on the specified VirtualMachineInstance.
      */
-    async v1Console(requestParameters: V1ConsoleRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1Console(requestParameters: V1ConsoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1ConsoleRaw(requestParameters, initOverrides);
     }
 
     /**
      * Expands instancetype and preference into the passed VirtualMachine object.
      */
-    async v1ExpandSpecRaw(requestParameters: V1ExpandSpecRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1ExpandSpecRaw(requestParameters: V1ExpandSpecRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling v1ExpandSpec.');
         }
@@ -8983,7 +9610,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Expands instancetype and preference into the passed VirtualMachine object.
      */
-    async v1ExpandSpec(requestParameters: V1ExpandSpecRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1ExpandSpec(requestParameters: V1ExpandSpecRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1ExpandSpecRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -8991,7 +9618,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get list of active filesystems on guest machine via guest agent
      */
-    async v1FilesystemlistRaw(requestParameters: V1FilesystemlistRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceFileSystemList>> {
+    async v1FilesystemlistRaw(requestParameters: V1FilesystemlistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceFileSystemList>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1Filesystemlist.');
         }
@@ -9017,7 +9644,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get list of active filesystems on guest machine via guest agent
      */
-    async v1Filesystemlist(requestParameters: V1FilesystemlistRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceFileSystemList> {
+    async v1Filesystemlist(requestParameters: V1FilesystemlistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceFileSystemList> {
         const response = await this.v1FilesystemlistRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9025,7 +9652,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Freeze a VirtualMachineInstance object.
      */
-    async v1FreezeRaw(requestParameters: V1FreezeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1FreezeRaw(requestParameters: V1FreezeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1Freeze.');
         }
@@ -9058,7 +9685,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Freeze a VirtualMachineInstance object.
      */
-    async v1Freeze(requestParameters: V1FreezeRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1Freeze(requestParameters: V1FreezeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1FreezeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9066,7 +9693,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API Group
      */
-    async v1GetSubAPIGroupRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
+    async v1GetSubAPIGroupRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIGroup>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9084,14 +9711,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API Group
      */
-    async v1GetSubAPIGroup(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
+    async v1GetSubAPIGroup(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIGroup> {
         const response = await this.v1GetSubAPIGroupRaw(initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async v1GuestfsRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1GuestfsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9108,7 +9735,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      */
-    async v1Guestfs(initOverrides?: RequestInit): Promise<string> {
+    async v1Guestfs(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1GuestfsRaw(initOverrides);
         return await response.value();
     }
@@ -9116,7 +9743,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get guest agent os information
      */
-    async v1GuestosinfoRaw(requestParameters: V1GuestosinfoRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceGuestAgentInfo>> {
+    async v1GuestosinfoRaw(requestParameters: V1GuestosinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceGuestAgentInfo>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1Guestosinfo.');
         }
@@ -9142,7 +9769,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get guest agent os information
      */
-    async v1Guestosinfo(requestParameters: V1GuestosinfoRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceGuestAgentInfo> {
+    async v1Guestosinfo(requestParameters: V1GuestosinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceGuestAgentInfo> {
         const response = await this.v1GuestosinfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9150,7 +9777,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Dumps a VirtualMachineInstance memory.
      */
-    async v1MemoryDumpRaw(requestParameters: V1MemoryDumpRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1MemoryDumpRaw(requestParameters: V1MemoryDumpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1MemoryDump.');
         }
@@ -9183,7 +9810,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Dumps a VirtualMachineInstance memory.
      */
-    async v1MemoryDump(requestParameters: V1MemoryDumpRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1MemoryDump(requestParameters: V1MemoryDumpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1MemoryDumpRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9191,7 +9818,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Migrate a running VirtualMachine to another node.
      */
-    async v1MigrateRaw(requestParameters: V1MigrateRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1MigrateRaw(requestParameters: V1MigrateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1Migrate.');
         }
@@ -9224,7 +9851,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Migrate a running VirtualMachine to another node.
      */
-    async v1Migrate(requestParameters: V1MigrateRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1Migrate(requestParameters: V1MigrateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1MigrateRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9232,7 +9859,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Pause a VirtualMachineInstance object.
      */
-    async v1PauseRaw(requestParameters: V1PauseRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1PauseRaw(requestParameters: V1PauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1Pause.');
         }
@@ -9265,7 +9892,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Pause a VirtualMachineInstance object.
      */
-    async v1Pause(requestParameters: V1PauseRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1Pause(requestParameters: V1PauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1PauseRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9273,7 +9900,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Remove memory dump association.
      */
-    async v1RemoveMemoryDumpRaw(requestParameters: V1RemoveMemoryDumpRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1RemoveMemoryDumpRaw(requestParameters: V1RemoveMemoryDumpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1RemoveMemoryDump.');
         }
@@ -9299,7 +9926,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Remove memory dump association.
      */
-    async v1RemoveMemoryDump(requestParameters: V1RemoveMemoryDumpRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1RemoveMemoryDump(requestParameters: V1RemoveMemoryDumpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1RemoveMemoryDumpRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9307,7 +9934,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Reset a VirtualMachineInstance object.
      */
-    async v1ResetRaw(requestParameters: V1ResetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1ResetRaw(requestParameters: V1ResetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1Reset.');
         }
@@ -9333,7 +9960,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Reset a VirtualMachineInstance object.
      */
-    async v1Reset(requestParameters: V1ResetRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1Reset(requestParameters: V1ResetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1ResetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9341,7 +9968,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Restart a VirtualMachine object.
      */
-    async v1RestartRaw(requestParameters: V1RestartRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1RestartRaw(requestParameters: V1RestartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1Restart.');
         }
@@ -9370,7 +9997,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Restart a VirtualMachine object.
      */
-    async v1Restart(requestParameters: V1RestartRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1Restart(requestParameters: V1RestartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1RestartRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9378,7 +10005,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Fetch SEV certificate chain from the node where Virtual Machine is scheduled
      */
-    async v1SEVFetchCertChainRaw(requestParameters: V1SEVFetchCertChainRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1SEVPlatformInfo>> {
+    async v1SEVFetchCertChainRaw(requestParameters: V1SEVFetchCertChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1SEVPlatformInfo>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1SEVFetchCertChain.');
         }
@@ -9404,7 +10031,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Fetch SEV certificate chain from the node where Virtual Machine is scheduled
      */
-    async v1SEVFetchCertChain(requestParameters: V1SEVFetchCertChainRequest, initOverrides?: RequestInit): Promise<V1SEVPlatformInfo> {
+    async v1SEVFetchCertChain(requestParameters: V1SEVFetchCertChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1SEVPlatformInfo> {
         const response = await this.v1SEVFetchCertChainRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9412,7 +10039,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Inject SEV launch secret into a Virtual Machine
      */
-    async v1SEVInjectLaunchSecretRaw(requestParameters: V1SEVInjectLaunchSecretRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1SEVInjectLaunchSecretRaw(requestParameters: V1SEVInjectLaunchSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1SEVInjectLaunchSecret.');
         }
@@ -9445,7 +10072,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Inject SEV launch secret into a Virtual Machine
      */
-    async v1SEVInjectLaunchSecret(requestParameters: V1SEVInjectLaunchSecretRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1SEVInjectLaunchSecret(requestParameters: V1SEVInjectLaunchSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1SEVInjectLaunchSecretRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9453,7 +10080,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Query SEV launch measurement from a Virtual Machine
      */
-    async v1SEVQueryLaunchMeasurementRaw(requestParameters: V1SEVQueryLaunchMeasurementRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1SEVMeasurementInfo>> {
+    async v1SEVQueryLaunchMeasurementRaw(requestParameters: V1SEVQueryLaunchMeasurementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1SEVMeasurementInfo>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1SEVQueryLaunchMeasurement.');
         }
@@ -9479,7 +10106,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Query SEV launch measurement from a Virtual Machine
      */
-    async v1SEVQueryLaunchMeasurement(requestParameters: V1SEVQueryLaunchMeasurementRequest, initOverrides?: RequestInit): Promise<V1SEVMeasurementInfo> {
+    async v1SEVQueryLaunchMeasurement(requestParameters: V1SEVQueryLaunchMeasurementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1SEVMeasurementInfo> {
         const response = await this.v1SEVQueryLaunchMeasurementRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9487,7 +10114,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Setup SEV session parameters for a Virtual Machine
      */
-    async v1SEVSetupSessionRaw(requestParameters: V1SEVSetupSessionRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1SEVSetupSessionRaw(requestParameters: V1SEVSetupSessionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1SEVSetupSession.');
         }
@@ -9520,7 +10147,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Setup SEV session parameters for a Virtual Machine
      */
-    async v1SEVSetupSession(requestParameters: V1SEVSetupSessionRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1SEVSetupSession(requestParameters: V1SEVSetupSessionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1SEVSetupSessionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9528,7 +10155,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Soft reboot a VirtualMachineInstance object.
      */
-    async v1SoftRebootRaw(requestParameters: V1SoftRebootRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1SoftRebootRaw(requestParameters: V1SoftRebootRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1SoftReboot.');
         }
@@ -9554,7 +10181,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Soft reboot a VirtualMachineInstance object.
      */
-    async v1SoftReboot(requestParameters: V1SoftRebootRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1SoftReboot(requestParameters: V1SoftRebootRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1SoftRebootRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9562,7 +10189,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Start a VirtualMachine object.
      */
-    async v1StartRaw(requestParameters: V1StartRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1StartRaw(requestParameters: V1StartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1Start.');
         }
@@ -9595,7 +10222,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Start a VirtualMachine object.
      */
-    async v1Start(requestParameters: V1StartRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1Start(requestParameters: V1StartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1StartRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9603,7 +10230,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Stop a VirtualMachine object.
      */
-    async v1StopRaw(requestParameters: V1StopRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1StopRaw(requestParameters: V1StopRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1Stop.');
         }
@@ -9632,7 +10259,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Stop a VirtualMachine object.
      */
-    async v1Stop(requestParameters: V1StopRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1Stop(requestParameters: V1StopRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1StopRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9640,7 +10267,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Unfreeze a VirtualMachineInstance object.
      */
-    async v1UnfreezeRaw(requestParameters: V1UnfreezeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1UnfreezeRaw(requestParameters: V1UnfreezeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1Unfreeze.');
         }
@@ -9666,7 +10293,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Unfreeze a VirtualMachineInstance object.
      */
-    async v1Unfreeze(requestParameters: V1UnfreezeRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1Unfreeze(requestParameters: V1UnfreezeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1UnfreezeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9674,7 +10301,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Unpause a VirtualMachineInstance object.
      */
-    async v1UnpauseRaw(requestParameters: V1UnpauseRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1UnpauseRaw(requestParameters: V1UnpauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1Unpause.');
         }
@@ -9707,7 +10334,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Unpause a VirtualMachineInstance object.
      */
-    async v1Unpause(requestParameters: V1UnpauseRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1Unpause(requestParameters: V1UnpauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1UnpauseRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9715,7 +10342,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get list of active users via guest agent
      */
-    async v1UserlistRaw(requestParameters: V1UserlistRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceGuestOSUserList>> {
+    async v1UserlistRaw(requestParameters: V1UserlistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceGuestOSUserList>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1Userlist.');
         }
@@ -9741,7 +10368,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get list of active users via guest agent
      */
-    async v1Userlist(requestParameters: V1UserlistRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceGuestOSUserList> {
+    async v1Userlist(requestParameters: V1UserlistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceGuestOSUserList> {
         const response = await this.v1UserlistRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9749,7 +10376,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection to connect to VNC on the specified VirtualMachineInstance.
      */
-    async v1VNCRaw(requestParameters: V1VNCRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1VNCRaw(requestParameters: V1VNCRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1VNC.');
         }
@@ -9759,6 +10386,10 @@ export class DefaultApi extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters.preserveSession !== undefined) {
+            queryParameters['preserveSession'] = requestParameters.preserveSession;
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -9775,14 +10406,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection to connect to VNC on the specified VirtualMachineInstance.
      */
-    async v1VNC(requestParameters: V1VNCRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1VNC(requestParameters: V1VNCRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1VNCRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get a PNG VNC screenshot of the specified VirtualMachineInstance.
      */
-    async v1VNCScreenshotRaw(requestParameters: V1VNCScreenshotRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1VNCScreenshotRaw(requestParameters: V1VNCScreenshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1VNCScreenshot.');
         }
@@ -9812,14 +10443,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a PNG VNC screenshot of the specified VirtualMachineInstance.
      */
-    async v1VNCScreenshot(requestParameters: V1VNCScreenshotRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1VNCScreenshot(requestParameters: V1VNCScreenshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1VNCScreenshotRaw(requestParameters, initOverrides);
     }
 
     /**
      * Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port via VSOCK.
      */
-    async v1VSOCKRaw(requestParameters: V1VSOCKRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1VSOCKRaw(requestParameters: V1VSOCKRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1VSOCK.');
         }
@@ -9857,13 +10488,13 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port via VSOCK.
      */
-    async v1VSOCK(requestParameters: V1VSOCKRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1VSOCK(requestParameters: V1VSOCKRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1VSOCKRaw(requestParameters, initOverrides);
     }
 
     /**
      */
-    async v1VersionRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1VersionRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9880,14 +10511,55 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      */
-    async v1Version(initOverrides?: RequestInit): Promise<void> {
+    async v1Version(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1VersionRaw(initOverrides);
+    }
+
+    /**
+     * Initiate a VirtualMachineInstance backup.
+     */
+    async v1alpha3BackupRaw(requestParameters: V1alpha3BackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3Backup.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling v1alpha3Backup.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling v1alpha3Backup.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/backup`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1alpha1BackupOptionsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.TextApiResponse(response) as any;
+    }
+
+    /**
+     * Initiate a VirtualMachineInstance backup.
+     */
+    async v1alpha3Backup(requestParameters: V1alpha3BackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.v1alpha3BackupRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**
      * Health endpoint
      */
-    async v1alpha3CheckHealthRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3CheckHealthRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9905,7 +10577,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Health endpoint
      */
-    async v1alpha3CheckHealth(initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3CheckHealth(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3CheckHealthRaw(initOverrides);
         return await response.value();
     }
@@ -9913,7 +10585,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection to a serial console on the specified VirtualMachineInstance.
      */
-    async v1alpha3ConsoleRaw(requestParameters: V1alpha3ConsoleRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1alpha3ConsoleRaw(requestParameters: V1alpha3ConsoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3Console.');
         }
@@ -9939,14 +10611,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection to a serial console on the specified VirtualMachineInstance.
      */
-    async v1alpha3Console(requestParameters: V1alpha3ConsoleRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1alpha3Console(requestParameters: V1alpha3ConsoleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1alpha3ConsoleRaw(requestParameters, initOverrides);
     }
 
     /**
      * Expands instancetype and preference into the passed VirtualMachine object.
      */
-    async v1alpha3ExpandSpecRaw(requestParameters: V1alpha3ExpandSpecRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3ExpandSpecRaw(requestParameters: V1alpha3ExpandSpecRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling v1alpha3ExpandSpec.');
         }
@@ -9968,7 +10640,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Expands instancetype and preference into the passed VirtualMachine object.
      */
-    async v1alpha3ExpandSpec(requestParameters: V1alpha3ExpandSpecRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3ExpandSpec(requestParameters: V1alpha3ExpandSpecRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3ExpandSpecRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -9976,7 +10648,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get list of active filesystems on guest machine via guest agent
      */
-    async v1alpha3FilesystemlistRaw(requestParameters: V1alpha3FilesystemlistRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceFileSystemList>> {
+    async v1alpha3FilesystemlistRaw(requestParameters: V1alpha3FilesystemlistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceFileSystemList>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3Filesystemlist.');
         }
@@ -10002,7 +10674,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get list of active filesystems on guest machine via guest agent
      */
-    async v1alpha3Filesystemlist(requestParameters: V1alpha3FilesystemlistRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceFileSystemList> {
+    async v1alpha3Filesystemlist(requestParameters: V1alpha3FilesystemlistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceFileSystemList> {
         const response = await this.v1alpha3FilesystemlistRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10010,7 +10682,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Freeze a VirtualMachineInstance object.
      */
-    async v1alpha3FreezeRaw(requestParameters: V1alpha3FreezeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3FreezeRaw(requestParameters: V1alpha3FreezeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3Freeze.');
         }
@@ -10043,14 +10715,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Freeze a VirtualMachineInstance object.
      */
-    async v1alpha3Freeze(requestParameters: V1alpha3FreezeRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3Freeze(requestParameters: V1alpha3FreezeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3FreezeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async v1alpha3GuestfsRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3GuestfsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10067,7 +10739,7 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      */
-    async v1alpha3Guestfs(initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3Guestfs(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3GuestfsRaw(initOverrides);
         return await response.value();
     }
@@ -10075,7 +10747,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get guest agent os information
      */
-    async v1alpha3GuestosinfoRaw(requestParameters: V1alpha3GuestosinfoRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceGuestAgentInfo>> {
+    async v1alpha3GuestosinfoRaw(requestParameters: V1alpha3GuestosinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceGuestAgentInfo>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3Guestosinfo.');
         }
@@ -10101,7 +10773,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get guest agent os information
      */
-    async v1alpha3Guestosinfo(requestParameters: V1alpha3GuestosinfoRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceGuestAgentInfo> {
+    async v1alpha3Guestosinfo(requestParameters: V1alpha3GuestosinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceGuestAgentInfo> {
         const response = await this.v1alpha3GuestosinfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10109,7 +10781,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Dumps a VirtualMachineInstance memory.
      */
-    async v1alpha3MemoryDumpRaw(requestParameters: V1alpha3MemoryDumpRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3MemoryDumpRaw(requestParameters: V1alpha3MemoryDumpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3MemoryDump.');
         }
@@ -10142,7 +10814,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Dumps a VirtualMachineInstance memory.
      */
-    async v1alpha3MemoryDump(requestParameters: V1alpha3MemoryDumpRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3MemoryDump(requestParameters: V1alpha3MemoryDumpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3MemoryDumpRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10150,7 +10822,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Migrate a running VirtualMachine to another node.
      */
-    async v1alpha3MigrateRaw(requestParameters: V1alpha3MigrateRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3MigrateRaw(requestParameters: V1alpha3MigrateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3Migrate.');
         }
@@ -10183,7 +10855,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Migrate a running VirtualMachine to another node.
      */
-    async v1alpha3Migrate(requestParameters: V1alpha3MigrateRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3Migrate(requestParameters: V1alpha3MigrateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3MigrateRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10191,7 +10863,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Pause a VirtualMachineInstance object.
      */
-    async v1alpha3PauseRaw(requestParameters: V1alpha3PauseRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3PauseRaw(requestParameters: V1alpha3PauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3Pause.');
         }
@@ -10224,7 +10896,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Pause a VirtualMachineInstance object.
      */
-    async v1alpha3Pause(requestParameters: V1alpha3PauseRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3Pause(requestParameters: V1alpha3PauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3PauseRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10232,7 +10904,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Remove memory dump association.
      */
-    async v1alpha3RemoveMemoryDumpRaw(requestParameters: V1alpha3RemoveMemoryDumpRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3RemoveMemoryDumpRaw(requestParameters: V1alpha3RemoveMemoryDumpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3RemoveMemoryDump.');
         }
@@ -10258,7 +10930,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Remove memory dump association.
      */
-    async v1alpha3RemoveMemoryDump(requestParameters: V1alpha3RemoveMemoryDumpRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3RemoveMemoryDump(requestParameters: V1alpha3RemoveMemoryDumpRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3RemoveMemoryDumpRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10266,7 +10938,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Reset a VirtualMachineInstance object.
      */
-    async v1alpha3ResetRaw(requestParameters: V1alpha3ResetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3ResetRaw(requestParameters: V1alpha3ResetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3Reset.');
         }
@@ -10292,7 +10964,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Reset a VirtualMachineInstance object.
      */
-    async v1alpha3Reset(requestParameters: V1alpha3ResetRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3Reset(requestParameters: V1alpha3ResetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3ResetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10300,7 +10972,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Restart a VirtualMachine object.
      */
-    async v1alpha3RestartRaw(requestParameters: V1alpha3RestartRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3RestartRaw(requestParameters: V1alpha3RestartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3Restart.');
         }
@@ -10329,7 +11001,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Restart a VirtualMachine object.
      */
-    async v1alpha3Restart(requestParameters: V1alpha3RestartRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3Restart(requestParameters: V1alpha3RestartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3RestartRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10337,7 +11009,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Fetch SEV certificate chain from the node where Virtual Machine is scheduled
      */
-    async v1alpha3SEVFetchCertChainRaw(requestParameters: V1alpha3SEVFetchCertChainRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1SEVPlatformInfo>> {
+    async v1alpha3SEVFetchCertChainRaw(requestParameters: V1alpha3SEVFetchCertChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1SEVPlatformInfo>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3SEVFetchCertChain.');
         }
@@ -10363,7 +11035,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Fetch SEV certificate chain from the node where Virtual Machine is scheduled
      */
-    async v1alpha3SEVFetchCertChain(requestParameters: V1alpha3SEVFetchCertChainRequest, initOverrides?: RequestInit): Promise<V1SEVPlatformInfo> {
+    async v1alpha3SEVFetchCertChain(requestParameters: V1alpha3SEVFetchCertChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1SEVPlatformInfo> {
         const response = await this.v1alpha3SEVFetchCertChainRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10371,7 +11043,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Inject SEV launch secret into a Virtual Machine
      */
-    async v1alpha3SEVInjectLaunchSecretRaw(requestParameters: V1alpha3SEVInjectLaunchSecretRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3SEVInjectLaunchSecretRaw(requestParameters: V1alpha3SEVInjectLaunchSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3SEVInjectLaunchSecret.');
         }
@@ -10404,7 +11076,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Inject SEV launch secret into a Virtual Machine
      */
-    async v1alpha3SEVInjectLaunchSecret(requestParameters: V1alpha3SEVInjectLaunchSecretRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3SEVInjectLaunchSecret(requestParameters: V1alpha3SEVInjectLaunchSecretRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3SEVInjectLaunchSecretRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10412,7 +11084,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Query SEV launch measurement from a Virtual Machine
      */
-    async v1alpha3SEVQueryLaunchMeasurementRaw(requestParameters: V1alpha3SEVQueryLaunchMeasurementRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1SEVMeasurementInfo>> {
+    async v1alpha3SEVQueryLaunchMeasurementRaw(requestParameters: V1alpha3SEVQueryLaunchMeasurementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1SEVMeasurementInfo>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3SEVQueryLaunchMeasurement.');
         }
@@ -10438,7 +11110,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Query SEV launch measurement from a Virtual Machine
      */
-    async v1alpha3SEVQueryLaunchMeasurement(requestParameters: V1alpha3SEVQueryLaunchMeasurementRequest, initOverrides?: RequestInit): Promise<V1SEVMeasurementInfo> {
+    async v1alpha3SEVQueryLaunchMeasurement(requestParameters: V1alpha3SEVQueryLaunchMeasurementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1SEVMeasurementInfo> {
         const response = await this.v1alpha3SEVQueryLaunchMeasurementRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10446,7 +11118,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Setup SEV session parameters for a Virtual Machine
      */
-    async v1alpha3SEVSetupSessionRaw(requestParameters: V1alpha3SEVSetupSessionRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3SEVSetupSessionRaw(requestParameters: V1alpha3SEVSetupSessionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3SEVSetupSession.');
         }
@@ -10479,7 +11151,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Setup SEV session parameters for a Virtual Machine
      */
-    async v1alpha3SEVSetupSession(requestParameters: V1alpha3SEVSetupSessionRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3SEVSetupSession(requestParameters: V1alpha3SEVSetupSessionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3SEVSetupSessionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10487,7 +11159,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Soft reboot a VirtualMachineInstance object.
      */
-    async v1alpha3SoftRebootRaw(requestParameters: V1alpha3SoftRebootRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3SoftRebootRaw(requestParameters: V1alpha3SoftRebootRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3SoftReboot.');
         }
@@ -10513,7 +11185,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Soft reboot a VirtualMachineInstance object.
      */
-    async v1alpha3SoftReboot(requestParameters: V1alpha3SoftRebootRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3SoftReboot(requestParameters: V1alpha3SoftRebootRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3SoftRebootRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10521,7 +11193,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Start a VirtualMachine object.
      */
-    async v1alpha3StartRaw(requestParameters: V1alpha3StartRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3StartRaw(requestParameters: V1alpha3StartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3Start.');
         }
@@ -10554,7 +11226,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Start a VirtualMachine object.
      */
-    async v1alpha3Start(requestParameters: V1alpha3StartRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3Start(requestParameters: V1alpha3StartRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3StartRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10562,7 +11234,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Stop a VirtualMachine object.
      */
-    async v1alpha3StopRaw(requestParameters: V1alpha3StopRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3StopRaw(requestParameters: V1alpha3StopRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3Stop.');
         }
@@ -10591,7 +11263,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Stop a VirtualMachine object.
      */
-    async v1alpha3Stop(requestParameters: V1alpha3StopRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3Stop(requestParameters: V1alpha3StopRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3StopRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10599,7 +11271,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Unfreeze a VirtualMachineInstance object.
      */
-    async v1alpha3UnfreezeRaw(requestParameters: V1alpha3UnfreezeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3UnfreezeRaw(requestParameters: V1alpha3UnfreezeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3Unfreeze.');
         }
@@ -10625,7 +11297,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Unfreeze a VirtualMachineInstance object.
      */
-    async v1alpha3Unfreeze(requestParameters: V1alpha3UnfreezeRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3Unfreeze(requestParameters: V1alpha3UnfreezeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3UnfreezeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10633,7 +11305,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Unpause a VirtualMachineInstance object.
      */
-    async v1alpha3UnpauseRaw(requestParameters: V1alpha3UnpauseRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3UnpauseRaw(requestParameters: V1alpha3UnpauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3Unpause.');
         }
@@ -10666,7 +11338,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Unpause a VirtualMachineInstance object.
      */
-    async v1alpha3Unpause(requestParameters: V1alpha3UnpauseRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3Unpause(requestParameters: V1alpha3UnpauseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3UnpauseRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10674,7 +11346,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get list of active users via guest agent
      */
-    async v1alpha3UserlistRaw(requestParameters: V1alpha3UserlistRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1VirtualMachineInstanceGuestOSUserList>> {
+    async v1alpha3UserlistRaw(requestParameters: V1alpha3UserlistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1VirtualMachineInstanceGuestOSUserList>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3Userlist.');
         }
@@ -10700,7 +11372,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get list of active users via guest agent
      */
-    async v1alpha3Userlist(requestParameters: V1alpha3UserlistRequest, initOverrides?: RequestInit): Promise<V1VirtualMachineInstanceGuestOSUserList> {
+    async v1alpha3Userlist(requestParameters: V1alpha3UserlistRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1VirtualMachineInstanceGuestOSUserList> {
         const response = await this.v1alpha3UserlistRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -10708,7 +11380,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection to connect to VNC on the specified VirtualMachineInstance.
      */
-    async v1alpha3VNCRaw(requestParameters: V1alpha3VNCRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1alpha3VNCRaw(requestParameters: V1alpha3VNCRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3VNC.');
         }
@@ -10718,6 +11390,10 @@ export class DefaultApi extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters.preserveSession !== undefined) {
+            queryParameters['preserveSession'] = requestParameters.preserveSession;
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -10734,14 +11410,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection to connect to VNC on the specified VirtualMachineInstance.
      */
-    async v1alpha3VNC(requestParameters: V1alpha3VNCRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1alpha3VNC(requestParameters: V1alpha3VNCRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1alpha3VNCRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get a PNG VNC screenshot of the specified VirtualMachineInstance.
      */
-    async v1alpha3VNCScreenshotRaw(requestParameters: V1alpha3VNCScreenshotRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1alpha3VNCScreenshotRaw(requestParameters: V1alpha3VNCScreenshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3VNCScreenshot.');
         }
@@ -10771,14 +11447,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a PNG VNC screenshot of the specified VirtualMachineInstance.
      */
-    async v1alpha3VNCScreenshot(requestParameters: V1alpha3VNCScreenshotRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1alpha3VNCScreenshot(requestParameters: V1alpha3VNCScreenshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1alpha3VNCScreenshotRaw(requestParameters, initOverrides);
     }
 
     /**
      * Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port via VSOCK.
      */
-    async v1alpha3VSOCKRaw(requestParameters: V1alpha3VSOCKRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1alpha3VSOCKRaw(requestParameters: V1alpha3VSOCKRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3VSOCK.');
         }
@@ -10816,13 +11492,13 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port via VSOCK.
      */
-    async v1alpha3VSOCK(requestParameters: V1alpha3VSOCKRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1alpha3VSOCK(requestParameters: V1alpha3VSOCKRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1alpha3VSOCKRaw(requestParameters, initOverrides);
     }
 
     /**
      */
-    async v1alpha3VersionRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1alpha3VersionRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10839,13 +11515,13 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      */
-    async v1alpha3Version(initOverrides?: RequestInit): Promise<void> {
+    async v1alpha3Version(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1alpha3VersionRaw(initOverrides);
     }
 
     /**
      */
-    async v1alpha3dumpClusterProfilerRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1alpha3dumpClusterProfilerRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10862,14 +11538,14 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      */
-    async v1alpha3dumpClusterProfiler(initOverrides?: RequestInit): Promise<void> {
+    async v1alpha3dumpClusterProfiler(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1alpha3dumpClusterProfilerRaw(initOverrides);
     }
 
     /**
      * Get a KubeVirt API resources
      */
-    async v1alpha3getAPISubResourcesRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
+    async v1alpha3getAPISubResourcesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10887,14 +11563,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API resources
      */
-    async v1alpha3getAPISubResources(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
+    async v1alpha3getAPISubResources(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
         const response = await this.v1alpha3getAPISubResourcesRaw(initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async v1alpha3startClusterProfilerRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1alpha3startClusterProfilerRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10911,13 +11587,13 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      */
-    async v1alpha3startClusterProfiler(initOverrides?: RequestInit): Promise<void> {
+    async v1alpha3startClusterProfiler(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1alpha3startClusterProfilerRaw(initOverrides);
     }
 
     /**
      */
-    async v1alpha3stopClusterProfilerRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1alpha3stopClusterProfilerRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10934,14 +11610,14 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      */
-    async v1alpha3stopClusterProfiler(initOverrides?: RequestInit): Promise<void> {
+    async v1alpha3stopClusterProfiler(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1alpha3stopClusterProfilerRaw(initOverrides);
     }
 
     /**
      * Open a websocket connection to connect to USB device on the specified VirtualMachineInstance.
      */
-    async v1alpha3usbredirRaw(requestParameters: V1alpha3usbredirRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1alpha3usbredirRaw(requestParameters: V1alpha3usbredirRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3usbredir.');
         }
@@ -10967,14 +11643,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection to connect to USB device on the specified VirtualMachineInstance.
      */
-    async v1alpha3usbredir(requestParameters: V1alpha3usbredirRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1alpha3usbredir(requestParameters: V1alpha3usbredirRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1alpha3usbredirRaw(requestParameters, initOverrides);
     }
 
     /**
      * Add a volume and disk to a running Virtual Machine.
      */
-    async v1alpha3vmAddvolumeRaw(requestParameters: V1alpha3vmAddvolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3vmAddvolumeRaw(requestParameters: V1alpha3vmAddvolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3vmAddvolume.');
         }
@@ -11007,15 +11683,56 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Add a volume and disk to a running Virtual Machine.
      */
-    async v1alpha3vmAddvolume(requestParameters: V1alpha3vmAddvolumeRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3vmAddvolume(requestParameters: V1alpha3vmAddvolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3vmAddvolumeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Cancel evacuation Virtual Machine
+     */
+    async v1alpha3vmEvacuatecancelRaw(requestParameters: V1alpha3vmEvacuatecancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3vmEvacuatecancel.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling v1alpha3vmEvacuatecancel.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling v1alpha3vmEvacuatecancel.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/evacuate/cancel`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1EvacuateCancelOptionsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.TextApiResponse(response) as any;
+    }
+
+    /**
+     * Cancel evacuation Virtual Machine
+     */
+    async v1alpha3vmEvacuatecancel(requestParameters: V1alpha3vmEvacuatecancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.v1alpha3vmEvacuatecancelRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Get VirtualMachine object with expanded instancetype and preference.
      */
-    async v1alpha3vmExpandSpecRaw(requestParameters: V1alpha3vmExpandSpecRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3vmExpandSpecRaw(requestParameters: V1alpha3vmExpandSpecRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3vmExpandSpec.');
         }
@@ -11041,7 +11758,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get VirtualMachine object with expanded instancetype and preference.
      */
-    async v1alpha3vmExpandSpec(requestParameters: V1alpha3vmExpandSpecRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3vmExpandSpec(requestParameters: V1alpha3vmExpandSpecRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3vmExpandSpecRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11049,7 +11766,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get graph of objects related to a Virtual Machine
      */
-    async v1alpha3vmObjectgraphRaw(requestParameters: V1alpha3vmObjectgraphRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ObjectGraphNode>> {
+    async v1alpha3vmObjectgraphRaw(requestParameters: V1alpha3vmObjectgraphRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ObjectGraphNode>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3vmObjectgraph.');
         }
@@ -11082,7 +11799,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get graph of objects related to a Virtual Machine
      */
-    async v1alpha3vmObjectgraph(requestParameters: V1alpha3vmObjectgraphRequest, initOverrides?: RequestInit): Promise<V1ObjectGraphNode> {
+    async v1alpha3vmObjectgraph(requestParameters: V1alpha3vmObjectgraphRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ObjectGraphNode> {
         const response = await this.v1alpha3vmObjectgraphRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11090,7 +11807,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection forwarding traffic to the running VMI for the specified VirtualMachine and port.
      */
-    async v1alpha3vmPortForwardRaw(requestParameters: V1alpha3vmPortForwardRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1alpha3vmPortForwardRaw(requestParameters: V1alpha3vmPortForwardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3vmPortForward.');
         }
@@ -11120,14 +11837,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection forwarding traffic to the running VMI for the specified VirtualMachine and port.
      */
-    async v1alpha3vmPortForward(requestParameters: V1alpha3vmPortForwardRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1alpha3vmPortForward(requestParameters: V1alpha3vmPortForwardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1alpha3vmPortForwardRaw(requestParameters, initOverrides);
     }
 
     /**
      * Open a websocket connection forwarding traffic of the specified protocol (either tcp or udp) to the specified VirtualMachine and port.
      */
-    async v1alpha3vmPortForwardWithProtocolRaw(requestParameters: V1alpha3vmPortForwardWithProtocolRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1alpha3vmPortForwardWithProtocolRaw(requestParameters: V1alpha3vmPortForwardWithProtocolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3vmPortForwardWithProtocol.');
         }
@@ -11161,14 +11878,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection forwarding traffic of the specified protocol (either tcp or udp) to the specified VirtualMachine and port.
      */
-    async v1alpha3vmPortForwardWithProtocol(requestParameters: V1alpha3vmPortForwardWithProtocolRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1alpha3vmPortForwardWithProtocol(requestParameters: V1alpha3vmPortForwardWithProtocolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1alpha3vmPortForwardWithProtocolRaw(requestParameters, initOverrides);
     }
 
     /**
      * Removes a volume and disk from a running Virtual Machine.
      */
-    async v1alpha3vmRemovevolumeRaw(requestParameters: V1alpha3vmRemovevolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3vmRemovevolumeRaw(requestParameters: V1alpha3vmRemovevolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3vmRemovevolume.');
         }
@@ -11201,7 +11918,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Removes a volume and disk from a running Virtual Machine.
      */
-    async v1alpha3vmRemovevolume(requestParameters: V1alpha3vmRemovevolumeRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3vmRemovevolume(requestParameters: V1alpha3vmRemovevolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3vmRemovevolumeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11209,7 +11926,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Add a volume and disk to a running Virtual Machine Instance
      */
-    async v1alpha3vmiAddvolumeRaw(requestParameters: V1alpha3vmiAddvolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3vmiAddvolumeRaw(requestParameters: V1alpha3vmiAddvolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3vmiAddvolume.');
         }
@@ -11242,15 +11959,56 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Add a volume and disk to a running Virtual Machine Instance
      */
-    async v1alpha3vmiAddvolume(requestParameters: V1alpha3vmiAddvolumeRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3vmiAddvolume(requestParameters: V1alpha3vmiAddvolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3vmiAddvolumeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Cancel evacuation Virtual Machine Instance
+     */
+    async v1alpha3vmiEvacuatecancelRaw(requestParameters: V1alpha3vmiEvacuatecancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3vmiEvacuatecancel.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling v1alpha3vmiEvacuatecancel.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling v1alpha3vmiEvacuatecancel.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/evacuate/cancel`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1EvacuateCancelOptionsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.TextApiResponse(response) as any;
+    }
+
+    /**
+     * Cancel evacuation Virtual Machine Instance
+     */
+    async v1alpha3vmiEvacuatecancel(requestParameters: V1alpha3vmiEvacuatecancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.v1alpha3vmiEvacuatecancelRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Get graph of objects related to a Virtual Machine Instance
      */
-    async v1alpha3vmiObjectgraphRaw(requestParameters: V1alpha3vmiObjectgraphRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ObjectGraphNode>> {
+    async v1alpha3vmiObjectgraphRaw(requestParameters: V1alpha3vmiObjectgraphRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ObjectGraphNode>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3vmiObjectgraph.');
         }
@@ -11283,7 +12041,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get graph of objects related to a Virtual Machine Instance
      */
-    async v1alpha3vmiObjectgraph(requestParameters: V1alpha3vmiObjectgraphRequest, initOverrides?: RequestInit): Promise<V1ObjectGraphNode> {
+    async v1alpha3vmiObjectgraph(requestParameters: V1alpha3vmiObjectgraphRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ObjectGraphNode> {
         const response = await this.v1alpha3vmiObjectgraphRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11291,7 +12049,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port.
      */
-    async v1alpha3vmiPortForwardRaw(requestParameters: V1alpha3vmiPortForwardRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1alpha3vmiPortForwardRaw(requestParameters: V1alpha3vmiPortForwardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3vmiPortForward.');
         }
@@ -11321,14 +12079,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port.
      */
-    async v1alpha3vmiPortForward(requestParameters: V1alpha3vmiPortForwardRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1alpha3vmiPortForward(requestParameters: V1alpha3vmiPortForwardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1alpha3vmiPortForwardRaw(requestParameters, initOverrides);
     }
 
     /**
      * Open a websocket connection forwarding traffic of the specified protocol (either tcp or udp) to the specified VirtualMachineInstance and port.
      */
-    async v1alpha3vmiPortForwardWithProtocolRaw(requestParameters: V1alpha3vmiPortForwardWithProtocolRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1alpha3vmiPortForwardWithProtocolRaw(requestParameters: V1alpha3vmiPortForwardWithProtocolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3vmiPortForwardWithProtocol.');
         }
@@ -11362,14 +12120,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection forwarding traffic of the specified protocol (either tcp or udp) to the specified VirtualMachineInstance and port.
      */
-    async v1alpha3vmiPortForwardWithProtocol(requestParameters: V1alpha3vmiPortForwardWithProtocolRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1alpha3vmiPortForwardWithProtocol(requestParameters: V1alpha3vmiPortForwardWithProtocolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1alpha3vmiPortForwardWithProtocolRaw(requestParameters, initOverrides);
     }
 
     /**
      * Removes a volume and disk from a running Virtual Machine Instance
      */
-    async v1alpha3vmiRemovevolumeRaw(requestParameters: V1alpha3vmiRemovevolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1alpha3vmiRemovevolumeRaw(requestParameters: V1alpha3vmiRemovevolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1alpha3vmiRemovevolume.');
         }
@@ -11402,14 +12160,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Removes a volume and disk from a running Virtual Machine Instance
      */
-    async v1alpha3vmiRemovevolume(requestParameters: V1alpha3vmiRemovevolumeRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1alpha3vmiRemovevolume(requestParameters: V1alpha3vmiRemovevolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1alpha3vmiRemovevolumeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async v1dumpClusterProfilerRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1dumpClusterProfilerRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11426,14 +12184,14 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      */
-    async v1dumpClusterProfiler(initOverrides?: RequestInit): Promise<void> {
+    async v1dumpClusterProfiler(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1dumpClusterProfilerRaw(initOverrides);
     }
 
     /**
      * Get a KubeVirt API resources
      */
-    async v1getAPISubResourcesRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
+    async v1getAPISubResourcesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1APIResourceList>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11451,14 +12209,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get a KubeVirt API resources
      */
-    async v1getAPISubResources(initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
+    async v1getAPISubResources(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1APIResourceList> {
         const response = await this.v1getAPISubResourcesRaw(initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async v1startClusterProfilerRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1startClusterProfilerRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11475,13 +12233,13 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      */
-    async v1startClusterProfiler(initOverrides?: RequestInit): Promise<void> {
+    async v1startClusterProfiler(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1startClusterProfilerRaw(initOverrides);
     }
 
     /**
      */
-    async v1stopClusterProfilerRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1stopClusterProfilerRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11498,14 +12256,14 @@ export class DefaultApi extends runtime.BaseAPI {
 
     /**
      */
-    async v1stopClusterProfiler(initOverrides?: RequestInit): Promise<void> {
+    async v1stopClusterProfiler(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1stopClusterProfilerRaw(initOverrides);
     }
 
     /**
      * Open a websocket connection to connect to USB device on the specified VirtualMachineInstance.
      */
-    async v1usbredirRaw(requestParameters: V1usbredirRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1usbredirRaw(requestParameters: V1usbredirRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1usbredir.');
         }
@@ -11531,14 +12289,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection to connect to USB device on the specified VirtualMachineInstance.
      */
-    async v1usbredir(requestParameters: V1usbredirRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1usbredir(requestParameters: V1usbredirRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1usbredirRaw(requestParameters, initOverrides);
     }
 
     /**
      * Add a volume and disk to a running Virtual Machine.
      */
-    async v1vmAddvolumeRaw(requestParameters: V1vmAddvolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1vmAddvolumeRaw(requestParameters: V1vmAddvolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1vmAddvolume.');
         }
@@ -11571,15 +12329,56 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Add a volume and disk to a running Virtual Machine.
      */
-    async v1vmAddvolume(requestParameters: V1vmAddvolumeRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1vmAddvolume(requestParameters: V1vmAddvolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1vmAddvolumeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Cancel evacuation Virtual Machine
+     */
+    async v1vmEvacuatecancelRaw(requestParameters: V1vmEvacuatecancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1vmEvacuatecancel.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling v1vmEvacuatecancel.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling v1vmEvacuatecancel.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachines/{name}/evacuate/cancel`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1EvacuateCancelOptionsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.TextApiResponse(response) as any;
+    }
+
+    /**
+     * Cancel evacuation Virtual Machine
+     */
+    async v1vmEvacuatecancel(requestParameters: V1vmEvacuatecancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.v1vmEvacuatecancelRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Get VirtualMachine object with expanded instancetype and preference.
      */
-    async v1vmExpandSpecRaw(requestParameters: V1vmExpandSpecRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1vmExpandSpecRaw(requestParameters: V1vmExpandSpecRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1vmExpandSpec.');
         }
@@ -11605,7 +12404,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get VirtualMachine object with expanded instancetype and preference.
      */
-    async v1vmExpandSpec(requestParameters: V1vmExpandSpecRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1vmExpandSpec(requestParameters: V1vmExpandSpecRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1vmExpandSpecRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11613,7 +12412,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get graph of objects related to a Virtual Machine
      */
-    async v1vmObjectgraphRaw(requestParameters: V1vmObjectgraphRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ObjectGraphNode>> {
+    async v1vmObjectgraphRaw(requestParameters: V1vmObjectgraphRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ObjectGraphNode>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1vmObjectgraph.');
         }
@@ -11646,7 +12445,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get graph of objects related to a Virtual Machine
      */
-    async v1vmObjectgraph(requestParameters: V1vmObjectgraphRequest, initOverrides?: RequestInit): Promise<V1ObjectGraphNode> {
+    async v1vmObjectgraph(requestParameters: V1vmObjectgraphRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ObjectGraphNode> {
         const response = await this.v1vmObjectgraphRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11654,7 +12453,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection forwarding traffic to the running VMI for the specified VirtualMachine and port.
      */
-    async v1vmPortForwardRaw(requestParameters: V1vmPortForwardRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1vmPortForwardRaw(requestParameters: V1vmPortForwardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1vmPortForward.');
         }
@@ -11684,14 +12483,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection forwarding traffic to the running VMI for the specified VirtualMachine and port.
      */
-    async v1vmPortForward(requestParameters: V1vmPortForwardRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1vmPortForward(requestParameters: V1vmPortForwardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1vmPortForwardRaw(requestParameters, initOverrides);
     }
 
     /**
      * Open a websocket connection forwarding traffic of the specified protocol (either tcp or udp) to the specified VirtualMachine and port.
      */
-    async v1vmPortForwardWithProtocolRaw(requestParameters: V1vmPortForwardWithProtocolRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1vmPortForwardWithProtocolRaw(requestParameters: V1vmPortForwardWithProtocolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1vmPortForwardWithProtocol.');
         }
@@ -11725,14 +12524,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection forwarding traffic of the specified protocol (either tcp or udp) to the specified VirtualMachine and port.
      */
-    async v1vmPortForwardWithProtocol(requestParameters: V1vmPortForwardWithProtocolRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1vmPortForwardWithProtocol(requestParameters: V1vmPortForwardWithProtocolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1vmPortForwardWithProtocolRaw(requestParameters, initOverrides);
     }
 
     /**
      * Removes a volume and disk from a running Virtual Machine.
      */
-    async v1vmRemovevolumeRaw(requestParameters: V1vmRemovevolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1vmRemovevolumeRaw(requestParameters: V1vmRemovevolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1vmRemovevolume.');
         }
@@ -11765,7 +12564,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Removes a volume and disk from a running Virtual Machine.
      */
-    async v1vmRemovevolume(requestParameters: V1vmRemovevolumeRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1vmRemovevolume(requestParameters: V1vmRemovevolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1vmRemovevolumeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11773,7 +12572,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Add a volume and disk to a running Virtual Machine Instance
      */
-    async v1vmiAddvolumeRaw(requestParameters: V1vmiAddvolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1vmiAddvolumeRaw(requestParameters: V1vmiAddvolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1vmiAddvolume.');
         }
@@ -11806,15 +12605,56 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Add a volume and disk to a running Virtual Machine Instance
      */
-    async v1vmiAddvolume(requestParameters: V1vmiAddvolumeRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1vmiAddvolume(requestParameters: V1vmiAddvolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1vmiAddvolumeRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Cancel evacuation Virtual Machine Instance
+     */
+    async v1vmiEvacuatecancelRaw(requestParameters: V1vmiEvacuatecancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1vmiEvacuatecancel.');
+        }
+
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling v1vmiEvacuatecancel.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling v1vmiEvacuatecancel.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/apis/subresources.kubevirt.io/v1/namespaces/{namespace}/virtualmachineinstances/{name}/evacuate/cancel`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))).replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: V1EvacuateCancelOptionsToJSON(requestParameters.body),
+        }, initOverrides);
+
+        return new runtime.TextApiResponse(response) as any;
+    }
+
+    /**
+     * Cancel evacuation Virtual Machine Instance
+     */
+    async v1vmiEvacuatecancel(requestParameters: V1vmiEvacuatecancelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+        const response = await this.v1vmiEvacuatecancelRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Get graph of objects related to a Virtual Machine Instance
      */
-    async v1vmiObjectgraphRaw(requestParameters: V1vmiObjectgraphRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<V1ObjectGraphNode>> {
+    async v1vmiObjectgraphRaw(requestParameters: V1vmiObjectgraphRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1ObjectGraphNode>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1vmiObjectgraph.');
         }
@@ -11847,7 +12687,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Get graph of objects related to a Virtual Machine Instance
      */
-    async v1vmiObjectgraph(requestParameters: V1vmiObjectgraphRequest, initOverrides?: RequestInit): Promise<V1ObjectGraphNode> {
+    async v1vmiObjectgraph(requestParameters: V1vmiObjectgraphRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1ObjectGraphNode> {
         const response = await this.v1vmiObjectgraphRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11855,7 +12695,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port.
      */
-    async v1vmiPortForwardRaw(requestParameters: V1vmiPortForwardRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1vmiPortForwardRaw(requestParameters: V1vmiPortForwardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1vmiPortForward.');
         }
@@ -11885,14 +12725,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection forwarding traffic to the specified VirtualMachineInstance and port.
      */
-    async v1vmiPortForward(requestParameters: V1vmiPortForwardRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1vmiPortForward(requestParameters: V1vmiPortForwardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1vmiPortForwardRaw(requestParameters, initOverrides);
     }
 
     /**
      * Open a websocket connection forwarding traffic of the specified protocol (either tcp or udp) to the specified VirtualMachineInstance and port.
      */
-    async v1vmiPortForwardWithProtocolRaw(requestParameters: V1vmiPortForwardWithProtocolRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<void>> {
+    async v1vmiPortForwardWithProtocolRaw(requestParameters: V1vmiPortForwardWithProtocolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1vmiPortForwardWithProtocol.');
         }
@@ -11926,14 +12766,14 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Open a websocket connection forwarding traffic of the specified protocol (either tcp or udp) to the specified VirtualMachineInstance and port.
      */
-    async v1vmiPortForwardWithProtocol(requestParameters: V1vmiPortForwardWithProtocolRequest, initOverrides?: RequestInit): Promise<void> {
+    async v1vmiPortForwardWithProtocol(requestParameters: V1vmiPortForwardWithProtocolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.v1vmiPortForwardWithProtocolRaw(requestParameters, initOverrides);
     }
 
     /**
      * Removes a volume and disk from a running Virtual Machine Instance
      */
-    async v1vmiRemovevolumeRaw(requestParameters: V1vmiRemovevolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<string>> {
+    async v1vmiRemovevolumeRaw(requestParameters: V1vmiRemovevolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
         if (requestParameters.name === null || requestParameters.name === undefined) {
             throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling v1vmiRemovevolume.');
         }
@@ -11966,7 +12806,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Removes a volume and disk from a running Virtual Machine Instance
      */
-    async v1vmiRemovevolume(requestParameters: V1vmiRemovevolumeRequest, initOverrides?: RequestInit): Promise<string> {
+    async v1vmiRemovevolume(requestParameters: V1vmiRemovevolumeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
         const response = await this.v1vmiRemovevolumeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11974,7 +12814,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a KubeVirtList object.
      */
-    async watchKubeVirtListForAllNamespacesRaw(requestParameters: WatchKubeVirtListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchKubeVirtListForAllNamespacesRaw(requestParameters: WatchKubeVirtListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -12024,7 +12864,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a KubeVirtList object.
      */
-    async watchKubeVirtListForAllNamespaces(requestParameters: WatchKubeVirtListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchKubeVirtListForAllNamespaces(requestParameters: WatchKubeVirtListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchKubeVirtListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12032,7 +12872,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a MigrationPolicyList object.
      */
-    async watchMigrationPolicyListForAllNamespacesRaw(requestParameters: WatchMigrationPolicyListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchMigrationPolicyListForAllNamespacesRaw(requestParameters: WatchMigrationPolicyListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -12082,7 +12922,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a MigrationPolicyList object.
      */
-    async watchMigrationPolicyListForAllNamespaces(requestParameters: WatchMigrationPolicyListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchMigrationPolicyListForAllNamespaces(requestParameters: WatchMigrationPolicyListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchMigrationPolicyListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12090,7 +12930,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a KubeVirt object.
      */
-    async watchNamespacedKubeVirtRaw(requestParameters: WatchNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchNamespacedKubeVirtRaw(requestParameters: WatchNamespacedKubeVirtRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedKubeVirt.');
         }
@@ -12144,7 +12984,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a KubeVirt object.
      */
-    async watchNamespacedKubeVirt(requestParameters: WatchNamespacedKubeVirtRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchNamespacedKubeVirt(requestParameters: WatchNamespacedKubeVirtRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchNamespacedKubeVirtRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12152,7 +12992,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachine object.
      */
-    async watchNamespacedVirtualMachineRaw(requestParameters: WatchNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchNamespacedVirtualMachineRaw(requestParameters: WatchNamespacedVirtualMachineRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedVirtualMachine.');
         }
@@ -12206,15 +13046,77 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachine object.
      */
-    async watchNamespacedVirtualMachine(requestParameters: WatchNamespacedVirtualMachineRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchNamespacedVirtualMachine(requestParameters: WatchNamespacedVirtualMachineRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchNamespacedVirtualMachineRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Watch a VirtualMachineBackup object.
+     */
+    async watchNamespacedVirtualMachineBackupRaw(requestParameters: WatchNamespacedVirtualMachineBackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedVirtualMachineBackup.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters._continue !== undefined) {
+            queryParameters['continue'] = requestParameters._continue;
+        }
+
+        if (requestParameters.fieldSelector !== undefined) {
+            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+        }
+
+        if (requestParameters.includeUninitialized !== undefined) {
+            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+        }
+
+        if (requestParameters.labelSelector !== undefined) {
+            queryParameters['labelSelector'] = requestParameters.labelSelector;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.resourceVersion !== undefined) {
+            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+        }
+
+        if (requestParameters.timeoutSeconds !== undefined) {
+            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+        }
+
+        if (requestParameters.watch !== undefined) {
+            queryParameters['watch'] = requestParameters.watch;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/apis/backup.kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachinebackups`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => K8sIoApimachineryPkgApisMetaV1WatchEventFromJSON(jsonValue));
+    }
+
+    /**
+     * Watch a VirtualMachineBackup object.
+     */
+    async watchNamespacedVirtualMachineBackup(requestParameters: WatchNamespacedVirtualMachineBackupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+        const response = await this.watchNamespacedVirtualMachineBackupRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Watch a VirtualMachineExport object.
      */
-    async watchNamespacedVirtualMachineExportRaw(requestParameters: WatchNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchNamespacedVirtualMachineExportRaw(requestParameters: WatchNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedVirtualMachineExport.');
         }
@@ -12268,7 +13170,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineExport object.
      */
-    async watchNamespacedVirtualMachineExport(requestParameters: WatchNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchNamespacedVirtualMachineExport(requestParameters: WatchNamespacedVirtualMachineExportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchNamespacedVirtualMachineExportRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12276,7 +13178,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstance object.
      */
-    async watchNamespacedVirtualMachineInstanceRaw(requestParameters: WatchNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchNamespacedVirtualMachineInstanceRaw(requestParameters: WatchNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedVirtualMachineInstance.');
         }
@@ -12330,7 +13232,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstance object.
      */
-    async watchNamespacedVirtualMachineInstance(requestParameters: WatchNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchNamespacedVirtualMachineInstance(requestParameters: WatchNamespacedVirtualMachineInstanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchNamespacedVirtualMachineInstanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12338,7 +13240,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstanceMigration object.
      */
-    async watchNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: WatchNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchNamespacedVirtualMachineInstanceMigrationRaw(requestParameters: WatchNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedVirtualMachineInstanceMigration.');
         }
@@ -12392,7 +13294,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstanceMigration object.
      */
-    async watchNamespacedVirtualMachineInstanceMigration(requestParameters: WatchNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchNamespacedVirtualMachineInstanceMigration(requestParameters: WatchNamespacedVirtualMachineInstanceMigrationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchNamespacedVirtualMachineInstanceMigrationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12400,7 +13302,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstancePreset object.
      */
-    async watchNamespacedVirtualMachineInstancePresetRaw(requestParameters: WatchNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchNamespacedVirtualMachineInstancePresetRaw(requestParameters: WatchNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedVirtualMachineInstancePreset.');
         }
@@ -12454,7 +13356,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstancePreset object.
      */
-    async watchNamespacedVirtualMachineInstancePreset(requestParameters: WatchNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchNamespacedVirtualMachineInstancePreset(requestParameters: WatchNamespacedVirtualMachineInstancePresetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchNamespacedVirtualMachineInstancePresetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12462,7 +13364,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstanceReplicaSet object.
      */
-    async watchNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: WatchNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters: WatchNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedVirtualMachineInstanceReplicaSet.');
         }
@@ -12516,7 +13418,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstanceReplicaSet object.
      */
-    async watchNamespacedVirtualMachineInstanceReplicaSet(requestParameters: WatchNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchNamespacedVirtualMachineInstanceReplicaSet(requestParameters: WatchNamespacedVirtualMachineInstanceReplicaSetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchNamespacedVirtualMachineInstanceReplicaSetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12524,7 +13426,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstancetype object.
      */
-    async watchNamespacedVirtualMachineInstancetypeRaw(requestParameters: WatchNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchNamespacedVirtualMachineInstancetypeRaw(requestParameters: WatchNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedVirtualMachineInstancetype.');
         }
@@ -12578,7 +13480,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstancetype object.
      */
-    async watchNamespacedVirtualMachineInstancetype(requestParameters: WatchNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchNamespacedVirtualMachineInstancetype(requestParameters: WatchNamespacedVirtualMachineInstancetypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchNamespacedVirtualMachineInstancetypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12586,7 +13488,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachinePool object.
      */
-    async watchNamespacedVirtualMachinePoolRaw(requestParameters: WatchNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchNamespacedVirtualMachinePoolRaw(requestParameters: WatchNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedVirtualMachinePool.');
         }
@@ -12628,7 +13530,7 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/apis/pool.kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachinepools`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
+            path: `/apis/pool.kubevirt.io/v1beta1/watch/namespaces/{namespace}/virtualmachinepools`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -12640,7 +13542,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachinePool object.
      */
-    async watchNamespacedVirtualMachinePool(requestParameters: WatchNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchNamespacedVirtualMachinePool(requestParameters: WatchNamespacedVirtualMachinePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchNamespacedVirtualMachinePoolRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12648,7 +13550,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachinePreference object.
      */
-    async watchNamespacedVirtualMachinePreferenceRaw(requestParameters: WatchNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchNamespacedVirtualMachinePreferenceRaw(requestParameters: WatchNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedVirtualMachinePreference.');
         }
@@ -12702,7 +13604,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachinePreference object.
      */
-    async watchNamespacedVirtualMachinePreference(requestParameters: WatchNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchNamespacedVirtualMachinePreference(requestParameters: WatchNamespacedVirtualMachinePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchNamespacedVirtualMachinePreferenceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12710,7 +13612,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineRestore object.
      */
-    async watchNamespacedVirtualMachineRestoreRaw(requestParameters: WatchNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchNamespacedVirtualMachineRestoreRaw(requestParameters: WatchNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedVirtualMachineRestore.');
         }
@@ -12764,7 +13666,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineRestore object.
      */
-    async watchNamespacedVirtualMachineRestore(requestParameters: WatchNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchNamespacedVirtualMachineRestore(requestParameters: WatchNamespacedVirtualMachineRestoreRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchNamespacedVirtualMachineRestoreRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12772,7 +13674,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineSnapshot object.
      */
-    async watchNamespacedVirtualMachineSnapshotRaw(requestParameters: WatchNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchNamespacedVirtualMachineSnapshotRaw(requestParameters: WatchNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedVirtualMachineSnapshot.');
         }
@@ -12826,7 +13728,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineSnapshot object.
      */
-    async watchNamespacedVirtualMachineSnapshot(requestParameters: WatchNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchNamespacedVirtualMachineSnapshot(requestParameters: WatchNamespacedVirtualMachineSnapshotRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchNamespacedVirtualMachineSnapshotRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12834,7 +13736,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineSnapshotContent object.
      */
-    async watchNamespacedVirtualMachineSnapshotContentRaw(requestParameters: WatchNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchNamespacedVirtualMachineSnapshotContentRaw(requestParameters: WatchNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
             throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling watchNamespacedVirtualMachineSnapshotContent.');
         }
@@ -12888,15 +13790,73 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineSnapshotContent object.
      */
-    async watchNamespacedVirtualMachineSnapshotContent(requestParameters: WatchNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchNamespacedVirtualMachineSnapshotContent(requestParameters: WatchNamespacedVirtualMachineSnapshotContentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchNamespacedVirtualMachineSnapshotContentRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Watch a VirtualMachineBackupList object.
+     */
+    async watchVirtualMachineBackupListForAllNamespacesRaw(requestParameters: WatchVirtualMachineBackupListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+        const queryParameters: any = {};
+
+        if (requestParameters._continue !== undefined) {
+            queryParameters['continue'] = requestParameters._continue;
+        }
+
+        if (requestParameters.fieldSelector !== undefined) {
+            queryParameters['fieldSelector'] = requestParameters.fieldSelector;
+        }
+
+        if (requestParameters.includeUninitialized !== undefined) {
+            queryParameters['includeUninitialized'] = requestParameters.includeUninitialized;
+        }
+
+        if (requestParameters.labelSelector !== undefined) {
+            queryParameters['labelSelector'] = requestParameters.labelSelector;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.resourceVersion !== undefined) {
+            queryParameters['resourceVersion'] = requestParameters.resourceVersion;
+        }
+
+        if (requestParameters.timeoutSeconds !== undefined) {
+            queryParameters['timeoutSeconds'] = requestParameters.timeoutSeconds;
+        }
+
+        if (requestParameters.watch !== undefined) {
+            queryParameters['watch'] = requestParameters.watch;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/apis/backup.kubevirt.io/v1alpha1/watch/virtualmachinebackups`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => K8sIoApimachineryPkgApisMetaV1WatchEventFromJSON(jsonValue));
+    }
+
+    /**
+     * Watch a VirtualMachineBackupList object.
+     */
+    async watchVirtualMachineBackupListForAllNamespaces(requestParameters: WatchVirtualMachineBackupListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+        const response = await this.watchVirtualMachineBackupListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Watch a VirtualMachineCloneList object.
      */
-    async watchVirtualMachineCloneListForAllNamespacesRaw(requestParameters: WatchVirtualMachineCloneListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchVirtualMachineCloneListForAllNamespacesRaw(requestParameters: WatchVirtualMachineCloneListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -12946,7 +13906,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineCloneList object.
      */
-    async watchVirtualMachineCloneListForAllNamespaces(requestParameters: WatchVirtualMachineCloneListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchVirtualMachineCloneListForAllNamespaces(requestParameters: WatchVirtualMachineCloneListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchVirtualMachineCloneListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12954,7 +13914,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineClusterInstancetypeList object.
      */
-    async watchVirtualMachineClusterInstancetypeListForAllNamespacesRaw(requestParameters: WatchVirtualMachineClusterInstancetypeListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchVirtualMachineClusterInstancetypeListForAllNamespacesRaw(requestParameters: WatchVirtualMachineClusterInstancetypeListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -13004,7 +13964,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineClusterInstancetypeList object.
      */
-    async watchVirtualMachineClusterInstancetypeListForAllNamespaces(requestParameters: WatchVirtualMachineClusterInstancetypeListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchVirtualMachineClusterInstancetypeListForAllNamespaces(requestParameters: WatchVirtualMachineClusterInstancetypeListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchVirtualMachineClusterInstancetypeListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13012,7 +13972,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineClusterPreferenceList object.
      */
-    async watchVirtualMachineClusterPreferenceListForAllNamespacesRaw(requestParameters: WatchVirtualMachineClusterPreferenceListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchVirtualMachineClusterPreferenceListForAllNamespacesRaw(requestParameters: WatchVirtualMachineClusterPreferenceListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -13062,7 +14022,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineClusterPreferenceList object.
      */
-    async watchVirtualMachineClusterPreferenceListForAllNamespaces(requestParameters: WatchVirtualMachineClusterPreferenceListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchVirtualMachineClusterPreferenceListForAllNamespaces(requestParameters: WatchVirtualMachineClusterPreferenceListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchVirtualMachineClusterPreferenceListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13070,7 +14030,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineExportList object.
      */
-    async watchVirtualMachineExportListForAllNamespacesRaw(requestParameters: WatchVirtualMachineExportListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchVirtualMachineExportListForAllNamespacesRaw(requestParameters: WatchVirtualMachineExportListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -13120,7 +14080,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineExportList object.
      */
-    async watchVirtualMachineExportListForAllNamespaces(requestParameters: WatchVirtualMachineExportListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchVirtualMachineExportListForAllNamespaces(requestParameters: WatchVirtualMachineExportListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchVirtualMachineExportListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13128,7 +14088,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstanceList object.
      */
-    async watchVirtualMachineInstanceListForAllNamespacesRaw(requestParameters: WatchVirtualMachineInstanceListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchVirtualMachineInstanceListForAllNamespacesRaw(requestParameters: WatchVirtualMachineInstanceListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -13178,7 +14138,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstanceList object.
      */
-    async watchVirtualMachineInstanceListForAllNamespaces(requestParameters: WatchVirtualMachineInstanceListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchVirtualMachineInstanceListForAllNamespaces(requestParameters: WatchVirtualMachineInstanceListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchVirtualMachineInstanceListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13186,7 +14146,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstanceMigrationList object.
      */
-    async watchVirtualMachineInstanceMigrationListForAllNamespacesRaw(requestParameters: WatchVirtualMachineInstanceMigrationListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchVirtualMachineInstanceMigrationListForAllNamespacesRaw(requestParameters: WatchVirtualMachineInstanceMigrationListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -13236,7 +14196,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstanceMigrationList object.
      */
-    async watchVirtualMachineInstanceMigrationListForAllNamespaces(requestParameters: WatchVirtualMachineInstanceMigrationListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchVirtualMachineInstanceMigrationListForAllNamespaces(requestParameters: WatchVirtualMachineInstanceMigrationListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchVirtualMachineInstanceMigrationListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13244,7 +14204,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstancePresetList object.
      */
-    async watchVirtualMachineInstancePresetListForAllNamespacesRaw(requestParameters: WatchVirtualMachineInstancePresetListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchVirtualMachineInstancePresetListForAllNamespacesRaw(requestParameters: WatchVirtualMachineInstancePresetListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -13294,7 +14254,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstancePresetList object.
      */
-    async watchVirtualMachineInstancePresetListForAllNamespaces(requestParameters: WatchVirtualMachineInstancePresetListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchVirtualMachineInstancePresetListForAllNamespaces(requestParameters: WatchVirtualMachineInstancePresetListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchVirtualMachineInstancePresetListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13302,7 +14262,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstanceReplicaSetList object.
      */
-    async watchVirtualMachineInstanceReplicaSetListForAllNamespacesRaw(requestParameters: WatchVirtualMachineInstanceReplicaSetListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchVirtualMachineInstanceReplicaSetListForAllNamespacesRaw(requestParameters: WatchVirtualMachineInstanceReplicaSetListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -13352,7 +14312,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstanceReplicaSetList object.
      */
-    async watchVirtualMachineInstanceReplicaSetListForAllNamespaces(requestParameters: WatchVirtualMachineInstanceReplicaSetListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchVirtualMachineInstanceReplicaSetListForAllNamespaces(requestParameters: WatchVirtualMachineInstanceReplicaSetListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchVirtualMachineInstanceReplicaSetListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13360,7 +14320,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstancetypeList object.
      */
-    async watchVirtualMachineInstancetypeListForAllNamespacesRaw(requestParameters: WatchVirtualMachineInstancetypeListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchVirtualMachineInstancetypeListForAllNamespacesRaw(requestParameters: WatchVirtualMachineInstancetypeListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -13410,7 +14370,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineInstancetypeList object.
      */
-    async watchVirtualMachineInstancetypeListForAllNamespaces(requestParameters: WatchVirtualMachineInstancetypeListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchVirtualMachineInstancetypeListForAllNamespaces(requestParameters: WatchVirtualMachineInstancetypeListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchVirtualMachineInstancetypeListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13418,7 +14378,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineList object.
      */
-    async watchVirtualMachineListForAllNamespacesRaw(requestParameters: WatchVirtualMachineListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchVirtualMachineListForAllNamespacesRaw(requestParameters: WatchVirtualMachineListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -13468,7 +14428,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineList object.
      */
-    async watchVirtualMachineListForAllNamespaces(requestParameters: WatchVirtualMachineListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchVirtualMachineListForAllNamespaces(requestParameters: WatchVirtualMachineListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchVirtualMachineListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13476,7 +14436,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachinePoolList object.
      */
-    async watchVirtualMachinePoolListForAllNamespacesRaw(requestParameters: WatchVirtualMachinePoolListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchVirtualMachinePoolListForAllNamespacesRaw(requestParameters: WatchVirtualMachinePoolListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -13514,7 +14474,7 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/apis/pool.kubevirt.io/v1alpha1/watch/virtualmachinepools`,
+            path: `/apis/pool.kubevirt.io/v1beta1/watch/virtualmachinepools`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -13526,7 +14486,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachinePoolList object.
      */
-    async watchVirtualMachinePoolListForAllNamespaces(requestParameters: WatchVirtualMachinePoolListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchVirtualMachinePoolListForAllNamespaces(requestParameters: WatchVirtualMachinePoolListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchVirtualMachinePoolListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13534,7 +14494,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachinePreferenceList object.
      */
-    async watchVirtualMachinePreferenceListForAllNamespacesRaw(requestParameters: WatchVirtualMachinePreferenceListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchVirtualMachinePreferenceListForAllNamespacesRaw(requestParameters: WatchVirtualMachinePreferenceListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -13584,7 +14544,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachinePreferenceList object.
      */
-    async watchVirtualMachinePreferenceListForAllNamespaces(requestParameters: WatchVirtualMachinePreferenceListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchVirtualMachinePreferenceListForAllNamespaces(requestParameters: WatchVirtualMachinePreferenceListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchVirtualMachinePreferenceListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13592,7 +14552,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineRestoreList object.
      */
-    async watchVirtualMachineRestoreListForAllNamespacesRaw(requestParameters: WatchVirtualMachineRestoreListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchVirtualMachineRestoreListForAllNamespacesRaw(requestParameters: WatchVirtualMachineRestoreListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -13642,7 +14602,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineRestoreList object.
      */
-    async watchVirtualMachineRestoreListForAllNamespaces(requestParameters: WatchVirtualMachineRestoreListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchVirtualMachineRestoreListForAllNamespaces(requestParameters: WatchVirtualMachineRestoreListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchVirtualMachineRestoreListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13650,7 +14610,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineSnapshotContentList object.
      */
-    async watchVirtualMachineSnapshotContentListForAllNamespacesRaw(requestParameters: WatchVirtualMachineSnapshotContentListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchVirtualMachineSnapshotContentListForAllNamespacesRaw(requestParameters: WatchVirtualMachineSnapshotContentListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -13700,7 +14660,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineSnapshotContentList object.
      */
-    async watchVirtualMachineSnapshotContentListForAllNamespaces(requestParameters: WatchVirtualMachineSnapshotContentListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchVirtualMachineSnapshotContentListForAllNamespaces(requestParameters: WatchVirtualMachineSnapshotContentListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchVirtualMachineSnapshotContentListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13708,7 +14668,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineSnapshotList object.
      */
-    async watchVirtualMachineSnapshotListForAllNamespacesRaw(requestParameters: WatchVirtualMachineSnapshotListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
+    async watchVirtualMachineSnapshotListForAllNamespacesRaw(requestParameters: WatchVirtualMachineSnapshotListForAllNamespacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<K8sIoApimachineryPkgApisMetaV1WatchEvent>> {
         const queryParameters: any = {};
 
         if (requestParameters._continue !== undefined) {
@@ -13758,7 +14718,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Watch a VirtualMachineSnapshotList object.
      */
-    async watchVirtualMachineSnapshotListForAllNamespaces(requestParameters: WatchVirtualMachineSnapshotListForAllNamespacesRequest, initOverrides?: RequestInit): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
+    async watchVirtualMachineSnapshotListForAllNamespaces(requestParameters: WatchVirtualMachineSnapshotListForAllNamespacesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<K8sIoApimachineryPkgApisMetaV1WatchEvent> {
         const response = await this.watchVirtualMachineSnapshotListForAllNamespacesRaw(requestParameters, initOverrides);
         return await response.value();
     }

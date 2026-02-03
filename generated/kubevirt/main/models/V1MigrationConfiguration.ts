@@ -133,6 +133,21 @@ export interface V1MigrationConfiguration {
      * @memberof V1MigrationConfiguration
      */
     unsafeMigrationOverride?: boolean;
+    /**
+     * UtilityVolumesTimeout is the maximum number of seconds a migration can wait in Pending state for utility volumes to be detached. If utility volumes are still present after this timeout, the migration will be marked as Failed. Defaults to 150
+     * @type {number}
+     * @memberof V1MigrationConfiguration
+     */
+    utilityVolumesTimeout?: number;
+}
+
+/**
+ * Check if a given object implements the V1MigrationConfiguration interface.
+ */
+export function instanceOfV1MigrationConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1MigrationConfigurationFromJSON(json: any): V1MigrationConfiguration {
@@ -158,6 +173,7 @@ export function V1MigrationConfigurationFromJSONTyped(json: any, ignoreDiscrimin
         'parallelOutboundMigrationsPerNode': !exists(json, 'parallelOutboundMigrationsPerNode') ? undefined : json['parallelOutboundMigrationsPerNode'],
         'progressTimeout': !exists(json, 'progressTimeout') ? undefined : json['progressTimeout'],
         'unsafeMigrationOverride': !exists(json, 'unsafeMigrationOverride') ? undefined : json['unsafeMigrationOverride'],
+        'utilityVolumesTimeout': !exists(json, 'utilityVolumesTimeout') ? undefined : json['utilityVolumesTimeout'],
     };
 }
 
@@ -183,6 +199,7 @@ export function V1MigrationConfigurationToJSON(value?: V1MigrationConfiguration 
         'parallelOutboundMigrationsPerNode': value.parallelOutboundMigrationsPerNode,
         'progressTimeout': value.progressTimeout,
         'unsafeMigrationOverride': value.unsafeMigrationOverride,
+        'utilityVolumesTimeout': value.utilityVolumesTimeout,
     };
 }
 

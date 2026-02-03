@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * If set (default), BIOS will be used.
  * @export
@@ -27,27 +26,6 @@ export interface V1BIOS {
   useSerial?: boolean;
 }
 
-export function V1BIOSFromJSON(json: any): V1BIOS {
-  return V1BIOSFromJSONTyped(json, false);
-}
-
-export function V1BIOSFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1BIOS {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    useSerial: !exists(json, 'useSerial') ? undefined : json['useSerial'],
-  };
-}
-
-export function V1BIOSToJSON(value?: V1BIOS | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    useSerial: value.useSerial,
-  };
-}
+/**
+ * Check if a given object implements the V1BIOS interface.
+ */

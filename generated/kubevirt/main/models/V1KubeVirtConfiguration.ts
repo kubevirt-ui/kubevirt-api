@@ -13,76 +13,120 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 import {
-    K8sIoApimachineryPkgApisMetaV1LabelSelector,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-    V1ArchConfiguration,
+} from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
+import type { V1ArchConfiguration } from './V1ArchConfiguration';
+import {
     V1ArchConfigurationFromJSON,
     V1ArchConfigurationFromJSONTyped,
     V1ArchConfigurationToJSON,
-    V1CommonInstancetypesDeployment,
+} from './V1ArchConfiguration';
+import type { V1ChangedBlockTrackingSelectors } from './V1ChangedBlockTrackingSelectors';
+import {
+    V1ChangedBlockTrackingSelectorsFromJSON,
+    V1ChangedBlockTrackingSelectorsFromJSONTyped,
+    V1ChangedBlockTrackingSelectorsToJSON,
+} from './V1ChangedBlockTrackingSelectors';
+import type { V1CommonInstancetypesDeployment } from './V1CommonInstancetypesDeployment';
+import {
     V1CommonInstancetypesDeploymentFromJSON,
     V1CommonInstancetypesDeploymentFromJSONTyped,
     V1CommonInstancetypesDeploymentToJSON,
-    V1DeveloperConfiguration,
+} from './V1CommonInstancetypesDeployment';
+import type { V1DeveloperConfiguration } from './V1DeveloperConfiguration';
+import {
     V1DeveloperConfigurationFromJSON,
     V1DeveloperConfigurationFromJSONTyped,
     V1DeveloperConfigurationToJSON,
-    V1InstancetypeConfiguration,
+} from './V1DeveloperConfiguration';
+import type { V1HypervisorConfiguration } from './V1HypervisorConfiguration';
+import {
+    V1HypervisorConfigurationFromJSON,
+    V1HypervisorConfigurationFromJSONTyped,
+    V1HypervisorConfigurationToJSON,
+} from './V1HypervisorConfiguration';
+import type { V1InstancetypeConfiguration } from './V1InstancetypeConfiguration';
+import {
     V1InstancetypeConfigurationFromJSON,
     V1InstancetypeConfigurationFromJSONTyped,
     V1InstancetypeConfigurationToJSON,
-    V1KSMConfiguration,
+} from './V1InstancetypeConfiguration';
+import type { V1KSMConfiguration } from './V1KSMConfiguration';
+import {
     V1KSMConfigurationFromJSON,
     V1KSMConfigurationFromJSONTyped,
     V1KSMConfigurationToJSON,
-    V1LiveUpdateConfiguration,
+} from './V1KSMConfiguration';
+import type { V1LiveUpdateConfiguration } from './V1LiveUpdateConfiguration';
+import {
     V1LiveUpdateConfigurationFromJSON,
     V1LiveUpdateConfigurationFromJSONTyped,
     V1LiveUpdateConfigurationToJSON,
-    V1MediatedDevicesConfiguration,
+} from './V1LiveUpdateConfiguration';
+import type { V1MediatedDevicesConfiguration } from './V1MediatedDevicesConfiguration';
+import {
     V1MediatedDevicesConfigurationFromJSON,
     V1MediatedDevicesConfigurationFromJSONTyped,
     V1MediatedDevicesConfigurationToJSON,
-    V1MigrationConfiguration,
+} from './V1MediatedDevicesConfiguration';
+import type { V1MigrationConfiguration } from './V1MigrationConfiguration';
+import {
     V1MigrationConfigurationFromJSON,
     V1MigrationConfigurationFromJSONTyped,
     V1MigrationConfigurationToJSON,
-    V1NetworkConfiguration,
+} from './V1MigrationConfiguration';
+import type { V1NetworkConfiguration } from './V1NetworkConfiguration';
+import {
     V1NetworkConfigurationFromJSON,
     V1NetworkConfigurationFromJSONTyped,
     V1NetworkConfigurationToJSON,
-    V1PermittedHostDevices,
+} from './V1NetworkConfiguration';
+import type { V1PermittedHostDevices } from './V1PermittedHostDevices';
+import {
     V1PermittedHostDevicesFromJSON,
     V1PermittedHostDevicesFromJSONTyped,
     V1PermittedHostDevicesToJSON,
-    V1ReloadableComponentConfiguration,
+} from './V1PermittedHostDevices';
+import type { V1ReloadableComponentConfiguration } from './V1ReloadableComponentConfiguration';
+import {
     V1ReloadableComponentConfigurationFromJSON,
     V1ReloadableComponentConfigurationFromJSONTyped,
     V1ReloadableComponentConfigurationToJSON,
-    V1SMBiosConfiguration,
+} from './V1ReloadableComponentConfiguration';
+import type { V1SMBiosConfiguration } from './V1SMBiosConfiguration';
+import {
     V1SMBiosConfigurationFromJSON,
     V1SMBiosConfigurationFromJSONTyped,
     V1SMBiosConfigurationToJSON,
-    V1SeccompConfiguration,
+} from './V1SMBiosConfiguration';
+import type { V1SeccompConfiguration } from './V1SeccompConfiguration';
+import {
     V1SeccompConfigurationFromJSON,
     V1SeccompConfigurationFromJSONTyped,
     V1SeccompConfigurationToJSON,
-    V1SupportContainerResources,
+} from './V1SeccompConfiguration';
+import type { V1SupportContainerResources } from './V1SupportContainerResources';
+import {
     V1SupportContainerResourcesFromJSON,
     V1SupportContainerResourcesFromJSONTyped,
     V1SupportContainerResourcesToJSON,
-    V1TLSConfiguration,
+} from './V1SupportContainerResources';
+import type { V1TLSConfiguration } from './V1TLSConfiguration';
+import {
     V1TLSConfigurationFromJSON,
     V1TLSConfigurationFromJSONTyped,
     V1TLSConfigurationToJSON,
-    V1VirtualMachineOptions,
+} from './V1TLSConfiguration';
+import type { V1VirtualMachineOptions } from './V1VirtualMachineOptions';
+import {
     V1VirtualMachineOptionsFromJSON,
     V1VirtualMachineOptionsFromJSONTyped,
     V1VirtualMachineOptionsToJSON,
-} from './';
+} from './V1VirtualMachineOptions';
 
 /**
  * KubeVirtConfiguration holds all kubevirt configurations
@@ -114,6 +158,12 @@ export interface V1KubeVirtConfiguration {
      * @memberof V1KubeVirtConfiguration
      */
     autoCPULimitNamespaceLabelSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
+    /**
+     * 
+     * @type {V1ChangedBlockTrackingSelectors}
+     * @memberof V1KubeVirtConfiguration
+     */
+    changedBlockTrackingLabelSelectors?: V1ChangedBlockTrackingSelectors;
     /**
      * 
      * @type {V1CommonInstancetypesDeployment}
@@ -205,6 +255,12 @@ export interface V1KubeVirtConfiguration {
      */
     handlerConfiguration?: V1ReloadableComponentConfiguration;
     /**
+     * Hypervisors holds information regarding the hypervisor configurations supported on this cluster.
+     * @type {Array<V1HypervisorConfiguration>}
+     * @memberof V1KubeVirtConfiguration
+     */
+    hypervisors?: Array<V1HypervisorConfiguration>;
+    /**
      * Possible enum values:
      *  - `"Always"` means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.
      *  - `"IfNotPresent"` means that kubelet pulls if the image isn't present on disk. Container will fail if the image isn't present and the pull fails.
@@ -256,7 +312,7 @@ export interface V1KubeVirtConfiguration {
      */
     migrations?: V1MigrationConfiguration;
     /**
-     * 
+     * deprecated
      * @type {string}
      * @memberof V1KubeVirtConfiguration
      */
@@ -353,14 +409,25 @@ export interface V1KubeVirtConfiguration {
     webhookConfiguration?: V1ReloadableComponentConfiguration;
 }
 
+
 /**
-* @export
-* @enum {string}
-*/
-export enum V1KubeVirtConfigurationImagePullPolicyEnum {
-    Always = 'Always',
-    IfNotPresent = 'IfNotPresent',
-    Never = 'Never'
+ * @export
+ */
+export const V1KubeVirtConfigurationImagePullPolicyEnum = {
+    Always: 'Always',
+    IfNotPresent: 'IfNotPresent',
+    Never: 'Never'
+} as const;
+export type V1KubeVirtConfigurationImagePullPolicyEnum = typeof V1KubeVirtConfigurationImagePullPolicyEnum[keyof typeof V1KubeVirtConfigurationImagePullPolicyEnum];
+
+
+/**
+ * Check if a given object implements the V1KubeVirtConfiguration interface.
+ */
+export function instanceOfV1KubeVirtConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1KubeVirtConfigurationFromJSON(json: any): V1KubeVirtConfiguration {
@@ -377,6 +444,7 @@ export function V1KubeVirtConfigurationFromJSONTyped(json: any, ignoreDiscrimina
         'apiConfiguration': !exists(json, 'apiConfiguration') ? undefined : V1ReloadableComponentConfigurationFromJSON(json['apiConfiguration']),
         'architectureConfiguration': !exists(json, 'architectureConfiguration') ? undefined : V1ArchConfigurationFromJSON(json['architectureConfiguration']),
         'autoCPULimitNamespaceLabelSelector': !exists(json, 'autoCPULimitNamespaceLabelSelector') ? undefined : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['autoCPULimitNamespaceLabelSelector']),
+        'changedBlockTrackingLabelSelectors': !exists(json, 'changedBlockTrackingLabelSelectors') ? undefined : V1ChangedBlockTrackingSelectorsFromJSON(json['changedBlockTrackingLabelSelectors']),
         'commonInstancetypesDeployment': !exists(json, 'commonInstancetypesDeployment') ? undefined : V1CommonInstancetypesDeploymentFromJSON(json['commonInstancetypesDeployment']),
         'controllerConfiguration': !exists(json, 'controllerConfiguration') ? undefined : V1ReloadableComponentConfigurationFromJSON(json['controllerConfiguration']),
         'cpuModel': !exists(json, 'cpuModel') ? undefined : json['cpuModel'],
@@ -386,6 +454,7 @@ export function V1KubeVirtConfigurationFromJSONTyped(json: any, ignoreDiscrimina
         'emulatedMachines': !exists(json, 'emulatedMachines') ? undefined : json['emulatedMachines'],
         'evictionStrategy': !exists(json, 'evictionStrategy') ? undefined : json['evictionStrategy'],
         'handlerConfiguration': !exists(json, 'handlerConfiguration') ? undefined : V1ReloadableComponentConfigurationFromJSON(json['handlerConfiguration']),
+        'hypervisors': !exists(json, 'hypervisors') ? undefined : ((json['hypervisors'] as Array<any>).map(V1HypervisorConfigurationFromJSON)),
         'imagePullPolicy': !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
         'instancetype': !exists(json, 'instancetype') ? undefined : V1InstancetypeConfigurationFromJSON(json['instancetype']),
         'ksmConfiguration': !exists(json, 'ksmConfiguration') ? undefined : V1KSMConfigurationFromJSON(json['ksmConfiguration']),
@@ -426,6 +495,7 @@ export function V1KubeVirtConfigurationToJSON(value?: V1KubeVirtConfiguration | 
         'apiConfiguration': V1ReloadableComponentConfigurationToJSON(value.apiConfiguration),
         'architectureConfiguration': V1ArchConfigurationToJSON(value.architectureConfiguration),
         'autoCPULimitNamespaceLabelSelector': K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.autoCPULimitNamespaceLabelSelector),
+        'changedBlockTrackingLabelSelectors': V1ChangedBlockTrackingSelectorsToJSON(value.changedBlockTrackingLabelSelectors),
         'commonInstancetypesDeployment': V1CommonInstancetypesDeploymentToJSON(value.commonInstancetypesDeployment),
         'controllerConfiguration': V1ReloadableComponentConfigurationToJSON(value.controllerConfiguration),
         'cpuModel': value.cpuModel,
@@ -435,6 +505,7 @@ export function V1KubeVirtConfigurationToJSON(value?: V1KubeVirtConfiguration | 
         'emulatedMachines': value.emulatedMachines,
         'evictionStrategy': value.evictionStrategy,
         'handlerConfiguration': V1ReloadableComponentConfigurationToJSON(value.handlerConfiguration),
+        'hypervisors': value.hypervisors === undefined ? undefined : ((value.hypervisors as Array<any>).map(V1HypervisorConfigurationToJSON)),
         'imagePullPolicy': value.imagePullPolicy,
         'instancetype': V1InstancetypeConfigurationToJSON(value.instancetype),
         'ksmConfiguration': V1KSMConfigurationToJSON(value.ksmConfiguration),

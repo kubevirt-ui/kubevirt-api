@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1PersistentVolumeClaimInfo,
-  V1PersistentVolumeClaimInfoFromJSON,
-  V1PersistentVolumeClaimInfoToJSON,
-} from './';
-
+import type { V1PersistentVolumeClaimInfo } from './V1PersistentVolumeClaimInfo';
 /**
  * StorageMigratedVolumeInfo tracks the information about the source and destination volumes during the volume migration
  * @export
@@ -45,38 +39,6 @@ export interface V1StorageMigratedVolumeInfo {
   volumeName: string;
 }
 
-export function V1StorageMigratedVolumeInfoFromJSON(json: any): V1StorageMigratedVolumeInfo {
-  return V1StorageMigratedVolumeInfoFromJSONTyped(json, false);
-}
-
-export function V1StorageMigratedVolumeInfoFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1StorageMigratedVolumeInfo {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    destinationPVCInfo: !exists(json, 'destinationPVCInfo')
-      ? undefined
-      : V1PersistentVolumeClaimInfoFromJSON(json['destinationPVCInfo']),
-    sourcePVCInfo: !exists(json, 'sourcePVCInfo')
-      ? undefined
-      : V1PersistentVolumeClaimInfoFromJSON(json['sourcePVCInfo']),
-    volumeName: json['volumeName'],
-  };
-}
-
-export function V1StorageMigratedVolumeInfoToJSON(value?: V1StorageMigratedVolumeInfo | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    destinationPVCInfo: V1PersistentVolumeClaimInfoToJSON(value.destinationPVCInfo),
-    sourcePVCInfo: V1PersistentVolumeClaimInfoToJSON(value.sourcePVCInfo),
-    volumeName: value.volumeName,
-  };
-}
+/**
+ * Check if a given object implements the V1StorageMigratedVolumeInfo interface.
+ */

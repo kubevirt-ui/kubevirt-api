@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1DeviceResourceClaimStatus,
-  V1DeviceResourceClaimStatusFromJSON,
-  V1DeviceResourceClaimStatusToJSON,
-} from './';
-
+import type { V1DeviceResourceClaimStatus } from './V1DeviceResourceClaimStatus';
 /**
  *
  * @export
@@ -39,34 +33,6 @@ export interface V1DeviceStatusInfo {
   name: string;
 }
 
-export function V1DeviceStatusInfoFromJSON(json: any): V1DeviceStatusInfo {
-  return V1DeviceStatusInfoFromJSONTyped(json, false);
-}
-
-export function V1DeviceStatusInfoFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DeviceStatusInfo {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    deviceResourceClaimStatus: !exists(json, 'deviceResourceClaimStatus')
-      ? undefined
-      : V1DeviceResourceClaimStatusFromJSON(json['deviceResourceClaimStatus']),
-    name: json['name'],
-  };
-}
-
-export function V1DeviceStatusInfoToJSON(value?: V1DeviceStatusInfo | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    deviceResourceClaimStatus: V1DeviceResourceClaimStatusToJSON(value.deviceResourceClaimStatus),
-    name: value.name,
-  };
-}
+/**
+ * Check if a given object implements the V1DeviceStatusInfo interface.
+ */

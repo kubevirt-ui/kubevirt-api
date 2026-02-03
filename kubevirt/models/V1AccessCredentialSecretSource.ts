@@ -26,32 +26,6 @@ export interface V1AccessCredentialSecretSource {
   secretName: string;
 }
 
-export function V1AccessCredentialSecretSourceFromJSON(json: any): V1AccessCredentialSecretSource {
-  return V1AccessCredentialSecretSourceFromJSONTyped(json, false);
-}
-
-export function V1AccessCredentialSecretSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1AccessCredentialSecretSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    secretName: json['secretName'],
-  };
-}
-
-export function V1AccessCredentialSecretSourceToJSON(
-  value?: V1AccessCredentialSecretSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    secretName: value.secretName,
-  };
-}
+/**
+ * Check if a given object implements the V1AccessCredentialSecretSource interface.
+ */

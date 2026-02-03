@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1VirtualMachineInstanceMigrationSource,
-  V1VirtualMachineInstanceMigrationSourceFromJSON,
-  V1VirtualMachineInstanceMigrationSourceToJSON,
-  V1VirtualMachineInstanceMigrationTarget,
-  V1VirtualMachineInstanceMigrationTargetFromJSON,
-  V1VirtualMachineInstanceMigrationTargetToJSON,
-} from './';
-
+import type { V1VirtualMachineInstanceMigrationSource } from './V1VirtualMachineInstanceMigrationSource';
+import type { V1VirtualMachineInstanceMigrationTarget } from './V1VirtualMachineInstanceMigrationTarget';
 /**
  *
  * @export
@@ -34,6 +26,12 @@ export interface V1VirtualMachineInstanceMigrationSpec {
    * @memberof V1VirtualMachineInstanceMigrationSpec
    */
   addedNodeSelector?: { [key: string]: string };
+  /**
+   * Priority of the migration. This can be one of `system-critical`, `user-triggered`, `system-maintenance`.
+   * @type {string}
+   * @memberof V1VirtualMachineInstanceMigrationSpec
+   */
+  priority?: string;
   /**
    *
    * @type {V1VirtualMachineInstanceMigrationTarget}
@@ -54,44 +52,6 @@ export interface V1VirtualMachineInstanceMigrationSpec {
   vmiName?: string;
 }
 
-export function V1VirtualMachineInstanceMigrationSpecFromJSON(
-  json: any,
-): V1VirtualMachineInstanceMigrationSpec {
-  return V1VirtualMachineInstanceMigrationSpecFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceMigrationSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceMigrationSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    addedNodeSelector: !exists(json, 'addedNodeSelector') ? undefined : json['addedNodeSelector'],
-    receive: !exists(json, 'receive')
-      ? undefined
-      : V1VirtualMachineInstanceMigrationTargetFromJSON(json['receive']),
-    sendTo: !exists(json, 'sendTo')
-      ? undefined
-      : V1VirtualMachineInstanceMigrationSourceFromJSON(json['sendTo']),
-    vmiName: !exists(json, 'vmiName') ? undefined : json['vmiName'],
-  };
-}
-
-export function V1VirtualMachineInstanceMigrationSpecToJSON(
-  value?: V1VirtualMachineInstanceMigrationSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    addedNodeSelector: value.addedNodeSelector,
-    receive: V1VirtualMachineInstanceMigrationTargetToJSON(value.receive),
-    sendTo: V1VirtualMachineInstanceMigrationSourceToJSON(value.sendTo),
-    vmiName: value.vmiName,
-  };
-}
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationSpec interface.
+ */

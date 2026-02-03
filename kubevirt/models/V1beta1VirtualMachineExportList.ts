@@ -12,16 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApimachineryPkgApisMetaV1ListMeta,
-  K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-  V1beta1VirtualMachineExport,
-  V1beta1VirtualMachineExportFromJSON,
-  V1beta1VirtualMachineExportToJSON,
-} from './';
-
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1beta1VirtualMachineExport } from './V1beta1VirtualMachineExport';
 /**
  * VirtualMachineExportList is a list of VirtualMachineExport resources
  * @export
@@ -54,40 +46,6 @@ export interface V1beta1VirtualMachineExportList {
   metadata: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
 
-export function V1beta1VirtualMachineExportListFromJSON(
-  json: any,
-): V1beta1VirtualMachineExportList {
-  return V1beta1VirtualMachineExportListFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineExportListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineExportList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1beta1VirtualMachineExportFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function V1beta1VirtualMachineExportListToJSON(
-  value?: V1beta1VirtualMachineExportList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1beta1VirtualMachineExportToJSON),
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
-}
+/**
+ * Check if a given object implements the V1beta1VirtualMachineExportList interface.
+ */

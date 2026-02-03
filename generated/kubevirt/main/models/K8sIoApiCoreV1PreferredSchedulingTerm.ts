@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1NodeSelectorTerm } from './K8sIoApiCoreV1NodeSelectorTerm';
 import {
-    K8sIoApiCoreV1NodeSelectorTerm,
     K8sIoApiCoreV1NodeSelectorTermFromJSON,
     K8sIoApiCoreV1NodeSelectorTermFromJSONTyped,
     K8sIoApiCoreV1NodeSelectorTermToJSON,
-} from './';
+} from './K8sIoApiCoreV1NodeSelectorTerm';
 
 /**
  * An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
@@ -38,6 +38,17 @@ export interface K8sIoApiCoreV1PreferredSchedulingTerm {
      * @memberof K8sIoApiCoreV1PreferredSchedulingTerm
      */
     weight: number;
+}
+
+/**
+ * Check if a given object implements the K8sIoApiCoreV1PreferredSchedulingTerm interface.
+ */
+export function instanceOfK8sIoApiCoreV1PreferredSchedulingTerm(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "preference" in value;
+    isInstance = isInstance && "weight" in value;
+
+    return isInstance;
 }
 
 export function K8sIoApiCoreV1PreferredSchedulingTermFromJSON(json: any): K8sIoApiCoreV1PreferredSchedulingTerm {

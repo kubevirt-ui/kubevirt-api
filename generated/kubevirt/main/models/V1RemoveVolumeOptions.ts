@@ -33,6 +33,16 @@ export interface V1RemoveVolumeOptions {
     name: string;
 }
 
+/**
+ * Check if a given object implements the V1RemoveVolumeOptions interface.
+ */
+export function instanceOfV1RemoveVolumeOptions(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
+}
+
 export function V1RemoveVolumeOptionsFromJSON(json: any): V1RemoveVolumeOptions {
     return V1RemoveVolumeOptionsFromJSONTyped(json, false);
 }

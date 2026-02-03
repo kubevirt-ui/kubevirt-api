@@ -33,6 +33,16 @@ export interface V1beta1DataVolumeSourceGCS {
     url: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1DataVolumeSourceGCS interface.
+ */
+export function instanceOfV1beta1DataVolumeSourceGCS(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "url" in value;
+
+    return isInstance;
+}
+
 export function V1beta1DataVolumeSourceGCSFromJSON(json: any): V1beta1DataVolumeSourceGCS {
     return V1beta1DataVolumeSourceGCSFromJSONTyped(json, false);
 }

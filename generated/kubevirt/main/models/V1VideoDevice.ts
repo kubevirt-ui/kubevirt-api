@@ -27,6 +27,15 @@ export interface V1VideoDevice {
     type?: string;
 }
 
+/**
+ * Check if a given object implements the V1VideoDevice interface.
+ */
+export function instanceOfV1VideoDevice(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1VideoDeviceFromJSON(json: any): V1VideoDevice {
     return V1VideoDeviceFromJSONTyped(json, false);
 }

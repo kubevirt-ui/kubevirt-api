@@ -33,6 +33,15 @@ export interface V1DeviceAttribute {
     pciAddress?: string;
 }
 
+/**
+ * Check if a given object implements the V1DeviceAttribute interface.
+ */
+export function instanceOfV1DeviceAttribute(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1DeviceAttributeFromJSON(json: any): V1DeviceAttribute {
     return V1DeviceAttributeFromJSONTyped(json, false);
 }

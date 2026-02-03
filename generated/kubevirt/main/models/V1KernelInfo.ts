@@ -27,6 +27,15 @@ export interface V1KernelInfo {
     checksum?: number;
 }
 
+/**
+ * Check if a given object implements the V1KernelInfo interface.
+ */
+export function instanceOfV1KernelInfo(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1KernelInfoFromJSON(json: any): V1KernelInfo {
     return V1KernelInfoFromJSONTyped(json, false);
 }

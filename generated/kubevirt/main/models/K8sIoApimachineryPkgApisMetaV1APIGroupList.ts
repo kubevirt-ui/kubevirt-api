@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1APIGroup } from './K8sIoApimachineryPkgApisMetaV1APIGroup';
 import {
-    K8sIoApimachineryPkgApisMetaV1APIGroup,
     K8sIoApimachineryPkgApisMetaV1APIGroupFromJSON,
     K8sIoApimachineryPkgApisMetaV1APIGroupFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1APIGroupToJSON,
-} from './';
+} from './K8sIoApimachineryPkgApisMetaV1APIGroup';
 
 /**
  * APIGroupList is a list of APIGroup, to allow clients to discover the API at /apis.
@@ -44,6 +44,16 @@ export interface K8sIoApimachineryPkgApisMetaV1APIGroupList {
      * @memberof K8sIoApimachineryPkgApisMetaV1APIGroupList
      */
     kind?: string;
+}
+
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1APIGroupList interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1APIGroupList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "groups" in value;
+
+    return isInstance;
 }
 
 export function K8sIoApimachineryPkgApisMetaV1APIGroupListFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1APIGroupList {

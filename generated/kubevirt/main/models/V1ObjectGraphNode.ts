@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1TypedObjectReference } from './K8sIoApiCoreV1TypedObjectReference';
 import {
-    K8sIoApiCoreV1TypedObjectReference,
     K8sIoApiCoreV1TypedObjectReferenceFromJSON,
     K8sIoApiCoreV1TypedObjectReferenceFromJSONTyped,
     K8sIoApiCoreV1TypedObjectReferenceToJSON,
-} from './';
+} from './K8sIoApiCoreV1TypedObjectReference';
 
 /**
  * ObjectGraphNode represents an individual node in the graph.
@@ -62,6 +62,16 @@ export interface V1ObjectGraphNode {
      * @memberof V1ObjectGraphNode
      */
     optional?: boolean;
+}
+
+/**
+ * Check if a given object implements the V1ObjectGraphNode interface.
+ */
+export function instanceOfV1ObjectGraphNode(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "objectReference" in value;
+
+    return isInstance;
 }
 
 export function V1ObjectGraphNodeFromJSON(json: any): V1ObjectGraphNode {

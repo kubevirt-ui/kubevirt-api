@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1CustomBlockSize } from './V1CustomBlockSize';
 import {
-    V1CustomBlockSize,
     V1CustomBlockSizeFromJSON,
     V1CustomBlockSizeFromJSONTyped,
     V1CustomBlockSizeToJSON,
-    V1FeatureState,
+} from './V1CustomBlockSize';
+import type { V1FeatureState } from './V1FeatureState';
+import {
     V1FeatureStateFromJSON,
     V1FeatureStateFromJSONTyped,
     V1FeatureStateToJSON,
-} from './';
+} from './V1FeatureState';
 
 /**
  * BlockSize provides the option to change the block size presented to the VM for a disk. Only one of its members may be specified.
@@ -42,6 +44,15 @@ export interface V1BlockSize {
      * @memberof V1BlockSize
      */
     matchVolume?: V1FeatureState;
+}
+
+/**
+ * Check if a given object implements the V1BlockSize interface.
+ */
+export function instanceOfV1BlockSize(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1BlockSizeFromJSON(json: any): V1BlockSize {

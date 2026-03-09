@@ -12,57 +12,62 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * VirtualMachineOptions holds the cluster level information regarding the virtual machine.
  * @export
  * @interface V1VirtualMachineOptions
  */
 export interface V1VirtualMachineOptions {
-  /**
-   *
-   * @type {object}
-   * @memberof V1VirtualMachineOptions
-   */
-  disableFreePageReporting?: object;
-  /**
-   *
-   * @type {object}
-   * @memberof V1VirtualMachineOptions
-   */
-  disableSerialConsoleLog?: object;
+    /**
+     * 
+     * @type {object}
+     * @memberof V1VirtualMachineOptions
+     */
+    disableFreePageReporting?: object;
+    /**
+     * 
+     * @type {object}
+     * @memberof V1VirtualMachineOptions
+     */
+    disableSerialConsoleLog?: object;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineOptions interface.
+ */
+export function instanceOfV1VirtualMachineOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineOptionsFromJSON(json: any): V1VirtualMachineOptions {
-  return V1VirtualMachineOptionsFromJSONTyped(json, false);
+    return V1VirtualMachineOptionsFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    disableFreePageReporting: !exists(json, 'disableFreePageReporting')
-      ? undefined
-      : json['disableFreePageReporting'],
-    disableSerialConsoleLog: !exists(json, 'disableSerialConsoleLog')
-      ? undefined
-      : json['disableSerialConsoleLog'],
-  };
+export function V1VirtualMachineOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineOptions {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'disableFreePageReporting': !exists(json, 'disableFreePageReporting') ? undefined : json['disableFreePageReporting'],
+        'disableSerialConsoleLog': !exists(json, 'disableSerialConsoleLog') ? undefined : json['disableSerialConsoleLog'],
+    };
 }
 
 export function V1VirtualMachineOptionsToJSON(value?: V1VirtualMachineOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    disableFreePageReporting: value.disableFreePageReporting,
-    disableSerialConsoleLog: value.disableSerialConsoleLog,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'disableFreePageReporting': value.disableFreePageReporting,
+        'disableSerialConsoleLog': value.disableSerialConsoleLog,
+    };
 }
+

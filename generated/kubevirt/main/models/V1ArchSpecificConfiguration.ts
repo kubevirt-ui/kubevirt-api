@@ -39,6 +39,15 @@ export interface V1ArchSpecificConfiguration {
     ovmfPath?: string;
 }
 
+/**
+ * Check if a given object implements the V1ArchSpecificConfiguration interface.
+ */
+export function instanceOfV1ArchSpecificConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ArchSpecificConfigurationFromJSON(json: any): V1ArchSpecificConfiguration {
     return V1ArchSpecificConfigurationFromJSONTyped(json, false);
 }

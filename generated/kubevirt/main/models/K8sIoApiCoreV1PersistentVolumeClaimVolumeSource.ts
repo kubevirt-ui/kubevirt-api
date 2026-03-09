@@ -33,6 +33,16 @@ export interface K8sIoApiCoreV1PersistentVolumeClaimVolumeSource {
     readOnly?: boolean;
 }
 
+/**
+ * Check if a given object implements the K8sIoApiCoreV1PersistentVolumeClaimVolumeSource interface.
+ */
+export function instanceOfK8sIoApiCoreV1PersistentVolumeClaimVolumeSource(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "claimName" in value;
+
+    return isInstance;
+}
+
 export function K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceFromJSON(json: any): K8sIoApiCoreV1PersistentVolumeClaimVolumeSource {
     return K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceFromJSONTyped(json, false);
 }

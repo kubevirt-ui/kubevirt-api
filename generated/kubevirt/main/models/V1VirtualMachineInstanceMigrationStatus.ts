@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1VirtualMachineInstanceMigrationCondition } from './V1VirtualMachineInstanceMigrationCondition';
 import {
-    V1VirtualMachineInstanceMigrationCondition,
     V1VirtualMachineInstanceMigrationConditionFromJSON,
     V1VirtualMachineInstanceMigrationConditionFromJSONTyped,
     V1VirtualMachineInstanceMigrationConditionToJSON,
-    V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp,
+} from './V1VirtualMachineInstanceMigrationCondition';
+import type { V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp } from './V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp';
+import {
     V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSON,
     V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSONTyped,
     V1VirtualMachineInstanceMigrationPhaseTransitionTimestampToJSON,
-    V1VirtualMachineInstanceMigrationState,
+} from './V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp';
+import type { V1VirtualMachineInstanceMigrationState } from './V1VirtualMachineInstanceMigrationState';
+import {
     V1VirtualMachineInstanceMigrationStateFromJSON,
     V1VirtualMachineInstanceMigrationStateFromJSONTyped,
     V1VirtualMachineInstanceMigrationStateToJSON,
-} from './';
+} from './V1VirtualMachineInstanceMigrationState';
 
 /**
  * VirtualMachineInstanceMigration reprents information pertaining to a VMI's migration.
@@ -64,6 +68,15 @@ export interface V1VirtualMachineInstanceMigrationStatus {
      * @memberof V1VirtualMachineInstanceMigrationStatus
      */
     synchronizationAddresses?: Array<string>;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationStatus interface.
+ */
+export function instanceOfV1VirtualMachineInstanceMigrationStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceMigrationStatusFromJSON(json: any): V1VirtualMachineInstanceMigrationStatus {

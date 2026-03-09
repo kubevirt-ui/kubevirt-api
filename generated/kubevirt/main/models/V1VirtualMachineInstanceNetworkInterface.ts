@@ -75,6 +75,15 @@ export interface V1VirtualMachineInstanceNetworkInterface {
     queueCount?: number;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceNetworkInterface interface.
+ */
+export function instanceOfV1VirtualMachineInstanceNetworkInterface(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineInstanceNetworkInterfaceFromJSON(json: any): V1VirtualMachineInstanceNetworkInterface {
     return V1VirtualMachineInstanceNetworkInterfaceFromJSONTyped(json, false);
 }

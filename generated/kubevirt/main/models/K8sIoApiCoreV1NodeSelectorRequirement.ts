@@ -47,17 +47,30 @@ export interface K8sIoApiCoreV1NodeSelectorRequirement {
     values?: Array<string>;
 }
 
+
 /**
-* @export
-* @enum {string}
-*/
-export enum K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum {
-    DoesNotExist = 'DoesNotExist',
-    Exists = 'Exists',
-    Gt = 'Gt',
-    In = 'In',
-    Lt = 'Lt',
-    NotIn = 'NotIn'
+ * @export
+ */
+export const K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum = {
+    DoesNotExist: 'DoesNotExist',
+    Exists: 'Exists',
+    Gt: 'Gt',
+    In: 'In',
+    Lt: 'Lt',
+    NotIn: 'NotIn'
+} as const;
+export type K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum = typeof K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum[keyof typeof K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum];
+
+
+/**
+ * Check if a given object implements the K8sIoApiCoreV1NodeSelectorRequirement interface.
+ */
+export function instanceOfK8sIoApiCoreV1NodeSelectorRequirement(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "key" in value;
+    isInstance = isInstance && "operator" in value;
+
+    return isInstance;
 }
 
 export function K8sIoApiCoreV1NodeSelectorRequirementFromJSON(json: any): K8sIoApiCoreV1NodeSelectorRequirement {

@@ -57,6 +57,19 @@ export interface V1GenerationStatus {
     resource: string;
 }
 
+/**
+ * Check if a given object implements the V1GenerationStatus interface.
+ */
+export function instanceOfV1GenerationStatus(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "group" in value;
+    isInstance = isInstance && "lastGeneration" in value;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "resource" in value;
+
+    return isInstance;
+}
+
 export function V1GenerationStatusFromJSON(json: any): V1GenerationStatus {
     return V1GenerationStatusFromJSONTyped(json, false);
 }

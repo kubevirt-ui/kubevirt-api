@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1FeatureState } from './V1FeatureState';
 import {
-    V1FeatureState,
     V1FeatureStateFromJSON,
     V1FeatureStateFromJSONTyped,
     V1FeatureStateToJSON,
-} from './';
+} from './V1FeatureState';
 
 /**
  * 
@@ -33,11 +33,20 @@ export interface V1SyNICTimer {
      */
     direct?: V1FeatureState;
     /**
-     * 
+     * Enabled determines if the feature should be enabled or disabled on the guest. Defaults to true.
      * @type {boolean}
      * @memberof V1SyNICTimer
      */
     enabled?: boolean;
+}
+
+/**
+ * Check if a given object implements the V1SyNICTimer interface.
+ */
+export function instanceOfV1SyNICTimer(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1SyNICTimerFromJSON(json: any): V1SyNICTimer {

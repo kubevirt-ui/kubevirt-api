@@ -33,6 +33,16 @@ export interface V1MultusNetwork {
     networkName: string;
 }
 
+/**
+ * Check if a given object implements the V1MultusNetwork interface.
+ */
+export function instanceOfV1MultusNetwork(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "networkName" in value;
+
+    return isInstance;
+}
+
 export function V1MultusNetworkFromJSON(json: any): V1MultusNetwork {
     return V1MultusNetworkFromJSONTyped(json, false);
 }

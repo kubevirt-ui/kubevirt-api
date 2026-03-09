@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1PodAffinityTerm } from './K8sIoApiCoreV1PodAffinityTerm';
 import {
-    K8sIoApiCoreV1PodAffinityTerm,
     K8sIoApiCoreV1PodAffinityTermFromJSON,
     K8sIoApiCoreV1PodAffinityTermFromJSONTyped,
     K8sIoApiCoreV1PodAffinityTermToJSON,
-    K8sIoApiCoreV1WeightedPodAffinityTerm,
+} from './K8sIoApiCoreV1PodAffinityTerm';
+import type { K8sIoApiCoreV1WeightedPodAffinityTerm } from './K8sIoApiCoreV1WeightedPodAffinityTerm';
+import {
     K8sIoApiCoreV1WeightedPodAffinityTermFromJSON,
     K8sIoApiCoreV1WeightedPodAffinityTermFromJSONTyped,
     K8sIoApiCoreV1WeightedPodAffinityTermToJSON,
-} from './';
+} from './K8sIoApiCoreV1WeightedPodAffinityTerm';
 
 /**
  * Pod affinity is a group of inter pod affinity scheduling rules.
@@ -42,6 +44,15 @@ export interface K8sIoApiCoreV1PodAffinity {
      * @memberof K8sIoApiCoreV1PodAffinity
      */
     requiredDuringSchedulingIgnoredDuringExecution?: Array<K8sIoApiCoreV1PodAffinityTerm>;
+}
+
+/**
+ * Check if a given object implements the K8sIoApiCoreV1PodAffinity interface.
+ */
+export function instanceOfK8sIoApiCoreV1PodAffinity(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function K8sIoApiCoreV1PodAffinityFromJSON(json: any): K8sIoApiCoreV1PodAffinity {

@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry } from './K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry';
 import {
-    K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry,
     K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSON,
     K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryToJSON,
-    K8sIoApimachineryPkgApisMetaV1OwnerReference,
+} from './K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry';
+import type { K8sIoApimachineryPkgApisMetaV1OwnerReference } from './K8sIoApimachineryPkgApisMetaV1OwnerReference';
+import {
     K8sIoApimachineryPkgApisMetaV1OwnerReferenceFromJSON,
     K8sIoApimachineryPkgApisMetaV1OwnerReferenceFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1OwnerReferenceToJSON,
-} from './';
+} from './K8sIoApimachineryPkgApisMetaV1OwnerReference';
 
 /**
  * ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.
@@ -132,6 +134,15 @@ export interface K8sIoApimachineryPkgApisMetaV1ObjectMeta {
     uid?: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1ObjectMeta interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1ObjectMeta(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1ObjectMeta {
     return K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped(json, false);
 }
@@ -143,9 +154,9 @@ export function K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped(json: any,
     return {
         
         'annotations': !exists(json, 'annotations') ? undefined : json['annotations'],
-        'creationTimestamp': !exists(json, 'creationTimestamp') ? undefined : (new Date(json['creationTimestamp'])),
+        'creationTimestamp': !exists(json, 'creationTimestamp') ? undefined : json['creationTimestamp'],
         'deletionGracePeriodSeconds': !exists(json, 'deletionGracePeriodSeconds') ? undefined : json['deletionGracePeriodSeconds'],
-        'deletionTimestamp': !exists(json, 'deletionTimestamp') ? undefined : (new Date(json['deletionTimestamp'])),
+        'deletionTimestamp': !exists(json, 'deletionTimestamp') ? undefined : json['deletionTimestamp'],
         'finalizers': !exists(json, 'finalizers') ? undefined : json['finalizers'],
         'generateName': !exists(json, 'generateName') ? undefined : json['generateName'],
         'generation': !exists(json, 'generation') ? undefined : json['generation'],
@@ -170,9 +181,9 @@ export function K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value?: K8sIoApim
     return {
         
         'annotations': value.annotations,
-        'creationTimestamp': value.creationTimestamp === undefined ? undefined : (value.creationTimestamp.toISOString()),
+        'creationTimestamp': value.creationTimestamp,
         'deletionGracePeriodSeconds': value.deletionGracePeriodSeconds,
-        'deletionTimestamp': value.deletionTimestamp === undefined ? undefined : (value.deletionTimestamp.toISOString()),
+        'deletionTimestamp': value.deletionTimestamp,
         'finalizers': value.finalizers,
         'generateName': value.generateName,
         'generation': value.generation,

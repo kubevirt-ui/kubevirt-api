@@ -39,6 +39,15 @@ export interface V1SecretVolumeSource {
     volumeLabel?: string;
 }
 
+/**
+ * Check if a given object implements the V1SecretVolumeSource interface.
+ */
+export function instanceOfV1SecretVolumeSource(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1SecretVolumeSourceFromJSON(json: any): V1SecretVolumeSource {
     return V1SecretVolumeSourceFromJSONTyped(json, false);
 }

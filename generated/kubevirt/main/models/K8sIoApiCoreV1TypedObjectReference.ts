@@ -45,6 +45,17 @@ export interface K8sIoApiCoreV1TypedObjectReference {
     namespace?: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApiCoreV1TypedObjectReference interface.
+ */
+export function instanceOfK8sIoApiCoreV1TypedObjectReference(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "kind" in value;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
+}
+
 export function K8sIoApiCoreV1TypedObjectReferenceFromJSON(json: any): K8sIoApiCoreV1TypedObjectReference {
     return K8sIoApiCoreV1TypedObjectReferenceFromJSONTyped(json, false);
 }

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation } from './V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation';
 import {
-    V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation,
     V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSON,
     V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationFromJSONTyped,
     V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagationToJSON,
-} from './';
+} from './V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation';
 
 /**
  * SSHPublicKeyAccessCredentialPropagationMethod represents the method used to inject a ssh public key into the vm guest. Only one of its members may be specified.
@@ -44,6 +44,15 @@ export interface V1SSHPublicKeyAccessCredentialPropagationMethod {
      * @memberof V1SSHPublicKeyAccessCredentialPropagationMethod
      */
     qemuGuestAgent?: V1QemuGuestAgentSSHPublicKeyAccessCredentialPropagation;
+}
+
+/**
+ * Check if a given object implements the V1SSHPublicKeyAccessCredentialPropagationMethod interface.
+ */
+export function instanceOfV1SSHPublicKeyAccessCredentialPropagationMethod(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1SSHPublicKeyAccessCredentialPropagationMethodFromJSON(json: any): V1SSHPublicKeyAccessCredentialPropagationMethod {

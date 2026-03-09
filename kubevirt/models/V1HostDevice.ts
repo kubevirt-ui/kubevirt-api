@@ -12,74 +12,87 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1HostDevice
  */
 export interface V1HostDevice {
-  /**
-   * ClaimName needs to be provided from the list vmi.spec.resourceClaims[].name where this device is allocated
-   * @type {string}
-   * @memberof V1HostDevice
-   */
-  claimName?: string;
-  /**
-   * DeviceName is the name of the device provisioned by device-plugins
-   * @type {string}
-   * @memberof V1HostDevice
-   */
-  deviceName?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1HostDevice
-   */
-  name: string;
-  /**
-   * RequestName needs to be provided from resourceClaim.spec.devices.requests[].name where this device is requested
-   * @type {string}
-   * @memberof V1HostDevice
-   */
-  requestName?: string;
-  /**
-   * If specified, the virtual network interface address and its tag will be provided to the guest via config drive
-   * @type {string}
-   * @memberof V1HostDevice
-   */
-  tag?: string;
+    /**
+     * ClaimName needs to be provided from the list vmi.spec.resourceClaims[].name where this device is allocated
+     * @type {string}
+     * @memberof V1HostDevice
+     */
+    claimName?: string;
+    /**
+     * DeviceName is the name of the device provisioned by device-plugins
+     * @type {string}
+     * @memberof V1HostDevice
+     */
+    deviceName?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1HostDevice
+     */
+    name: string;
+    /**
+     * RequestName needs to be provided from resourceClaim.spec.devices.requests[].name where this device is requested
+     * @type {string}
+     * @memberof V1HostDevice
+     */
+    requestName?: string;
+    /**
+     * If specified, the virtual network interface address and its tag will be provided to the guest via config drive
+     * @type {string}
+     * @memberof V1HostDevice
+     */
+    tag?: string;
+}
+
+/**
+ * Check if a given object implements the V1HostDevice interface.
+ */
+export function instanceOfV1HostDevice(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
 }
 
 export function V1HostDeviceFromJSON(json: any): V1HostDevice {
-  return V1HostDeviceFromJSONTyped(json, false);
+    return V1HostDeviceFromJSONTyped(json, false);
 }
 
-export function V1HostDeviceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1HostDevice {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    claimName: !exists(json, 'claimName') ? undefined : json['claimName'],
-    deviceName: !exists(json, 'deviceName') ? undefined : json['deviceName'],
-    name: json['name'],
-    requestName: !exists(json, 'requestName') ? undefined : json['requestName'],
-    tag: !exists(json, 'tag') ? undefined : json['tag'],
-  };
+export function V1HostDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1HostDevice {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'claimName': !exists(json, 'claimName') ? undefined : json['claimName'],
+        'deviceName': !exists(json, 'deviceName') ? undefined : json['deviceName'],
+        'name': json['name'],
+        'requestName': !exists(json, 'requestName') ? undefined : json['requestName'],
+        'tag': !exists(json, 'tag') ? undefined : json['tag'],
+    };
 }
 
 export function V1HostDeviceToJSON(value?: V1HostDevice | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    claimName: value.claimName,
-    deviceName: value.deviceName,
-    name: value.name,
-    requestName: value.requestName,
-    tag: value.tag,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'claimName': value.claimName,
+        'deviceName': value.deviceName,
+        'name': value.name,
+        'requestName': value.requestName,
+        'tag': value.tag,
+    };
 }
+

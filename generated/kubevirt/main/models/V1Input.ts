@@ -39,6 +39,17 @@ export interface V1Input {
     type: string;
 }
 
+/**
+ * Check if a given object implements the V1Input interface.
+ */
+export function instanceOfV1Input(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "type" in value;
+
+    return isInstance;
+}
+
 export function V1InputFromJSON(json: any): V1Input {
     return V1InputFromJSONTyped(json, false);
 }

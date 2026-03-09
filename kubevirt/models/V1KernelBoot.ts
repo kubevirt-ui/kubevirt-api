@@ -12,12 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { V1KernelBootContainer } from './V1KernelBootContainer';
 import {
-  V1KernelBootContainer,
-  V1KernelBootContainerFromJSON,
-  V1KernelBootContainerToJSON,
-} from './';
+    V1KernelBootContainerFromJSON,
+    V1KernelBootContainerFromJSONTyped,
+    V1KernelBootContainerToJSON,
+} from './V1KernelBootContainer';
 
 /**
  * Represents the firmware blob used to assist in the kernel boot process. Used for setting the kernel, initrd and command line arguments
@@ -25,45 +26,55 @@ import {
  * @interface V1KernelBoot
  */
 export interface V1KernelBoot {
-  /**
-   *
-   * @type {V1KernelBootContainer}
-   * @memberof V1KernelBoot
-   */
-  container?: V1KernelBootContainer;
-  /**
-   * Arguments to be passed to the kernel at boot time
-   * @type {string}
-   * @memberof V1KernelBoot
-   */
-  kernelArgs?: string;
+    /**
+     * 
+     * @type {V1KernelBootContainer}
+     * @memberof V1KernelBoot
+     */
+    container?: V1KernelBootContainer;
+    /**
+     * Arguments to be passed to the kernel at boot time
+     * @type {string}
+     * @memberof V1KernelBoot
+     */
+    kernelArgs?: string;
+}
+
+/**
+ * Check if a given object implements the V1KernelBoot interface.
+ */
+export function instanceOfV1KernelBoot(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1KernelBootFromJSON(json: any): V1KernelBoot {
-  return V1KernelBootFromJSONTyped(json, false);
+    return V1KernelBootFromJSONTyped(json, false);
 }
 
-export function V1KernelBootFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1KernelBoot {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    container: !exists(json, 'container')
-      ? undefined
-      : V1KernelBootContainerFromJSON(json['container']),
-    kernelArgs: !exists(json, 'kernelArgs') ? undefined : json['kernelArgs'],
-  };
+export function V1KernelBootFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KernelBoot {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'container': !exists(json, 'container') ? undefined : V1KernelBootContainerFromJSON(json['container']),
+        'kernelArgs': !exists(json, 'kernelArgs') ? undefined : json['kernelArgs'],
+    };
 }
 
 export function V1KernelBootToJSON(value?: V1KernelBoot | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    container: V1KernelBootContainerToJSON(value.container),
-    kernelArgs: value.kernelArgs,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'container': V1KernelBootContainerToJSON(value.container),
+        'kernelArgs': value.kernelArgs,
+    };
 }
+

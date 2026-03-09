@@ -45,6 +45,15 @@ export interface V1SEVPlatformInfo {
     pdh?: string;
 }
 
+/**
+ * Check if a given object implements the V1SEVPlatformInfo interface.
+ */
+export function instanceOfV1SEVPlatformInfo(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1SEVPlatformInfoFromJSON(json: any): V1SEVPlatformInfo {
     return V1SEVPlatformInfoFromJSONTyped(json, false);
 }

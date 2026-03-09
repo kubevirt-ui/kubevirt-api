@@ -81,6 +81,15 @@ export interface V1VirtualMachineInstanceMigrationSourceState {
     virtualMachineInstanceUID?: string;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationSourceState interface.
+ */
+export function instanceOfV1VirtualMachineInstanceMigrationSourceState(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineInstanceMigrationSourceStateFromJSON(json: any): V1VirtualMachineInstanceMigrationSourceState {
     return V1VirtualMachineInstanceMigrationSourceStateFromJSONTyped(json, false);
 }

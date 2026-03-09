@@ -13,40 +13,54 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1beta1DataVolumeSourceGCS } from './V1beta1DataVolumeSourceGCS';
 import {
-    V1beta1DataVolumeSourceGCS,
     V1beta1DataVolumeSourceGCSFromJSON,
     V1beta1DataVolumeSourceGCSFromJSONTyped,
     V1beta1DataVolumeSourceGCSToJSON,
-    V1beta1DataVolumeSourceHTTP,
+} from './V1beta1DataVolumeSourceGCS';
+import type { V1beta1DataVolumeSourceHTTP } from './V1beta1DataVolumeSourceHTTP';
+import {
     V1beta1DataVolumeSourceHTTPFromJSON,
     V1beta1DataVolumeSourceHTTPFromJSONTyped,
     V1beta1DataVolumeSourceHTTPToJSON,
-    V1beta1DataVolumeSourceImageIO,
+} from './V1beta1DataVolumeSourceHTTP';
+import type { V1beta1DataVolumeSourceImageIO } from './V1beta1DataVolumeSourceImageIO';
+import {
     V1beta1DataVolumeSourceImageIOFromJSON,
     V1beta1DataVolumeSourceImageIOFromJSONTyped,
     V1beta1DataVolumeSourceImageIOToJSON,
-    V1beta1DataVolumeSourcePVC,
+} from './V1beta1DataVolumeSourceImageIO';
+import type { V1beta1DataVolumeSourcePVC } from './V1beta1DataVolumeSourcePVC';
+import {
     V1beta1DataVolumeSourcePVCFromJSON,
     V1beta1DataVolumeSourcePVCFromJSONTyped,
     V1beta1DataVolumeSourcePVCToJSON,
-    V1beta1DataVolumeSourceRegistry,
+} from './V1beta1DataVolumeSourcePVC';
+import type { V1beta1DataVolumeSourceRegistry } from './V1beta1DataVolumeSourceRegistry';
+import {
     V1beta1DataVolumeSourceRegistryFromJSON,
     V1beta1DataVolumeSourceRegistryFromJSONTyped,
     V1beta1DataVolumeSourceRegistryToJSON,
-    V1beta1DataVolumeSourceS3,
+} from './V1beta1DataVolumeSourceRegistry';
+import type { V1beta1DataVolumeSourceS3 } from './V1beta1DataVolumeSourceS3';
+import {
     V1beta1DataVolumeSourceS3FromJSON,
     V1beta1DataVolumeSourceS3FromJSONTyped,
     V1beta1DataVolumeSourceS3ToJSON,
-    V1beta1DataVolumeSourceSnapshot,
+} from './V1beta1DataVolumeSourceS3';
+import type { V1beta1DataVolumeSourceSnapshot } from './V1beta1DataVolumeSourceSnapshot';
+import {
     V1beta1DataVolumeSourceSnapshotFromJSON,
     V1beta1DataVolumeSourceSnapshotFromJSONTyped,
     V1beta1DataVolumeSourceSnapshotToJSON,
-    V1beta1DataVolumeSourceVDDK,
+} from './V1beta1DataVolumeSourceSnapshot';
+import type { V1beta1DataVolumeSourceVDDK } from './V1beta1DataVolumeSourceVDDK';
+import {
     V1beta1DataVolumeSourceVDDKFromJSON,
     V1beta1DataVolumeSourceVDDKFromJSONTyped,
     V1beta1DataVolumeSourceVDDKToJSON,
-} from './';
+} from './V1beta1DataVolumeSourceVDDK';
 
 /**
  * DataVolumeSource represents the source for our Data Volume, this can be HTTP, Imageio, S3, GCS, Registry or an existing PVC
@@ -114,6 +128,15 @@ export interface V1beta1DataVolumeSource {
      * @memberof V1beta1DataVolumeSource
      */
     vddk?: V1beta1DataVolumeSourceVDDK;
+}
+
+/**
+ * Check if a given object implements the V1beta1DataVolumeSource interface.
+ */
+export function instanceOfV1beta1DataVolumeSource(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1beta1DataVolumeSourceFromJSON(json: any): V1beta1DataVolumeSource {

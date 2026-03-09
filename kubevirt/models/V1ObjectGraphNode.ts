@@ -12,12 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1TypedObjectReference } from './K8sIoApiCoreV1TypedObjectReference';
 import {
-  K8sIoApiCoreV1TypedObjectReference,
-  K8sIoApiCoreV1TypedObjectReferenceFromJSON,
-  K8sIoApiCoreV1TypedObjectReferenceToJSON,
-} from './';
+    K8sIoApiCoreV1TypedObjectReferenceFromJSON,
+    K8sIoApiCoreV1TypedObjectReferenceFromJSONTyped,
+    K8sIoApiCoreV1TypedObjectReferenceToJSON,
+} from './K8sIoApiCoreV1TypedObjectReference';
 
 /**
  * ObjectGraphNode represents an individual node in the graph.
@@ -25,83 +26,88 @@ import {
  * @interface V1ObjectGraphNode
  */
 export interface V1ObjectGraphNode {
-  /**
-   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-   * @type {string}
-   * @memberof V1ObjectGraphNode
-   */
-  apiVersion?: string;
-  /**
-   *
-   * @type {Array<V1ObjectGraphNode>}
-   * @memberof V1ObjectGraphNode
-   */
-  children?: Array<V1ObjectGraphNode>;
-  /**
-   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   * @type {string}
-   * @memberof V1ObjectGraphNode
-   */
-  kind?: string;
-  /**
-   *
-   * @type {{ [key: string]: string; }}
-   * @memberof V1ObjectGraphNode
-   */
-  labels?: { [key: string]: string };
-  /**
-   *
-   * @type {K8sIoApiCoreV1TypedObjectReference}
-   * @memberof V1ObjectGraphNode
-   */
-  objectReference: K8sIoApiCoreV1TypedObjectReference;
-  /**
-   *
-   * @type {boolean}
-   * @memberof V1ObjectGraphNode
-   */
-  optional?: boolean;
+    /**
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+     * @type {string}
+     * @memberof V1ObjectGraphNode
+     */
+    apiVersion?: string;
+    /**
+     * 
+     * @type {Array<V1ObjectGraphNode>}
+     * @memberof V1ObjectGraphNode
+     */
+    children?: Array<V1ObjectGraphNode>;
+    /**
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+     * @type {string}
+     * @memberof V1ObjectGraphNode
+     */
+    kind?: string;
+    /**
+     * 
+     * @type {{ [key: string]: string; }}
+     * @memberof V1ObjectGraphNode
+     */
+    labels?: { [key: string]: string; };
+    /**
+     * 
+     * @type {K8sIoApiCoreV1TypedObjectReference}
+     * @memberof V1ObjectGraphNode
+     */
+    objectReference: K8sIoApiCoreV1TypedObjectReference;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof V1ObjectGraphNode
+     */
+    optional?: boolean;
+}
+
+/**
+ * Check if a given object implements the V1ObjectGraphNode interface.
+ */
+export function instanceOfV1ObjectGraphNode(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "objectReference" in value;
+
+    return isInstance;
 }
 
 export function V1ObjectGraphNodeFromJSON(json: any): V1ObjectGraphNode {
-  return V1ObjectGraphNodeFromJSONTyped(json, false);
+    return V1ObjectGraphNodeFromJSONTyped(json, false);
 }
 
-export function V1ObjectGraphNodeFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1ObjectGraphNode {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    children: !exists(json, 'children')
-      ? undefined
-      : (json['children'] as Array<any>).map(V1ObjectGraphNodeFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    labels: !exists(json, 'labels') ? undefined : json['labels'],
-    objectReference: K8sIoApiCoreV1TypedObjectReferenceFromJSON(json['objectReference']),
-    optional: !exists(json, 'optional') ? undefined : json['optional'],
-  };
+export function V1ObjectGraphNodeFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ObjectGraphNode {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+        'children': !exists(json, 'children') ? undefined : ((json['children'] as Array<any>).map(V1ObjectGraphNodeFromJSON)),
+        'kind': !exists(json, 'kind') ? undefined : json['kind'],
+        'labels': !exists(json, 'labels') ? undefined : json['labels'],
+        'objectReference': K8sIoApiCoreV1TypedObjectReferenceFromJSON(json['objectReference']),
+        'optional': !exists(json, 'optional') ? undefined : json['optional'],
+    };
 }
 
 export function V1ObjectGraphNodeToJSON(value?: V1ObjectGraphNode | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    children:
-      value.children === undefined
-        ? undefined
-        : (value.children as Array<any>).map(V1ObjectGraphNodeToJSON),
-    kind: value.kind,
-    labels: value.labels,
-    objectReference: K8sIoApiCoreV1TypedObjectReferenceToJSON(value.objectReference),
-    optional: value.optional,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'apiVersion': value.apiVersion,
+        'children': value.children === undefined ? undefined : ((value.children as Array<any>).map(V1ObjectGraphNodeToJSON)),
+        'kind': value.kind,
+        'labels': value.labels,
+        'objectReference': K8sIoApiCoreV1TypedObjectReferenceToJSON(value.objectReference),
+        'optional': value.optional,
+    };
 }
+

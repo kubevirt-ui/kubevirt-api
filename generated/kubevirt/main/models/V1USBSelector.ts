@@ -33,6 +33,17 @@ export interface V1USBSelector {
     vendor: string;
 }
 
+/**
+ * Check if a given object implements the V1USBSelector interface.
+ */
+export function instanceOfV1USBSelector(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "product" in value;
+    isInstance = isInstance && "vendor" in value;
+
+    return isInstance;
+}
+
 export function V1USBSelectorFromJSON(json: any): V1USBSelector {
     return V1USBSelectorFromJSONTyped(json, false);
 }

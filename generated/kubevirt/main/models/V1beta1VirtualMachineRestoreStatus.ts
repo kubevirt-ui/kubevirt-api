@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1beta1Condition } from './V1beta1Condition';
 import {
-    V1beta1Condition,
     V1beta1ConditionFromJSON,
     V1beta1ConditionFromJSONTyped,
     V1beta1ConditionToJSON,
-    V1beta1VolumeRestore,
+} from './V1beta1Condition';
+import type { V1beta1VolumeRestore } from './V1beta1VolumeRestore';
+import {
     V1beta1VolumeRestoreFromJSON,
     V1beta1VolumeRestoreFromJSONTyped,
     V1beta1VolumeRestoreToJSON,
-} from './';
+} from './V1beta1VolumeRestore';
 
 /**
  * VirtualMachineRestoreStatus is the status for a VirtualMachineRestore resource
@@ -62,6 +64,15 @@ export interface V1beta1VirtualMachineRestoreStatus {
     restores?: Array<V1beta1VolumeRestore>;
 }
 
+/**
+ * Check if a given object implements the V1beta1VirtualMachineRestoreStatus interface.
+ */
+export function instanceOfV1beta1VirtualMachineRestoreStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1beta1VirtualMachineRestoreStatusFromJSON(json: any): V1beta1VirtualMachineRestoreStatus {
     return V1beta1VirtualMachineRestoreStatusFromJSONTyped(json, false);
 }
@@ -75,7 +86,7 @@ export function V1beta1VirtualMachineRestoreStatusFromJSONTyped(json: any, ignor
         'complete': !exists(json, 'complete') ? undefined : json['complete'],
         'conditions': !exists(json, 'conditions') ? undefined : ((json['conditions'] as Array<any>).map(V1beta1ConditionFromJSON)),
         'deletedDataVolumes': !exists(json, 'deletedDataVolumes') ? undefined : json['deletedDataVolumes'],
-        'restoreTime': !exists(json, 'restoreTime') ? undefined : (new Date(json['restoreTime'])),
+        'restoreTime': !exists(json, 'restoreTime') ? undefined : json['restoreTime'],
         'restores': !exists(json, 'restores') ? undefined : ((json['restores'] as Array<any>).map(V1beta1VolumeRestoreFromJSON)),
     };
 }
@@ -92,7 +103,7 @@ export function V1beta1VirtualMachineRestoreStatusToJSON(value?: V1beta1VirtualM
         'complete': value.complete,
         'conditions': value.conditions === undefined ? undefined : ((value.conditions as Array<any>).map(V1beta1ConditionToJSON)),
         'deletedDataVolumes': value.deletedDataVolumes,
-        'restoreTime': value.restoreTime === undefined ? undefined : (value.restoreTime.toISOString()),
+        'restoreTime': value.restoreTime,
         'restores': value.restores === undefined ? undefined : ((value.restores as Array<any>).map(V1beta1VolumeRestoreToJSON)),
     };
 }

@@ -12,47 +12,77 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1SEV, V1SEVFromJSON, V1SEVToJSON } from './';
+import { exists, mapValues } from '../runtime';
+import type { V1SEV } from './V1SEV';
+import {
+    V1SEVFromJSON,
+    V1SEVFromJSONTyped,
+    V1SEVToJSON,
+} from './V1SEV';
 
 /**
- *
+ * 
  * @export
  * @interface V1LaunchSecurity
  */
 export interface V1LaunchSecurity {
-  /**
-   *
-   * @type {V1SEV}
-   * @memberof V1LaunchSecurity
-   */
-  sev?: V1SEV;
+    /**
+     * 
+     * @type {V1SEV}
+     * @memberof V1LaunchSecurity
+     */
+    sev?: V1SEV;
+    /**
+     * 
+     * @type {object}
+     * @memberof V1LaunchSecurity
+     */
+    snp?: object;
+    /**
+     * 
+     * @type {object}
+     * @memberof V1LaunchSecurity
+     */
+    tdx?: object;
+}
+
+/**
+ * Check if a given object implements the V1LaunchSecurity interface.
+ */
+export function instanceOfV1LaunchSecurity(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1LaunchSecurityFromJSON(json: any): V1LaunchSecurity {
-  return V1LaunchSecurityFromJSONTyped(json, false);
+    return V1LaunchSecurityFromJSONTyped(json, false);
 }
 
-export function V1LaunchSecurityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1LaunchSecurity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    sev: !exists(json, 'sev') ? undefined : V1SEVFromJSON(json['sev']),
-  };
+export function V1LaunchSecurityFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1LaunchSecurity {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'sev': !exists(json, 'sev') ? undefined : V1SEVFromJSON(json['sev']),
+        'snp': !exists(json, 'snp') ? undefined : json['snp'],
+        'tdx': !exists(json, 'tdx') ? undefined : json['tdx'],
+    };
 }
 
 export function V1LaunchSecurityToJSON(value?: V1LaunchSecurity | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    sev: V1SEVToJSON(value.sev),
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'sev': V1SEVToJSON(value.sev),
+        'snp': value.snp,
+        'tdx': value.tdx,
+    };
 }
+

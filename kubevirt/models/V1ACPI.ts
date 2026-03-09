@@ -12,50 +12,62 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1ACPI
  */
 export interface V1ACPI {
-  /**
-   * Similar to SlicNameRef, another ACPI entry that is used in more recent Windows versions. The above points to the spec of MSDM too.
-   * @type {string}
-   * @memberof V1ACPI
-   */
-  msdmNameRef?: string;
-  /**
-   * SlicNameRef should match the volume name of a secret object. The data in the secret should be a binary blob that follows the ACPI SLIC standard, see: https://learn.microsoft.com/en-us/previous-versions/windows/hardware/design/dn653305(v=vs.85)
-   * @type {string}
-   * @memberof V1ACPI
-   */
-  slicNameRef?: string;
+    /**
+     * Similar to SlicNameRef, another ACPI entry that is used in more recent Windows versions. The above points to the spec of MSDM too.
+     * @type {string}
+     * @memberof V1ACPI
+     */
+    msdmNameRef?: string;
+    /**
+     * SlicNameRef should match the volume name of a secret object. The data in the secret should be a binary blob that follows the ACPI SLIC standard, see: https://learn.microsoft.com/en-us/previous-versions/windows/hardware/design/dn653305(v=vs.85)
+     * @type {string}
+     * @memberof V1ACPI
+     */
+    slicNameRef?: string;
+}
+
+/**
+ * Check if a given object implements the V1ACPI interface.
+ */
+export function instanceOfV1ACPI(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ACPIFromJSON(json: any): V1ACPI {
-  return V1ACPIFromJSONTyped(json, false);
+    return V1ACPIFromJSONTyped(json, false);
 }
 
-export function V1ACPIFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ACPI {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    msdmNameRef: !exists(json, 'msdmNameRef') ? undefined : json['msdmNameRef'],
-    slicNameRef: !exists(json, 'slicNameRef') ? undefined : json['slicNameRef'],
-  };
+export function V1ACPIFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ACPI {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'msdmNameRef': !exists(json, 'msdmNameRef') ? undefined : json['msdmNameRef'],
+        'slicNameRef': !exists(json, 'slicNameRef') ? undefined : json['slicNameRef'],
+    };
 }
 
 export function V1ACPIToJSON(value?: V1ACPI | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    msdmNameRef: value.msdmNameRef,
-    slicNameRef: value.slicNameRef,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'msdmNameRef': value.msdmNameRef,
+        'slicNameRef': value.slicNameRef,
+    };
 }
+

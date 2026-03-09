@@ -33,6 +33,15 @@ export interface V1HPETTimer {
     tickPolicy?: string;
 }
 
+/**
+ * Check if a given object implements the V1HPETTimer interface.
+ */
+export function instanceOfV1HPETTimer(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HPETTimerFromJSON(json: any): V1HPETTimer {
     return V1HPETTimerFromJSONTyped(json, false);
 }

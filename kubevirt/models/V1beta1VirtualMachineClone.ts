@@ -12,18 +12,25 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-  K8sIoApimachineryPkgApisMetaV1ObjectMeta,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-  V1beta1VirtualMachineCloneSpec,
-  V1beta1VirtualMachineCloneSpecFromJSON,
-  V1beta1VirtualMachineCloneSpecToJSON,
-  V1beta1VirtualMachineCloneStatus,
-  V1beta1VirtualMachineCloneStatusFromJSON,
-  V1beta1VirtualMachineCloneStatusToJSON,
-} from './';
+    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
+    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
+    K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1beta1VirtualMachineCloneSpec } from './V1beta1VirtualMachineCloneSpec';
+import {
+    V1beta1VirtualMachineCloneSpecFromJSON,
+    V1beta1VirtualMachineCloneSpecFromJSONTyped,
+    V1beta1VirtualMachineCloneSpecToJSON,
+} from './V1beta1VirtualMachineCloneSpec';
+import type { V1beta1VirtualMachineCloneStatus } from './V1beta1VirtualMachineCloneStatus';
+import {
+    V1beta1VirtualMachineCloneStatusFromJSON,
+    V1beta1VirtualMachineCloneStatusFromJSONTyped,
+    V1beta1VirtualMachineCloneStatusToJSON,
+} from './V1beta1VirtualMachineCloneStatus';
 
 /**
  * VirtualMachineClone is a CRD that clones one VM into another.
@@ -31,74 +38,80 @@ import {
  * @interface V1beta1VirtualMachineClone
  */
 export interface V1beta1VirtualMachineClone {
-  /**
-   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-   * @type {string}
-   * @memberof V1beta1VirtualMachineClone
-   */
-  apiVersion?: string;
-  /**
-   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   * @type {string}
-   * @memberof V1beta1VirtualMachineClone
-   */
-  kind?: string;
-  /**
-   *
-   * @type {K8sIoApimachineryPkgApisMetaV1ObjectMeta}
-   * @memberof V1beta1VirtualMachineClone
-   */
-  metadata?: K8sIoApimachineryPkgApisMetaV1ObjectMeta;
-  /**
-   *
-   * @type {V1beta1VirtualMachineCloneSpec}
-   * @memberof V1beta1VirtualMachineClone
-   */
-  spec: V1beta1VirtualMachineCloneSpec;
-  /**
-   *
-   * @type {V1beta1VirtualMachineCloneStatus}
-   * @memberof V1beta1VirtualMachineClone
-   */
-  status?: V1beta1VirtualMachineCloneStatus;
+    /**
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+     * @type {string}
+     * @memberof V1beta1VirtualMachineClone
+     */
+    apiVersion?: string;
+    /**
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+     * @type {string}
+     * @memberof V1beta1VirtualMachineClone
+     */
+    kind?: string;
+    /**
+     * 
+     * @type {K8sIoApimachineryPkgApisMetaV1ObjectMeta}
+     * @memberof V1beta1VirtualMachineClone
+     */
+    metadata?: K8sIoApimachineryPkgApisMetaV1ObjectMeta;
+    /**
+     * 
+     * @type {V1beta1VirtualMachineCloneSpec}
+     * @memberof V1beta1VirtualMachineClone
+     */
+    spec: V1beta1VirtualMachineCloneSpec;
+    /**
+     * 
+     * @type {V1beta1VirtualMachineCloneStatus}
+     * @memberof V1beta1VirtualMachineClone
+     */
+    status?: V1beta1VirtualMachineCloneStatus;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineClone interface.
+ */
+export function instanceOfV1beta1VirtualMachineClone(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "spec" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineCloneFromJSON(json: any): V1beta1VirtualMachineClone {
-  return V1beta1VirtualMachineCloneFromJSONTyped(json, false);
+    return V1beta1VirtualMachineCloneFromJSONTyped(json, false);
 }
 
-export function V1beta1VirtualMachineCloneFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineClone {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: V1beta1VirtualMachineCloneSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : V1beta1VirtualMachineCloneStatusFromJSON(json['status']),
-  };
+export function V1beta1VirtualMachineCloneFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineClone {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+        'kind': !exists(json, 'kind') ? undefined : json['kind'],
+        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
+        'spec': V1beta1VirtualMachineCloneSpecFromJSON(json['spec']),
+        'status': !exists(json, 'status') ? undefined : V1beta1VirtualMachineCloneStatusFromJSON(json['status']),
+    };
 }
 
 export function V1beta1VirtualMachineCloneToJSON(value?: V1beta1VirtualMachineClone | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: V1beta1VirtualMachineCloneSpecToJSON(value.spec),
-    status: V1beta1VirtualMachineCloneStatusToJSON(value.status),
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'apiVersion': value.apiVersion,
+        'kind': value.kind,
+        'metadata': K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
+        'spec': V1beta1VirtualMachineCloneSpecToJSON(value.spec),
+        'status': V1beta1VirtualMachineCloneStatusToJSON(value.status),
+    };
 }
+

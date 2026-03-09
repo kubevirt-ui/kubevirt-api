@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1BlockSize } from './V1BlockSize';
 import {
-    V1BlockSize,
     V1BlockSizeFromJSON,
     V1BlockSizeFromJSONTyped,
     V1BlockSizeToJSON,
-    V1TPMDevice,
+} from './V1BlockSize';
+import type { V1TPMDevice } from './V1TPMDevice';
+import {
     V1TPMDeviceFromJSON,
     V1TPMDeviceFromJSONTyped,
     V1TPMDeviceToJSON,
-    V1VGPUOptions,
+} from './V1TPMDevice';
+import type { V1VGPUOptions } from './V1VGPUOptions';
+import {
     V1VGPUOptionsFromJSON,
     V1VGPUOptionsFromJSONTyped,
     V1VGPUOptionsToJSON,
-} from './';
+} from './V1VGPUOptions';
 
 /**
  * DevicePreferences contains various optional Device preferences.
@@ -179,11 +183,26 @@ export interface V1beta1DevicePreferences {
      */
     preferredUseVirtioTransitional?: boolean;
     /**
+     * PreferredVideoType optionally defines the preferred type for Video devices.
+     * @type {string}
+     * @memberof V1beta1DevicePreferences
+     */
+    preferredVideoType?: string;
+    /**
      * 
      * @type {V1VGPUOptions}
      * @memberof V1beta1DevicePreferences
      */
     preferredVirtualGPUOptions?: V1VGPUOptions;
+}
+
+/**
+ * Check if a given object implements the V1beta1DevicePreferences interface.
+ */
+export function instanceOfV1beta1DevicePreferences(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1beta1DevicePreferencesFromJSON(json: any): V1beta1DevicePreferences {
@@ -220,6 +239,7 @@ export function V1beta1DevicePreferencesFromJSONTyped(json: any, ignoreDiscrimin
         'preferredSoundModel': !exists(json, 'preferredSoundModel') ? undefined : json['preferredSoundModel'],
         'preferredTPM': !exists(json, 'preferredTPM') ? undefined : V1TPMDeviceFromJSON(json['preferredTPM']),
         'preferredUseVirtioTransitional': !exists(json, 'preferredUseVirtioTransitional') ? undefined : json['preferredUseVirtioTransitional'],
+        'preferredVideoType': !exists(json, 'preferredVideoType') ? undefined : json['preferredVideoType'],
         'preferredVirtualGPUOptions': !exists(json, 'preferredVirtualGPUOptions') ? undefined : V1VGPUOptionsFromJSON(json['preferredVirtualGPUOptions']),
     };
 }
@@ -257,6 +277,7 @@ export function V1beta1DevicePreferencesToJSON(value?: V1beta1DevicePreferences 
         'preferredSoundModel': value.preferredSoundModel,
         'preferredTPM': V1TPMDeviceToJSON(value.preferredTPM),
         'preferredUseVirtioTransitional': value.preferredUseVirtioTransitional,
+        'preferredVideoType': value.preferredVideoType,
         'preferredVirtualGPUOptions': V1VGPUOptionsToJSON(value.preferredVirtualGPUOptions),
     };
 }

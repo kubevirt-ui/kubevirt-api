@@ -12,49 +12,54 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.
  * @export
  * @interface K8sIoApiCoreV1LocalObjectReference
  */
 export interface K8sIoApiCoreV1LocalObjectReference {
-  /**
-   * Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-   * @type {string}
-   * @memberof K8sIoApiCoreV1LocalObjectReference
-   */
-  name?: string;
+    /**
+     * Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+     * @type {string}
+     * @memberof K8sIoApiCoreV1LocalObjectReference
+     */
+    name?: string;
 }
 
-export function K8sIoApiCoreV1LocalObjectReferenceFromJSON(
-  json: any,
-): K8sIoApiCoreV1LocalObjectReference {
-  return K8sIoApiCoreV1LocalObjectReferenceFromJSONTyped(json, false);
+/**
+ * Check if a given object implements the K8sIoApiCoreV1LocalObjectReference interface.
+ */
+export function instanceOfK8sIoApiCoreV1LocalObjectReference(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
-export function K8sIoApiCoreV1LocalObjectReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApiCoreV1LocalObjectReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: !exists(json, 'name') ? undefined : json['name'],
-  };
+export function K8sIoApiCoreV1LocalObjectReferenceFromJSON(json: any): K8sIoApiCoreV1LocalObjectReference {
+    return K8sIoApiCoreV1LocalObjectReferenceFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1LocalObjectReferenceToJSON(
-  value?: K8sIoApiCoreV1LocalObjectReference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-  };
+export function K8sIoApiCoreV1LocalObjectReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1LocalObjectReference {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'name': !exists(json, 'name') ? undefined : json['name'],
+    };
 }
+
+export function K8sIoApiCoreV1LocalObjectReferenceToJSON(value?: K8sIoApiCoreV1LocalObjectReference | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'name': value.name,
+    };
+}
+

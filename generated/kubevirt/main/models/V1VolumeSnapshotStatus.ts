@@ -39,6 +39,17 @@ export interface V1VolumeSnapshotStatus {
     reason?: string;
 }
 
+/**
+ * Check if a given object implements the V1VolumeSnapshotStatus interface.
+ */
+export function instanceOfV1VolumeSnapshotStatus(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "enabled" in value;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
+}
+
 export function V1VolumeSnapshotStatusFromJSON(json: any): V1VolumeSnapshotStatus {
     return V1VolumeSnapshotStatusFromJSONTyped(json, false);
 }

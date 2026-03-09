@@ -43,6 +43,15 @@ export interface K8sIoApimachineryPkgApisMetaV1StatusCause {
     reason?: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1StatusCause interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1StatusCause(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function K8sIoApimachineryPkgApisMetaV1StatusCauseFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1StatusCause {
     return K8sIoApimachineryPkgApisMetaV1StatusCauseFromJSONTyped(json, false);
 }

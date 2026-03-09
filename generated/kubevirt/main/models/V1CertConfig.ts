@@ -33,6 +33,15 @@ export interface V1CertConfig {
     renewBefore?: string;
 }
 
+/**
+ * Check if a given object implements the V1CertConfig interface.
+ */
+export function instanceOfV1CertConfig(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1CertConfigFromJSON(json: any): V1CertConfig {
     return V1CertConfigFromJSONTyped(json, false);
 }

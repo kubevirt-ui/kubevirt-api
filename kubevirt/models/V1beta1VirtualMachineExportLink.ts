@@ -12,15 +12,25 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { V1beta1VirtualMachineExportBackup } from './V1beta1VirtualMachineExportBackup';
 import {
-  V1beta1VirtualMachineExportManifest,
-  V1beta1VirtualMachineExportManifestFromJSON,
-  V1beta1VirtualMachineExportManifestToJSON,
-  V1beta1VirtualMachineExportVolume,
-  V1beta1VirtualMachineExportVolumeFromJSON,
-  V1beta1VirtualMachineExportVolumeToJSON,
-} from './';
+    V1beta1VirtualMachineExportBackupFromJSON,
+    V1beta1VirtualMachineExportBackupFromJSONTyped,
+    V1beta1VirtualMachineExportBackupToJSON,
+} from './V1beta1VirtualMachineExportBackup';
+import type { V1beta1VirtualMachineExportManifest } from './V1beta1VirtualMachineExportManifest';
+import {
+    V1beta1VirtualMachineExportManifestFromJSON,
+    V1beta1VirtualMachineExportManifestFromJSONTyped,
+    V1beta1VirtualMachineExportManifestToJSON,
+} from './V1beta1VirtualMachineExportManifest';
+import type { V1beta1VirtualMachineExportVolume } from './V1beta1VirtualMachineExportVolume';
+import {
+    V1beta1VirtualMachineExportVolumeFromJSON,
+    V1beta1VirtualMachineExportVolumeFromJSONTyped,
+    V1beta1VirtualMachineExportVolumeToJSON,
+} from './V1beta1VirtualMachineExportVolume';
 
 /**
  * VirtualMachineExportLink contains a list of volumes available for export, as well as the URLs to obtain these volumes
@@ -28,68 +38,72 @@ import {
  * @interface V1beta1VirtualMachineExportLink
  */
 export interface V1beta1VirtualMachineExportLink {
-  /**
-   * Cert is the public CA certificate base64 encoded
-   * @type {string}
-   * @memberof V1beta1VirtualMachineExportLink
-   */
-  cert: string;
-  /**
-   * Manifests is a list of available manifests for the export
-   * @type {Array<V1beta1VirtualMachineExportManifest>}
-   * @memberof V1beta1VirtualMachineExportLink
-   */
-  manifests?: Array<V1beta1VirtualMachineExportManifest>;
-  /**
-   * Volumes is a list of available volumes to export
-   * @type {Array<V1beta1VirtualMachineExportVolume>}
-   * @memberof V1beta1VirtualMachineExportLink
-   */
-  volumes?: Array<V1beta1VirtualMachineExportVolume>;
+    /**
+     * Backups is a list of available backups for the export
+     * @type {Array<V1beta1VirtualMachineExportBackup>}
+     * @memberof V1beta1VirtualMachineExportLink
+     */
+    backups?: Array<V1beta1VirtualMachineExportBackup>;
+    /**
+     * Cert is the public CA certificate base64 encoded
+     * @type {string}
+     * @memberof V1beta1VirtualMachineExportLink
+     */
+    cert: string;
+    /**
+     * Manifests is a list of available manifests for the export
+     * @type {Array<V1beta1VirtualMachineExportManifest>}
+     * @memberof V1beta1VirtualMachineExportLink
+     */
+    manifests?: Array<V1beta1VirtualMachineExportManifest>;
+    /**
+     * Volumes is a list of available volumes to export
+     * @type {Array<V1beta1VirtualMachineExportVolume>}
+     * @memberof V1beta1VirtualMachineExportLink
+     */
+    volumes?: Array<V1beta1VirtualMachineExportVolume>;
 }
 
-export function V1beta1VirtualMachineExportLinkFromJSON(
-  json: any,
-): V1beta1VirtualMachineExportLink {
-  return V1beta1VirtualMachineExportLinkFromJSONTyped(json, false);
+/**
+ * Check if a given object implements the V1beta1VirtualMachineExportLink interface.
+ */
+export function instanceOfV1beta1VirtualMachineExportLink(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "cert" in value;
+
+    return isInstance;
 }
 
-export function V1beta1VirtualMachineExportLinkFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineExportLink {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    cert: json['cert'],
-    manifests: !exists(json, 'manifests')
-      ? undefined
-      : (json['manifests'] as Array<any>).map(V1beta1VirtualMachineExportManifestFromJSON),
-    volumes: !exists(json, 'volumes')
-      ? undefined
-      : (json['volumes'] as Array<any>).map(V1beta1VirtualMachineExportVolumeFromJSON),
-  };
+export function V1beta1VirtualMachineExportLinkFromJSON(json: any): V1beta1VirtualMachineExportLink {
+    return V1beta1VirtualMachineExportLinkFromJSONTyped(json, false);
 }
 
-export function V1beta1VirtualMachineExportLinkToJSON(
-  value?: V1beta1VirtualMachineExportLink | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    cert: value.cert,
-    manifests:
-      value.manifests === undefined
-        ? undefined
-        : (value.manifests as Array<any>).map(V1beta1VirtualMachineExportManifestToJSON),
-    volumes:
-      value.volumes === undefined
-        ? undefined
-        : (value.volumes as Array<any>).map(V1beta1VirtualMachineExportVolumeToJSON),
-  };
+export function V1beta1VirtualMachineExportLinkFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineExportLink {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'backups': !exists(json, 'backups') ? undefined : ((json['backups'] as Array<any>).map(V1beta1VirtualMachineExportBackupFromJSON)),
+        'cert': json['cert'],
+        'manifests': !exists(json, 'manifests') ? undefined : ((json['manifests'] as Array<any>).map(V1beta1VirtualMachineExportManifestFromJSON)),
+        'volumes': !exists(json, 'volumes') ? undefined : ((json['volumes'] as Array<any>).map(V1beta1VirtualMachineExportVolumeFromJSON)),
+    };
 }
+
+export function V1beta1VirtualMachineExportLinkToJSON(value?: V1beta1VirtualMachineExportLink | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'backups': value.backups === undefined ? undefined : ((value.backups as Array<any>).map(V1beta1VirtualMachineExportBackupToJSON)),
+        'cert': value.cert,
+        'manifests': value.manifests === undefined ? undefined : ((value.manifests as Array<any>).map(V1beta1VirtualMachineExportManifestToJSON)),
+        'volumes': value.volumes === undefined ? undefined : ((value.volumes as Array<any>).map(V1beta1VirtualMachineExportVolumeToJSON)),
+    };
+}
+

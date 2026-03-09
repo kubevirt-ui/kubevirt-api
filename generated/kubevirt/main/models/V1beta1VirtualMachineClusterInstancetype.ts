@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1beta1VirtualMachineInstancetypeSpec,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1beta1VirtualMachineInstancetypeSpec } from './V1beta1VirtualMachineInstancetypeSpec';
+import {
     V1beta1VirtualMachineInstancetypeSpecFromJSON,
     V1beta1VirtualMachineInstancetypeSpecFromJSONTyped,
     V1beta1VirtualMachineInstancetypeSpecToJSON,
-} from './';
+} from './V1beta1VirtualMachineInstancetypeSpec';
 
 /**
  * VirtualMachineClusterInstancetype is a cluster scoped version of VirtualMachineInstancetype resource.
@@ -54,6 +56,16 @@ export interface V1beta1VirtualMachineClusterInstancetype {
      * @memberof V1beta1VirtualMachineClusterInstancetype
      */
     spec: V1beta1VirtualMachineInstancetypeSpec;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineClusterInstancetype interface.
+ */
+export function instanceOfV1beta1VirtualMachineClusterInstancetype(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "spec" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineClusterInstancetypeFromJSON(json: any): V1beta1VirtualMachineClusterInstancetype {

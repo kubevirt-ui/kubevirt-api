@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1VirtualMachineInstanceProfile } from './V1VirtualMachineInstanceProfile';
 import {
-    V1VirtualMachineInstanceProfile,
     V1VirtualMachineInstanceProfileFromJSON,
     V1VirtualMachineInstanceProfileFromJSONTyped,
     V1VirtualMachineInstanceProfileToJSON,
-} from './';
+} from './V1VirtualMachineInstanceProfile';
 
 /**
  * SeccompConfiguration holds Seccomp configuration for Kubevirt components
@@ -32,6 +32,15 @@ export interface V1SeccompConfiguration {
      * @memberof V1SeccompConfiguration
      */
     virtualMachineInstanceProfile?: V1VirtualMachineInstanceProfile;
+}
+
+/**
+ * Check if a given object implements the V1SeccompConfiguration interface.
+ */
+export function instanceOfV1SeccompConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1SeccompConfigurationFromJSON(json: any): V1SeccompConfiguration {

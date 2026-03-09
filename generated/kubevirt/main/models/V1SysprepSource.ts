@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1LocalObjectReference } from './K8sIoApiCoreV1LocalObjectReference';
 import {
-    K8sIoApiCoreV1LocalObjectReference,
     K8sIoApiCoreV1LocalObjectReferenceFromJSON,
     K8sIoApiCoreV1LocalObjectReferenceFromJSONTyped,
     K8sIoApiCoreV1LocalObjectReferenceToJSON,
-} from './';
+} from './K8sIoApiCoreV1LocalObjectReference';
 
 /**
  * Represents a Sysprep volume source.
@@ -38,6 +38,15 @@ export interface V1SysprepSource {
      * @memberof V1SysprepSource
      */
     secret?: K8sIoApiCoreV1LocalObjectReference;
+}
+
+/**
+ * Check if a given object implements the V1SysprepSource interface.
+ */
+export function instanceOfV1SysprepSource(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1SysprepSourceFromJSON(json: any): V1SysprepSource {

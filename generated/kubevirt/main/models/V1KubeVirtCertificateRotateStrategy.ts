@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1KubeVirtSelfSignConfiguration } from './V1KubeVirtSelfSignConfiguration';
 import {
-    V1KubeVirtSelfSignConfiguration,
     V1KubeVirtSelfSignConfigurationFromJSON,
     V1KubeVirtSelfSignConfigurationFromJSONTyped,
     V1KubeVirtSelfSignConfigurationToJSON,
-} from './';
+} from './V1KubeVirtSelfSignConfiguration';
 
 /**
  * 
@@ -32,6 +32,15 @@ export interface V1KubeVirtCertificateRotateStrategy {
      * @memberof V1KubeVirtCertificateRotateStrategy
      */
     selfSigned?: V1KubeVirtSelfSignConfiguration;
+}
+
+/**
+ * Check if a given object implements the V1KubeVirtCertificateRotateStrategy interface.
+ */
+export function instanceOfV1KubeVirtCertificateRotateStrategy(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1KubeVirtCertificateRotateStrategyFromJSON(json: any): V1KubeVirtCertificateRotateStrategy {

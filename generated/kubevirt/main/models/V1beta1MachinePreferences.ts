@@ -27,6 +27,15 @@ export interface V1beta1MachinePreferences {
     preferredMachineType?: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1MachinePreferences interface.
+ */
+export function instanceOfV1beta1MachinePreferences(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1beta1MachinePreferencesFromJSON(json: any): V1beta1MachinePreferences {
     return V1beta1MachinePreferencesFromJSONTyped(json, false);
 }

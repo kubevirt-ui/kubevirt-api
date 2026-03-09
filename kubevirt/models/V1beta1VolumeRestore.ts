@@ -12,69 +12,81 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * VolumeRestore contains the data needed to restore a PVC
  * @export
  * @interface V1beta1VolumeRestore
  */
 export interface V1beta1VolumeRestore {
-  /**
-   *
-   * @type {string}
-   * @memberof V1beta1VolumeRestore
-   */
-  dataVolumeName?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1beta1VolumeRestore
-   */
-  persistentVolumeClaim: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1beta1VolumeRestore
-   */
-  volumeName: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1beta1VolumeRestore
-   */
-  volumeSnapshotName: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1beta1VolumeRestore
+     */
+    dataVolumeName?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1beta1VolumeRestore
+     */
+    persistentVolumeClaim: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1beta1VolumeRestore
+     */
+    volumeName: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1beta1VolumeRestore
+     */
+    volumeSnapshotName: string;
+}
+
+/**
+ * Check if a given object implements the V1beta1VolumeRestore interface.
+ */
+export function instanceOfV1beta1VolumeRestore(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "persistentVolumeClaim" in value;
+    isInstance = isInstance && "volumeName" in value;
+    isInstance = isInstance && "volumeSnapshotName" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VolumeRestoreFromJSON(json: any): V1beta1VolumeRestore {
-  return V1beta1VolumeRestoreFromJSONTyped(json, false);
+    return V1beta1VolumeRestoreFromJSONTyped(json, false);
 }
 
-export function V1beta1VolumeRestoreFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VolumeRestore {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    dataVolumeName: !exists(json, 'dataVolumeName') ? undefined : json['dataVolumeName'],
-    persistentVolumeClaim: json['persistentVolumeClaim'],
-    volumeName: json['volumeName'],
-    volumeSnapshotName: json['volumeSnapshotName'],
-  };
+export function V1beta1VolumeRestoreFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VolumeRestore {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'dataVolumeName': !exists(json, 'dataVolumeName') ? undefined : json['dataVolumeName'],
+        'persistentVolumeClaim': json['persistentVolumeClaim'],
+        'volumeName': json['volumeName'],
+        'volumeSnapshotName': json['volumeSnapshotName'],
+    };
 }
 
 export function V1beta1VolumeRestoreToJSON(value?: V1beta1VolumeRestore | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    dataVolumeName: value.dataVolumeName,
-    persistentVolumeClaim: value.persistentVolumeClaim,
-    volumeName: value.volumeName,
-    volumeSnapshotName: value.volumeSnapshotName,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'dataVolumeName': value.dataVolumeName,
+        'persistentVolumeClaim': value.persistentVolumeClaim,
+        'volumeName': value.volumeName,
+        'volumeSnapshotName': value.volumeSnapshotName,
+    };
 }
+

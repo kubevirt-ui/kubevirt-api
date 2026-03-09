@@ -33,6 +33,15 @@ export interface V1TPMDevice {
     persistent?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1TPMDevice interface.
+ */
+export function instanceOfV1TPMDevice(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1TPMDeviceFromJSON(json: any): V1TPMDevice {
     return V1TPMDeviceFromJSONTyped(json, false);
 }

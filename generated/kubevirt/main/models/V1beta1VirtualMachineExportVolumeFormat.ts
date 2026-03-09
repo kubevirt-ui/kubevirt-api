@@ -33,6 +33,17 @@ export interface V1beta1VirtualMachineExportVolumeFormat {
     url: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1VirtualMachineExportVolumeFormat interface.
+ */
+export function instanceOfV1beta1VirtualMachineExportVolumeFormat(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "format" in value;
+    isInstance = isInstance && "url" in value;
+
+    return isInstance;
+}
+
 export function V1beta1VirtualMachineExportVolumeFormatFromJSON(json: any): V1beta1VirtualMachineExportVolumeFormat {
     return V1beta1VirtualMachineExportVolumeFormatFromJSONTyped(json, false);
 }

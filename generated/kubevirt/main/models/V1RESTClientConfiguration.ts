@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1RateLimiter } from './V1RateLimiter';
 import {
-    V1RateLimiter,
     V1RateLimiterFromJSON,
     V1RateLimiterFromJSONTyped,
     V1RateLimiterToJSON,
-} from './';
+} from './V1RateLimiter';
 
 /**
  * RESTClientConfiguration allows configuring certain aspects of the k8s rest client.
@@ -32,6 +32,15 @@ export interface V1RESTClientConfiguration {
      * @memberof V1RESTClientConfiguration
      */
     rateLimiter?: V1RateLimiter;
+}
+
+/**
+ * Check if a given object implements the V1RESTClientConfiguration interface.
+ */
+export function instanceOfV1RESTClientConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1RESTClientConfigurationFromJSON(json: any): V1RESTClientConfiguration {

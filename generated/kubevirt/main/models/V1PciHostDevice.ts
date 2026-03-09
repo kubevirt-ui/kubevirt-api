@@ -39,6 +39,17 @@ export interface V1PciHostDevice {
     resourceName: string;
 }
 
+/**
+ * Check if a given object implements the V1PciHostDevice interface.
+ */
+export function instanceOfV1PciHostDevice(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "pciVendorSelector" in value;
+    isInstance = isInstance && "resourceName" in value;
+
+    return isInstance;
+}
+
 export function V1PciHostDeviceFromJSON(json: any): V1PciHostDevice {
     return V1PciHostDeviceFromJSONTyped(json, false);
 }

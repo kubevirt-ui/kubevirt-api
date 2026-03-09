@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ListMeta,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-    V1VirtualMachineInstanceMigration,
+} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1VirtualMachineInstanceMigration } from './V1VirtualMachineInstanceMigration';
+import {
     V1VirtualMachineInstanceMigrationFromJSON,
     V1VirtualMachineInstanceMigrationFromJSONTyped,
     V1VirtualMachineInstanceMigrationToJSON,
-} from './';
+} from './V1VirtualMachineInstanceMigration';
 
 /**
  * VirtualMachineInstanceMigrationList is a list of VirtualMachineMigrations
@@ -54,6 +56,16 @@ export interface V1VirtualMachineInstanceMigrationList {
      * @memberof V1VirtualMachineInstanceMigrationList
      */
     metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationList interface.
+ */
+export function instanceOfV1VirtualMachineInstanceMigrationList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "items" in value;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceMigrationListFromJSON(json: any): V1VirtualMachineInstanceMigrationList {

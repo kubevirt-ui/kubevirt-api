@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ListMeta,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-    V1beta1VirtualMachinePreference,
+} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1beta1VirtualMachinePreference } from './V1beta1VirtualMachinePreference';
+import {
     V1beta1VirtualMachinePreferenceFromJSON,
     V1beta1VirtualMachinePreferenceFromJSONTyped,
     V1beta1VirtualMachinePreferenceToJSON,
-} from './';
+} from './V1beta1VirtualMachinePreference';
 
 /**
  * VirtualMachinePreferenceList is a list of VirtualMachinePreference resources.
@@ -54,6 +56,16 @@ export interface V1beta1VirtualMachinePreferenceList {
      * @memberof V1beta1VirtualMachinePreferenceList
      */
     metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachinePreferenceList interface.
+ */
+export function instanceOfV1beta1VirtualMachinePreferenceList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "items" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachinePreferenceListFromJSON(json: any): V1beta1VirtualMachinePreferenceList {

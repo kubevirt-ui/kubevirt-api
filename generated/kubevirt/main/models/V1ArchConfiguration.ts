@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ArchSpecificConfiguration } from './V1ArchSpecificConfiguration';
 import {
-    V1ArchSpecificConfiguration,
     V1ArchSpecificConfigurationFromJSON,
     V1ArchSpecificConfigurationFromJSONTyped,
     V1ArchSpecificConfigurationToJSON,
-} from './';
+} from './V1ArchSpecificConfiguration';
 
 /**
  * 
@@ -56,6 +56,15 @@ export interface V1ArchConfiguration {
      * @memberof V1ArchConfiguration
      */
     s390x?: V1ArchSpecificConfiguration;
+}
+
+/**
+ * Check if a given object implements the V1ArchConfiguration interface.
+ */
+export function instanceOfV1ArchConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ArchConfigurationFromJSON(json: any): V1ArchConfiguration {

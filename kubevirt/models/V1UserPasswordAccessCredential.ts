@@ -12,14 +12,19 @@
  * Do not edit the class manually.
  */
 
+import { exists, mapValues } from '../runtime';
+import type { V1UserPasswordAccessCredentialPropagationMethod } from './V1UserPasswordAccessCredentialPropagationMethod';
 import {
-  V1UserPasswordAccessCredentialPropagationMethod,
-  V1UserPasswordAccessCredentialPropagationMethodFromJSON,
-  V1UserPasswordAccessCredentialPropagationMethodToJSON,
-  V1UserPasswordAccessCredentialSource,
-  V1UserPasswordAccessCredentialSourceFromJSON,
-  V1UserPasswordAccessCredentialSourceToJSON,
-} from './';
+    V1UserPasswordAccessCredentialPropagationMethodFromJSON,
+    V1UserPasswordAccessCredentialPropagationMethodFromJSONTyped,
+    V1UserPasswordAccessCredentialPropagationMethodToJSON,
+} from './V1UserPasswordAccessCredentialPropagationMethod';
+import type { V1UserPasswordAccessCredentialSource } from './V1UserPasswordAccessCredentialSource';
+import {
+    V1UserPasswordAccessCredentialSourceFromJSON,
+    V1UserPasswordAccessCredentialSourceFromJSONTyped,
+    V1UserPasswordAccessCredentialSourceToJSON,
+} from './V1UserPasswordAccessCredentialSource';
 
 /**
  * UserPasswordAccessCredential represents a source and propagation method for injecting user passwords into a vm guest Only one of its members may be specified.
@@ -27,52 +32,57 @@ import {
  * @interface V1UserPasswordAccessCredential
  */
 export interface V1UserPasswordAccessCredential {
-  /**
-   *
-   * @type {V1UserPasswordAccessCredentialPropagationMethod}
-   * @memberof V1UserPasswordAccessCredential
-   */
-  propagationMethod: V1UserPasswordAccessCredentialPropagationMethod;
-  /**
-   *
-   * @type {V1UserPasswordAccessCredentialSource}
-   * @memberof V1UserPasswordAccessCredential
-   */
-  source: V1UserPasswordAccessCredentialSource;
+    /**
+     * 
+     * @type {V1UserPasswordAccessCredentialPropagationMethod}
+     * @memberof V1UserPasswordAccessCredential
+     */
+    propagationMethod: V1UserPasswordAccessCredentialPropagationMethod;
+    /**
+     * 
+     * @type {V1UserPasswordAccessCredentialSource}
+     * @memberof V1UserPasswordAccessCredential
+     */
+    source: V1UserPasswordAccessCredentialSource;
+}
+
+/**
+ * Check if a given object implements the V1UserPasswordAccessCredential interface.
+ */
+export function instanceOfV1UserPasswordAccessCredential(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "propagationMethod" in value;
+    isInstance = isInstance && "source" in value;
+
+    return isInstance;
 }
 
 export function V1UserPasswordAccessCredentialFromJSON(json: any): V1UserPasswordAccessCredential {
-  return V1UserPasswordAccessCredentialFromJSONTyped(json, false);
+    return V1UserPasswordAccessCredentialFromJSONTyped(json, false);
 }
 
-export function V1UserPasswordAccessCredentialFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1UserPasswordAccessCredential {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    propagationMethod: V1UserPasswordAccessCredentialPropagationMethodFromJSON(
-      json['propagationMethod'],
-    ),
-    source: V1UserPasswordAccessCredentialSourceFromJSON(json['source']),
-  };
+export function V1UserPasswordAccessCredentialFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1UserPasswordAccessCredential {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'propagationMethod': V1UserPasswordAccessCredentialPropagationMethodFromJSON(json['propagationMethod']),
+        'source': V1UserPasswordAccessCredentialSourceFromJSON(json['source']),
+    };
 }
 
-export function V1UserPasswordAccessCredentialToJSON(
-  value?: V1UserPasswordAccessCredential | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    propagationMethod: V1UserPasswordAccessCredentialPropagationMethodToJSON(
-      value.propagationMethod,
-    ),
-    source: V1UserPasswordAccessCredentialSourceToJSON(value.source),
-  };
+export function V1UserPasswordAccessCredentialToJSON(value?: V1UserPasswordAccessCredential | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'propagationMethod': V1UserPasswordAccessCredentialPropagationMethodToJSON(value.propagationMethod),
+        'source': V1UserPasswordAccessCredentialSourceToJSON(value.source),
+    };
 }
+

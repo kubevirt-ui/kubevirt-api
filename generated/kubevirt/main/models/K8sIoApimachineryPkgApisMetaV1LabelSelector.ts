@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement } from './K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement';
 import {
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSON,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementToJSON,
-} from './';
+} from './K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement';
 
 /**
  * A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
@@ -38,6 +38,15 @@ export interface K8sIoApimachineryPkgApisMetaV1LabelSelector {
      * @memberof K8sIoApimachineryPkgApisMetaV1LabelSelector
      */
     matchLabels?: { [key: string]: string; };
+}
+
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1LabelSelector interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1LabelSelector(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1LabelSelector {

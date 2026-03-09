@@ -13,24 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1FeatureAPIC } from './V1FeatureAPIC';
 import {
-    V1FeatureAPIC,
     V1FeatureAPICFromJSON,
     V1FeatureAPICFromJSONTyped,
     V1FeatureAPICToJSON,
-    V1FeatureHyperv,
+} from './V1FeatureAPIC';
+import type { V1FeatureHyperv } from './V1FeatureHyperv';
+import {
     V1FeatureHypervFromJSON,
     V1FeatureHypervFromJSONTyped,
     V1FeatureHypervToJSON,
-    V1FeatureKVM,
+} from './V1FeatureHyperv';
+import type { V1FeatureKVM } from './V1FeatureKVM';
+import {
     V1FeatureKVMFromJSON,
     V1FeatureKVMFromJSONTyped,
     V1FeatureKVMToJSON,
-    V1FeatureState,
+} from './V1FeatureKVM';
+import type { V1FeatureState } from './V1FeatureState';
+import {
     V1FeatureStateFromJSON,
     V1FeatureStateFromJSONTyped,
     V1FeatureStateToJSON,
-} from './';
+} from './V1FeatureState';
 
 /**
  * FeaturePreferences contains various optional defaults for Features.
@@ -74,6 +80,15 @@ export interface V1beta1FeaturePreferences {
      * @memberof V1beta1FeaturePreferences
      */
     preferredSmm?: V1FeatureState;
+}
+
+/**
+ * Check if a given object implements the V1beta1FeaturePreferences interface.
+ */
+export function instanceOfV1beta1FeaturePreferences(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1beta1FeaturePreferencesFromJSON(json: any): V1beta1FeaturePreferences {

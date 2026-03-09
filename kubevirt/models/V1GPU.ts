@@ -12,86 +12,102 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1VGPUOptions, V1VGPUOptionsFromJSON, V1VGPUOptionsToJSON } from './';
+import { exists, mapValues } from '../runtime';
+import type { V1VGPUOptions } from './V1VGPUOptions';
+import {
+    V1VGPUOptionsFromJSON,
+    V1VGPUOptionsFromJSONTyped,
+    V1VGPUOptionsToJSON,
+} from './V1VGPUOptions';
 
 /**
- *
+ * 
  * @export
  * @interface V1GPU
  */
 export interface V1GPU {
-  /**
-   * ClaimName needs to be provided from the list vmi.spec.resourceClaims[].name where this device is allocated
-   * @type {string}
-   * @memberof V1GPU
-   */
-  claimName?: string;
-  /**
-   * DeviceName is the name of the device provisioned by device-plugins
-   * @type {string}
-   * @memberof V1GPU
-   */
-  deviceName?: string;
-  /**
-   * Name of the GPU device as exposed by a device plugin
-   * @type {string}
-   * @memberof V1GPU
-   */
-  name: string;
-  /**
-   * RequestName needs to be provided from resourceClaim.spec.devices.requests[].name where this device is requested
-   * @type {string}
-   * @memberof V1GPU
-   */
-  requestName?: string;
-  /**
-   * If specified, the virtual network interface address and its tag will be provided to the guest via config drive
-   * @type {string}
-   * @memberof V1GPU
-   */
-  tag?: string;
-  /**
-   *
-   * @type {V1VGPUOptions}
-   * @memberof V1GPU
-   */
-  virtualGPUOptions?: V1VGPUOptions;
+    /**
+     * ClaimName needs to be provided from the list vmi.spec.resourceClaims[].name where this device is allocated
+     * @type {string}
+     * @memberof V1GPU
+     */
+    claimName?: string;
+    /**
+     * DeviceName is the name of the device provisioned by device-plugins
+     * @type {string}
+     * @memberof V1GPU
+     */
+    deviceName?: string;
+    /**
+     * Name of the GPU device as exposed by a device plugin
+     * @type {string}
+     * @memberof V1GPU
+     */
+    name: string;
+    /**
+     * RequestName needs to be provided from resourceClaim.spec.devices.requests[].name where this device is requested
+     * @type {string}
+     * @memberof V1GPU
+     */
+    requestName?: string;
+    /**
+     * If specified, the virtual network interface address and its tag will be provided to the guest via config drive
+     * @type {string}
+     * @memberof V1GPU
+     */
+    tag?: string;
+    /**
+     * 
+     * @type {V1VGPUOptions}
+     * @memberof V1GPU
+     */
+    virtualGPUOptions?: V1VGPUOptions;
+}
+
+/**
+ * Check if a given object implements the V1GPU interface.
+ */
+export function instanceOfV1GPU(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
 }
 
 export function V1GPUFromJSON(json: any): V1GPU {
-  return V1GPUFromJSONTyped(json, false);
+    return V1GPUFromJSONTyped(json, false);
 }
 
-export function V1GPUFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1GPU {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    claimName: !exists(json, 'claimName') ? undefined : json['claimName'],
-    deviceName: !exists(json, 'deviceName') ? undefined : json['deviceName'],
-    name: json['name'],
-    requestName: !exists(json, 'requestName') ? undefined : json['requestName'],
-    tag: !exists(json, 'tag') ? undefined : json['tag'],
-    virtualGPUOptions: !exists(json, 'virtualGPUOptions')
-      ? undefined
-      : V1VGPUOptionsFromJSON(json['virtualGPUOptions']),
-  };
+export function V1GPUFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1GPU {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'claimName': !exists(json, 'claimName') ? undefined : json['claimName'],
+        'deviceName': !exists(json, 'deviceName') ? undefined : json['deviceName'],
+        'name': json['name'],
+        'requestName': !exists(json, 'requestName') ? undefined : json['requestName'],
+        'tag': !exists(json, 'tag') ? undefined : json['tag'],
+        'virtualGPUOptions': !exists(json, 'virtualGPUOptions') ? undefined : V1VGPUOptionsFromJSON(json['virtualGPUOptions']),
+    };
 }
 
 export function V1GPUToJSON(value?: V1GPU | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    claimName: value.claimName,
-    deviceName: value.deviceName,
-    name: value.name,
-    requestName: value.requestName,
-    tag: value.tag,
-    virtualGPUOptions: V1VGPUOptionsToJSON(value.virtualGPUOptions),
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'claimName': value.claimName,
+        'deviceName': value.deviceName,
+        'name': value.name,
+        'requestName': value.requestName,
+        'tag': value.tag,
+        'virtualGPUOptions': V1VGPUOptionsToJSON(value.virtualGPUOptions),
+    };
 }
+

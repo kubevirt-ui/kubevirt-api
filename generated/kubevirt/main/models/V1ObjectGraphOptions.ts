@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 import {
-    K8sIoApimachineryPkgApisMetaV1LabelSelector,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './';
+} from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 
 /**
  * ObjectGraphOptions holds options for the object graph.
@@ -38,6 +38,15 @@ export interface V1ObjectGraphOptions {
      * @memberof V1ObjectGraphOptions
      */
     labelSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
+}
+
+/**
+ * Check if a given object implements the V1ObjectGraphOptions interface.
+ */
+export function instanceOfV1ObjectGraphOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ObjectGraphOptionsFromJSON(json: any): V1ObjectGraphOptions {

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
 import {
-    K8sIoApiCoreV1TypedLocalObjectReference,
     K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
     K8sIoApiCoreV1TypedLocalObjectReferenceFromJSONTyped,
     K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-} from './';
+} from './K8sIoApiCoreV1TypedLocalObjectReference';
 
 /**
  * VirtualMachineExportSpec is the spec for a VirtualMachineExport resource
@@ -44,6 +44,16 @@ export interface V1beta1VirtualMachineExportSpec {
      * @memberof V1beta1VirtualMachineExportSpec
      */
     ttlDuration?: string;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineExportSpec interface.
+ */
+export function instanceOfV1beta1VirtualMachineExportSpec(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "source" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineExportSpecFromJSON(json: any): V1beta1VirtualMachineExportSpec {

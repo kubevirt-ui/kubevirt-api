@@ -13,24 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1BlockSize } from './V1BlockSize';
 import {
-    V1BlockSize,
     V1BlockSizeFromJSON,
     V1BlockSizeFromJSONTyped,
     V1BlockSizeToJSON,
-    V1CDRomTarget,
+} from './V1BlockSize';
+import type { V1CDRomTarget } from './V1CDRomTarget';
+import {
     V1CDRomTargetFromJSON,
     V1CDRomTargetFromJSONTyped,
     V1CDRomTargetToJSON,
-    V1DiskTarget,
+} from './V1CDRomTarget';
+import type { V1DiskTarget } from './V1DiskTarget';
+import {
     V1DiskTargetFromJSON,
     V1DiskTargetFromJSONTyped,
     V1DiskTargetToJSON,
-    V1LunTarget,
+} from './V1DiskTarget';
+import type { V1LunTarget } from './V1LunTarget';
+import {
     V1LunTargetFromJSON,
     V1LunTargetFromJSONTyped,
     V1LunTargetToJSON,
-} from './';
+} from './V1LunTarget';
 
 /**
  * 
@@ -62,6 +68,12 @@ export interface V1Disk {
      * @memberof V1Disk
      */
     cdrom?: V1CDRomTarget;
+    /**
+     * ChangedBlockTracking indicates this disk should have CBT option Defaults to false.
+     * @type {boolean}
+     * @memberof V1Disk
+     */
+    changedBlockTracking?: boolean;
     /**
      * dedicatedIOThread indicates this disk should have an exclusive IO Thread. Enabling this implies useIOThreads = true. Defaults to false.
      * @type {boolean}
@@ -118,6 +130,16 @@ export interface V1Disk {
     tag?: string;
 }
 
+/**
+ * Check if a given object implements the V1Disk interface.
+ */
+export function instanceOfV1Disk(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
+}
+
 export function V1DiskFromJSON(json: any): V1Disk {
     return V1DiskFromJSONTyped(json, false);
 }
@@ -132,6 +154,7 @@ export function V1DiskFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1
         'bootOrder': !exists(json, 'bootOrder') ? undefined : json['bootOrder'],
         'cache': !exists(json, 'cache') ? undefined : json['cache'],
         'cdrom': !exists(json, 'cdrom') ? undefined : V1CDRomTargetFromJSON(json['cdrom']),
+        'changedBlockTracking': !exists(json, 'changedBlockTracking') ? undefined : json['changedBlockTracking'],
         'dedicatedIOThread': !exists(json, 'dedicatedIOThread') ? undefined : json['dedicatedIOThread'],
         'disk': !exists(json, 'disk') ? undefined : V1DiskTargetFromJSON(json['disk']),
         'errorPolicy': !exists(json, 'errorPolicy') ? undefined : json['errorPolicy'],
@@ -157,6 +180,7 @@ export function V1DiskToJSON(value?: V1Disk | null): any {
         'bootOrder': value.bootOrder,
         'cache': value.cache,
         'cdrom': V1CDRomTargetToJSON(value.cdrom),
+        'changedBlockTracking': value.changedBlockTracking,
         'dedicatedIOThread': value.dedicatedIOThread,
         'disk': V1DiskTargetToJSON(value.disk),
         'errorPolicy': value.errorPolicy,

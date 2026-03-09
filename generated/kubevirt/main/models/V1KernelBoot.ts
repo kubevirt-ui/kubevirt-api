@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1KernelBootContainer } from './V1KernelBootContainer';
 import {
-    V1KernelBootContainer,
     V1KernelBootContainerFromJSON,
     V1KernelBootContainerFromJSONTyped,
     V1KernelBootContainerToJSON,
-} from './';
+} from './V1KernelBootContainer';
 
 /**
  * Represents the firmware blob used to assist in the kernel boot process. Used for setting the kernel, initrd and command line arguments
@@ -38,6 +38,15 @@ export interface V1KernelBoot {
      * @memberof V1KernelBoot
      */
     kernelArgs?: string;
+}
+
+/**
+ * Check if a given object implements the V1KernelBoot interface.
+ */
+export function instanceOfV1KernelBoot(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1KernelBootFromJSON(json: any): V1KernelBoot {

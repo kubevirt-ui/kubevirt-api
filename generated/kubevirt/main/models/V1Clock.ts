@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ClockOffsetUTC } from './V1ClockOffsetUTC';
 import {
-    V1ClockOffsetUTC,
     V1ClockOffsetUTCFromJSON,
     V1ClockOffsetUTCFromJSONTyped,
     V1ClockOffsetUTCToJSON,
-    V1Timer,
+} from './V1ClockOffsetUTC';
+import type { V1Timer } from './V1Timer';
+import {
     V1TimerFromJSON,
     V1TimerFromJSONTyped,
     V1TimerToJSON,
-} from './';
+} from './V1Timer';
 
 /**
  * Represents the clock and timers of a vmi.
@@ -48,6 +50,15 @@ export interface V1Clock {
      * @memberof V1Clock
      */
     utc?: V1ClockOffsetUTC;
+}
+
+/**
+ * Check if a given object implements the V1Clock interface.
+ */
+export function instanceOfV1Clock(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ClockFromJSON(json: any): V1Clock {

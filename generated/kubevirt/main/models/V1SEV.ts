@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1SEVPolicy } from './V1SEVPolicy';
 import {
-    V1SEVPolicy,
     V1SEVPolicyFromJSON,
     V1SEVPolicyFromJSONTyped,
     V1SEVPolicyToJSON,
-} from './';
+} from './V1SEVPolicy';
 
 /**
  * 
@@ -50,6 +50,15 @@ export interface V1SEV {
      * @memberof V1SEV
      */
     session?: string;
+}
+
+/**
+ * Check if a given object implements the V1SEV interface.
+ */
+export function instanceOfV1SEV(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1SEVFromJSON(json: any): V1SEV {

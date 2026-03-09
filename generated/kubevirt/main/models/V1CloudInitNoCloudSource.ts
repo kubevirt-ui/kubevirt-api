@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1LocalObjectReference } from './K8sIoApiCoreV1LocalObjectReference';
 import {
-    K8sIoApiCoreV1LocalObjectReference,
     K8sIoApiCoreV1LocalObjectReferenceFromJSON,
     K8sIoApiCoreV1LocalObjectReferenceFromJSONTyped,
     K8sIoApiCoreV1LocalObjectReferenceToJSON,
-} from './';
+} from './K8sIoApiCoreV1LocalObjectReference';
 
 /**
  * Represents a cloud-init nocloud user data source. More info: http://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html
@@ -62,6 +62,15 @@ export interface V1CloudInitNoCloudSource {
      * @memberof V1CloudInitNoCloudSource
      */
     userDataBase64?: string;
+}
+
+/**
+ * Check if a given object implements the V1CloudInitNoCloudSource interface.
+ */
+export function instanceOfV1CloudInitNoCloudSource(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1CloudInitNoCloudSourceFromJSON(json: any): V1CloudInitNoCloudSource {

@@ -12,15 +12,19 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { V1beta1Error } from './V1beta1Error';
 import {
-  V1beta1Error,
-  V1beta1ErrorFromJSON,
-  V1beta1ErrorToJSON,
-  V1beta1VolumeSnapshotStatus,
-  V1beta1VolumeSnapshotStatusFromJSON,
-  V1beta1VolumeSnapshotStatusToJSON,
-} from './';
+    V1beta1ErrorFromJSON,
+    V1beta1ErrorFromJSONTyped,
+    V1beta1ErrorToJSON,
+} from './V1beta1Error';
+import type { V1beta1VolumeSnapshotStatus } from './V1beta1VolumeSnapshotStatus';
+import {
+    V1beta1VolumeSnapshotStatusFromJSON,
+    V1beta1VolumeSnapshotStatusFromJSONTyped,
+    V1beta1VolumeSnapshotStatusToJSON,
+} from './V1beta1VolumeSnapshotStatus';
 
 /**
  * VirtualMachineSnapshotContentStatus is the status for a VirtualMachineSnapshotStatus resource
@@ -28,71 +32,71 @@ import {
  * @interface V1beta1VirtualMachineSnapshotContentStatus
  */
 export interface V1beta1VirtualMachineSnapshotContentStatus {
-  /**
-   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
-   * @type {string}
-   * @memberof V1beta1VirtualMachineSnapshotContentStatus
-   */
-  creationTime?: string;
-  /**
-   *
-   * @type {V1beta1Error}
-   * @memberof V1beta1VirtualMachineSnapshotContentStatus
-   */
-  error?: V1beta1Error;
-  /**
-   *
-   * @type {boolean}
-   * @memberof V1beta1VirtualMachineSnapshotContentStatus
-   */
-  readyToUse?: boolean;
-  /**
-   *
-   * @type {Array<V1beta1VolumeSnapshotStatus>}
-   * @memberof V1beta1VirtualMachineSnapshotContentStatus
-   */
-  volumeSnapshotStatus?: Array<V1beta1VolumeSnapshotStatus>;
+    /**
+     * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+     * @type {string}
+     * @memberof V1beta1VirtualMachineSnapshotContentStatus
+     */
+    creationTime?: string;
+    /**
+     * 
+     * @type {V1beta1Error}
+     * @memberof V1beta1VirtualMachineSnapshotContentStatus
+     */
+    error?: V1beta1Error;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof V1beta1VirtualMachineSnapshotContentStatus
+     */
+    readyToUse?: boolean;
+    /**
+     * 
+     * @type {Array<V1beta1VolumeSnapshotStatus>}
+     * @memberof V1beta1VirtualMachineSnapshotContentStatus
+     */
+    volumeSnapshotStatus?: Array<V1beta1VolumeSnapshotStatus>;
 }
 
-export function V1beta1VirtualMachineSnapshotContentStatusFromJSON(
-  json: any,
-): V1beta1VirtualMachineSnapshotContentStatus {
-  return V1beta1VirtualMachineSnapshotContentStatusFromJSONTyped(json, false);
+/**
+ * Check if a given object implements the V1beta1VirtualMachineSnapshotContentStatus interface.
+ */
+export function instanceOfV1beta1VirtualMachineSnapshotContentStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
-export function V1beta1VirtualMachineSnapshotContentStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineSnapshotContentStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    creationTime: !exists(json, 'creationTime') ? undefined : json['creationTime'],
-    error: !exists(json, 'error') ? undefined : V1beta1ErrorFromJSON(json['error']),
-    readyToUse: !exists(json, 'readyToUse') ? undefined : json['readyToUse'],
-    volumeSnapshotStatus: !exists(json, 'volumeSnapshotStatus')
-      ? undefined
-      : (json['volumeSnapshotStatus'] as Array<any>).map(V1beta1VolumeSnapshotStatusFromJSON),
-  };
+export function V1beta1VirtualMachineSnapshotContentStatusFromJSON(json: any): V1beta1VirtualMachineSnapshotContentStatus {
+    return V1beta1VirtualMachineSnapshotContentStatusFromJSONTyped(json, false);
 }
 
-export function V1beta1VirtualMachineSnapshotContentStatusToJSON(
-  value?: V1beta1VirtualMachineSnapshotContentStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    creationTime: value.creationTime === undefined ? undefined : value.creationTime,
-    error: V1beta1ErrorToJSON(value.error),
-    readyToUse: value.readyToUse,
-    volumeSnapshotStatus:
-      value.volumeSnapshotStatus === undefined
-        ? undefined
-        : (value.volumeSnapshotStatus as Array<any>).map(V1beta1VolumeSnapshotStatusToJSON),
-  };
+export function V1beta1VirtualMachineSnapshotContentStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineSnapshotContentStatus {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'creationTime': !exists(json, 'creationTime') ? undefined : json['creationTime'],
+        'error': !exists(json, 'error') ? undefined : V1beta1ErrorFromJSON(json['error']),
+        'readyToUse': !exists(json, 'readyToUse') ? undefined : json['readyToUse'],
+        'volumeSnapshotStatus': !exists(json, 'volumeSnapshotStatus') ? undefined : ((json['volumeSnapshotStatus'] as Array<any>).map(V1beta1VolumeSnapshotStatusFromJSON)),
+    };
 }
+
+export function V1beta1VirtualMachineSnapshotContentStatusToJSON(value?: V1beta1VirtualMachineSnapshotContentStatus | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'creationTime': value.creationTime,
+        'error': V1beta1ErrorToJSON(value.error),
+        'readyToUse': value.readyToUse,
+        'volumeSnapshotStatus': value.volumeSnapshotStatus === undefined ? undefined : ((value.volumeSnapshotStatus as Array<any>).map(V1beta1VolumeSnapshotStatusToJSON)),
+    };
+}
+

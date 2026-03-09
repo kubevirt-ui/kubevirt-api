@@ -12,15 +12,19 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-  K8sIoApimachineryPkgApisMetaV1ObjectMeta,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-  V1beta1VirtualMachinePreferenceSpec,
-  V1beta1VirtualMachinePreferenceSpecFromJSON,
-  V1beta1VirtualMachinePreferenceSpecToJSON,
-} from './';
+    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
+    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
+    K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1beta1VirtualMachinePreferenceSpec } from './V1beta1VirtualMachinePreferenceSpec';
+import {
+    V1beta1VirtualMachinePreferenceSpecFromJSON,
+    V1beta1VirtualMachinePreferenceSpecFromJSONTyped,
+    V1beta1VirtualMachinePreferenceSpecToJSON,
+} from './V1beta1VirtualMachinePreferenceSpec';
 
 /**
  * VirtualMachineClusterPreference is a cluster scoped version of the VirtualMachinePreference resource.
@@ -28,68 +32,72 @@ import {
  * @interface V1beta1VirtualMachineClusterPreference
  */
 export interface V1beta1VirtualMachineClusterPreference {
-  /**
-   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-   * @type {string}
-   * @memberof V1beta1VirtualMachineClusterPreference
-   */
-  apiVersion?: string;
-  /**
-   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   * @type {string}
-   * @memberof V1beta1VirtualMachineClusterPreference
-   */
-  kind?: string;
-  /**
-   *
-   * @type {K8sIoApimachineryPkgApisMetaV1ObjectMeta}
-   * @memberof V1beta1VirtualMachineClusterPreference
-   */
-  metadata?: K8sIoApimachineryPkgApisMetaV1ObjectMeta;
-  /**
-   *
-   * @type {V1beta1VirtualMachinePreferenceSpec}
-   * @memberof V1beta1VirtualMachineClusterPreference
-   */
-  spec: V1beta1VirtualMachinePreferenceSpec;
+    /**
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+     * @type {string}
+     * @memberof V1beta1VirtualMachineClusterPreference
+     */
+    apiVersion?: string;
+    /**
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+     * @type {string}
+     * @memberof V1beta1VirtualMachineClusterPreference
+     */
+    kind?: string;
+    /**
+     * 
+     * @type {K8sIoApimachineryPkgApisMetaV1ObjectMeta}
+     * @memberof V1beta1VirtualMachineClusterPreference
+     */
+    metadata?: K8sIoApimachineryPkgApisMetaV1ObjectMeta;
+    /**
+     * 
+     * @type {V1beta1VirtualMachinePreferenceSpec}
+     * @memberof V1beta1VirtualMachineClusterPreference
+     */
+    spec: V1beta1VirtualMachinePreferenceSpec;
 }
 
-export function V1beta1VirtualMachineClusterPreferenceFromJSON(
-  json: any,
-): V1beta1VirtualMachineClusterPreference {
-  return V1beta1VirtualMachineClusterPreferenceFromJSONTyped(json, false);
+/**
+ * Check if a given object implements the V1beta1VirtualMachineClusterPreference interface.
+ */
+export function instanceOfV1beta1VirtualMachineClusterPreference(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "spec" in value;
+
+    return isInstance;
 }
 
-export function V1beta1VirtualMachineClusterPreferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineClusterPreference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: V1beta1VirtualMachinePreferenceSpecFromJSON(json['spec']),
-  };
+export function V1beta1VirtualMachineClusterPreferenceFromJSON(json: any): V1beta1VirtualMachineClusterPreference {
+    return V1beta1VirtualMachineClusterPreferenceFromJSONTyped(json, false);
 }
 
-export function V1beta1VirtualMachineClusterPreferenceToJSON(
-  value?: V1beta1VirtualMachineClusterPreference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: V1beta1VirtualMachinePreferenceSpecToJSON(value.spec),
-  };
+export function V1beta1VirtualMachineClusterPreferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineClusterPreference {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+        'kind': !exists(json, 'kind') ? undefined : json['kind'],
+        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
+        'spec': V1beta1VirtualMachinePreferenceSpecFromJSON(json['spec']),
+    };
 }
+
+export function V1beta1VirtualMachineClusterPreferenceToJSON(value?: V1beta1VirtualMachineClusterPreference | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'apiVersion': value.apiVersion,
+        'kind': value.kind,
+        'metadata': K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
+        'spec': V1beta1VirtualMachinePreferenceSpecToJSON(value.spec),
+    };
+}
+

@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1VirtualMachineInstanceSpec,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1VirtualMachineInstanceSpec } from './V1VirtualMachineInstanceSpec';
+import {
     V1VirtualMachineInstanceSpecFromJSON,
     V1VirtualMachineInstanceSpecFromJSONTyped,
     V1VirtualMachineInstanceSpecToJSON,
-    V1VirtualMachineInstanceStatus,
+} from './V1VirtualMachineInstanceSpec';
+import type { V1VirtualMachineInstanceStatus } from './V1VirtualMachineInstanceStatus';
+import {
     V1VirtualMachineInstanceStatusFromJSON,
     V1VirtualMachineInstanceStatusFromJSONTyped,
     V1VirtualMachineInstanceStatusToJSON,
-} from './';
+} from './V1VirtualMachineInstanceStatus';
 
 /**
  * VirtualMachineInstance is *the* VirtualMachineInstance Definition. It represents a virtual machine in the runtime environment of kubernetes.
@@ -64,6 +68,16 @@ export interface V1VirtualMachineInstance {
      * @memberof V1VirtualMachineInstance
      */
     status?: V1VirtualMachineInstanceStatus;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstance interface.
+ */
+export function instanceOfV1VirtualMachineInstance(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "spec" in value;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceFromJSON(json: any): V1VirtualMachineInstance {

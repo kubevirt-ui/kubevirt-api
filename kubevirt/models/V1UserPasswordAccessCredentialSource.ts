@@ -12,12 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { V1AccessCredentialSecretSource } from './V1AccessCredentialSecretSource';
 import {
-  V1AccessCredentialSecretSource,
-  V1AccessCredentialSecretSourceFromJSON,
-  V1AccessCredentialSecretSourceToJSON,
-} from './';
+    V1AccessCredentialSecretSourceFromJSON,
+    V1AccessCredentialSecretSourceFromJSONTyped,
+    V1AccessCredentialSecretSourceToJSON,
+} from './V1AccessCredentialSecretSource';
 
 /**
  * UserPasswordAccessCredentialSource represents where to retrieve the user password credentials Only one of its members may be specified.
@@ -25,44 +26,47 @@ import {
  * @interface V1UserPasswordAccessCredentialSource
  */
 export interface V1UserPasswordAccessCredentialSource {
-  /**
-   *
-   * @type {V1AccessCredentialSecretSource}
-   * @memberof V1UserPasswordAccessCredentialSource
-   */
-  secret?: V1AccessCredentialSecretSource;
+    /**
+     * 
+     * @type {V1AccessCredentialSecretSource}
+     * @memberof V1UserPasswordAccessCredentialSource
+     */
+    secret?: V1AccessCredentialSecretSource;
 }
 
-export function V1UserPasswordAccessCredentialSourceFromJSON(
-  json: any,
-): V1UserPasswordAccessCredentialSource {
-  return V1UserPasswordAccessCredentialSourceFromJSONTyped(json, false);
+/**
+ * Check if a given object implements the V1UserPasswordAccessCredentialSource interface.
+ */
+export function instanceOfV1UserPasswordAccessCredentialSource(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
-export function V1UserPasswordAccessCredentialSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1UserPasswordAccessCredentialSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    secret: !exists(json, 'secret')
-      ? undefined
-      : V1AccessCredentialSecretSourceFromJSON(json['secret']),
-  };
+export function V1UserPasswordAccessCredentialSourceFromJSON(json: any): V1UserPasswordAccessCredentialSource {
+    return V1UserPasswordAccessCredentialSourceFromJSONTyped(json, false);
 }
 
-export function V1UserPasswordAccessCredentialSourceToJSON(
-  value?: V1UserPasswordAccessCredentialSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    secret: V1AccessCredentialSecretSourceToJSON(value.secret),
-  };
+export function V1UserPasswordAccessCredentialSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1UserPasswordAccessCredentialSource {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'secret': !exists(json, 'secret') ? undefined : V1AccessCredentialSecretSourceFromJSON(json['secret']),
+    };
 }
+
+export function V1UserPasswordAccessCredentialSourceToJSON(value?: V1UserPasswordAccessCredentialSource | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'secret': V1AccessCredentialSecretSourceToJSON(value.secret),
+    };
+}
+

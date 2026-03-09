@@ -13,52 +13,72 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Disk } from './V1Disk';
 import {
-    V1Disk,
     V1DiskFromJSON,
     V1DiskFromJSONTyped,
     V1DiskToJSON,
-    V1Filesystem,
+} from './V1Disk';
+import type { V1Filesystem } from './V1Filesystem';
+import {
     V1FilesystemFromJSON,
     V1FilesystemFromJSONTyped,
     V1FilesystemToJSON,
-    V1GPU,
+} from './V1Filesystem';
+import type { V1GPU } from './V1GPU';
+import {
     V1GPUFromJSON,
     V1GPUFromJSONTyped,
     V1GPUToJSON,
-    V1HostDevice,
+} from './V1GPU';
+import type { V1HostDevice } from './V1HostDevice';
+import {
     V1HostDeviceFromJSON,
     V1HostDeviceFromJSONTyped,
     V1HostDeviceToJSON,
-    V1Input,
+} from './V1HostDevice';
+import type { V1Input } from './V1Input';
+import {
     V1InputFromJSON,
     V1InputFromJSONTyped,
     V1InputToJSON,
-    V1Interface,
+} from './V1Input';
+import type { V1Interface } from './V1Interface';
+import {
     V1InterfaceFromJSON,
     V1InterfaceFromJSONTyped,
     V1InterfaceToJSON,
-    V1PanicDevice,
+} from './V1Interface';
+import type { V1PanicDevice } from './V1PanicDevice';
+import {
     V1PanicDeviceFromJSON,
     V1PanicDeviceFromJSONTyped,
     V1PanicDeviceToJSON,
-    V1SoundDevice,
+} from './V1PanicDevice';
+import type { V1SoundDevice } from './V1SoundDevice';
+import {
     V1SoundDeviceFromJSON,
     V1SoundDeviceFromJSONTyped,
     V1SoundDeviceToJSON,
-    V1TPMDevice,
+} from './V1SoundDevice';
+import type { V1TPMDevice } from './V1TPMDevice';
+import {
     V1TPMDeviceFromJSON,
     V1TPMDeviceFromJSONTyped,
     V1TPMDeviceToJSON,
-    V1VideoDevice,
+} from './V1TPMDevice';
+import type { V1VideoDevice } from './V1VideoDevice';
+import {
     V1VideoDeviceFromJSON,
     V1VideoDeviceFromJSONTyped,
     V1VideoDeviceToJSON,
-    V1Watchdog,
+} from './V1VideoDevice';
+import type { V1Watchdog } from './V1Watchdog';
+import {
     V1WatchdogFromJSON,
     V1WatchdogFromJSONTyped,
     V1WatchdogToJSON,
-} from './';
+} from './V1Watchdog';
 
 /**
  * 
@@ -218,6 +238,15 @@ export interface V1Devices {
      * @memberof V1Devices
      */
     watchdog?: V1Watchdog;
+}
+
+/**
+ * Check if a given object implements the V1Devices interface.
+ */
+export function instanceOfV1Devices(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1DevicesFromJSON(json: any): V1Devices {

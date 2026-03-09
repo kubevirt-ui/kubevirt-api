@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Disk } from './V1Disk';
 import {
-    V1Disk,
     V1DiskFromJSON,
     V1DiskFromJSONTyped,
     V1DiskToJSON,
-    V1HotplugVolumeSource,
+} from './V1Disk';
+import type { V1HotplugVolumeSource } from './V1HotplugVolumeSource';
+import {
     V1HotplugVolumeSourceFromJSON,
     V1HotplugVolumeSourceFromJSONTyped,
     V1HotplugVolumeSourceToJSON,
-} from './';
+} from './V1HotplugVolumeSource';
 
 /**
  * AddVolumeOptions is provided when dynamically hot plugging a volume and disk
@@ -54,6 +56,18 @@ export interface V1AddVolumeOptions {
      * @memberof V1AddVolumeOptions
      */
     volumeSource: V1HotplugVolumeSource;
+}
+
+/**
+ * Check if a given object implements the V1AddVolumeOptions interface.
+ */
+export function instanceOfV1AddVolumeOptions(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "disk" in value;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "volumeSource" in value;
+
+    return isInstance;
 }
 
 export function V1AddVolumeOptionsFromJSON(json: any): V1AddVolumeOptions {

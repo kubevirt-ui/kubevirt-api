@@ -27,6 +27,15 @@ export interface V1Machine {
     type?: string;
 }
 
+/**
+ * Check if a given object implements the V1Machine interface.
+ */
+export function instanceOfV1Machine(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1MachineFromJSON(json: any): V1Machine {
     return V1MachineFromJSONTyped(json, false);
 }

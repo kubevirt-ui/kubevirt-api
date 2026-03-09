@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1beta1PersistentVolumeClaim } from './V1beta1PersistentVolumeClaim';
 import {
-    V1beta1PersistentVolumeClaim,
     V1beta1PersistentVolumeClaimFromJSON,
     V1beta1PersistentVolumeClaimFromJSONTyped,
     V1beta1PersistentVolumeClaimToJSON,
-} from './';
+} from './V1beta1PersistentVolumeClaim';
 
 /**
  * VolumeBackup contains the data neeed to restore a PVC
@@ -44,6 +44,17 @@ export interface V1beta1VolumeBackup {
      * @memberof V1beta1VolumeBackup
      */
     volumeSnapshotName?: string;
+}
+
+/**
+ * Check if a given object implements the V1beta1VolumeBackup interface.
+ */
+export function instanceOfV1beta1VolumeBackup(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "persistentVolumeClaim" in value;
+    isInstance = isInstance && "volumeName" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VolumeBackupFromJSON(json: any): V1beta1VolumeBackup {

@@ -12,12 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1NodeSelectorRequirement } from './K8sIoApiCoreV1NodeSelectorRequirement';
 import {
-  K8sIoApiCoreV1NodeSelectorRequirement,
-  K8sIoApiCoreV1NodeSelectorRequirementFromJSON,
-  K8sIoApiCoreV1NodeSelectorRequirementToJSON,
-} from './';
+    K8sIoApiCoreV1NodeSelectorRequirementFromJSON,
+    K8sIoApiCoreV1NodeSelectorRequirementFromJSONTyped,
+    K8sIoApiCoreV1NodeSelectorRequirementToJSON,
+} from './K8sIoApiCoreV1NodeSelectorRequirement';
 
 /**
  * A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
@@ -25,58 +26,55 @@ import {
  * @interface K8sIoApiCoreV1NodeSelectorTerm
  */
 export interface K8sIoApiCoreV1NodeSelectorTerm {
-  /**
-   * A list of node selector requirements by node's labels.
-   * @type {Array<K8sIoApiCoreV1NodeSelectorRequirement>}
-   * @memberof K8sIoApiCoreV1NodeSelectorTerm
-   */
-  matchExpressions?: Array<K8sIoApiCoreV1NodeSelectorRequirement>;
-  /**
-   * A list of node selector requirements by node's fields.
-   * @type {Array<K8sIoApiCoreV1NodeSelectorRequirement>}
-   * @memberof K8sIoApiCoreV1NodeSelectorTerm
-   */
-  matchFields?: Array<K8sIoApiCoreV1NodeSelectorRequirement>;
+    /**
+     * A list of node selector requirements by node's labels.
+     * @type {Array<K8sIoApiCoreV1NodeSelectorRequirement>}
+     * @memberof K8sIoApiCoreV1NodeSelectorTerm
+     */
+    matchExpressions?: Array<K8sIoApiCoreV1NodeSelectorRequirement>;
+    /**
+     * A list of node selector requirements by node's fields.
+     * @type {Array<K8sIoApiCoreV1NodeSelectorRequirement>}
+     * @memberof K8sIoApiCoreV1NodeSelectorTerm
+     */
+    matchFields?: Array<K8sIoApiCoreV1NodeSelectorRequirement>;
+}
+
+/**
+ * Check if a given object implements the K8sIoApiCoreV1NodeSelectorTerm interface.
+ */
+export function instanceOfK8sIoApiCoreV1NodeSelectorTerm(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function K8sIoApiCoreV1NodeSelectorTermFromJSON(json: any): K8sIoApiCoreV1NodeSelectorTerm {
-  return K8sIoApiCoreV1NodeSelectorTermFromJSONTyped(json, false);
+    return K8sIoApiCoreV1NodeSelectorTermFromJSONTyped(json, false);
 }
 
-export function K8sIoApiCoreV1NodeSelectorTermFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApiCoreV1NodeSelectorTerm {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    matchExpressions: !exists(json, 'matchExpressions')
-      ? undefined
-      : (json['matchExpressions'] as Array<any>).map(K8sIoApiCoreV1NodeSelectorRequirementFromJSON),
-    matchFields: !exists(json, 'matchFields')
-      ? undefined
-      : (json['matchFields'] as Array<any>).map(K8sIoApiCoreV1NodeSelectorRequirementFromJSON),
-  };
+export function K8sIoApiCoreV1NodeSelectorTermFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1NodeSelectorTerm {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'matchExpressions': !exists(json, 'matchExpressions') ? undefined : ((json['matchExpressions'] as Array<any>).map(K8sIoApiCoreV1NodeSelectorRequirementFromJSON)),
+        'matchFields': !exists(json, 'matchFields') ? undefined : ((json['matchFields'] as Array<any>).map(K8sIoApiCoreV1NodeSelectorRequirementFromJSON)),
+    };
 }
 
-export function K8sIoApiCoreV1NodeSelectorTermToJSON(
-  value?: K8sIoApiCoreV1NodeSelectorTerm | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    matchExpressions:
-      value.matchExpressions === undefined
-        ? undefined
-        : (value.matchExpressions as Array<any>).map(K8sIoApiCoreV1NodeSelectorRequirementToJSON),
-    matchFields:
-      value.matchFields === undefined
-        ? undefined
-        : (value.matchFields as Array<any>).map(K8sIoApiCoreV1NodeSelectorRequirementToJSON),
-  };
+export function K8sIoApiCoreV1NodeSelectorTermToJSON(value?: K8sIoApiCoreV1NodeSelectorTerm | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'matchExpressions': value.matchExpressions === undefined ? undefined : ((value.matchExpressions as Array<any>).map(K8sIoApiCoreV1NodeSelectorRequirementToJSON)),
+        'matchFields': value.matchFields === undefined ? undefined : ((value.matchFields as Array<any>).map(K8sIoApiCoreV1NodeSelectorRequirementToJSON)),
+    };
 }
+

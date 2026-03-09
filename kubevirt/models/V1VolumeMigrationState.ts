@@ -12,56 +12,61 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { V1StorageMigratedVolumeInfo } from './V1StorageMigratedVolumeInfo';
 import {
-  V1StorageMigratedVolumeInfo,
-  V1StorageMigratedVolumeInfoFromJSON,
-  V1StorageMigratedVolumeInfoToJSON,
-} from './';
+    V1StorageMigratedVolumeInfoFromJSON,
+    V1StorageMigratedVolumeInfoFromJSONTyped,
+    V1StorageMigratedVolumeInfoToJSON,
+} from './V1StorageMigratedVolumeInfo';
 
 /**
- *
+ * 
  * @export
  * @interface V1VolumeMigrationState
  */
 export interface V1VolumeMigrationState {
-  /**
-   * MigratedVolumes lists the source and destination volumes during the volume migration
-   * @type {Array<V1StorageMigratedVolumeInfo>}
-   * @memberof V1VolumeMigrationState
-   */
-  migratedVolumes?: Array<V1StorageMigratedVolumeInfo>;
+    /**
+     * MigratedVolumes lists the source and destination volumes during the volume migration
+     * @type {Array<V1StorageMigratedVolumeInfo>}
+     * @memberof V1VolumeMigrationState
+     */
+    migratedVolumes?: Array<V1StorageMigratedVolumeInfo>;
+}
+
+/**
+ * Check if a given object implements the V1VolumeMigrationState interface.
+ */
+export function instanceOfV1VolumeMigrationState(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1VolumeMigrationStateFromJSON(json: any): V1VolumeMigrationState {
-  return V1VolumeMigrationStateFromJSONTyped(json, false);
+    return V1VolumeMigrationStateFromJSONTyped(json, false);
 }
 
-export function V1VolumeMigrationStateFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VolumeMigrationState {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    migratedVolumes: !exists(json, 'migratedVolumes')
-      ? undefined
-      : (json['migratedVolumes'] as Array<any>).map(V1StorageMigratedVolumeInfoFromJSON),
-  };
+export function V1VolumeMigrationStateFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VolumeMigrationState {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'migratedVolumes': !exists(json, 'migratedVolumes') ? undefined : ((json['migratedVolumes'] as Array<any>).map(V1StorageMigratedVolumeInfoFromJSON)),
+    };
 }
 
 export function V1VolumeMigrationStateToJSON(value?: V1VolumeMigrationState | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    migratedVolumes:
-      value.migratedVolumes === undefined
-        ? undefined
-        : (value.migratedVolumes as Array<any>).map(V1StorageMigratedVolumeInfoToJSON),
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'migratedVolumes': value.migratedVolumes === undefined ? undefined : ((value.migratedVolumes as Array<any>).map(V1StorageMigratedVolumeInfoToJSON)),
+    };
 }
+

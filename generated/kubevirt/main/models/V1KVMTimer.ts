@@ -27,6 +27,15 @@ export interface V1KVMTimer {
     present?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1KVMTimer interface.
+ */
+export function instanceOfV1KVMTimer(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1KVMTimerFromJSON(json: any): V1KVMTimer {
     return V1KVMTimerFromJSONTyped(json, false);
 }

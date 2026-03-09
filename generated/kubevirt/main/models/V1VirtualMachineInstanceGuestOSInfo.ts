@@ -69,6 +69,15 @@ export interface V1VirtualMachineInstanceGuestOSInfo {
     versionId?: string;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceGuestOSInfo interface.
+ */
+export function instanceOfV1VirtualMachineInstanceGuestOSInfo(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineInstanceGuestOSInfoFromJSON(json: any): V1VirtualMachineInstanceGuestOSInfo {
     return V1VirtualMachineInstanceGuestOSInfoFromJSONTyped(json, false);
 }

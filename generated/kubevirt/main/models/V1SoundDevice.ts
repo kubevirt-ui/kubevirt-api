@@ -33,6 +33,16 @@ export interface V1SoundDevice {
     name: string;
 }
 
+/**
+ * Check if a given object implements the V1SoundDevice interface.
+ */
+export function instanceOfV1SoundDevice(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
+}
+
 export function V1SoundDeviceFromJSON(json: any): V1SoundDevice {
     return V1SoundDeviceFromJSONTyped(json, false);
 }

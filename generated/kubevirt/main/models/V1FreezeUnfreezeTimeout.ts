@@ -27,6 +27,16 @@ export interface V1FreezeUnfreezeTimeout {
     unfreezeTimeout: string;
 }
 
+/**
+ * Check if a given object implements the V1FreezeUnfreezeTimeout interface.
+ */
+export function instanceOfV1FreezeUnfreezeTimeout(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "unfreezeTimeout" in value;
+
+    return isInstance;
+}
+
 export function V1FreezeUnfreezeTimeoutFromJSON(json: any): V1FreezeUnfreezeTimeout {
     return V1FreezeUnfreezeTimeoutFromJSONTyped(json, false);
 }

@@ -27,6 +27,15 @@ export interface V1InterfaceBindingMigration {
     method?: string;
 }
 
+/**
+ * Check if a given object implements the V1InterfaceBindingMigration interface.
+ */
+export function instanceOfV1InterfaceBindingMigration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1InterfaceBindingMigrationFromJSON(json: any): V1InterfaceBindingMigration {
     return V1InterfaceBindingMigrationFromJSONTyped(json, false);
 }

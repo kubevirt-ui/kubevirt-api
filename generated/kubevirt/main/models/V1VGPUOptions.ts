@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1VGPUDisplayOptions } from './V1VGPUDisplayOptions';
 import {
-    V1VGPUDisplayOptions,
     V1VGPUDisplayOptionsFromJSON,
     V1VGPUDisplayOptionsFromJSONTyped,
     V1VGPUDisplayOptionsToJSON,
-} from './';
+} from './V1VGPUDisplayOptions';
 
 /**
  * 
@@ -32,6 +32,15 @@ export interface V1VGPUOptions {
      * @memberof V1VGPUOptions
      */
     display?: V1VGPUDisplayOptions;
+}
+
+/**
+ * Check if a given object implements the V1VGPUOptions interface.
+ */
+export function instanceOfV1VGPUOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1VGPUOptionsFromJSON(json: any): V1VGPUOptions {

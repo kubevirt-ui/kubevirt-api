@@ -27,6 +27,15 @@ export interface V1DiskIOThreads {
     supplementalPoolThreadCount?: number;
 }
 
+/**
+ * Check if a given object implements the V1DiskIOThreads interface.
+ */
+export function instanceOfV1DiskIOThreads(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1DiskIOThreadsFromJSON(json: any): V1DiskIOThreads {
     return V1DiskIOThreadsFromJSONTyped(json, false);
 }

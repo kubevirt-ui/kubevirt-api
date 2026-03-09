@@ -12,15 +12,19 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { V1Disk } from './V1Disk';
 import {
-  V1Disk,
-  V1DiskFromJSON,
-  V1DiskToJSON,
-  V1HotplugVolumeSource,
-  V1HotplugVolumeSourceFromJSON,
-  V1HotplugVolumeSourceToJSON,
-} from './';
+    V1DiskFromJSON,
+    V1DiskFromJSONTyped,
+    V1DiskToJSON,
+} from './V1Disk';
+import type { V1HotplugVolumeSource } from './V1HotplugVolumeSource';
+import {
+    V1HotplugVolumeSourceFromJSON,
+    V1HotplugVolumeSourceFromJSONTyped,
+    V1HotplugVolumeSourceToJSON,
+} from './V1HotplugVolumeSource';
 
 /**
  * AddVolumeOptions is provided when dynamically hot plugging a volume and disk
@@ -28,62 +32,74 @@ import {
  * @interface V1AddVolumeOptions
  */
 export interface V1AddVolumeOptions {
-  /**
-   *
-   * @type {V1Disk}
-   * @memberof V1AddVolumeOptions
-   */
-  disk: V1Disk;
-  /**
-   * When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
-   * @type {Array<string>}
-   * @memberof V1AddVolumeOptions
-   */
-  dryRun?: Array<string>;
-  /**
-   * Name represents the name that will be used to map the disk to the corresponding volume. This overrides any name set inside the Disk struct itself.
-   * @type {string}
-   * @memberof V1AddVolumeOptions
-   */
-  name: string;
-  /**
-   *
-   * @type {V1HotplugVolumeSource}
-   * @memberof V1AddVolumeOptions
-   */
-  volumeSource: V1HotplugVolumeSource;
+    /**
+     * 
+     * @type {V1Disk}
+     * @memberof V1AddVolumeOptions
+     */
+    disk: V1Disk;
+    /**
+     * When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @type {Array<string>}
+     * @memberof V1AddVolumeOptions
+     */
+    dryRun?: Array<string>;
+    /**
+     * Name represents the name that will be used to map the disk to the corresponding volume. This overrides any name set inside the Disk struct itself.
+     * @type {string}
+     * @memberof V1AddVolumeOptions
+     */
+    name: string;
+    /**
+     * 
+     * @type {V1HotplugVolumeSource}
+     * @memberof V1AddVolumeOptions
+     */
+    volumeSource: V1HotplugVolumeSource;
+}
+
+/**
+ * Check if a given object implements the V1AddVolumeOptions interface.
+ */
+export function instanceOfV1AddVolumeOptions(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "disk" in value;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "volumeSource" in value;
+
+    return isInstance;
 }
 
 export function V1AddVolumeOptionsFromJSON(json: any): V1AddVolumeOptions {
-  return V1AddVolumeOptionsFromJSONTyped(json, false);
+    return V1AddVolumeOptionsFromJSONTyped(json, false);
 }
 
-export function V1AddVolumeOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1AddVolumeOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    disk: V1DiskFromJSON(json['disk']),
-    dryRun: !exists(json, 'dryRun') ? undefined : json['dryRun'],
-    name: json['name'],
-    volumeSource: V1HotplugVolumeSourceFromJSON(json['volumeSource']),
-  };
+export function V1AddVolumeOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1AddVolumeOptions {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'disk': V1DiskFromJSON(json['disk']),
+        'dryRun': !exists(json, 'dryRun') ? undefined : json['dryRun'],
+        'name': json['name'],
+        'volumeSource': V1HotplugVolumeSourceFromJSON(json['volumeSource']),
+    };
 }
 
 export function V1AddVolumeOptionsToJSON(value?: V1AddVolumeOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    disk: V1DiskToJSON(value.disk),
-    dryRun: value.dryRun,
-    name: value.name,
-    volumeSource: V1HotplugVolumeSourceToJSON(value.volumeSource),
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'disk': V1DiskToJSON(value.disk),
+        'dryRun': value.dryRun,
+        'name': value.name,
+        'volumeSource': V1HotplugVolumeSourceToJSON(value.volumeSource),
+    };
 }
+

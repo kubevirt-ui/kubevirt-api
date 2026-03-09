@@ -12,56 +12,64 @@
  * Do not edit the class manually.
  */
 
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1VirtualMachineInstanceMigrationSource
  */
 export interface V1VirtualMachineInstanceMigrationSource {
-  /**
-   * The synchronization controller URL to connect to.
-   * @type {string}
-   * @memberof V1VirtualMachineInstanceMigrationSource
-   */
-  connectURL: string;
-  /**
-   * A unique identifier to identify this migration.
-   * @type {string}
-   * @memberof V1VirtualMachineInstanceMigrationSource
-   */
-  migrationID: string;
+    /**
+     * The synchronization controller URL to connect to.
+     * @type {string}
+     * @memberof V1VirtualMachineInstanceMigrationSource
+     */
+    connectURL: string;
+    /**
+     * A unique identifier to identify this migration.
+     * @type {string}
+     * @memberof V1VirtualMachineInstanceMigrationSource
+     */
+    migrationID: string;
 }
 
-export function V1VirtualMachineInstanceMigrationSourceFromJSON(
-  json: any,
-): V1VirtualMachineInstanceMigrationSource {
-  return V1VirtualMachineInstanceMigrationSourceFromJSONTyped(json, false);
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationSource interface.
+ */
+export function instanceOfV1VirtualMachineInstanceMigrationSource(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "connectURL" in value;
+    isInstance = isInstance && "migrationID" in value;
+
+    return isInstance;
 }
 
-export function V1VirtualMachineInstanceMigrationSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceMigrationSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    connectURL: json['connectURL'],
-    migrationID: json['migrationID'],
-  };
+export function V1VirtualMachineInstanceMigrationSourceFromJSON(json: any): V1VirtualMachineInstanceMigrationSource {
+    return V1VirtualMachineInstanceMigrationSourceFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceMigrationSourceToJSON(
-  value?: V1VirtualMachineInstanceMigrationSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    connectURL: value.connectURL,
-    migrationID: value.migrationID,
-  };
+export function V1VirtualMachineInstanceMigrationSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationSource {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'connectURL': json['connectURL'],
+        'migrationID': json['migrationID'],
+    };
 }
+
+export function V1VirtualMachineInstanceMigrationSourceToJSON(value?: V1VirtualMachineInstanceMigrationSource | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'connectURL': value.connectURL,
+        'migrationID': value.migrationID,
+    };
+}
+

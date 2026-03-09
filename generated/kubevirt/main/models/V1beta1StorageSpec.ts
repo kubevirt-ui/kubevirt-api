@@ -13,24 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
 import {
-    K8sIoApiCoreV1TypedLocalObjectReference,
     K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
     K8sIoApiCoreV1TypedLocalObjectReferenceFromJSONTyped,
     K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-    K8sIoApiCoreV1TypedObjectReference,
+} from './K8sIoApiCoreV1TypedLocalObjectReference';
+import type { K8sIoApiCoreV1TypedObjectReference } from './K8sIoApiCoreV1TypedObjectReference';
+import {
     K8sIoApiCoreV1TypedObjectReferenceFromJSON,
     K8sIoApiCoreV1TypedObjectReferenceFromJSONTyped,
     K8sIoApiCoreV1TypedObjectReferenceToJSON,
-    K8sIoApiCoreV1VolumeResourceRequirements,
+} from './K8sIoApiCoreV1TypedObjectReference';
+import type { K8sIoApiCoreV1VolumeResourceRequirements } from './K8sIoApiCoreV1VolumeResourceRequirements';
+import {
     K8sIoApiCoreV1VolumeResourceRequirementsFromJSON,
     K8sIoApiCoreV1VolumeResourceRequirementsFromJSONTyped,
     K8sIoApiCoreV1VolumeResourceRequirementsToJSON,
-    K8sIoApimachineryPkgApisMetaV1LabelSelector,
+} from './K8sIoApiCoreV1VolumeResourceRequirements';
+import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
+import {
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './';
+} from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 
 /**
  * StorageSpec defines the Storage type specification
@@ -93,23 +99,36 @@ export interface V1beta1StorageSpec {
     volumeName?: string;
 }
 
+
 /**
-* @export
-* @enum {string}
-*/
-export enum V1beta1StorageSpecAccessModesEnum {
-    ReadOnlyMany = 'ReadOnlyMany',
-    ReadWriteMany = 'ReadWriteMany',
-    ReadWriteOnce = 'ReadWriteOnce',
-    ReadWriteOncePod = 'ReadWriteOncePod'
-}/**
-* @export
-* @enum {string}
-*/
-export enum V1beta1StorageSpecVolumeModeEnum {
-    Block = 'Block',
-    Filesystem = 'Filesystem',
-    FromStorageProfile = 'FromStorageProfile'
+ * @export
+ */
+export const V1beta1StorageSpecAccessModesEnum = {
+    ReadOnlyMany: 'ReadOnlyMany',
+    ReadWriteMany: 'ReadWriteMany',
+    ReadWriteOnce: 'ReadWriteOnce',
+    ReadWriteOncePod: 'ReadWriteOncePod'
+} as const;
+export type V1beta1StorageSpecAccessModesEnum = typeof V1beta1StorageSpecAccessModesEnum[keyof typeof V1beta1StorageSpecAccessModesEnum];
+
+/**
+ * @export
+ */
+export const V1beta1StorageSpecVolumeModeEnum = {
+    Block: 'Block',
+    Filesystem: 'Filesystem',
+    FromStorageProfile: 'FromStorageProfile'
+} as const;
+export type V1beta1StorageSpecVolumeModeEnum = typeof V1beta1StorageSpecVolumeModeEnum[keyof typeof V1beta1StorageSpecVolumeModeEnum];
+
+
+/**
+ * Check if a given object implements the V1beta1StorageSpec interface.
+ */
+export function instanceOfV1beta1StorageSpec(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1beta1StorageSpecFromJSON(json: any): V1beta1StorageSpec {

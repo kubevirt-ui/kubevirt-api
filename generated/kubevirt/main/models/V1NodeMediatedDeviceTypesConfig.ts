@@ -39,6 +39,16 @@ export interface V1NodeMediatedDeviceTypesConfig {
     nodeSelector: { [key: string]: string; };
 }
 
+/**
+ * Check if a given object implements the V1NodeMediatedDeviceTypesConfig interface.
+ */
+export function instanceOfV1NodeMediatedDeviceTypesConfig(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "nodeSelector" in value;
+
+    return isInstance;
+}
+
 export function V1NodeMediatedDeviceTypesConfigFromJSON(json: any): V1NodeMediatedDeviceTypesConfig {
     return V1NodeMediatedDeviceTypesConfigFromJSONTyped(json, false);
 }

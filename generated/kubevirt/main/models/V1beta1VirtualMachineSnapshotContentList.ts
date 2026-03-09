@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ListMeta,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-    V1beta1VirtualMachineSnapshotContent,
+} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1beta1VirtualMachineSnapshotContent } from './V1beta1VirtualMachineSnapshotContent';
+import {
     V1beta1VirtualMachineSnapshotContentFromJSON,
     V1beta1VirtualMachineSnapshotContentFromJSONTyped,
     V1beta1VirtualMachineSnapshotContentToJSON,
-} from './';
+} from './V1beta1VirtualMachineSnapshotContent';
 
 /**
  * VirtualMachineSnapshotContentList is a list of VirtualMachineSnapshot resources
@@ -54,6 +56,17 @@ export interface V1beta1VirtualMachineSnapshotContentList {
      * @memberof V1beta1VirtualMachineSnapshotContentList
      */
     metadata: K8sIoApimachineryPkgApisMetaV1ListMeta;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineSnapshotContentList interface.
+ */
+export function instanceOfV1beta1VirtualMachineSnapshotContentList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "items" in value;
+    isInstance = isInstance && "metadata" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineSnapshotContentListFromJSON(json: any): V1beta1VirtualMachineSnapshotContentList {

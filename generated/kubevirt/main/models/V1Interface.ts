@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1DHCPOptions } from './V1DHCPOptions';
 import {
-    V1DHCPOptions,
     V1DHCPOptionsFromJSON,
     V1DHCPOptionsFromJSONTyped,
     V1DHCPOptionsToJSON,
-    V1PluginBinding,
+} from './V1DHCPOptions';
+import type { V1PluginBinding } from './V1PluginBinding';
+import {
     V1PluginBindingFromJSON,
     V1PluginBindingFromJSONTyped,
     V1PluginBindingToJSON,
-    V1Port,
+} from './V1PluginBinding';
+import type { V1Port } from './V1Port';
+import {
     V1PortFromJSON,
     V1PortFromJSONTyped,
     V1PortToJSON,
-} from './';
+} from './V1Port';
 
 /**
  * 
@@ -101,6 +105,12 @@ export interface V1Interface {
      */
     passt?: object;
     /**
+     * InterfacePasstBinding connects to a given network using passt usermode networking.
+     * @type {object}
+     * @memberof V1Interface
+     */
+    passtBinding?: object;
+    /**
      * If specified, the virtual network interface will be placed on the guests pci address with the specified PCI address. For example: 0000:81:01.10
      * @type {string}
      * @memberof V1Interface
@@ -138,6 +148,16 @@ export interface V1Interface {
     tag?: string;
 }
 
+/**
+ * Check if a given object implements the V1Interface interface.
+ */
+export function instanceOfV1Interface(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
+}
+
 export function V1InterfaceFromJSON(json: any): V1Interface {
     return V1InterfaceFromJSONTyped(json, false);
 }
@@ -159,6 +179,7 @@ export function V1InterfaceFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'model': !exists(json, 'model') ? undefined : json['model'],
         'name': json['name'],
         'passt': !exists(json, 'passt') ? undefined : json['passt'],
+        'passtBinding': !exists(json, 'passtBinding') ? undefined : json['passtBinding'],
         'pciAddress': !exists(json, 'pciAddress') ? undefined : json['pciAddress'],
         'ports': !exists(json, 'ports') ? undefined : ((json['ports'] as Array<any>).map(V1PortFromJSON)),
         'slirp': !exists(json, 'slirp') ? undefined : json['slirp'],
@@ -188,6 +209,7 @@ export function V1InterfaceToJSON(value?: V1Interface | null): any {
         'model': value.model,
         'name': value.name,
         'passt': value.passt,
+        'passtBinding': value.passtBinding,
         'pciAddress': value.pciAddress,
         'ports': value.ports === undefined ? undefined : ((value.ports as Array<any>).map(V1PortToJSON)),
         'slirp': value.slirp,

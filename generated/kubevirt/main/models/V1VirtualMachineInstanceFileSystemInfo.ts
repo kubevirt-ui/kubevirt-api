@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1VirtualMachineInstanceFileSystem } from './V1VirtualMachineInstanceFileSystem';
 import {
-    V1VirtualMachineInstanceFileSystem,
     V1VirtualMachineInstanceFileSystemFromJSON,
     V1VirtualMachineInstanceFileSystemFromJSONTyped,
     V1VirtualMachineInstanceFileSystemToJSON,
-} from './';
+} from './V1VirtualMachineInstanceFileSystem';
 
 /**
  * VirtualMachineInstanceFileSystemInfo represents information regarding single guest os filesystem
@@ -32,6 +32,16 @@ export interface V1VirtualMachineInstanceFileSystemInfo {
      * @memberof V1VirtualMachineInstanceFileSystemInfo
      */
     disks: Array<V1VirtualMachineInstanceFileSystem>;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceFileSystemInfo interface.
+ */
+export function instanceOfV1VirtualMachineInstanceFileSystemInfo(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "disks" in value;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceFileSystemInfoFromJSON(json: any): V1VirtualMachineInstanceFileSystemInfo {

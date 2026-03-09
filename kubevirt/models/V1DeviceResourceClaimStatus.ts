@@ -12,8 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1DeviceAttribute, V1DeviceAttributeFromJSON, V1DeviceAttributeToJSON } from './';
+import { exists, mapValues } from '../runtime';
+import type { V1DeviceAttribute } from './V1DeviceAttribute';
+import {
+    V1DeviceAttributeFromJSON,
+    V1DeviceAttributeFromJSONTyped,
+    V1DeviceAttributeToJSON,
+} from './V1DeviceAttribute';
 
 /**
  * DeviceResourceClaimStatus has to be before SyncVMI call from virt-handler to virt-launcher
@@ -21,56 +26,63 @@ import { V1DeviceAttribute, V1DeviceAttributeFromJSON, V1DeviceAttributeToJSON }
  * @interface V1DeviceResourceClaimStatus
  */
 export interface V1DeviceResourceClaimStatus {
-  /**
-   *
-   * @type {V1DeviceAttribute}
-   * @memberof V1DeviceResourceClaimStatus
-   */
-  attributes?: V1DeviceAttribute;
-  /**
-   * Name is the name of actual device on the host provisioned by the driver as reflected in resourceclaim.status
-   * @type {string}
-   * @memberof V1DeviceResourceClaimStatus
-   */
-  name?: string;
-  /**
-   * ResourceClaimName is the name of the resource claims object used to provision this resource
-   * @type {string}
-   * @memberof V1DeviceResourceClaimStatus
-   */
-  resourceClaimName?: string;
+    /**
+     * 
+     * @type {V1DeviceAttribute}
+     * @memberof V1DeviceResourceClaimStatus
+     */
+    attributes?: V1DeviceAttribute;
+    /**
+     * Name is the name of actual device on the host provisioned by the driver as reflected in resourceclaim.status
+     * @type {string}
+     * @memberof V1DeviceResourceClaimStatus
+     */
+    name?: string;
+    /**
+     * ResourceClaimName is the name of the resource claims object used to provision this resource
+     * @type {string}
+     * @memberof V1DeviceResourceClaimStatus
+     */
+    resourceClaimName?: string;
+}
+
+/**
+ * Check if a given object implements the V1DeviceResourceClaimStatus interface.
+ */
+export function instanceOfV1DeviceResourceClaimStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1DeviceResourceClaimStatusFromJSON(json: any): V1DeviceResourceClaimStatus {
-  return V1DeviceResourceClaimStatusFromJSONTyped(json, false);
+    return V1DeviceResourceClaimStatusFromJSONTyped(json, false);
 }
 
-export function V1DeviceResourceClaimStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DeviceResourceClaimStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    attributes: !exists(json, 'attributes')
-      ? undefined
-      : V1DeviceAttributeFromJSON(json['attributes']),
-    name: !exists(json, 'name') ? undefined : json['name'],
-    resourceClaimName: !exists(json, 'resourceClaimName') ? undefined : json['resourceClaimName'],
-  };
+export function V1DeviceResourceClaimStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DeviceResourceClaimStatus {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'attributes': !exists(json, 'attributes') ? undefined : V1DeviceAttributeFromJSON(json['attributes']),
+        'name': !exists(json, 'name') ? undefined : json['name'],
+        'resourceClaimName': !exists(json, 'resourceClaimName') ? undefined : json['resourceClaimName'],
+    };
 }
 
 export function V1DeviceResourceClaimStatusToJSON(value?: V1DeviceResourceClaimStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    attributes: V1DeviceAttributeToJSON(value.attributes),
-    name: value.name,
-    resourceClaimName: value.resourceClaimName,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'attributes': V1DeviceAttributeToJSON(value.attributes),
+        'name': value.name,
+        'resourceClaimName': value.resourceClaimName,
+    };
 }
+

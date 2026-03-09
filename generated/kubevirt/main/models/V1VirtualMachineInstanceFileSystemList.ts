@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ListMeta,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-    V1VirtualMachineInstanceFileSystem,
+} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1VirtualMachineInstanceFileSystem } from './V1VirtualMachineInstanceFileSystem';
+import {
     V1VirtualMachineInstanceFileSystemFromJSON,
     V1VirtualMachineInstanceFileSystemFromJSONTyped,
     V1VirtualMachineInstanceFileSystemToJSON,
-} from './';
+} from './V1VirtualMachineInstanceFileSystem';
 
 /**
  * VirtualMachineInstanceFileSystemList comprises the list of all filesystems on guest machine
@@ -54,6 +56,16 @@ export interface V1VirtualMachineInstanceFileSystemList {
      * @memberof V1VirtualMachineInstanceFileSystemList
      */
     metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceFileSystemList interface.
+ */
+export function instanceOfV1VirtualMachineInstanceFileSystemList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "items" in value;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceFileSystemListFromJSON(json: any): V1VirtualMachineInstanceFileSystemList {

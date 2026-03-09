@@ -39,6 +39,17 @@ export interface V1beta1DataVolumeSourceRef {
     namespace?: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1DataVolumeSourceRef interface.
+ */
+export function instanceOfV1beta1DataVolumeSourceRef(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "kind" in value;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
+}
+
 export function V1beta1DataVolumeSourceRefFromJSON(json: any): V1beta1DataVolumeSourceRef {
     return V1beta1DataVolumeSourceRefFromJSONTyped(json, false);
 }

@@ -27,6 +27,15 @@ export interface V1ServiceAccountVolumeSource {
     serviceAccountName?: string;
 }
 
+/**
+ * Check if a given object implements the V1ServiceAccountVolumeSource interface.
+ */
+export function instanceOfV1ServiceAccountVolumeSource(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ServiceAccountVolumeSourceFromJSON(json: any): V1ServiceAccountVolumeSource {
     return V1ServiceAccountVolumeSourceFromJSONTyped(json, false);
 }

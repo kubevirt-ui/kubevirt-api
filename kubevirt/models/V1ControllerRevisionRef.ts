@@ -12,45 +12,54 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1ControllerRevisionRef
  */
 export interface V1ControllerRevisionRef {
-  /**
-   * Name of the ControllerRevision
-   * @type {string}
-   * @memberof V1ControllerRevisionRef
-   */
-  name?: string;
+    /**
+     * Name of the ControllerRevision
+     * @type {string}
+     * @memberof V1ControllerRevisionRef
+     */
+    name?: string;
+}
+
+/**
+ * Check if a given object implements the V1ControllerRevisionRef interface.
+ */
+export function instanceOfV1ControllerRevisionRef(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ControllerRevisionRefFromJSON(json: any): V1ControllerRevisionRef {
-  return V1ControllerRevisionRefFromJSONTyped(json, false);
+    return V1ControllerRevisionRefFromJSONTyped(json, false);
 }
 
-export function V1ControllerRevisionRefFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1ControllerRevisionRef {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: !exists(json, 'name') ? undefined : json['name'],
-  };
+export function V1ControllerRevisionRefFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ControllerRevisionRef {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'name': !exists(json, 'name') ? undefined : json['name'],
+    };
 }
 
 export function V1ControllerRevisionRefToJSON(value?: V1ControllerRevisionRef | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'name': value.name,
+    };
 }
+

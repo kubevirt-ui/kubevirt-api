@@ -12,15 +12,19 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { V1GenerationStatus } from './V1GenerationStatus';
 import {
-  V1GenerationStatus,
-  V1GenerationStatusFromJSON,
-  V1GenerationStatusToJSON,
-  V1KubeVirtCondition,
-  V1KubeVirtConditionFromJSON,
-  V1KubeVirtConditionToJSON,
-} from './';
+    V1GenerationStatusFromJSON,
+    V1GenerationStatusFromJSONTyped,
+    V1GenerationStatusToJSON,
+} from './V1GenerationStatus';
+import type { V1KubeVirtCondition } from './V1KubeVirtCondition';
+import {
+    V1KubeVirtConditionFromJSON,
+    V1KubeVirtConditionFromJSONTyped,
+    V1KubeVirtConditionToJSON,
+} from './V1KubeVirtCondition';
 
 /**
  * KubeVirtStatus represents information pertaining to a KubeVirt deployment.
@@ -28,195 +32,167 @@ import {
  * @interface V1KubeVirtStatus
  */
 export interface V1KubeVirtStatus {
-  /**
-   *
-   * @type {Array<V1KubeVirtCondition>}
-   * @memberof V1KubeVirtStatus
-   */
-  conditions?: Array<V1KubeVirtCondition>;
-  /**
-   *
-   * @type {string}
-   * @memberof V1KubeVirtStatus
-   */
-  defaultArchitecture?: string;
-  /**
-   *
-   * @type {Array<V1GenerationStatus>}
-   * @memberof V1KubeVirtStatus
-   */
-  generations?: Array<V1GenerationStatus>;
-  /**
-   *
-   * @type {string}
-   * @memberof V1KubeVirtStatus
-   */
-  observedDeploymentConfig?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1KubeVirtStatus
-   */
-  observedDeploymentID?: string;
-  /**
-   *
-   * @type {number}
-   * @memberof V1KubeVirtStatus
-   */
-  observedGeneration?: number;
-  /**
-   *
-   * @type {string}
-   * @memberof V1KubeVirtStatus
-   */
-  observedKubeVirtRegistry?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1KubeVirtStatus
-   */
-  observedKubeVirtVersion?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1KubeVirtStatus
-   */
-  operatorVersion?: string;
-  /**
-   *
-   * @type {number}
-   * @memberof V1KubeVirtStatus
-   */
-  outdatedVirtualMachineInstanceWorkloads?: number;
-  /**
-   *
-   * @type {string}
-   * @memberof V1KubeVirtStatus
-   */
-  phase?: string;
-  /**
-   *
-   * @type {Array<string>}
-   * @memberof V1KubeVirtStatus
-   */
-  synchronizationAddresses?: Array<string>;
-  /**
-   *
-   * @type {string}
-   * @memberof V1KubeVirtStatus
-   */
-  targetDeploymentConfig?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1KubeVirtStatus
-   */
-  targetDeploymentID?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1KubeVirtStatus
-   */
-  targetKubeVirtRegistry?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1KubeVirtStatus
-   */
-  targetKubeVirtVersion?: string;
+    /**
+     * 
+     * @type {Array<V1KubeVirtCondition>}
+     * @memberof V1KubeVirtStatus
+     */
+    conditions?: Array<V1KubeVirtCondition>;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1KubeVirtStatus
+     */
+    defaultArchitecture?: string;
+    /**
+     * 
+     * @type {Array<V1GenerationStatus>}
+     * @memberof V1KubeVirtStatus
+     */
+    generations?: Array<V1GenerationStatus>;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1KubeVirtStatus
+     */
+    observedDeploymentConfig?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1KubeVirtStatus
+     */
+    observedDeploymentID?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof V1KubeVirtStatus
+     */
+    observedGeneration?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1KubeVirtStatus
+     */
+    observedKubeVirtRegistry?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1KubeVirtStatus
+     */
+    observedKubeVirtVersion?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1KubeVirtStatus
+     */
+    operatorVersion?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof V1KubeVirtStatus
+     */
+    outdatedVirtualMachineInstanceWorkloads?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1KubeVirtStatus
+     */
+    phase?: string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof V1KubeVirtStatus
+     */
+    synchronizationAddresses?: Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1KubeVirtStatus
+     */
+    targetDeploymentConfig?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1KubeVirtStatus
+     */
+    targetDeploymentID?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1KubeVirtStatus
+     */
+    targetKubeVirtRegistry?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1KubeVirtStatus
+     */
+    targetKubeVirtVersion?: string;
+}
+
+/**
+ * Check if a given object implements the V1KubeVirtStatus interface.
+ */
+export function instanceOfV1KubeVirtStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1KubeVirtStatusFromJSON(json: any): V1KubeVirtStatus {
-  return V1KubeVirtStatusFromJSONTyped(json, false);
+    return V1KubeVirtStatusFromJSONTyped(json, false);
 }
 
-export function V1KubeVirtStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1KubeVirtStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(V1KubeVirtConditionFromJSON),
-    defaultArchitecture: !exists(json, 'defaultArchitecture')
-      ? undefined
-      : json['defaultArchitecture'],
-    generations: !exists(json, 'generations')
-      ? undefined
-      : (json['generations'] as Array<any>).map(V1GenerationStatusFromJSON),
-    observedDeploymentConfig: !exists(json, 'observedDeploymentConfig')
-      ? undefined
-      : json['observedDeploymentConfig'],
-    observedDeploymentID: !exists(json, 'observedDeploymentID')
-      ? undefined
-      : json['observedDeploymentID'],
-    observedGeneration: !exists(json, 'observedGeneration')
-      ? undefined
-      : json['observedGeneration'],
-    observedKubeVirtRegistry: !exists(json, 'observedKubeVirtRegistry')
-      ? undefined
-      : json['observedKubeVirtRegistry'],
-    observedKubeVirtVersion: !exists(json, 'observedKubeVirtVersion')
-      ? undefined
-      : json['observedKubeVirtVersion'],
-    operatorVersion: !exists(json, 'operatorVersion') ? undefined : json['operatorVersion'],
-    outdatedVirtualMachineInstanceWorkloads: !exists(
-      json,
-      'outdatedVirtualMachineInstanceWorkloads',
-    )
-      ? undefined
-      : json['outdatedVirtualMachineInstanceWorkloads'],
-    phase: !exists(json, 'phase') ? undefined : json['phase'],
-    synchronizationAddresses: !exists(json, 'synchronizationAddresses')
-      ? undefined
-      : json['synchronizationAddresses'],
-    targetDeploymentConfig: !exists(json, 'targetDeploymentConfig')
-      ? undefined
-      : json['targetDeploymentConfig'],
-    targetDeploymentID: !exists(json, 'targetDeploymentID')
-      ? undefined
-      : json['targetDeploymentID'],
-    targetKubeVirtRegistry: !exists(json, 'targetKubeVirtRegistry')
-      ? undefined
-      : json['targetKubeVirtRegistry'],
-    targetKubeVirtVersion: !exists(json, 'targetKubeVirtVersion')
-      ? undefined
-      : json['targetKubeVirtVersion'],
-  };
+export function V1KubeVirtStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KubeVirtStatus {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'conditions': !exists(json, 'conditions') ? undefined : ((json['conditions'] as Array<any>).map(V1KubeVirtConditionFromJSON)),
+        'defaultArchitecture': !exists(json, 'defaultArchitecture') ? undefined : json['defaultArchitecture'],
+        'generations': !exists(json, 'generations') ? undefined : ((json['generations'] as Array<any>).map(V1GenerationStatusFromJSON)),
+        'observedDeploymentConfig': !exists(json, 'observedDeploymentConfig') ? undefined : json['observedDeploymentConfig'],
+        'observedDeploymentID': !exists(json, 'observedDeploymentID') ? undefined : json['observedDeploymentID'],
+        'observedGeneration': !exists(json, 'observedGeneration') ? undefined : json['observedGeneration'],
+        'observedKubeVirtRegistry': !exists(json, 'observedKubeVirtRegistry') ? undefined : json['observedKubeVirtRegistry'],
+        'observedKubeVirtVersion': !exists(json, 'observedKubeVirtVersion') ? undefined : json['observedKubeVirtVersion'],
+        'operatorVersion': !exists(json, 'operatorVersion') ? undefined : json['operatorVersion'],
+        'outdatedVirtualMachineInstanceWorkloads': !exists(json, 'outdatedVirtualMachineInstanceWorkloads') ? undefined : json['outdatedVirtualMachineInstanceWorkloads'],
+        'phase': !exists(json, 'phase') ? undefined : json['phase'],
+        'synchronizationAddresses': !exists(json, 'synchronizationAddresses') ? undefined : json['synchronizationAddresses'],
+        'targetDeploymentConfig': !exists(json, 'targetDeploymentConfig') ? undefined : json['targetDeploymentConfig'],
+        'targetDeploymentID': !exists(json, 'targetDeploymentID') ? undefined : json['targetDeploymentID'],
+        'targetKubeVirtRegistry': !exists(json, 'targetKubeVirtRegistry') ? undefined : json['targetKubeVirtRegistry'],
+        'targetKubeVirtVersion': !exists(json, 'targetKubeVirtVersion') ? undefined : json['targetKubeVirtVersion'],
+    };
 }
 
 export function V1KubeVirtStatusToJSON(value?: V1KubeVirtStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(V1KubeVirtConditionToJSON),
-    defaultArchitecture: value.defaultArchitecture,
-    generations:
-      value.generations === undefined
-        ? undefined
-        : (value.generations as Array<any>).map(V1GenerationStatusToJSON),
-    observedDeploymentConfig: value.observedDeploymentConfig,
-    observedDeploymentID: value.observedDeploymentID,
-    observedGeneration: value.observedGeneration,
-    observedKubeVirtRegistry: value.observedKubeVirtRegistry,
-    observedKubeVirtVersion: value.observedKubeVirtVersion,
-    operatorVersion: value.operatorVersion,
-    outdatedVirtualMachineInstanceWorkloads: value.outdatedVirtualMachineInstanceWorkloads,
-    phase: value.phase,
-    synchronizationAddresses: value.synchronizationAddresses,
-    targetDeploymentConfig: value.targetDeploymentConfig,
-    targetDeploymentID: value.targetDeploymentID,
-    targetKubeVirtRegistry: value.targetKubeVirtRegistry,
-    targetKubeVirtVersion: value.targetKubeVirtVersion,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'conditions': value.conditions === undefined ? undefined : ((value.conditions as Array<any>).map(V1KubeVirtConditionToJSON)),
+        'defaultArchitecture': value.defaultArchitecture,
+        'generations': value.generations === undefined ? undefined : ((value.generations as Array<any>).map(V1GenerationStatusToJSON)),
+        'observedDeploymentConfig': value.observedDeploymentConfig,
+        'observedDeploymentID': value.observedDeploymentID,
+        'observedGeneration': value.observedGeneration,
+        'observedKubeVirtRegistry': value.observedKubeVirtRegistry,
+        'observedKubeVirtVersion': value.observedKubeVirtVersion,
+        'operatorVersion': value.operatorVersion,
+        'outdatedVirtualMachineInstanceWorkloads': value.outdatedVirtualMachineInstanceWorkloads,
+        'phase': value.phase,
+        'synchronizationAddresses': value.synchronizationAddresses,
+        'targetDeploymentConfig': value.targetDeploymentConfig,
+        'targetDeploymentID': value.targetDeploymentID,
+        'targetKubeVirtRegistry': value.targetKubeVirtRegistry,
+        'targetKubeVirtVersion': value.targetKubeVirtVersion,
+    };
 }
+

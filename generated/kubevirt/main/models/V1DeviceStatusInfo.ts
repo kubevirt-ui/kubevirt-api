@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1DeviceResourceClaimStatus } from './V1DeviceResourceClaimStatus';
 import {
-    V1DeviceResourceClaimStatus,
     V1DeviceResourceClaimStatusFromJSON,
     V1DeviceResourceClaimStatusFromJSONTyped,
     V1DeviceResourceClaimStatusToJSON,
-} from './';
+} from './V1DeviceResourceClaimStatus';
 
 /**
  * 
@@ -38,6 +38,16 @@ export interface V1DeviceStatusInfo {
      * @memberof V1DeviceStatusInfo
      */
     name: string;
+}
+
+/**
+ * Check if a given object implements the V1DeviceStatusInfo interface.
+ */
+export function instanceOfV1DeviceStatusInfo(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
 }
 
 export function V1DeviceStatusInfoFromJSON(json: any): V1DeviceStatusInfo {

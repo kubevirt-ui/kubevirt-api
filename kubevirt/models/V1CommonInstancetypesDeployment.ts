@@ -12,49 +12,54 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1CommonInstancetypesDeployment
  */
 export interface V1CommonInstancetypesDeployment {
-  /**
-   * Enabled controls the deployment of common-instancetypes resources, defaults to True.
-   * @type {boolean}
-   * @memberof V1CommonInstancetypesDeployment
-   */
-  enabled?: boolean;
+    /**
+     * Enabled controls the deployment of common-instancetypes resources, defaults to True.
+     * @type {boolean}
+     * @memberof V1CommonInstancetypesDeployment
+     */
+    enabled?: boolean;
 }
 
-export function V1CommonInstancetypesDeploymentFromJSON(
-  json: any,
-): V1CommonInstancetypesDeployment {
-  return V1CommonInstancetypesDeploymentFromJSONTyped(json, false);
+/**
+ * Check if a given object implements the V1CommonInstancetypesDeployment interface.
+ */
+export function instanceOfV1CommonInstancetypesDeployment(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
-export function V1CommonInstancetypesDeploymentFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1CommonInstancetypesDeployment {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    enabled: !exists(json, 'enabled') ? undefined : json['enabled'],
-  };
+export function V1CommonInstancetypesDeploymentFromJSON(json: any): V1CommonInstancetypesDeployment {
+    return V1CommonInstancetypesDeploymentFromJSONTyped(json, false);
 }
 
-export function V1CommonInstancetypesDeploymentToJSON(
-  value?: V1CommonInstancetypesDeployment | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    enabled: value.enabled,
-  };
+export function V1CommonInstancetypesDeploymentFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1CommonInstancetypesDeployment {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
+    };
 }
+
+export function V1CommonInstancetypesDeploymentToJSON(value?: V1CommonInstancetypesDeployment | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'enabled': value.enabled,
+    };
+}
+

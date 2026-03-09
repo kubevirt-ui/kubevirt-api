@@ -63,6 +63,16 @@ export interface V1EmptyDiskSource {
     capacity: string;
 }
 
+/**
+ * Check if a given object implements the V1EmptyDiskSource interface.
+ */
+export function instanceOfV1EmptyDiskSource(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "capacity" in value;
+
+    return isInstance;
+}
+
 export function V1EmptyDiskSourceFromJSON(json: any): V1EmptyDiskSource {
     return V1EmptyDiskSourceFromJSONTyped(json, false);
 }

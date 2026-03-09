@@ -81,6 +81,20 @@ export interface K8sIoApimachineryPkgApisMetaV1APIResource {
     version?: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1APIResource interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1APIResource(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "kind" in value;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "namespaced" in value;
+    isInstance = isInstance && "singularName" in value;
+    isInstance = isInstance && "verbs" in value;
+
+    return isInstance;
+}
+
 export function K8sIoApimachineryPkgApisMetaV1APIResourceFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1APIResource {
     return K8sIoApimachineryPkgApisMetaV1APIResourceFromJSONTyped(json, false);
 }

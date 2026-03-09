@@ -13,6 +13,13 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1beta1PlatformOptions } from './V1beta1PlatformOptions';
+import {
+    V1beta1PlatformOptionsFromJSON,
+    V1beta1PlatformOptionsFromJSONTyped,
+    V1beta1PlatformOptionsToJSON,
+} from './V1beta1PlatformOptions';
+
 /**
  * DataVolumeSourceRegistry provides the parameters to create a Data Volume from an registry source
  * @export
@@ -31,6 +38,12 @@ export interface V1beta1DataVolumeSourceRegistry {
      * @memberof V1beta1DataVolumeSourceRegistry
      */
     imageStream?: string;
+    /**
+     * 
+     * @type {V1beta1PlatformOptions}
+     * @memberof V1beta1DataVolumeSourceRegistry
+     */
+    platform?: V1beta1PlatformOptions;
     /**
      * PullMethod can be either "pod" (default import), or "node" (node docker cache based import)
      * @type {string}
@@ -51,6 +64,15 @@ export interface V1beta1DataVolumeSourceRegistry {
     url?: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1DataVolumeSourceRegistry interface.
+ */
+export function instanceOfV1beta1DataVolumeSourceRegistry(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1beta1DataVolumeSourceRegistryFromJSON(json: any): V1beta1DataVolumeSourceRegistry {
     return V1beta1DataVolumeSourceRegistryFromJSONTyped(json, false);
 }
@@ -63,6 +85,7 @@ export function V1beta1DataVolumeSourceRegistryFromJSONTyped(json: any, ignoreDi
         
         'certConfigMap': !exists(json, 'certConfigMap') ? undefined : json['certConfigMap'],
         'imageStream': !exists(json, 'imageStream') ? undefined : json['imageStream'],
+        'platform': !exists(json, 'platform') ? undefined : V1beta1PlatformOptionsFromJSON(json['platform']),
         'pullMethod': !exists(json, 'pullMethod') ? undefined : json['pullMethod'],
         'secretRef': !exists(json, 'secretRef') ? undefined : json['secretRef'],
         'url': !exists(json, 'url') ? undefined : json['url'],
@@ -80,6 +103,7 @@ export function V1beta1DataVolumeSourceRegistryToJSON(value?: V1beta1DataVolumeS
         
         'certConfigMap': value.certConfigMap,
         'imageStream': value.imageStream,
+        'platform': V1beta1PlatformOptionsToJSON(value.platform),
         'pullMethod': value.pullMethod,
         'secretRef': value.secretRef,
         'url': value.url,

@@ -27,6 +27,15 @@ export interface V1Realtime {
     mask?: string;
 }
 
+/**
+ * Check if a given object implements the V1Realtime interface.
+ */
+export function instanceOfV1Realtime(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1RealtimeFromJSON(json: any): V1Realtime {
     return V1RealtimeFromJSONTyped(json, false);
 }

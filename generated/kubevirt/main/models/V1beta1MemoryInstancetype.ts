@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Hugepages } from './V1Hugepages';
 import {
-    V1Hugepages,
     V1HugepagesFromJSON,
     V1HugepagesFromJSONTyped,
     V1HugepagesToJSON,
-} from './';
+} from './V1Hugepages';
 
 /**
  * MemoryInstancetype contains the Memory related configuration of a given VirtualMachineInstancetypeSpec.
@@ -124,6 +124,16 @@ export interface V1beta1MemoryInstancetype {
      * @memberof V1beta1MemoryInstancetype
      */
     overcommitPercent?: number;
+}
+
+/**
+ * Check if a given object implements the V1beta1MemoryInstancetype interface.
+ */
+export function instanceOfV1beta1MemoryInstancetype(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "guest" in value;
+
+    return isInstance;
 }
 
 export function V1beta1MemoryInstancetypeFromJSON(json: any): V1beta1MemoryInstancetype {

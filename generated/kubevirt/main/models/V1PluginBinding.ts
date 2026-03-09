@@ -27,6 +27,16 @@ export interface V1PluginBinding {
     name: string;
 }
 
+/**
+ * Check if a given object implements the V1PluginBinding interface.
+ */
+export function instanceOfV1PluginBinding(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
+}
+
 export function V1PluginBindingFromJSON(json: any): V1PluginBinding {
     return V1PluginBindingFromJSONTyped(json, false);
 }

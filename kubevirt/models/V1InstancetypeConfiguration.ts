@@ -12,45 +12,54 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1InstancetypeConfiguration
  */
 export interface V1InstancetypeConfiguration {
-  /**
-   * ReferencePolicy defines how an instance type or preference should be referenced by the VM after submission, supported values are: reference (default) - Where a copy of the original object is stashed in a ControllerRevision and referenced by the VM. expand - Where the instance type or preference are expanded into the VM if no revisionNames have been populated. expandAll - Where the instance type or preference are expanded into the VM regardless of revisionNames previously being populated.
-   * @type {string}
-   * @memberof V1InstancetypeConfiguration
-   */
-  referencePolicy?: string;
+    /**
+     * ReferencePolicy defines how an instance type or preference should be referenced by the VM after submission, supported values are: reference (default) - Where a copy of the original object is stashed in a ControllerRevision and referenced by the VM. expand - Where the instance type or preference are expanded into the VM if no revisionNames have been populated. expandAll - Where the instance type or preference are expanded into the VM regardless of revisionNames previously being populated.
+     * @type {string}
+     * @memberof V1InstancetypeConfiguration
+     */
+    referencePolicy?: string;
+}
+
+/**
+ * Check if a given object implements the V1InstancetypeConfiguration interface.
+ */
+export function instanceOfV1InstancetypeConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1InstancetypeConfigurationFromJSON(json: any): V1InstancetypeConfiguration {
-  return V1InstancetypeConfigurationFromJSONTyped(json, false);
+    return V1InstancetypeConfigurationFromJSONTyped(json, false);
 }
 
-export function V1InstancetypeConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1InstancetypeConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    referencePolicy: !exists(json, 'referencePolicy') ? undefined : json['referencePolicy'],
-  };
+export function V1InstancetypeConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1InstancetypeConfiguration {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'referencePolicy': !exists(json, 'referencePolicy') ? undefined : json['referencePolicy'],
+    };
 }
 
 export function V1InstancetypeConfigurationToJSON(value?: V1InstancetypeConfiguration | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    referencePolicy: value.referencePolicy,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'referencePolicy': value.referencePolicy,
+    };
 }
+

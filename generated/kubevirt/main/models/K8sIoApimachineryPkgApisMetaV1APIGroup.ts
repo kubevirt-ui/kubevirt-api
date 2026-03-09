@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery } from './K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery';
 import {
-    K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery,
     K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSON,
     K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryToJSON,
-    K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR,
+} from './K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery';
+import type { K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR } from './K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR';
+import {
     K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSON,
     K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRToJSON,
-} from './';
+} from './K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR';
 
 /**
  * APIGroup contains the name, the supported versions, and the preferred version of a group.
@@ -66,6 +68,17 @@ export interface K8sIoApimachineryPkgApisMetaV1APIGroup {
      * @memberof K8sIoApimachineryPkgApisMetaV1APIGroup
      */
     versions: Array<K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery>;
+}
+
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1APIGroup interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1APIGroup(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "versions" in value;
+
+    return isInstance;
 }
 
 export function K8sIoApimachineryPkgApisMetaV1APIGroupFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1APIGroup {

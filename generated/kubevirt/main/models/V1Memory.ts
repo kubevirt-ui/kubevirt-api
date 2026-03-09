@@ -13,12 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Hugepages } from './V1Hugepages';
 import {
-    V1Hugepages,
     V1HugepagesFromJSON,
     V1HugepagesFromJSONTyped,
     V1HugepagesToJSON,
-} from './';
+} from './V1Hugepages';
+import type { V1ReservedOverhead } from './V1ReservedOverhead';
+import {
+    V1ReservedOverheadFromJSON,
+    V1ReservedOverheadFromJSONTyped,
+    V1ReservedOverheadToJSON,
+} from './V1ReservedOverhead';
 
 /**
  * Memory allows specifying the VirtualMachineInstance memory features.
@@ -116,6 +122,21 @@ export interface V1Memory {
      * @memberof V1Memory
      */
     maxGuest?: string;
+    /**
+     * 
+     * @type {V1ReservedOverhead}
+     * @memberof V1Memory
+     */
+    reservedOverhead?: V1ReservedOverhead;
+}
+
+/**
+ * Check if a given object implements the V1Memory interface.
+ */
+export function instanceOfV1Memory(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1MemoryFromJSON(json: any): V1Memory {
@@ -131,6 +152,7 @@ export function V1MemoryFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'guest': !exists(json, 'guest') ? undefined : json['guest'],
         'hugepages': !exists(json, 'hugepages') ? undefined : V1HugepagesFromJSON(json['hugepages']),
         'maxGuest': !exists(json, 'maxGuest') ? undefined : json['maxGuest'],
+        'reservedOverhead': !exists(json, 'reservedOverhead') ? undefined : V1ReservedOverheadFromJSON(json['reservedOverhead']),
     };
 }
 
@@ -146,6 +168,7 @@ export function V1MemoryToJSON(value?: V1Memory | null): any {
         'guest': value.guest,
         'hugepages': V1HugepagesToJSON(value.hugepages),
         'maxGuest': value.maxGuest,
+        'reservedOverhead': V1ReservedOverheadToJSON(value.reservedOverhead),
     };
 }
 

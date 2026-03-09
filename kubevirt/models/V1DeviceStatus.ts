@@ -12,8 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1DeviceStatusInfo, V1DeviceStatusInfoFromJSON, V1DeviceStatusInfoToJSON } from './';
+import { exists, mapValues } from '../runtime';
+import type { V1DeviceStatusInfo } from './V1DeviceStatusInfo';
+import {
+    V1DeviceStatusInfoFromJSON,
+    V1DeviceStatusInfoFromJSONTyped,
+    V1DeviceStatusInfoToJSON,
+} from './V1DeviceStatusInfo';
 
 /**
  * DeviceStatus has the information of all devices allocated spec.domain.devices
@@ -21,56 +26,55 @@ import { V1DeviceStatusInfo, V1DeviceStatusInfoFromJSON, V1DeviceStatusInfoToJSO
  * @interface V1DeviceStatus
  */
 export interface V1DeviceStatus {
-  /**
-   * GPUStatuses reflects the state of GPUs requested in spec.domain.devices.gpus
-   * @type {Array<V1DeviceStatusInfo>}
-   * @memberof V1DeviceStatus
-   */
-  gpuStatuses?: Array<V1DeviceStatusInfo>;
-  /**
-   * HostDeviceStatuses reflects the state of GPUs requested in spec.domain.devices.hostDevices DRA
-   * @type {Array<V1DeviceStatusInfo>}
-   * @memberof V1DeviceStatus
-   */
-  hostDeviceStatuses?: Array<V1DeviceStatusInfo>;
+    /**
+     * GPUStatuses reflects the state of GPUs requested in spec.domain.devices.gpus
+     * @type {Array<V1DeviceStatusInfo>}
+     * @memberof V1DeviceStatus
+     */
+    gpuStatuses?: Array<V1DeviceStatusInfo>;
+    /**
+     * HostDeviceStatuses reflects the state of GPUs requested in spec.domain.devices.hostDevices DRA
+     * @type {Array<V1DeviceStatusInfo>}
+     * @memberof V1DeviceStatus
+     */
+    hostDeviceStatuses?: Array<V1DeviceStatusInfo>;
+}
+
+/**
+ * Check if a given object implements the V1DeviceStatus interface.
+ */
+export function instanceOfV1DeviceStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1DeviceStatusFromJSON(json: any): V1DeviceStatus {
-  return V1DeviceStatusFromJSONTyped(json, false);
+    return V1DeviceStatusFromJSONTyped(json, false);
 }
 
-export function V1DeviceStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DeviceStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    gpuStatuses: !exists(json, 'gpuStatuses')
-      ? undefined
-      : (json['gpuStatuses'] as Array<any>).map(V1DeviceStatusInfoFromJSON),
-    hostDeviceStatuses: !exists(json, 'hostDeviceStatuses')
-      ? undefined
-      : (json['hostDeviceStatuses'] as Array<any>).map(V1DeviceStatusInfoFromJSON),
-  };
+export function V1DeviceStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DeviceStatus {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'gpuStatuses': !exists(json, 'gpuStatuses') ? undefined : ((json['gpuStatuses'] as Array<any>).map(V1DeviceStatusInfoFromJSON)),
+        'hostDeviceStatuses': !exists(json, 'hostDeviceStatuses') ? undefined : ((json['hostDeviceStatuses'] as Array<any>).map(V1DeviceStatusInfoFromJSON)),
+    };
 }
 
 export function V1DeviceStatusToJSON(value?: V1DeviceStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    gpuStatuses:
-      value.gpuStatuses === undefined
-        ? undefined
-        : (value.gpuStatuses as Array<any>).map(V1DeviceStatusInfoToJSON),
-    hostDeviceStatuses:
-      value.hostDeviceStatuses === undefined
-        ? undefined
-        : (value.hostDeviceStatuses as Array<any>).map(V1DeviceStatusInfoToJSON),
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'gpuStatuses': value.gpuStatuses === undefined ? undefined : ((value.gpuStatuses as Array<any>).map(V1DeviceStatusInfoToJSON)),
+        'hostDeviceStatuses': value.hostDeviceStatuses === undefined ? undefined : ((value.hostDeviceStatuses as Array<any>).map(V1DeviceStatusInfoToJSON)),
+    };
 }
+

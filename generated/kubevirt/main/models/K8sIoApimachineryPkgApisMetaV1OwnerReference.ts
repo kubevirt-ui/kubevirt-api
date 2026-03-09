@@ -57,6 +57,19 @@ export interface K8sIoApimachineryPkgApisMetaV1OwnerReference {
     uid: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1OwnerReference interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1OwnerReference(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "apiVersion" in value;
+    isInstance = isInstance && "kind" in value;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "uid" in value;
+
+    return isInstance;
+}
+
 export function K8sIoApimachineryPkgApisMetaV1OwnerReferenceFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1OwnerReference {
     return K8sIoApimachineryPkgApisMetaV1OwnerReferenceFromJSONTyped(json, false);
 }

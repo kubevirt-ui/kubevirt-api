@@ -33,6 +33,16 @@ export interface K8sIoApiCoreV1ObjectFieldSelector {
     fieldPath: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApiCoreV1ObjectFieldSelector interface.
+ */
+export function instanceOfK8sIoApiCoreV1ObjectFieldSelector(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "fieldPath" in value;
+
+    return isInstance;
+}
+
 export function K8sIoApiCoreV1ObjectFieldSelectorFromJSON(json: any): K8sIoApiCoreV1ObjectFieldSelector {
     return K8sIoApiCoreV1ObjectFieldSelectorFromJSONTyped(json, false);
 }

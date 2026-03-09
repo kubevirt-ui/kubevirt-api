@@ -45,6 +45,15 @@ export interface V1MigrateOptions {
     kind?: string;
 }
 
+/**
+ * Check if a given object implements the V1MigrateOptions interface.
+ */
+export function instanceOfV1MigrateOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1MigrateOptionsFromJSON(json: any): V1MigrateOptions {
     return V1MigrateOptionsFromJSONTyped(json, false);
 }

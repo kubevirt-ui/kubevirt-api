@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1FeatureState } from './V1FeatureState';
 import {
-    V1FeatureState,
     V1FeatureStateFromJSON,
     V1FeatureStateFromJSONTyped,
     V1FeatureStateToJSON,
-} from './';
+} from './V1FeatureState';
 
 /**
  * 
@@ -38,6 +38,15 @@ export interface V1VGPUDisplayOptions {
      * @memberof V1VGPUDisplayOptions
      */
     ramFB?: V1FeatureState;
+}
+
+/**
+ * Check if a given object implements the V1VGPUDisplayOptions interface.
+ */
+export function instanceOfV1VGPUDisplayOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1VGPUDisplayOptionsFromJSON(json: any): V1VGPUDisplayOptions {

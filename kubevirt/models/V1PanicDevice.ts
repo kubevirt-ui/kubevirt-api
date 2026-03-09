@@ -12,45 +12,54 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1PanicDevice
  */
 export interface V1PanicDevice {
-  /**
-   * Model specifies what type of panic device is provided. The panic model used when this attribute is missing depends on the hypervisor and guest arch. One of: isa, hyperv, pvpanic.
-   * @type {string}
-   * @memberof V1PanicDevice
-   */
-  model?: string;
+    /**
+     * Model specifies what type of panic device is provided. The panic model used when this attribute is missing depends on the hypervisor and guest arch. One of: isa, hyperv, pvpanic.
+     * @type {string}
+     * @memberof V1PanicDevice
+     */
+    model?: string;
+}
+
+/**
+ * Check if a given object implements the V1PanicDevice interface.
+ */
+export function instanceOfV1PanicDevice(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1PanicDeviceFromJSON(json: any): V1PanicDevice {
-  return V1PanicDeviceFromJSONTyped(json, false);
+    return V1PanicDeviceFromJSONTyped(json, false);
 }
 
-export function V1PanicDeviceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1PanicDevice {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    model: !exists(json, 'model') ? undefined : json['model'],
-  };
+export function V1PanicDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PanicDevice {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'model': !exists(json, 'model') ? undefined : json['model'],
+    };
 }
 
 export function V1PanicDeviceToJSON(value?: V1PanicDevice | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    model: value.model,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'model': value.model,
+    };
 }
+

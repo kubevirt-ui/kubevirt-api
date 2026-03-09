@@ -13,52 +13,72 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1CPU } from './V1CPU';
 import {
-    V1CPU,
     V1CPUFromJSON,
     V1CPUFromJSONTyped,
     V1CPUToJSON,
-    V1Chassis,
+} from './V1CPU';
+import type { V1Chassis } from './V1Chassis';
+import {
     V1ChassisFromJSON,
     V1ChassisFromJSONTyped,
     V1ChassisToJSON,
-    V1Clock,
+} from './V1Chassis';
+import type { V1Clock } from './V1Clock';
+import {
     V1ClockFromJSON,
     V1ClockFromJSONTyped,
     V1ClockToJSON,
-    V1Devices,
+} from './V1Clock';
+import type { V1Devices } from './V1Devices';
+import {
     V1DevicesFromJSON,
     V1DevicesFromJSONTyped,
     V1DevicesToJSON,
-    V1DiskIOThreads,
+} from './V1Devices';
+import type { V1DiskIOThreads } from './V1DiskIOThreads';
+import {
     V1DiskIOThreadsFromJSON,
     V1DiskIOThreadsFromJSONTyped,
     V1DiskIOThreadsToJSON,
-    V1Features,
+} from './V1DiskIOThreads';
+import type { V1Features } from './V1Features';
+import {
     V1FeaturesFromJSON,
     V1FeaturesFromJSONTyped,
     V1FeaturesToJSON,
-    V1Firmware,
+} from './V1Features';
+import type { V1Firmware } from './V1Firmware';
+import {
     V1FirmwareFromJSON,
     V1FirmwareFromJSONTyped,
     V1FirmwareToJSON,
-    V1LaunchSecurity,
+} from './V1Firmware';
+import type { V1LaunchSecurity } from './V1LaunchSecurity';
+import {
     V1LaunchSecurityFromJSON,
     V1LaunchSecurityFromJSONTyped,
     V1LaunchSecurityToJSON,
-    V1Machine,
+} from './V1LaunchSecurity';
+import type { V1Machine } from './V1Machine';
+import {
     V1MachineFromJSON,
     V1MachineFromJSONTyped,
     V1MachineToJSON,
-    V1Memory,
+} from './V1Machine';
+import type { V1Memory } from './V1Memory';
+import {
     V1MemoryFromJSON,
     V1MemoryFromJSONTyped,
     V1MemoryToJSON,
-    V1ResourceRequirements,
+} from './V1Memory';
+import type { V1ResourceRequirements } from './V1ResourceRequirements';
+import {
     V1ResourceRequirementsFromJSON,
     V1ResourceRequirementsFromJSONTyped,
     V1ResourceRequirementsToJSON,
-} from './';
+} from './V1ResourceRequirements';
 
 /**
  * 
@@ -133,11 +153,27 @@ export interface V1DomainSpec {
      */
     memory?: V1Memory;
     /**
+     * RebootPolicy specifies how the guest should behave on reboot. Reboot (default): The guest is allowed to reboot silently. Terminate: The VMI will be terminated on guest reboot, allowing higher level controllers (such as the VM controller) to recreate the VMI with any updated configuration such as boot order changes.
+     * @type {string}
+     * @memberof V1DomainSpec
+     */
+    rebootPolicy?: string;
+    /**
      * 
      * @type {V1ResourceRequirements}
      * @memberof V1DomainSpec
      */
     resources?: V1ResourceRequirements;
+}
+
+/**
+ * Check if a given object implements the V1DomainSpec interface.
+ */
+export function instanceOfV1DomainSpec(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "devices" in value;
+
+    return isInstance;
 }
 
 export function V1DomainSpecFromJSON(json: any): V1DomainSpec {
@@ -161,6 +197,7 @@ export function V1DomainSpecFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'launchSecurity': !exists(json, 'launchSecurity') ? undefined : V1LaunchSecurityFromJSON(json['launchSecurity']),
         'machine': !exists(json, 'machine') ? undefined : V1MachineFromJSON(json['machine']),
         'memory': !exists(json, 'memory') ? undefined : V1MemoryFromJSON(json['memory']),
+        'rebootPolicy': !exists(json, 'rebootPolicy') ? undefined : json['rebootPolicy'],
         'resources': !exists(json, 'resources') ? undefined : V1ResourceRequirementsFromJSON(json['resources']),
     };
 }
@@ -185,6 +222,7 @@ export function V1DomainSpecToJSON(value?: V1DomainSpec | null): any {
         'launchSecurity': V1LaunchSecurityToJSON(value.launchSecurity),
         'machine': V1MachineToJSON(value.machine),
         'memory': V1MemoryToJSON(value.memory),
+        'rebootPolicy': value.rebootPolicy,
         'resources': V1ResourceRequirementsToJSON(value.resources),
     };
 }

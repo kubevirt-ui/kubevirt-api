@@ -39,6 +39,15 @@ export interface V1ResourceRequirements {
     requests?: { [key: string]: string; };
 }
 
+/**
+ * Check if a given object implements the V1ResourceRequirements interface.
+ */
+export function instanceOfV1ResourceRequirements(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ResourceRequirementsFromJSON(json: any): V1ResourceRequirements {
     return V1ResourceRequirementsFromJSONTyped(json, false);
 }

@@ -12,42 +12,54 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1FeatureKVM
  */
 export interface V1FeatureKVM {
-  /**
-   * Hide the KVM hypervisor from standard MSR based discovery. Defaults to false
-   * @type {boolean}
-   * @memberof V1FeatureKVM
-   */
-  hidden?: boolean;
+    /**
+     * Hide the KVM hypervisor from standard MSR based discovery. Defaults to false
+     * @type {boolean}
+     * @memberof V1FeatureKVM
+     */
+    hidden?: boolean;
+}
+
+/**
+ * Check if a given object implements the V1FeatureKVM interface.
+ */
+export function instanceOfV1FeatureKVM(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1FeatureKVMFromJSON(json: any): V1FeatureKVM {
-  return V1FeatureKVMFromJSONTyped(json, false);
+    return V1FeatureKVMFromJSONTyped(json, false);
 }
 
-export function V1FeatureKVMFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1FeatureKVM {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    hidden: !exists(json, 'hidden') ? undefined : json['hidden'],
-  };
+export function V1FeatureKVMFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1FeatureKVM {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'hidden': !exists(json, 'hidden') ? undefined : json['hidden'],
+    };
 }
 
 export function V1FeatureKVMToJSON(value?: V1FeatureKVM | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    hidden: value.hidden,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'hidden': value.hidden,
+    };
 }
+

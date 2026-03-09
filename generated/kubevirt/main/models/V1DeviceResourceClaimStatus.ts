@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1DeviceAttribute } from './V1DeviceAttribute';
 import {
-    V1DeviceAttribute,
     V1DeviceAttributeFromJSON,
     V1DeviceAttributeFromJSONTyped,
     V1DeviceAttributeToJSON,
-} from './';
+} from './V1DeviceAttribute';
 
 /**
  * DeviceResourceClaimStatus has to be before SyncVMI call from virt-handler to virt-launcher
@@ -44,6 +44,15 @@ export interface V1DeviceResourceClaimStatus {
      * @memberof V1DeviceResourceClaimStatus
      */
     resourceClaimName?: string;
+}
+
+/**
+ * Check if a given object implements the V1DeviceResourceClaimStatus interface.
+ */
+export function instanceOfV1DeviceResourceClaimStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1DeviceResourceClaimStatusFromJSON(json: any): V1DeviceResourceClaimStatus {

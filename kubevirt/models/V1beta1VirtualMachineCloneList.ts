@@ -12,15 +12,19 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import {
-  K8sIoApimachineryPkgApisMetaV1ListMeta,
-  K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-  K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-  V1beta1VirtualMachineClone,
-  V1beta1VirtualMachineCloneFromJSON,
-  V1beta1VirtualMachineCloneToJSON,
-} from './';
+    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
+    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
+    K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
+} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1beta1VirtualMachineClone } from './V1beta1VirtualMachineClone';
+import {
+    V1beta1VirtualMachineCloneFromJSON,
+    V1beta1VirtualMachineCloneFromJSONTyped,
+    V1beta1VirtualMachineCloneToJSON,
+} from './V1beta1VirtualMachineClone';
 
 /**
  * VirtualMachineCloneList is a list of MigrationPolicy
@@ -28,66 +32,72 @@ import {
  * @interface V1beta1VirtualMachineCloneList
  */
 export interface V1beta1VirtualMachineCloneList {
-  /**
-   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-   * @type {string}
-   * @memberof V1beta1VirtualMachineCloneList
-   */
-  apiVersion?: string;
-  /**
-   *
-   * @type {Array<V1beta1VirtualMachineClone>}
-   * @memberof V1beta1VirtualMachineCloneList
-   */
-  items: Array<V1beta1VirtualMachineClone>;
-  /**
-   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   * @type {string}
-   * @memberof V1beta1VirtualMachineCloneList
-   */
-  kind?: string;
-  /**
-   *
-   * @type {K8sIoApimachineryPkgApisMetaV1ListMeta}
-   * @memberof V1beta1VirtualMachineCloneList
-   */
-  metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
+    /**
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+     * @type {string}
+     * @memberof V1beta1VirtualMachineCloneList
+     */
+    apiVersion?: string;
+    /**
+     * 
+     * @type {Array<V1beta1VirtualMachineClone>}
+     * @memberof V1beta1VirtualMachineCloneList
+     */
+    items: Array<V1beta1VirtualMachineClone>;
+    /**
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+     * @type {string}
+     * @memberof V1beta1VirtualMachineCloneList
+     */
+    kind?: string;
+    /**
+     * 
+     * @type {K8sIoApimachineryPkgApisMetaV1ListMeta}
+     * @memberof V1beta1VirtualMachineCloneList
+     */
+    metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineCloneList interface.
+ */
+export function instanceOfV1beta1VirtualMachineCloneList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "items" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineCloneListFromJSON(json: any): V1beta1VirtualMachineCloneList {
-  return V1beta1VirtualMachineCloneListFromJSONTyped(json, false);
+    return V1beta1VirtualMachineCloneListFromJSONTyped(json, false);
 }
 
-export function V1beta1VirtualMachineCloneListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineCloneList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1beta1VirtualMachineCloneFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
+export function V1beta1VirtualMachineCloneListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineCloneList {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+        'items': ((json['items'] as Array<any>).map(V1beta1VirtualMachineCloneFromJSON)),
+        'kind': !exists(json, 'kind') ? undefined : json['kind'],
+        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
+    };
 }
 
-export function V1beta1VirtualMachineCloneListToJSON(
-  value?: V1beta1VirtualMachineCloneList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1beta1VirtualMachineCloneToJSON),
-    kind: value.kind,
-    metadata: K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
+export function V1beta1VirtualMachineCloneListToJSON(value?: V1beta1VirtualMachineCloneList | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'apiVersion': value.apiVersion,
+        'items': ((value.items as Array<any>).map(V1beta1VirtualMachineCloneToJSON)),
+        'kind': value.kind,
+        'metadata': K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
+    };
 }
+

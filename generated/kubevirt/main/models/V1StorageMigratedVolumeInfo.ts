@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1PersistentVolumeClaimInfo } from './V1PersistentVolumeClaimInfo';
 import {
-    V1PersistentVolumeClaimInfo,
     V1PersistentVolumeClaimInfoFromJSON,
     V1PersistentVolumeClaimInfoFromJSONTyped,
     V1PersistentVolumeClaimInfoToJSON,
-} from './';
+} from './V1PersistentVolumeClaimInfo';
 
 /**
  * StorageMigratedVolumeInfo tracks the information about the source and destination volumes during the volume migration
@@ -44,6 +44,16 @@ export interface V1StorageMigratedVolumeInfo {
      * @memberof V1StorageMigratedVolumeInfo
      */
     volumeName: string;
+}
+
+/**
+ * Check if a given object implements the V1StorageMigratedVolumeInfo interface.
+ */
+export function instanceOfV1StorageMigratedVolumeInfo(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "volumeName" in value;
+
+    return isInstance;
 }
 
 export function V1StorageMigratedVolumeInfoFromJSON(json: any): V1StorageMigratedVolumeInfo {

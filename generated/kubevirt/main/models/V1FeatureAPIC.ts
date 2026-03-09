@@ -33,6 +33,15 @@ export interface V1FeatureAPIC {
     endOfInterrupt?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1FeatureAPIC interface.
+ */
+export function instanceOfV1FeatureAPIC(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1FeatureAPICFromJSON(json: any): V1FeatureAPIC {
     return V1FeatureAPICFromJSONTyped(json, false);
 }

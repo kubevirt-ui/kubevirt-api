@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ListMeta,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-    V1beta1VirtualMachineClone,
+} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1beta1VirtualMachineClone } from './V1beta1VirtualMachineClone';
+import {
     V1beta1VirtualMachineCloneFromJSON,
     V1beta1VirtualMachineCloneFromJSONTyped,
     V1beta1VirtualMachineCloneToJSON,
-} from './';
+} from './V1beta1VirtualMachineClone';
 
 /**
  * VirtualMachineCloneList is a list of MigrationPolicy
@@ -54,6 +56,16 @@ export interface V1beta1VirtualMachineCloneList {
      * @memberof V1beta1VirtualMachineCloneList
      */
     metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineCloneList interface.
+ */
+export function instanceOfV1beta1VirtualMachineCloneList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "items" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineCloneListFromJSON(json: any): V1beta1VirtualMachineCloneList {

@@ -12,87 +12,93 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { V1ControllerRevisionRef } from './V1ControllerRevisionRef';
 import {
-  V1ControllerRevisionRef,
-  V1ControllerRevisionRefFromJSON,
-  V1ControllerRevisionRefToJSON,
-} from './';
+    V1ControllerRevisionRefFromJSON,
+    V1ControllerRevisionRefFromJSONTyped,
+    V1ControllerRevisionRefToJSON,
+} from './V1ControllerRevisionRef';
 
 /**
- *
+ * 
  * @export
  * @interface V1InstancetypeStatusRef
  */
 export interface V1InstancetypeStatusRef {
-  /**
-   *
-   * @type {V1ControllerRevisionRef}
-   * @memberof V1InstancetypeStatusRef
-   */
-  controllerRevisionRef?: V1ControllerRevisionRef;
-  /**
-   * InferFromVolume lists the name of a volume that should be used to infer or discover the resource
-   * @type {string}
-   * @memberof V1InstancetypeStatusRef
-   */
-  inferFromVolume?: string;
-  /**
-   * InferFromVolumeFailurePolicy controls what should happen on failure when inferring the resource
-   * @type {string}
-   * @memberof V1InstancetypeStatusRef
-   */
-  inferFromVolumeFailurePolicy?: string;
-  /**
-   * Kind specifies the kind of resource
-   * @type {string}
-   * @memberof V1InstancetypeStatusRef
-   */
-  kind?: string;
-  /**
-   * Name is the name of resource
-   * @type {string}
-   * @memberof V1InstancetypeStatusRef
-   */
-  name?: string;
+    /**
+     * 
+     * @type {V1ControllerRevisionRef}
+     * @memberof V1InstancetypeStatusRef
+     */
+    controllerRevisionRef?: V1ControllerRevisionRef;
+    /**
+     * InferFromVolume lists the name of a volume that should be used to infer or discover the resource
+     * @type {string}
+     * @memberof V1InstancetypeStatusRef
+     */
+    inferFromVolume?: string;
+    /**
+     * InferFromVolumeFailurePolicy controls what should happen on failure when inferring the resource
+     * @type {string}
+     * @memberof V1InstancetypeStatusRef
+     */
+    inferFromVolumeFailurePolicy?: string;
+    /**
+     * Kind specifies the kind of resource
+     * @type {string}
+     * @memberof V1InstancetypeStatusRef
+     */
+    kind?: string;
+    /**
+     * Name is the name of resource
+     * @type {string}
+     * @memberof V1InstancetypeStatusRef
+     */
+    name?: string;
+}
+
+/**
+ * Check if a given object implements the V1InstancetypeStatusRef interface.
+ */
+export function instanceOfV1InstancetypeStatusRef(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1InstancetypeStatusRefFromJSON(json: any): V1InstancetypeStatusRef {
-  return V1InstancetypeStatusRefFromJSONTyped(json, false);
+    return V1InstancetypeStatusRefFromJSONTyped(json, false);
 }
 
-export function V1InstancetypeStatusRefFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1InstancetypeStatusRef {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    controllerRevisionRef: !exists(json, 'controllerRevisionRef')
-      ? undefined
-      : V1ControllerRevisionRefFromJSON(json['controllerRevisionRef']),
-    inferFromVolume: !exists(json, 'inferFromVolume') ? undefined : json['inferFromVolume'],
-    inferFromVolumeFailurePolicy: !exists(json, 'inferFromVolumeFailurePolicy')
-      ? undefined
-      : json['inferFromVolumeFailurePolicy'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    name: !exists(json, 'name') ? undefined : json['name'],
-  };
+export function V1InstancetypeStatusRefFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1InstancetypeStatusRef {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'controllerRevisionRef': !exists(json, 'controllerRevisionRef') ? undefined : V1ControllerRevisionRefFromJSON(json['controllerRevisionRef']),
+        'inferFromVolume': !exists(json, 'inferFromVolume') ? undefined : json['inferFromVolume'],
+        'inferFromVolumeFailurePolicy': !exists(json, 'inferFromVolumeFailurePolicy') ? undefined : json['inferFromVolumeFailurePolicy'],
+        'kind': !exists(json, 'kind') ? undefined : json['kind'],
+        'name': !exists(json, 'name') ? undefined : json['name'],
+    };
 }
 
 export function V1InstancetypeStatusRefToJSON(value?: V1InstancetypeStatusRef | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    controllerRevisionRef: V1ControllerRevisionRefToJSON(value.controllerRevisionRef),
-    inferFromVolume: value.inferFromVolume,
-    inferFromVolumeFailurePolicy: value.inferFromVolumeFailurePolicy,
-    kind: value.kind,
-    name: value.name,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'controllerRevisionRef': V1ControllerRevisionRefToJSON(value.controllerRevisionRef),
+        'inferFromVolume': value.inferFromVolume,
+        'inferFromVolumeFailurePolicy': value.inferFromVolumeFailurePolicy,
+        'kind': value.kind,
+        'name': value.name,
+    };
 }
+

@@ -37,6 +37,15 @@ export interface V1TLSConfiguration {
     minTLSVersion?: string;
 }
 
+/**
+ * Check if a given object implements the V1TLSConfiguration interface.
+ */
+export function instanceOfV1TLSConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1TLSConfigurationFromJSON(json: any): V1TLSConfiguration {
     return V1TLSConfigurationFromJSONTyped(json, false);
 }

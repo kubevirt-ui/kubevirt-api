@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1beta1VirtualMachineRestoreSpec,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1beta1VirtualMachineRestoreSpec } from './V1beta1VirtualMachineRestoreSpec';
+import {
     V1beta1VirtualMachineRestoreSpecFromJSON,
     V1beta1VirtualMachineRestoreSpecFromJSONTyped,
     V1beta1VirtualMachineRestoreSpecToJSON,
-    V1beta1VirtualMachineRestoreStatus,
+} from './V1beta1VirtualMachineRestoreSpec';
+import type { V1beta1VirtualMachineRestoreStatus } from './V1beta1VirtualMachineRestoreStatus';
+import {
     V1beta1VirtualMachineRestoreStatusFromJSON,
     V1beta1VirtualMachineRestoreStatusFromJSONTyped,
     V1beta1VirtualMachineRestoreStatusToJSON,
-} from './';
+} from './V1beta1VirtualMachineRestoreStatus';
 
 /**
  * VirtualMachineRestore defines the operation of restoring a VM
@@ -64,6 +68,16 @@ export interface V1beta1VirtualMachineRestore {
      * @memberof V1beta1VirtualMachineRestore
      */
     status?: V1beta1VirtualMachineRestoreStatus;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineRestore interface.
+ */
+export function instanceOfV1beta1VirtualMachineRestore(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "spec" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineRestoreFromJSON(json: any): V1beta1VirtualMachineRestore {

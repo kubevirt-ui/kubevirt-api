@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1DHCPPrivateOptions } from './V1DHCPPrivateOptions';
 import {
-    V1DHCPPrivateOptions,
     V1DHCPPrivateOptionsFromJSON,
     V1DHCPPrivateOptionsFromJSONTyped,
     V1DHCPPrivateOptionsToJSON,
-} from './';
+} from './V1DHCPPrivateOptions';
 
 /**
  * Extra DHCP options to use in the interface.
@@ -50,6 +50,15 @@ export interface V1DHCPOptions {
      * @memberof V1DHCPOptions
      */
     tftpServerName?: string;
+}
+
+/**
+ * Check if a given object implements the V1DHCPOptions interface.
+ */
+export function instanceOfV1DHCPOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1DHCPOptionsFromJSON(json: any): V1DHCPOptions {

@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1VirtualMachineInstancePresetSpec,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1VirtualMachineInstancePresetSpec } from './V1VirtualMachineInstancePresetSpec';
+import {
     V1VirtualMachineInstancePresetSpecFromJSON,
     V1VirtualMachineInstancePresetSpecFromJSONTyped,
     V1VirtualMachineInstancePresetSpecToJSON,
-} from './';
+} from './V1VirtualMachineInstancePresetSpec';
 
 /**
  * Deprecated for removal in v2, please use VirtualMachineInstanceType and VirtualMachinePreference instead.
@@ -56,6 +58,15 @@ export interface V1VirtualMachineInstancePreset {
      * @memberof V1VirtualMachineInstancePreset
      */
     spec?: V1VirtualMachineInstancePresetSpec;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstancePreset interface.
+ */
+export function instanceOfV1VirtualMachineInstancePreset(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstancePresetFromJSON(json: any): V1VirtualMachineInstancePreset {

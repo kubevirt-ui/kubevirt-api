@@ -33,6 +33,16 @@ export interface V1VirtualMachineInstanceFileSystemDisk {
     serial?: string;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceFileSystemDisk interface.
+ */
+export function instanceOfV1VirtualMachineInstanceFileSystemDisk(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "busType" in value;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineInstanceFileSystemDiskFromJSON(json: any): V1VirtualMachineInstanceFileSystemDisk {
     return V1VirtualMachineInstanceFileSystemDiskFromJSONTyped(json, false);
 }

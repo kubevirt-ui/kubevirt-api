@@ -12,45 +12,54 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1VideoDevice
  */
 export interface V1VideoDevice {
-  /**
-   * Type specifies the video device type (e.g., virtio, vga, bochs, ramfb). If not specified, the default is architecture-dependent (VGA for BIOS-based VMs, Bochs for EFI-based VMs on AMD64; virtio for Arm and s390x).
-   * @type {string}
-   * @memberof V1VideoDevice
-   */
-  type?: string;
+    /**
+     * Type specifies the video device type (e.g., virtio, vga, bochs, ramfb). If not specified, the default is architecture-dependent (VGA for BIOS-based VMs, Bochs for EFI-based VMs on AMD64; virtio for Arm and s390x).
+     * @type {string}
+     * @memberof V1VideoDevice
+     */
+    type?: string;
+}
+
+/**
+ * Check if a given object implements the V1VideoDevice interface.
+ */
+export function instanceOfV1VideoDevice(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1VideoDeviceFromJSON(json: any): V1VideoDevice {
-  return V1VideoDeviceFromJSONTyped(json, false);
+    return V1VideoDeviceFromJSONTyped(json, false);
 }
 
-export function V1VideoDeviceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VideoDevice {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    type: !exists(json, 'type') ? undefined : json['type'],
-  };
+export function V1VideoDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VideoDevice {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'type': !exists(json, 'type') ? undefined : json['type'],
+    };
 }
 
 export function V1VideoDeviceToJSON(value?: V1VideoDevice | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    type: value.type,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'type': value.type,
+    };
 }
+

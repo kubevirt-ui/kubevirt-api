@@ -63,6 +63,16 @@ export interface V1DiskVerification {
     memoryLimit: string;
 }
 
+/**
+ * Check if a given object implements the V1DiskVerification interface.
+ */
+export function instanceOfV1DiskVerification(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "memoryLimit" in value;
+
+    return isInstance;
+}
+
 export function V1DiskVerificationFromJSON(json: any): V1DiskVerification {
     return V1DiskVerificationFromJSONTyped(json, false);
 }

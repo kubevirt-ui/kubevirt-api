@@ -33,6 +33,15 @@ export interface V1SEVSecretOptions {
     secret?: string;
 }
 
+/**
+ * Check if a given object implements the V1SEVSecretOptions interface.
+ */
+export function instanceOfV1SEVSecretOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1SEVSecretOptionsFromJSON(json: any): V1SEVSecretOptions {
     return V1SEVSecretOptionsFromJSONTyped(json, false);
 }

@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1Diag288Watchdog } from './V1Diag288Watchdog';
 import {
-    V1Diag288Watchdog,
     V1Diag288WatchdogFromJSON,
     V1Diag288WatchdogFromJSONTyped,
     V1Diag288WatchdogToJSON,
-    V1I6300ESBWatchdog,
+} from './V1Diag288Watchdog';
+import type { V1I6300ESBWatchdog } from './V1I6300ESBWatchdog';
+import {
     V1I6300ESBWatchdogFromJSON,
     V1I6300ESBWatchdogFromJSONTyped,
     V1I6300ESBWatchdogToJSON,
-} from './';
+} from './V1I6300ESBWatchdog';
 
 /**
  * Named watchdog device.
@@ -48,6 +50,16 @@ export interface V1Watchdog {
      * @memberof V1Watchdog
      */
     name: string;
+}
+
+/**
+ * Check if a given object implements the V1Watchdog interface.
+ */
+export function instanceOfV1Watchdog(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
 }
 
 export function V1WatchdogFromJSON(json: any): V1Watchdog {

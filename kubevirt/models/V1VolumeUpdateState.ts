@@ -12,53 +12,61 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { V1VolumeMigrationState } from './V1VolumeMigrationState';
 import {
-  V1VolumeMigrationState,
-  V1VolumeMigrationStateFromJSON,
-  V1VolumeMigrationStateToJSON,
-} from './';
+    V1VolumeMigrationStateFromJSON,
+    V1VolumeMigrationStateFromJSONTyped,
+    V1VolumeMigrationStateToJSON,
+} from './V1VolumeMigrationState';
 
 /**
- *
+ * 
  * @export
  * @interface V1VolumeUpdateState
  */
 export interface V1VolumeUpdateState {
-  /**
-   *
-   * @type {V1VolumeMigrationState}
-   * @memberof V1VolumeUpdateState
-   */
-  volumeMigrationState?: V1VolumeMigrationState;
+    /**
+     * 
+     * @type {V1VolumeMigrationState}
+     * @memberof V1VolumeUpdateState
+     */
+    volumeMigrationState?: V1VolumeMigrationState;
+}
+
+/**
+ * Check if a given object implements the V1VolumeUpdateState interface.
+ */
+export function instanceOfV1VolumeUpdateState(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1VolumeUpdateStateFromJSON(json: any): V1VolumeUpdateState {
-  return V1VolumeUpdateStateFromJSONTyped(json, false);
+    return V1VolumeUpdateStateFromJSONTyped(json, false);
 }
 
-export function V1VolumeUpdateStateFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VolumeUpdateState {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    volumeMigrationState: !exists(json, 'volumeMigrationState')
-      ? undefined
-      : V1VolumeMigrationStateFromJSON(json['volumeMigrationState']),
-  };
+export function V1VolumeUpdateStateFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VolumeUpdateState {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'volumeMigrationState': !exists(json, 'volumeMigrationState') ? undefined : V1VolumeMigrationStateFromJSON(json['volumeMigrationState']),
+    };
 }
 
 export function V1VolumeUpdateStateToJSON(value?: V1VolumeUpdateState | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    volumeMigrationState: V1VolumeMigrationStateToJSON(value.volumeMigrationState),
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'volumeMigrationState': V1VolumeMigrationStateToJSON(value.volumeMigrationState),
+    };
 }
+

@@ -39,6 +39,15 @@ export interface V1Flags {
     handler?: { [key: string]: string; };
 }
 
+/**
+ * Check if a given object implements the V1Flags interface.
+ */
+export function instanceOfV1Flags(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1FlagsFromJSON(json: any): V1Flags {
     return V1FlagsFromJSONTyped(json, false);
 }

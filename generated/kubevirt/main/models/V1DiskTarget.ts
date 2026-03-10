@@ -39,6 +39,15 @@ export interface V1DiskTarget {
     readonly?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1DiskTarget interface.
+ */
+export function instanceOfV1DiskTarget(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1DiskTargetFromJSON(json: any): V1DiskTarget {
     return V1DiskTargetFromJSONTyped(json, false);
 }

@@ -13,24 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
 import {
-    K8sIoApiCoreV1TypedLocalObjectReference,
     K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
     K8sIoApiCoreV1TypedLocalObjectReferenceFromJSONTyped,
     K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-    K8sIoApiCoreV1TypedObjectReference,
+} from './K8sIoApiCoreV1TypedLocalObjectReference';
+import type { K8sIoApiCoreV1TypedObjectReference } from './K8sIoApiCoreV1TypedObjectReference';
+import {
     K8sIoApiCoreV1TypedObjectReferenceFromJSON,
     K8sIoApiCoreV1TypedObjectReferenceFromJSONTyped,
     K8sIoApiCoreV1TypedObjectReferenceToJSON,
-    K8sIoApiCoreV1VolumeResourceRequirements,
+} from './K8sIoApiCoreV1TypedObjectReference';
+import type { K8sIoApiCoreV1VolumeResourceRequirements } from './K8sIoApiCoreV1VolumeResourceRequirements';
+import {
     K8sIoApiCoreV1VolumeResourceRequirementsFromJSON,
     K8sIoApiCoreV1VolumeResourceRequirementsFromJSONTyped,
     K8sIoApiCoreV1VolumeResourceRequirementsToJSON,
-    K8sIoApimachineryPkgApisMetaV1LabelSelector,
+} from './K8sIoApiCoreV1VolumeResourceRequirements';
+import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
+import {
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './';
+} from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 
 /**
  * PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes
@@ -75,7 +81,7 @@ export interface K8sIoApiCoreV1PersistentVolumeClaimSpec {
      */
     storageClassName?: string;
     /**
-     * volumeAttributesClassName may be used to set the VolumeAttributesClass used by this claim. If specified, the CSI driver will create or update the volume with the attributes defined in the corresponding VolumeAttributesClass. This has a different purpose than storageClassName, it can be changed after the claim is created. An empty string value means that no VolumeAttributesClass will be applied to the claim but it's not allowed to reset this field to empty string once it is set. If unspecified and the PersistentVolumeClaim is unbound, the default VolumeAttributesClass will be set by the persistentvolume controller if it exists. If the resource referred to by volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as reflected by the modifyVolumeStatus field, until such as a resource exists. More info: https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Beta) Using this field requires the VolumeAttributesClass feature gate to be enabled (off by default).
+     * volumeAttributesClassName may be used to set the VolumeAttributesClass used by this claim. If specified, the CSI driver will create or update the volume with the attributes defined in the corresponding VolumeAttributesClass. This has a different purpose than storageClassName, it can be changed after the claim is created. An empty string or nil value indicates that no VolumeAttributesClass will be applied to the claim. If the claim enters an Infeasible error state, this field can be reset to its previous value (including nil) to cancel the modification. If the resource referred to by volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as reflected by the modifyVolumeStatus field, until such as a resource exists. More info: https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/
      * @type {string}
      * @memberof K8sIoApiCoreV1PersistentVolumeClaimSpec
      */
@@ -99,23 +105,36 @@ export interface K8sIoApiCoreV1PersistentVolumeClaimSpec {
     volumeName?: string;
 }
 
+
 /**
-* @export
-* @enum {string}
-*/
-export enum K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum {
-    ReadOnlyMany = 'ReadOnlyMany',
-    ReadWriteMany = 'ReadWriteMany',
-    ReadWriteOnce = 'ReadWriteOnce',
-    ReadWriteOncePod = 'ReadWriteOncePod'
-}/**
-* @export
-* @enum {string}
-*/
-export enum K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum {
-    Block = 'Block',
-    Filesystem = 'Filesystem',
-    FromStorageProfile = 'FromStorageProfile'
+ * @export
+ */
+export const K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum = {
+    ReadOnlyMany: 'ReadOnlyMany',
+    ReadWriteMany: 'ReadWriteMany',
+    ReadWriteOnce: 'ReadWriteOnce',
+    ReadWriteOncePod: 'ReadWriteOncePod'
+} as const;
+export type K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum = typeof K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum[keyof typeof K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum];
+
+/**
+ * @export
+ */
+export const K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum = {
+    Block: 'Block',
+    Filesystem: 'Filesystem',
+    FromStorageProfile: 'FromStorageProfile'
+} as const;
+export type K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum = typeof K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum[keyof typeof K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum];
+
+
+/**
+ * Check if a given object implements the K8sIoApiCoreV1PersistentVolumeClaimSpec interface.
+ */
+export function instanceOfK8sIoApiCoreV1PersistentVolumeClaimSpec(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSON(json: any): K8sIoApiCoreV1PersistentVolumeClaimSpec {

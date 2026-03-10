@@ -32,6 +32,12 @@ export interface V1beta1DataVolumeSourceImageIO {
      */
     diskId: string;
     /**
+     * InsecureSkipVerify is a flag to skip certificate verification
+     * @type {boolean}
+     * @memberof V1beta1DataVolumeSourceImageIO
+     */
+    insecureSkipVerify?: boolean;
+    /**
      * SecretRef provides the secret reference needed to access the ovirt-engine
      * @type {string}
      * @memberof V1beta1DataVolumeSourceImageIO
@@ -43,6 +49,17 @@ export interface V1beta1DataVolumeSourceImageIO {
      * @memberof V1beta1DataVolumeSourceImageIO
      */
     url: string;
+}
+
+/**
+ * Check if a given object implements the V1beta1DataVolumeSourceImageIO interface.
+ */
+export function instanceOfV1beta1DataVolumeSourceImageIO(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "diskId" in value;
+    isInstance = isInstance && "url" in value;
+
+    return isInstance;
 }
 
 export function V1beta1DataVolumeSourceImageIOFromJSON(json: any): V1beta1DataVolumeSourceImageIO {
@@ -57,6 +74,7 @@ export function V1beta1DataVolumeSourceImageIOFromJSONTyped(json: any, ignoreDis
         
         'certConfigMap': !exists(json, 'certConfigMap') ? undefined : json['certConfigMap'],
         'diskId': json['diskId'],
+        'insecureSkipVerify': !exists(json, 'insecureSkipVerify') ? undefined : json['insecureSkipVerify'],
         'secretRef': !exists(json, 'secretRef') ? undefined : json['secretRef'],
         'url': json['url'],
     };
@@ -73,6 +91,7 @@ export function V1beta1DataVolumeSourceImageIOToJSON(value?: V1beta1DataVolumeSo
         
         'certConfigMap': value.certConfigMap,
         'diskId': value.diskId,
+        'insecureSkipVerify': value.insecureSkipVerify,
         'secretRef': value.secretRef,
         'url': value.url,
     };

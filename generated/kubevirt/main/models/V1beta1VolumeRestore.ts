@@ -45,6 +45,18 @@ export interface V1beta1VolumeRestore {
     volumeSnapshotName: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1VolumeRestore interface.
+ */
+export function instanceOfV1beta1VolumeRestore(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "persistentVolumeClaim" in value;
+    isInstance = isInstance && "volumeName" in value;
+    isInstance = isInstance && "volumeSnapshotName" in value;
+
+    return isInstance;
+}
+
 export function V1beta1VolumeRestoreFromJSON(json: any): V1beta1VolumeRestore {
     return V1beta1VolumeRestoreFromJSONTyped(json, false);
 }

@@ -43,6 +43,15 @@ export interface V1KubeVirtWorkloadUpdateStrategy {
     workloadUpdateMethods?: Array<string>;
 }
 
+/**
+ * Check if a given object implements the V1KubeVirtWorkloadUpdateStrategy interface.
+ */
+export function instanceOfV1KubeVirtWorkloadUpdateStrategy(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1KubeVirtWorkloadUpdateStrategyFromJSON(json: any): V1KubeVirtWorkloadUpdateStrategy {
     return V1KubeVirtWorkloadUpdateStrategyFromJSONTyped(json, false);
 }

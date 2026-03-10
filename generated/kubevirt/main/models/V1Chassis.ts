@@ -51,6 +51,15 @@ export interface V1Chassis {
     version?: string;
 }
 
+/**
+ * Check if a given object implements the V1Chassis interface.
+ */
+export function instanceOfV1Chassis(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ChassisFromJSON(json: any): V1Chassis {
     return V1ChassisFromJSONTyped(json, false);
 }

@@ -12,52 +12,70 @@
  * Do not edit the class manually.
  */
 
+import { exists, mapValues } from '../runtime';
 /**
  * CustomBlockSize represents the desired logical and physical block size for a VM disk.
  * @export
  * @interface V1CustomBlockSize
  */
 export interface V1CustomBlockSize {
-  /**
-   *
-   * @type {number}
-   * @memberof V1CustomBlockSize
-   */
-  logical: number;
-  /**
-   *
-   * @type {number}
-   * @memberof V1CustomBlockSize
-   */
-  physical: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof V1CustomBlockSize
+     */
+    discardGranularity?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof V1CustomBlockSize
+     */
+    logical?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof V1CustomBlockSize
+     */
+    physical?: number;
+}
+
+/**
+ * Check if a given object implements the V1CustomBlockSize interface.
+ */
+export function instanceOfV1CustomBlockSize(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1CustomBlockSizeFromJSON(json: any): V1CustomBlockSize {
-  return V1CustomBlockSizeFromJSONTyped(json, false);
+    return V1CustomBlockSizeFromJSONTyped(json, false);
 }
 
-export function V1CustomBlockSizeFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1CustomBlockSize {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    logical: json['logical'],
-    physical: json['physical'],
-  };
+export function V1CustomBlockSizeFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1CustomBlockSize {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'discardGranularity': !exists(json, 'discardGranularity') ? undefined : json['discardGranularity'],
+        'logical': !exists(json, 'logical') ? undefined : json['logical'],
+        'physical': !exists(json, 'physical') ? undefined : json['physical'],
+    };
 }
 
 export function V1CustomBlockSizeToJSON(value?: V1CustomBlockSize | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    logical: value.logical,
-    physical: value.physical,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'discardGranularity': value.discardGranularity,
+        'logical': value.logical,
+        'physical': value.physical,
+    };
 }
+

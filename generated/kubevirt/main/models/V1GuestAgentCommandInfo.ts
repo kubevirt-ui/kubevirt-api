@@ -33,6 +33,16 @@ export interface V1GuestAgentCommandInfo {
     name: string;
 }
 
+/**
+ * Check if a given object implements the V1GuestAgentCommandInfo interface.
+ */
+export function instanceOfV1GuestAgentCommandInfo(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
+}
+
 export function V1GuestAgentCommandInfoFromJSON(json: any): V1GuestAgentCommandInfo {
     return V1GuestAgentCommandInfoFromJSONTyped(json, false);
 }

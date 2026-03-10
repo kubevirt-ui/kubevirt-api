@@ -12,53 +12,62 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * DeviceAttribute must have exactly one field set.
  * @export
  * @interface V1DeviceAttribute
  */
 export interface V1DeviceAttribute {
-  /**
-   * MDevUUID is the mediated device uuid of the allocated device
-   * @type {string}
-   * @memberof V1DeviceAttribute
-   */
-  mDevUUID?: string;
-  /**
-   * PCIAddress is the PCIe bus address of the allocated device
-   * @type {string}
-   * @memberof V1DeviceAttribute
-   */
-  pciAddress?: string;
+    /**
+     * MDevUUID is the mediated device uuid of the allocated device
+     * @type {string}
+     * @memberof V1DeviceAttribute
+     */
+    mDevUUID?: string;
+    /**
+     * PCIAddress is the PCIe bus address of the allocated device
+     * @type {string}
+     * @memberof V1DeviceAttribute
+     */
+    pciAddress?: string;
+}
+
+/**
+ * Check if a given object implements the V1DeviceAttribute interface.
+ */
+export function instanceOfV1DeviceAttribute(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1DeviceAttributeFromJSON(json: any): V1DeviceAttribute {
-  return V1DeviceAttributeFromJSONTyped(json, false);
+    return V1DeviceAttributeFromJSONTyped(json, false);
 }
 
-export function V1DeviceAttributeFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DeviceAttribute {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    mDevUUID: !exists(json, 'mDevUUID') ? undefined : json['mDevUUID'],
-    pciAddress: !exists(json, 'pciAddress') ? undefined : json['pciAddress'],
-  };
+export function V1DeviceAttributeFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DeviceAttribute {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'mDevUUID': !exists(json, 'mDevUUID') ? undefined : json['mDevUUID'],
+        'pciAddress': !exists(json, 'pciAddress') ? undefined : json['pciAddress'],
+    };
 }
 
 export function V1DeviceAttributeToJSON(value?: V1DeviceAttribute | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    mDevUUID: value.mDevUUID,
-    pciAddress: value.pciAddress,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'mDevUUID': value.mDevUUID,
+        'pciAddress': value.pciAddress,
+    };
 }
+

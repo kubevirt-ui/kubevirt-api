@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1VGPUOptions } from './V1VGPUOptions';
 import {
-    V1VGPUOptions,
     V1VGPUOptionsFromJSON,
     V1VGPUOptionsFromJSONTyped,
     V1VGPUOptionsToJSON,
-} from './';
+} from './V1VGPUOptions';
 
 /**
  * 
@@ -62,6 +62,16 @@ export interface V1GPU {
      * @memberof V1GPU
      */
     virtualGPUOptions?: V1VGPUOptions;
+}
+
+/**
+ * Check if a given object implements the V1GPU interface.
+ */
+export function instanceOfV1GPU(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
 }
 
 export function V1GPUFromJSON(json: any): V1GPU {

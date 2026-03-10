@@ -33,6 +33,17 @@ export interface V1VirtualMachineInstanceMigrationSource {
     migrationID: string;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationSource interface.
+ */
+export function instanceOfV1VirtualMachineInstanceMigrationSource(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "connectURL" in value;
+    isInstance = isInstance && "migrationID" in value;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineInstanceMigrationSourceFromJSON(json: any): V1VirtualMachineInstanceMigrationSource {
     return V1VirtualMachineInstanceMigrationSourceFromJSONTyped(json, false);
 }

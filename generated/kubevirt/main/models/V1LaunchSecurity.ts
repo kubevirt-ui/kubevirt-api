@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1SEV } from './V1SEV';
 import {
-    V1SEV,
     V1SEVFromJSON,
     V1SEVFromJSONTyped,
     V1SEVToJSON,
-} from './';
+} from './V1SEV';
 
 /**
  * 
@@ -32,6 +32,27 @@ export interface V1LaunchSecurity {
      * @memberof V1LaunchSecurity
      */
     sev?: V1SEV;
+    /**
+     * 
+     * @type {object}
+     * @memberof V1LaunchSecurity
+     */
+    snp?: object;
+    /**
+     * 
+     * @type {object}
+     * @memberof V1LaunchSecurity
+     */
+    tdx?: object;
+}
+
+/**
+ * Check if a given object implements the V1LaunchSecurity interface.
+ */
+export function instanceOfV1LaunchSecurity(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1LaunchSecurityFromJSON(json: any): V1LaunchSecurity {
@@ -45,6 +66,8 @@ export function V1LaunchSecurityFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'sev': !exists(json, 'sev') ? undefined : V1SEVFromJSON(json['sev']),
+        'snp': !exists(json, 'snp') ? undefined : json['snp'],
+        'tdx': !exists(json, 'tdx') ? undefined : json['tdx'],
     };
 }
 
@@ -58,6 +81,8 @@ export function V1LaunchSecurityToJSON(value?: V1LaunchSecurity | null): any {
     return {
         
         'sev': V1SEVToJSON(value.sev),
+        'snp': value.snp,
+        'tdx': value.tdx,
     };
 }
 

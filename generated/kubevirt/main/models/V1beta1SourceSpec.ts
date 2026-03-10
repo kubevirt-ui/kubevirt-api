@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1beta1VirtualMachine } from './V1beta1VirtualMachine';
 import {
-    V1beta1VirtualMachine,
     V1beta1VirtualMachineFromJSON,
     V1beta1VirtualMachineFromJSONTyped,
     V1beta1VirtualMachineToJSON,
-} from './';
+} from './V1beta1VirtualMachine';
 
 /**
  * SourceSpec contains the appropriate spec for the resource being snapshotted
@@ -32,6 +32,15 @@ export interface V1beta1SourceSpec {
      * @memberof V1beta1SourceSpec
      */
     virtualMachine?: V1beta1VirtualMachine;
+}
+
+/**
+ * Check if a given object implements the V1beta1SourceSpec interface.
+ */
+export function instanceOfV1beta1SourceSpec(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1beta1SourceSpecFromJSON(json: any): V1beta1SourceSpec {

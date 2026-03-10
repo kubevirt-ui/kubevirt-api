@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ListMeta,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-    K8sIoApimachineryPkgApisMetaV1StatusDetails,
+} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { K8sIoApimachineryPkgApisMetaV1StatusDetails } from './K8sIoApimachineryPkgApisMetaV1StatusDetails';
+import {
     K8sIoApimachineryPkgApisMetaV1StatusDetailsFromJSON,
     K8sIoApimachineryPkgApisMetaV1StatusDetailsFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1StatusDetailsToJSON,
-} from './';
+} from './K8sIoApimachineryPkgApisMetaV1StatusDetails';
 
 /**
  * Status is a return value for calls that don't return other objects.
@@ -78,6 +80,15 @@ export interface K8sIoApimachineryPkgApisMetaV1Status {
      * @memberof K8sIoApimachineryPkgApisMetaV1Status
      */
     status?: string;
+}
+
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1Status interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1Status(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function K8sIoApimachineryPkgApisMetaV1StatusFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1Status {

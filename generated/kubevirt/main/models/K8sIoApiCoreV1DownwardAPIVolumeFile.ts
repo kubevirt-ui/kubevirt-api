@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1ObjectFieldSelector } from './K8sIoApiCoreV1ObjectFieldSelector';
 import {
-    K8sIoApiCoreV1ObjectFieldSelector,
     K8sIoApiCoreV1ObjectFieldSelectorFromJSON,
     K8sIoApiCoreV1ObjectFieldSelectorFromJSONTyped,
     K8sIoApiCoreV1ObjectFieldSelectorToJSON,
-    K8sIoApiCoreV1ResourceFieldSelector,
+} from './K8sIoApiCoreV1ObjectFieldSelector';
+import type { K8sIoApiCoreV1ResourceFieldSelector } from './K8sIoApiCoreV1ResourceFieldSelector';
+import {
     K8sIoApiCoreV1ResourceFieldSelectorFromJSON,
     K8sIoApiCoreV1ResourceFieldSelectorFromJSONTyped,
     K8sIoApiCoreV1ResourceFieldSelectorToJSON,
-} from './';
+} from './K8sIoApiCoreV1ResourceFieldSelector';
 
 /**
  * DownwardAPIVolumeFile represents information to create the file containing the pod field
@@ -54,6 +56,16 @@ export interface K8sIoApiCoreV1DownwardAPIVolumeFile {
      * @memberof K8sIoApiCoreV1DownwardAPIVolumeFile
      */
     resourceFieldRef?: K8sIoApiCoreV1ResourceFieldSelector;
+}
+
+/**
+ * Check if a given object implements the K8sIoApiCoreV1DownwardAPIVolumeFile interface.
+ */
+export function instanceOfK8sIoApiCoreV1DownwardAPIVolumeFile(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "path" in value;
+
+    return isInstance;
 }
 
 export function K8sIoApiCoreV1DownwardAPIVolumeFileFromJSON(json: any): K8sIoApiCoreV1DownwardAPIVolumeFile {

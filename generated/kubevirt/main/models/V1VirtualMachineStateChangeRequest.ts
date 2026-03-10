@@ -39,6 +39,16 @@ export interface V1VirtualMachineStateChangeRequest {
     uid?: string;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineStateChangeRequest interface.
+ */
+export function instanceOfV1VirtualMachineStateChangeRequest(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "action" in value;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineStateChangeRequestFromJSON(json: any): V1VirtualMachineStateChangeRequest {
     return V1VirtualMachineStateChangeRequestFromJSONTyped(json, false);
 }

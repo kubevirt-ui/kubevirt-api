@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1Affinity } from './K8sIoApiCoreV1Affinity';
 import {
-    K8sIoApiCoreV1Affinity,
     K8sIoApiCoreV1AffinityFromJSON,
     K8sIoApiCoreV1AffinityFromJSONTyped,
     K8sIoApiCoreV1AffinityToJSON,
-    K8sIoApiCoreV1Toleration,
+} from './K8sIoApiCoreV1Affinity';
+import type { K8sIoApiCoreV1Toleration } from './K8sIoApiCoreV1Toleration';
+import {
     K8sIoApiCoreV1TolerationFromJSON,
     K8sIoApiCoreV1TolerationFromJSONTyped,
     K8sIoApiCoreV1TolerationToJSON,
-} from './';
+} from './K8sIoApiCoreV1Toleration';
 
 /**
  * NodePlacement describes node scheduling configuration.
@@ -48,6 +50,15 @@ export interface V1NodePlacement {
      * @memberof V1NodePlacement
      */
     tolerations?: Array<K8sIoApiCoreV1Toleration>;
+}
+
+/**
+ * Check if a given object implements the V1NodePlacement interface.
+ */
+export function instanceOfV1NodePlacement(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1NodePlacementFromJSON(json: any): V1NodePlacement {

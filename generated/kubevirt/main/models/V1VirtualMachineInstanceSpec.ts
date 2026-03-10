@@ -13,48 +13,72 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1Affinity } from './K8sIoApiCoreV1Affinity';
 import {
-    K8sIoApiCoreV1Affinity,
     K8sIoApiCoreV1AffinityFromJSON,
     K8sIoApiCoreV1AffinityFromJSONTyped,
     K8sIoApiCoreV1AffinityToJSON,
-    K8sIoApiCoreV1PodDNSConfig,
+} from './K8sIoApiCoreV1Affinity';
+import type { K8sIoApiCoreV1PodDNSConfig } from './K8sIoApiCoreV1PodDNSConfig';
+import {
     K8sIoApiCoreV1PodDNSConfigFromJSON,
     K8sIoApiCoreV1PodDNSConfigFromJSONTyped,
     K8sIoApiCoreV1PodDNSConfigToJSON,
-    K8sIoApiCoreV1PodResourceClaim,
+} from './K8sIoApiCoreV1PodDNSConfig';
+import type { K8sIoApiCoreV1PodResourceClaim } from './K8sIoApiCoreV1PodResourceClaim';
+import {
     K8sIoApiCoreV1PodResourceClaimFromJSON,
     K8sIoApiCoreV1PodResourceClaimFromJSONTyped,
     K8sIoApiCoreV1PodResourceClaimToJSON,
-    K8sIoApiCoreV1Toleration,
+} from './K8sIoApiCoreV1PodResourceClaim';
+import type { K8sIoApiCoreV1Toleration } from './K8sIoApiCoreV1Toleration';
+import {
     K8sIoApiCoreV1TolerationFromJSON,
     K8sIoApiCoreV1TolerationFromJSONTyped,
     K8sIoApiCoreV1TolerationToJSON,
-    K8sIoApiCoreV1TopologySpreadConstraint,
+} from './K8sIoApiCoreV1Toleration';
+import type { K8sIoApiCoreV1TopologySpreadConstraint } from './K8sIoApiCoreV1TopologySpreadConstraint';
+import {
     K8sIoApiCoreV1TopologySpreadConstraintFromJSON,
     K8sIoApiCoreV1TopologySpreadConstraintFromJSONTyped,
     K8sIoApiCoreV1TopologySpreadConstraintToJSON,
-    V1AccessCredential,
+} from './K8sIoApiCoreV1TopologySpreadConstraint';
+import type { V1AccessCredential } from './V1AccessCredential';
+import {
     V1AccessCredentialFromJSON,
     V1AccessCredentialFromJSONTyped,
     V1AccessCredentialToJSON,
-    V1DomainSpec,
+} from './V1AccessCredential';
+import type { V1DomainSpec } from './V1DomainSpec';
+import {
     V1DomainSpecFromJSON,
     V1DomainSpecFromJSONTyped,
     V1DomainSpecToJSON,
-    V1Network,
+} from './V1DomainSpec';
+import type { V1Network } from './V1Network';
+import {
     V1NetworkFromJSON,
     V1NetworkFromJSONTyped,
     V1NetworkToJSON,
-    V1Probe,
+} from './V1Network';
+import type { V1Probe } from './V1Probe';
+import {
     V1ProbeFromJSON,
     V1ProbeFromJSONTyped,
     V1ProbeToJSON,
-    V1Volume,
+} from './V1Probe';
+import type { V1UtilityVolume } from './V1UtilityVolume';
+import {
+    V1UtilityVolumeFromJSON,
+    V1UtilityVolumeFromJSONTyped,
+    V1UtilityVolumeToJSON,
+} from './V1UtilityVolume';
+import type { V1Volume } from './V1Volume';
+import {
     V1VolumeFromJSON,
     V1VolumeFromJSONTyped,
     V1VolumeToJSON,
-} from './';
+} from './V1Volume';
 
 /**
  * VirtualMachineInstanceSpec is a description of a VirtualMachineInstance.
@@ -193,6 +217,12 @@ export interface V1VirtualMachineInstanceSpec {
      */
     topologySpreadConstraints?: Array<K8sIoApiCoreV1TopologySpreadConstraint>;
     /**
+     * List of utility volumes that can be mounted to the vmi virt-launcher pod without having a matching disk in the domain. Used to collect data for various operational workflows.
+     * @type {Array<V1UtilityVolume>}
+     * @memberof V1VirtualMachineInstanceSpec
+     */
+    utilityVolumes?: Array<V1UtilityVolume>;
+    /**
      * List of volumes that can be mounted by disks belonging to the vmi.
      * @type {Array<V1Volume>}
      * @memberof V1VirtualMachineInstanceSpec
@@ -200,15 +230,27 @@ export interface V1VirtualMachineInstanceSpec {
     volumes?: Array<V1Volume>;
 }
 
+
 /**
-* @export
-* @enum {string}
-*/
-export enum V1VirtualMachineInstanceSpecDnsPolicyEnum {
-    ClusterFirst = 'ClusterFirst',
-    ClusterFirstWithHostNet = 'ClusterFirstWithHostNet',
-    Default = 'Default',
-    None = 'None'
+ * @export
+ */
+export const V1VirtualMachineInstanceSpecDnsPolicyEnum = {
+    ClusterFirst: 'ClusterFirst',
+    ClusterFirstWithHostNet: 'ClusterFirstWithHostNet',
+    Default: 'Default',
+    None: 'None'
+} as const;
+export type V1VirtualMachineInstanceSpecDnsPolicyEnum = typeof V1VirtualMachineInstanceSpecDnsPolicyEnum[keyof typeof V1VirtualMachineInstanceSpecDnsPolicyEnum];
+
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceSpec interface.
+ */
+export function instanceOfV1VirtualMachineInstanceSpec(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "domain" in value;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceSpecFromJSON(json: any): V1VirtualMachineInstanceSpec {
@@ -241,6 +283,7 @@ export function V1VirtualMachineInstanceSpecFromJSONTyped(json: any, ignoreDiscr
         'terminationGracePeriodSeconds': !exists(json, 'terminationGracePeriodSeconds') ? undefined : json['terminationGracePeriodSeconds'],
         'tolerations': !exists(json, 'tolerations') ? undefined : ((json['tolerations'] as Array<any>).map(K8sIoApiCoreV1TolerationFromJSON)),
         'topologySpreadConstraints': !exists(json, 'topologySpreadConstraints') ? undefined : ((json['topologySpreadConstraints'] as Array<any>).map(K8sIoApiCoreV1TopologySpreadConstraintFromJSON)),
+        'utilityVolumes': !exists(json, 'utilityVolumes') ? undefined : ((json['utilityVolumes'] as Array<any>).map(V1UtilityVolumeFromJSON)),
         'volumes': !exists(json, 'volumes') ? undefined : ((json['volumes'] as Array<any>).map(V1VolumeFromJSON)),
     };
 }
@@ -274,6 +317,7 @@ export function V1VirtualMachineInstanceSpecToJSON(value?: V1VirtualMachineInsta
         'terminationGracePeriodSeconds': value.terminationGracePeriodSeconds,
         'tolerations': value.tolerations === undefined ? undefined : ((value.tolerations as Array<any>).map(K8sIoApiCoreV1TolerationToJSON)),
         'topologySpreadConstraints': value.topologySpreadConstraints === undefined ? undefined : ((value.topologySpreadConstraints as Array<any>).map(K8sIoApiCoreV1TopologySpreadConstraintToJSON)),
+        'utilityVolumes': value.utilityVolumes === undefined ? undefined : ((value.utilityVolumes as Array<any>).map(V1UtilityVolumeToJSON)),
         'volumes': value.volumes === undefined ? undefined : ((value.volumes as Array<any>).map(V1VolumeToJSON)),
     };
 }

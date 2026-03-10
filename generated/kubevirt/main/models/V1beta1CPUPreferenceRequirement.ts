@@ -27,6 +27,16 @@ export interface V1beta1CPUPreferenceRequirement {
     guest: number;
 }
 
+/**
+ * Check if a given object implements the V1beta1CPUPreferenceRequirement interface.
+ */
+export function instanceOfV1beta1CPUPreferenceRequirement(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "guest" in value;
+
+    return isInstance;
+}
+
 export function V1beta1CPUPreferenceRequirementFromJSON(json: any): V1beta1CPUPreferenceRequirement {
     return V1beta1CPUPreferenceRequirementFromJSONTyped(json, false);
 }

@@ -39,6 +39,16 @@ export interface V1MemoryDumpVolumeSource {
     readOnly?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1MemoryDumpVolumeSource interface.
+ */
+export function instanceOfV1MemoryDumpVolumeSource(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "claimName" in value;
+
+    return isInstance;
+}
+
 export function V1MemoryDumpVolumeSourceFromJSON(json: any): V1MemoryDumpVolumeSource {
     return V1MemoryDumpVolumeSourceFromJSONTyped(json, false);
 }

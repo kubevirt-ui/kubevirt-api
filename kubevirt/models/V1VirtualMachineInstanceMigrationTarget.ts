@@ -12,48 +12,55 @@
  * Do not edit the class manually.
  */
 
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1VirtualMachineInstanceMigrationTarget
  */
 export interface V1VirtualMachineInstanceMigrationTarget {
-  /**
-   * A unique identifier to identify this migration.
-   * @type {string}
-   * @memberof V1VirtualMachineInstanceMigrationTarget
-   */
-  migrationID: string;
+    /**
+     * A unique identifier to identify this migration.
+     * @type {string}
+     * @memberof V1VirtualMachineInstanceMigrationTarget
+     */
+    migrationID: string;
 }
 
-export function V1VirtualMachineInstanceMigrationTargetFromJSON(
-  json: any,
-): V1VirtualMachineInstanceMigrationTarget {
-  return V1VirtualMachineInstanceMigrationTargetFromJSONTyped(json, false);
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationTarget interface.
+ */
+export function instanceOfV1VirtualMachineInstanceMigrationTarget(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "migrationID" in value;
+
+    return isInstance;
 }
 
-export function V1VirtualMachineInstanceMigrationTargetFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceMigrationTarget {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    migrationID: json['migrationID'],
-  };
+export function V1VirtualMachineInstanceMigrationTargetFromJSON(json: any): V1VirtualMachineInstanceMigrationTarget {
+    return V1VirtualMachineInstanceMigrationTargetFromJSONTyped(json, false);
 }
 
-export function V1VirtualMachineInstanceMigrationTargetToJSON(
-  value?: V1VirtualMachineInstanceMigrationTarget | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    migrationID: value.migrationID,
-  };
+export function V1VirtualMachineInstanceMigrationTargetFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationTarget {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'migrationID': json['migrationID'],
+    };
 }
+
+export function V1VirtualMachineInstanceMigrationTargetToJSON(value?: V1VirtualMachineInstanceMigrationTarget | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'migrationID': value.migrationID,
+    };
+}
+

@@ -51,6 +51,16 @@ export interface V1beta1DataVolumeSourceHTTP {
     url: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1DataVolumeSourceHTTP interface.
+ */
+export function instanceOfV1beta1DataVolumeSourceHTTP(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "url" in value;
+
+    return isInstance;
+}
+
 export function V1beta1DataVolumeSourceHTTPFromJSON(json: any): V1beta1DataVolumeSourceHTTP {
     return V1beta1DataVolumeSourceHTTPFromJSONTyped(json, false);
 }

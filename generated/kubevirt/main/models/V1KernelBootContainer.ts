@@ -56,14 +56,26 @@ export interface V1KernelBootContainer {
     kernelPath?: string;
 }
 
+
 /**
-* @export
-* @enum {string}
-*/
-export enum V1KernelBootContainerImagePullPolicyEnum {
-    Always = 'Always',
-    IfNotPresent = 'IfNotPresent',
-    Never = 'Never'
+ * @export
+ */
+export const V1KernelBootContainerImagePullPolicyEnum = {
+    Always: 'Always',
+    IfNotPresent: 'IfNotPresent',
+    Never: 'Never'
+} as const;
+export type V1KernelBootContainerImagePullPolicyEnum = typeof V1KernelBootContainerImagePullPolicyEnum[keyof typeof V1KernelBootContainerImagePullPolicyEnum];
+
+
+/**
+ * Check if a given object implements the V1KernelBootContainer interface.
+ */
+export function instanceOfV1KernelBootContainer(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "image" in value;
+
+    return isInstance;
 }
 
 export function V1KernelBootContainerFromJSON(json: any): V1KernelBootContainer {

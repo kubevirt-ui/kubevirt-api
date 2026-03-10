@@ -27,6 +27,15 @@ export interface V1TopologyHints {
     tscFrequency?: number;
 }
 
+/**
+ * Check if a given object implements the V1TopologyHints interface.
+ */
+export function instanceOfV1TopologyHints(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1TopologyHintsFromJSON(json: any): V1TopologyHints {
     return V1TopologyHintsFromJSONTyped(json, false);
 }

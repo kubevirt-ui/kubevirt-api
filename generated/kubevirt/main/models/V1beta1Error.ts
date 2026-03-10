@@ -33,6 +33,15 @@ export interface V1beta1Error {
     time?: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1Error interface.
+ */
+export function instanceOfV1beta1Error(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1beta1ErrorFromJSON(json: any): V1beta1Error {
     return V1beta1ErrorFromJSONTyped(json, false);
 }
@@ -44,7 +53,7 @@ export function V1beta1ErrorFromJSONTyped(json: any, ignoreDiscriminator: boolea
     return {
         
         'message': !exists(json, 'message') ? undefined : json['message'],
-        'time': !exists(json, 'time') ? undefined : (new Date(json['time'])),
+        'time': !exists(json, 'time') ? undefined : json['time'],
     };
 }
 
@@ -58,7 +67,7 @@ export function V1beta1ErrorToJSON(value?: V1beta1Error | null): any {
     return {
         
         'message': value.message,
-        'time': value.time === undefined ? undefined : (value.time.toISOString()),
+        'time': value.time,
     };
 }
 

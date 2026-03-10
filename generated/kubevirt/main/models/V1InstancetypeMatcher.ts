@@ -51,6 +51,15 @@ export interface V1InstancetypeMatcher {
     revisionName?: string;
 }
 
+/**
+ * Check if a given object implements the V1InstancetypeMatcher interface.
+ */
+export function instanceOfV1InstancetypeMatcher(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1InstancetypeMatcherFromJSON(json: any): V1InstancetypeMatcher {
     return V1InstancetypeMatcherFromJSONTyped(json, false);
 }

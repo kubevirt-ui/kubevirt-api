@@ -117,6 +117,15 @@ export interface V1VirtualMachineInstanceMigrationTargetState {
     virtualMachineInstanceUID?: string;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationTargetState interface.
+ */
+export function instanceOfV1VirtualMachineInstanceMigrationTargetState(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineInstanceMigrationTargetStateFromJSON(json: any): V1VirtualMachineInstanceMigrationTargetState {
     return V1VirtualMachineInstanceMigrationTargetStateFromJSONTyped(json, false);
 }
@@ -133,7 +142,7 @@ export function V1VirtualMachineInstanceMigrationTargetStateFromJSONTyped(json: 
         'domainDetected': !exists(json, 'domainDetected') ? undefined : json['domainDetected'],
         'domainName': !exists(json, 'domainName') ? undefined : json['domainName'],
         'domainNamespace': !exists(json, 'domainNamespace') ? undefined : json['domainNamespace'],
-        'domainReadyTimestamp': !exists(json, 'domainReadyTimestamp') ? undefined : (new Date(json['domainReadyTimestamp'])),
+        'domainReadyTimestamp': !exists(json, 'domainReadyTimestamp') ? undefined : json['domainReadyTimestamp'],
         'migrationUID': !exists(json, 'migrationUID') ? undefined : json['migrationUID'],
         'node': !exists(json, 'node') ? undefined : json['node'],
         'nodeAddress': !exists(json, 'nodeAddress') ? undefined : json['nodeAddress'],
@@ -161,7 +170,7 @@ export function V1VirtualMachineInstanceMigrationTargetStateToJSON(value?: V1Vir
         'domainDetected': value.domainDetected,
         'domainName': value.domainName,
         'domainNamespace': value.domainNamespace,
-        'domainReadyTimestamp': value.domainReadyTimestamp === undefined ? undefined : (value.domainReadyTimestamp.toISOString()),
+        'domainReadyTimestamp': value.domainReadyTimestamp,
         'migrationUID': value.migrationUID,
         'node': value.node,
         'nodeAddress': value.nodeAddress,

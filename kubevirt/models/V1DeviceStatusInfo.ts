@@ -12,61 +12,70 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { V1DeviceResourceClaimStatus } from './V1DeviceResourceClaimStatus';
 import {
-  V1DeviceResourceClaimStatus,
-  V1DeviceResourceClaimStatusFromJSON,
-  V1DeviceResourceClaimStatusToJSON,
-} from './';
+    V1DeviceResourceClaimStatusFromJSON,
+    V1DeviceResourceClaimStatusFromJSONTyped,
+    V1DeviceResourceClaimStatusToJSON,
+} from './V1DeviceResourceClaimStatus';
 
 /**
- *
+ * 
  * @export
  * @interface V1DeviceStatusInfo
  */
 export interface V1DeviceStatusInfo {
-  /**
-   *
-   * @type {V1DeviceResourceClaimStatus}
-   * @memberof V1DeviceStatusInfo
-   */
-  deviceResourceClaimStatus?: V1DeviceResourceClaimStatus;
-  /**
-   * Name of the device as specified in spec.domain.devices.gpus.name or spec.domain.devices.hostDevices.name
-   * @type {string}
-   * @memberof V1DeviceStatusInfo
-   */
-  name: string;
+    /**
+     * 
+     * @type {V1DeviceResourceClaimStatus}
+     * @memberof V1DeviceStatusInfo
+     */
+    deviceResourceClaimStatus?: V1DeviceResourceClaimStatus;
+    /**
+     * Name of the device as specified in spec.domain.devices.gpus.name or spec.domain.devices.hostDevices.name
+     * @type {string}
+     * @memberof V1DeviceStatusInfo
+     */
+    name: string;
+}
+
+/**
+ * Check if a given object implements the V1DeviceStatusInfo interface.
+ */
+export function instanceOfV1DeviceStatusInfo(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
 }
 
 export function V1DeviceStatusInfoFromJSON(json: any): V1DeviceStatusInfo {
-  return V1DeviceStatusInfoFromJSONTyped(json, false);
+    return V1DeviceStatusInfoFromJSONTyped(json, false);
 }
 
-export function V1DeviceStatusInfoFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DeviceStatusInfo {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    deviceResourceClaimStatus: !exists(json, 'deviceResourceClaimStatus')
-      ? undefined
-      : V1DeviceResourceClaimStatusFromJSON(json['deviceResourceClaimStatus']),
-    name: json['name'],
-  };
+export function V1DeviceStatusInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DeviceStatusInfo {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'deviceResourceClaimStatus': !exists(json, 'deviceResourceClaimStatus') ? undefined : V1DeviceResourceClaimStatusFromJSON(json['deviceResourceClaimStatus']),
+        'name': json['name'],
+    };
 }
 
 export function V1DeviceStatusInfoToJSON(value?: V1DeviceStatusInfo | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    deviceResourceClaimStatus: V1DeviceResourceClaimStatusToJSON(value.deviceResourceClaimStatus),
-    name: value.name,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'deviceResourceClaimStatus': V1DeviceResourceClaimStatusToJSON(value.deviceResourceClaimStatus),
+        'name': value.name,
+    };
 }
+

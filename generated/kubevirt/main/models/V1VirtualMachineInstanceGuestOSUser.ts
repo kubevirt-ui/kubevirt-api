@@ -39,6 +39,16 @@ export interface V1VirtualMachineInstanceGuestOSUser {
     userName: string;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceGuestOSUser interface.
+ */
+export function instanceOfV1VirtualMachineInstanceGuestOSUser(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "userName" in value;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineInstanceGuestOSUserFromJSON(json: any): V1VirtualMachineInstanceGuestOSUser {
     return V1VirtualMachineInstanceGuestOSUserFromJSONTyped(json, false);
 }

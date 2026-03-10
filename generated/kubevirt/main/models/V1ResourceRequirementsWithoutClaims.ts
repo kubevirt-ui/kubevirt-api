@@ -33,6 +33,15 @@ export interface V1ResourceRequirementsWithoutClaims {
     requests?: { [key: string]: string; };
 }
 
+/**
+ * Check if a given object implements the V1ResourceRequirementsWithoutClaims interface.
+ */
+export function instanceOfV1ResourceRequirementsWithoutClaims(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ResourceRequirementsWithoutClaimsFromJSON(json: any): V1ResourceRequirementsWithoutClaims {
     return V1ResourceRequirementsWithoutClaimsFromJSONTyped(json, false);
 }

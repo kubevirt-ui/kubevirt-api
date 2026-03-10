@@ -13,28 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1HPETTimer } from './V1HPETTimer';
 import {
-    V1HPETTimer,
     V1HPETTimerFromJSON,
     V1HPETTimerFromJSONTyped,
     V1HPETTimerToJSON,
-    V1HypervTimer,
+} from './V1HPETTimer';
+import type { V1HypervTimer } from './V1HypervTimer';
+import {
     V1HypervTimerFromJSON,
     V1HypervTimerFromJSONTyped,
     V1HypervTimerToJSON,
-    V1KVMTimer,
+} from './V1HypervTimer';
+import type { V1KVMTimer } from './V1KVMTimer';
+import {
     V1KVMTimerFromJSON,
     V1KVMTimerFromJSONTyped,
     V1KVMTimerToJSON,
-    V1PITTimer,
+} from './V1KVMTimer';
+import type { V1PITTimer } from './V1PITTimer';
+import {
     V1PITTimerFromJSON,
     V1PITTimerFromJSONTyped,
     V1PITTimerToJSON,
-    V1RTCTimer,
+} from './V1PITTimer';
+import type { V1RTCTimer } from './V1RTCTimer';
+import {
     V1RTCTimerFromJSON,
     V1RTCTimerFromJSONTyped,
     V1RTCTimerToJSON,
-} from './';
+} from './V1RTCTimer';
 
 /**
  * Represents all available timers in a vmi.
@@ -72,6 +80,15 @@ export interface V1Timer {
      * @memberof V1Timer
      */
     rtc?: V1RTCTimer;
+}
+
+/**
+ * Check if a given object implements the V1Timer interface.
+ */
+export function instanceOfV1Timer(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1TimerFromJSON(json: any): V1Timer {

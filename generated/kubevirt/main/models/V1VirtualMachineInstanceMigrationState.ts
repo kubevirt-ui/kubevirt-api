@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1MigrationConfiguration } from './V1MigrationConfiguration';
 import {
-    V1MigrationConfiguration,
     V1MigrationConfigurationFromJSON,
     V1MigrationConfigurationFromJSONTyped,
     V1MigrationConfigurationToJSON,
-    V1VirtualMachineInstanceMigrationSourceState,
+} from './V1MigrationConfiguration';
+import type { V1VirtualMachineInstanceMigrationSourceState } from './V1VirtualMachineInstanceMigrationSourceState';
+import {
     V1VirtualMachineInstanceMigrationSourceStateFromJSON,
     V1VirtualMachineInstanceMigrationSourceStateFromJSONTyped,
     V1VirtualMachineInstanceMigrationSourceStateToJSON,
-    V1VirtualMachineInstanceMigrationTargetState,
+} from './V1VirtualMachineInstanceMigrationSourceState';
+import type { V1VirtualMachineInstanceMigrationTargetState } from './V1VirtualMachineInstanceMigrationTargetState';
+import {
     V1VirtualMachineInstanceMigrationTargetStateFromJSON,
     V1VirtualMachineInstanceMigrationTargetStateFromJSONTyped,
     V1VirtualMachineInstanceMigrationTargetStateToJSON,
-} from './';
+} from './V1VirtualMachineInstanceMigrationTargetState';
 
 /**
  * 
@@ -149,6 +153,48 @@ export interface V1VirtualMachineInstanceMigrationState {
      */
     targetDirectMigrationNodePorts?: { [key: string]: number; };
     /**
+     * Quantity is a fixed-point representation of a number. It provides convenient marshaling/unmarshaling in JSON and YAML, in addition to String() and AsInt64() accessors.
+     * 
+     * The serialization format is:
+     * 
+     * ``` <quantity>        ::= <signedNumber><suffix>
+     * 
+     * 	(Note that <suffix> may be empty, from the "" case in <decimalSI>.)
+     * 
+     * <digit>           ::= 0 | 1 | ... | 9 <digits>          ::= <digit> | <digit><digits> <number>          ::= <digits> | <digits>.<digits> | <digits>. | .<digits> <sign>            ::= "+" | "-" <signedNumber>    ::= <number> | <sign><number> <suffix>          ::= <binarySI> | <decimalExponent> | <decimalSI> <binarySI>        ::= Ki | Mi | Gi | Ti | Pi | Ei
+     * 
+     * 	(International System of units; See: http://physics.nist.gov/cuu/Units/binary.html)
+     * 
+     * <decimalSI>       ::= m | "" | k | M | G | T | P | E
+     * 
+     * 	(Note that 1024 = 1Ki but 1000 = 1k; I didn't choose the capitalization.)
+     * 
+     * <decimalExponent> ::= "e" <signedNumber> | "E" <signedNumber> ```
+     * 
+     * No matter which of the three exponent forms is used, no quantity may represent a number greater than 2^63-1 in magnitude, nor may it have more than 3 decimal places. Numbers larger or more precise will be capped or rounded up. (E.g.: 0.1m will rounded up to 1m.) This may be extended in the future if we require larger or smaller quantities.
+     * 
+     * When a Quantity is parsed from a string, it will remember the type of suffix it had, and will use the same type again when it is serialized.
+     * 
+     * Before serializing, Quantity will be put in "canonical form". This means that Exponent/suffix will be adjusted up or down (with a corresponding increase or decrease in Mantissa) such that:
+     * 
+     * - No precision is lost - No fractional digits will be emitted - The exponent (or suffix) is as large as possible.
+     * 
+     * The sign will be omitted unless the number is negative.
+     * 
+     * Examples:
+     * 
+     * - 1.5 will be serialized as "1500m" - 1.5Gi will be serialized as "1536Mi"
+     * 
+     * Note that the quantity will NEVER be internally represented by a floating point number. That is the whole point of this exercise.
+     * 
+     * Non-canonical values will still parse as long as they are well formed, but will be re-emitted in their canonical form. (So always use canonical form, or don't diff.)
+     * 
+     * This format is intended to make it difficult to use these numbers without writing some sort of special handling code in the hopes that that will cause implementors to also use a fixed point implementation.
+     * @type {string}
+     * @memberof V1VirtualMachineInstanceMigrationState
+     */
+    targetMemoryOverhead?: string;
+    /**
      * The target node that the VMI is moving to
      * @type {string}
      * @memberof V1VirtualMachineInstanceMigrationState
@@ -198,6 +244,15 @@ export interface V1VirtualMachineInstanceMigrationState {
     targetState?: V1VirtualMachineInstanceMigrationTargetState;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceMigrationState interface.
+ */
+export function instanceOfV1VirtualMachineInstanceMigrationState(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineInstanceMigrationStateFromJSON(json: any): V1VirtualMachineInstanceMigrationState {
     return V1VirtualMachineInstanceMigrationStateFromJSONTyped(json, false);
 }
@@ -211,7 +266,7 @@ export function V1VirtualMachineInstanceMigrationStateFromJSONTyped(json: any, i
         'abortRequested': !exists(json, 'abortRequested') ? undefined : json['abortRequested'],
         'abortStatus': !exists(json, 'abortStatus') ? undefined : json['abortStatus'],
         'completed': !exists(json, 'completed') ? undefined : json['completed'],
-        'endTimestamp': !exists(json, 'endTimestamp') ? undefined : (new Date(json['endTimestamp'])),
+        'endTimestamp': !exists(json, 'endTimestamp') ? undefined : json['endTimestamp'],
         'failed': !exists(json, 'failed') ? undefined : json['failed'],
         'failureReason': !exists(json, 'failureReason') ? undefined : json['failureReason'],
         'migrationConfiguration': !exists(json, 'migrationConfiguration') ? undefined : V1MigrationConfigurationFromJSON(json['migrationConfiguration']),
@@ -223,14 +278,15 @@ export function V1VirtualMachineInstanceMigrationStateFromJSONTyped(json: any, i
         'sourcePersistentStatePVCName': !exists(json, 'sourcePersistentStatePVCName') ? undefined : json['sourcePersistentStatePVCName'],
         'sourcePod': !exists(json, 'sourcePod') ? undefined : json['sourcePod'],
         'sourceState': !exists(json, 'sourceState') ? undefined : V1VirtualMachineInstanceMigrationSourceStateFromJSON(json['sourceState']),
-        'startTimestamp': !exists(json, 'startTimestamp') ? undefined : (new Date(json['startTimestamp'])),
+        'startTimestamp': !exists(json, 'startTimestamp') ? undefined : json['startTimestamp'],
         'targetAttachmentPodUID': !exists(json, 'targetAttachmentPodUID') ? undefined : json['targetAttachmentPodUID'],
         'targetCPUSet': !exists(json, 'targetCPUSet') ? undefined : json['targetCPUSet'],
         'targetDirectMigrationNodePorts': !exists(json, 'targetDirectMigrationNodePorts') ? undefined : json['targetDirectMigrationNodePorts'],
+        'targetMemoryOverhead': !exists(json, 'targetMemoryOverhead') ? undefined : json['targetMemoryOverhead'],
         'targetNode': !exists(json, 'targetNode') ? undefined : json['targetNode'],
         'targetNodeAddress': !exists(json, 'targetNodeAddress') ? undefined : json['targetNodeAddress'],
         'targetNodeDomainDetected': !exists(json, 'targetNodeDomainDetected') ? undefined : json['targetNodeDomainDetected'],
-        'targetNodeDomainReadyTimestamp': !exists(json, 'targetNodeDomainReadyTimestamp') ? undefined : (new Date(json['targetNodeDomainReadyTimestamp'])),
+        'targetNodeDomainReadyTimestamp': !exists(json, 'targetNodeDomainReadyTimestamp') ? undefined : json['targetNodeDomainReadyTimestamp'],
         'targetNodeTopology': !exists(json, 'targetNodeTopology') ? undefined : json['targetNodeTopology'],
         'targetPersistentStatePVCName': !exists(json, 'targetPersistentStatePVCName') ? undefined : json['targetPersistentStatePVCName'],
         'targetPod': !exists(json, 'targetPod') ? undefined : json['targetPod'],
@@ -250,7 +306,7 @@ export function V1VirtualMachineInstanceMigrationStateToJSON(value?: V1VirtualMa
         'abortRequested': value.abortRequested,
         'abortStatus': value.abortStatus,
         'completed': value.completed,
-        'endTimestamp': value.endTimestamp === undefined ? undefined : (value.endTimestamp.toISOString()),
+        'endTimestamp': value.endTimestamp,
         'failed': value.failed,
         'failureReason': value.failureReason,
         'migrationConfiguration': V1MigrationConfigurationToJSON(value.migrationConfiguration),
@@ -262,14 +318,15 @@ export function V1VirtualMachineInstanceMigrationStateToJSON(value?: V1VirtualMa
         'sourcePersistentStatePVCName': value.sourcePersistentStatePVCName,
         'sourcePod': value.sourcePod,
         'sourceState': V1VirtualMachineInstanceMigrationSourceStateToJSON(value.sourceState),
-        'startTimestamp': value.startTimestamp === undefined ? undefined : (value.startTimestamp.toISOString()),
+        'startTimestamp': value.startTimestamp,
         'targetAttachmentPodUID': value.targetAttachmentPodUID,
         'targetCPUSet': value.targetCPUSet,
         'targetDirectMigrationNodePorts': value.targetDirectMigrationNodePorts,
+        'targetMemoryOverhead': value.targetMemoryOverhead,
         'targetNode': value.targetNode,
         'targetNodeAddress': value.targetNodeAddress,
         'targetNodeDomainDetected': value.targetNodeDomainDetected,
-        'targetNodeDomainReadyTimestamp': value.targetNodeDomainReadyTimestamp === undefined ? undefined : (value.targetNodeDomainReadyTimestamp.toISOString()),
+        'targetNodeDomainReadyTimestamp': value.targetNodeDomainReadyTimestamp,
         'targetNodeTopology': value.targetNodeTopology,
         'targetPersistentStatePVCName': value.targetPersistentStatePVCName,
         'targetPod': value.targetPod,

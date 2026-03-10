@@ -13,64 +13,96 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1CloudInitConfigDriveSource } from './V1CloudInitConfigDriveSource';
 import {
-    V1CloudInitConfigDriveSource,
     V1CloudInitConfigDriveSourceFromJSON,
     V1CloudInitConfigDriveSourceFromJSONTyped,
     V1CloudInitConfigDriveSourceToJSON,
-    V1CloudInitNoCloudSource,
+} from './V1CloudInitConfigDriveSource';
+import type { V1CloudInitNoCloudSource } from './V1CloudInitNoCloudSource';
+import {
     V1CloudInitNoCloudSourceFromJSON,
     V1CloudInitNoCloudSourceFromJSONTyped,
     V1CloudInitNoCloudSourceToJSON,
-    V1ConfigMapVolumeSource,
+} from './V1CloudInitNoCloudSource';
+import type { V1ConfigMapVolumeSource } from './V1ConfigMapVolumeSource';
+import {
     V1ConfigMapVolumeSourceFromJSON,
     V1ConfigMapVolumeSourceFromJSONTyped,
     V1ConfigMapVolumeSourceToJSON,
-    V1ContainerDiskSource,
+} from './V1ConfigMapVolumeSource';
+import type { V1ContainerDiskSource } from './V1ContainerDiskSource';
+import {
     V1ContainerDiskSourceFromJSON,
     V1ContainerDiskSourceFromJSONTyped,
     V1ContainerDiskSourceToJSON,
-    V1DataVolumeSource,
+} from './V1ContainerDiskSource';
+import type { V1ContainerPathVolumeSource } from './V1ContainerPathVolumeSource';
+import {
+    V1ContainerPathVolumeSourceFromJSON,
+    V1ContainerPathVolumeSourceFromJSONTyped,
+    V1ContainerPathVolumeSourceToJSON,
+} from './V1ContainerPathVolumeSource';
+import type { V1DataVolumeSource } from './V1DataVolumeSource';
+import {
     V1DataVolumeSourceFromJSON,
     V1DataVolumeSourceFromJSONTyped,
     V1DataVolumeSourceToJSON,
-    V1DownwardAPIVolumeSource,
+} from './V1DataVolumeSource';
+import type { V1DownwardAPIVolumeSource } from './V1DownwardAPIVolumeSource';
+import {
     V1DownwardAPIVolumeSourceFromJSON,
     V1DownwardAPIVolumeSourceFromJSONTyped,
     V1DownwardAPIVolumeSourceToJSON,
-    V1EmptyDiskSource,
+} from './V1DownwardAPIVolumeSource';
+import type { V1EmptyDiskSource } from './V1EmptyDiskSource';
+import {
     V1EmptyDiskSourceFromJSON,
     V1EmptyDiskSourceFromJSONTyped,
     V1EmptyDiskSourceToJSON,
-    V1EphemeralVolumeSource,
+} from './V1EmptyDiskSource';
+import type { V1EphemeralVolumeSource } from './V1EphemeralVolumeSource';
+import {
     V1EphemeralVolumeSourceFromJSON,
     V1EphemeralVolumeSourceFromJSONTyped,
     V1EphemeralVolumeSourceToJSON,
-    V1HostDisk,
+} from './V1EphemeralVolumeSource';
+import type { V1HostDisk } from './V1HostDisk';
+import {
     V1HostDiskFromJSON,
     V1HostDiskFromJSONTyped,
     V1HostDiskToJSON,
-    V1MemoryDumpVolumeSource,
+} from './V1HostDisk';
+import type { V1MemoryDumpVolumeSource } from './V1MemoryDumpVolumeSource';
+import {
     V1MemoryDumpVolumeSourceFromJSON,
     V1MemoryDumpVolumeSourceFromJSONTyped,
     V1MemoryDumpVolumeSourceToJSON,
-    V1PersistentVolumeClaimVolumeSource,
+} from './V1MemoryDumpVolumeSource';
+import type { V1PersistentVolumeClaimVolumeSource } from './V1PersistentVolumeClaimVolumeSource';
+import {
     V1PersistentVolumeClaimVolumeSourceFromJSON,
     V1PersistentVolumeClaimVolumeSourceFromJSONTyped,
     V1PersistentVolumeClaimVolumeSourceToJSON,
-    V1SecretVolumeSource,
+} from './V1PersistentVolumeClaimVolumeSource';
+import type { V1SecretVolumeSource } from './V1SecretVolumeSource';
+import {
     V1SecretVolumeSourceFromJSON,
     V1SecretVolumeSourceFromJSONTyped,
     V1SecretVolumeSourceToJSON,
-    V1ServiceAccountVolumeSource,
+} from './V1SecretVolumeSource';
+import type { V1ServiceAccountVolumeSource } from './V1ServiceAccountVolumeSource';
+import {
     V1ServiceAccountVolumeSourceFromJSON,
     V1ServiceAccountVolumeSourceFromJSONTyped,
     V1ServiceAccountVolumeSourceToJSON,
-    V1SysprepSource,
+} from './V1ServiceAccountVolumeSource';
+import type { V1SysprepSource } from './V1SysprepSource';
+import {
     V1SysprepSourceFromJSON,
     V1SysprepSourceFromJSONTyped,
     V1SysprepSourceToJSON,
-} from './';
+} from './V1SysprepSource';
 
 /**
  * Volume represents a named volume in a vmi.
@@ -102,6 +134,12 @@ export interface V1Volume {
      * @memberof V1Volume
      */
     containerDisk?: V1ContainerDiskSource;
+    /**
+     * 
+     * @type {V1ContainerPathVolumeSource}
+     * @memberof V1Volume
+     */
+    containerPath?: V1ContainerPathVolumeSource;
     /**
      * 
      * @type {V1DataVolumeSource}
@@ -176,6 +214,16 @@ export interface V1Volume {
     sysprep?: V1SysprepSource;
 }
 
+/**
+ * Check if a given object implements the V1Volume interface.
+ */
+export function instanceOfV1Volume(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
+}
+
 export function V1VolumeFromJSON(json: any): V1Volume {
     return V1VolumeFromJSONTyped(json, false);
 }
@@ -190,6 +238,7 @@ export function V1VolumeFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'cloudInitNoCloud': !exists(json, 'cloudInitNoCloud') ? undefined : V1CloudInitNoCloudSourceFromJSON(json['cloudInitNoCloud']),
         'configMap': !exists(json, 'configMap') ? undefined : V1ConfigMapVolumeSourceFromJSON(json['configMap']),
         'containerDisk': !exists(json, 'containerDisk') ? undefined : V1ContainerDiskSourceFromJSON(json['containerDisk']),
+        'containerPath': !exists(json, 'containerPath') ? undefined : V1ContainerPathVolumeSourceFromJSON(json['containerPath']),
         'dataVolume': !exists(json, 'dataVolume') ? undefined : V1DataVolumeSourceFromJSON(json['dataVolume']),
         'downwardAPI': !exists(json, 'downwardAPI') ? undefined : V1DownwardAPIVolumeSourceFromJSON(json['downwardAPI']),
         'downwardMetrics': !exists(json, 'downwardMetrics') ? undefined : json['downwardMetrics'],
@@ -218,6 +267,7 @@ export function V1VolumeToJSON(value?: V1Volume | null): any {
         'cloudInitNoCloud': V1CloudInitNoCloudSourceToJSON(value.cloudInitNoCloud),
         'configMap': V1ConfigMapVolumeSourceToJSON(value.configMap),
         'containerDisk': V1ContainerDiskSourceToJSON(value.containerDisk),
+        'containerPath': V1ContainerPathVolumeSourceToJSON(value.containerPath),
         'dataVolume': V1DataVolumeSourceToJSON(value.dataVolume),
         'downwardAPI': V1DownwardAPIVolumeSourceToJSON(value.downwardAPI),
         'downwardMetrics': value.downwardMetrics,

@@ -33,6 +33,15 @@ export interface K8sIoApiCoreV1VolumeResourceRequirements {
     requests?: { [key: string]: string; };
 }
 
+/**
+ * Check if a given object implements the K8sIoApiCoreV1VolumeResourceRequirements interface.
+ */
+export function instanceOfK8sIoApiCoreV1VolumeResourceRequirements(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function K8sIoApiCoreV1VolumeResourceRequirementsFromJSON(json: any): K8sIoApiCoreV1VolumeResourceRequirements {
     return K8sIoApiCoreV1VolumeResourceRequirementsFromJSONTyped(json, false);
 }

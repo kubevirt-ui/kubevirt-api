@@ -12,116 +12,132 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
 import {
-  K8sIoApiCoreV1TypedLocalObjectReference,
-  K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
-  K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-  V1beta1VirtualMachineCloneTemplateFilters,
-  V1beta1VirtualMachineCloneTemplateFiltersFromJSON,
-  V1beta1VirtualMachineCloneTemplateFiltersToJSON,
-} from './';
+    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
+    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSONTyped,
+    K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
+} from './K8sIoApiCoreV1TypedLocalObjectReference';
+import type { V1beta1VirtualMachineCloneTemplateFilters } from './V1beta1VirtualMachineCloneTemplateFilters';
+import {
+    V1beta1VirtualMachineCloneTemplateFiltersFromJSON,
+    V1beta1VirtualMachineCloneTemplateFiltersFromJSONTyped,
+    V1beta1VirtualMachineCloneTemplateFiltersToJSON,
+} from './V1beta1VirtualMachineCloneTemplateFilters';
 
 /**
- *
+ * 
  * @export
  * @interface V1beta1VirtualMachineCloneSpec
  */
 export interface V1beta1VirtualMachineCloneSpec {
-  /**
-   * Example use: "!some/key*". For a detailed description, please refer to https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters.
-   * @type {Array<string>}
-   * @memberof V1beta1VirtualMachineCloneSpec
-   */
-  annotationFilters?: Array<string>;
-  /**
-   * Example use: "!some/key*". For a detailed description, please refer to https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters.
-   * @type {Array<string>}
-   * @memberof V1beta1VirtualMachineCloneSpec
-   */
-  labelFilters?: Array<string>;
-  /**
-   * NewMacAddresses manually sets that target interfaces' mac addresses. The key is the interface name and the value is the new mac address. If this field is not specified, a new MAC address will be generated automatically, as for any interface that is not included in this map.
-   * @type {{ [key: string]: string; }}
-   * @memberof V1beta1VirtualMachineCloneSpec
-   */
-  newMacAddresses?: { [key: string]: string };
-  /**
-   * NewSMBiosSerial manually sets that target's SMbios serial. If this field is not specified, a new serial will be generated automatically.
-   * @type {string}
-   * @memberof V1beta1VirtualMachineCloneSpec
-   */
-  newSMBiosSerial?: string;
-  /**
-   * Patches holds JSON patches to apply to target. Patches should fit the target's Kind. Example: '{"op": "add", "path": "/spec/template/metadata/labels/example", "value": "new-label"}'
-   * @type {Array<string>}
-   * @memberof V1beta1VirtualMachineCloneSpec
-   */
-  patches?: Array<string>;
-  /**
-   *
-   * @type {K8sIoApiCoreV1TypedLocalObjectReference}
-   * @memberof V1beta1VirtualMachineCloneSpec
-   */
-  source: K8sIoApiCoreV1TypedLocalObjectReference;
-  /**
-   *
-   * @type {K8sIoApiCoreV1TypedLocalObjectReference}
-   * @memberof V1beta1VirtualMachineCloneSpec
-   */
-  target?: K8sIoApiCoreV1TypedLocalObjectReference;
-  /**
-   *
-   * @type {V1beta1VirtualMachineCloneTemplateFilters}
-   * @memberof V1beta1VirtualMachineCloneSpec
-   */
-  template?: V1beta1VirtualMachineCloneTemplateFilters;
+    /**
+     * Example use: "!some/key*". For a detailed description, please refer to https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters.
+     * @type {Array<string>}
+     * @memberof V1beta1VirtualMachineCloneSpec
+     */
+    annotationFilters?: Array<string>;
+    /**
+     * Example use: "!some/key*". For a detailed description, please refer to https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters.
+     * @type {Array<string>}
+     * @memberof V1beta1VirtualMachineCloneSpec
+     */
+    labelFilters?: Array<string>;
+    /**
+     * NewMacAddresses manually sets that target interfaces' mac addresses. The key is the interface name and the value is the new mac address. If this field is not specified, a new MAC address will be generated automatically, as for any interface that is not included in this map.
+     * @type {{ [key: string]: string; }}
+     * @memberof V1beta1VirtualMachineCloneSpec
+     */
+    newMacAddresses?: { [key: string]: string; };
+    /**
+     * NewSMBiosSerial manually sets that target's SMbios serial. If this field is not specified, a new serial will be generated automatically.
+     * @type {string}
+     * @memberof V1beta1VirtualMachineCloneSpec
+     */
+    newSMBiosSerial?: string;
+    /**
+     * Patches holds JSON patches to apply to target. Patches should fit the target's Kind. Example: '{"op": "add", "path": "/spec/template/metadata/labels/example", "value": "new-label"}'
+     * @type {Array<string>}
+     * @memberof V1beta1VirtualMachineCloneSpec
+     */
+    patches?: Array<string>;
+    /**
+     * 
+     * @type {K8sIoApiCoreV1TypedLocalObjectReference}
+     * @memberof V1beta1VirtualMachineCloneSpec
+     */
+    source: K8sIoApiCoreV1TypedLocalObjectReference;
+    /**
+     * 
+     * @type {K8sIoApiCoreV1TypedLocalObjectReference}
+     * @memberof V1beta1VirtualMachineCloneSpec
+     */
+    target?: K8sIoApiCoreV1TypedLocalObjectReference;
+    /**
+     * 
+     * @type {V1beta1VirtualMachineCloneTemplateFilters}
+     * @memberof V1beta1VirtualMachineCloneSpec
+     */
+    template?: V1beta1VirtualMachineCloneTemplateFilters;
+    /**
+     * VolumeNamePolicy defines how to handle volume naming during the clone operation
+     * @type {string}
+     * @memberof V1beta1VirtualMachineCloneSpec
+     */
+    volumeNamePolicy?: string;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineCloneSpec interface.
+ */
+export function instanceOfV1beta1VirtualMachineCloneSpec(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "source" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineCloneSpecFromJSON(json: any): V1beta1VirtualMachineCloneSpec {
-  return V1beta1VirtualMachineCloneSpecFromJSONTyped(json, false);
+    return V1beta1VirtualMachineCloneSpecFromJSONTyped(json, false);
 }
 
-export function V1beta1VirtualMachineCloneSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1VirtualMachineCloneSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    annotationFilters: !exists(json, 'annotationFilters') ? undefined : json['annotationFilters'],
-    labelFilters: !exists(json, 'labelFilters') ? undefined : json['labelFilters'],
-    newMacAddresses: !exists(json, 'newMacAddresses') ? undefined : json['newMacAddresses'],
-    newSMBiosSerial: !exists(json, 'newSMBiosSerial') ? undefined : json['newSMBiosSerial'],
-    patches: !exists(json, 'patches') ? undefined : json['patches'],
-    source: K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['source']),
-    target: !exists(json, 'target')
-      ? undefined
-      : K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['target']),
-    template: !exists(json, 'template')
-      ? undefined
-      : V1beta1VirtualMachineCloneTemplateFiltersFromJSON(json['template']),
-  };
+export function V1beta1VirtualMachineCloneSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineCloneSpec {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'annotationFilters': !exists(json, 'annotationFilters') ? undefined : json['annotationFilters'],
+        'labelFilters': !exists(json, 'labelFilters') ? undefined : json['labelFilters'],
+        'newMacAddresses': !exists(json, 'newMacAddresses') ? undefined : json['newMacAddresses'],
+        'newSMBiosSerial': !exists(json, 'newSMBiosSerial') ? undefined : json['newSMBiosSerial'],
+        'patches': !exists(json, 'patches') ? undefined : json['patches'],
+        'source': K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['source']),
+        'target': !exists(json, 'target') ? undefined : K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['target']),
+        'template': !exists(json, 'template') ? undefined : V1beta1VirtualMachineCloneTemplateFiltersFromJSON(json['template']),
+        'volumeNamePolicy': !exists(json, 'volumeNamePolicy') ? undefined : json['volumeNamePolicy'],
+    };
 }
 
-export function V1beta1VirtualMachineCloneSpecToJSON(
-  value?: V1beta1VirtualMachineCloneSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    annotationFilters: value.annotationFilters,
-    labelFilters: value.labelFilters,
-    newMacAddresses: value.newMacAddresses,
-    newSMBiosSerial: value.newSMBiosSerial,
-    patches: value.patches,
-    source: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.source),
-    target: K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.target),
-    template: V1beta1VirtualMachineCloneTemplateFiltersToJSON(value.template),
-  };
+export function V1beta1VirtualMachineCloneSpecToJSON(value?: V1beta1VirtualMachineCloneSpec | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'annotationFilters': value.annotationFilters,
+        'labelFilters': value.labelFilters,
+        'newMacAddresses': value.newMacAddresses,
+        'newSMBiosSerial': value.newSMBiosSerial,
+        'patches': value.patches,
+        'source': K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.source),
+        'target': K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.target),
+        'template': V1beta1VirtualMachineCloneTemplateFiltersToJSON(value.template),
+        'volumeNamePolicy': value.volumeNamePolicy,
+    };
 }
+

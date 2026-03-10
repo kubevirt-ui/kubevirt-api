@@ -12,8 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1EFI, V1EFIFromJSON, V1EFIToJSON } from './';
+import { exists, mapValues } from '../runtime';
+import type { V1EFI } from './V1EFI';
+import {
+    V1EFIFromJSON,
+    V1EFIFromJSONTyped,
+    V1EFIToJSON,
+} from './V1EFI';
 
 /**
  * FirmwarePreferences contains various optional defaults for Firmware.
@@ -21,82 +26,87 @@ import { V1EFI, V1EFIFromJSON, V1EFIToJSON } from './';
  * @interface V1beta1FirmwarePreferences
  */
 export interface V1beta1FirmwarePreferences {
-  /**
-   *
-   * @type {V1EFI}
-   * @memberof V1beta1FirmwarePreferences
-   */
-  preferredEfi?: V1EFI;
-  /**
-   * PreferredUseBios optionally enables BIOS
-   * @type {boolean}
-   * @memberof V1beta1FirmwarePreferences
-   */
-  preferredUseBios?: boolean;
-  /**
-   * PreferredUseBiosSerial optionally transmitts BIOS output over the serial.
-   *
-   * Requires PreferredUseBios to be enabled.
-   * @type {boolean}
-   * @memberof V1beta1FirmwarePreferences
-   */
-  preferredUseBiosSerial?: boolean;
-  /**
-   * PreferredUseEfi optionally enables EFI
-   *
-   * Deprecated: Will be removed with v1beta2 or v1
-   * @type {boolean}
-   * @memberof V1beta1FirmwarePreferences
-   */
-  preferredUseEfi?: boolean;
-  /**
-   * PreferredUseSecureBoot optionally enables SecureBoot and the OVMF roms will be swapped for SecureBoot-enabled ones.
-   *
-   * Requires PreferredUseEfi and PreferredSmm to be enabled.
-   *
-   * Deprecated: Will be removed with v1beta2 or v1
-   * @type {boolean}
-   * @memberof V1beta1FirmwarePreferences
-   */
-  preferredUseSecureBoot?: boolean;
+    /**
+     * 
+     * @type {V1EFI}
+     * @memberof V1beta1FirmwarePreferences
+     */
+    preferredEfi?: V1EFI;
+    /**
+     * PreferredUseBios optionally enables BIOS
+     * @type {boolean}
+     * @memberof V1beta1FirmwarePreferences
+     */
+    preferredUseBios?: boolean;
+    /**
+     * PreferredUseBiosSerial optionally transmitts BIOS output over the serial.
+     * 
+     * Requires PreferredUseBios to be enabled.
+     * @type {boolean}
+     * @memberof V1beta1FirmwarePreferences
+     */
+    preferredUseBiosSerial?: boolean;
+    /**
+     * PreferredUseEfi optionally enables EFI
+     * 
+     * Deprecated: Will be removed with v1beta2 or v1
+     * @type {boolean}
+     * @memberof V1beta1FirmwarePreferences
+     */
+    preferredUseEfi?: boolean;
+    /**
+     * PreferredUseSecureBoot optionally enables SecureBoot and the OVMF roms will be swapped for SecureBoot-enabled ones.
+     * 
+     * Requires PreferredUseEfi and PreferredSmm to be enabled.
+     * 
+     * Deprecated: Will be removed with v1beta2 or v1
+     * @type {boolean}
+     * @memberof V1beta1FirmwarePreferences
+     */
+    preferredUseSecureBoot?: boolean;
+}
+
+/**
+ * Check if a given object implements the V1beta1FirmwarePreferences interface.
+ */
+export function instanceOfV1beta1FirmwarePreferences(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1beta1FirmwarePreferencesFromJSON(json: any): V1beta1FirmwarePreferences {
-  return V1beta1FirmwarePreferencesFromJSONTyped(json, false);
+    return V1beta1FirmwarePreferencesFromJSONTyped(json, false);
 }
 
-export function V1beta1FirmwarePreferencesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1FirmwarePreferences {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredEfi: !exists(json, 'preferredEfi') ? undefined : V1EFIFromJSON(json['preferredEfi']),
-    preferredUseBios: !exists(json, 'preferredUseBios') ? undefined : json['preferredUseBios'],
-    preferredUseBiosSerial: !exists(json, 'preferredUseBiosSerial')
-      ? undefined
-      : json['preferredUseBiosSerial'],
-    preferredUseEfi: !exists(json, 'preferredUseEfi') ? undefined : json['preferredUseEfi'],
-    preferredUseSecureBoot: !exists(json, 'preferredUseSecureBoot')
-      ? undefined
-      : json['preferredUseSecureBoot'],
-  };
+export function V1beta1FirmwarePreferencesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1FirmwarePreferences {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'preferredEfi': !exists(json, 'preferredEfi') ? undefined : V1EFIFromJSON(json['preferredEfi']),
+        'preferredUseBios': !exists(json, 'preferredUseBios') ? undefined : json['preferredUseBios'],
+        'preferredUseBiosSerial': !exists(json, 'preferredUseBiosSerial') ? undefined : json['preferredUseBiosSerial'],
+        'preferredUseEfi': !exists(json, 'preferredUseEfi') ? undefined : json['preferredUseEfi'],
+        'preferredUseSecureBoot': !exists(json, 'preferredUseSecureBoot') ? undefined : json['preferredUseSecureBoot'],
+    };
 }
 
 export function V1beta1FirmwarePreferencesToJSON(value?: V1beta1FirmwarePreferences | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredEfi: V1EFIToJSON(value.preferredEfi),
-    preferredUseBios: value.preferredUseBios,
-    preferredUseBiosSerial: value.preferredUseBiosSerial,
-    preferredUseEfi: value.preferredUseEfi,
-    preferredUseSecureBoot: value.preferredUseSecureBoot,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'preferredEfi': V1EFIToJSON(value.preferredEfi),
+        'preferredUseBios': value.preferredUseBios,
+        'preferredUseBiosSerial': value.preferredUseBiosSerial,
+        'preferredUseEfi': value.preferredUseEfi,
+        'preferredUseSecureBoot': value.preferredUseSecureBoot,
+    };
 }
+

@@ -39,6 +39,17 @@ export interface K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement {
     values?: Array<string>;
 }
 
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "key" in value;
+    isInstance = isInstance && "operator" in value;
+
+    return isInstance;
+}
+
 export function K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirement {
     return K8sIoApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSONTyped(json, false);
 }

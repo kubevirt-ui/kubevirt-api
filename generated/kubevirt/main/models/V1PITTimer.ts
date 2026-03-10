@@ -33,6 +33,15 @@ export interface V1PITTimer {
     tickPolicy?: string;
 }
 
+/**
+ * Check if a given object implements the V1PITTimer interface.
+ */
+export function instanceOfV1PITTimer(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1PITTimerFromJSON(json: any): V1PITTimer {
     return V1PITTimerFromJSONTyped(json, false);
 }

@@ -39,6 +39,15 @@ export interface V1LunTarget {
     reservation?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1LunTarget interface.
+ */
+export function instanceOfV1LunTarget(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1LunTargetFromJSON(json: any): V1LunTarget {
     return V1LunTargetFromJSONTyped(json, false);
 }

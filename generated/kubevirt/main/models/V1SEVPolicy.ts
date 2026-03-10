@@ -27,6 +27,15 @@ export interface V1SEVPolicy {
     encryptedState?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1SEVPolicy interface.
+ */
+export function instanceOfV1SEVPolicy(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1SEVPolicyFromJSON(json: any): V1SEVPolicy {
     return V1SEVPolicyFromJSONTyped(json, false);
 }

@@ -33,6 +33,15 @@ export interface V1VirtualMachineInstancePhaseTransitionTimestamp {
     phaseTransitionTimestamp?: string;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineInstancePhaseTransitionTimestamp interface.
+ */
+export function instanceOfV1VirtualMachineInstancePhaseTransitionTimestamp(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineInstancePhaseTransitionTimestampFromJSON(json: any): V1VirtualMachineInstancePhaseTransitionTimestamp {
     return V1VirtualMachineInstancePhaseTransitionTimestampFromJSONTyped(json, false);
 }
@@ -44,7 +53,7 @@ export function V1VirtualMachineInstancePhaseTransitionTimestampFromJSONTyped(js
     return {
         
         'phase': !exists(json, 'phase') ? undefined : json['phase'],
-        'phaseTransitionTimestamp': !exists(json, 'phaseTransitionTimestamp') ? undefined : (new Date(json['phaseTransitionTimestamp'])),
+        'phaseTransitionTimestamp': !exists(json, 'phaseTransitionTimestamp') ? undefined : json['phaseTransitionTimestamp'],
     };
 }
 
@@ -58,7 +67,7 @@ export function V1VirtualMachineInstancePhaseTransitionTimestampToJSON(value?: V
     return {
         
         'phase': value.phase,
-        'phaseTransitionTimestamp': value.phaseTransitionTimestamp === undefined ? undefined : (value.phaseTransitionTimestamp.toISOString()),
+        'phaseTransitionTimestamp': value.phaseTransitionTimestamp,
     };
 }
 

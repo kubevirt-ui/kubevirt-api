@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1beta1DataVolumeSpec,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1beta1DataVolumeSpec } from './V1beta1DataVolumeSpec';
+import {
     V1beta1DataVolumeSpecFromJSON,
     V1beta1DataVolumeSpecFromJSONTyped,
     V1beta1DataVolumeSpecToJSON,
-} from './';
+} from './V1beta1DataVolumeSpec';
 
 /**
  * 
@@ -60,6 +62,16 @@ export interface V1DataVolumeTemplateSpec {
      * @memberof V1DataVolumeTemplateSpec
      */
     status?: object;
+}
+
+/**
+ * Check if a given object implements the V1DataVolumeTemplateSpec interface.
+ */
+export function instanceOfV1DataVolumeTemplateSpec(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "spec" in value;
+
+    return isInstance;
 }
 
 export function V1DataVolumeTemplateSpecFromJSON(json: any): V1DataVolumeTemplateSpec {

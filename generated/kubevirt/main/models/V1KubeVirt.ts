@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1KubeVirtSpec,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1KubeVirtSpec } from './V1KubeVirtSpec';
+import {
     V1KubeVirtSpecFromJSON,
     V1KubeVirtSpecFromJSONTyped,
     V1KubeVirtSpecToJSON,
-    V1KubeVirtStatus,
+} from './V1KubeVirtSpec';
+import type { V1KubeVirtStatus } from './V1KubeVirtStatus';
+import {
     V1KubeVirtStatusFromJSON,
     V1KubeVirtStatusFromJSONTyped,
     V1KubeVirtStatusToJSON,
-} from './';
+} from './V1KubeVirtStatus';
 
 /**
  * KubeVirt represents the object deploying all KubeVirt resources
@@ -64,6 +68,16 @@ export interface V1KubeVirt {
      * @memberof V1KubeVirt
      */
     status?: V1KubeVirtStatus;
+}
+
+/**
+ * Check if a given object implements the V1KubeVirt interface.
+ */
+export function instanceOfV1KubeVirt(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "spec" in value;
+
+    return isInstance;
 }
 
 export function V1KubeVirtFromJSON(json: any): V1KubeVirt {

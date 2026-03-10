@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1VirtualMachineInstanceSpec,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1VirtualMachineInstanceSpec } from './V1VirtualMachineInstanceSpec';
+import {
     V1VirtualMachineInstanceSpecFromJSON,
     V1VirtualMachineInstanceSpecFromJSONTyped,
     V1VirtualMachineInstanceSpecToJSON,
-} from './';
+} from './V1VirtualMachineInstanceSpec';
 
 /**
  * 
@@ -42,6 +44,15 @@ export interface V1VirtualMachineInstanceTemplateSpec {
      * @memberof V1VirtualMachineInstanceTemplateSpec
      */
     spec?: V1VirtualMachineInstanceSpec;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceTemplateSpec interface.
+ */
+export function instanceOfV1VirtualMachineInstanceTemplateSpec(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceTemplateSpecFromJSON(json: any): V1VirtualMachineInstanceTemplateSpec {

@@ -33,6 +33,15 @@ export interface V1HotplugVolumeStatus {
     attachPodUID?: string;
 }
 
+/**
+ * Check if a given object implements the V1HotplugVolumeStatus interface.
+ */
+export function instanceOfV1HotplugVolumeStatus(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HotplugVolumeStatusFromJSON(json: any): V1HotplugVolumeStatus {
     return V1HotplugVolumeStatusFromJSONTyped(json, false);
 }

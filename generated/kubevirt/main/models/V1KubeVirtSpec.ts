@@ -13,32 +13,42 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1LocalObjectReference } from './K8sIoApiCoreV1LocalObjectReference';
 import {
-    K8sIoApiCoreV1LocalObjectReference,
     K8sIoApiCoreV1LocalObjectReferenceFromJSON,
     K8sIoApiCoreV1LocalObjectReferenceFromJSONTyped,
     K8sIoApiCoreV1LocalObjectReferenceToJSON,
-    V1ComponentConfig,
+} from './K8sIoApiCoreV1LocalObjectReference';
+import type { V1ComponentConfig } from './V1ComponentConfig';
+import {
     V1ComponentConfigFromJSON,
     V1ComponentConfigFromJSONTyped,
     V1ComponentConfigToJSON,
-    V1CustomizeComponents,
+} from './V1ComponentConfig';
+import type { V1CustomizeComponents } from './V1CustomizeComponents';
+import {
     V1CustomizeComponentsFromJSON,
     V1CustomizeComponentsFromJSONTyped,
     V1CustomizeComponentsToJSON,
-    V1KubeVirtCertificateRotateStrategy,
+} from './V1CustomizeComponents';
+import type { V1KubeVirtCertificateRotateStrategy } from './V1KubeVirtCertificateRotateStrategy';
+import {
     V1KubeVirtCertificateRotateStrategyFromJSON,
     V1KubeVirtCertificateRotateStrategyFromJSONTyped,
     V1KubeVirtCertificateRotateStrategyToJSON,
-    V1KubeVirtConfiguration,
+} from './V1KubeVirtCertificateRotateStrategy';
+import type { V1KubeVirtConfiguration } from './V1KubeVirtConfiguration';
+import {
     V1KubeVirtConfigurationFromJSON,
     V1KubeVirtConfigurationFromJSONTyped,
     V1KubeVirtConfigurationToJSON,
-    V1KubeVirtWorkloadUpdateStrategy,
+} from './V1KubeVirtConfiguration';
+import type { V1KubeVirtWorkloadUpdateStrategy } from './V1KubeVirtWorkloadUpdateStrategy';
+import {
     V1KubeVirtWorkloadUpdateStrategyFromJSON,
     V1KubeVirtWorkloadUpdateStrategyFromJSONTyped,
     V1KubeVirtWorkloadUpdateStrategyToJSON,
-} from './';
+} from './V1KubeVirtWorkloadUpdateStrategy';
 
 /**
  * 
@@ -163,14 +173,25 @@ export interface V1KubeVirtSpec {
     workloads?: V1ComponentConfig;
 }
 
+
 /**
-* @export
-* @enum {string}
-*/
-export enum V1KubeVirtSpecImagePullPolicyEnum {
-    Always = 'Always',
-    IfNotPresent = 'IfNotPresent',
-    Never = 'Never'
+ * @export
+ */
+export const V1KubeVirtSpecImagePullPolicyEnum = {
+    Always: 'Always',
+    IfNotPresent: 'IfNotPresent',
+    Never: 'Never'
+} as const;
+export type V1KubeVirtSpecImagePullPolicyEnum = typeof V1KubeVirtSpecImagePullPolicyEnum[keyof typeof V1KubeVirtSpecImagePullPolicyEnum];
+
+
+/**
+ * Check if a given object implements the V1KubeVirtSpec interface.
+ */
+export function instanceOfV1KubeVirtSpec(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1KubeVirtSpecFromJSON(json: any): V1KubeVirtSpec {

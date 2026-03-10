@@ -27,6 +27,15 @@ export interface V1PanicDevice {
     model?: string;
 }
 
+/**
+ * Check if a given object implements the V1PanicDevice interface.
+ */
+export function instanceOfV1PanicDevice(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1PanicDeviceFromJSON(json: any): V1PanicDevice {
     return V1PanicDeviceFromJSONTyped(json, false);
 }

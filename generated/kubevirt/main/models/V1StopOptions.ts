@@ -45,6 +45,15 @@ export interface V1StopOptions {
     kind?: string;
 }
 
+/**
+ * Check if a given object implements the V1StopOptions interface.
+ */
+export function instanceOfV1StopOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1StopOptionsFromJSON(json: any): V1StopOptions {
     return V1StopOptionsFromJSONTyped(json, false);
 }

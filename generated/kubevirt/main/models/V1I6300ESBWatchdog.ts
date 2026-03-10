@@ -27,6 +27,15 @@ export interface V1I6300ESBWatchdog {
     action?: string;
 }
 
+/**
+ * Check if a given object implements the V1I6300ESBWatchdog interface.
+ */
+export function instanceOfV1I6300ESBWatchdog(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1I6300ESBWatchdogFromJSON(json: any): V1I6300ESBWatchdog {
     return V1I6300ESBWatchdogFromJSONTyped(json, false);
 }

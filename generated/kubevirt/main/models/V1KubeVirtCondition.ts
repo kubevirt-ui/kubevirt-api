@@ -45,6 +45,17 @@ export interface V1KubeVirtCondition {
     type: string;
 }
 
+/**
+ * Check if a given object implements the V1KubeVirtCondition interface.
+ */
+export function instanceOfV1KubeVirtCondition(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "status" in value;
+    isInstance = isInstance && "type" in value;
+
+    return isInstance;
+}
+
 export function V1KubeVirtConditionFromJSON(json: any): V1KubeVirtCondition {
     return V1KubeVirtConditionFromJSONTyped(json, false);
 }

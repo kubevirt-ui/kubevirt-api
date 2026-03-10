@@ -33,6 +33,15 @@ export interface V1VirtualMachineOptions {
     disableSerialConsoleLog?: object;
 }
 
+/**
+ * Check if a given object implements the V1VirtualMachineOptions interface.
+ */
+export function instanceOfV1VirtualMachineOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1VirtualMachineOptionsFromJSON(json: any): V1VirtualMachineOptions {
     return V1VirtualMachineOptionsFromJSONTyped(json, false);
 }

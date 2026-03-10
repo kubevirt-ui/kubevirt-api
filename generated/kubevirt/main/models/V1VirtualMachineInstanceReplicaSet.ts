@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1VirtualMachineInstanceReplicaSetSpec,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1VirtualMachineInstanceReplicaSetSpec } from './V1VirtualMachineInstanceReplicaSetSpec';
+import {
     V1VirtualMachineInstanceReplicaSetSpecFromJSON,
     V1VirtualMachineInstanceReplicaSetSpecFromJSONTyped,
     V1VirtualMachineInstanceReplicaSetSpecToJSON,
-    V1VirtualMachineInstanceReplicaSetStatus,
+} from './V1VirtualMachineInstanceReplicaSetSpec';
+import type { V1VirtualMachineInstanceReplicaSetStatus } from './V1VirtualMachineInstanceReplicaSetStatus';
+import {
     V1VirtualMachineInstanceReplicaSetStatusFromJSON,
     V1VirtualMachineInstanceReplicaSetStatusFromJSONTyped,
     V1VirtualMachineInstanceReplicaSetStatusToJSON,
-} from './';
+} from './V1VirtualMachineInstanceReplicaSetStatus';
 
 /**
  * VirtualMachineInstance is *the* VirtualMachineInstance Definition. It represents a virtual machine in the runtime environment of kubernetes.
@@ -64,6 +68,16 @@ export interface V1VirtualMachineInstanceReplicaSet {
      * @memberof V1VirtualMachineInstanceReplicaSet
      */
     status?: V1VirtualMachineInstanceReplicaSetStatus;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceReplicaSet interface.
+ */
+export function instanceOfV1VirtualMachineInstanceReplicaSet(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "spec" in value;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceReplicaSetFromJSON(json: any): V1VirtualMachineInstanceReplicaSet {

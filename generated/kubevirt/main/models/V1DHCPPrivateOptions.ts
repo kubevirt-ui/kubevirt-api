@@ -33,6 +33,17 @@ export interface V1DHCPPrivateOptions {
     value: string;
 }
 
+/**
+ * Check if a given object implements the V1DHCPPrivateOptions interface.
+ */
+export function instanceOfV1DHCPPrivateOptions(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "option" in value;
+    isInstance = isInstance && "value" in value;
+
+    return isInstance;
+}
+
 export function V1DHCPPrivateOptionsFromJSON(json: any): V1DHCPPrivateOptions {
     return V1DHCPPrivateOptionsFromJSONTyped(json, false);
 }

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1TokenBucketRateLimiter } from './V1TokenBucketRateLimiter';
 import {
-    V1TokenBucketRateLimiter,
     V1TokenBucketRateLimiterFromJSON,
     V1TokenBucketRateLimiterFromJSONTyped,
     V1TokenBucketRateLimiterToJSON,
-} from './';
+} from './V1TokenBucketRateLimiter';
 
 /**
  * 
@@ -32,6 +32,15 @@ export interface V1RateLimiter {
      * @memberof V1RateLimiter
      */
     tokenBucketRateLimiter?: V1TokenBucketRateLimiter;
+}
+
+/**
+ * Check if a given object implements the V1RateLimiter interface.
+ */
+export function instanceOfV1RateLimiter(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1RateLimiterFromJSON(json: any): V1RateLimiter {

@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1DiskVerification } from './V1DiskVerification';
 import {
-    V1DiskVerification,
     V1DiskVerificationFromJSON,
     V1DiskVerificationFromJSONTyped,
     V1DiskVerificationToJSON,
-    V1LogVerbosity,
+} from './V1DiskVerification';
+import type { V1LogVerbosity } from './V1LogVerbosity';
+import {
     V1LogVerbosityFromJSON,
     V1LogVerbosityFromJSONTyped,
     V1LogVerbosityToJSON,
-} from './';
+} from './V1LogVerbosity';
 
 /**
  * DeveloperConfiguration holds developer options
@@ -43,13 +45,19 @@ export interface V1DeveloperConfiguration {
      */
     cpuAllocationRatio?: number;
     /**
+     * DisabledFeatureGates specifies a list of experimental feature gates to disable. A feature gate must not appear in both FeatureGates and DisabledFeatureGates.
+     * @type {Array<string>}
+     * @memberof V1DeveloperConfiguration
+     */
+    disabledFeatureGates?: Array<string>;
+    /**
      * 
      * @type {V1DiskVerification}
      * @memberof V1DeveloperConfiguration
      */
     diskVerification?: V1DiskVerification;
     /**
-     * FeatureGates is the list of experimental features to enable. Defaults to none
+     * FeatureGates specifies a list of experimental feature gates to enable. Defaults to none. A feature gate must not appear in both FeatureGates and DisabledFeatureGates.
      * @type {Array<string>}
      * @memberof V1DeveloperConfiguration
      */
@@ -98,6 +106,15 @@ export interface V1DeveloperConfiguration {
     useEmulation?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1DeveloperConfiguration interface.
+ */
+export function instanceOfV1DeveloperConfiguration(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1DeveloperConfigurationFromJSON(json: any): V1DeveloperConfiguration {
     return V1DeveloperConfigurationFromJSONTyped(json, false);
 }
@@ -110,6 +127,7 @@ export function V1DeveloperConfigurationFromJSONTyped(json: any, ignoreDiscrimin
         
         'clusterProfiler': !exists(json, 'clusterProfiler') ? undefined : json['clusterProfiler'],
         'cpuAllocationRatio': !exists(json, 'cpuAllocationRatio') ? undefined : json['cpuAllocationRatio'],
+        'disabledFeatureGates': !exists(json, 'disabledFeatureGates') ? undefined : json['disabledFeatureGates'],
         'diskVerification': !exists(json, 'diskVerification') ? undefined : V1DiskVerificationFromJSON(json['diskVerification']),
         'featureGates': !exists(json, 'featureGates') ? undefined : json['featureGates'],
         'logVerbosity': !exists(json, 'logVerbosity') ? undefined : V1LogVerbosityFromJSON(json['logVerbosity']),
@@ -133,6 +151,7 @@ export function V1DeveloperConfigurationToJSON(value?: V1DeveloperConfiguration 
         
         'clusterProfiler': value.clusterProfiler,
         'cpuAllocationRatio': value.cpuAllocationRatio,
+        'disabledFeatureGates': value.disabledFeatureGates,
         'diskVerification': V1DiskVerificationToJSON(value.diskVerification),
         'featureGates': value.featureGates,
         'logVerbosity': V1LogVerbosityToJSON(value.logVerbosity),

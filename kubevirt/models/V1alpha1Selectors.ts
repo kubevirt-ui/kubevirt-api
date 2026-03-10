@@ -12,55 +12,62 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1alpha1Selectors
  */
 export interface V1alpha1Selectors {
-  /**
-   *
-   * @type {{ [key: string]: string; }}
-   * @memberof V1alpha1Selectors
-   */
-  namespaceSelector?: { [key: string]: string };
-  /**
-   *
-   * @type {{ [key: string]: string; }}
-   * @memberof V1alpha1Selectors
-   */
-  virtualMachineInstanceSelector?: { [key: string]: string };
+    /**
+     * 
+     * @type {{ [key: string]: string; }}
+     * @memberof V1alpha1Selectors
+     */
+    namespaceSelector?: { [key: string]: string; };
+    /**
+     * 
+     * @type {{ [key: string]: string; }}
+     * @memberof V1alpha1Selectors
+     */
+    virtualMachineInstanceSelector?: { [key: string]: string; };
+}
+
+/**
+ * Check if a given object implements the V1alpha1Selectors interface.
+ */
+export function instanceOfV1alpha1Selectors(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1alpha1SelectorsFromJSON(json: any): V1alpha1Selectors {
-  return V1alpha1SelectorsFromJSONTyped(json, false);
+    return V1alpha1SelectorsFromJSONTyped(json, false);
 }
 
-export function V1alpha1SelectorsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1alpha1Selectors {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    namespaceSelector: !exists(json, 'namespaceSelector') ? undefined : json['namespaceSelector'],
-    virtualMachineInstanceSelector: !exists(json, 'virtualMachineInstanceSelector')
-      ? undefined
-      : json['virtualMachineInstanceSelector'],
-  };
+export function V1alpha1SelectorsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1Selectors {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'namespaceSelector': !exists(json, 'namespaceSelector') ? undefined : json['namespaceSelector'],
+        'virtualMachineInstanceSelector': !exists(json, 'virtualMachineInstanceSelector') ? undefined : json['virtualMachineInstanceSelector'],
+    };
 }
 
 export function V1alpha1SelectorsToJSON(value?: V1alpha1Selectors | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    namespaceSelector: value.namespaceSelector,
-    virtualMachineInstanceSelector: value.virtualMachineInstanceSelector,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'namespaceSelector': value.namespaceSelector,
+        'virtualMachineInstanceSelector': value.virtualMachineInstanceSelector,
+    };
 }
+

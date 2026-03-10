@@ -33,6 +33,17 @@ export interface K8sIoApiCoreV1HTTPHeader {
     value: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApiCoreV1HTTPHeader interface.
+ */
+export function instanceOfK8sIoApiCoreV1HTTPHeader(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+    isInstance = isInstance && "value" in value;
+
+    return isInstance;
+}
+
 export function K8sIoApiCoreV1HTTPHeaderFromJSON(json: any): K8sIoApiCoreV1HTTPHeader {
     return K8sIoApiCoreV1HTTPHeaderFromJSONTyped(json, false);
 }

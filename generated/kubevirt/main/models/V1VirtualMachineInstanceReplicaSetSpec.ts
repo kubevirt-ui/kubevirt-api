@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 import {
-    K8sIoApimachineryPkgApisMetaV1LabelSelector,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-    V1VirtualMachineInstanceTemplateSpec,
+} from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
+import type { V1VirtualMachineInstanceTemplateSpec } from './V1VirtualMachineInstanceTemplateSpec';
+import {
     V1VirtualMachineInstanceTemplateSpecFromJSON,
     V1VirtualMachineInstanceTemplateSpecFromJSONTyped,
     V1VirtualMachineInstanceTemplateSpecToJSON,
-} from './';
+} from './V1VirtualMachineInstanceTemplateSpec';
 
 /**
  * 
@@ -54,6 +56,17 @@ export interface V1VirtualMachineInstanceReplicaSetSpec {
      * @memberof V1VirtualMachineInstanceReplicaSetSpec
      */
     template: V1VirtualMachineInstanceTemplateSpec;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceReplicaSetSpec interface.
+ */
+export function instanceOfV1VirtualMachineInstanceReplicaSetSpec(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "selector" in value;
+    isInstance = isInstance && "template" in value;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceReplicaSetSpecFromJSON(json: any): V1VirtualMachineInstanceReplicaSetSpec {

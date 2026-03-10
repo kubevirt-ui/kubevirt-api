@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ListMeta,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-    V1KubeVirt,
+} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1KubeVirt } from './V1KubeVirt';
+import {
     V1KubeVirtFromJSON,
     V1KubeVirtFromJSONTyped,
     V1KubeVirtToJSON,
-} from './';
+} from './V1KubeVirt';
 
 /**
  * KubeVirtList is a list of KubeVirts
@@ -54,6 +56,16 @@ export interface V1KubeVirtList {
      * @memberof V1KubeVirtList
      */
     metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
+}
+
+/**
+ * Check if a given object implements the V1KubeVirtList interface.
+ */
+export function instanceOfV1KubeVirtList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "items" in value;
+
+    return isInstance;
 }
 
 export function V1KubeVirtListFromJSON(json: any): V1KubeVirtList {

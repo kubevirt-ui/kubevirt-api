@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1APIResource } from './K8sIoApimachineryPkgApisMetaV1APIResource';
 import {
-    K8sIoApimachineryPkgApisMetaV1APIResource,
     K8sIoApimachineryPkgApisMetaV1APIResourceFromJSON,
     K8sIoApimachineryPkgApisMetaV1APIResourceFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1APIResourceToJSON,
-} from './';
+} from './K8sIoApimachineryPkgApisMetaV1APIResource';
 
 /**
  * APIResourceList is a list of APIResource, it is used to expose the name of the resources supported in a specific group and version, and if the resource is namespaced.
@@ -50,6 +50,17 @@ export interface K8sIoApimachineryPkgApisMetaV1APIResourceList {
      * @memberof K8sIoApimachineryPkgApisMetaV1APIResourceList
      */
     resources: Array<K8sIoApimachineryPkgApisMetaV1APIResource>;
+}
+
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1APIResourceList interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1APIResourceList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "groupVersion" in value;
+    isInstance = isInstance && "resources" in value;
+
+    return isInstance;
 }
 
 export function K8sIoApimachineryPkgApisMetaV1APIResourceListFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1APIResourceList {

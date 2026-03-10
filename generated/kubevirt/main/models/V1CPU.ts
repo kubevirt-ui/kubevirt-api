@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1CPUFeature } from './V1CPUFeature';
 import {
-    V1CPUFeature,
     V1CPUFeatureFromJSON,
     V1CPUFeatureFromJSONTyped,
     V1CPUFeatureToJSON,
-    V1NUMA,
+} from './V1CPUFeature';
+import type { V1NUMA } from './V1NUMA';
+import {
     V1NUMAFromJSON,
     V1NUMAFromJSONTyped,
     V1NUMAToJSON,
-    V1Realtime,
+} from './V1NUMA';
+import type { V1Realtime } from './V1Realtime';
+import {
     V1RealtimeFromJSON,
     V1RealtimeFromJSONTyped,
     V1RealtimeToJSON,
-} from './';
+} from './V1Realtime';
 
 /**
  * CPU allows specifying the CPU topology.
@@ -94,6 +98,15 @@ export interface V1CPU {
      * @memberof V1CPU
      */
     threads?: number;
+}
+
+/**
+ * Check if a given object implements the V1CPU interface.
+ */
+export function instanceOfV1CPU(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1CPUFromJSON(json: any): V1CPU {

@@ -45,6 +45,15 @@ export interface V1beta1VolumeRestoreOverride {
     volumeName?: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1VolumeRestoreOverride interface.
+ */
+export function instanceOfV1beta1VolumeRestoreOverride(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1beta1VolumeRestoreOverrideFromJSON(json: any): V1beta1VolumeRestoreOverride {
     return V1beta1VolumeRestoreOverrideFromJSONTyped(json, false);
 }

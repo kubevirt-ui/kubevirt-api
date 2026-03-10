@@ -27,6 +27,15 @@ export interface K8sIoApiCoreV1TCPSocketAction {
     host?: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApiCoreV1TCPSocketAction interface.
+ */
+export function instanceOfK8sIoApiCoreV1TCPSocketAction(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function K8sIoApiCoreV1TCPSocketActionFromJSON(json: any): K8sIoApiCoreV1TCPSocketAction {
     return K8sIoApiCoreV1TCPSocketActionFromJSONTyped(json, false);
 }

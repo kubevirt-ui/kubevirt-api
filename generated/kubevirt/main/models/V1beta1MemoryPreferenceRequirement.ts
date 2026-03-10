@@ -63,6 +63,16 @@ export interface V1beta1MemoryPreferenceRequirement {
     guest: string;
 }
 
+/**
+ * Check if a given object implements the V1beta1MemoryPreferenceRequirement interface.
+ */
+export function instanceOfV1beta1MemoryPreferenceRequirement(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "guest" in value;
+
+    return isInstance;
+}
+
 export function V1beta1MemoryPreferenceRequirementFromJSON(json: any): V1beta1MemoryPreferenceRequirement {
     return V1beta1MemoryPreferenceRequirementFromJSONTyped(json, false);
 }

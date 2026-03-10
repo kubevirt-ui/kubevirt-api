@@ -51,6 +51,16 @@ export interface V1HostDevice {
     tag?: string;
 }
 
+/**
+ * Check if a given object implements the V1HostDevice interface.
+ */
+export function instanceOfV1HostDevice(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "name" in value;
+
+    return isInstance;
+}
+
 export function V1HostDeviceFromJSON(json: any): V1HostDevice {
     return V1HostDeviceFromJSONTyped(json, false);
 }

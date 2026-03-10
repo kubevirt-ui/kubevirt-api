@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1beta1VirtualMachineCloneSpec,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1beta1VirtualMachineCloneSpec } from './V1beta1VirtualMachineCloneSpec';
+import {
     V1beta1VirtualMachineCloneSpecFromJSON,
     V1beta1VirtualMachineCloneSpecFromJSONTyped,
     V1beta1VirtualMachineCloneSpecToJSON,
-    V1beta1VirtualMachineCloneStatus,
+} from './V1beta1VirtualMachineCloneSpec';
+import type { V1beta1VirtualMachineCloneStatus } from './V1beta1VirtualMachineCloneStatus';
+import {
     V1beta1VirtualMachineCloneStatusFromJSON,
     V1beta1VirtualMachineCloneStatusFromJSONTyped,
     V1beta1VirtualMachineCloneStatusToJSON,
-} from './';
+} from './V1beta1VirtualMachineCloneStatus';
 
 /**
  * VirtualMachineClone is a CRD that clones one VM into another.
@@ -64,6 +68,16 @@ export interface V1beta1VirtualMachineClone {
      * @memberof V1beta1VirtualMachineClone
      */
     status?: V1beta1VirtualMachineCloneStatus;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachineClone interface.
+ */
+export function instanceOfV1beta1VirtualMachineClone(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "spec" in value;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineCloneFromJSON(json: any): V1beta1VirtualMachineClone {

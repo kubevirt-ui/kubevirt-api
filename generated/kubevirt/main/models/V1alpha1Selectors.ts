@@ -33,6 +33,15 @@ export interface V1alpha1Selectors {
     virtualMachineInstanceSelector?: { [key: string]: string; };
 }
 
+/**
+ * Check if a given object implements the V1alpha1Selectors interface.
+ */
+export function instanceOfV1alpha1Selectors(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1alpha1SelectorsFromJSON(json: any): V1alpha1Selectors {
     return V1alpha1SelectorsFromJSONTyped(json, false);
 }

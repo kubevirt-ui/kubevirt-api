@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ListMeta,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-    V1alpha1MigrationPolicy,
+} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1alpha1MigrationPolicy } from './V1alpha1MigrationPolicy';
+import {
     V1alpha1MigrationPolicyFromJSON,
     V1alpha1MigrationPolicyFromJSONTyped,
     V1alpha1MigrationPolicyToJSON,
-} from './';
+} from './V1alpha1MigrationPolicy';
 
 /**
  * MigrationPolicyList is a list of MigrationPolicy
@@ -54,6 +56,16 @@ export interface V1alpha1MigrationPolicyList {
      * @memberof V1alpha1MigrationPolicyList
      */
     metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
+}
+
+/**
+ * Check if a given object implements the V1alpha1MigrationPolicyList interface.
+ */
+export function instanceOfV1alpha1MigrationPolicyList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "items" in value;
+
+    return isInstance;
 }
 
 export function V1alpha1MigrationPolicyListFromJSON(json: any): V1alpha1MigrationPolicyList {

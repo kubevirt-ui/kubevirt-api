@@ -12,11 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 import {
-  V1alpha1VirtualMachinePoolProactiveScaleInStrategy,
-  V1alpha1VirtualMachinePoolProactiveScaleInStrategyFromJSON,
-  V1alpha1VirtualMachinePoolProactiveScaleInStrategyToJSON,
+    V1alpha1VirtualMachinePoolProactiveScaleInStrategy,
+    V1alpha1VirtualMachinePoolProactiveScaleInStrategyFromJSON,
+    V1alpha1VirtualMachinePoolProactiveScaleInStrategyFromJSONTyped,
+    V1alpha1VirtualMachinePoolProactiveScaleInStrategyToJSON,
 } from './';
 
 /**
@@ -25,44 +26,38 @@ import {
  * @interface V1alpha1VirtualMachinePoolScaleInStrategy
  */
 export interface V1alpha1VirtualMachinePoolScaleInStrategy {
-  /**
-   *
-   * @type {V1alpha1VirtualMachinePoolProactiveScaleInStrategy}
-   * @memberof V1alpha1VirtualMachinePoolScaleInStrategy
-   */
-  proactive?: V1alpha1VirtualMachinePoolProactiveScaleInStrategy;
+    /**
+     * 
+     * @type {V1alpha1VirtualMachinePoolProactiveScaleInStrategy}
+     * @memberof V1alpha1VirtualMachinePoolScaleInStrategy
+     */
+    proactive?: V1alpha1VirtualMachinePoolProactiveScaleInStrategy;
 }
 
-export function V1alpha1VirtualMachinePoolScaleInStrategyFromJSON(
-  json: any,
-): V1alpha1VirtualMachinePoolScaleInStrategy {
-  return V1alpha1VirtualMachinePoolScaleInStrategyFromJSONTyped(json, false);
+export function V1alpha1VirtualMachinePoolScaleInStrategyFromJSON(json: any): V1alpha1VirtualMachinePoolScaleInStrategy {
+    return V1alpha1VirtualMachinePoolScaleInStrategyFromJSONTyped(json, false);
 }
 
-export function V1alpha1VirtualMachinePoolScaleInStrategyFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1alpha1VirtualMachinePoolScaleInStrategy {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    proactive: !exists(json, 'proactive')
-      ? undefined
-      : V1alpha1VirtualMachinePoolProactiveScaleInStrategyFromJSON(json['proactive']),
-  };
+export function V1alpha1VirtualMachinePoolScaleInStrategyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachinePoolScaleInStrategy {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'proactive': !exists(json, 'proactive') ? undefined : V1alpha1VirtualMachinePoolProactiveScaleInStrategyFromJSON(json['proactive']),
+    };
 }
 
-export function V1alpha1VirtualMachinePoolScaleInStrategyToJSON(
-  value?: V1alpha1VirtualMachinePoolScaleInStrategy | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    proactive: V1alpha1VirtualMachinePoolProactiveScaleInStrategyToJSON(value.proactive),
-  };
+export function V1alpha1VirtualMachinePoolScaleInStrategyToJSON(value?: V1alpha1VirtualMachinePoolScaleInStrategy | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'proactive': V1alpha1VirtualMachinePoolProactiveScaleInStrategyToJSON(value.proactive),
+    };
 }
+

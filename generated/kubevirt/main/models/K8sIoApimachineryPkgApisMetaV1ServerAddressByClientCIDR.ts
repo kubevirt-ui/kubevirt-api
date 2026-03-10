@@ -33,6 +33,17 @@ export interface K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR {
     serverAddress: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR interface.
+ */
+export function instanceOfK8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "clientCIDR" in value;
+    isInstance = isInstance && "serverAddress" in value;
+
+    return isInstance;
+}
+
 export function K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR {
     return K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSONTyped(json, false);
 }

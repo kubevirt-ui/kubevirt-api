@@ -27,6 +27,15 @@ export interface V1HyperVPassthrough {
     enabled?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1HyperVPassthrough interface.
+ */
+export function instanceOfV1HyperVPassthrough(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1HyperVPassthroughFromJSON(json: any): V1HyperVPassthrough {
     return V1HyperVPassthroughFromJSONTyped(json, false);
 }

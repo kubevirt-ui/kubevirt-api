@@ -45,6 +45,15 @@ export interface V1StartOptions {
     paused?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1StartOptions interface.
+ */
+export function instanceOfV1StartOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1StartOptionsFromJSON(json: any): V1StartOptions {
     return V1StartOptionsFromJSONTyped(json, false);
 }

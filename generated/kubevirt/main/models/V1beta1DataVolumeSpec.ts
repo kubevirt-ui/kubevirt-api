@@ -13,28 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1PersistentVolumeClaimSpec } from './K8sIoApiCoreV1PersistentVolumeClaimSpec';
 import {
-    K8sIoApiCoreV1PersistentVolumeClaimSpec,
     K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSON,
     K8sIoApiCoreV1PersistentVolumeClaimSpecFromJSONTyped,
     K8sIoApiCoreV1PersistentVolumeClaimSpecToJSON,
-    V1beta1DataVolumeCheckpoint,
+} from './K8sIoApiCoreV1PersistentVolumeClaimSpec';
+import type { V1beta1DataVolumeCheckpoint } from './V1beta1DataVolumeCheckpoint';
+import {
     V1beta1DataVolumeCheckpointFromJSON,
     V1beta1DataVolumeCheckpointFromJSONTyped,
     V1beta1DataVolumeCheckpointToJSON,
-    V1beta1DataVolumeSource,
+} from './V1beta1DataVolumeCheckpoint';
+import type { V1beta1DataVolumeSource } from './V1beta1DataVolumeSource';
+import {
     V1beta1DataVolumeSourceFromJSON,
     V1beta1DataVolumeSourceFromJSONTyped,
     V1beta1DataVolumeSourceToJSON,
-    V1beta1DataVolumeSourceRef,
+} from './V1beta1DataVolumeSource';
+import type { V1beta1DataVolumeSourceRef } from './V1beta1DataVolumeSourceRef';
+import {
     V1beta1DataVolumeSourceRefFromJSON,
     V1beta1DataVolumeSourceRefFromJSONTyped,
     V1beta1DataVolumeSourceRefToJSON,
-    V1beta1StorageSpec,
+} from './V1beta1DataVolumeSourceRef';
+import type { V1beta1StorageSpec } from './V1beta1StorageSpec';
+import {
     V1beta1StorageSpecFromJSON,
     V1beta1StorageSpecFromJSONTyped,
     V1beta1StorageSpecToJSON,
-} from './';
+} from './V1beta1StorageSpec';
 
 /**
  * DataVolumeSpec defines the DataVolume type specification
@@ -96,6 +104,15 @@ export interface V1beta1DataVolumeSpec {
      * @memberof V1beta1DataVolumeSpec
      */
     storage?: V1beta1StorageSpec;
+}
+
+/**
+ * Check if a given object implements the V1beta1DataVolumeSpec interface.
+ */
+export function instanceOfV1beta1DataVolumeSpec(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1beta1DataVolumeSpecFromJSON(json: any): V1beta1DataVolumeSpec {

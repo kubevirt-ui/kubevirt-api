@@ -51,6 +51,15 @@ export interface V1PreferenceMatcher {
     revisionName?: string;
 }
 
+/**
+ * Check if a given object implements the V1PreferenceMatcher interface.
+ */
+export function instanceOfV1PreferenceMatcher(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1PreferenceMatcherFromJSON(json: any): V1PreferenceMatcher {
     return V1PreferenceMatcherFromJSONTyped(json, false);
 }

@@ -75,6 +75,16 @@ export interface K8sIoApiCoreV1ResourceFieldSelector {
     resource: string;
 }
 
+/**
+ * Check if a given object implements the K8sIoApiCoreV1ResourceFieldSelector interface.
+ */
+export function instanceOfK8sIoApiCoreV1ResourceFieldSelector(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "resource" in value;
+
+    return isInstance;
+}
+
 export function K8sIoApiCoreV1ResourceFieldSelectorFromJSON(json: any): K8sIoApiCoreV1ResourceFieldSelector {
     return K8sIoApiCoreV1ResourceFieldSelectorFromJSONTyped(json, false);
 }

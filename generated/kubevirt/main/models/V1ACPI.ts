@@ -33,6 +33,15 @@ export interface V1ACPI {
     slicNameRef?: string;
 }
 
+/**
+ * Check if a given object implements the V1ACPI interface.
+ */
+export function instanceOfV1ACPI(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1ACPIFromJSON(json: any): V1ACPI {
     return V1ACPIFromJSONTyped(json, false);
 }

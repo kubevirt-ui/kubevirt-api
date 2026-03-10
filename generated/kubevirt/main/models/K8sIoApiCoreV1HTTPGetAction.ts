@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApiCoreV1HTTPHeader } from './K8sIoApiCoreV1HTTPHeader';
 import {
-    K8sIoApiCoreV1HTTPHeader,
     K8sIoApiCoreV1HTTPHeaderFromJSON,
     K8sIoApiCoreV1HTTPHeaderFromJSONTyped,
     K8sIoApiCoreV1HTTPHeaderToJSON,
-} from './';
+} from './K8sIoApiCoreV1HTTPHeader';
 
 /**
  * HTTPGetAction describes an action based on HTTP Get requests.
@@ -56,13 +56,24 @@ export interface K8sIoApiCoreV1HTTPGetAction {
     scheme?: K8sIoApiCoreV1HTTPGetActionSchemeEnum;
 }
 
+
 /**
-* @export
-* @enum {string}
-*/
-export enum K8sIoApiCoreV1HTTPGetActionSchemeEnum {
-    Http = 'HTTP',
-    Https = 'HTTPS'
+ * @export
+ */
+export const K8sIoApiCoreV1HTTPGetActionSchemeEnum = {
+    Http: 'HTTP',
+    Https: 'HTTPS'
+} as const;
+export type K8sIoApiCoreV1HTTPGetActionSchemeEnum = typeof K8sIoApiCoreV1HTTPGetActionSchemeEnum[keyof typeof K8sIoApiCoreV1HTTPGetActionSchemeEnum];
+
+
+/**
+ * Check if a given object implements the K8sIoApiCoreV1HTTPGetAction interface.
+ */
+export function instanceOfK8sIoApiCoreV1HTTPGetAction(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function K8sIoApiCoreV1HTTPGetActionFromJSON(json: any): K8sIoApiCoreV1HTTPGetAction {

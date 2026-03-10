@@ -39,6 +39,15 @@ export interface V1PauseOptions {
     kind?: string;
 }
 
+/**
+ * Check if a given object implements the V1PauseOptions interface.
+ */
+export function instanceOfV1PauseOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1PauseOptionsFromJSON(json: any): V1PauseOptions {
     return V1PauseOptionsFromJSONTyped(json, false);
 }

@@ -12,45 +12,54 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * diag288 watchdog device.
  * @export
  * @interface V1Diag288Watchdog
  */
 export interface V1Diag288Watchdog {
-  /**
-   * The action to take. Valid values are poweroff, reset, shutdown. Defaults to reset.
-   * @type {string}
-   * @memberof V1Diag288Watchdog
-   */
-  action?: string;
+    /**
+     * The action to take. Valid values are poweroff, reset, shutdown. Defaults to reset.
+     * @type {string}
+     * @memberof V1Diag288Watchdog
+     */
+    action?: string;
+}
+
+/**
+ * Check if a given object implements the V1Diag288Watchdog interface.
+ */
+export function instanceOfV1Diag288Watchdog(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1Diag288WatchdogFromJSON(json: any): V1Diag288Watchdog {
-  return V1Diag288WatchdogFromJSONTyped(json, false);
+    return V1Diag288WatchdogFromJSONTyped(json, false);
 }
 
-export function V1Diag288WatchdogFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1Diag288Watchdog {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    action: !exists(json, 'action') ? undefined : json['action'],
-  };
+export function V1Diag288WatchdogFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Diag288Watchdog {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'action': !exists(json, 'action') ? undefined : json['action'],
+    };
 }
 
 export function V1Diag288WatchdogToJSON(value?: V1Diag288Watchdog | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    action: value.action,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'action': value.action,
+    };
 }
+

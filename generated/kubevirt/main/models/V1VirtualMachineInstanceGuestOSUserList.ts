@@ -13,16 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ListMeta,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-    V1VirtualMachineInstanceGuestOSUser,
+} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
+import type { V1VirtualMachineInstanceGuestOSUser } from './V1VirtualMachineInstanceGuestOSUser';
+import {
     V1VirtualMachineInstanceGuestOSUserFromJSON,
     V1VirtualMachineInstanceGuestOSUserFromJSONTyped,
     V1VirtualMachineInstanceGuestOSUserToJSON,
-} from './';
+} from './V1VirtualMachineInstanceGuestOSUser';
 
 /**
  * VirtualMachineInstanceGuestOSUserList comprises the list of all active users on guest machine
@@ -54,6 +56,16 @@ export interface V1VirtualMachineInstanceGuestOSUserList {
      * @memberof V1VirtualMachineInstanceGuestOSUserList
      */
     metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
+}
+
+/**
+ * Check if a given object implements the V1VirtualMachineInstanceGuestOSUserList interface.
+ */
+export function instanceOfV1VirtualMachineInstanceGuestOSUserList(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "items" in value;
+
+    return isInstance;
 }
 
 export function V1VirtualMachineInstanceGuestOSUserListFromJSON(json: any): V1VirtualMachineInstanceGuestOSUserList {

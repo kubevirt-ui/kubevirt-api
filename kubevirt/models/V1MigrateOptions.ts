@@ -12,69 +12,78 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import { exists, mapValues } from '../runtime';
 /**
  * MigrateOptions may be provided on migrate request.
  * @export
  * @interface V1MigrateOptions
  */
 export interface V1MigrateOptions {
-  /**
-   * AddedNodeSelector is an additional selector that can be used to complement a NodeSelector or NodeAffinity as set on the VM to restrict the set of allowed target nodes for a migration. In case of key collisions, values set on the VM objects are going to be preserved to ensure that addedNodeSelector can only restrict but not bypass constraints already set on the VM object.
-   * @type {{ [key: string]: string; }}
-   * @memberof V1MigrateOptions
-   */
-  addedNodeSelector?: { [key: string]: string };
-  /**
-   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-   * @type {string}
-   * @memberof V1MigrateOptions
-   */
-  apiVersion?: string;
-  /**
-   * When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
-   * @type {Array<string>}
-   * @memberof V1MigrateOptions
-   */
-  dryRun?: Array<string>;
-  /**
-   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   * @type {string}
-   * @memberof V1MigrateOptions
-   */
-  kind?: string;
+    /**
+     * AddedNodeSelector is an additional selector that can be used to complement a NodeSelector or NodeAffinity as set on the VM to restrict the set of allowed target nodes for a migration. In case of key collisions, values set on the VM objects are going to be preserved to ensure that addedNodeSelector can only restrict but not bypass constraints already set on the VM object.
+     * @type {{ [key: string]: string; }}
+     * @memberof V1MigrateOptions
+     */
+    addedNodeSelector?: { [key: string]: string; };
+    /**
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+     * @type {string}
+     * @memberof V1MigrateOptions
+     */
+    apiVersion?: string;
+    /**
+     * When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+     * @type {Array<string>}
+     * @memberof V1MigrateOptions
+     */
+    dryRun?: Array<string>;
+    /**
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+     * @type {string}
+     * @memberof V1MigrateOptions
+     */
+    kind?: string;
+}
+
+/**
+ * Check if a given object implements the V1MigrateOptions interface.
+ */
+export function instanceOfV1MigrateOptions(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1MigrateOptionsFromJSON(json: any): V1MigrateOptions {
-  return V1MigrateOptionsFromJSONTyped(json, false);
+    return V1MigrateOptionsFromJSONTyped(json, false);
 }
 
-export function V1MigrateOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1MigrateOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    addedNodeSelector: !exists(json, 'addedNodeSelector') ? undefined : json['addedNodeSelector'],
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    dryRun: !exists(json, 'dryRun') ? undefined : json['dryRun'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-  };
+export function V1MigrateOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1MigrateOptions {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'addedNodeSelector': !exists(json, 'addedNodeSelector') ? undefined : json['addedNodeSelector'],
+        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
+        'dryRun': !exists(json, 'dryRun') ? undefined : json['dryRun'],
+        'kind': !exists(json, 'kind') ? undefined : json['kind'],
+    };
 }
 
 export function V1MigrateOptionsToJSON(value?: V1MigrateOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    addedNodeSelector: value.addedNodeSelector,
-    apiVersion: value.apiVersion,
-    dryRun: value.dryRun,
-    kind: value.kind,
-  };
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'addedNodeSelector': value.addedNodeSelector,
+        'apiVersion': value.apiVersion,
+        'dryRun': value.dryRun,
+        'kind': value.kind,
+    };
 }
+

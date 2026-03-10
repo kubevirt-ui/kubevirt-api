@@ -63,6 +63,15 @@ export interface V1LogVerbosity {
     virtSynchronizationController?: number;
 }
 
+/**
+ * Check if a given object implements the V1LogVerbosity interface.
+ */
+export function instanceOfV1LogVerbosity(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
+}
+
 export function V1LogVerbosityFromJSON(json: any): V1LogVerbosity {
     return V1LogVerbosityFromJSONTyped(json, false);
 }

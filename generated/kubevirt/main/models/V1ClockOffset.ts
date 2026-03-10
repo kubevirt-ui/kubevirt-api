@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { V1ClockOffsetUTC } from './V1ClockOffsetUTC';
 import {
-    V1ClockOffsetUTC,
     V1ClockOffsetUTCFromJSON,
     V1ClockOffsetUTCFromJSONTyped,
     V1ClockOffsetUTCToJSON,
-} from './';
+} from './V1ClockOffsetUTC';
 
 /**
  * Exactly one of its members must be set.
@@ -38,6 +38,15 @@ export interface V1ClockOffset {
      * @memberof V1ClockOffset
      */
     utc?: V1ClockOffsetUTC;
+}
+
+/**
+ * Check if a given object implements the V1ClockOffset interface.
+ */
+export function instanceOfV1ClockOffset(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1ClockOffsetFromJSON(json: any): V1ClockOffset {

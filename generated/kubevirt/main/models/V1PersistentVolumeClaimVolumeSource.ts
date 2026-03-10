@@ -39,6 +39,16 @@ export interface V1PersistentVolumeClaimVolumeSource {
     readOnly?: boolean;
 }
 
+/**
+ * Check if a given object implements the V1PersistentVolumeClaimVolumeSource interface.
+ */
+export function instanceOfV1PersistentVolumeClaimVolumeSource(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "claimName" in value;
+
+    return isInstance;
+}
+
 export function V1PersistentVolumeClaimVolumeSourceFromJSON(json: any): V1PersistentVolumeClaimVolumeSource {
     return V1PersistentVolumeClaimVolumeSourceFromJSONTyped(json, false);
 }

@@ -13,20 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMeta,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
     K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-    V1VirtualMachineSpec,
+} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
+import type { V1VirtualMachineSpec } from './V1VirtualMachineSpec';
+import {
     V1VirtualMachineSpecFromJSON,
     V1VirtualMachineSpecFromJSONTyped,
     V1VirtualMachineSpecToJSON,
-    V1VirtualMachineStatus,
+} from './V1VirtualMachineSpec';
+import type { V1VirtualMachineStatus } from './V1VirtualMachineStatus';
+import {
     V1VirtualMachineStatusFromJSON,
     V1VirtualMachineStatusFromJSONTyped,
     V1VirtualMachineStatusToJSON,
-} from './';
+} from './V1VirtualMachineStatus';
 
 /**
  * 
@@ -52,6 +56,15 @@ export interface V1beta1VirtualMachine {
      * @memberof V1beta1VirtualMachine
      */
     status?: V1VirtualMachineStatus;
+}
+
+/**
+ * Check if a given object implements the V1beta1VirtualMachine interface.
+ */
+export function instanceOfV1beta1VirtualMachine(value: object): boolean {
+    let isInstance = true;
+
+    return isInstance;
 }
 
 export function V1beta1VirtualMachineFromJSON(json: any): V1beta1VirtualMachine {

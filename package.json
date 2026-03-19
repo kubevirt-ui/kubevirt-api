@@ -1,6 +1,6 @@
 {
   "name": "@kubevirt-ui/kubevirt-api",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "kubevirt OpenAPI automation for TypeScript",
   "type": "module",
   "exports": {
@@ -53,6 +53,16 @@
         "types": "./dist/nmstate/index.d.cts",
         "require": "./dist/nmstate/index.cjs"
       }
+    },
+    "./virt-template": {
+      "import": {
+        "types": "./dist/virt-template/index.d.ts",
+        "import": "./dist/virt-template/index.js"
+      },
+      "require": {
+        "types": "./dist/virt-template/index.d.cts",
+        "require": "./dist/virt-template/index.cjs"
+      }
     }
   },
   "files": [
@@ -61,12 +71,13 @@
   "scripts": {
     "generate": "bash ./scripts/generate.sh",
     "generate:nmstate": "bash ./scripts/generate-nmstate.sh",
+    "generate:virt-template": "bash ./scripts/generate-virt-template.sh",
     "generate:fix-console": "bash ./scripts/fix-console-models.sh",
     "generate:fix": "bash ./scripts/fix-generate-errors.sh",
-    "generate:docs": "typedoc --out docs/  --gitRevision main --gitRemote upstream --readme none --entryPoints \"kubevirt/models/index.ts\" \"kubernetes/models/index.ts\" \"nmstate/models/index.ts\" \"containerized-data-importer/models/index.ts\" \"console/index.ts\"  --plugin typedoc-plugin-reference-excluder --excludedFunctionOrMethod \".*\" ",
+    "generate:docs": "typedoc --out docs/  --gitRevision main --gitRemote upstream --readme none --entryPoints \"kubevirt/models/index.ts\" \"kubernetes/models/index.ts\" \"nmstate/models/index.ts\" \"virt-template/models/index.ts\" \"containerized-data-importer/models/index.ts\" \"console/index.ts\"  --plugin typedoc-plugin-reference-excluder --excludedFunctionOrMethod \".*\" ",
     "clean": "rimraf ./generated",
-    "clean:all": "rimraf ./docs ./generated ./kubevirt ./containerized-data-importer ./console/core/index.ts ./console-core-models.ts ./kubernetes ./nmstate/models ./nmstate/index.ts ./nmstate/runtime.ts swagger-*.json",
-    "lint": "eslint console kubevirt kubernetes containerized-data-importer nmstate --color --no-inline-config",
+    "clean:all": "rimraf ./docs ./generated ./kubevirt ./containerized-data-importer ./console/core/index.ts ./console-core-models.ts ./kubernetes ./nmstate/models ./nmstate/index.ts ./nmstate/runtime.ts ./virt-template swagger-*.json",
+    "lint": "eslint console kubevirt kubernetes containerized-data-importer nmstate virt-template --color --no-inline-config",
     "lint:fix": "yarn lint --fix",
     "build": "yarn test && tsup",
     "test": "tsc --noEmit -p ./tsconfig.json"
@@ -107,7 +118,8 @@
       "containerized-data-importer/index.ts",
       "kubevirt/index.ts",
       "kubernetes/index.ts",
-      "nmstate/index.ts"
+      "nmstate/index.ts",
+      "virt-template/index.ts"
     ],
     "splitting": false,
     "sourcemap": true,

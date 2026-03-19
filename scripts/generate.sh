@@ -46,3 +46,7 @@ cp -rf ./generated/kubernetes/${KUBERNETES_RELEASE}/* ./kubernetes/
 # Generate nmstate types
 chmod +x ./scripts/generate-nmstate.sh
 ./scripts/generate-nmstate.sh
+
+# Generate virt-template types
+chmod +x ./scripts/generate-virt-template.sh
+./scripts/generate-virt-template.sh

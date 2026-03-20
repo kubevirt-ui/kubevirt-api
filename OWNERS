@@ -1,14 +1,22 @@
 component: Kubevirt UI shared API
 
 approvers:
+  - adamviktora
+  - avivtur
+  - galkremer1
   - metalice
   - pcbailey
-  - avivtur
-  - vojtechszocs
+  - rszwajko
+  - sjd78
   - upalatucci
+  - vojtechszocs
 reviewers:
+  - adamviktora
+  - avivtur
+  - galkremer1
   - metalice
   - pcbailey
-  - avivtur
-  - vojtechszocs
+  - rszwajko
+  - sjd78
   - upalatucci
+  - vojtechszocs

@@ -37,6 +37,7 @@ cp -fr console-core-models.ts console/core/index.ts
 chmod +x ./scripts/fix-comments-parsing-errors.sh
 ./scripts/fix-comments-parsing-errors.sh
 
-# Fix nmstate unused vars
-chmod +x ./scripts/fix-nmstate-unused-vars.sh
-./scripts/fix-nmstate-unused-vars.sh
+# Fix unused vars in generated models
+chmod +x ./scripts/fix-unused-vars.sh
+./scripts/fix-unused-vars.sh ./nmstate/models
+./scripts/fix-unused-vars.sh ./virt-template/models

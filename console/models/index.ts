@@ -33,3 +33,5 @@ export * from './VirtualMachineModel';
 export * from './VirtualMachineRestoreModel';
 export * from './VirtualMachineSnapshotModel';
 export * from './VirtualMachineSnapshotContentModel';
+export * from './VirtualMachineTemplateModel';
+export * from './VirtualMachineTemplateRequestModel';

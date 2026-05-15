@@ -2,7 +2,7 @@ import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-t
 
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const PackageManifestModel: K8sModel = {
+export const PackageManifestModel: K8sModel = {
   kind: 'PackageManifest',
   label: 'PackageManifest',
   labelPlural: 'PackageManifests',
@@ -16,5 +16,3 @@ const PackageManifestModel: K8sModel = {
 
 export const PackageManifestModelGroupVersionKind = modelToGroupVersionKind(PackageManifestModel);
 export const PackageManifestModelRef = modelToRef(PackageManifestModel);
-
-export default PackageManifestModel;

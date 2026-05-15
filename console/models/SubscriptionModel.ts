@@ -2,7 +2,7 @@ import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-t
 
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const SubscriptionModel: K8sModel = {
+export const SubscriptionModel: K8sModel = {
   kind: 'Subscription',
   label: 'Subscription',
   labelPlural: 'Subscriptions',
@@ -17,5 +17,3 @@ const SubscriptionModel: K8sModel = {
 
 export const SubscriptionModelGroupVersionKind = modelToGroupVersionKind(SubscriptionModel);
 export const SubscriptionModelRef = modelToRef(SubscriptionModel);
-
-export default SubscriptionModel;

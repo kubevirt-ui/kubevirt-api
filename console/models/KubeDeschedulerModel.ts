@@ -1,18 +1,16 @@
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const KubeDeschedulerModel = {
+export const KubeDeschedulerModel = {
   kind: 'KubeDescheduler',
   label: 'KubeDescheduler',
   labelPlural: 'KubeDeschedulers',
   apiGroup: 'operator.openshift.io',
   apiVersion: 'v1',
   abbr: 'KD',
-  namespaced: false,
+  namespaced: true,
   crd: true,
   plural: 'kubedeschedulers',
 };
 
 export const KubeDeschedulerModelGroupVersionKind = modelToGroupVersionKind(KubeDeschedulerModel);
 export const KubeDeschedulerModelRef = modelToRef(KubeDeschedulerModel);
-
-export default KubeDeschedulerModel;

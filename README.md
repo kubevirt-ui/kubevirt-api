@@ -22,39 +22,57 @@ http://kubevirt.io/api-reference/master/index.html
 
 ## Usage
 
-``` bash
+```bash
 # Add to your project
 yarn add @kubevirt-ui/kubevirt-api
 ```
 
-``` typescript
+```typescript
 // Import examples
-import { IoK8sApiCoreV1Pod } from '@kubevirt-ui/kubevirt-api/kubernetes'
-import { V1VirtualMachine } from '@kubevirt-ui/kubevirt-api/kubevirt'
-import { V1beta1DataVolume } from '@kubevirt-ui/kubevirt-api/containerized-data-importer'
+import { IoK8sApiCoreV1Pod } from '@kubevirt-ui/kubevirt-api/kubernetes';
+import { V1VirtualMachine } from '@kubevirt-ui/kubevirt-api/kubevirt';
+import { V1beta1DataVolume } from '@kubevirt-ui/kubevirt-api/containerized-data-importer';
 
-import { VirtualMachineModelGroupVersionKind } from '@kubevirt-ui/kubevirt-api/console/models'
-import VirtualMachineModel from '@kubevirt-ui/kubevirt-api/console/models/VirtualMachineModel'
+import { VirtualMachineModelGroupVersionKind } from '@kubevirt-ui/kubevirt-api/console/models';
+import VirtualMachineModel from '@kubevirt-ui/kubevirt-api/console/models/VirtualMachineModel';
 ```
-## Download swagger CLI tools
 
-``` bash
+## Update API
+
+1. Make sure you have all dependencies installed
+
+```bash
 yarn
 ```
-## Generate TypeScript types
 
-``` bash
+2. Go to the `scripts/generate.sh` script and modify the package's version the latest available version.
+
+3. It is essential to remove old API first
+
+```bash
+yarn clean:all
+```
+
+4. Generate the new API
+
+```bash
 yarn generate
 ```
 
-## Run linter
+5. Fix generated API errors:
 
-``` bash
-yarn lint
+```bash
+yarn generate:fix
 ```
 
-## Update upstream versions
+6. Run linter: (if necesarry fix issues and re-run)
 
-Edit the versions in `./scripts/generate.sh`
+```bash
+yarn lint:fix
+```
 
-Each new versions may need different patchs, look for errors while running the generate script after each update.
+7. Generate docs:
+
+```bash
+yarn generate:docs
+```

@@ -1,6 +1,6 @@
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const HyperConvergedModel = {
+export const HyperConvergedModel = {
   kind: 'HyperConverged',
   label: 'HyperConverged',
   labelPlural: 'HyperConvergeds',
@@ -14,5 +14,3 @@ const HyperConvergedModel = {
 
 export const HyperConvergedModelGroupVersionKind = modelToGroupVersionKind(HyperConvergedModel);
 export const HyperConvergedModelRef = modelToRef(HyperConvergedModel);
-
-export default HyperConvergedModel;

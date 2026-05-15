@@ -34,6 +34,23 @@ export const ServiceMonitorModel: K8sKind = {
   propagationPolicy: 'Foreground',
 };
 
+export const PodMonitorModel: K8sKind = {
+  kind: 'PodMonitor',
+  label: 'PodMonitor',
+  // t('public~PodMonitor')
+  labelKey: 'public~PodMonitor',
+  labelPlural: 'PodMonitors',
+  // t('public~PodMonitors')
+  labelPluralKey: 'public~PodMonitors',
+  apiGroup: 'monitoring.coreos.com',
+  apiVersion: 'v1',
+  abbr: 'PM',
+  namespaced: true,
+  crd: true,
+  plural: 'podmonitors',
+  propagationPolicy: 'Foreground',
+};
+
 export const AlertmanagerModel: K8sKind = {
   kind: 'Alertmanager',
   label: 'Alertmanager',
@@ -49,38 +66,6 @@ export const AlertmanagerModel: K8sKind = {
   crd: true,
   plural: 'alertmanagers',
   propagationPolicy: 'Foreground',
-};
-
-export const ChargebackReportModel: K8sKind = {
-  kind: 'Report',
-  label: 'Report',
-  // t('public~Report')
-  labelKey: 'public~Report',
-  labelPlural: 'Reports',
-  // t('public~Reports')
-  labelPluralKey: 'public~Reports',
-  apiGroup: 'metering.openshift.io',
-  apiVersion: 'v1',
-  crd: true,
-  plural: 'reports',
-  abbr: 'R',
-  namespaced: true,
-};
-
-export const ReportQueryModel: K8sKind = {
-  kind: 'ReportQuery',
-  label: 'ReportQuery',
-  // t('public~ReportQuery')
-  labelKey: 'public~ReportQuery',
-  labelPlural: 'ReportQueries',
-  // t('public~ReportQueries')
-  labelPluralKey: 'public~ReportQueries',
-  apiGroup: 'metering.openshift.io',
-  apiVersion: 'v1',
-  crd: true,
-  plural: 'reportqueries',
-  abbr: 'RQ',
-  namespaced: true,
 };
 
 export const ServiceModel: K8sKind = {
@@ -165,7 +150,7 @@ export const HorizontalPodAutoscalerModel: K8sKind = {
   // t('public~HorizontalPodAutoscaler')
   labelKey: 'public~HorizontalPodAutoscaler',
   plural: 'horizontalpodautoscalers',
-  apiVersion: 'v2beta2',
+  apiVersion: 'v2',
   apiGroup: 'autoscaling',
   abbr: 'HPA',
   namespaced: true,
@@ -614,6 +599,22 @@ export const SelfSubjectAccessReviewModel: K8sKind = {
   labelPluralKey: 'public~SelfSubjectAccessReviews',
 };
 
+export const SelfSubjectReviewModel: K8sKind = {
+  label: 'SelfSubjectReview',
+  // t('public~SelfSubjectReview')
+  labelKey: 'public~SelfSubjectReview',
+  apiGroup: 'authorization.k8s.io',
+  apiVersion: 'v1',
+  plural: 'selfsubjectreviews',
+  abbr: 'SSR',
+  namespaced: true,
+  kind: 'SelfSubjectReview',
+  id: 'selfsubjectreview',
+  labelPlural: 'SelfSubjectReviews',
+  // t('public~SelfSubjectReviews')
+  labelPluralKey: 'public~SelfSubjectReviews',
+};
+
 export const ResourceAccessReviewsModel: K8sKind = {
   label: 'ResourceAccessReview',
   // t('public~ResourceAccessReview')
@@ -777,7 +778,7 @@ export const CronJobModel: K8sKind = {
   label: 'CronJob',
   // t('public~CronJob')
   labelKey: 'public~CronJob',
-  apiVersion: 'v1beta1',
+  apiVersion: 'v1',
   apiGroup: 'batch',
   plural: 'cronjobs',
   abbr: 'CJ',
@@ -806,89 +807,20 @@ export const StorageClassModel: K8sKind = {
   id: 'storageclass',
 };
 
-export const ClusterServiceBrokerModel: K8sKind = {
-  label: 'ClusterServiceBroker',
-  // t('public~ClusterServiceBroker')
-  labelKey: 'public~ClusterServiceBroker',
-  labelPlural: 'ClusterServiceBrokers',
-  // t('public~ClusterServiceBrokers')
-  labelPluralKey: 'public~ClusterServiceBrokers',
-  apiVersion: 'v1beta1',
-  apiGroup: 'servicecatalog.k8s.io',
-  plural: 'clusterservicebrokers',
-  abbr: 'CSB',
+export const VolumeAttributesClassModel: K8sKind = {
+  label: 'VolumeAttributesClass',
+  // t('public~VolumeAttributesClass')
+  labelKey: 'public~VolumeAttributesClass',
+  labelPlural: 'VolumeAttributesClasses',
+  // t('public~VolumeAttributesClasses')
+  labelPluralKey: 'public~VolumeAttributesClasses',
+  apiVersion: 'v1',
+  apiGroup: 'storage.k8s.io',
+  plural: 'volumeattributesclasses',
+  abbr: 'VAC',
   namespaced: false,
-  kind: 'ClusterServiceBroker',
-  id: 'clusterservicebroker',
-  crd: true,
-};
-
-export const ClusterServiceClassModel: K8sKind = {
-  label: 'ClusterServiceClass',
-  // t('public~ClusterServiceClass')
-  labelKey: 'public~ClusterServiceClass',
-  labelPlural: 'ClusterServiceClasses',
-  // t('public~ClusterServiceClasses')
-  labelPluralKey: 'public~ClusterServiceClasses',
-  apiVersion: 'v1beta1',
-  apiGroup: 'servicecatalog.k8s.io',
-  plural: 'clusterserviceclasses',
-  abbr: 'CSC',
-  namespaced: false,
-  kind: 'ClusterServiceClass',
-  id: 'clusterserviceclass',
-  crd: true,
-};
-
-export const ClusterServicePlanModel: K8sKind = {
-  label: 'ClusterServicePlan',
-  // t('public~ClusterServicePlan')
-  labelKey: 'public~ClusterServicePlan',
-  labelPlural: 'ClusterServicePlans',
-  // t('public~ClusterServicePlans')
-  labelPluralKey: 'public~ClusterServicePlans',
-  apiVersion: 'v1beta1',
-  apiGroup: 'servicecatalog.k8s.io',
-  plural: 'clusterserviceplans',
-  abbr: 'CSP',
-  namespaced: false,
-  kind: 'ClusterServicePlan',
-  id: 'clusterserviceplan',
-  crd: true,
-};
-
-export const ServiceInstanceModel: K8sKind = {
-  label: 'ServiceInstance',
-  // t('public~ServiceInstance')
-  labelKey: 'public~ServiceInstance',
-  labelPlural: 'ServiceInstances',
-  // t('public~ServiceInstances')
-  labelPluralKey: 'public~ServiceInstances',
-  apiVersion: 'v1beta1',
-  apiGroup: 'servicecatalog.k8s.io',
-  plural: 'serviceinstances',
-  abbr: 'SI',
-  namespaced: true,
-  kind: 'ServiceInstance',
-  id: 'serviceinstance',
-  crd: true,
-};
-
-export const ServiceBindingModel: K8sKind = {
-  label: 'ServiceBinding',
-  // t('public~ServiceBinding')
-  labelKey: 'public~ServiceBinding',
-  labelPlural: 'ServiceBindings',
-  // t('public~ServiceBindings')
-  labelPluralKey: 'public~ServiceBindings',
-  apiVersion: 'v1beta1',
-  apiGroup: 'servicecatalog.k8s.io',
-  plural: 'servicebindings',
-  abbr: 'SB',
-  namespaced: true,
-  kind: 'ServiceBinding',
-  id: 'servicebinding',
-  crd: true,
+  kind: 'VolumeAttributesClass',
+  id: 'volumeattributesclass',
 };
 
 export const LimitRangeModel: K8sKind = {
@@ -990,6 +922,23 @@ export const MachineSetModel: K8sKind = {
   namespaced: true,
   kind: 'MachineSet',
   id: 'machineset',
+  crd: true,
+};
+
+export const ControlPlaneMachineSetModel: K8sKind = {
+  label: 'ControlPlaneMachineSet',
+  // t('public~ControlPlaneMachineSet')
+  labelKey: 'public~ControlPlaneMachineSet',
+  labelPlural: 'ControlPlaneMachineSets',
+  // t('public~ControlPlaneMachineSets')
+  labelPluralKey: 'public~ControlPlaneMachineSets',
+  apiVersion: 'v1',
+  apiGroup: 'machine.openshift.io',
+  plural: 'controlplanemachinesets',
+  abbr: 'CPMS',
+  namespaced: true,
+  kind: 'ControlPlaneMachineSet',
+  id: 'controlplanemachineset',
   crd: true,
 };
 
@@ -1348,7 +1297,7 @@ export const ConsolePluginModel: K8sKind = {
   label: 'ConsolePlugin',
   // t('public~ConsolePlugin')
   labelKey: 'public~ConsolePlugin',
-  apiVersion: 'v1alpha1',
+  apiVersion: 'v1',
   apiGroup: 'console.openshift.io',
   plural: 'consoleplugins',
   abbr: 'CP',
@@ -1360,3 +1309,50 @@ export const ConsolePluginModel: K8sKind = {
   labelPluralKey: 'public~ConsolePlugins',
   crd: true,
 };
+
+export const CloudCredentialModel: K8sKind = {
+  kind: 'CloudCredential',
+  label: 'CloudCredential',
+  labelPlural: 'CloudCredentials',
+  apiGroup: 'operator.openshift.io',
+  apiVersion: 'v1',
+  abbr: 'CO',
+  plural: 'cloudcredentials',
+};
+
+export const AuthenticationModel: K8sKind = {
+  kind: 'Authentication',
+  label: 'Authentication',
+  labelPlural: 'Authentications',
+  apiGroup: 'config.openshift.io',
+  apiVersion: 'v1',
+  plural: 'authentications',
+  abbr: 'AU',
+};
+
+export const MultiNetworkPolicyModel: K8sKind = {
+  abbr: 'MNP',
+  apiGroup: 'k8s.cni.cncf.io',
+  apiVersion: 'v1beta1',
+  id: 'multinetworkpolicy',
+  kind: 'MultiNetworkPolicy',
+  label: 'multi-networkpolicy',
+  // t('public~MultiNetworkPolicy')
+  labelKey: 'public~MultiNetworkPolicy',
+  labelPlural: 'MultiNetworkPolicies',
+  // t('MultiNetworkPolicies')
+  labelPluralKey: 'public~MultiNetworkPolicies',
+  namespaced: true,
+  plural: 'multi-networkpolicies',
+  crd: true,
+};
+
+// Export models which have legacy plural URLs that need to be maintained.
+// This is imported by `../module/k8s/k8s-models.ts` and thus `connectToPlural`.
+export {
+  ClusterServiceVersionModel,
+  InstallPlanModel,
+  SubscriptionModel,
+} from '@console/operator-lifecycle-manager/src/models';
+
+export { PodDisruptionBudgetModel, EndPointSliceModel } from '@console/app/src/models/index';

@@ -2,10 +2,10 @@ import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-t
 
 import { modelToGroupVersionKind, modelToRef } from '../modelUtils';
 
-const VirtualMachineRestoreModel: K8sModel = {
+export const VirtualMachineRestoreModel: K8sModel = {
   label: 'VirtualMachineRestore',
   labelPlural: 'VirtualMachineRestores',
-  apiVersion: 'v1alpha1',
+  apiVersion: 'v1beta1',
   apiGroup: 'snapshot.kubevirt.io',
   plural: 'virtualmachinerestores',
   abbr: 'VMR',
@@ -19,5 +19,3 @@ export const VirtualMachineRestoreModelGroupVersionKind = modelToGroupVersionKin
   VirtualMachineRestoreModel,
 );
 export const VirtualMachineRestoreModelRef = modelToRef(VirtualMachineRestoreModel);
-
-export default VirtualMachineRestoreModel;

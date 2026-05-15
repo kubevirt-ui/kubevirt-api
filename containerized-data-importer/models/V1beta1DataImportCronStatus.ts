@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1beta1DataImportCronCondition,
-  V1beta1DataImportCronConditionFromJSON,
-  V1beta1DataImportCronConditionToJSON,
   V1beta1DataVolumeSourcePVC,
-  V1beta1DataVolumeSourcePVCFromJSON,
-  V1beta1DataVolumeSourcePVCToJSON,
   V1beta1ImportStatus,
-  V1beta1ImportStatusFromJSON,
-  V1beta1ImportStatusToJSON,
 } from './';
 
 /**
@@ -61,58 +54,10 @@ export interface V1beta1DataImportCronStatus {
    * @memberof V1beta1DataImportCronStatus
    */
   lastImportedPVC?: V1beta1DataVolumeSourcePVC;
-}
-
-export function V1beta1DataImportCronStatusFromJSON(json: any): V1beta1DataImportCronStatus {
-  return V1beta1DataImportCronStatusFromJSONTyped(json, false);
-}
-
-export function V1beta1DataImportCronStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataImportCronStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(V1beta1DataImportCronConditionFromJSON),
-    currentImports: !exists(json, 'currentImports')
-      ? undefined
-      : (json['currentImports'] as Array<any>).map(V1beta1ImportStatusFromJSON),
-    lastExecutionTimestamp: !exists(json, 'lastExecutionTimestamp')
-      ? undefined
-      : json['lastExecutionTimestamp'],
-    lastImportTimestamp: !exists(json, 'lastImportTimestamp')
-      ? undefined
-      : json['lastImportTimestamp'],
-    lastImportedPVC: !exists(json, 'lastImportedPVC')
-      ? undefined
-      : V1beta1DataVolumeSourcePVCFromJSON(json['lastImportedPVC']),
-  };
-}
-
-export function V1beta1DataImportCronStatusToJSON(value?: V1beta1DataImportCronStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(V1beta1DataImportCronConditionToJSON),
-    currentImports:
-      value.currentImports === undefined
-        ? undefined
-        : (value.currentImports as Array<any>).map(V1beta1ImportStatusToJSON),
-    lastExecutionTimestamp:
-      value.lastExecutionTimestamp === undefined ? undefined : value.lastExecutionTimestamp,
-    lastImportTimestamp:
-      value.lastImportTimestamp === undefined ? undefined : value.lastImportTimestamp,
-    lastImportedPVC: V1beta1DataVolumeSourcePVCToJSON(value.lastImportedPVC),
-  };
+  /**
+   * SourceFormat defines the format of the DataImportCron-created disk image sources
+   * @type {string}
+   * @memberof V1beta1DataImportCronStatus
+   */
+  sourceFormat?: string;
 }

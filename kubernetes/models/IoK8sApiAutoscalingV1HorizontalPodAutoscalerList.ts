@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAutoscalingV1HorizontalPodAutoscaler,
-  IoK8sApiAutoscalingV1HorizontalPodAutoscalerFromJSON,
-  IoK8sApiAutoscalingV1HorizontalPodAutoscalerToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -35,7 +30,7 @@ export interface IoK8sApiAutoscalingV1HorizontalPodAutoscalerList {
    */
   apiVersion?: string;
   /**
-   * list of horizontal pod autoscaler objects.
+   * items is the list of horizontal pod autoscaler objects.
    * @type {Array<IoK8sApiAutoscalingV1HorizontalPodAutoscaler>}
    * @memberof IoK8sApiAutoscalingV1HorizontalPodAutoscalerList
    */
@@ -52,44 +47,4 @@ export interface IoK8sApiAutoscalingV1HorizontalPodAutoscalerList {
    * @memberof IoK8sApiAutoscalingV1HorizontalPodAutoscalerList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerListFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV1HorizontalPodAutoscalerList {
-  return IoK8sApiAutoscalingV1HorizontalPodAutoscalerListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV1HorizontalPodAutoscalerList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(IoK8sApiAutoscalingV1HorizontalPodAutoscalerFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerListToJSON(
-  value?: IoK8sApiAutoscalingV1HorizontalPodAutoscalerList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(IoK8sApiAutoscalingV1HorizontalPodAutoscalerToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

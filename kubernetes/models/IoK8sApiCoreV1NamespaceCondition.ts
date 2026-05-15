@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * NamespaceCondition contains details about state of namespace.
  * @export
@@ -26,13 +25,13 @@ export interface IoK8sApiCoreV1NamespaceCondition {
    */
   lastTransitionTime?: string;
   /**
-   *
+   * Human-readable message indicating details about last transition.
    * @type {string}
    * @memberof IoK8sApiCoreV1NamespaceCondition
    */
   message?: string;
   /**
-   *
+   * Unique, one-word, CamelCase reason for the condition's last transition.
    * @type {string}
    * @memberof IoK8sApiCoreV1NamespaceCondition
    */
@@ -45,70 +44,8 @@ export interface IoK8sApiCoreV1NamespaceCondition {
   status: string;
   /**
    * Type of namespace controller condition.
-   *
-   * Possible enum values:
-   *  - `"NamespaceContentRemaining"` contains information about resources remaining in a namespace.
-   *  - `"NamespaceDeletionContentFailure"` contains information about namespace deleter errors during deletion of resources.
-   *  - `"NamespaceDeletionDiscoveryFailure"` contains information about namespace deleter errors during resource discovery.
-   *  - `"NamespaceDeletionGroupVersionParsingFailure"` contains information about namespace deleter errors parsing GV for legacy types.
-   *  - `"NamespaceFinalizersRemaining"` contains information about which finalizers are on resources remaining in a namespace.
    * @type {string}
    * @memberof IoK8sApiCoreV1NamespaceCondition
    */
-  type: IoK8sApiCoreV1NamespaceConditionTypeEnum;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1NamespaceConditionTypeEnum {
-  NamespaceContentRemaining = 'NamespaceContentRemaining',
-  NamespaceDeletionContentFailure = 'NamespaceDeletionContentFailure',
-  NamespaceDeletionDiscoveryFailure = 'NamespaceDeletionDiscoveryFailure',
-  NamespaceDeletionGroupVersionParsingFailure = 'NamespaceDeletionGroupVersionParsingFailure',
-  NamespaceFinalizersRemaining = 'NamespaceFinalizersRemaining',
-}
-
-export function IoK8sApiCoreV1NamespaceConditionFromJSON(
-  json: any,
-): IoK8sApiCoreV1NamespaceCondition {
-  return IoK8sApiCoreV1NamespaceConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NamespaceConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NamespaceCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1NamespaceConditionToJSON(
-  value?: IoK8sApiCoreV1NamespaceCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
+  type: string;
 }

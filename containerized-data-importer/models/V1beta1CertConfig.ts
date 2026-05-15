@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * CertConfig contains the tunables for TLS certificates
  * @export
@@ -31,34 +30,4 @@ export interface V1beta1CertConfig {
    * @memberof V1beta1CertConfig
    */
   renewBefore?: string;
-}
-
-export function V1beta1CertConfigFromJSON(json: any): V1beta1CertConfig {
-  return V1beta1CertConfigFromJSONTyped(json, false);
-}
-
-export function V1beta1CertConfigFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1CertConfig {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    duration: !exists(json, 'duration') ? undefined : json['duration'],
-    renewBefore: !exists(json, 'renewBefore') ? undefined : json['renewBefore'],
-  };
-}
-
-export function V1beta1CertConfigToJSON(value?: V1beta1CertConfig | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    duration: value.duration,
-    renewBefore: value.renewBefore,
-  };
 }

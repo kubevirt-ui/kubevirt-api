@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1KeyToPath,
-  IoK8sApiCoreV1KeyToPathFromJSON,
-  IoK8sApiCoreV1KeyToPathToJSON,
 } from './';
 
 /**
@@ -28,70 +25,27 @@ import {
  */
 export interface IoK8sApiCoreV1ConfigMapVolumeSource {
   /**
-   * Optional: mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   * defaultMode is optional: mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
    * @type {number}
    * @memberof IoK8sApiCoreV1ConfigMapVolumeSource
    */
   defaultMode?: number;
   /**
-   * If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+   * items if unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
    * @type {Array<IoK8sApiCoreV1KeyToPath>}
    * @memberof IoK8sApiCoreV1ConfigMapVolumeSource
    */
   items?: Array<IoK8sApiCoreV1KeyToPath>;
   /**
-   * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+   * Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @type {string}
    * @memberof IoK8sApiCoreV1ConfigMapVolumeSource
    */
   name?: string;
   /**
-   * Specify whether the ConfigMap or its keys must be defined
+   * optional specify whether the ConfigMap or its keys must be defined
    * @type {boolean}
    * @memberof IoK8sApiCoreV1ConfigMapVolumeSource
    */
   optional?: boolean;
-}
-
-export function IoK8sApiCoreV1ConfigMapVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1ConfigMapVolumeSource {
-  return IoK8sApiCoreV1ConfigMapVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ConfigMapVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ConfigMapVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    defaultMode: !exists(json, 'defaultMode') ? undefined : json['defaultMode'],
-    items: !exists(json, 'items')
-      ? undefined
-      : (json['items'] as Array<any>).map(IoK8sApiCoreV1KeyToPathFromJSON),
-    name: !exists(json, 'name') ? undefined : json['name'],
-    optional: !exists(json, 'optional') ? undefined : json['optional'],
-  };
-}
-
-export function IoK8sApiCoreV1ConfigMapVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1ConfigMapVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    defaultMode: value.defaultMode,
-    items:
-      value.items === undefined
-        ? undefined
-        : (value.items as Array<any>).map(IoK8sApiCoreV1KeyToPathToJSON),
-    name: value.name,
-    optional: value.optional,
-  };
 }

@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ScopeSelector,
-  IoK8sApiCoreV1ScopeSelectorFromJSON,
-  IoK8sApiCoreV1ScopeSelectorToJSON,
 } from './';
 
 /**
@@ -43,42 +40,4 @@ export interface IoK8sApiCoreV1ResourceQuotaSpec {
    * @memberof IoK8sApiCoreV1ResourceQuotaSpec
    */
   scopes?: Array<string>;
-}
-
-export function IoK8sApiCoreV1ResourceQuotaSpecFromJSON(
-  json: any,
-): IoK8sApiCoreV1ResourceQuotaSpec {
-  return IoK8sApiCoreV1ResourceQuotaSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ResourceQuotaSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ResourceQuotaSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    hard: !exists(json, 'hard') ? undefined : json['hard'],
-    scopeSelector: !exists(json, 'scopeSelector')
-      ? undefined
-      : IoK8sApiCoreV1ScopeSelectorFromJSON(json['scopeSelector']),
-    scopes: !exists(json, 'scopes') ? undefined : json['scopes'],
-  };
-}
-
-export function IoK8sApiCoreV1ResourceQuotaSpecToJSON(
-  value?: IoK8sApiCoreV1ResourceQuotaSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    hard: value.hard,
-    scopeSelector: IoK8sApiCoreV1ScopeSelectorToJSON(value.scopeSelector),
-    scopes: value.scopes,
-  };
 }

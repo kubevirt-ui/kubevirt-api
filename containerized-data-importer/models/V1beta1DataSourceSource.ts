@@ -12,11 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
+  V1beta1DataSourceRefSourceDataSource,
   V1beta1DataVolumeSourcePVC,
-  V1beta1DataVolumeSourcePVCFromJSON,
-  V1beta1DataVolumeSourcePVCToJSON,
+  V1beta1DataVolumeSourceSnapshot,
 } from './';
 
 /**
@@ -27,36 +26,20 @@ import {
 export interface V1beta1DataSourceSource {
   /**
    *
+   * @type {V1beta1DataSourceRefSourceDataSource}
+   * @memberof V1beta1DataSourceSource
+   */
+  dataSource?: V1beta1DataSourceRefSourceDataSource;
+  /**
+   *
    * @type {V1beta1DataVolumeSourcePVC}
    * @memberof V1beta1DataSourceSource
    */
   pvc?: V1beta1DataVolumeSourcePVC;
-}
-
-export function V1beta1DataSourceSourceFromJSON(json: any): V1beta1DataSourceSource {
-  return V1beta1DataSourceSourceFromJSONTyped(json, false);
-}
-
-export function V1beta1DataSourceSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataSourceSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    pvc: !exists(json, 'pvc') ? undefined : V1beta1DataVolumeSourcePVCFromJSON(json['pvc']),
-  };
-}
-
-export function V1beta1DataSourceSourceToJSON(value?: V1beta1DataSourceSource | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    pvc: V1beta1DataVolumeSourcePVCToJSON(value.pvc),
-  };
+  /**
+   *
+   * @type {V1beta1DataVolumeSourceSnapshot}
+   * @memberof V1beta1DataSourceSource
+   */
+  snapshot?: V1beta1DataVolumeSourceSnapshot;
 }

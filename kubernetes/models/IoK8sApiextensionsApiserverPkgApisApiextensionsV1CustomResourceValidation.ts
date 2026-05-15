@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProps,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsToJSON,
 } from './';
 
 /**
@@ -31,45 +28,4 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResource
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidation
    */
   openAPIV3Schema?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProps;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidationFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidation {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidationFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidation {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    openAPIV3Schema: !exists(json, 'openAPIV3Schema')
-      ? undefined
-      : IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsFromJSON(
-          json['openAPIV3Schema'],
-        ),
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidationToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidation | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    openAPIV3Schema: IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsToJSON(
-      value.openAPIV3Schema,
-    ),
-  };
 }

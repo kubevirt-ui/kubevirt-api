@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -32,13 +29,25 @@ export interface IoK8sApiCoreV1PodAffinityTerm {
    */
   labelSelector?: IoK8sApimachineryPkgApisMetaV1LabelSelector;
   /**
+   * MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn't set.
+   * @type {Array<string>}
+   * @memberof IoK8sApiCoreV1PodAffinityTerm
+   */
+  matchLabelKeys?: Array<string>;
+  /**
+   * MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn't set.
+   * @type {Array<string>}
+   * @memberof IoK8sApiCoreV1PodAffinityTerm
+   */
+  mismatchLabelKeys?: Array<string>;
+  /**
    *
    * @type {IoK8sApimachineryPkgApisMetaV1LabelSelector}
    * @memberof IoK8sApiCoreV1PodAffinityTerm
    */
   namespaceSelector?: IoK8sApimachineryPkgApisMetaV1LabelSelector;
   /**
-   * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace"
+   * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
    * @type {Array<string>}
    * @memberof IoK8sApiCoreV1PodAffinityTerm
    */
@@ -49,44 +58,4 @@ export interface IoK8sApiCoreV1PodAffinityTerm {
    * @memberof IoK8sApiCoreV1PodAffinityTerm
    */
   topologyKey: string;
-}
-
-export function IoK8sApiCoreV1PodAffinityTermFromJSON(json: any): IoK8sApiCoreV1PodAffinityTerm {
-  return IoK8sApiCoreV1PodAffinityTermFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodAffinityTermFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodAffinityTerm {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    labelSelector: !exists(json, 'labelSelector')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['labelSelector']),
-    namespaceSelector: !exists(json, 'namespaceSelector')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['namespaceSelector']),
-    namespaces: !exists(json, 'namespaces') ? undefined : json['namespaces'],
-    topologyKey: json['topologyKey'],
-  };
-}
-
-export function IoK8sApiCoreV1PodAffinityTermToJSON(
-  value?: IoK8sApiCoreV1PodAffinityTerm | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    labelSelector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.labelSelector),
-    namespaceSelector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.namespaceSelector),
-    namespaces: value.namespaces,
-    topologyKey: value.topologyKey,
-  };
 }

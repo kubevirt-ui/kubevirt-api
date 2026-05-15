@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Overhead structure represents the resource overhead associated with running a pod.
  * @export
@@ -20,37 +19,9 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiNodeV1Overhead {
   /**
-   * PodFixed represents the fixed resource overhead associated with running a pod.
+   * podFixed represents the fixed resource overhead associated with running a pod.
    * @type {{ [key: string]: string; }}
    * @memberof IoK8sApiNodeV1Overhead
    */
   podFixed?: { [key: string]: string };
-}
-
-export function IoK8sApiNodeV1OverheadFromJSON(json: any): IoK8sApiNodeV1Overhead {
-  return IoK8sApiNodeV1OverheadFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNodeV1OverheadFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNodeV1Overhead {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    podFixed: !exists(json, 'podFixed') ? undefined : json['podFixed'],
-  };
-}
-
-export function IoK8sApiNodeV1OverheadToJSON(value?: IoK8sApiNodeV1Overhead | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    podFixed: value.podFixed,
-  };
 }

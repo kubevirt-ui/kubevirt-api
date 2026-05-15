@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ScaleStatus represents the current status of a scale subresource.
  * @export
@@ -20,49 +19,15 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiAutoscalingV1ScaleStatus {
   /**
-   * actual number of observed instances of the scaled object.
+   * replicas is the actual number of observed instances of the scaled object.
    * @type {number}
    * @memberof IoK8sApiAutoscalingV1ScaleStatus
    */
   replicas: number;
   /**
-   * label query over pods that should match the replicas count. This is same as the label selector but in the string format to avoid introspection by clients. The string will be in the same format as the query-param syntax. More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors
+   * selector is the label query over pods that should match the replicas count. This is same as the label selector but in the string format to avoid introspection by clients. The string will be in the same format as the query-param syntax. More info about label selectors: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
    * @type {string}
    * @memberof IoK8sApiAutoscalingV1ScaleStatus
    */
   selector?: string;
-}
-
-export function IoK8sApiAutoscalingV1ScaleStatusFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV1ScaleStatus {
-  return IoK8sApiAutoscalingV1ScaleStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV1ScaleStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV1ScaleStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    replicas: json['replicas'],
-    selector: !exists(json, 'selector') ? undefined : json['selector'],
-  };
-}
-
-export function IoK8sApiAutoscalingV1ScaleStatusToJSON(
-  value?: IoK8sApiAutoscalingV1ScaleStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    replicas: value.replicas,
-    selector: value.selector,
-  };
 }

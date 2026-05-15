@@ -18,50 +18,16 @@
  * @interface K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR
  */
 export interface K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR {
-  /**
-   * The CIDR with which clients can match their IP to figure out the server address that they should use.
-   * @type {string}
-   * @memberof K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR
-   */
-  clientCIDR: string;
-  /**
-   * Address of this server, suitable for a client that matches the above CIDR. This can be a hostname, hostname:port, IP or IP:port.
-   * @type {string}
-   * @memberof K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR
-   */
-  serverAddress: string;
-}
-
-export function K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSON(
-  json: any,
-): K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR {
-  return K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    clientCIDR: json['clientCIDR'],
-    serverAddress: json['serverAddress'],
-  };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDRToJSON(
-  value?: K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    clientCIDR: value.clientCIDR,
-    serverAddress: value.serverAddress,
-  };
+    /**
+     * The CIDR with which clients can match their IP to figure out the server address that they should use.
+     * @type {string}
+     * @memberof K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR
+     */
+    clientCIDR: string;
+    /**
+     * Address of this server, suitable for a client that matches the above CIDR. This can be a hostname, hostname:port, IP or IP:port.
+     * @type {string}
+     * @memberof K8sIoApimachineryPkgApisMetaV1ServerAddressByClientCIDR
+     */
+    serverAddress: string;
 }

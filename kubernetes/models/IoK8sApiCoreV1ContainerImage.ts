@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Describe a container image
  * @export
@@ -20,7 +19,7 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1ContainerImage {
   /**
-   * Names by which this image is known. e.g. ["k8s.gcr.io/hyperkube:v1.0.7", "dockerhub.io/google_containers/hyperkube:v1.0.7"]
+   * Names by which this image is known. e.g. ["kubernetes.example/hyperkube:v1.0.7", "cloud-vendor.registry.example/cloud-vendor/hyperkube:v1.0.7"]
    * @type {Array<string>}
    * @memberof IoK8sApiCoreV1ContainerImage
    */
@@ -31,36 +30,4 @@ export interface IoK8sApiCoreV1ContainerImage {
    * @memberof IoK8sApiCoreV1ContainerImage
    */
   sizeBytes?: number;
-}
-
-export function IoK8sApiCoreV1ContainerImageFromJSON(json: any): IoK8sApiCoreV1ContainerImage {
-  return IoK8sApiCoreV1ContainerImageFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ContainerImageFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ContainerImage {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    names: !exists(json, 'names') ? undefined : json['names'],
-    sizeBytes: !exists(json, 'sizeBytes') ? undefined : json['sizeBytes'],
-  };
-}
-
-export function IoK8sApiCoreV1ContainerImageToJSON(
-  value?: IoK8sApiCoreV1ContainerImage | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    names: value.names,
-    sizeBytes: value.sizeBytes,
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * APIServiceCondition describes the state of an APIService at a particular point
  * @export
@@ -49,47 +48,4 @@ export interface IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceCondition 
    * @memberof IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceCondition
    */
   type: string;
-}
-
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceConditionFromJSON(
-  json: any,
-): IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceCondition {
-  return IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceConditionToJSON(
-  value?: IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

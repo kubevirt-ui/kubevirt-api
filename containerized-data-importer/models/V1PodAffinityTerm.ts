@@ -12,8 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1LabelSelector, V1LabelSelectorFromJSON, V1LabelSelectorToJSON } from './';
+import { V1LabelSelector } from './';
 
 /**
  * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running
@@ -28,13 +27,25 @@ export interface V1PodAffinityTerm {
    */
   labelSelector?: V1LabelSelector;
   /**
+   * MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).
+   * @type {Array<string>}
+   * @memberof V1PodAffinityTerm
+   */
+  matchLabelKeys?: Array<string>;
+  /**
+   * MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).
+   * @type {Array<string>}
+   * @memberof V1PodAffinityTerm
+   */
+  mismatchLabelKeys?: Array<string>;
+  /**
    *
    * @type {V1LabelSelector}
    * @memberof V1PodAffinityTerm
    */
   namespaceSelector?: V1LabelSelector;
   /**
-   * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace"
+   * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
    * @type {Array<string>}
    * @memberof V1PodAffinityTerm
    */
@@ -45,42 +56,4 @@ export interface V1PodAffinityTerm {
    * @memberof V1PodAffinityTerm
    */
   topologyKey: string;
-}
-
-export function V1PodAffinityTermFromJSON(json: any): V1PodAffinityTerm {
-  return V1PodAffinityTermFromJSONTyped(json, false);
-}
-
-export function V1PodAffinityTermFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1PodAffinityTerm {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    labelSelector: !exists(json, 'labelSelector')
-      ? undefined
-      : V1LabelSelectorFromJSON(json['labelSelector']),
-    namespaceSelector: !exists(json, 'namespaceSelector')
-      ? undefined
-      : V1LabelSelectorFromJSON(json['namespaceSelector']),
-    namespaces: !exists(json, 'namespaces') ? undefined : json['namespaces'],
-    topologyKey: json['topologyKey'],
-  };
-}
-
-export function V1PodAffinityTermToJSON(value?: V1PodAffinityTerm | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    labelSelector: V1LabelSelectorToJSON(value.labelSelector),
-    namespaceSelector: V1LabelSelectorToJSON(value.namespaceSelector),
-    namespaces: value.namespaces,
-    topologyKey: value.topologyKey,
-  };
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1ListMeta,
-  V1ListMetaFromJSON,
-  V1ListMetaToJSON,
   V1beta1DataSource,
-  V1beta1DataSourceFromJSON,
-  V1beta1DataSourceToJSON,
 } from './';
 
 /**
@@ -52,38 +47,4 @@ export interface V1beta1DataSourceList {
    * @memberof V1beta1DataSourceList
    */
   metadata: V1ListMeta;
-}
-
-export function V1beta1DataSourceListFromJSON(json: any): V1beta1DataSourceList {
-  return V1beta1DataSourceListFromJSONTyped(json, false);
-}
-
-export function V1beta1DataSourceListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataSourceList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1beta1DataSourceFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: V1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function V1beta1DataSourceListToJSON(value?: V1beta1DataSourceList | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1beta1DataSourceToJSON),
-    kind: value.kind,
-    metadata: V1ListMetaToJSON(value.metadata),
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ServicePort contains information on service's port.
  * @export
@@ -20,7 +19,16 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1ServicePort {
   /**
-   * The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names such as mycompany.com/my-custom-protocol.
+   * The application protocol for this port. This is used as a hint for implementations to offer richer behavior for protocols that they understand. This field follows standard Kubernetes label syntax. Valid values are either:
+   *
+   * * Un-prefixed protocol names - reserved for IANA standard service names (as per RFC-6335 and https://www.iana.org/assignments/service-names).
+   *
+   * * Kubernetes-defined prefixed names:
+   *   * 'kubernetes.io/h2c' - HTTP/2 prior knowledge over cleartext as described in https://www.rfc-editor.org/rfc/rfc9113.html#name-starting-http-2-with-prior-
+   *   * 'kubernetes.io/ws'  - WebSocket over cleartext as described in https://www.rfc-editor.org/rfc/rfc6455
+   *   * 'kubernetes.io/wss' - WebSocket over TLS as described in https://www.rfc-editor.org/rfc/rfc6455
+   *
+   * * Other protocols should use implementation-defined prefixed names such as mycompany.com/my-custom-protocol.
    * @type {string}
    * @memberof IoK8sApiCoreV1ServicePort
    */
@@ -45,67 +53,14 @@ export interface IoK8sApiCoreV1ServicePort {
   port: number;
   /**
    * The IP protocol for this port. Supports "TCP", "UDP", and "SCTP". Default is TCP.
-   *
-   * Possible enum values:
-   *  - `"SCTP"` is the SCTP protocol.
-   *  - `"TCP"` is the TCP protocol.
-   *  - `"UDP"` is the UDP protocol.
    * @type {string}
    * @memberof IoK8sApiCoreV1ServicePort
    */
-  protocol?: IoK8sApiCoreV1ServicePortProtocolEnum;
+  protocol?: string;
   /**
    * IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.
    * @type {string}
    * @memberof IoK8sApiCoreV1ServicePort
    */
   targetPort?: string;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1ServicePortProtocolEnum {
-  Sctp = 'SCTP',
-  Tcp = 'TCP',
-  Udp = 'UDP',
-}
-
-export function IoK8sApiCoreV1ServicePortFromJSON(json: any): IoK8sApiCoreV1ServicePort {
-  return IoK8sApiCoreV1ServicePortFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ServicePortFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ServicePort {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    appProtocol: !exists(json, 'appProtocol') ? undefined : json['appProtocol'],
-    name: !exists(json, 'name') ? undefined : json['name'],
-    nodePort: !exists(json, 'nodePort') ? undefined : json['nodePort'],
-    port: json['port'],
-    protocol: !exists(json, 'protocol') ? undefined : json['protocol'],
-    targetPort: !exists(json, 'targetPort') ? undefined : json['targetPort'],
-  };
-}
-
-export function IoK8sApiCoreV1ServicePortToJSON(value?: IoK8sApiCoreV1ServicePort | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    appProtocol: value.appProtocol,
-    name: value.name,
-    nodePort: value.nodePort,
-    port: value.port,
-    protocol: value.protocol,
-    targetPort: value.targetPort,
-  };
 }

@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ReplicationControllerCondition,
-  IoK8sApiCoreV1ReplicationControllerConditionFromJSON,
-  IoK8sApiCoreV1ReplicationControllerConditionToJSON,
 } from './';
 
 /**
@@ -56,62 +53,9 @@ export interface IoK8sApiCoreV1ReplicationControllerStatus {
    */
   readyReplicas?: number;
   /**
-   * Replicas is the most recently oberved number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#what-is-a-replicationcontroller
+   * Replicas is the most recently observed number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#what-is-a-replicationcontroller
    * @type {number}
    * @memberof IoK8sApiCoreV1ReplicationControllerStatus
    */
   replicas: number;
-}
-
-export function IoK8sApiCoreV1ReplicationControllerStatusFromJSON(
-  json: any,
-): IoK8sApiCoreV1ReplicationControllerStatus {
-  return IoK8sApiCoreV1ReplicationControllerStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ReplicationControllerStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ReplicationControllerStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    availableReplicas: !exists(json, 'availableReplicas') ? undefined : json['availableReplicas'],
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(
-          IoK8sApiCoreV1ReplicationControllerConditionFromJSON,
-        ),
-    fullyLabeledReplicas: !exists(json, 'fullyLabeledReplicas')
-      ? undefined
-      : json['fullyLabeledReplicas'],
-    observedGeneration: !exists(json, 'observedGeneration')
-      ? undefined
-      : json['observedGeneration'],
-    readyReplicas: !exists(json, 'readyReplicas') ? undefined : json['readyReplicas'],
-    replicas: json['replicas'],
-  };
-}
-
-export function IoK8sApiCoreV1ReplicationControllerStatusToJSON(
-  value?: IoK8sApiCoreV1ReplicationControllerStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    availableReplicas: value.availableReplicas,
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApiCoreV1ReplicationControllerConditionToJSON),
-    fullyLabeledReplicas: value.fullyLabeledReplicas,
-    observedGeneration: value.observedGeneration,
-    readyReplicas: value.readyReplicas,
-    replicas: value.replicas,
-  };
 }

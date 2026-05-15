@@ -13,48 +13,39 @@
  */
 
 /**
- *
+ * 
  * @export
  * @interface V1HostDevice
  */
 export interface V1HostDevice {
-  /**
-   * DeviceName is the resource name of the host device exposed by a device plugin
-   * @type {string}
-   * @memberof V1HostDevice
-   */
-  deviceName: string;
-  /**
-   *
-   * @type {string}
-   * @memberof V1HostDevice
-   */
-  name: string;
-}
-
-export function V1HostDeviceFromJSON(json: any): V1HostDevice {
-  return V1HostDeviceFromJSONTyped(json, false);
-}
-
-export function V1HostDeviceFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1HostDevice {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    deviceName: json['deviceName'],
-    name: json['name'],
-  };
-}
-
-export function V1HostDeviceToJSON(value?: V1HostDevice | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    deviceName: value.deviceName,
-    name: value.name,
-  };
+    /**
+     * ClaimName references the name of an entry in the VMI's spec.resourceClaims[] array. The referenced entry may use either resourceClaimName or resourceClaimTemplateName.
+     * @type {string}
+     * @memberof V1HostDevice
+     */
+    claimName?: string;
+    /**
+     * DeviceName is the name of the device provisioned by device-plugins
+     * @type {string}
+     * @memberof V1HostDevice
+     */
+    deviceName?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1HostDevice
+     */
+    name: string;
+    /**
+     * RequestName specifies which request from the ResourceClaim/ResourceClaimTemplate spec.devices.requests array this claim request corresponds to.
+     * @type {string}
+     * @memberof V1HostDevice
+     */
+    requestName?: string;
+    /**
+     * If specified, the virtual network interface address and its tag will be provided to the guest via config drive
+     * @type {string}
+     * @memberof V1HostDevice
+     */
+    tag?: string;
 }

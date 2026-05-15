@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * TCPSocketAction describes an action based on opening a socket
  * @export
@@ -31,36 +30,4 @@ export interface IoK8sApiCoreV1TCPSocketAction {
    * @memberof IoK8sApiCoreV1TCPSocketAction
    */
   port: string;
-}
-
-export function IoK8sApiCoreV1TCPSocketActionFromJSON(json: any): IoK8sApiCoreV1TCPSocketAction {
-  return IoK8sApiCoreV1TCPSocketActionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1TCPSocketActionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1TCPSocketAction {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    host: !exists(json, 'host') ? undefined : json['host'],
-    port: json['port'],
-  };
-}
-
-export function IoK8sApiCoreV1TCPSocketActionToJSON(
-  value?: IoK8sApiCoreV1TCPSocketAction | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    host: value.host,
-    port: value.port,
-  };
 }

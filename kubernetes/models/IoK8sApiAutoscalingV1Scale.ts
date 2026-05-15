@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAutoscalingV1ScaleSpec,
-  IoK8sApiAutoscalingV1ScaleSpecFromJSON,
-  IoK8sApiAutoscalingV1ScaleSpecToJSON,
   IoK8sApiAutoscalingV1ScaleStatus,
-  IoK8sApiAutoscalingV1ScaleStatusFromJSON,
-  IoK8sApiAutoscalingV1ScaleStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,44 +54,4 @@ export interface IoK8sApiAutoscalingV1Scale {
    * @memberof IoK8sApiAutoscalingV1Scale
    */
   status?: IoK8sApiAutoscalingV1ScaleStatus;
-}
-
-export function IoK8sApiAutoscalingV1ScaleFromJSON(json: any): IoK8sApiAutoscalingV1Scale {
-  return IoK8sApiAutoscalingV1ScaleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV1ScaleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV1Scale {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec') ? undefined : IoK8sApiAutoscalingV1ScaleSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiAutoscalingV1ScaleStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiAutoscalingV1ScaleToJSON(value?: IoK8sApiAutoscalingV1Scale | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiAutoscalingV1ScaleSpecToJSON(value.spec),
-    status: IoK8sApiAutoscalingV1ScaleStatusToJSON(value.status),
-  };
 }

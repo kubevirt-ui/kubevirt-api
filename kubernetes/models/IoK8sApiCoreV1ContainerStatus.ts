@@ -12,11 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ContainerState,
-  IoK8sApiCoreV1ContainerStateFromJSON,
-  IoK8sApiCoreV1ContainerStateToJSON,
+  IoK8sApiCoreV1ContainerUser,
+  IoK8sApiCoreV1ResourceRequirements,
+  IoK8sApiCoreV1ResourceStatus,
+  IoK8sApiCoreV1VolumeMountStatus,
 } from './';
 
 /**
@@ -26,19 +27,31 @@ import {
  */
 export interface IoK8sApiCoreV1ContainerStatus {
   /**
-   * Container's ID in the format 'docker://<container_id>'.
+   * AllocatedResources represents the compute resources allocated for this container by the node. Kubelet sets this value to Container.Resources.Requests upon successful pod admission and after successfully admitting desired pod resize.
+   * @type {{ [key: string]: string; }}
+   * @memberof IoK8sApiCoreV1ContainerStatus
+   */
+  allocatedResources?: { [key: string]: string };
+  /**
+   * AllocatedResourcesStatus represents the status of various resources allocated for this Pod.
+   * @type {Array<IoK8sApiCoreV1ResourceStatus>}
+   * @memberof IoK8sApiCoreV1ContainerStatus
+   */
+  allocatedResourcesStatus?: Array<IoK8sApiCoreV1ResourceStatus>;
+  /**
+   * ContainerID is the ID of the container in the format '<type>://<container_id>'. Where type is a container runtime identifier, returned from Version call of CRI API (for example "containerd").
    * @type {string}
    * @memberof IoK8sApiCoreV1ContainerStatus
    */
   containerID?: string;
   /**
-   * The image the container is running. More info: https://kubernetes.io/docs/concepts/containers/images.
+   * Image is the name of container image that the container is running. The container image may not match the image used in the PodSpec, as it may have been resolved by the runtime. More info: https://kubernetes.io/docs/concepts/containers/images.
    * @type {string}
    * @memberof IoK8sApiCoreV1ContainerStatus
    */
   image: string;
   /**
-   * ImageID of the container's image.
+   * ImageID is the image ID of the container's image. The image ID may not match the image ID of the image used in the PodSpec, as it may have been resolved by the runtime.
    * @type {string}
    * @memberof IoK8sApiCoreV1ContainerStatus
    */
@@ -50,25 +63,33 @@ export interface IoK8sApiCoreV1ContainerStatus {
    */
   lastState?: IoK8sApiCoreV1ContainerState;
   /**
-   * This must be a DNS_LABEL. Each container in a pod must have a unique name. Cannot be updated.
+   * Name is a DNS_LABEL representing the unique name of the container. Each container in a pod must have a unique name across all container types. Cannot be updated.
    * @type {string}
    * @memberof IoK8sApiCoreV1ContainerStatus
    */
   name: string;
   /**
-   * Specifies whether the container has passed its readiness probe.
+   * Ready specifies whether the container is currently passing its readiness check. The value will change as readiness probes keep executing. If no readiness probes are specified, this field defaults to true once the container is fully started (see Started field).
+   *
+   * The value is typically used to determine whether a container is ready to accept traffic.
    * @type {boolean}
    * @memberof IoK8sApiCoreV1ContainerStatus
    */
   ready: boolean;
   /**
-   * The number of times the container has been restarted.
+   *
+   * @type {IoK8sApiCoreV1ResourceRequirements}
+   * @memberof IoK8sApiCoreV1ContainerStatus
+   */
+  resources?: IoK8sApiCoreV1ResourceRequirements;
+  /**
+   * RestartCount holds the number of times the container has been restarted. Kubelet makes an effort to always increment the value, but there are cases when the state may be lost due to node restarts and then the value may be reset to 0. The value is never negative.
    * @type {number}
    * @memberof IoK8sApiCoreV1ContainerStatus
    */
   restartCount: number;
   /**
-   * Specifies whether the container has passed its startup probe. Initialized as false, becomes true after startupProbe is considered successful. Resets to false when the container is restarted, or if kubelet loses state temporarily. Is always true when no startupProbe is defined.
+   * Started indicates whether the container has finished its postStart lifecycle hook and passed its startup probe. Initialized as false, becomes true after startupProbe is considered successful. Resets to false when the container is restarted, or if kubelet loses state temporarily. In both cases, startup probes will run again. Is always true when no startupProbe is defined and container is running and has passed the postStart lifecycle hook. The null value must be treated the same as false.
    * @type {boolean}
    * @memberof IoK8sApiCoreV1ContainerStatus
    */
@@ -79,52 +100,22 @@ export interface IoK8sApiCoreV1ContainerStatus {
    * @memberof IoK8sApiCoreV1ContainerStatus
    */
   state?: IoK8sApiCoreV1ContainerState;
-}
-
-export function IoK8sApiCoreV1ContainerStatusFromJSON(json: any): IoK8sApiCoreV1ContainerStatus {
-  return IoK8sApiCoreV1ContainerStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ContainerStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ContainerStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    containerID: !exists(json, 'containerID') ? undefined : json['containerID'],
-    image: json['image'],
-    imageID: json['imageID'],
-    lastState: !exists(json, 'lastState')
-      ? undefined
-      : IoK8sApiCoreV1ContainerStateFromJSON(json['lastState']),
-    name: json['name'],
-    ready: json['ready'],
-    restartCount: json['restartCount'],
-    started: !exists(json, 'started') ? undefined : json['started'],
-    state: !exists(json, 'state') ? undefined : IoK8sApiCoreV1ContainerStateFromJSON(json['state']),
-  };
-}
-
-export function IoK8sApiCoreV1ContainerStatusToJSON(
-  value?: IoK8sApiCoreV1ContainerStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    containerID: value.containerID,
-    image: value.image,
-    imageID: value.imageID,
-    lastState: IoK8sApiCoreV1ContainerStateToJSON(value.lastState),
-    name: value.name,
-    ready: value.ready,
-    restartCount: value.restartCount,
-    started: value.started,
-    state: IoK8sApiCoreV1ContainerStateToJSON(value.state),
-  };
+  /**
+   * StopSignal reports the effective stop signal for this container
+   * @type {string}
+   * @memberof IoK8sApiCoreV1ContainerStatus
+   */
+  stopSignal?: string;
+  /**
+   *
+   * @type {IoK8sApiCoreV1ContainerUser}
+   * @memberof IoK8sApiCoreV1ContainerStatus
+   */
+  user?: IoK8sApiCoreV1ContainerUser;
+  /**
+   * Status of volume mounts.
+   * @type {Array<IoK8sApiCoreV1VolumeMountStatus>}
+   * @memberof IoK8sApiCoreV1ContainerStatus
+   */
+  volumeMounts?: Array<IoK8sApiCoreV1VolumeMountStatus>;
 }

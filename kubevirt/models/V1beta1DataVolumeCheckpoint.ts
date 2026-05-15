@@ -18,46 +18,16 @@
  * @interface V1beta1DataVolumeCheckpoint
  */
 export interface V1beta1DataVolumeCheckpoint {
-  /**
-   * Current is the identifier of the snapshot created for this checkpoint.
-   * @type {string}
-   * @memberof V1beta1DataVolumeCheckpoint
-   */
-  current: string;
-  /**
-   * Previous is the identifier of the snapshot from the previous checkpoint.
-   * @type {string}
-   * @memberof V1beta1DataVolumeCheckpoint
-   */
-  previous: string;
-}
-
-export function V1beta1DataVolumeCheckpointFromJSON(json: any): V1beta1DataVolumeCheckpoint {
-  return V1beta1DataVolumeCheckpointFromJSONTyped(json, false);
-}
-
-export function V1beta1DataVolumeCheckpointFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataVolumeCheckpoint {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    current: json['current'],
-    previous: json['previous'],
-  };
-}
-
-export function V1beta1DataVolumeCheckpointToJSON(value?: V1beta1DataVolumeCheckpoint | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    current: value.current,
-    previous: value.previous,
-  };
+    /**
+     * Current is the identifier of the snapshot created for this checkpoint.
+     * @type {string}
+     * @memberof V1beta1DataVolumeCheckpoint
+     */
+    current: string;
+    /**
+     * Previous is the identifier of the snapshot from the previous checkpoint.
+     * @type {string}
+     * @memberof V1beta1DataVolumeCheckpoint
+     */
+    previous: string;
 }

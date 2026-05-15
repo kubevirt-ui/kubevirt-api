@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiPolicyV1PodDisruptionBudget,
-  IoK8sApiPolicyV1PodDisruptionBudgetFromJSON,
-  IoK8sApiPolicyV1PodDisruptionBudgetToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -52,44 +47,4 @@ export interface IoK8sApiPolicyV1PodDisruptionBudgetList {
    * @memberof IoK8sApiPolicyV1PodDisruptionBudgetList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiPolicyV1PodDisruptionBudgetListFromJSON(
-  json: any,
-): IoK8sApiPolicyV1PodDisruptionBudgetList {
-  return IoK8sApiPolicyV1PodDisruptionBudgetListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiPolicyV1PodDisruptionBudgetListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiPolicyV1PodDisruptionBudgetList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(IoK8sApiPolicyV1PodDisruptionBudgetFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiPolicyV1PodDisruptionBudgetListToJSON(
-  value?: IoK8sApiPolicyV1PodDisruptionBudgetList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(IoK8sApiPolicyV1PodDisruptionBudgetToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

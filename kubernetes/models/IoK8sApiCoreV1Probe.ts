@@ -12,20 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ExecAction,
-  IoK8sApiCoreV1ExecActionFromJSON,
-  IoK8sApiCoreV1ExecActionToJSON,
   IoK8sApiCoreV1GRPCAction,
-  IoK8sApiCoreV1GRPCActionFromJSON,
-  IoK8sApiCoreV1GRPCActionToJSON,
   IoK8sApiCoreV1HTTPGetAction,
-  IoK8sApiCoreV1HTTPGetActionFromJSON,
-  IoK8sApiCoreV1HTTPGetActionToJSON,
   IoK8sApiCoreV1TCPSocketAction,
-  IoK8sApiCoreV1TCPSocketActionFromJSON,
-  IoK8sApiCoreV1TCPSocketActionToJSON,
 } from './';
 
 /**
@@ -94,58 +85,4 @@ export interface IoK8sApiCoreV1Probe {
    * @memberof IoK8sApiCoreV1Probe
    */
   timeoutSeconds?: number;
-}
-
-export function IoK8sApiCoreV1ProbeFromJSON(json: any): IoK8sApiCoreV1Probe {
-  return IoK8sApiCoreV1ProbeFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ProbeFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1Probe {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    exec: !exists(json, 'exec') ? undefined : IoK8sApiCoreV1ExecActionFromJSON(json['exec']),
-    failureThreshold: !exists(json, 'failureThreshold') ? undefined : json['failureThreshold'],
-    grpc: !exists(json, 'grpc') ? undefined : IoK8sApiCoreV1GRPCActionFromJSON(json['grpc']),
-    httpGet: !exists(json, 'httpGet')
-      ? undefined
-      : IoK8sApiCoreV1HTTPGetActionFromJSON(json['httpGet']),
-    initialDelaySeconds: !exists(json, 'initialDelaySeconds')
-      ? undefined
-      : json['initialDelaySeconds'],
-    periodSeconds: !exists(json, 'periodSeconds') ? undefined : json['periodSeconds'],
-    successThreshold: !exists(json, 'successThreshold') ? undefined : json['successThreshold'],
-    tcpSocket: !exists(json, 'tcpSocket')
-      ? undefined
-      : IoK8sApiCoreV1TCPSocketActionFromJSON(json['tcpSocket']),
-    terminationGracePeriodSeconds: !exists(json, 'terminationGracePeriodSeconds')
-      ? undefined
-      : json['terminationGracePeriodSeconds'],
-    timeoutSeconds: !exists(json, 'timeoutSeconds') ? undefined : json['timeoutSeconds'],
-  };
-}
-
-export function IoK8sApiCoreV1ProbeToJSON(value?: IoK8sApiCoreV1Probe | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    exec: IoK8sApiCoreV1ExecActionToJSON(value.exec),
-    failureThreshold: value.failureThreshold,
-    grpc: IoK8sApiCoreV1GRPCActionToJSON(value.grpc),
-    httpGet: IoK8sApiCoreV1HTTPGetActionToJSON(value.httpGet),
-    initialDelaySeconds: value.initialDelaySeconds,
-    periodSeconds: value.periodSeconds,
-    successThreshold: value.successThreshold,
-    tcpSocket: IoK8sApiCoreV1TCPSocketActionToJSON(value.tcpSocket),
-    terminationGracePeriodSeconds: value.terminationGracePeriodSeconds,
-    timeoutSeconds: value.timeoutSeconds,
-  };
 }

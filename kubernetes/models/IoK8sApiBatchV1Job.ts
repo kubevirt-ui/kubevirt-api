@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiBatchV1JobSpec,
-  IoK8sApiBatchV1JobSpecFromJSON,
-  IoK8sApiBatchV1JobSpecToJSON,
   IoK8sApiBatchV1JobStatus,
-  IoK8sApiBatchV1JobStatusFromJSON,
-  IoK8sApiBatchV1JobStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,42 +54,4 @@ export interface IoK8sApiBatchV1Job {
    * @memberof IoK8sApiBatchV1Job
    */
   status?: IoK8sApiBatchV1JobStatus;
-}
-
-export function IoK8sApiBatchV1JobFromJSON(json: any): IoK8sApiBatchV1Job {
-  return IoK8sApiBatchV1JobFromJSONTyped(json, false);
-}
-
-export function IoK8sApiBatchV1JobFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiBatchV1Job {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec') ? undefined : IoK8sApiBatchV1JobSpecFromJSON(json['spec']),
-    status: !exists(json, 'status') ? undefined : IoK8sApiBatchV1JobStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiBatchV1JobToJSON(value?: IoK8sApiBatchV1Job | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiBatchV1JobSpecToJSON(value.spec),
-    status: IoK8sApiBatchV1JobStatusToJSON(value.status),
-  };
 }

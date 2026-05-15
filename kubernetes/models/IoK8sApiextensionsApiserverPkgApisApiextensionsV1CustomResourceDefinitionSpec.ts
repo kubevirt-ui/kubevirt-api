@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceConversion,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceConversionFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceConversionToJSON,
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNames,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNamesFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNamesToJSON,
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionVersion,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionVersionFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionVersionToJSON,
 } from './';
 
 /**
@@ -50,7 +43,7 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResource
    */
   names: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNames;
   /**
-   * preserveUnknownFields indicates that object fields which are not specified in the OpenAPI schema should be preserved when persisting to storage. apiVersion, kind, metadata and known fields inside metadata are always preserved. This field is deprecated in favor of setting `x-preserve-unknown-fields` to true in `spec.versions[*].schema.openAPIV3Schema`. See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
+   * preserveUnknownFields indicates that object fields which are not specified in the OpenAPI schema should be preserved when persisting to storage. apiVersion, kind, metadata and known fields inside metadata are always preserved. This field is deprecated in favor of setting `x-preserve-unknown-fields` to true in `spec.versions[*].schema.openAPIV3Schema`. See https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/#field-pruning for details.
    * @type {boolean}
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionSpec
    */
@@ -67,65 +60,4 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResource
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionSpec
    */
   versions: Array<IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionVersion>;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionSpecFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionSpec {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionSpecFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conversion: !exists(json, 'conversion')
-      ? undefined
-      : IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceConversionFromJSON(
-          json['conversion'],
-        ),
-    group: json['group'],
-    names: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNamesFromJSON(
-      json['names'],
-    ),
-    preserveUnknownFields: !exists(json, 'preserveUnknownFields')
-      ? undefined
-      : json['preserveUnknownFields'],
-    scope: json['scope'],
-    versions: (json['versions'] as Array<any>).map(
-      IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionVersionFromJSON,
-    ),
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionSpecToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conversion: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceConversionToJSON(
-      value.conversion,
-    ),
-    group: value.group,
-    names: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNamesToJSON(
-      value.names,
-    ),
-    preserveUnknownFields: value.preserveUnknownFields,
-    scope: value.scope,
-    versions: (value.versions as Array<any>).map(
-      IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionVersionToJSON,
-    ),
-  };
 }

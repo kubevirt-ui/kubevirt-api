@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceCondition,
-  IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceConditionFromJSON,
-  IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceConditionToJSON,
 } from './';
 
 /**
@@ -31,45 +28,4 @@ export interface IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceStatus {
    * @memberof IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceStatus
    */
   conditions?: Array<IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceCondition>;
-}
-
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceStatusFromJSON(
-  json: any,
-): IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceStatus {
-  return IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(
-          IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceConditionFromJSON,
-        ),
-  };
-}
-
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceStatusToJSON(
-  value?: IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(
-            IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceConditionToJSON,
-          ),
-  };
 }

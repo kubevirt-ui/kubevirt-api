@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1NodeSelector,
-  IoK8sApiCoreV1NodeSelectorFromJSON,
-  IoK8sApiCoreV1NodeSelectorToJSON,
   IoK8sApiCoreV1PreferredSchedulingTerm,
-  IoK8sApiCoreV1PreferredSchedulingTermFromJSON,
-  IoK8sApiCoreV1PreferredSchedulingTermToJSON,
 } from './';
 
 /**
@@ -40,53 +35,4 @@ export interface IoK8sApiCoreV1NodeAffinity {
    * @memberof IoK8sApiCoreV1NodeAffinity
    */
   requiredDuringSchedulingIgnoredDuringExecution?: IoK8sApiCoreV1NodeSelector;
-}
-
-export function IoK8sApiCoreV1NodeAffinityFromJSON(json: any): IoK8sApiCoreV1NodeAffinity {
-  return IoK8sApiCoreV1NodeAffinityFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NodeAffinityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NodeAffinity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'preferredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : (json['preferredDuringSchedulingIgnoredDuringExecution'] as Array<any>).map(
-          IoK8sApiCoreV1PreferredSchedulingTermFromJSON,
-        ),
-    requiredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'requiredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : IoK8sApiCoreV1NodeSelectorFromJSON(json['requiredDuringSchedulingIgnoredDuringExecution']),
-  };
-}
-
-export function IoK8sApiCoreV1NodeAffinityToJSON(value?: IoK8sApiCoreV1NodeAffinity | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution:
-      value.preferredDuringSchedulingIgnoredDuringExecution === undefined
-        ? undefined
-        : (value.preferredDuringSchedulingIgnoredDuringExecution as Array<any>).map(
-            IoK8sApiCoreV1PreferredSchedulingTermToJSON,
-          ),
-    requiredDuringSchedulingIgnoredDuringExecution: IoK8sApiCoreV1NodeSelectorToJSON(
-      value.requiredDuringSchedulingIgnoredDuringExecution,
-    ),
-  };
 }

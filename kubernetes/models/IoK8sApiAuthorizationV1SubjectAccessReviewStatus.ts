@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * SubjectAccessReviewStatus
  * @export
@@ -43,42 +42,4 @@ export interface IoK8sApiAuthorizationV1SubjectAccessReviewStatus {
    * @memberof IoK8sApiAuthorizationV1SubjectAccessReviewStatus
    */
   reason?: string;
-}
-
-export function IoK8sApiAuthorizationV1SubjectAccessReviewStatusFromJSON(
-  json: any,
-): IoK8sApiAuthorizationV1SubjectAccessReviewStatus {
-  return IoK8sApiAuthorizationV1SubjectAccessReviewStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthorizationV1SubjectAccessReviewStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthorizationV1SubjectAccessReviewStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    allowed: json['allowed'],
-    denied: !exists(json, 'denied') ? undefined : json['denied'],
-    evaluationError: !exists(json, 'evaluationError') ? undefined : json['evaluationError'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-  };
-}
-
-export function IoK8sApiAuthorizationV1SubjectAccessReviewStatusToJSON(
-  value?: IoK8sApiAuthorizationV1SubjectAccessReviewStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    allowed: value.allowed,
-    denied: value.denied,
-    evaluationError: value.evaluationError,
-    reason: value.reason,
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Represents a Photon Controller persistent disk resource.
  * @export
@@ -20,49 +19,15 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1PhotonPersistentDiskVolumeSource {
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
    * @type {string}
    * @memberof IoK8sApiCoreV1PhotonPersistentDiskVolumeSource
    */
   fsType?: string;
   /**
-   * ID that identifies Photon Controller persistent disk
+   * pdID is the ID that identifies Photon Controller persistent disk
    * @type {string}
    * @memberof IoK8sApiCoreV1PhotonPersistentDiskVolumeSource
    */
   pdID: string;
-}
-
-export function IoK8sApiCoreV1PhotonPersistentDiskVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1PhotonPersistentDiskVolumeSource {
-  return IoK8sApiCoreV1PhotonPersistentDiskVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PhotonPersistentDiskVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PhotonPersistentDiskVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    pdID: json['pdID'],
-  };
-}
-
-export function IoK8sApiCoreV1PhotonPersistentDiskVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1PhotonPersistentDiskVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fsType: value.fsType,
-    pdID: value.pdID,
-  };
 }

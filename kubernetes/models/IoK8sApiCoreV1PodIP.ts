@@ -12,46 +12,16 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
- * IP address information for entries in the (plural) PodIPs field. Each entry includes:
- *    IP: An IP address allocated to the pod. Routable at least within the cluster.
+ * PodIP represents a single IP address allocated to the pod.
  * @export
  * @interface IoK8sApiCoreV1PodIP
  */
 export interface IoK8sApiCoreV1PodIP {
   /**
-   * ip is an IP address (IPv4 or IPv6) assigned to the pod
+   * IP is the IP address assigned to the pod
    * @type {string}
    * @memberof IoK8sApiCoreV1PodIP
    */
-  ip?: string;
-}
-
-export function IoK8sApiCoreV1PodIPFromJSON(json: any): IoK8sApiCoreV1PodIP {
-  return IoK8sApiCoreV1PodIPFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodIPFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodIP {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    ip: !exists(json, 'ip') ? undefined : json['ip'],
-  };
-}
-
-export function IoK8sApiCoreV1PodIPToJSON(value?: IoK8sApiCoreV1PodIP | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    ip: value.ip,
-  };
+  ip: string;
 }

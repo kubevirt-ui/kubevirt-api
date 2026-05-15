@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Subject contains a reference to the object or user identities a role binding applies to.  This can either hold a direct API object reference, or a value for non-objects such as user and group names.
  * @export
@@ -43,38 +42,4 @@ export interface IoK8sApiRbacV1Subject {
    * @memberof IoK8sApiRbacV1Subject
    */
   namespace?: string;
-}
-
-export function IoK8sApiRbacV1SubjectFromJSON(json: any): IoK8sApiRbacV1Subject {
-  return IoK8sApiRbacV1SubjectFromJSONTyped(json, false);
-}
-
-export function IoK8sApiRbacV1SubjectFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiRbacV1Subject {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiGroup: !exists(json, 'apiGroup') ? undefined : json['apiGroup'],
-    kind: json['kind'],
-    name: json['name'],
-    namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
-  };
-}
-
-export function IoK8sApiRbacV1SubjectToJSON(value?: IoK8sApiRbacV1Subject | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiGroup: value.apiGroup,
-    kind: value.kind,
-    name: value.name,
-    namespace: value.namespace,
-  };
 }

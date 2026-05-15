@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1PodAffinityTerm,
-  IoK8sApiCoreV1PodAffinityTermFromJSON,
-  IoK8sApiCoreV1PodAffinityTermToJSON,
   IoK8sApiCoreV1WeightedPodAffinityTerm,
-  IoK8sApiCoreV1WeightedPodAffinityTermFromJSON,
-  IoK8sApiCoreV1WeightedPodAffinityTermToJSON,
 } from './';
 
 /**
@@ -40,58 +35,4 @@ export interface IoK8sApiCoreV1PodAffinity {
    * @memberof IoK8sApiCoreV1PodAffinity
    */
   requiredDuringSchedulingIgnoredDuringExecution?: Array<IoK8sApiCoreV1PodAffinityTerm>;
-}
-
-export function IoK8sApiCoreV1PodAffinityFromJSON(json: any): IoK8sApiCoreV1PodAffinity {
-  return IoK8sApiCoreV1PodAffinityFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodAffinityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodAffinity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'preferredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : (json['preferredDuringSchedulingIgnoredDuringExecution'] as Array<any>).map(
-          IoK8sApiCoreV1WeightedPodAffinityTermFromJSON,
-        ),
-    requiredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'requiredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : (json['requiredDuringSchedulingIgnoredDuringExecution'] as Array<any>).map(
-          IoK8sApiCoreV1PodAffinityTermFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiCoreV1PodAffinityToJSON(value?: IoK8sApiCoreV1PodAffinity | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution:
-      value.preferredDuringSchedulingIgnoredDuringExecution === undefined
-        ? undefined
-        : (value.preferredDuringSchedulingIgnoredDuringExecution as Array<any>).map(
-            IoK8sApiCoreV1WeightedPodAffinityTermToJSON,
-          ),
-    requiredDuringSchedulingIgnoredDuringExecution:
-      value.requiredDuringSchedulingIgnoredDuringExecution === undefined
-        ? undefined
-        : (value.requiredDuringSchedulingIgnoredDuringExecution as Array<any>).map(
-            IoK8sApiCoreV1PodAffinityTermToJSON,
-          ),
-  };
 }

@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpec,
-  IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpecFromJSON,
-  IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpecToJSON,
   IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatus,
-  IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatusFromJSON,
-  IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,50 +54,4 @@ export interface IoK8sApiAutoscalingV1HorizontalPodAutoscaler {
    * @memberof IoK8sApiAutoscalingV1HorizontalPodAutoscaler
    */
   status?: IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatus;
-}
-
-export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV1HorizontalPodAutoscaler {
-  return IoK8sApiAutoscalingV1HorizontalPodAutoscalerFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV1HorizontalPodAutoscaler {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec')
-      ? undefined
-      : IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerToJSON(
-  value?: IoK8sApiAutoscalingV1HorizontalPodAutoscaler | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpecToJSON(value.spec),
-    status: IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatusToJSON(value.status),
-  };
 }

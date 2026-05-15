@@ -12,7 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import {
+  IoK8sApiAuthorizationV1FieldSelectorAttributes,
+  IoK8sApiAuthorizationV1LabelSelectorAttributes,
+} from './';
+
 /**
  * ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface
  * @export
@@ -20,11 +24,23 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiAuthorizationV1ResourceAttributes {
   /**
+   *
+   * @type {IoK8sApiAuthorizationV1FieldSelectorAttributes}
+   * @memberof IoK8sApiAuthorizationV1ResourceAttributes
+   */
+  fieldSelector?: IoK8sApiAuthorizationV1FieldSelectorAttributes;
+  /**
    * Group is the API Group of the Resource.  "*" means all.
    * @type {string}
    * @memberof IoK8sApiAuthorizationV1ResourceAttributes
    */
   group?: string;
+  /**
+   *
+   * @type {IoK8sApiAuthorizationV1LabelSelectorAttributes}
+   * @memberof IoK8sApiAuthorizationV1ResourceAttributes
+   */
+  labelSelector?: IoK8sApiAuthorizationV1LabelSelectorAttributes;
   /**
    * Name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
    * @type {string}
@@ -61,48 +77,4 @@ export interface IoK8sApiAuthorizationV1ResourceAttributes {
    * @memberof IoK8sApiAuthorizationV1ResourceAttributes
    */
   version?: string;
-}
-
-export function IoK8sApiAuthorizationV1ResourceAttributesFromJSON(
-  json: any,
-): IoK8sApiAuthorizationV1ResourceAttributes {
-  return IoK8sApiAuthorizationV1ResourceAttributesFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthorizationV1ResourceAttributesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthorizationV1ResourceAttributes {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    group: !exists(json, 'group') ? undefined : json['group'],
-    name: !exists(json, 'name') ? undefined : json['name'],
-    namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
-    resource: !exists(json, 'resource') ? undefined : json['resource'],
-    subresource: !exists(json, 'subresource') ? undefined : json['subresource'],
-    verb: !exists(json, 'verb') ? undefined : json['verb'],
-    version: !exists(json, 'version') ? undefined : json['version'],
-  };
-}
-
-export function IoK8sApiAuthorizationV1ResourceAttributesToJSON(
-  value?: IoK8sApiAuthorizationV1ResourceAttributes | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    group: value.group,
-    name: value.name,
-    namespace: value.namespace,
-    resource: value.resource,
-    subresource: value.subresource,
-    verb: value.verb,
-    version: value.version,
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ServiceReference holds a reference to Service.legacy.k8s.io
  * @export
@@ -37,40 +36,4 @@ export interface IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReference {
    * @memberof IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReference
    */
   port?: number;
-}
-
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReferenceFromJSON(
-  json: any,
-): IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReference {
-  return IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReferenceFromJSONTyped(json, false);
-}
-
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: !exists(json, 'name') ? undefined : json['name'],
-    namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
-    port: !exists(json, 'port') ? undefined : json['port'],
-  };
-}
-
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReferenceToJSON(
-  value?: IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    namespace: value.namespace,
-    port: value.port,
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Information about the condition of a component.
  * @export
@@ -43,42 +42,4 @@ export interface IoK8sApiCoreV1ComponentCondition {
    * @memberof IoK8sApiCoreV1ComponentCondition
    */
   type: string;
-}
-
-export function IoK8sApiCoreV1ComponentConditionFromJSON(
-  json: any,
-): IoK8sApiCoreV1ComponentCondition {
-  return IoK8sApiCoreV1ComponentConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ComponentConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ComponentCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    error: !exists(json, 'error') ? undefined : json['error'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1ComponentConditionToJSON(
-  value?: IoK8sApiCoreV1ComponentCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    error: value.error,
-    message: value.message,
-    status: value.status,
-    type: value.type,
-  };
 }

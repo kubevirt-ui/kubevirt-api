@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAppsV1StatefulSetCondition,
-  IoK8sApiAppsV1StatefulSetConditionFromJSON,
-  IoK8sApiAppsV1StatefulSetConditionToJSON,
 } from './';
 
 /**
@@ -26,11 +23,11 @@ import {
  */
 export interface IoK8sApiAppsV1StatefulSetStatus {
   /**
-   * Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.
+   * Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset.
    * @type {number}
    * @memberof IoK8sApiAppsV1StatefulSetStatus
    */
-  availableReplicas: number;
+  availableReplicas?: number;
   /**
    * collisionCount is the count of hash collisions for the StatefulSet. The StatefulSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision.
    * @type {number}
@@ -85,61 +82,4 @@ export interface IoK8sApiAppsV1StatefulSetStatus {
    * @memberof IoK8sApiAppsV1StatefulSetStatus
    */
   updatedReplicas?: number;
-}
-
-export function IoK8sApiAppsV1StatefulSetStatusFromJSON(
-  json: any,
-): IoK8sApiAppsV1StatefulSetStatus {
-  return IoK8sApiAppsV1StatefulSetStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1StatefulSetStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1StatefulSetStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    availableReplicas: json['availableReplicas'],
-    collisionCount: !exists(json, 'collisionCount') ? undefined : json['collisionCount'],
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(IoK8sApiAppsV1StatefulSetConditionFromJSON),
-    currentReplicas: !exists(json, 'currentReplicas') ? undefined : json['currentReplicas'],
-    currentRevision: !exists(json, 'currentRevision') ? undefined : json['currentRevision'],
-    observedGeneration: !exists(json, 'observedGeneration')
-      ? undefined
-      : json['observedGeneration'],
-    readyReplicas: !exists(json, 'readyReplicas') ? undefined : json['readyReplicas'],
-    replicas: json['replicas'],
-    updateRevision: !exists(json, 'updateRevision') ? undefined : json['updateRevision'],
-    updatedReplicas: !exists(json, 'updatedReplicas') ? undefined : json['updatedReplicas'],
-  };
-}
-
-export function IoK8sApiAppsV1StatefulSetStatusToJSON(
-  value?: IoK8sApiAppsV1StatefulSetStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    availableReplicas: value.availableReplicas,
-    collisionCount: value.collisionCount,
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApiAppsV1StatefulSetConditionToJSON),
-    currentReplicas: value.currentReplicas,
-    currentRevision: value.currentRevision,
-    observedGeneration: value.observedGeneration,
-    readyReplicas: value.readyReplicas,
-    replicas: value.replicas,
-    updateRevision: value.updateRevision,
-    updatedReplicas: value.updatedReplicas,
-  };
 }

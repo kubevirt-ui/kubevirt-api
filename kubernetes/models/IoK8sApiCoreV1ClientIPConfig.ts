@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ClientIPConfig represents the configurations of Client IP based session affinity.
  * @export
@@ -25,34 +24,4 @@ export interface IoK8sApiCoreV1ClientIPConfig {
    * @memberof IoK8sApiCoreV1ClientIPConfig
    */
   timeoutSeconds?: number;
-}
-
-export function IoK8sApiCoreV1ClientIPConfigFromJSON(json: any): IoK8sApiCoreV1ClientIPConfig {
-  return IoK8sApiCoreV1ClientIPConfigFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ClientIPConfigFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ClientIPConfig {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    timeoutSeconds: !exists(json, 'timeoutSeconds') ? undefined : json['timeoutSeconds'],
-  };
-}
-
-export function IoK8sApiCoreV1ClientIPConfigToJSON(
-  value?: IoK8sApiCoreV1ClientIPConfig | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    timeoutSeconds: value.timeoutSeconds,
-  };
 }

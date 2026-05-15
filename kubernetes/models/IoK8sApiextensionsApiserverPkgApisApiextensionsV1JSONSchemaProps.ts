@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import {
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentation,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentationFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentationToJSON,
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleToJSON,
 } from './';
 
 /**
@@ -121,7 +116,7 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProp
   /**
    * format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:
    *
-   * - bsonobjectid: a bson object ID, i.e. a 24 characters hex string - uri: an URI as parsed by Golang net/url.ParseRequestURI - email: an email address as parsed by Golang net/mail.ParseAddress - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034]. - ipv4: an IPv4 IP as parsed by Golang net.ParseIP - ipv6: an IPv6 IP as parsed by Golang net.ParseIP - cidr: a CIDR as parsed by Golang net.ParseCIDR - mac: a MAC address as parsed by Golang net.ParseMAC - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041" - isbn10: an ISBN10 number string like "0321751043" - isbn13: an ISBN13 number string like "978-0321751041" - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$ with any non digit characters mixed in - ssn: a U.S. social security number following the regex ^\d{3}[- ]?\d{2}[- ]?\d{4}$ - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$ - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559" - byte: base64 encoded binary data - password: any kind of string - date: a date string like "2006-01-02" as defined by full-date in RFC3339 - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+   * - bsonobjectid: a bson object ID, i.e. a 24 characters hex string - uri: an URI as parsed by Golang net/url.ParseRequestURI - email: an email address as parsed by Golang net/mail.ParseAddress - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034]. - ipv4: an IPv4 IP as parsed by Golang net.ParseIP - ipv6: an IPv6 IP as parsed by Golang net.ParseIP - cidr: a CIDR as parsed by Golang net.ParseCIDR - mac: a MAC address as parsed by Golang net.ParseMAC - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041" - isbn10: an ISBN10 number string like "0321751043" - isbn13: an ISBN13 number string like "978-0321751041" - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\\d{3})\\d{11})$ with any non digit characters mixed in - ssn: a U.S. social security number following the regex ^\\d{3}[- ]?\\d{2}[- ]?\\d{4}$ - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$ - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559" - byte: base64 encoded binary data - password: any kind of string - date: a date string like "2006-01-02" as defined by full-date in RFC3339 - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
    * @type {string}
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProps
    */
@@ -324,218 +319,9 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProp
    */
   xKubernetesPreserveUnknownFields?: boolean;
   /**
-   * x-kubernetes-validations describes a list of validation rules written in the CEL expression language. This field is an alpha-level. Using this field requires the feature gate `CustomResourceValidationExpressions` to be enabled.
+   * x-kubernetes-validations describes a list of validation rules written in the CEL expression language.
    * @type {Array<IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule>}
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProps
    */
   xKubernetesValidations?: Array<IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule>;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProps {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsFromJSONTyped(json, false);
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProps {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    $ref: !exists(json, '$ref') ? undefined : json['$ref'],
-    $schema: !exists(json, '$schema') ? undefined : json['$schema'],
-    additionalItems: !exists(json, 'additionalItems') ? undefined : json['additionalItems'],
-    additionalProperties: !exists(json, 'additionalProperties')
-      ? undefined
-      : json['additionalProperties'],
-    allOf: !exists(json, 'allOf')
-      ? undefined
-      : (json['allOf'] as Array<any>).map(
-          IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsFromJSON,
-        ),
-    anyOf: !exists(json, 'anyOf')
-      ? undefined
-      : (json['anyOf'] as Array<any>).map(
-          IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsFromJSON,
-        ),
-    _default: !exists(json, 'default') ? undefined : json['default'],
-    definitions: !exists(json, 'definitions')
-      ? undefined
-      : mapValues(
-          json['definitions'],
-          IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsFromJSON,
-        ),
-    dependencies: !exists(json, 'dependencies') ? undefined : json['dependencies'],
-    description: !exists(json, 'description') ? undefined : json['description'],
-    _enum: !exists(json, 'enum') ? undefined : json['enum'],
-    example: !exists(json, 'example') ? undefined : json['example'],
-    exclusiveMaximum: !exists(json, 'exclusiveMaximum') ? undefined : json['exclusiveMaximum'],
-    exclusiveMinimum: !exists(json, 'exclusiveMinimum') ? undefined : json['exclusiveMinimum'],
-    externalDocs: !exists(json, 'externalDocs')
-      ? undefined
-      : IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentationFromJSON(
-          json['externalDocs'],
-        ),
-    format: !exists(json, 'format') ? undefined : json['format'],
-    id: !exists(json, 'id') ? undefined : json['id'],
-    items: !exists(json, 'items') ? undefined : json['items'],
-    maxItems: !exists(json, 'maxItems') ? undefined : json['maxItems'],
-    maxLength: !exists(json, 'maxLength') ? undefined : json['maxLength'],
-    maxProperties: !exists(json, 'maxProperties') ? undefined : json['maxProperties'],
-    maximum: !exists(json, 'maximum') ? undefined : json['maximum'],
-    minItems: !exists(json, 'minItems') ? undefined : json['minItems'],
-    minLength: !exists(json, 'minLength') ? undefined : json['minLength'],
-    minProperties: !exists(json, 'minProperties') ? undefined : json['minProperties'],
-    minimum: !exists(json, 'minimum') ? undefined : json['minimum'],
-    multipleOf: !exists(json, 'multipleOf') ? undefined : json['multipleOf'],
-    not: !exists(json, 'not')
-      ? undefined
-      : IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsFromJSON(json['not']),
-    nullable: !exists(json, 'nullable') ? undefined : json['nullable'],
-    oneOf: !exists(json, 'oneOf')
-      ? undefined
-      : (json['oneOf'] as Array<any>).map(
-          IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsFromJSON,
-        ),
-    pattern: !exists(json, 'pattern') ? undefined : json['pattern'],
-    patternProperties: !exists(json, 'patternProperties')
-      ? undefined
-      : mapValues(
-          json['patternProperties'],
-          IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsFromJSON,
-        ),
-    properties: !exists(json, 'properties')
-      ? undefined
-      : mapValues(
-          json['properties'],
-          IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsFromJSON,
-        ),
-    required: !exists(json, 'required') ? undefined : json['required'],
-    title: !exists(json, 'title') ? undefined : json['title'],
-    type: !exists(json, 'type') ? undefined : json['type'],
-    uniqueItems: !exists(json, 'uniqueItems') ? undefined : json['uniqueItems'],
-    xKubernetesEmbeddedResource: !exists(json, 'x-kubernetes-embedded-resource')
-      ? undefined
-      : json['x-kubernetes-embedded-resource'],
-    xKubernetesIntOrString: !exists(json, 'x-kubernetes-int-or-string')
-      ? undefined
-      : json['x-kubernetes-int-or-string'],
-    xKubernetesListMapKeys: !exists(json, 'x-kubernetes-list-map-keys')
-      ? undefined
-      : json['x-kubernetes-list-map-keys'],
-    xKubernetesListType: !exists(json, 'x-kubernetes-list-type')
-      ? undefined
-      : json['x-kubernetes-list-type'],
-    xKubernetesMapType: !exists(json, 'x-kubernetes-map-type')
-      ? undefined
-      : json['x-kubernetes-map-type'],
-    xKubernetesPreserveUnknownFields: !exists(json, 'x-kubernetes-preserve-unknown-fields')
-      ? undefined
-      : json['x-kubernetes-preserve-unknown-fields'],
-    xKubernetesValidations: !exists(json, 'x-kubernetes-validations')
-      ? undefined
-      : (json['x-kubernetes-validations'] as Array<any>).map(
-          IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProps | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    $ref: value.$ref,
-    $schema: value.$schema,
-    additionalItems: value.additionalItems,
-    additionalProperties: value.additionalProperties,
-    allOf:
-      value.allOf === undefined
-        ? undefined
-        : (value.allOf as Array<any>).map(
-            IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsToJSON,
-          ),
-    anyOf:
-      value.anyOf === undefined
-        ? undefined
-        : (value.anyOf as Array<any>).map(
-            IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsToJSON,
-          ),
-    default: value._default,
-    definitions:
-      value.definitions === undefined
-        ? undefined
-        : mapValues(
-            value.definitions,
-            IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsToJSON,
-          ),
-    dependencies: value.dependencies,
-    description: value.description,
-    enum: value._enum,
-    example: value.example,
-    exclusiveMaximum: value.exclusiveMaximum,
-    exclusiveMinimum: value.exclusiveMinimum,
-    externalDocs: IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentationToJSON(
-      value.externalDocs,
-    ),
-    format: value.format,
-    id: value.id,
-    items: value.items,
-    maxItems: value.maxItems,
-    maxLength: value.maxLength,
-    maxProperties: value.maxProperties,
-    maximum: value.maximum,
-    minItems: value.minItems,
-    minLength: value.minLength,
-    minProperties: value.minProperties,
-    minimum: value.minimum,
-    multipleOf: value.multipleOf,
-    not: IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsToJSON(value.not),
-    nullable: value.nullable,
-    oneOf:
-      value.oneOf === undefined
-        ? undefined
-        : (value.oneOf as Array<any>).map(
-            IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsToJSON,
-          ),
-    pattern: value.pattern,
-    patternProperties:
-      value.patternProperties === undefined
-        ? undefined
-        : mapValues(
-            value.patternProperties,
-            IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsToJSON,
-          ),
-    properties:
-      value.properties === undefined
-        ? undefined
-        : mapValues(
-            value.properties,
-            IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsToJSON,
-          ),
-    required: value.required,
-    title: value.title,
-    type: value.type,
-    uniqueItems: value.uniqueItems,
-    'x-kubernetes-embedded-resource': value.xKubernetesEmbeddedResource,
-    'x-kubernetes-int-or-string': value.xKubernetesIntOrString,
-    'x-kubernetes-list-map-keys': value.xKubernetesListMapKeys,
-    'x-kubernetes-list-type': value.xKubernetesListType,
-    'x-kubernetes-map-type': value.xKubernetesMapType,
-    'x-kubernetes-preserve-unknown-fields': value.xKubernetesPreserveUnknownFields,
-    'x-kubernetes-validations':
-      value.xKubernetesValidations === undefined
-        ? undefined
-        : (value.xKubernetesValidations as Array<any>).map(
-            IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleToJSON,
-          ),
-  };
 }

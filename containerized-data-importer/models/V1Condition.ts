@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Condition represents the state of the operator's reconciliation functionality.
  * @export
@@ -55,42 +54,4 @@ export interface V1Condition {
    * @memberof V1Condition
    */
   type: string;
-}
-
-export function V1ConditionFromJSON(json: any): V1Condition {
-  return V1ConditionFromJSONTyped(json, false);
-}
-
-export function V1ConditionFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Condition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastHeartbeatTime: !exists(json, 'lastHeartbeatTime') ? undefined : json['lastHeartbeatTime'],
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function V1ConditionToJSON(value?: V1Condition | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastHeartbeatTime: value.lastHeartbeatTime === undefined ? undefined : value.lastHeartbeatTime,
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

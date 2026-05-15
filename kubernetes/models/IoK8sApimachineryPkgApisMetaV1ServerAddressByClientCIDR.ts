@@ -31,37 +31,3 @@ export interface IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDR {
    */
   serverAddress: string;
 }
-
-export function IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDR {
-  return IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDR {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    clientCIDR: json['clientCIDR'],
-    serverAddress: json['serverAddress'],
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDRToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDR | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    clientCIDR: value.clientCIDR,
-    serverAddress: value.serverAddress,
-  };
-}

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * SecretKeySelector selects a key of a Secret.
  * @export
@@ -26,7 +25,7 @@ export interface IoK8sApiCoreV1SecretKeySelector {
    */
   key: string;
   /**
-   * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+   * Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @type {string}
    * @memberof IoK8sApiCoreV1SecretKeySelector
    */
@@ -37,40 +36,4 @@ export interface IoK8sApiCoreV1SecretKeySelector {
    * @memberof IoK8sApiCoreV1SecretKeySelector
    */
   optional?: boolean;
-}
-
-export function IoK8sApiCoreV1SecretKeySelectorFromJSON(
-  json: any,
-): IoK8sApiCoreV1SecretKeySelector {
-  return IoK8sApiCoreV1SecretKeySelectorFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1SecretKeySelectorFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1SecretKeySelector {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    key: json['key'],
-    name: !exists(json, 'name') ? undefined : json['name'],
-    optional: !exists(json, 'optional') ? undefined : json['optional'],
-  };
-}
-
-export function IoK8sApiCoreV1SecretKeySelectorToJSON(
-  value?: IoK8sApiCoreV1SecretKeySelector | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    key: value.key,
-    name: value.name,
-    optional: value.optional,
-  };
 }

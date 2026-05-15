@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * VolumeError captures an error encountered during a volume operation.
  * @export
@@ -20,7 +19,15 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiStorageV1VolumeError {
   /**
-   * String detailing the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.
+   * errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.
+   *
+   * This is an optional, alpha field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
+   * @type {number}
+   * @memberof IoK8sApiStorageV1VolumeError
+   */
+  errorCode?: number;
+  /**
+   * message represents the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.
    * @type {string}
    * @memberof IoK8sApiStorageV1VolumeError
    */
@@ -31,36 +38,4 @@ export interface IoK8sApiStorageV1VolumeError {
    * @memberof IoK8sApiStorageV1VolumeError
    */
   time?: string;
-}
-
-export function IoK8sApiStorageV1VolumeErrorFromJSON(json: any): IoK8sApiStorageV1VolumeError {
-  return IoK8sApiStorageV1VolumeErrorFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStorageV1VolumeErrorFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStorageV1VolumeError {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    message: !exists(json, 'message') ? undefined : json['message'],
-    time: !exists(json, 'time') ? undefined : json['time'],
-  };
-}
-
-export function IoK8sApiStorageV1VolumeErrorToJSON(
-  value?: IoK8sApiStorageV1VolumeError | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    message: value.message,
-    time: value.time === undefined ? undefined : value.time,
-  };
 }

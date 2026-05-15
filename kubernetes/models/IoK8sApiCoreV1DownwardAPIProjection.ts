@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1DownwardAPIVolumeFile,
-  IoK8sApiCoreV1DownwardAPIVolumeFileFromJSON,
-  IoK8sApiCoreV1DownwardAPIVolumeFileToJSON,
 } from './';
 
 /**
@@ -31,41 +28,4 @@ export interface IoK8sApiCoreV1DownwardAPIProjection {
    * @memberof IoK8sApiCoreV1DownwardAPIProjection
    */
   items?: Array<IoK8sApiCoreV1DownwardAPIVolumeFile>;
-}
-
-export function IoK8sApiCoreV1DownwardAPIProjectionFromJSON(
-  json: any,
-): IoK8sApiCoreV1DownwardAPIProjection {
-  return IoK8sApiCoreV1DownwardAPIProjectionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1DownwardAPIProjectionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1DownwardAPIProjection {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    items: !exists(json, 'items')
-      ? undefined
-      : (json['items'] as Array<any>).map(IoK8sApiCoreV1DownwardAPIVolumeFileFromJSON),
-  };
-}
-
-export function IoK8sApiCoreV1DownwardAPIProjectionToJSON(
-  value?: IoK8sApiCoreV1DownwardAPIProjection | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    items:
-      value.items === undefined
-        ? undefined
-        : (value.items as Array<any>).map(IoK8sApiCoreV1DownwardAPIVolumeFileToJSON),
-  };
 }

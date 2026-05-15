@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
  * @export
@@ -37,40 +36,4 @@ export interface IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirement {
    * @memberof IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirement
    */
   values?: Array<string>;
-}
-
-export function IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirement {
-  return IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirement {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    key: json['key'],
-    operator: json['operator'],
-    values: !exists(json, 'values') ? undefined : json['values'],
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirementToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirement | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    key: value.key,
-    operator: value.operator,
-    values: value.values,
-  };
 }

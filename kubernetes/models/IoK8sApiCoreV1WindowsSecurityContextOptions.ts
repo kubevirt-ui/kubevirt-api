@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * WindowsSecurityContextOptions contain Windows-specific options and credentials.
  * @export
@@ -32,7 +31,7 @@ export interface IoK8sApiCoreV1WindowsSecurityContextOptions {
    */
   gmsaCredentialSpecName?: string;
   /**
-   * HostProcess determines if a container should be run as a 'Host Process' container. This field is alpha-level and will only be honored by components that enable the WindowsHostProcessContainers feature flag. Setting this field without the feature flag will result in errors when validating the Pod. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers).  In addition, if HostProcess is true then HostNetwork must also be set to true.
+   * HostProcess determines if a container should be run as a 'Host Process' container. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers). In addition, if HostProcess is true then HostNetwork must also be set to true.
    * @type {boolean}
    * @memberof IoK8sApiCoreV1WindowsSecurityContextOptions
    */
@@ -43,46 +42,4 @@ export interface IoK8sApiCoreV1WindowsSecurityContextOptions {
    * @memberof IoK8sApiCoreV1WindowsSecurityContextOptions
    */
   runAsUserName?: string;
-}
-
-export function IoK8sApiCoreV1WindowsSecurityContextOptionsFromJSON(
-  json: any,
-): IoK8sApiCoreV1WindowsSecurityContextOptions {
-  return IoK8sApiCoreV1WindowsSecurityContextOptionsFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1WindowsSecurityContextOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1WindowsSecurityContextOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    gmsaCredentialSpec: !exists(json, 'gmsaCredentialSpec')
-      ? undefined
-      : json['gmsaCredentialSpec'],
-    gmsaCredentialSpecName: !exists(json, 'gmsaCredentialSpecName')
-      ? undefined
-      : json['gmsaCredentialSpecName'],
-    hostProcess: !exists(json, 'hostProcess') ? undefined : json['hostProcess'],
-    runAsUserName: !exists(json, 'runAsUserName') ? undefined : json['runAsUserName'],
-  };
-}
-
-export function IoK8sApiCoreV1WindowsSecurityContextOptionsToJSON(
-  value?: IoK8sApiCoreV1WindowsSecurityContextOptions | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    gmsaCredentialSpec: value.gmsaCredentialSpec,
-    gmsaCredentialSpecName: value.gmsaCredentialSpecName,
-    hostProcess: value.hostProcess,
-    runAsUserName: value.runAsUserName,
-  };
 }

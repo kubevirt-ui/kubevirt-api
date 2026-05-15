@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1ServiceReference,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1ServiceReferenceFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1ServiceReferenceToJSON,
 } from './';
 
 /**
@@ -53,45 +50,4 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientC
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfig
    */
   url?: string;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfigFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfig {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfigFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfigFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfig {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    caBundle: !exists(json, 'caBundle') ? undefined : json['caBundle'],
-    service: !exists(json, 'service')
-      ? undefined
-      : IoK8sApiextensionsApiserverPkgApisApiextensionsV1ServiceReferenceFromJSON(json['service']),
-    url: !exists(json, 'url') ? undefined : json['url'],
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfigToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfig | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    caBundle: value.caBundle,
-    service: IoK8sApiextensionsApiserverPkgApisApiextensionsV1ServiceReferenceToJSON(value.service),
-    url: value.url,
-  };
 }

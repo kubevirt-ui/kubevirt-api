@@ -12,17 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1LabelSelector,
-  V1LabelSelectorFromJSON,
-  V1LabelSelectorToJSON,
-  V1ResourceRequirements,
-  V1ResourceRequirementsFromJSON,
-  V1ResourceRequirementsToJSON,
   V1TypedLocalObjectReference,
-  V1TypedLocalObjectReferenceFromJSON,
-  V1TypedLocalObjectReferenceToJSON,
+  V1TypedObjectReference,
+  V1VolumeResourceRequirements,
 } from './';
 
 /**
@@ -36,7 +30,7 @@ export interface V1beta1StorageSpec {
    * @type {Array<string>}
    * @memberof V1beta1StorageSpec
    */
-  accessModes?: Array<string>;
+  accessModes?: Array<V1beta1StorageSpecAccessModesEnum>;
   /**
    *
    * @type {V1TypedLocalObjectReference}
@@ -45,10 +39,16 @@ export interface V1beta1StorageSpec {
   dataSource?: V1TypedLocalObjectReference;
   /**
    *
-   * @type {V1ResourceRequirements}
+   * @type {V1TypedObjectReference}
    * @memberof V1beta1StorageSpec
    */
-  resources?: V1ResourceRequirements;
+  dataSourceRef?: V1TypedObjectReference;
+  /**
+   *
+   * @type {V1VolumeResourceRequirements}
+   * @memberof V1beta1StorageSpec
+   */
+  resources?: V1VolumeResourceRequirements;
   /**
    *
    * @type {V1LabelSelector}
@@ -63,10 +63,15 @@ export interface V1beta1StorageSpec {
   storageClassName?: string;
   /**
    * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
+   *
+   * Possible enum values:
+   *  - `"Block"` means the volume will not be formatted with a filesystem and will remain a raw block device.
+   *  - `"Filesystem"` means the volume will be or is formatted with a filesystem.
+   *  - `"FromStorageProfile"` means the volume mode will be auto selected by CDI according to a matching StorageProfile
    * @type {string}
    * @memberof V1beta1StorageSpec
    */
-  volumeMode?: string;
+  volumeMode?: V1beta1StorageSpecVolumeModeEnum;
   /**
    * VolumeName is the binding reference to the PersistentVolume backing this claim.
    * @type {string}
@@ -75,46 +80,22 @@ export interface V1beta1StorageSpec {
   volumeName?: string;
 }
 
-export function V1beta1StorageSpecFromJSON(json: any): V1beta1StorageSpec {
-  return V1beta1StorageSpecFromJSONTyped(json, false);
+/**
+ * @export
+ * @enum {string}
+ */
+export enum V1beta1StorageSpecAccessModesEnum {
+  ReadOnlyMany = 'ReadOnlyMany',
+  ReadWriteMany = 'ReadWriteMany',
+  ReadWriteOnce = 'ReadWriteOnce',
+  ReadWriteOncePod = 'ReadWriteOncePod',
 }
-
-export function V1beta1StorageSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1StorageSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    accessModes: !exists(json, 'accessModes') ? undefined : json['accessModes'],
-    dataSource: !exists(json, 'dataSource')
-      ? undefined
-      : V1TypedLocalObjectReferenceFromJSON(json['dataSource']),
-    resources: !exists(json, 'resources')
-      ? undefined
-      : V1ResourceRequirementsFromJSON(json['resources']),
-    selector: !exists(json, 'selector') ? undefined : V1LabelSelectorFromJSON(json['selector']),
-    storageClassName: !exists(json, 'storageClassName') ? undefined : json['storageClassName'],
-    volumeMode: !exists(json, 'volumeMode') ? undefined : json['volumeMode'],
-    volumeName: !exists(json, 'volumeName') ? undefined : json['volumeName'],
-  };
-}
-
-export function V1beta1StorageSpecToJSON(value?: V1beta1StorageSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    accessModes: value.accessModes,
-    dataSource: V1TypedLocalObjectReferenceToJSON(value.dataSource),
-    resources: V1ResourceRequirementsToJSON(value.resources),
-    selector: V1LabelSelectorToJSON(value.selector),
-    storageClassName: value.storageClassName,
-    volumeMode: value.volumeMode,
-    volumeName: value.volumeName,
-  };
+/**
+ * @export
+ * @enum {string}
+ */
+export enum V1beta1StorageSpecVolumeModeEnum {
+  Block = 'Block',
+  Filesystem = 'Filesystem',
+  FromStorageProfile = 'FromStorageProfile',
 }

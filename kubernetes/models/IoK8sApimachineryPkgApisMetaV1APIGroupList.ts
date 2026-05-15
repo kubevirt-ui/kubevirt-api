@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1APIGroup,
-  IoK8sApimachineryPkgApisMetaV1APIGroupFromJSON,
-  IoK8sApimachineryPkgApisMetaV1APIGroupToJSON,
 } from './';
 
 /**
@@ -43,40 +40,4 @@ export interface IoK8sApimachineryPkgApisMetaV1APIGroupList {
    * @memberof IoK8sApimachineryPkgApisMetaV1APIGroupList
    */
   kind?: string;
-}
-
-export function IoK8sApimachineryPkgApisMetaV1APIGroupListFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1APIGroupList {
-  return IoK8sApimachineryPkgApisMetaV1APIGroupListFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1APIGroupListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1APIGroupList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    groups: (json['groups'] as Array<any>).map(IoK8sApimachineryPkgApisMetaV1APIGroupFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1APIGroupListToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1APIGroupList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    groups: (value.groups as Array<any>).map(IoK8sApimachineryPkgApisMetaV1APIGroupToJSON),
-    kind: value.kind,
-  };
 }

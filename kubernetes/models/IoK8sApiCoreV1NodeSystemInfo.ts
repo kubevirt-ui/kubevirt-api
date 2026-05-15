@@ -12,6 +12,10 @@
  * Do not edit the class manually.
  */
 
+import {
+  IoK8sApiCoreV1NodeSwapStatus,
+} from './';
+
 /**
  * NodeSystemInfo is a set of ids/uuids to uniquely identify the node.
  * @export
@@ -31,7 +35,7 @@ export interface IoK8sApiCoreV1NodeSystemInfo {
    */
   bootID: string;
   /**
-   * ContainerRuntime Version reported by the node through runtime remote API (e.g. docker://1.5.0).
+   * ContainerRuntime Version reported by the node through runtime remote API (e.g. containerd://1.4.2).
    * @type {string}
    * @memberof IoK8sApiCoreV1NodeSystemInfo
    */
@@ -43,7 +47,7 @@ export interface IoK8sApiCoreV1NodeSystemInfo {
    */
   kernelVersion: string;
   /**
-   * KubeProxy Version reported by the node.
+   * Deprecated: KubeProxy Version reported by the node.
    * @type {string}
    * @memberof IoK8sApiCoreV1NodeSystemInfo
    */
@@ -73,57 +77,15 @@ export interface IoK8sApiCoreV1NodeSystemInfo {
    */
   osImage: string;
   /**
+   *
+   * @type {IoK8sApiCoreV1NodeSwapStatus}
+   * @memberof IoK8sApiCoreV1NodeSystemInfo
+   */
+  swap?: IoK8sApiCoreV1NodeSwapStatus;
+  /**
    * SystemUUID reported by the node. For unique machine identification MachineID is preferred. This field is specific to Red Hat hosts https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/rhsm/uuid
    * @type {string}
    * @memberof IoK8sApiCoreV1NodeSystemInfo
    */
   systemUUID: string;
-}
-
-export function IoK8sApiCoreV1NodeSystemInfoFromJSON(json: any): IoK8sApiCoreV1NodeSystemInfo {
-  return IoK8sApiCoreV1NodeSystemInfoFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NodeSystemInfoFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NodeSystemInfo {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    architecture: json['architecture'],
-    bootID: json['bootID'],
-    containerRuntimeVersion: json['containerRuntimeVersion'],
-    kernelVersion: json['kernelVersion'],
-    kubeProxyVersion: json['kubeProxyVersion'],
-    kubeletVersion: json['kubeletVersion'],
-    machineID: json['machineID'],
-    operatingSystem: json['operatingSystem'],
-    osImage: json['osImage'],
-    systemUUID: json['systemUUID'],
-  };
-}
-
-export function IoK8sApiCoreV1NodeSystemInfoToJSON(
-  value?: IoK8sApiCoreV1NodeSystemInfo | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    architecture: value.architecture,
-    bootID: value.bootID,
-    containerRuntimeVersion: value.containerRuntimeVersion,
-    kernelVersion: value.kernelVersion,
-    kubeProxyVersion: value.kubeProxyVersion,
-    kubeletVersion: value.kubeletVersion,
-    machineID: value.machineID,
-    operatingSystem: value.operatingSystem,
-    osImage: value.osImage,
-    systemUUID: value.systemUUID,
-  };
 }

@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAutoscalingV2CrossVersionObjectReference,
-  IoK8sApiAutoscalingV2CrossVersionObjectReferenceFromJSON,
-  IoK8sApiAutoscalingV2CrossVersionObjectReferenceToJSON,
   IoK8sApiAutoscalingV2HorizontalPodAutoscalerBehavior,
-  IoK8sApiAutoscalingV2HorizontalPodAutoscalerBehaviorFromJSON,
-  IoK8sApiAutoscalingV2HorizontalPodAutoscalerBehaviorToJSON,
   IoK8sApiAutoscalingV2MetricSpec,
-  IoK8sApiAutoscalingV2MetricSpecFromJSON,
-  IoK8sApiAutoscalingV2MetricSpecToJSON,
 } from './';
 
 /**
@@ -61,53 +54,4 @@ export interface IoK8sApiAutoscalingV2HorizontalPodAutoscalerSpec {
    * @memberof IoK8sApiAutoscalingV2HorizontalPodAutoscalerSpec
    */
   scaleTargetRef: IoK8sApiAutoscalingV2CrossVersionObjectReference;
-}
-
-export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerSpecFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV2HorizontalPodAutoscalerSpec {
-  return IoK8sApiAutoscalingV2HorizontalPodAutoscalerSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV2HorizontalPodAutoscalerSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    behavior: !exists(json, 'behavior')
-      ? undefined
-      : IoK8sApiAutoscalingV2HorizontalPodAutoscalerBehaviorFromJSON(json['behavior']),
-    maxReplicas: json['maxReplicas'],
-    metrics: !exists(json, 'metrics')
-      ? undefined
-      : (json['metrics'] as Array<any>).map(IoK8sApiAutoscalingV2MetricSpecFromJSON),
-    minReplicas: !exists(json, 'minReplicas') ? undefined : json['minReplicas'],
-    scaleTargetRef: IoK8sApiAutoscalingV2CrossVersionObjectReferenceFromJSON(
-      json['scaleTargetRef'],
-    ),
-  };
-}
-
-export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerSpecToJSON(
-  value?: IoK8sApiAutoscalingV2HorizontalPodAutoscalerSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    behavior: IoK8sApiAutoscalingV2HorizontalPodAutoscalerBehaviorToJSON(value.behavior),
-    maxReplicas: value.maxReplicas,
-    metrics:
-      value.metrics === undefined
-        ? undefined
-        : (value.metrics as Array<any>).map(IoK8sApiAutoscalingV2MetricSpecToJSON),
-    minReplicas: value.minReplicas,
-    scaleTargetRef: IoK8sApiAutoscalingV2CrossVersionObjectReferenceToJSON(value.scaleTargetRef),
-  };
 }

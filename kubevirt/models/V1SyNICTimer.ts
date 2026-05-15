@@ -12,52 +12,24 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1FeatureState, V1FeatureStateFromJSON, V1FeatureStateToJSON } from './';
+import type { V1FeatureState } from './V1FeatureState';
 
 /**
- *
+ * 
  * @export
  * @interface V1SyNICTimer
  */
 export interface V1SyNICTimer {
-  /**
-   *
-   * @type {V1FeatureState}
-   * @memberof V1SyNICTimer
-   */
-  direct?: V1FeatureState;
-  /**
-   *
-   * @type {boolean}
-   * @memberof V1SyNICTimer
-   */
-  enabled?: boolean;
-}
-
-export function V1SyNICTimerFromJSON(json: any): V1SyNICTimer {
-  return V1SyNICTimerFromJSONTyped(json, false);
-}
-
-export function V1SyNICTimerFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1SyNICTimer {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    direct: !exists(json, 'direct') ? undefined : V1FeatureStateFromJSON(json['direct']),
-    enabled: !exists(json, 'enabled') ? undefined : json['enabled'],
-  };
-}
-
-export function V1SyNICTimerToJSON(value?: V1SyNICTimer | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    direct: V1FeatureStateToJSON(value.direct),
-    enabled: value.enabled,
-  };
+    /**
+     * 
+     * @type {V1FeatureState}
+     * @memberof V1SyNICTimer
+     */
+    direct?: V1FeatureState;
+    /**
+     * Enabled determines if the feature should be enabled or disabled on the guest. Defaults to true.
+     * @type {boolean}
+     * @memberof V1SyNICTimer
+     */
+    enabled?: boolean;
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * DataVolumeSourceHTTP can be either an http or https endpoint, with an optional basic auth user name and password, and an optional configmap containing additional CAs
  * @export
@@ -25,6 +24,12 @@ export interface V1beta1DataVolumeSourceHTTP {
    * @memberof V1beta1DataVolumeSourceHTTP
    */
   certConfigMap?: string;
+  /**
+   * Checksum is the expected checksum of the file. Format: "algorithm:hash", e.g., "sha256:1234abcd..." or "md5:5678efgh..." Supported algorithms: md5, sha1, sha256, sha512 If specified, the importer will verify the downloaded content matches this checksum
+   * @type {string}
+   * @memberof V1beta1DataVolumeSourceHTTP
+   */
+  checksum?: string;
   /**
    * ExtraHeaders is a list of strings containing extra headers to include with HTTP transfer requests
    * @type {Array<string>}
@@ -49,42 +54,4 @@ export interface V1beta1DataVolumeSourceHTTP {
    * @memberof V1beta1DataVolumeSourceHTTP
    */
   url: string;
-}
-
-export function V1beta1DataVolumeSourceHTTPFromJSON(json: any): V1beta1DataVolumeSourceHTTP {
-  return V1beta1DataVolumeSourceHTTPFromJSONTyped(json, false);
-}
-
-export function V1beta1DataVolumeSourceHTTPFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataVolumeSourceHTTP {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    certConfigMap: !exists(json, 'certConfigMap') ? undefined : json['certConfigMap'],
-    extraHeaders: !exists(json, 'extraHeaders') ? undefined : json['extraHeaders'],
-    secretExtraHeaders: !exists(json, 'secretExtraHeaders')
-      ? undefined
-      : json['secretExtraHeaders'],
-    secretRef: !exists(json, 'secretRef') ? undefined : json['secretRef'],
-    url: json['url'],
-  };
-}
-
-export function V1beta1DataVolumeSourceHTTPToJSON(value?: V1beta1DataVolumeSourceHTTP | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    certConfigMap: value.certConfigMap,
-    extraHeaders: value.extraHeaders,
-    secretExtraHeaders: value.secretExtraHeaders,
-    secretRef: value.secretRef,
-    url: value.url,
-  };
 }

@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1Preconditions,
-  IoK8sApimachineryPkgApisMetaV1PreconditionsFromJSON,
-  IoK8sApimachineryPkgApisMetaV1PreconditionsToJSON,
 } from './';
 
 /**
@@ -44,6 +41,12 @@ export interface IoK8sApimachineryPkgApisMetaV1DeleteOptions {
    */
   gracePeriodSeconds?: number;
   /**
+   * if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it
+   * @type {boolean}
+   * @memberof IoK8sApimachineryPkgApisMetaV1DeleteOptions
+   */
+  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
+  /**
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @type {string}
    * @memberof IoK8sApimachineryPkgApisMetaV1DeleteOptions
@@ -67,52 +70,4 @@ export interface IoK8sApimachineryPkgApisMetaV1DeleteOptions {
    * @memberof IoK8sApimachineryPkgApisMetaV1DeleteOptions
    */
   propagationPolicy?: string;
-}
-
-export function IoK8sApimachineryPkgApisMetaV1DeleteOptionsFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1DeleteOptions {
-  return IoK8sApimachineryPkgApisMetaV1DeleteOptionsFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1DeleteOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1DeleteOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    dryRun: !exists(json, 'dryRun') ? undefined : json['dryRun'],
-    gracePeriodSeconds: !exists(json, 'gracePeriodSeconds')
-      ? undefined
-      : json['gracePeriodSeconds'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    orphanDependents: !exists(json, 'orphanDependents') ? undefined : json['orphanDependents'],
-    preconditions: !exists(json, 'preconditions')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1PreconditionsFromJSON(json['preconditions']),
-    propagationPolicy: !exists(json, 'propagationPolicy') ? undefined : json['propagationPolicy'],
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1DeleteOptionsToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1DeleteOptions | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    dryRun: value.dryRun,
-    gracePeriodSeconds: value.gracePeriodSeconds,
-    kind: value.kind,
-    orphanDependents: value.orphanDependents,
-    preconditions: IoK8sApimachineryPkgApisMetaV1PreconditionsToJSON(value.preconditions),
-    propagationPolicy: value.propagationPolicy,
-  };
 }

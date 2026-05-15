@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiDiscoveryV1EndpointSlice,
-  IoK8sApiDiscoveryV1EndpointSliceFromJSON,
-  IoK8sApiDiscoveryV1EndpointSliceToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -35,7 +30,7 @@ export interface IoK8sApiDiscoveryV1EndpointSliceList {
    */
   apiVersion?: string;
   /**
-   * List of endpoint slices
+   * items is the list of endpoint slices
    * @type {Array<IoK8sApiDiscoveryV1EndpointSlice>}
    * @memberof IoK8sApiDiscoveryV1EndpointSliceList
    */
@@ -52,44 +47,4 @@ export interface IoK8sApiDiscoveryV1EndpointSliceList {
    * @memberof IoK8sApiDiscoveryV1EndpointSliceList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiDiscoveryV1EndpointSliceListFromJSON(
-  json: any,
-): IoK8sApiDiscoveryV1EndpointSliceList {
-  return IoK8sApiDiscoveryV1EndpointSliceListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiDiscoveryV1EndpointSliceListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiDiscoveryV1EndpointSliceList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(IoK8sApiDiscoveryV1EndpointSliceFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiDiscoveryV1EndpointSliceListToJSON(
-  value?: IoK8sApiDiscoveryV1EndpointSliceList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(IoK8sApiDiscoveryV1EndpointSliceToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

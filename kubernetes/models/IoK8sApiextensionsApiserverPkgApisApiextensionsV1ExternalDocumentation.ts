@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ExternalDocumentation allows referencing an external resource for extended documentation.
  * @export
@@ -31,41 +30,4 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocume
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentation
    */
   url?: string;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentationFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentation {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentationFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentation {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    description: !exists(json, 'description') ? undefined : json['description'],
-    url: !exists(json, 'url') ? undefined : json['url'],
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentationToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1ExternalDocumentation | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    description: value.description,
-    url: value.url,
-  };
 }

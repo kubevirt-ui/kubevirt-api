@@ -25,28 +25,3 @@ export interface V1RootPaths {
    */
   paths: Array<string>;
 }
-
-export function V1RootPathsFromJSON(json: any): V1RootPaths {
-  return V1RootPathsFromJSONTyped(json, false);
-}
-
-export function V1RootPathsFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1RootPaths {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    paths: json['paths'],
-  };
-}
-
-export function V1RootPathsToJSON(value?: V1RootPaths | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    paths: value.paths,
-  };
-}

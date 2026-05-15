@@ -37,35 +37,3 @@ export interface IoK8sApiRbacV1RoleRef {
    */
   name: string;
 }
-
-export function IoK8sApiRbacV1RoleRefFromJSON(json: any): IoK8sApiRbacV1RoleRef {
-  return IoK8sApiRbacV1RoleRefFromJSONTyped(json, false);
-}
-
-export function IoK8sApiRbacV1RoleRefFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiRbacV1RoleRef {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiGroup: json['apiGroup'],
-    kind: json['kind'],
-    name: json['name'],
-  };
-}
-
-export function IoK8sApiRbacV1RoleRefToJSON(value?: IoK8sApiRbacV1RoleRef | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiGroup: value.apiGroup,
-    kind: value.kind,
-    name: value.name,
-  };
-}

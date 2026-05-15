@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiNetworkingV1NetworkPolicy,
-  IoK8sApiNetworkingV1NetworkPolicyFromJSON,
-  IoK8sApiNetworkingV1NetworkPolicyToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -35,7 +30,7 @@ export interface IoK8sApiNetworkingV1NetworkPolicyList {
    */
   apiVersion?: string;
   /**
-   * Items is a list of schema objects.
+   * items is a list of schema objects.
    * @type {Array<IoK8sApiNetworkingV1NetworkPolicy>}
    * @memberof IoK8sApiNetworkingV1NetworkPolicyList
    */
@@ -52,44 +47,4 @@ export interface IoK8sApiNetworkingV1NetworkPolicyList {
    * @memberof IoK8sApiNetworkingV1NetworkPolicyList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicyListFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1NetworkPolicyList {
-  return IoK8sApiNetworkingV1NetworkPolicyListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicyListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1NetworkPolicyList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(IoK8sApiNetworkingV1NetworkPolicyFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicyListToJSON(
-  value?: IoK8sApiNetworkingV1NetworkPolicyList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(IoK8sApiNetworkingV1NetworkPolicyToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

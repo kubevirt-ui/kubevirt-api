@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ClientIPConfig,
-  IoK8sApiCoreV1ClientIPConfigFromJSON,
-  IoK8sApiCoreV1ClientIPConfigToJSON,
 } from './';
 
 /**
@@ -31,38 +28,4 @@ export interface IoK8sApiCoreV1SessionAffinityConfig {
    * @memberof IoK8sApiCoreV1SessionAffinityConfig
    */
   clientIP?: IoK8sApiCoreV1ClientIPConfig;
-}
-
-export function IoK8sApiCoreV1SessionAffinityConfigFromJSON(
-  json: any,
-): IoK8sApiCoreV1SessionAffinityConfig {
-  return IoK8sApiCoreV1SessionAffinityConfigFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1SessionAffinityConfigFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1SessionAffinityConfig {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    clientIP: !exists(json, 'clientIP')
-      ? undefined
-      : IoK8sApiCoreV1ClientIPConfigFromJSON(json['clientIP']),
-  };
-}
-
-export function IoK8sApiCoreV1SessionAffinityConfigToJSON(
-  value?: IoK8sApiCoreV1SessionAffinityConfig | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    clientIP: IoK8sApiCoreV1ClientIPConfigToJSON(value.clientIP),
-  };
 }

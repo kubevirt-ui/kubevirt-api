@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.
  * @export
@@ -76,37 +75,4 @@ export enum V1TolerationEffectEnum {
 export enum V1TolerationOperatorEnum {
   Equal = 'Equal',
   Exists = 'Exists',
-}
-
-export function V1TolerationFromJSON(json: any): V1Toleration {
-  return V1TolerationFromJSONTyped(json, false);
-}
-
-export function V1TolerationFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Toleration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    effect: !exists(json, 'effect') ? undefined : json['effect'],
-    key: !exists(json, 'key') ? undefined : json['key'],
-    operator: !exists(json, 'operator') ? undefined : json['operator'],
-    tolerationSeconds: !exists(json, 'tolerationSeconds') ? undefined : json['tolerationSeconds'],
-    value: !exists(json, 'value') ? undefined : json['value'],
-  };
-}
-
-export function V1TolerationToJSON(value?: V1Toleration | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    effect: value.effect,
-    key: value.key,
-    operator: value.operator,
-    tolerationSeconds: value.tolerationSeconds,
-    value: value.value,
-  };
 }

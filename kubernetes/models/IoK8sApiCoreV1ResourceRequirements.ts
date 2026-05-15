@@ -12,7 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import {
+  IoK8sApiCoreV1ResourceClaim,
+} from './';
+
 /**
  * ResourceRequirements describes the compute resource requirements.
  * @export
@@ -20,49 +23,25 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1ResourceRequirements {
   /**
+   * Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.
+   *
+   * This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.
+   *
+   * This field is immutable. It can only be set for containers.
+   * @type {Array<IoK8sApiCoreV1ResourceClaim>}
+   * @memberof IoK8sApiCoreV1ResourceRequirements
+   */
+  claims?: Array<IoK8sApiCoreV1ResourceClaim>;
+  /**
    * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
    * @type {{ [key: string]: string; }}
    * @memberof IoK8sApiCoreV1ResourceRequirements
    */
   limits?: { [key: string]: string };
   /**
-   * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+   * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
    * @type {{ [key: string]: string; }}
    * @memberof IoK8sApiCoreV1ResourceRequirements
    */
   requests?: { [key: string]: string };
-}
-
-export function IoK8sApiCoreV1ResourceRequirementsFromJSON(
-  json: any,
-): IoK8sApiCoreV1ResourceRequirements {
-  return IoK8sApiCoreV1ResourceRequirementsFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ResourceRequirementsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ResourceRequirements {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    limits: !exists(json, 'limits') ? undefined : json['limits'],
-    requests: !exists(json, 'requests') ? undefined : json['requests'],
-  };
-}
-
-export function IoK8sApiCoreV1ResourceRequirementsToJSON(
-  value?: IoK8sApiCoreV1ResourceRequirements | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    limits: value.limits,
-    requests: value.requests,
-  };
 }

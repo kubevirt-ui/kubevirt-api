@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAppsV1DaemonSetSpec,
-  IoK8sApiAppsV1DaemonSetSpecFromJSON,
-  IoK8sApiAppsV1DaemonSetSpecToJSON,
   IoK8sApiAppsV1DaemonSetStatus,
-  IoK8sApiAppsV1DaemonSetStatusFromJSON,
-  IoK8sApiAppsV1DaemonSetStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,44 +54,4 @@ export interface IoK8sApiAppsV1DaemonSet {
    * @memberof IoK8sApiAppsV1DaemonSet
    */
   status?: IoK8sApiAppsV1DaemonSetStatus;
-}
-
-export function IoK8sApiAppsV1DaemonSetFromJSON(json: any): IoK8sApiAppsV1DaemonSet {
-  return IoK8sApiAppsV1DaemonSetFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1DaemonSetFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1DaemonSet {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec') ? undefined : IoK8sApiAppsV1DaemonSetSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiAppsV1DaemonSetStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiAppsV1DaemonSetToJSON(value?: IoK8sApiAppsV1DaemonSet | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiAppsV1DaemonSetSpecToJSON(value.spec),
-    status: IoK8sApiAppsV1DaemonSetStatusToJSON(value.status),
-  };
 }

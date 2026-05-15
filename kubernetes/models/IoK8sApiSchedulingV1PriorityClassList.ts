@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiSchedulingV1PriorityClass,
-  IoK8sApiSchedulingV1PriorityClassFromJSON,
-  IoK8sApiSchedulingV1PriorityClassToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -52,44 +47,4 @@ export interface IoK8sApiSchedulingV1PriorityClassList {
    * @memberof IoK8sApiSchedulingV1PriorityClassList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiSchedulingV1PriorityClassListFromJSON(
-  json: any,
-): IoK8sApiSchedulingV1PriorityClassList {
-  return IoK8sApiSchedulingV1PriorityClassListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiSchedulingV1PriorityClassListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiSchedulingV1PriorityClassList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(IoK8sApiSchedulingV1PriorityClassFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiSchedulingV1PriorityClassListToJSON(
-  value?: IoK8sApiSchedulingV1PriorityClassList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(IoK8sApiSchedulingV1PriorityClassToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

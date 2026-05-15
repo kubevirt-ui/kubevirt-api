@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiRbacV1ClusterRoleBinding,
-  IoK8sApiRbacV1ClusterRoleBindingFromJSON,
-  IoK8sApiRbacV1ClusterRoleBindingToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -52,44 +47,4 @@ export interface IoK8sApiRbacV1ClusterRoleBindingList {
    * @memberof IoK8sApiRbacV1ClusterRoleBindingList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiRbacV1ClusterRoleBindingListFromJSON(
-  json: any,
-): IoK8sApiRbacV1ClusterRoleBindingList {
-  return IoK8sApiRbacV1ClusterRoleBindingListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiRbacV1ClusterRoleBindingListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiRbacV1ClusterRoleBindingList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(IoK8sApiRbacV1ClusterRoleBindingFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiRbacV1ClusterRoleBindingListToJSON(
-  value?: IoK8sApiRbacV1ClusterRoleBindingList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(IoK8sApiRbacV1ClusterRoleBindingToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

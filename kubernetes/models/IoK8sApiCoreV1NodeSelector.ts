@@ -14,8 +14,6 @@
 
 import {
   IoK8sApiCoreV1NodeSelectorTerm,
-  IoK8sApiCoreV1NodeSelectorTermFromJSON,
-  IoK8sApiCoreV1NodeSelectorTermToJSON,
 } from './';
 
 /**
@@ -30,36 +28,4 @@ export interface IoK8sApiCoreV1NodeSelector {
    * @memberof IoK8sApiCoreV1NodeSelector
    */
   nodeSelectorTerms: Array<IoK8sApiCoreV1NodeSelectorTerm>;
-}
-
-export function IoK8sApiCoreV1NodeSelectorFromJSON(json: any): IoK8sApiCoreV1NodeSelector {
-  return IoK8sApiCoreV1NodeSelectorFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NodeSelectorFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NodeSelector {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    nodeSelectorTerms: (json['nodeSelectorTerms'] as Array<any>).map(
-      IoK8sApiCoreV1NodeSelectorTermFromJSON,
-    ),
-  };
-}
-
-export function IoK8sApiCoreV1NodeSelectorToJSON(value?: IoK8sApiCoreV1NodeSelector | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    nodeSelectorTerms: (value.nodeSelectorTerms as Array<any>).map(
-      IoK8sApiCoreV1NodeSelectorTermToJSON,
-    ),
-  };
 }

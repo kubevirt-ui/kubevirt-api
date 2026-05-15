@@ -12,11 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
+  IoK8sApiDiscoveryV1ForNode,
   IoK8sApiDiscoveryV1ForZone,
-  IoK8sApiDiscoveryV1ForZoneFromJSON,
-  IoK8sApiDiscoveryV1ForZoneToJSON,
 } from './';
 
 /**
@@ -26,46 +24,15 @@ import {
  */
 export interface IoK8sApiDiscoveryV1EndpointHints {
   /**
-   * forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing.
+   * forNodes indicates the node(s) this endpoint should be consumed by when using topology aware routing. May contain a maximum of 8 entries. This is an Alpha feature and is only used when the PreferSameTrafficDistribution feature gate is enabled.
+   * @type {Array<IoK8sApiDiscoveryV1ForNode>}
+   * @memberof IoK8sApiDiscoveryV1EndpointHints
+   */
+  forNodes?: Array<IoK8sApiDiscoveryV1ForNode>;
+  /**
+   * forZones indicates the zone(s) this endpoint should be consumed by when using topology aware routing. May contain a maximum of 8 entries.
    * @type {Array<IoK8sApiDiscoveryV1ForZone>}
    * @memberof IoK8sApiDiscoveryV1EndpointHints
    */
   forZones?: Array<IoK8sApiDiscoveryV1ForZone>;
-}
-
-export function IoK8sApiDiscoveryV1EndpointHintsFromJSON(
-  json: any,
-): IoK8sApiDiscoveryV1EndpointHints {
-  return IoK8sApiDiscoveryV1EndpointHintsFromJSONTyped(json, false);
-}
-
-export function IoK8sApiDiscoveryV1EndpointHintsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiDiscoveryV1EndpointHints {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    forZones: !exists(json, 'forZones')
-      ? undefined
-      : (json['forZones'] as Array<any>).map(IoK8sApiDiscoveryV1ForZoneFromJSON),
-  };
-}
-
-export function IoK8sApiDiscoveryV1EndpointHintsToJSON(
-  value?: IoK8sApiDiscoveryV1EndpointHints | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    forZones:
-      value.forZones === undefined
-        ? undefined
-        : (value.forZones as Array<any>).map(IoK8sApiDiscoveryV1ForZoneToJSON),
-  };
 }

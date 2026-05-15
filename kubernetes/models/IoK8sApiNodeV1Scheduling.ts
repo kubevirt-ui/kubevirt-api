@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1Toleration,
-  IoK8sApiCoreV1TolerationFromJSON,
-  IoK8sApiCoreV1TolerationToJSON,
 } from './';
 
 /**
@@ -37,39 +34,4 @@ export interface IoK8sApiNodeV1Scheduling {
    * @memberof IoK8sApiNodeV1Scheduling
    */
   tolerations?: Array<IoK8sApiCoreV1Toleration>;
-}
-
-export function IoK8sApiNodeV1SchedulingFromJSON(json: any): IoK8sApiNodeV1Scheduling {
-  return IoK8sApiNodeV1SchedulingFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNodeV1SchedulingFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNodeV1Scheduling {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    nodeSelector: !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
-    tolerations: !exists(json, 'tolerations')
-      ? undefined
-      : (json['tolerations'] as Array<any>).map(IoK8sApiCoreV1TolerationFromJSON),
-  };
-}
-
-export function IoK8sApiNodeV1SchedulingToJSON(value?: IoK8sApiNodeV1Scheduling | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    nodeSelector: value.nodeSelector,
-    tolerations:
-      value.tolerations === undefined
-        ? undefined
-        : (value.tolerations as Array<any>).map(IoK8sApiCoreV1TolerationToJSON),
-  };
 }

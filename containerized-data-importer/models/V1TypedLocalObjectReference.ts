@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * TypedLocalObjectReference contains enough information to let you locate the typed referenced object inside the same namespace.
  * @export
@@ -37,36 +36,4 @@ export interface V1TypedLocalObjectReference {
    * @memberof V1TypedLocalObjectReference
    */
   name: string;
-}
-
-export function V1TypedLocalObjectReferenceFromJSON(json: any): V1TypedLocalObjectReference {
-  return V1TypedLocalObjectReferenceFromJSONTyped(json, false);
-}
-
-export function V1TypedLocalObjectReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1TypedLocalObjectReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiGroup: !exists(json, 'apiGroup') ? undefined : json['apiGroup'],
-    kind: json['kind'],
-    name: json['name'],
-  };
-}
-
-export function V1TypedLocalObjectReferenceToJSON(value?: V1TypedLocalObjectReference | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiGroup: value.apiGroup,
-    kind: value.kind,
-    name: value.name,
-  };
 }

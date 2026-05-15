@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * DeploymentCondition describes the state of a deployment at a certain point.
  * @export
@@ -55,49 +54,4 @@ export interface IoK8sApiAppsV1DeploymentCondition {
    * @memberof IoK8sApiAppsV1DeploymentCondition
    */
   type: string;
-}
-
-export function IoK8sApiAppsV1DeploymentConditionFromJSON(
-  json: any,
-): IoK8sApiAppsV1DeploymentCondition {
-  return IoK8sApiAppsV1DeploymentConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1DeploymentConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1DeploymentCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    lastUpdateTime: !exists(json, 'lastUpdateTime') ? undefined : json['lastUpdateTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiAppsV1DeploymentConditionToJSON(
-  value?: IoK8sApiAppsV1DeploymentCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    lastUpdateTime: value.lastUpdateTime === undefined ? undefined : value.lastUpdateTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

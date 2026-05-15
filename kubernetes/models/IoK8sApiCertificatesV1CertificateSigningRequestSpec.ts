@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * CertificateSigningRequestSpec contains the certificate request.
  * @export
@@ -32,8 +31,6 @@ export interface IoK8sApiCertificatesV1CertificateSigningRequestSpec {
    *   3. Signer whose configured minimum is longer than the requested duration
    *
    * The minimum valid value for expirationSeconds is 600, i.e. 10 minutes.
-   *
-   * As of v1.22, this field is beta and is controlled via the CSRDuration feature gate.
    * @type {number}
    * @memberof IoK8sApiCertificatesV1CertificateSigningRequestSpec
    */
@@ -113,50 +110,4 @@ export interface IoK8sApiCertificatesV1CertificateSigningRequestSpec {
    * @memberof IoK8sApiCertificatesV1CertificateSigningRequestSpec
    */
   username?: string;
-}
-
-export function IoK8sApiCertificatesV1CertificateSigningRequestSpecFromJSON(
-  json: any,
-): IoK8sApiCertificatesV1CertificateSigningRequestSpec {
-  return IoK8sApiCertificatesV1CertificateSigningRequestSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCertificatesV1CertificateSigningRequestSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCertificatesV1CertificateSigningRequestSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    expirationSeconds: !exists(json, 'expirationSeconds') ? undefined : json['expirationSeconds'],
-    extra: !exists(json, 'extra') ? undefined : json['extra'],
-    groups: !exists(json, 'groups') ? undefined : json['groups'],
-    request: json['request'],
-    signerName: json['signerName'],
-    uid: !exists(json, 'uid') ? undefined : json['uid'],
-    usages: !exists(json, 'usages') ? undefined : json['usages'],
-    username: !exists(json, 'username') ? undefined : json['username'],
-  };
-}
-
-export function IoK8sApiCertificatesV1CertificateSigningRequestSpecToJSON(
-  value?: IoK8sApiCertificatesV1CertificateSigningRequestSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    expirationSeconds: value.expirationSeconds,
-    extra: value.extra,
-    groups: value.groups,
-    request: value.request,
-    signerName: value.signerName,
-    uid: value.uid,
-    usages: value.usages,
-    username: value.username,
-  };
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1ListMeta,
-  V1ListMetaFromJSON,
-  V1ListMetaToJSON,
   V1StatusDetails,
-  V1StatusDetailsFromJSON,
-  V1StatusDetailsToJSON,
 } from './';
 
 /**
@@ -76,43 +71,4 @@ export interface V1Status {
    * @memberof V1Status
    */
   status?: string;
-}
-
-export function V1StatusFromJSON(json: any): V1Status {
-  return V1StatusFromJSONTyped(json, false);
-}
-
-export function V1StatusFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Status {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    code: !exists(json, 'code') ? undefined : json['code'],
-    details: !exists(json, 'details') ? undefined : V1StatusDetailsFromJSON(json['details']),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    metadata: !exists(json, 'metadata') ? undefined : V1ListMetaFromJSON(json['metadata']),
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: !exists(json, 'status') ? undefined : json['status'],
-  };
-}
-
-export function V1StatusToJSON(value?: V1Status | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    code: value.code,
-    details: V1StatusDetailsToJSON(value.details),
-    kind: value.kind,
-    message: value.message,
-    metadata: V1ListMetaToJSON(value.metadata),
-    reason: value.reason,
-    status: value.status,
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.
  * @export
@@ -41,40 +40,4 @@ export interface IoK8sApimachineryPkgApisMetaV1StatusCause {
    * @memberof IoK8sApimachineryPkgApisMetaV1StatusCause
    */
   reason?: string;
-}
-
-export function IoK8sApimachineryPkgApisMetaV1StatusCauseFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1StatusCause {
-  return IoK8sApimachineryPkgApisMetaV1StatusCauseFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1StatusCauseFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1StatusCause {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    field: !exists(json, 'field') ? undefined : json['field'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1StatusCauseToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1StatusCause | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    field: value.field,
-    message: value.message,
-    reason: value.reason,
-  };
 }

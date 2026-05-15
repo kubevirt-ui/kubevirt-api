@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.
  * @export
@@ -20,7 +19,7 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiRbacV1PolicyRule {
   /**
-   * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.
+   * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed. "" represents the core API group and "*" represents all API groups.
    * @type {Array<string>}
    * @memberof IoK8sApiRbacV1PolicyRule
    */
@@ -49,40 +48,4 @@ export interface IoK8sApiRbacV1PolicyRule {
    * @memberof IoK8sApiRbacV1PolicyRule
    */
   verbs: Array<string>;
-}
-
-export function IoK8sApiRbacV1PolicyRuleFromJSON(json: any): IoK8sApiRbacV1PolicyRule {
-  return IoK8sApiRbacV1PolicyRuleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiRbacV1PolicyRuleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiRbacV1PolicyRule {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiGroups: !exists(json, 'apiGroups') ? undefined : json['apiGroups'],
-    nonResourceURLs: !exists(json, 'nonResourceURLs') ? undefined : json['nonResourceURLs'],
-    resourceNames: !exists(json, 'resourceNames') ? undefined : json['resourceNames'],
-    resources: !exists(json, 'resources') ? undefined : json['resources'],
-    verbs: json['verbs'],
-  };
-}
-
-export function IoK8sApiRbacV1PolicyRuleToJSON(value?: IoK8sApiRbacV1PolicyRule | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiGroups: value.apiGroups,
-    nonResourceURLs: value.nonResourceURLs,
-    resourceNames: value.resourceNames,
-    resources: value.resources,
-    verbs: value.verbs,
-  };
 }

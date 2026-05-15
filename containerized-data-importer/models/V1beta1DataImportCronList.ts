@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1ListMeta,
-  V1ListMetaFromJSON,
-  V1ListMetaToJSON,
   V1beta1DataImportCron,
-  V1beta1DataImportCronFromJSON,
-  V1beta1DataImportCronToJSON,
 } from './';
 
 /**
@@ -52,38 +47,4 @@ export interface V1beta1DataImportCronList {
    * @memberof V1beta1DataImportCronList
    */
   metadata: V1ListMeta;
-}
-
-export function V1beta1DataImportCronListFromJSON(json: any): V1beta1DataImportCronList {
-  return V1beta1DataImportCronListFromJSONTyped(json, false);
-}
-
-export function V1beta1DataImportCronListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataImportCronList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1beta1DataImportCronFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: V1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function V1beta1DataImportCronListToJSON(value?: V1beta1DataImportCronList | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1beta1DataImportCronToJSON),
-    kind: value.kind,
-    metadata: V1ListMetaToJSON(value.metadata),
-  };
 }

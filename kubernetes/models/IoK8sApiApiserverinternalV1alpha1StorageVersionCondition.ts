@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Describes the state of the storageVersion at a certain point.
  * @export
@@ -30,7 +29,7 @@ export interface IoK8sApiApiserverinternalV1alpha1StorageVersionCondition {
    * @type {string}
    * @memberof IoK8sApiApiserverinternalV1alpha1StorageVersionCondition
    */
-  message?: string;
+  message: string;
   /**
    * If set, this represents the .metadata.generation that the condition was set based upon.
    * @type {number}
@@ -55,51 +54,4 @@ export interface IoK8sApiApiserverinternalV1alpha1StorageVersionCondition {
    * @memberof IoK8sApiApiserverinternalV1alpha1StorageVersionCondition
    */
   type: string;
-}
-
-export function IoK8sApiApiserverinternalV1alpha1StorageVersionConditionFromJSON(
-  json: any,
-): IoK8sApiApiserverinternalV1alpha1StorageVersionCondition {
-  return IoK8sApiApiserverinternalV1alpha1StorageVersionConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiApiserverinternalV1alpha1StorageVersionConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiApiserverinternalV1alpha1StorageVersionCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    observedGeneration: !exists(json, 'observedGeneration')
-      ? undefined
-      : json['observedGeneration'],
-    reason: json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiApiserverinternalV1alpha1StorageVersionConditionToJSON(
-  value?: IoK8sApiApiserverinternalV1alpha1StorageVersionCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    observedGeneration: value.observedGeneration,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
  * @export
@@ -20,57 +19,21 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1AzureFileVolumeSource {
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @type {boolean}
    * @memberof IoK8sApiCoreV1AzureFileVolumeSource
    */
   readOnly?: boolean;
   /**
-   * the name of secret that contains Azure Storage Account Name and Key
+   * secretName is the  name of secret that contains Azure Storage Account Name and Key
    * @type {string}
    * @memberof IoK8sApiCoreV1AzureFileVolumeSource
    */
   secretName: string;
   /**
-   * Share Name
+   * shareName is the azure share Name
    * @type {string}
    * @memberof IoK8sApiCoreV1AzureFileVolumeSource
    */
   shareName: string;
-}
-
-export function IoK8sApiCoreV1AzureFileVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1AzureFileVolumeSource {
-  return IoK8sApiCoreV1AzureFileVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1AzureFileVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1AzureFileVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    secretName: json['secretName'],
-    shareName: json['shareName'],
-  };
-}
-
-export function IoK8sApiCoreV1AzureFileVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1AzureFileVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    readOnly: value.readOnly,
-    secretName: value.secretName,
-    shareName: value.shareName,
-  };
 }

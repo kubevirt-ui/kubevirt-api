@@ -14,8 +14,6 @@
 
 import {
   IoK8sApiNetworkingV1HTTPIngressPath,
-  IoK8sApiNetworkingV1HTTPIngressPathFromJSON,
-  IoK8sApiNetworkingV1HTTPIngressPathToJSON,
 } from './';
 
 /**
@@ -25,41 +23,9 @@ import {
  */
 export interface IoK8sApiNetworkingV1HTTPIngressRuleValue {
   /**
-   * A collection of paths that map requests to backends.
+   * paths is a collection of paths that map requests to backends.
    * @type {Array<IoK8sApiNetworkingV1HTTPIngressPath>}
    * @memberof IoK8sApiNetworkingV1HTTPIngressRuleValue
    */
   paths: Array<IoK8sApiNetworkingV1HTTPIngressPath>;
-}
-
-export function IoK8sApiNetworkingV1HTTPIngressRuleValueFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1HTTPIngressRuleValue {
-  return IoK8sApiNetworkingV1HTTPIngressRuleValueFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1HTTPIngressRuleValueFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1HTTPIngressRuleValue {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    paths: (json['paths'] as Array<any>).map(IoK8sApiNetworkingV1HTTPIngressPathFromJSON),
-  };
-}
-
-export function IoK8sApiNetworkingV1HTTPIngressRuleValueToJSON(
-  value?: IoK8sApiNetworkingV1HTTPIngressRuleValue | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    paths: (value.paths as Array<any>).map(IoK8sApiNetworkingV1HTTPIngressPathToJSON),
-  };
 }

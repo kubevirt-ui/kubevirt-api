@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PodDNSConfigOption defines DNS resolver options of a pod.
  * @export
@@ -20,49 +19,15 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1PodDNSConfigOption {
   /**
-   * Required.
+   * Name is this DNS resolver option's name. Required.
    * @type {string}
    * @memberof IoK8sApiCoreV1PodDNSConfigOption
    */
   name?: string;
   /**
-   *
+   * Value is this DNS resolver option's value.
    * @type {string}
    * @memberof IoK8sApiCoreV1PodDNSConfigOption
    */
   value?: string;
-}
-
-export function IoK8sApiCoreV1PodDNSConfigOptionFromJSON(
-  json: any,
-): IoK8sApiCoreV1PodDNSConfigOption {
-  return IoK8sApiCoreV1PodDNSConfigOptionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodDNSConfigOptionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodDNSConfigOption {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: !exists(json, 'name') ? undefined : json['name'],
-    value: !exists(json, 'value') ? undefined : json['value'],
-  };
-}
-
-export function IoK8sApiCoreV1PodDNSConfigOptionToJSON(
-  value?: IoK8sApiCoreV1PodDNSConfigOption | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    value: value.value,
-  };
 }

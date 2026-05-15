@@ -31,33 +31,3 @@ export interface IoK8sApiEventsV1EventSeries {
    */
   lastObservedTime: string;
 }
-
-export function IoK8sApiEventsV1EventSeriesFromJSON(json: any): IoK8sApiEventsV1EventSeries {
-  return IoK8sApiEventsV1EventSeriesFromJSONTyped(json, false);
-}
-
-export function IoK8sApiEventsV1EventSeriesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiEventsV1EventSeries {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    count: json['count'],
-    lastObservedTime: json['lastObservedTime'],
-  };
-}
-
-export function IoK8sApiEventsV1EventSeriesToJSON(value?: IoK8sApiEventsV1EventSeries | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    count: value.count,
-    lastObservedTime: value.lastObservedTime,
-  };
-}

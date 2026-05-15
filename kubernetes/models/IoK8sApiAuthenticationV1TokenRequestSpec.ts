@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAuthenticationV1BoundObjectReference,
-  IoK8sApiAuthenticationV1BoundObjectReferenceFromJSON,
-  IoK8sApiAuthenticationV1BoundObjectReferenceToJSON,
 } from './';
 
 /**
@@ -26,7 +23,7 @@ import {
  */
 export interface IoK8sApiAuthenticationV1TokenRequestSpec {
   /**
-   * Audiences are the intendend audiences of the token. A recipient of a token must identitfy themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.
+   * Audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.
    * @type {Array<string>}
    * @memberof IoK8sApiAuthenticationV1TokenRequestSpec
    */
@@ -43,42 +40,4 @@ export interface IoK8sApiAuthenticationV1TokenRequestSpec {
    * @memberof IoK8sApiAuthenticationV1TokenRequestSpec
    */
   expirationSeconds?: number;
-}
-
-export function IoK8sApiAuthenticationV1TokenRequestSpecFromJSON(
-  json: any,
-): IoK8sApiAuthenticationV1TokenRequestSpec {
-  return IoK8sApiAuthenticationV1TokenRequestSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthenticationV1TokenRequestSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthenticationV1TokenRequestSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    audiences: json['audiences'],
-    boundObjectRef: !exists(json, 'boundObjectRef')
-      ? undefined
-      : IoK8sApiAuthenticationV1BoundObjectReferenceFromJSON(json['boundObjectRef']),
-    expirationSeconds: !exists(json, 'expirationSeconds') ? undefined : json['expirationSeconds'],
-  };
-}
-
-export function IoK8sApiAuthenticationV1TokenRequestSpecToJSON(
-  value?: IoK8sApiAuthenticationV1TokenRequestSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    audiences: value.audiences,
-    boundObjectRef: IoK8sApiAuthenticationV1BoundObjectReferenceToJSON(value.boundObjectRef),
-    expirationSeconds: value.expirationSeconds,
-  };
 }

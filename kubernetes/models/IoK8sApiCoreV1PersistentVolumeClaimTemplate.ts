@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1PersistentVolumeClaimSpec,
-  IoK8sApiCoreV1PersistentVolumeClaimSpecFromJSON,
-  IoK8sApiCoreV1PersistentVolumeClaimSpecToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -40,40 +35,4 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimTemplate {
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimTemplate
    */
   spec: IoK8sApiCoreV1PersistentVolumeClaimSpec;
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimTemplateFromJSON(
-  json: any,
-): IoK8sApiCoreV1PersistentVolumeClaimTemplate {
-  return IoK8sApiCoreV1PersistentVolumeClaimTemplateFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimTemplateFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PersistentVolumeClaimTemplate {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: IoK8sApiCoreV1PersistentVolumeClaimSpecFromJSON(json['spec']),
-  };
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimTemplateToJSON(
-  value?: IoK8sApiCoreV1PersistentVolumeClaimTemplate | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiCoreV1PersistentVolumeClaimSpecToJSON(value.spec),
-  };
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1PersistentVolume,
-  IoK8sApiCoreV1PersistentVolumeFromJSON,
-  IoK8sApiCoreV1PersistentVolumeToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -35,7 +30,7 @@ export interface IoK8sApiCoreV1PersistentVolumeList {
    */
   apiVersion?: string;
   /**
-   * List of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
+   * items is a list of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
    * @type {Array<IoK8sApiCoreV1PersistentVolume>}
    * @memberof IoK8sApiCoreV1PersistentVolumeList
    */
@@ -52,44 +47,4 @@ export interface IoK8sApiCoreV1PersistentVolumeList {
    * @memberof IoK8sApiCoreV1PersistentVolumeList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiCoreV1PersistentVolumeListFromJSON(
-  json: any,
-): IoK8sApiCoreV1PersistentVolumeList {
-  return IoK8sApiCoreV1PersistentVolumeListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PersistentVolumeListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PersistentVolumeList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(IoK8sApiCoreV1PersistentVolumeFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiCoreV1PersistentVolumeListToJSON(
-  value?: IoK8sApiCoreV1PersistentVolumeList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(IoK8sApiCoreV1PersistentVolumeToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

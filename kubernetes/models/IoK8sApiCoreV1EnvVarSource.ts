@@ -12,20 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ConfigMapKeySelector,
-  IoK8sApiCoreV1ConfigMapKeySelectorFromJSON,
-  IoK8sApiCoreV1ConfigMapKeySelectorToJSON,
   IoK8sApiCoreV1ObjectFieldSelector,
-  IoK8sApiCoreV1ObjectFieldSelectorFromJSON,
-  IoK8sApiCoreV1ObjectFieldSelectorToJSON,
   IoK8sApiCoreV1ResourceFieldSelector,
-  IoK8sApiCoreV1ResourceFieldSelectorFromJSON,
-  IoK8sApiCoreV1ResourceFieldSelectorToJSON,
   IoK8sApiCoreV1SecretKeySelector,
-  IoK8sApiCoreV1SecretKeySelectorFromJSON,
-  IoK8sApiCoreV1SecretKeySelectorToJSON,
 } from './';
 
 /**
@@ -58,46 +49,4 @@ export interface IoK8sApiCoreV1EnvVarSource {
    * @memberof IoK8sApiCoreV1EnvVarSource
    */
   secretKeyRef?: IoK8sApiCoreV1SecretKeySelector;
-}
-
-export function IoK8sApiCoreV1EnvVarSourceFromJSON(json: any): IoK8sApiCoreV1EnvVarSource {
-  return IoK8sApiCoreV1EnvVarSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1EnvVarSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1EnvVarSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    configMapKeyRef: !exists(json, 'configMapKeyRef')
-      ? undefined
-      : IoK8sApiCoreV1ConfigMapKeySelectorFromJSON(json['configMapKeyRef']),
-    fieldRef: !exists(json, 'fieldRef')
-      ? undefined
-      : IoK8sApiCoreV1ObjectFieldSelectorFromJSON(json['fieldRef']),
-    resourceFieldRef: !exists(json, 'resourceFieldRef')
-      ? undefined
-      : IoK8sApiCoreV1ResourceFieldSelectorFromJSON(json['resourceFieldRef']),
-    secretKeyRef: !exists(json, 'secretKeyRef')
-      ? undefined
-      : IoK8sApiCoreV1SecretKeySelectorFromJSON(json['secretKeyRef']),
-  };
-}
-
-export function IoK8sApiCoreV1EnvVarSourceToJSON(value?: IoK8sApiCoreV1EnvVarSource | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    configMapKeyRef: IoK8sApiCoreV1ConfigMapKeySelectorToJSON(value.configMapKeyRef),
-    fieldRef: IoK8sApiCoreV1ObjectFieldSelectorToJSON(value.fieldRef),
-    resourceFieldRef: IoK8sApiCoreV1ResourceFieldSelectorToJSON(value.resourceFieldRef),
-    secretKeyRef: IoK8sApiCoreV1SecretKeySelectorToJSON(value.secretKeyRef),
-  };
 }

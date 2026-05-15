@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ValidationRule describes a validation rule written in the CEL expression language.
  * @export
@@ -20,11 +19,41 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule {
   /**
+   * fieldPath represents the field path returned when the validation fails. It must be a relative JSON path (i.e. with array notation) scoped to the location of this x-kubernetes-validations extension in the schema and refer to an existing field. e.g. when validation checks if a specific attribute `foo` under a map `testMap`, the fieldPath could be set to `.testMap.foo` If the validation checks two lists must have unique attributes, the fieldPath could be set to either of the list: e.g. `.testList` It does not support list numeric index. It supports child operation to refer to an existing field currently. Refer to [JSONPath support in Kubernetes](https://kubernetes.io/docs/reference/kubectl/jsonpath/) for more info. Numeric index of array is not supported. For field name which contains special characters, use `['specialName']` to refer the field name. e.g. for attribute `foo.34$` appears in a list `testList`, the fieldPath could be set to `.testList['foo.34$']`
+   * @type {string}
+   * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule
+   */
+  fieldPath?: string;
+  /**
    * Message represents the message displayed when validation fails. The message is required if the Rule contains line breaks. The message must not contain line breaks. If unset, the message is "failed rule: {Rule}". e.g. "must be a URL with the host matching spec.host"
    * @type {string}
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule
    */
   message?: string;
+  /**
+   * MessageExpression declares a CEL expression that evaluates to the validation failure message that is returned when this rule fails. Since messageExpression is used as a failure message, it must evaluate to a string. If both message and messageExpression are present on a rule, then messageExpression will be used if validation fails. If messageExpression results in a runtime error, the runtime error is logged, and the validation failure message is produced as if the messageExpression field were unset. If messageExpression evaluates to an empty string, a string with only spaces, or a string that contains line breaks, then the validation failure message will also be produced as if the messageExpression field were unset, and the fact that messageExpression produced an empty string/string with only spaces/string with line breaks will be logged. messageExpression has access to all the same variables as the rule; the only difference is the return type. Example: "x must be less than max ("+string(self.max)+")"
+   * @type {string}
+   * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule
+   */
+  messageExpression?: string;
+  /**
+   * optionalOldSelf is used to opt a transition rule into evaluation even when the object is first created, or if the old object is missing the value.
+   *
+   * When enabled `oldSelf` will be a CEL optional whose value will be `None` if there is no old value, or when the object is initially created.
+   *
+   * You may check for presence of oldSelf using `oldSelf.hasValue()` and unwrap it after checking using `oldSelf.value()`. Check the CEL documentation for Optional types for more information: https://pkg.go.dev/github.com/google/cel-go/cel#OptionalTypes
+   *
+   * May not be set unless `oldSelf` is used in `rule`.
+   * @type {boolean}
+   * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule
+   */
+  optionalOldSelf?: boolean;
+  /**
+   * reason provides a machine-readable validation failure reason that is returned to the caller when a request fails this validation rule. The HTTP status code returned to the caller will match the reason of the reason of the first failed validation rule. The currently supported reasons are: "FieldValueInvalid", "FieldValueForbidden", "FieldValueRequired", "FieldValueDuplicate". If not set, default to use "FieldValueInvalid". All future added reasons must be accepted by clients when reading this value and unknown reasons should be treated as FieldValueInvalid.
+   * @type {string}
+   * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule
+   */
+  reason?: string;
   /**
    * Rule represents the expression which will be evaluated by CEL. ref: https://github.com/google/cel-spec The Rule is scoped to the location of the x-kubernetes-validations extension in the schema. The `self` variable in the CEL expression is bound to the scoped value. Example: - Rule scoped to the root of a resource with a status subresource: {"rule": "self.status.actual <= self.spec.maxDesired"}
    *
@@ -51,42 +80,16 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule
    *   - 'map': `X + Y` performs a merge where the array positions of all keys in `X` are preserved but the values
    *     are overwritten by values in `Y` when the key sets of `X` and `Y` intersect. Elements in `Y` with
    *     non-intersecting keys are appended, retaining their partial order.
+   *
+   * If `rule` makes use of the `oldSelf` variable it is implicitly a `transition rule`.
+   *
+   * By default, the `oldSelf` variable is the same type as `self`. When `optionalOldSelf` is true, the `oldSelf` variable is a CEL optional
+   *  variable whose value() is the same type as `self`.
+   * See the documentation for the `optionalOldSelf` field for details.
+   *
+   * Transition rules by default are applied only on UPDATE requests and are skipped if an old value could not be found. You can opt a transition rule into unconditional evaluation by setting `optionalOldSelf` to true.
    * @type {string}
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule
    */
   rule: string;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    message: !exists(json, 'message') ? undefined : json['message'],
-    rule: json['rule'],
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    message: value.message,
-    rule: value.rule,
-  };
 }

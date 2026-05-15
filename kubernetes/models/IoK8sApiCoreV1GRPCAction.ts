@@ -12,9 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
- *
+ * GRPCAction specifies an action involving a GRPC service.
  * @export
  * @interface IoK8sApiCoreV1GRPCAction
  */
@@ -33,34 +32,4 @@ export interface IoK8sApiCoreV1GRPCAction {
    * @memberof IoK8sApiCoreV1GRPCAction
    */
   service?: string;
-}
-
-export function IoK8sApiCoreV1GRPCActionFromJSON(json: any): IoK8sApiCoreV1GRPCAction {
-  return IoK8sApiCoreV1GRPCActionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1GRPCActionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1GRPCAction {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    port: json['port'],
-    service: !exists(json, 'service') ? undefined : json['service'],
-  };
-}
-
-export function IoK8sApiCoreV1GRPCActionToJSON(value?: IoK8sApiCoreV1GRPCAction | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    port: value.port,
-    service: value.service,
-  };
 }

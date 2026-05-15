@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1TypedLocalObjectReference,
-  IoK8sApiCoreV1TypedLocalObjectReferenceFromJSON,
-  IoK8sApiCoreV1TypedLocalObjectReferenceToJSON,
   IoK8sApiNetworkingV1IngressServiceBackend,
-  IoK8sApiNetworkingV1IngressServiceBackendFromJSON,
-  IoK8sApiNetworkingV1IngressServiceBackendToJSON,
 } from './';
 
 /**
@@ -40,42 +35,4 @@ export interface IoK8sApiNetworkingV1IngressBackend {
    * @memberof IoK8sApiNetworkingV1IngressBackend
    */
   service?: IoK8sApiNetworkingV1IngressServiceBackend;
-}
-
-export function IoK8sApiNetworkingV1IngressBackendFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1IngressBackend {
-  return IoK8sApiNetworkingV1IngressBackendFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1IngressBackendFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1IngressBackend {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    resource: !exists(json, 'resource')
-      ? undefined
-      : IoK8sApiCoreV1TypedLocalObjectReferenceFromJSON(json['resource']),
-    service: !exists(json, 'service')
-      ? undefined
-      : IoK8sApiNetworkingV1IngressServiceBackendFromJSON(json['service']),
-  };
-}
-
-export function IoK8sApiNetworkingV1IngressBackendToJSON(
-  value?: IoK8sApiNetworkingV1IngressBackend | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    resource: IoK8sApiCoreV1TypedLocalObjectReferenceToJSON(value.resource),
-    service: IoK8sApiNetworkingV1IngressServiceBackendToJSON(value.service),
-  };
 }

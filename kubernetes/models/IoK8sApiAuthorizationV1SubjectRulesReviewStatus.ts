@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAuthorizationV1NonResourceRule,
-  IoK8sApiAuthorizationV1NonResourceRuleFromJSON,
-  IoK8sApiAuthorizationV1NonResourceRuleToJSON,
   IoK8sApiAuthorizationV1ResourceRule,
-  IoK8sApiAuthorizationV1ResourceRuleFromJSON,
-  IoK8sApiAuthorizationV1ResourceRuleToJSON,
 } from './';
 
 /**
@@ -52,50 +47,4 @@ export interface IoK8sApiAuthorizationV1SubjectRulesReviewStatus {
    * @memberof IoK8sApiAuthorizationV1SubjectRulesReviewStatus
    */
   resourceRules: Array<IoK8sApiAuthorizationV1ResourceRule>;
-}
-
-export function IoK8sApiAuthorizationV1SubjectRulesReviewStatusFromJSON(
-  json: any,
-): IoK8sApiAuthorizationV1SubjectRulesReviewStatus {
-  return IoK8sApiAuthorizationV1SubjectRulesReviewStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthorizationV1SubjectRulesReviewStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthorizationV1SubjectRulesReviewStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    evaluationError: !exists(json, 'evaluationError') ? undefined : json['evaluationError'],
-    incomplete: json['incomplete'],
-    nonResourceRules: (json['nonResourceRules'] as Array<any>).map(
-      IoK8sApiAuthorizationV1NonResourceRuleFromJSON,
-    ),
-    resourceRules: (json['resourceRules'] as Array<any>).map(
-      IoK8sApiAuthorizationV1ResourceRuleFromJSON,
-    ),
-  };
-}
-
-export function IoK8sApiAuthorizationV1SubjectRulesReviewStatusToJSON(
-  value?: IoK8sApiAuthorizationV1SubjectRulesReviewStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    evaluationError: value.evaluationError,
-    incomplete: value.incomplete,
-    nonResourceRules: (value.nonResourceRules as Array<any>).map(
-      IoK8sApiAuthorizationV1NonResourceRuleToJSON,
-    ),
-    resourceRules: (value.resourceRules as Array<any>).map(
-      IoK8sApiAuthorizationV1ResourceRuleToJSON,
-    ),
-  };
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAutoscalingV2HorizontalPodAutoscalerCondition,
-  IoK8sApiAutoscalingV2HorizontalPodAutoscalerConditionFromJSON,
-  IoK8sApiAutoscalingV2HorizontalPodAutoscalerConditionToJSON,
   IoK8sApiAutoscalingV2MetricStatus,
-  IoK8sApiAutoscalingV2MetricStatusFromJSON,
-  IoK8sApiAutoscalingV2MetricStatusToJSON,
 } from './';
 
 /**
@@ -64,62 +59,4 @@ export interface IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatus {
    * @memberof IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatus
    */
   observedGeneration?: number;
-}
-
-export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatusFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatus {
-  return IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(
-          IoK8sApiAutoscalingV2HorizontalPodAutoscalerConditionFromJSON,
-        ),
-    currentMetrics: !exists(json, 'currentMetrics')
-      ? undefined
-      : (json['currentMetrics'] as Array<any>).map(IoK8sApiAutoscalingV2MetricStatusFromJSON),
-    currentReplicas: !exists(json, 'currentReplicas') ? undefined : json['currentReplicas'],
-    desiredReplicas: json['desiredReplicas'],
-    lastScaleTime: !exists(json, 'lastScaleTime') ? undefined : json['lastScaleTime'],
-    observedGeneration: !exists(json, 'observedGeneration')
-      ? undefined
-      : json['observedGeneration'],
-  };
-}
-
-export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatusToJSON(
-  value?: IoK8sApiAutoscalingV2HorizontalPodAutoscalerStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(
-            IoK8sApiAutoscalingV2HorizontalPodAutoscalerConditionToJSON,
-          ),
-    currentMetrics:
-      value.currentMetrics === undefined
-        ? undefined
-        : (value.currentMetrics as Array<any>).map(IoK8sApiAutoscalingV2MetricStatusToJSON),
-    currentReplicas: value.currentReplicas,
-    desiredReplicas: value.desiredReplicas,
-    lastScaleTime: value.lastScaleTime === undefined ? undefined : value.lastScaleTime,
-    observedGeneration: value.observedGeneration,
-  };
 }

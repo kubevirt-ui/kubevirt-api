@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1ManagedFieldsEntry,
-  IoK8sApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ManagedFieldsEntryToJSON,
   IoK8sApimachineryPkgApisMetaV1OwnerReference,
-  IoK8sApimachineryPkgApisMetaV1OwnerReferenceFromJSON,
-  IoK8sApimachineryPkgApisMetaV1OwnerReferenceToJSON,
 } from './';
 
 /**
@@ -29,17 +24,11 @@ import {
  */
 export interface IoK8sApimachineryPkgApisMetaV1ObjectMeta {
   /**
-   * Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
+   * Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations
    * @type {{ [key: string]: string; }}
    * @memberof IoK8sApimachineryPkgApisMetaV1ObjectMeta
    */
   annotations?: { [key: string]: string };
-  /**
-   * The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request.
-   * @type {string}
-   * @memberof IoK8sApimachineryPkgApisMetaV1ObjectMeta
-   */
-  clusterName?: string;
   /**
    * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
    * @type {string}
@@ -67,7 +56,7 @@ export interface IoK8sApimachineryPkgApisMetaV1ObjectMeta {
   /**
    * GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.
    *
-   * If this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).
+   * If this field is specified and the generated name exists, the server will return a 409.
    *
    * Applied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency
    * @type {string}
@@ -81,7 +70,7 @@ export interface IoK8sApimachineryPkgApisMetaV1ObjectMeta {
    */
   generation?: number;
   /**
-   * Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   * Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
    * @type {{ [key: string]: string; }}
    * @memberof IoK8sApimachineryPkgApisMetaV1ObjectMeta
    */
@@ -93,7 +82,7 @@ export interface IoK8sApimachineryPkgApisMetaV1ObjectMeta {
    */
   managedFields?: Array<IoK8sApimachineryPkgApisMetaV1ManagedFieldsEntry>;
   /**
-   * Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   * Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names
    * @type {string}
    * @memberof IoK8sApimachineryPkgApisMetaV1ObjectMeta
    */
@@ -101,7 +90,7 @@ export interface IoK8sApimachineryPkgApisMetaV1ObjectMeta {
   /**
    * Namespace defines the space within which each name must be unique. An empty namespace is equivalent to the "default" namespace, but "default" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.
    *
-   * Must be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces
+   * Must be a DNS_LABEL. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces
    * @type {string}
    * @memberof IoK8sApimachineryPkgApisMetaV1ObjectMeta
    */
@@ -121,9 +110,7 @@ export interface IoK8sApimachineryPkgApisMetaV1ObjectMeta {
    */
   resourceVersion?: string;
   /**
-   * SelfLink is a URL representing this object. Populated by the system. Read-only.
-   *
-   * DEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release.
+   * Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.
    * @type {string}
    * @memberof IoK8sApimachineryPkgApisMetaV1ObjectMeta
    */
@@ -131,91 +118,9 @@ export interface IoK8sApimachineryPkgApisMetaV1ObjectMeta {
   /**
    * UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.
    *
-   * Populated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+   * Populated by the system. Read-only. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids
    * @type {string}
    * @memberof IoK8sApimachineryPkgApisMetaV1ObjectMeta
    */
   uid?: string;
-}
-
-export function IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1ObjectMeta {
-  return IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1ObjectMeta {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    annotations: !exists(json, 'annotations') ? undefined : json['annotations'],
-    clusterName: !exists(json, 'clusterName') ? undefined : json['clusterName'],
-    creationTimestamp: !exists(json, 'creationTimestamp') ? undefined : json['creationTimestamp'],
-    deletionGracePeriodSeconds: !exists(json, 'deletionGracePeriodSeconds')
-      ? undefined
-      : json['deletionGracePeriodSeconds'],
-    deletionTimestamp: !exists(json, 'deletionTimestamp') ? undefined : json['deletionTimestamp'],
-    finalizers: !exists(json, 'finalizers') ? undefined : json['finalizers'],
-    generateName: !exists(json, 'generateName') ? undefined : json['generateName'],
-    generation: !exists(json, 'generation') ? undefined : json['generation'],
-    labels: !exists(json, 'labels') ? undefined : json['labels'],
-    managedFields: !exists(json, 'managedFields')
-      ? undefined
-      : (json['managedFields'] as Array<any>).map(
-          IoK8sApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSON,
-        ),
-    name: !exists(json, 'name') ? undefined : json['name'],
-    namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
-    ownerReferences: !exists(json, 'ownerReferences')
-      ? undefined
-      : (json['ownerReferences'] as Array<any>).map(
-          IoK8sApimachineryPkgApisMetaV1OwnerReferenceFromJSON,
-        ),
-    resourceVersion: !exists(json, 'resourceVersion') ? undefined : json['resourceVersion'],
-    selfLink: !exists(json, 'selfLink') ? undefined : json['selfLink'],
-    uid: !exists(json, 'uid') ? undefined : json['uid'],
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1ObjectMeta | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    annotations: value.annotations,
-    clusterName: value.clusterName,
-    creationTimestamp: value.creationTimestamp === undefined ? undefined : value.creationTimestamp,
-    deletionGracePeriodSeconds: value.deletionGracePeriodSeconds,
-    deletionTimestamp: value.deletionTimestamp === undefined ? undefined : value.deletionTimestamp,
-    finalizers: value.finalizers,
-    generateName: value.generateName,
-    generation: value.generation,
-    labels: value.labels,
-    managedFields:
-      value.managedFields === undefined
-        ? undefined
-        : (value.managedFields as Array<any>).map(
-            IoK8sApimachineryPkgApisMetaV1ManagedFieldsEntryToJSON,
-          ),
-    name: value.name,
-    namespace: value.namespace,
-    ownerReferences:
-      value.ownerReferences === undefined
-        ? undefined
-        : (value.ownerReferences as Array<any>).map(
-            IoK8sApimachineryPkgApisMetaV1OwnerReferenceToJSON,
-          ),
-    resourceVersion: value.resourceVersion,
-    selfLink: value.selfLink,
-    uid: value.uid,
-  };
 }

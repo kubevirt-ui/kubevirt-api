@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * SecretEnvSource selects a Secret to populate the environment variables with.
  *
@@ -22,7 +21,7 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1SecretEnvSource {
   /**
-   * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+   * Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @type {string}
    * @memberof IoK8sApiCoreV1SecretEnvSource
    */
@@ -33,36 +32,4 @@ export interface IoK8sApiCoreV1SecretEnvSource {
    * @memberof IoK8sApiCoreV1SecretEnvSource
    */
   optional?: boolean;
-}
-
-export function IoK8sApiCoreV1SecretEnvSourceFromJSON(json: any): IoK8sApiCoreV1SecretEnvSource {
-  return IoK8sApiCoreV1SecretEnvSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1SecretEnvSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1SecretEnvSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: !exists(json, 'name') ? undefined : json['name'],
-    optional: !exists(json, 'optional') ? undefined : json['optional'],
-  };
-}
-
-export function IoK8sApiCoreV1SecretEnvSourceToJSON(
-  value?: IoK8sApiCoreV1SecretEnvSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    optional: value.optional,
-  };
 }

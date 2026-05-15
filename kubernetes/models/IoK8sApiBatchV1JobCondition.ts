@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * JobCondition describes current state of a job.
  * @export
@@ -51,64 +50,8 @@ export interface IoK8sApiBatchV1JobCondition {
   status: string;
   /**
    * Type of job condition, Complete or Failed.
-   *
-   * Possible enum values:
-   *  - `"Complete"` means the job has completed its execution.
-   *  - `"Failed"` means the job has failed its execution.
-   *  - `"Suspended"` means the job has been suspended.
    * @type {string}
    * @memberof IoK8sApiBatchV1JobCondition
    */
-  type: IoK8sApiBatchV1JobConditionTypeEnum;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiBatchV1JobConditionTypeEnum {
-  Complete = 'Complete',
-  Failed = 'Failed',
-  Suspended = 'Suspended',
-}
-
-export function IoK8sApiBatchV1JobConditionFromJSON(json: any): IoK8sApiBatchV1JobCondition {
-  return IoK8sApiBatchV1JobConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiBatchV1JobConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiBatchV1JobCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastProbeTime: !exists(json, 'lastProbeTime') ? undefined : json['lastProbeTime'],
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiBatchV1JobConditionToJSON(value?: IoK8sApiBatchV1JobCondition | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastProbeTime: value.lastProbeTime === undefined ? undefined : value.lastProbeTime,
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
+  type: string;
 }

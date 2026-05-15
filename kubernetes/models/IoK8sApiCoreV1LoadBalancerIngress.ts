@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1PortStatus,
-  IoK8sApiCoreV1PortStatusFromJSON,
-  IoK8sApiCoreV1PortStatusToJSON,
 } from './';
 
 /**
@@ -38,50 +35,15 @@ export interface IoK8sApiCoreV1LoadBalancerIngress {
    */
   ip?: string;
   /**
+   * IPMode specifies how the load-balancer IP behaves, and may only be specified when the ip field is specified. Setting this to "VIP" indicates that traffic is delivered to the node with the destination set to the load-balancer's IP and port. Setting this to "Proxy" indicates that traffic is delivered to the node or pod with the destination set to the node's IP and node port or the pod's IP and port. Service implementations may use this information to adjust traffic routing.
+   * @type {string}
+   * @memberof IoK8sApiCoreV1LoadBalancerIngress
+   */
+  ipMode?: string;
+  /**
    * Ports is a list of records of service ports If used, every port defined in the service should have an entry in it
    * @type {Array<IoK8sApiCoreV1PortStatus>}
    * @memberof IoK8sApiCoreV1LoadBalancerIngress
    */
   ports?: Array<IoK8sApiCoreV1PortStatus>;
-}
-
-export function IoK8sApiCoreV1LoadBalancerIngressFromJSON(
-  json: any,
-): IoK8sApiCoreV1LoadBalancerIngress {
-  return IoK8sApiCoreV1LoadBalancerIngressFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1LoadBalancerIngressFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1LoadBalancerIngress {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    hostname: !exists(json, 'hostname') ? undefined : json['hostname'],
-    ip: !exists(json, 'ip') ? undefined : json['ip'],
-    ports: !exists(json, 'ports')
-      ? undefined
-      : (json['ports'] as Array<any>).map(IoK8sApiCoreV1PortStatusFromJSON),
-  };
-}
-
-export function IoK8sApiCoreV1LoadBalancerIngressToJSON(
-  value?: IoK8sApiCoreV1LoadBalancerIngress | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    hostname: value.hostname,
-    ip: value.ip,
-    ports:
-      value.ports === undefined
-        ? undefined
-        : (value.ports as Array<any>).map(IoK8sApiCoreV1PortStatusToJSON),
-  };
 }

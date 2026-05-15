@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PodCondition contains details for the current condition of this pod.
  * @export
@@ -38,6 +37,12 @@ export interface IoK8sApiCoreV1PodCondition {
    */
   message?: string;
   /**
+   * If set, this represents the .metadata.generation that the pod condition was set based upon. This is an alpha field. Enable PodObservedGenerationTracking to be able to use this field.
+   * @type {number}
+   * @memberof IoK8sApiCoreV1PodCondition
+   */
+  observedGeneration?: number;
+  /**
    * Unique, one-word, CamelCase reason for the condition's last transition.
    * @type {string}
    * @memberof IoK8sApiCoreV1PodCondition
@@ -51,66 +56,8 @@ export interface IoK8sApiCoreV1PodCondition {
   status: string;
   /**
    * Type is the type of the condition. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions
-   *
-   * Possible enum values:
-   *  - `"ContainersReady"` indicates whether all containers in the pod are ready.
-   *  - `"Initialized"` means that all init containers in the pod have started successfully.
-   *  - `"PodScheduled"` represents status of the scheduling process for this pod.
-   *  - `"Ready"` means the pod is able to service requests and should be added to the load balancing pools of all matching services.
    * @type {string}
    * @memberof IoK8sApiCoreV1PodCondition
    */
-  type: IoK8sApiCoreV1PodConditionTypeEnum;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1PodConditionTypeEnum {
-  ContainersReady = 'ContainersReady',
-  Initialized = 'Initialized',
-  PodScheduled = 'PodScheduled',
-  Ready = 'Ready',
-}
-
-export function IoK8sApiCoreV1PodConditionFromJSON(json: any): IoK8sApiCoreV1PodCondition {
-  return IoK8sApiCoreV1PodConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastProbeTime: !exists(json, 'lastProbeTime') ? undefined : json['lastProbeTime'],
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1PodConditionToJSON(value?: IoK8sApiCoreV1PodCondition | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastProbeTime: value.lastProbeTime === undefined ? undefined : value.lastProbeTime,
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
+  type: string;
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiRbacV1PolicyRule,
-  IoK8sApiRbacV1PolicyRuleFromJSON,
-  IoK8sApiRbacV1PolicyRuleToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -52,45 +47,4 @@ export interface IoK8sApiRbacV1Role {
    * @memberof IoK8sApiRbacV1Role
    */
   rules?: Array<IoK8sApiRbacV1PolicyRule>;
-}
-
-export function IoK8sApiRbacV1RoleFromJSON(json: any): IoK8sApiRbacV1Role {
-  return IoK8sApiRbacV1RoleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiRbacV1RoleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiRbacV1Role {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    rules: !exists(json, 'rules')
-      ? undefined
-      : (json['rules'] as Array<any>).map(IoK8sApiRbacV1PolicyRuleFromJSON),
-  };
-}
-
-export function IoK8sApiRbacV1RoleToJSON(value?: IoK8sApiRbacV1Role | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    rules:
-      value.rules === undefined
-        ? undefined
-        : (value.rules as Array<any>).map(IoK8sApiRbacV1PolicyRuleToJSON),
-  };
 }

@@ -31,33 +31,3 @@ export interface V1GroupVersionForDiscovery {
    */
   version: string;
 }
-
-export function V1GroupVersionForDiscoveryFromJSON(json: any): V1GroupVersionForDiscovery {
-  return V1GroupVersionForDiscoveryFromJSONTyped(json, false);
-}
-
-export function V1GroupVersionForDiscoveryFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1GroupVersionForDiscovery {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    groupVersion: json['groupVersion'],
-    version: json['version'],
-  };
-}
-
-export function V1GroupVersionForDiscoveryToJSON(value?: V1GroupVersionForDiscovery | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    groupVersion: value.groupVersion,
-    version: value.version,
-  };
-}

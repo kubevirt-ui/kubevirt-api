@@ -12,8 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1Condition, V1ConditionFromJSON, V1ConditionToJSON } from './';
+import { V1Condition } from './';
 
 /**
  * CDIStatus defines the status of the installation
@@ -51,45 +50,4 @@ export interface V1beta1CDIStatus {
    * @memberof V1beta1CDIStatus
    */
   targetVersion?: string;
-}
-
-export function V1beta1CDIStatusFromJSON(json: any): V1beta1CDIStatus {
-  return V1beta1CDIStatusFromJSONTyped(json, false);
-}
-
-export function V1beta1CDIStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1CDIStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(V1ConditionFromJSON),
-    observedVersion: !exists(json, 'observedVersion') ? undefined : json['observedVersion'],
-    operatorVersion: !exists(json, 'operatorVersion') ? undefined : json['operatorVersion'],
-    phase: !exists(json, 'phase') ? undefined : json['phase'],
-    targetVersion: !exists(json, 'targetVersion') ? undefined : json['targetVersion'],
-  };
-}
-
-export function V1beta1CDIStatusToJSON(value?: V1beta1CDIStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(V1ConditionToJSON),
-    observedVersion: value.observedVersion,
-    operatorVersion: value.operatorVersion,
-    phase: value.phase,
-    targetVersion: value.targetVersion,
-  };
 }

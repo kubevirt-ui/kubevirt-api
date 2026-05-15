@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ReplicationControllerCondition describes the state of a replication controller at a certain point.
  * @export
@@ -49,47 +48,4 @@ export interface IoK8sApiCoreV1ReplicationControllerCondition {
    * @memberof IoK8sApiCoreV1ReplicationControllerCondition
    */
   type: string;
-}
-
-export function IoK8sApiCoreV1ReplicationControllerConditionFromJSON(
-  json: any,
-): IoK8sApiCoreV1ReplicationControllerCondition {
-  return IoK8sApiCoreV1ReplicationControllerConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ReplicationControllerConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ReplicationControllerCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1ReplicationControllerConditionToJSON(
-  value?: IoK8sApiCoreV1ReplicationControllerCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

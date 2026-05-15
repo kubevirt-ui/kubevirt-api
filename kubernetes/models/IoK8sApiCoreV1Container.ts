@@ -12,35 +12,17 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ContainerPort,
-  IoK8sApiCoreV1ContainerPortFromJSON,
-  IoK8sApiCoreV1ContainerPortToJSON,
+  IoK8sApiCoreV1ContainerResizePolicy,
   IoK8sApiCoreV1EnvFromSource,
-  IoK8sApiCoreV1EnvFromSourceFromJSON,
-  IoK8sApiCoreV1EnvFromSourceToJSON,
   IoK8sApiCoreV1EnvVar,
-  IoK8sApiCoreV1EnvVarFromJSON,
-  IoK8sApiCoreV1EnvVarToJSON,
   IoK8sApiCoreV1Lifecycle,
-  IoK8sApiCoreV1LifecycleFromJSON,
-  IoK8sApiCoreV1LifecycleToJSON,
   IoK8sApiCoreV1Probe,
-  IoK8sApiCoreV1ProbeFromJSON,
-  IoK8sApiCoreV1ProbeToJSON,
   IoK8sApiCoreV1ResourceRequirements,
-  IoK8sApiCoreV1ResourceRequirementsFromJSON,
-  IoK8sApiCoreV1ResourceRequirementsToJSON,
   IoK8sApiCoreV1SecurityContext,
-  IoK8sApiCoreV1SecurityContextFromJSON,
-  IoK8sApiCoreV1SecurityContextToJSON,
   IoK8sApiCoreV1VolumeDevice,
-  IoK8sApiCoreV1VolumeDeviceFromJSON,
-  IoK8sApiCoreV1VolumeDeviceToJSON,
   IoK8sApiCoreV1VolumeMount,
-  IoK8sApiCoreV1VolumeMountFromJSON,
-  IoK8sApiCoreV1VolumeMountToJSON,
 } from './';
 
 /**
@@ -50,13 +32,13 @@ import {
  */
 export interface IoK8sApiCoreV1Container {
   /**
-   * Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+   * Arguments to the entrypoint. The container image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
    * @type {Array<string>}
    * @memberof IoK8sApiCoreV1Container
    */
   args?: Array<string>;
   /**
-   * Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+   * Entrypoint array. Not executed within a shell. The container image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
    * @type {Array<string>}
    * @memberof IoK8sApiCoreV1Container
    */
@@ -74,22 +56,17 @@ export interface IoK8sApiCoreV1Container {
    */
   envFrom?: Array<IoK8sApiCoreV1EnvFromSource>;
   /**
-   * Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.
+   * Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.
    * @type {string}
    * @memberof IoK8sApiCoreV1Container
    */
   image?: string;
   /**
    * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
-   *
-   * Possible enum values:
-   *  - `"Always"` means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.
-   *  - `"IfNotPresent"` means that kubelet pulls if the image isn't present on disk. Container will fail if the image isn't present and the pull fails.
-   *  - `"Never"` means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn't present
    * @type {string}
    * @memberof IoK8sApiCoreV1Container
    */
-  imagePullPolicy?: IoK8sApiCoreV1ContainerImagePullPolicyEnum;
+  imagePullPolicy?: string;
   /**
    *
    * @type {IoK8sApiCoreV1Lifecycle}
@@ -109,7 +86,7 @@ export interface IoK8sApiCoreV1Container {
    */
   name: string;
   /**
-   * List of ports to expose from the container. Exposing a port here gives the system additional information about the network connections a container uses, but is primarily informational. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default "0.0.0.0" address inside a container will be accessible from the network. Cannot be updated.
+   * List of ports to expose from the container. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default "0.0.0.0" address inside a container will be accessible from the network. Modifying this array with strategic merge patch may corrupt the data. For more information See https://github.com/kubernetes/kubernetes/issues/108255. Cannot be updated.
    * @type {Array<IoK8sApiCoreV1ContainerPort>}
    * @memberof IoK8sApiCoreV1Container
    */
@@ -121,11 +98,23 @@ export interface IoK8sApiCoreV1Container {
    */
   readinessProbe?: IoK8sApiCoreV1Probe;
   /**
+   * Resources resize policy for the container.
+   * @type {Array<IoK8sApiCoreV1ContainerResizePolicy>}
+   * @memberof IoK8sApiCoreV1Container
+   */
+  resizePolicy?: Array<IoK8sApiCoreV1ContainerResizePolicy>;
+  /**
    *
    * @type {IoK8sApiCoreV1ResourceRequirements}
    * @memberof IoK8sApiCoreV1Container
    */
   resources?: IoK8sApiCoreV1ResourceRequirements;
+  /**
+   * RestartPolicy defines the restart behavior of individual containers in a pod. This field may only be set for init containers, and the only allowed value is "Always". For non-init containers or when this field is not specified, the restart behavior is defined by the Pod's restart policy and the container type. Setting the RestartPolicy as "Always" for the init container will have the following effect: this init container will be continually restarted on exit until all regular containers have terminated. Once all regular containers have completed, all init containers with restartPolicy "Always" will be shut down. This lifecycle differs from normal init containers and is often referred to as a "sidecar" container. Although this init container still starts in the init container sequence, it does not wait for the container to complete before proceeding to the next init container. Instead, the next init container starts immediately after this init container is started, or after any startupProbe has successfully completed.
+   * @type {string}
+   * @memberof IoK8sApiCoreV1Container
+   */
+  restartPolicy?: string;
   /**
    *
    * @type {IoK8sApiCoreV1SecurityContext}
@@ -158,14 +147,10 @@ export interface IoK8sApiCoreV1Container {
   terminationMessagePath?: string;
   /**
    * Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
-   *
-   * Possible enum values:
-   *  - `"FallbackToLogsOnError"` will read the most recent contents of the container logs for the container status message when the container exits with an error and the terminationMessagePath has no contents.
-   *  - `"File"` is the default behavior and will set the container status message to the contents of the container's terminationMessagePath when the container exits.
    * @type {string}
    * @memberof IoK8sApiCoreV1Container
    */
-  terminationMessagePolicy?: IoK8sApiCoreV1ContainerTerminationMessagePolicyEnum;
+  terminationMessagePolicy?: string;
   /**
    * Whether this container should allocate a TTY for itself, also requires 'stdin' to be true. Default is false.
    * @type {boolean}
@@ -190,133 +175,4 @@ export interface IoK8sApiCoreV1Container {
    * @memberof IoK8sApiCoreV1Container
    */
   workingDir?: string;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1ContainerImagePullPolicyEnum {
-  Always = 'Always',
-  IfNotPresent = 'IfNotPresent',
-  Never = 'Never',
-}
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1ContainerTerminationMessagePolicyEnum {
-  FallbackToLogsOnError = 'FallbackToLogsOnError',
-  File = 'File',
-}
-
-export function IoK8sApiCoreV1ContainerFromJSON(json: any): IoK8sApiCoreV1Container {
-  return IoK8sApiCoreV1ContainerFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ContainerFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1Container {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    args: !exists(json, 'args') ? undefined : json['args'],
-    command: !exists(json, 'command') ? undefined : json['command'],
-    env: !exists(json, 'env')
-      ? undefined
-      : (json['env'] as Array<any>).map(IoK8sApiCoreV1EnvVarFromJSON),
-    envFrom: !exists(json, 'envFrom')
-      ? undefined
-      : (json['envFrom'] as Array<any>).map(IoK8sApiCoreV1EnvFromSourceFromJSON),
-    image: !exists(json, 'image') ? undefined : json['image'],
-    imagePullPolicy: !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
-    lifecycle: !exists(json, 'lifecycle')
-      ? undefined
-      : IoK8sApiCoreV1LifecycleFromJSON(json['lifecycle']),
-    livenessProbe: !exists(json, 'livenessProbe')
-      ? undefined
-      : IoK8sApiCoreV1ProbeFromJSON(json['livenessProbe']),
-    name: json['name'],
-    ports: !exists(json, 'ports')
-      ? undefined
-      : (json['ports'] as Array<any>).map(IoK8sApiCoreV1ContainerPortFromJSON),
-    readinessProbe: !exists(json, 'readinessProbe')
-      ? undefined
-      : IoK8sApiCoreV1ProbeFromJSON(json['readinessProbe']),
-    resources: !exists(json, 'resources')
-      ? undefined
-      : IoK8sApiCoreV1ResourceRequirementsFromJSON(json['resources']),
-    securityContext: !exists(json, 'securityContext')
-      ? undefined
-      : IoK8sApiCoreV1SecurityContextFromJSON(json['securityContext']),
-    startupProbe: !exists(json, 'startupProbe')
-      ? undefined
-      : IoK8sApiCoreV1ProbeFromJSON(json['startupProbe']),
-    stdin: !exists(json, 'stdin') ? undefined : json['stdin'],
-    stdinOnce: !exists(json, 'stdinOnce') ? undefined : json['stdinOnce'],
-    terminationMessagePath: !exists(json, 'terminationMessagePath')
-      ? undefined
-      : json['terminationMessagePath'],
-    terminationMessagePolicy: !exists(json, 'terminationMessagePolicy')
-      ? undefined
-      : json['terminationMessagePolicy'],
-    tty: !exists(json, 'tty') ? undefined : json['tty'],
-    volumeDevices: !exists(json, 'volumeDevices')
-      ? undefined
-      : (json['volumeDevices'] as Array<any>).map(IoK8sApiCoreV1VolumeDeviceFromJSON),
-    volumeMounts: !exists(json, 'volumeMounts')
-      ? undefined
-      : (json['volumeMounts'] as Array<any>).map(IoK8sApiCoreV1VolumeMountFromJSON),
-    workingDir: !exists(json, 'workingDir') ? undefined : json['workingDir'],
-  };
-}
-
-export function IoK8sApiCoreV1ContainerToJSON(value?: IoK8sApiCoreV1Container | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    args: value.args,
-    command: value.command,
-    env:
-      value.env === undefined
-        ? undefined
-        : (value.env as Array<any>).map(IoK8sApiCoreV1EnvVarToJSON),
-    envFrom:
-      value.envFrom === undefined
-        ? undefined
-        : (value.envFrom as Array<any>).map(IoK8sApiCoreV1EnvFromSourceToJSON),
-    image: value.image,
-    imagePullPolicy: value.imagePullPolicy,
-    lifecycle: IoK8sApiCoreV1LifecycleToJSON(value.lifecycle),
-    livenessProbe: IoK8sApiCoreV1ProbeToJSON(value.livenessProbe),
-    name: value.name,
-    ports:
-      value.ports === undefined
-        ? undefined
-        : (value.ports as Array<any>).map(IoK8sApiCoreV1ContainerPortToJSON),
-    readinessProbe: IoK8sApiCoreV1ProbeToJSON(value.readinessProbe),
-    resources: IoK8sApiCoreV1ResourceRequirementsToJSON(value.resources),
-    securityContext: IoK8sApiCoreV1SecurityContextToJSON(value.securityContext),
-    startupProbe: IoK8sApiCoreV1ProbeToJSON(value.startupProbe),
-    stdin: value.stdin,
-    stdinOnce: value.stdinOnce,
-    terminationMessagePath: value.terminationMessagePath,
-    terminationMessagePolicy: value.terminationMessagePolicy,
-    tty: value.tty,
-    volumeDevices:
-      value.volumeDevices === undefined
-        ? undefined
-        : (value.volumeDevices as Array<any>).map(IoK8sApiCoreV1VolumeDeviceToJSON),
-    volumeMounts:
-      value.volumeMounts === undefined
-        ? undefined
-        : (value.volumeMounts as Array<any>).map(IoK8sApiCoreV1VolumeMountToJSON),
-    workingDir: value.workingDir,
-  };
 }

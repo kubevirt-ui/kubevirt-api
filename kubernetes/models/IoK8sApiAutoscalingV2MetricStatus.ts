@@ -12,23 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAutoscalingV2ContainerResourceMetricStatus,
-  IoK8sApiAutoscalingV2ContainerResourceMetricStatusFromJSON,
-  IoK8sApiAutoscalingV2ContainerResourceMetricStatusToJSON,
   IoK8sApiAutoscalingV2ExternalMetricStatus,
-  IoK8sApiAutoscalingV2ExternalMetricStatusFromJSON,
-  IoK8sApiAutoscalingV2ExternalMetricStatusToJSON,
   IoK8sApiAutoscalingV2ObjectMetricStatus,
-  IoK8sApiAutoscalingV2ObjectMetricStatusFromJSON,
-  IoK8sApiAutoscalingV2ObjectMetricStatusToJSON,
   IoK8sApiAutoscalingV2PodsMetricStatus,
-  IoK8sApiAutoscalingV2PodsMetricStatusFromJSON,
-  IoK8sApiAutoscalingV2PodsMetricStatusToJSON,
   IoK8sApiAutoscalingV2ResourceMetricStatus,
-  IoK8sApiAutoscalingV2ResourceMetricStatusFromJSON,
-  IoK8sApiAutoscalingV2ResourceMetricStatusToJSON,
 } from './';
 
 /**
@@ -68,63 +57,9 @@ export interface IoK8sApiAutoscalingV2MetricStatus {
    */
   resource?: IoK8sApiAutoscalingV2ResourceMetricStatus;
   /**
-   * type is the type of metric source.  It will be one of "ContainerResource", "External", "Object", "Pods" or "Resource", each corresponds to a matching field in the object. Note: "ContainerResource" type is available on when the feature-gate HPAContainerMetrics is enabled
+   * type is the type of metric source.  It will be one of "ContainerResource", "External", "Object", "Pods" or "Resource", each corresponds to a matching field in the object.
    * @type {string}
    * @memberof IoK8sApiAutoscalingV2MetricStatus
    */
   type: string;
-}
-
-export function IoK8sApiAutoscalingV2MetricStatusFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV2MetricStatus {
-  return IoK8sApiAutoscalingV2MetricStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV2MetricStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV2MetricStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    containerResource: !exists(json, 'containerResource')
-      ? undefined
-      : IoK8sApiAutoscalingV2ContainerResourceMetricStatusFromJSON(json['containerResource']),
-    external: !exists(json, 'external')
-      ? undefined
-      : IoK8sApiAutoscalingV2ExternalMetricStatusFromJSON(json['external']),
-    object: !exists(json, 'object')
-      ? undefined
-      : IoK8sApiAutoscalingV2ObjectMetricStatusFromJSON(json['object']),
-    pods: !exists(json, 'pods')
-      ? undefined
-      : IoK8sApiAutoscalingV2PodsMetricStatusFromJSON(json['pods']),
-    resource: !exists(json, 'resource')
-      ? undefined
-      : IoK8sApiAutoscalingV2ResourceMetricStatusFromJSON(json['resource']),
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiAutoscalingV2MetricStatusToJSON(
-  value?: IoK8sApiAutoscalingV2MetricStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    containerResource: IoK8sApiAutoscalingV2ContainerResourceMetricStatusToJSON(
-      value.containerResource,
-    ),
-    external: IoK8sApiAutoscalingV2ExternalMetricStatusToJSON(value.external),
-    object: IoK8sApiAutoscalingV2ObjectMetricStatusToJSON(value.object),
-    pods: IoK8sApiAutoscalingV2PodsMetricStatusToJSON(value.pods),
-    resource: IoK8sApiAutoscalingV2ResourceMetricStatusToJSON(value.resource),
-    type: value.type,
-  };
 }

@@ -25,31 +25,3 @@ export interface IoK8sApiCoreV1PodOS {
    */
   name: string;
 }
-
-export function IoK8sApiCoreV1PodOSFromJSON(json: any): IoK8sApiCoreV1PodOS {
-  return IoK8sApiCoreV1PodOSFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodOSFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodOS {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-  };
-}
-
-export function IoK8sApiCoreV1PodOSToJSON(value?: IoK8sApiCoreV1PodOS | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-  };
-}

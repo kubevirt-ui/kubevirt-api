@@ -12,11 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1beta1DataSourceCondition,
-  V1beta1DataSourceConditionFromJSON,
-  V1beta1DataSourceConditionToJSON,
+  V1beta1DataSourceSource,
 } from './';
 
 /**
@@ -31,37 +29,10 @@ export interface V1beta1DataSourceStatus {
    * @memberof V1beta1DataSourceStatus
    */
   conditions?: Array<V1beta1DataSourceCondition>;
-}
-
-export function V1beta1DataSourceStatusFromJSON(json: any): V1beta1DataSourceStatus {
-  return V1beta1DataSourceStatusFromJSONTyped(json, false);
-}
-
-export function V1beta1DataSourceStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataSourceStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(V1beta1DataSourceConditionFromJSON),
-  };
-}
-
-export function V1beta1DataSourceStatusToJSON(value?: V1beta1DataSourceStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(V1beta1DataSourceConditionToJSON),
-  };
+  /**
+   *
+   * @type {V1beta1DataSourceSource}
+   * @memberof V1beta1DataSourceStatus
+   */
+  source?: V1beta1DataSourceSource;
 }

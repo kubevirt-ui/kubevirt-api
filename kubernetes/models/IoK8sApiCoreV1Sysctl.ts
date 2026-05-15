@@ -31,33 +31,3 @@ export interface IoK8sApiCoreV1Sysctl {
    */
   value: string;
 }
-
-export function IoK8sApiCoreV1SysctlFromJSON(json: any): IoK8sApiCoreV1Sysctl {
-  return IoK8sApiCoreV1SysctlFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1SysctlFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1Sysctl {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    value: json['value'],
-  };
-}
-
-export function IoK8sApiCoreV1SysctlToJSON(value?: IoK8sApiCoreV1Sysctl | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    value: value.value,
-  };
-}

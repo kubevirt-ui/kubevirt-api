@@ -13,45 +13,15 @@
  */
 
 /**
- *
+ * 
  * @export
  * @interface V1AccessCredentialSecretSource
  */
 export interface V1AccessCredentialSecretSource {
-  /**
-   * SecretName represents the name of the secret in the VMI's namespace
-   * @type {string}
-   * @memberof V1AccessCredentialSecretSource
-   */
-  secretName: string;
-}
-
-export function V1AccessCredentialSecretSourceFromJSON(json: any): V1AccessCredentialSecretSource {
-  return V1AccessCredentialSecretSourceFromJSONTyped(json, false);
-}
-
-export function V1AccessCredentialSecretSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1AccessCredentialSecretSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    secretName: json['secretName'],
-  };
-}
-
-export function V1AccessCredentialSecretSourceToJSON(
-  value?: V1AccessCredentialSecretSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    secretName: value.secretName,
-  };
+    /**
+     * SecretName represents the name of the secret in the VMI's namespace
+     * @type {string}
+     * @memberof V1AccessCredentialSecretSource
+     */
+    secretName: string;
 }

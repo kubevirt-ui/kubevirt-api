@@ -12,17 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
+  V1LocalObjectReference,
   V1ResourceRequirements,
-  V1ResourceRequirementsFromJSON,
-  V1ResourceRequirementsToJSON,
   V1beta1FilesystemOverhead,
-  V1beta1FilesystemOverheadFromJSON,
-  V1beta1FilesystemOverheadToJSON,
   V1beta1ImportProxy,
-  V1beta1ImportProxyFromJSON,
-  V1beta1ImportProxyToJSON,
+  V1beta1TLSSecurityProfile,
 } from './';
 
 /**
@@ -31,6 +26,12 @@ import {
  * @interface V1beta1CDIConfigSpec
  */
 export interface V1beta1CDIConfigSpec {
+  /**
+   * DataVolumeTTLSeconds is the time in seconds after DataVolume completion it can be garbage collected. Disabled by default. Deprecated: Removed in v1.62.
+   * @type {number}
+   * @memberof V1beta1CDIConfigSpec
+   */
+  dataVolumeTTLSeconds?: number;
   /**
    * FeatureGates are a list of specific enabled feature gates
    * @type {Array<string>}
@@ -44,6 +45,12 @@ export interface V1beta1CDIConfigSpec {
    */
   filesystemOverhead?: V1beta1FilesystemOverhead;
   /**
+   * The imagePullSecrets used to pull the container images
+   * @type {Array<V1LocalObjectReference>}
+   * @memberof V1beta1CDIConfigSpec
+   */
+  imagePullSecrets?: Array<V1LocalObjectReference>;
+  /**
    *
    * @type {V1beta1ImportProxy}
    * @memberof V1beta1CDIConfigSpec
@@ -55,6 +62,12 @@ export interface V1beta1CDIConfigSpec {
    * @memberof V1beta1CDIConfigSpec
    */
   insecureRegistries?: Array<string>;
+  /**
+   * LogVerbosity overrides the default verbosity level used to initialize loggers
+   * @type {number}
+   * @memberof V1beta1CDIConfigSpec
+   */
+  logVerbosity?: number;
   /**
    *
    * @type {V1ResourceRequirements}
@@ -74,63 +87,15 @@ export interface V1beta1CDIConfigSpec {
    */
   scratchSpaceStorageClass?: string;
   /**
+   *
+   * @type {V1beta1TLSSecurityProfile}
+   * @memberof V1beta1CDIConfigSpec
+   */
+  tlsSecurityProfile?: V1beta1TLSSecurityProfile;
+  /**
    * Override the URL used when uploading to a DataVolume
    * @type {string}
    * @memberof V1beta1CDIConfigSpec
    */
   uploadProxyURLOverride?: string;
-}
-
-export function V1beta1CDIConfigSpecFromJSON(json: any): V1beta1CDIConfigSpec {
-  return V1beta1CDIConfigSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1CDIConfigSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1CDIConfigSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    featureGates: !exists(json, 'featureGates') ? undefined : json['featureGates'],
-    filesystemOverhead: !exists(json, 'filesystemOverhead')
-      ? undefined
-      : V1beta1FilesystemOverheadFromJSON(json['filesystemOverhead']),
-    importProxy: !exists(json, 'importProxy')
-      ? undefined
-      : V1beta1ImportProxyFromJSON(json['importProxy']),
-    insecureRegistries: !exists(json, 'insecureRegistries')
-      ? undefined
-      : json['insecureRegistries'],
-    podResourceRequirements: !exists(json, 'podResourceRequirements')
-      ? undefined
-      : V1ResourceRequirementsFromJSON(json['podResourceRequirements']),
-    preallocation: !exists(json, 'preallocation') ? undefined : json['preallocation'],
-    scratchSpaceStorageClass: !exists(json, 'scratchSpaceStorageClass')
-      ? undefined
-      : json['scratchSpaceStorageClass'],
-    uploadProxyURLOverride: !exists(json, 'uploadProxyURLOverride')
-      ? undefined
-      : json['uploadProxyURLOverride'],
-  };
-}
-
-export function V1beta1CDIConfigSpecToJSON(value?: V1beta1CDIConfigSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    featureGates: value.featureGates,
-    filesystemOverhead: V1beta1FilesystemOverheadToJSON(value.filesystemOverhead),
-    importProxy: V1beta1ImportProxyToJSON(value.importProxy),
-    insecureRegistries: value.insecureRegistries,
-    podResourceRequirements: V1ResourceRequirementsToJSON(value.podResourceRequirements),
-    preallocation: value.preallocation,
-    scratchSpaceStorageClass: value.scratchSpaceStorageClass,
-    uploadProxyURLOverride: value.uploadProxyURLOverride,
-  };
 }

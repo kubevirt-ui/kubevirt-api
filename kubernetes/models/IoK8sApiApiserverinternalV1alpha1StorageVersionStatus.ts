@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiApiserverinternalV1alpha1ServerStorageVersion,
-  IoK8sApiApiserverinternalV1alpha1ServerStorageVersionFromJSON,
-  IoK8sApiApiserverinternalV1alpha1ServerStorageVersionToJSON,
   IoK8sApiApiserverinternalV1alpha1StorageVersionCondition,
-  IoK8sApiApiserverinternalV1alpha1StorageVersionConditionFromJSON,
-  IoK8sApiApiserverinternalV1alpha1StorageVersionConditionToJSON,
 } from './';
 
 /**
@@ -46,60 +41,4 @@ export interface IoK8sApiApiserverinternalV1alpha1StorageVersionStatus {
    * @memberof IoK8sApiApiserverinternalV1alpha1StorageVersionStatus
    */
   storageVersions?: Array<IoK8sApiApiserverinternalV1alpha1ServerStorageVersion>;
-}
-
-export function IoK8sApiApiserverinternalV1alpha1StorageVersionStatusFromJSON(
-  json: any,
-): IoK8sApiApiserverinternalV1alpha1StorageVersionStatus {
-  return IoK8sApiApiserverinternalV1alpha1StorageVersionStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiApiserverinternalV1alpha1StorageVersionStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiApiserverinternalV1alpha1StorageVersionStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    commonEncodingVersion: !exists(json, 'commonEncodingVersion')
-      ? undefined
-      : json['commonEncodingVersion'],
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(
-          IoK8sApiApiserverinternalV1alpha1StorageVersionConditionFromJSON,
-        ),
-    storageVersions: !exists(json, 'storageVersions')
-      ? undefined
-      : (json['storageVersions'] as Array<any>).map(
-          IoK8sApiApiserverinternalV1alpha1ServerStorageVersionFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiApiserverinternalV1alpha1StorageVersionStatusToJSON(
-  value?: IoK8sApiApiserverinternalV1alpha1StorageVersionStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    commonEncodingVersion: value.commonEncodingVersion,
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(
-            IoK8sApiApiserverinternalV1alpha1StorageVersionConditionToJSON,
-          ),
-    storageVersions:
-      value.storageVersions === undefined
-        ? undefined
-        : (value.storageVersions as Array<any>).map(
-            IoK8sApiApiserverinternalV1alpha1ServerStorageVersionToJSON,
-          ),
-  };
 }

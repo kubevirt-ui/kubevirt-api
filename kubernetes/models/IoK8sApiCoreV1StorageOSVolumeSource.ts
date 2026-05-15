@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1LocalObjectReference,
-  IoK8sApiCoreV1LocalObjectReferenceFromJSON,
-  IoK8sApiCoreV1LocalObjectReferenceToJSON,
 } from './';
 
 /**
@@ -26,13 +23,13 @@ import {
  */
 export interface IoK8sApiCoreV1StorageOSVolumeSource {
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
    * @type {string}
    * @memberof IoK8sApiCoreV1StorageOSVolumeSource
    */
   fsType?: string;
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @type {boolean}
    * @memberof IoK8sApiCoreV1StorageOSVolumeSource
    */
@@ -44,57 +41,15 @@ export interface IoK8sApiCoreV1StorageOSVolumeSource {
    */
   secretRef?: IoK8sApiCoreV1LocalObjectReference;
   /**
-   * VolumeName is the human-readable name of the StorageOS volume.  Volume names are only unique within a namespace.
+   * volumeName is the human-readable name of the StorageOS volume.  Volume names are only unique within a namespace.
    * @type {string}
    * @memberof IoK8sApiCoreV1StorageOSVolumeSource
    */
   volumeName?: string;
   /**
-   * VolumeNamespace specifies the scope of the volume within StorageOS.  If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to "default" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.
+   * volumeNamespace specifies the scope of the volume within StorageOS.  If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to "default" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.
    * @type {string}
    * @memberof IoK8sApiCoreV1StorageOSVolumeSource
    */
   volumeNamespace?: string;
-}
-
-export function IoK8sApiCoreV1StorageOSVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1StorageOSVolumeSource {
-  return IoK8sApiCoreV1StorageOSVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1StorageOSVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1StorageOSVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    secretRef: !exists(json, 'secretRef')
-      ? undefined
-      : IoK8sApiCoreV1LocalObjectReferenceFromJSON(json['secretRef']),
-    volumeName: !exists(json, 'volumeName') ? undefined : json['volumeName'],
-    volumeNamespace: !exists(json, 'volumeNamespace') ? undefined : json['volumeNamespace'],
-  };
-}
-
-export function IoK8sApiCoreV1StorageOSVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1StorageOSVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fsType: value.fsType,
-    readOnly: value.readOnly,
-    secretRef: IoK8sApiCoreV1LocalObjectReferenceToJSON(value.secretRef),
-    volumeName: value.volumeName,
-    volumeNamespace: value.volumeNamespace,
-  };
 }

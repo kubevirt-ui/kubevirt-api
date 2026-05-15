@@ -12,12 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1AccessCredentialSecretSource,
-  V1AccessCredentialSecretSourceFromJSON,
-  V1AccessCredentialSecretSourceToJSON,
-} from './';
+import type { V1AccessCredentialSecretSource } from './V1AccessCredentialSecretSource';
 
 /**
  * SSHPublicKeyAccessCredentialSource represents where to retrieve the ssh key credentials Only one of its members may be specified.
@@ -25,44 +20,10 @@ import {
  * @interface V1SSHPublicKeyAccessCredentialSource
  */
 export interface V1SSHPublicKeyAccessCredentialSource {
-  /**
-   *
-   * @type {V1AccessCredentialSecretSource}
-   * @memberof V1SSHPublicKeyAccessCredentialSource
-   */
-  secret?: V1AccessCredentialSecretSource;
-}
-
-export function V1SSHPublicKeyAccessCredentialSourceFromJSON(
-  json: any,
-): V1SSHPublicKeyAccessCredentialSource {
-  return V1SSHPublicKeyAccessCredentialSourceFromJSONTyped(json, false);
-}
-
-export function V1SSHPublicKeyAccessCredentialSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1SSHPublicKeyAccessCredentialSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    secret: !exists(json, 'secret')
-      ? undefined
-      : V1AccessCredentialSecretSourceFromJSON(json['secret']),
-  };
-}
-
-export function V1SSHPublicKeyAccessCredentialSourceToJSON(
-  value?: V1SSHPublicKeyAccessCredentialSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    secret: V1AccessCredentialSecretSourceToJSON(value.secret),
-  };
+    /**
+     * 
+     * @type {V1AccessCredentialSecretSource}
+     * @memberof V1SSHPublicKeyAccessCredentialSource
+     */
+    secret?: V1AccessCredentialSecretSource;
 }

@@ -25,33 +25,3 @@ export interface IoK8sApiCoreV1DaemonEndpoint {
    */
   port: number;
 }
-
-export function IoK8sApiCoreV1DaemonEndpointFromJSON(json: any): IoK8sApiCoreV1DaemonEndpoint {
-  return IoK8sApiCoreV1DaemonEndpointFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1DaemonEndpointFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1DaemonEndpoint {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    port: json['Port'],
-  };
-}
-
-export function IoK8sApiCoreV1DaemonEndpointToJSON(
-  value?: IoK8sApiCoreV1DaemonEndpoint | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    Port: value.port,
-  };
-}

@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1LocalObjectReference,
-  IoK8sApiCoreV1LocalObjectReferenceFromJSON,
-  IoK8sApiCoreV1LocalObjectReferenceToJSON,
   IoK8sApiCoreV1ObjectReference,
-  IoK8sApiCoreV1ObjectReferenceFromJSON,
-  IoK8sApiCoreV1ObjectReferenceToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -62,63 +55,9 @@ export interface IoK8sApiCoreV1ServiceAccount {
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ObjectMeta;
   /**
-   * Secrets is the list of secrets allowed to be used by pods running using this ServiceAccount. More info: https://kubernetes.io/docs/concepts/configuration/secret
+   * Secrets is a list of the secrets in the same namespace that pods running using this ServiceAccount are allowed to use. Pods are only limited to this list if this service account has a "kubernetes.io/enforce-mountable-secrets" annotation set to "true". The "kubernetes.io/enforce-mountable-secrets" annotation is deprecated since v1.32. Prefer separate namespaces to isolate access to mounted secrets. This field should not be used to find auto-generated service account token secrets for use outside of pods. Instead, tokens can be requested directly using the TokenRequest API, or service account token secrets can be manually created. More info: https://kubernetes.io/docs/concepts/configuration/secret
    * @type {Array<IoK8sApiCoreV1ObjectReference>}
    * @memberof IoK8sApiCoreV1ServiceAccount
    */
   secrets?: Array<IoK8sApiCoreV1ObjectReference>;
-}
-
-export function IoK8sApiCoreV1ServiceAccountFromJSON(json: any): IoK8sApiCoreV1ServiceAccount {
-  return IoK8sApiCoreV1ServiceAccountFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ServiceAccountFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ServiceAccount {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    automountServiceAccountToken: !exists(json, 'automountServiceAccountToken')
-      ? undefined
-      : json['automountServiceAccountToken'],
-    imagePullSecrets: !exists(json, 'imagePullSecrets')
-      ? undefined
-      : (json['imagePullSecrets'] as Array<any>).map(IoK8sApiCoreV1LocalObjectReferenceFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    secrets: !exists(json, 'secrets')
-      ? undefined
-      : (json['secrets'] as Array<any>).map(IoK8sApiCoreV1ObjectReferenceFromJSON),
-  };
-}
-
-export function IoK8sApiCoreV1ServiceAccountToJSON(
-  value?: IoK8sApiCoreV1ServiceAccount | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    automountServiceAccountToken: value.automountServiceAccountToken,
-    imagePullSecrets:
-      value.imagePullSecrets === undefined
-        ? undefined
-        : (value.imagePullSecrets as Array<any>).map(IoK8sApiCoreV1LocalObjectReferenceToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    secrets:
-      value.secrets === undefined
-        ? undefined
-        : (value.secrets as Array<any>).map(IoK8sApiCoreV1ObjectReferenceToJSON),
-  };
 }

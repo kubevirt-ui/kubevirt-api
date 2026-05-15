@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
  * @export
@@ -20,81 +19,39 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1AzureDiskVolumeSource {
   /**
-   * Host Caching mode: None, Read Only, Read Write.
+   * cachingMode is the Host Caching mode: None, Read Only, Read Write.
    * @type {string}
    * @memberof IoK8sApiCoreV1AzureDiskVolumeSource
    */
   cachingMode?: string;
   /**
-   * The Name of the data disk in the blob storage
+   * diskName is the Name of the data disk in the blob storage
    * @type {string}
    * @memberof IoK8sApiCoreV1AzureDiskVolumeSource
    */
   diskName: string;
   /**
-   * The URI the data disk in the blob storage
+   * diskURI is the URI of data disk in the blob storage
    * @type {string}
    * @memberof IoK8sApiCoreV1AzureDiskVolumeSource
    */
   diskURI: string;
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   * fsType is Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
    * @type {string}
    * @memberof IoK8sApiCoreV1AzureDiskVolumeSource
    */
   fsType?: string;
   /**
-   * Expected values Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared
+   * kind expected values are Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared
    * @type {string}
    * @memberof IoK8sApiCoreV1AzureDiskVolumeSource
    */
   kind?: string;
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @type {boolean}
    * @memberof IoK8sApiCoreV1AzureDiskVolumeSource
    */
   readOnly?: boolean;
-}
-
-export function IoK8sApiCoreV1AzureDiskVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1AzureDiskVolumeSource {
-  return IoK8sApiCoreV1AzureDiskVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1AzureDiskVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1AzureDiskVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    cachingMode: !exists(json, 'cachingMode') ? undefined : json['cachingMode'],
-    diskName: json['diskName'],
-    diskURI: json['diskURI'],
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-  };
-}
-
-export function IoK8sApiCoreV1AzureDiskVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1AzureDiskVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    cachingMode: value.cachingMode,
-    diskName: value.diskName,
-    diskURI: value.diskURI,
-    fsType: value.fsType,
-    kind: value.kind,
-    readOnly: value.readOnly,
-  };
 }

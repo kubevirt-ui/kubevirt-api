@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1KeyToPath,
-  IoK8sApiCoreV1KeyToPathFromJSON,
-  IoK8sApiCoreV1KeyToPathToJSON,
 } from './';
 
 /**
@@ -28,62 +25,21 @@ import {
  */
 export interface IoK8sApiCoreV1ConfigMapProjection {
   /**
-   * If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+   * items if unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
    * @type {Array<IoK8sApiCoreV1KeyToPath>}
    * @memberof IoK8sApiCoreV1ConfigMapProjection
    */
   items?: Array<IoK8sApiCoreV1KeyToPath>;
   /**
-   * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+   * Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @type {string}
    * @memberof IoK8sApiCoreV1ConfigMapProjection
    */
   name?: string;
   /**
-   * Specify whether the ConfigMap or its keys must be defined
+   * optional specify whether the ConfigMap or its keys must be defined
    * @type {boolean}
    * @memberof IoK8sApiCoreV1ConfigMapProjection
    */
   optional?: boolean;
-}
-
-export function IoK8sApiCoreV1ConfigMapProjectionFromJSON(
-  json: any,
-): IoK8sApiCoreV1ConfigMapProjection {
-  return IoK8sApiCoreV1ConfigMapProjectionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ConfigMapProjectionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ConfigMapProjection {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    items: !exists(json, 'items')
-      ? undefined
-      : (json['items'] as Array<any>).map(IoK8sApiCoreV1KeyToPathFromJSON),
-    name: !exists(json, 'name') ? undefined : json['name'],
-    optional: !exists(json, 'optional') ? undefined : json['optional'],
-  };
-}
-
-export function IoK8sApiCoreV1ConfigMapProjectionToJSON(
-  value?: IoK8sApiCoreV1ConfigMapProjection | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    items:
-      value.items === undefined
-        ? undefined
-        : (value.items as Array<any>).map(IoK8sApiCoreV1KeyToPathToJSON),
-    name: value.name,
-    optional: value.optional,
-  };
 }

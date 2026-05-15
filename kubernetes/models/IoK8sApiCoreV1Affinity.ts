@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1NodeAffinity,
-  IoK8sApiCoreV1NodeAffinityFromJSON,
-  IoK8sApiCoreV1NodeAffinityToJSON,
   IoK8sApiCoreV1PodAffinity,
-  IoK8sApiCoreV1PodAffinityFromJSON,
-  IoK8sApiCoreV1PodAffinityToJSON,
   IoK8sApiCoreV1PodAntiAffinity,
-  IoK8sApiCoreV1PodAntiAffinityFromJSON,
-  IoK8sApiCoreV1PodAntiAffinityToJSON,
 } from './';
 
 /**
@@ -49,42 +42,4 @@ export interface IoK8sApiCoreV1Affinity {
    * @memberof IoK8sApiCoreV1Affinity
    */
   podAntiAffinity?: IoK8sApiCoreV1PodAntiAffinity;
-}
-
-export function IoK8sApiCoreV1AffinityFromJSON(json: any): IoK8sApiCoreV1Affinity {
-  return IoK8sApiCoreV1AffinityFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1AffinityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1Affinity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    nodeAffinity: !exists(json, 'nodeAffinity')
-      ? undefined
-      : IoK8sApiCoreV1NodeAffinityFromJSON(json['nodeAffinity']),
-    podAffinity: !exists(json, 'podAffinity')
-      ? undefined
-      : IoK8sApiCoreV1PodAffinityFromJSON(json['podAffinity']),
-    podAntiAffinity: !exists(json, 'podAntiAffinity')
-      ? undefined
-      : IoK8sApiCoreV1PodAntiAffinityFromJSON(json['podAntiAffinity']),
-  };
-}
-
-export function IoK8sApiCoreV1AffinityToJSON(value?: IoK8sApiCoreV1Affinity | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    nodeAffinity: IoK8sApiCoreV1NodeAffinityToJSON(value.nodeAffinity),
-    podAffinity: IoK8sApiCoreV1PodAffinityToJSON(value.podAffinity),
-    podAntiAffinity: IoK8sApiCoreV1PodAntiAffinityToJSON(value.podAntiAffinity),
-  };
 }

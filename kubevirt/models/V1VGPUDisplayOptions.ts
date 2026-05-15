@@ -12,55 +12,24 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1FeatureState, V1FeatureStateFromJSON, V1FeatureStateToJSON } from './';
+import type { V1FeatureState } from './V1FeatureState';
 
 /**
- *
+ * 
  * @export
  * @interface V1VGPUDisplayOptions
  */
 export interface V1VGPUDisplayOptions {
-  /**
-   * Enabled determines if a display addapter backed by a vGPU should be enabled or disabled on the guest. Defaults to true.
-   * @type {boolean}
-   * @memberof V1VGPUDisplayOptions
-   */
-  enabled?: boolean;
-  /**
-   *
-   * @type {V1FeatureState}
-   * @memberof V1VGPUDisplayOptions
-   */
-  ramFB?: V1FeatureState;
-}
-
-export function V1VGPUDisplayOptionsFromJSON(json: any): V1VGPUDisplayOptions {
-  return V1VGPUDisplayOptionsFromJSONTyped(json, false);
-}
-
-export function V1VGPUDisplayOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VGPUDisplayOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    enabled: !exists(json, 'enabled') ? undefined : json['enabled'],
-    ramFB: !exists(json, 'ramFB') ? undefined : V1FeatureStateFromJSON(json['ramFB']),
-  };
-}
-
-export function V1VGPUDisplayOptionsToJSON(value?: V1VGPUDisplayOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    enabled: value.enabled,
-    ramFB: V1FeatureStateToJSON(value.ramFB),
-  };
+    /**
+     * Enabled determines if a display addapter backed by a vGPU should be enabled or disabled on the guest. Defaults to true.
+     * @type {boolean}
+     * @memberof V1VGPUDisplayOptions
+     */
+    enabled?: boolean;
+    /**
+     * 
+     * @type {V1FeatureState}
+     * @memberof V1VGPUDisplayOptions
+     */
+    ramFB?: V1FeatureState;
 }

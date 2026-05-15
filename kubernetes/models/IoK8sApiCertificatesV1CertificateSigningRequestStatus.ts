@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCertificatesV1CertificateSigningRequestCondition,
-  IoK8sApiCertificatesV1CertificateSigningRequestConditionFromJSON,
-  IoK8sApiCertificatesV1CertificateSigningRequestConditionToJSON,
 } from './';
 
 /**
@@ -58,47 +55,4 @@ export interface IoK8sApiCertificatesV1CertificateSigningRequestStatus {
    * @memberof IoK8sApiCertificatesV1CertificateSigningRequestStatus
    */
   conditions?: Array<IoK8sApiCertificatesV1CertificateSigningRequestCondition>;
-}
-
-export function IoK8sApiCertificatesV1CertificateSigningRequestStatusFromJSON(
-  json: any,
-): IoK8sApiCertificatesV1CertificateSigningRequestStatus {
-  return IoK8sApiCertificatesV1CertificateSigningRequestStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCertificatesV1CertificateSigningRequestStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCertificatesV1CertificateSigningRequestStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    certificate: !exists(json, 'certificate') ? undefined : json['certificate'],
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(
-          IoK8sApiCertificatesV1CertificateSigningRequestConditionFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiCertificatesV1CertificateSigningRequestStatusToJSON(
-  value?: IoK8sApiCertificatesV1CertificateSigningRequestStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    certificate: value.certificate,
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(
-            IoK8sApiCertificatesV1CertificateSigningRequestConditionToJSON,
-          ),
-  };
 }

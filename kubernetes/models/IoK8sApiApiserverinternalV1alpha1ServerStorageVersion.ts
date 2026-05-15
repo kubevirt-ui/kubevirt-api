@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.
  * @export
@@ -37,40 +36,10 @@ export interface IoK8sApiApiserverinternalV1alpha1ServerStorageVersion {
    * @memberof IoK8sApiApiserverinternalV1alpha1ServerStorageVersion
    */
   encodingVersion?: string;
-}
-
-export function IoK8sApiApiserverinternalV1alpha1ServerStorageVersionFromJSON(
-  json: any,
-): IoK8sApiApiserverinternalV1alpha1ServerStorageVersion {
-  return IoK8sApiApiserverinternalV1alpha1ServerStorageVersionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiApiserverinternalV1alpha1ServerStorageVersionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiApiserverinternalV1alpha1ServerStorageVersion {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiServerID: !exists(json, 'apiServerID') ? undefined : json['apiServerID'],
-    decodableVersions: !exists(json, 'decodableVersions') ? undefined : json['decodableVersions'],
-    encodingVersion: !exists(json, 'encodingVersion') ? undefined : json['encodingVersion'],
-  };
-}
-
-export function IoK8sApiApiserverinternalV1alpha1ServerStorageVersionToJSON(
-  value?: IoK8sApiApiserverinternalV1alpha1ServerStorageVersion | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiServerID: value.apiServerID,
-    decodableVersions: value.decodableVersions,
-    encodingVersion: value.encodingVersion,
-  };
+  /**
+   * The API server can serve these versions. DecodableVersions must include all ServedVersions.
+   * @type {Array<string>}
+   * @memberof IoK8sApiApiserverinternalV1alpha1ServerStorageVersion
+   */
+  servedVersions?: Array<string>;
 }

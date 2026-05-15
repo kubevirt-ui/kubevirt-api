@@ -12,47 +12,18 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1VGPUDisplayOptions, V1VGPUDisplayOptionsFromJSON, V1VGPUDisplayOptionsToJSON } from './';
+import type { V1VGPUDisplayOptions } from './V1VGPUDisplayOptions';
 
 /**
- *
+ * 
  * @export
  * @interface V1VGPUOptions
  */
 export interface V1VGPUOptions {
-  /**
-   *
-   * @type {V1VGPUDisplayOptions}
-   * @memberof V1VGPUOptions
-   */
-  display?: V1VGPUDisplayOptions;
-}
-
-export function V1VGPUOptionsFromJSON(json: any): V1VGPUOptions {
-  return V1VGPUOptionsFromJSONTyped(json, false);
-}
-
-export function V1VGPUOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VGPUOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    display: !exists(json, 'display') ? undefined : V1VGPUDisplayOptionsFromJSON(json['display']),
-  };
-}
-
-export function V1VGPUOptionsToJSON(value?: V1VGPUOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    display: V1VGPUDisplayOptionsToJSON(value.display),
-  };
+    /**
+     * 
+     * @type {V1VGPUDisplayOptions}
+     * @memberof V1VGPUOptions
+     */
+    display?: V1VGPUDisplayOptions;
 }

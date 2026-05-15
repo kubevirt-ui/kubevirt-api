@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscovery,
-  IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSON,
-  IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscoveryToJSON,
   IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDR,
-  IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDRToJSON,
 } from './';
 
 /**
@@ -64,63 +59,4 @@ export interface IoK8sApimachineryPkgApisMetaV1APIGroup {
    * @memberof IoK8sApimachineryPkgApisMetaV1APIGroup
    */
   versions: Array<IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscovery>;
-}
-
-export function IoK8sApimachineryPkgApisMetaV1APIGroupFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1APIGroup {
-  return IoK8sApimachineryPkgApisMetaV1APIGroupFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1APIGroupFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1APIGroup {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    name: json['name'],
-    preferredVersion: !exists(json, 'preferredVersion')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSON(json['preferredVersion']),
-    serverAddressByClientCIDRs: !exists(json, 'serverAddressByClientCIDRs')
-      ? undefined
-      : (json['serverAddressByClientCIDRs'] as Array<any>).map(
-          IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDRFromJSON,
-        ),
-    versions: (json['versions'] as Array<any>).map(
-      IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSON,
-    ),
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1APIGroupToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1APIGroup | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    name: value.name,
-    preferredVersion: IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscoveryToJSON(
-      value.preferredVersion,
-    ),
-    serverAddressByClientCIDRs:
-      value.serverAddressByClientCIDRs === undefined
-        ? undefined
-        : (value.serverAddressByClientCIDRs as Array<any>).map(
-            IoK8sApimachineryPkgApisMetaV1ServerAddressByClientCIDRToJSON,
-          ),
-    versions: (value.versions as Array<any>).map(
-      IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscoveryToJSON,
-    ),
-  };
 }

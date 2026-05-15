@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * TypedLocalObjectReference contains enough information to let you locate the typed referenced object inside the same namespace.
  * @export
@@ -37,40 +36,4 @@ export interface IoK8sApiCoreV1TypedLocalObjectReference {
    * @memberof IoK8sApiCoreV1TypedLocalObjectReference
    */
   name: string;
-}
-
-export function IoK8sApiCoreV1TypedLocalObjectReferenceFromJSON(
-  json: any,
-): IoK8sApiCoreV1TypedLocalObjectReference {
-  return IoK8sApiCoreV1TypedLocalObjectReferenceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1TypedLocalObjectReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1TypedLocalObjectReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiGroup: !exists(json, 'apiGroup') ? undefined : json['apiGroup'],
-    kind: json['kind'],
-    name: json['name'],
-  };
-}
-
-export function IoK8sApiCoreV1TypedLocalObjectReferenceToJSON(
-  value?: IoK8sApiCoreV1TypedLocalObjectReference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiGroup: value.apiGroup,
-    kind: value.kind,
-    name: value.name,
-  };
 }

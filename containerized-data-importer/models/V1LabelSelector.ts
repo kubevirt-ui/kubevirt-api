@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1LabelSelectorRequirement,
-  V1LabelSelectorRequirementFromJSON,
-  V1LabelSelectorRequirementToJSON,
 } from './';
 
 /**
@@ -37,39 +34,4 @@ export interface V1LabelSelector {
    * @memberof V1LabelSelector
    */
   matchLabels?: { [key: string]: string };
-}
-
-export function V1LabelSelectorFromJSON(json: any): V1LabelSelector {
-  return V1LabelSelectorFromJSONTyped(json, false);
-}
-
-export function V1LabelSelectorFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1LabelSelector {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    matchExpressions: !exists(json, 'matchExpressions')
-      ? undefined
-      : (json['matchExpressions'] as Array<any>).map(V1LabelSelectorRequirementFromJSON),
-    matchLabels: !exists(json, 'matchLabels') ? undefined : json['matchLabels'],
-  };
-}
-
-export function V1LabelSelectorToJSON(value?: V1LabelSelector | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    matchExpressions:
-      value.matchExpressions === undefined
-        ? undefined
-        : (value.matchExpressions as Array<any>).map(V1LabelSelectorRequirementToJSON),
-    matchLabels: value.matchLabels,
-  };
 }

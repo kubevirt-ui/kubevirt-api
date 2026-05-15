@@ -31,6 +31,18 @@ export interface IoK8sApimachineryPkgVersionInfo {
    */
   compiler: string;
   /**
+   * EmulationMajor is the major version of the emulation version
+   * @type {string}
+   * @memberof IoK8sApimachineryPkgVersionInfo
+   */
+  emulationMajor?: string;
+  /**
+   * EmulationMinor is the minor version of the emulation version
+   * @type {string}
+   * @memberof IoK8sApimachineryPkgVersionInfo
+   */
+  emulationMinor?: string;
+  /**
    *
    * @type {string}
    * @memberof IoK8sApimachineryPkgVersionInfo
@@ -55,13 +67,25 @@ export interface IoK8sApimachineryPkgVersionInfo {
    */
   goVersion: string;
   /**
-   *
+   * Major is the major version of the binary version
    * @type {string}
    * @memberof IoK8sApimachineryPkgVersionInfo
    */
   major: string;
   /**
-   *
+   * MinCompatibilityMajor is the major version of the minimum compatibility version
+   * @type {string}
+   * @memberof IoK8sApimachineryPkgVersionInfo
+   */
+  minCompatibilityMajor?: string;
+  /**
+   * MinCompatibilityMinor is the minor version of the minimum compatibility version
+   * @type {string}
+   * @memberof IoK8sApimachineryPkgVersionInfo
+   */
+  minCompatibilityMinor?: string;
+  /**
+   * Minor is the minor version of the binary version
    * @type {string}
    * @memberof IoK8sApimachineryPkgVersionInfo
    */
@@ -72,52 +96,4 @@ export interface IoK8sApimachineryPkgVersionInfo {
    * @memberof IoK8sApimachineryPkgVersionInfo
    */
   platform: string;
-}
-
-export function IoK8sApimachineryPkgVersionInfoFromJSON(
-  json: any,
-): IoK8sApimachineryPkgVersionInfo {
-  return IoK8sApimachineryPkgVersionInfoFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgVersionInfoFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgVersionInfo {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    buildDate: json['buildDate'],
-    compiler: json['compiler'],
-    gitCommit: json['gitCommit'],
-    gitTreeState: json['gitTreeState'],
-    gitVersion: json['gitVersion'],
-    goVersion: json['goVersion'],
-    major: json['major'],
-    minor: json['minor'],
-    platform: json['platform'],
-  };
-}
-
-export function IoK8sApimachineryPkgVersionInfoToJSON(
-  value?: IoK8sApimachineryPkgVersionInfo | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    buildDate: value.buildDate,
-    compiler: value.compiler,
-    gitCommit: value.gitCommit,
-    gitTreeState: value.gitTreeState,
-    gitVersion: value.gitVersion,
-    goVersion: value.goVersion,
-    major: value.major,
-    minor: value.minor,
-    platform: value.platform,
-  };
 }

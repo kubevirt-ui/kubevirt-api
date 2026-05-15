@@ -12,53 +12,22 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1DataVolumeSource
  */
 export interface V1DataVolumeSource {
-  /**
-   * Hotpluggable indicates whether the volume can be hotplugged and hotunplugged.
-   * @type {boolean}
-   * @memberof V1DataVolumeSource
-   */
-  hotpluggable?: boolean;
-  /**
-   * Name represents the name of the DataVolume in the same namespace
-   * @type {string}
-   * @memberof V1DataVolumeSource
-   */
-  name: string;
-}
-
-export function V1DataVolumeSourceFromJSON(json: any): V1DataVolumeSource {
-  return V1DataVolumeSourceFromJSONTyped(json, false);
-}
-
-export function V1DataVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DataVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    hotpluggable: !exists(json, 'hotpluggable') ? undefined : json['hotpluggable'],
-    name: json['name'],
-  };
-}
-
-export function V1DataVolumeSourceToJSON(value?: V1DataVolumeSource | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    hotpluggable: value.hotpluggable,
-    name: value.name,
-  };
+    /**
+     * Hotpluggable indicates whether the volume can be hotplugged and hotunplugged.
+     * @type {boolean}
+     * @memberof V1DataVolumeSource
+     */
+    hotpluggable?: boolean;
+    /**
+     * Name of both the DataVolume and the PVC in the same namespace.
+     * @type {string}
+     * @memberof V1DataVolumeSource
+     */
+    name: string;
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAuthorizationV1NonResourceAttributes,
-  IoK8sApiAuthorizationV1NonResourceAttributesFromJSON,
-  IoK8sApiAuthorizationV1NonResourceAttributesToJSON,
   IoK8sApiAuthorizationV1ResourceAttributes,
-  IoK8sApiAuthorizationV1ResourceAttributesFromJSON,
-  IoK8sApiAuthorizationV1ResourceAttributesToJSON,
 } from './';
 
 /**
@@ -40,44 +35,4 @@ export interface IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpec {
    * @memberof IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpec
    */
   resourceAttributes?: IoK8sApiAuthorizationV1ResourceAttributes;
-}
-
-export function IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpecFromJSON(
-  json: any,
-): IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpec {
-  return IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    nonResourceAttributes: !exists(json, 'nonResourceAttributes')
-      ? undefined
-      : IoK8sApiAuthorizationV1NonResourceAttributesFromJSON(json['nonResourceAttributes']),
-    resourceAttributes: !exists(json, 'resourceAttributes')
-      ? undefined
-      : IoK8sApiAuthorizationV1ResourceAttributesFromJSON(json['resourceAttributes']),
-  };
-}
-
-export function IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpecToJSON(
-  value?: IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    nonResourceAttributes: IoK8sApiAuthorizationV1NonResourceAttributesToJSON(
-      value.nonResourceAttributes,
-    ),
-    resourceAttributes: IoK8sApiAuthorizationV1ResourceAttributesToJSON(value.resourceAttributes),
-  };
 }

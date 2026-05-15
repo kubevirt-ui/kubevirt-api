@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * TokenReviewSpec is a description of the token authentication request.
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiAuthenticationV1TokenReviewSpec {
    * @memberof IoK8sApiAuthenticationV1TokenReviewSpec
    */
   token?: string;
-}
-
-export function IoK8sApiAuthenticationV1TokenReviewSpecFromJSON(
-  json: any,
-): IoK8sApiAuthenticationV1TokenReviewSpec {
-  return IoK8sApiAuthenticationV1TokenReviewSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthenticationV1TokenReviewSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthenticationV1TokenReviewSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    audiences: !exists(json, 'audiences') ? undefined : json['audiences'],
-    token: !exists(json, 'token') ? undefined : json['token'],
-  };
-}
-
-export function IoK8sApiAuthenticationV1TokenReviewSpecToJSON(
-  value?: IoK8sApiAuthenticationV1TokenReviewSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    audiences: value.audiences,
-    token: value.token,
-  };
 }

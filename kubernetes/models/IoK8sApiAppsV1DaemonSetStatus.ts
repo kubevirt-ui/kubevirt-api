@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAppsV1DaemonSetCondition,
-  IoK8sApiAppsV1DaemonSetConditionFromJSON,
-  IoK8sApiAppsV1DaemonSetConditionToJSON,
 } from './';
 
 /**
@@ -85,61 +82,4 @@ export interface IoK8sApiAppsV1DaemonSetStatus {
    * @memberof IoK8sApiAppsV1DaemonSetStatus
    */
   updatedNumberScheduled?: number;
-}
-
-export function IoK8sApiAppsV1DaemonSetStatusFromJSON(json: any): IoK8sApiAppsV1DaemonSetStatus {
-  return IoK8sApiAppsV1DaemonSetStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1DaemonSetStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1DaemonSetStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    collisionCount: !exists(json, 'collisionCount') ? undefined : json['collisionCount'],
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(IoK8sApiAppsV1DaemonSetConditionFromJSON),
-    currentNumberScheduled: json['currentNumberScheduled'],
-    desiredNumberScheduled: json['desiredNumberScheduled'],
-    numberAvailable: !exists(json, 'numberAvailable') ? undefined : json['numberAvailable'],
-    numberMisscheduled: json['numberMisscheduled'],
-    numberReady: json['numberReady'],
-    numberUnavailable: !exists(json, 'numberUnavailable') ? undefined : json['numberUnavailable'],
-    observedGeneration: !exists(json, 'observedGeneration')
-      ? undefined
-      : json['observedGeneration'],
-    updatedNumberScheduled: !exists(json, 'updatedNumberScheduled')
-      ? undefined
-      : json['updatedNumberScheduled'],
-  };
-}
-
-export function IoK8sApiAppsV1DaemonSetStatusToJSON(
-  value?: IoK8sApiAppsV1DaemonSetStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    collisionCount: value.collisionCount,
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApiAppsV1DaemonSetConditionToJSON),
-    currentNumberScheduled: value.currentNumberScheduled,
-    desiredNumberScheduled: value.desiredNumberScheduled,
-    numberAvailable: value.numberAvailable,
-    numberMisscheduled: value.numberMisscheduled,
-    numberReady: value.numberReady,
-    numberUnavailable: value.numberUnavailable,
-    observedGeneration: value.observedGeneration,
-    updatedNumberScheduled: value.updatedNumberScheduled,
-  };
 }

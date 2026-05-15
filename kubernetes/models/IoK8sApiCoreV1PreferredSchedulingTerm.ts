@@ -14,8 +14,6 @@
 
 import {
   IoK8sApiCoreV1NodeSelectorTerm,
-  IoK8sApiCoreV1NodeSelectorTermFromJSON,
-  IoK8sApiCoreV1NodeSelectorTermToJSON,
 } from './';
 
 /**
@@ -36,38 +34,4 @@ export interface IoK8sApiCoreV1PreferredSchedulingTerm {
    * @memberof IoK8sApiCoreV1PreferredSchedulingTerm
    */
   weight: number;
-}
-
-export function IoK8sApiCoreV1PreferredSchedulingTermFromJSON(
-  json: any,
-): IoK8sApiCoreV1PreferredSchedulingTerm {
-  return IoK8sApiCoreV1PreferredSchedulingTermFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PreferredSchedulingTermFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PreferredSchedulingTerm {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preference: IoK8sApiCoreV1NodeSelectorTermFromJSON(json['preference']),
-    weight: json['weight'],
-  };
-}
-
-export function IoK8sApiCoreV1PreferredSchedulingTermToJSON(
-  value?: IoK8sApiCoreV1PreferredSchedulingTerm | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preference: IoK8sApiCoreV1NodeSelectorTermToJSON(value.preference),
-    weight: value.weight,
-  };
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiStorageV1CSIDriverSpec,
-  IoK8sApiStorageV1CSIDriverSpecFromJSON,
-  IoK8sApiStorageV1CSIDriverSpecToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -52,40 +47,4 @@ export interface IoK8sApiStorageV1CSIDriver {
    * @memberof IoK8sApiStorageV1CSIDriver
    */
   spec: IoK8sApiStorageV1CSIDriverSpec;
-}
-
-export function IoK8sApiStorageV1CSIDriverFromJSON(json: any): IoK8sApiStorageV1CSIDriver {
-  return IoK8sApiStorageV1CSIDriverFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStorageV1CSIDriverFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStorageV1CSIDriver {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: IoK8sApiStorageV1CSIDriverSpecFromJSON(json['spec']),
-  };
-}
-
-export function IoK8sApiStorageV1CSIDriverToJSON(value?: IoK8sApiStorageV1CSIDriver | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiStorageV1CSIDriverSpecToJSON(value.spec),
-  };
 }

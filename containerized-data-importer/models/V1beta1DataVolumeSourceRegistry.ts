@@ -12,7 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import {
+  V1beta1PlatformOptions,
+} from './';
+
 /**
  * DataVolumeSourceRegistry provides the parameters to create a Data Volume from an registry source
  * @export
@@ -32,6 +35,12 @@ export interface V1beta1DataVolumeSourceRegistry {
    */
   imageStream?: string;
   /**
+   *
+   * @type {V1beta1PlatformOptions}
+   * @memberof V1beta1DataVolumeSourceRegistry
+   */
+  platform?: V1beta1PlatformOptions;
+  /**
    * PullMethod can be either "pod" (default import), or "node" (node docker cache based import)
    * @type {string}
    * @memberof V1beta1DataVolumeSourceRegistry
@@ -49,44 +58,4 @@ export interface V1beta1DataVolumeSourceRegistry {
    * @memberof V1beta1DataVolumeSourceRegistry
    */
   url?: string;
-}
-
-export function V1beta1DataVolumeSourceRegistryFromJSON(
-  json: any,
-): V1beta1DataVolumeSourceRegistry {
-  return V1beta1DataVolumeSourceRegistryFromJSONTyped(json, false);
-}
-
-export function V1beta1DataVolumeSourceRegistryFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataVolumeSourceRegistry {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    certConfigMap: !exists(json, 'certConfigMap') ? undefined : json['certConfigMap'],
-    imageStream: !exists(json, 'imageStream') ? undefined : json['imageStream'],
-    pullMethod: !exists(json, 'pullMethod') ? undefined : json['pullMethod'],
-    secretRef: !exists(json, 'secretRef') ? undefined : json['secretRef'],
-    url: !exists(json, 'url') ? undefined : json['url'],
-  };
-}
-
-export function V1beta1DataVolumeSourceRegistryToJSON(
-  value?: V1beta1DataVolumeSourceRegistry | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    certConfigMap: value.certConfigMap,
-    imageStream: value.imageStream,
-    pullMethod: value.pullMethod,
-    secretRef: value.secretRef,
-    url: value.url,
-  };
 }

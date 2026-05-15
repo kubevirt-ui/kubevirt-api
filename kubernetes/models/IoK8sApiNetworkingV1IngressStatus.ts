@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
-  IoK8sApiCoreV1LoadBalancerStatus,
-  IoK8sApiCoreV1LoadBalancerStatusFromJSON,
-  IoK8sApiCoreV1LoadBalancerStatusToJSON,
+  IoK8sApiNetworkingV1IngressLoadBalancerStatus,
 } from './';
 
 /**
@@ -27,42 +24,8 @@ import {
 export interface IoK8sApiNetworkingV1IngressStatus {
   /**
    *
-   * @type {IoK8sApiCoreV1LoadBalancerStatus}
+   * @type {IoK8sApiNetworkingV1IngressLoadBalancerStatus}
    * @memberof IoK8sApiNetworkingV1IngressStatus
    */
-  loadBalancer?: IoK8sApiCoreV1LoadBalancerStatus;
-}
-
-export function IoK8sApiNetworkingV1IngressStatusFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1IngressStatus {
-  return IoK8sApiNetworkingV1IngressStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1IngressStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1IngressStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    loadBalancer: !exists(json, 'loadBalancer')
-      ? undefined
-      : IoK8sApiCoreV1LoadBalancerStatusFromJSON(json['loadBalancer']),
-  };
-}
-
-export function IoK8sApiNetworkingV1IngressStatusToJSON(
-  value?: IoK8sApiNetworkingV1IngressStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    loadBalancer: IoK8sApiCoreV1LoadBalancerStatusToJSON(value.loadBalancer),
-  };
+  loadBalancer?: IoK8sApiNetworkingV1IngressLoadBalancerStatus;
 }

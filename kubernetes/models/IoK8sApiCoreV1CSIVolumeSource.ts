@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1LocalObjectReference,
-  IoK8sApiCoreV1LocalObjectReferenceFromJSON,
-  IoK8sApiCoreV1LocalObjectReferenceToJSON,
 } from './';
 
 /**
@@ -26,13 +23,13 @@ import {
  */
 export interface IoK8sApiCoreV1CSIVolumeSource {
   /**
-   * Driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.
+   * driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.
    * @type {string}
    * @memberof IoK8sApiCoreV1CSIVolumeSource
    */
   driver: string;
   /**
-   * Filesystem type to mount. Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
+   * fsType to mount. Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
    * @type {string}
    * @memberof IoK8sApiCoreV1CSIVolumeSource
    */
@@ -44,55 +41,15 @@ export interface IoK8sApiCoreV1CSIVolumeSource {
    */
   nodePublishSecretRef?: IoK8sApiCoreV1LocalObjectReference;
   /**
-   * Specifies a read-only configuration for the volume. Defaults to false (read/write).
+   * readOnly specifies a read-only configuration for the volume. Defaults to false (read/write).
    * @type {boolean}
    * @memberof IoK8sApiCoreV1CSIVolumeSource
    */
   readOnly?: boolean;
   /**
-   * VolumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.
+   * volumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.
    * @type {{ [key: string]: string; }}
    * @memberof IoK8sApiCoreV1CSIVolumeSource
    */
   volumeAttributes?: { [key: string]: string };
-}
-
-export function IoK8sApiCoreV1CSIVolumeSourceFromJSON(json: any): IoK8sApiCoreV1CSIVolumeSource {
-  return IoK8sApiCoreV1CSIVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1CSIVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1CSIVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    driver: json['driver'],
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    nodePublishSecretRef: !exists(json, 'nodePublishSecretRef')
-      ? undefined
-      : IoK8sApiCoreV1LocalObjectReferenceFromJSON(json['nodePublishSecretRef']),
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    volumeAttributes: !exists(json, 'volumeAttributes') ? undefined : json['volumeAttributes'],
-  };
-}
-
-export function IoK8sApiCoreV1CSIVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1CSIVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    driver: value.driver,
-    fsType: value.fsType,
-    nodePublishSecretRef: IoK8sApiCoreV1LocalObjectReferenceToJSON(value.nodePublishSecretRef),
-    readOnly: value.readOnly,
-    volumeAttributes: value.volumeAttributes,
-  };
 }

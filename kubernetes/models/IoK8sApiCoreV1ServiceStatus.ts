@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1LoadBalancerStatus,
-  IoK8sApiCoreV1LoadBalancerStatusFromJSON,
-  IoK8sApiCoreV1LoadBalancerStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1Condition,
-  IoK8sApimachineryPkgApisMetaV1ConditionFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ConditionToJSON,
 } from './';
 
 /**
@@ -40,41 +35,4 @@ export interface IoK8sApiCoreV1ServiceStatus {
    * @memberof IoK8sApiCoreV1ServiceStatus
    */
   loadBalancer?: IoK8sApiCoreV1LoadBalancerStatus;
-}
-
-export function IoK8sApiCoreV1ServiceStatusFromJSON(json: any): IoK8sApiCoreV1ServiceStatus {
-  return IoK8sApiCoreV1ServiceStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ServiceStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ServiceStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(IoK8sApimachineryPkgApisMetaV1ConditionFromJSON),
-    loadBalancer: !exists(json, 'loadBalancer')
-      ? undefined
-      : IoK8sApiCoreV1LoadBalancerStatusFromJSON(json['loadBalancer']),
-  };
-}
-
-export function IoK8sApiCoreV1ServiceStatusToJSON(value?: IoK8sApiCoreV1ServiceStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApimachineryPkgApisMetaV1ConditionToJSON),
-    loadBalancer: IoK8sApiCoreV1LoadBalancerStatusToJSON(value.loadBalancer),
-  };
 }

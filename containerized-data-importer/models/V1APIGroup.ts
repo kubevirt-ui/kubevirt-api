@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1GroupVersionForDiscovery,
-  V1GroupVersionForDiscoveryFromJSON,
-  V1GroupVersionForDiscoveryToJSON,
   V1ServerAddressByClientCIDR,
-  V1ServerAddressByClientCIDRFromJSON,
-  V1ServerAddressByClientCIDRToJSON,
 } from './';
 
 /**
@@ -64,46 +59,4 @@ export interface V1APIGroup {
    * @memberof V1APIGroup
    */
   versions: Array<V1GroupVersionForDiscovery>;
-}
-
-export function V1APIGroupFromJSON(json: any): V1APIGroup {
-  return V1APIGroupFromJSONTyped(json, false);
-}
-
-export function V1APIGroupFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1APIGroup {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    name: json['name'],
-    preferredVersion: !exists(json, 'preferredVersion')
-      ? undefined
-      : V1GroupVersionForDiscoveryFromJSON(json['preferredVersion']),
-    serverAddressByClientCIDRs: !exists(json, 'serverAddressByClientCIDRs')
-      ? undefined
-      : (json['serverAddressByClientCIDRs'] as Array<any>).map(V1ServerAddressByClientCIDRFromJSON),
-    versions: (json['versions'] as Array<any>).map(V1GroupVersionForDiscoveryFromJSON),
-  };
-}
-
-export function V1APIGroupToJSON(value?: V1APIGroup | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    name: value.name,
-    preferredVersion: V1GroupVersionForDiscoveryToJSON(value.preferredVersion),
-    serverAddressByClientCIDRs:
-      value.serverAddressByClientCIDRs === undefined
-        ? undefined
-        : (value.serverAddressByClientCIDRs as Array<any>).map(V1ServerAddressByClientCIDRToJSON),
-    versions: (value.versions as Array<any>).map(V1GroupVersionForDiscoveryToJSON),
-  };
 }

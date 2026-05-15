@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.
  * @export
@@ -20,41 +19,9 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1LocalObjectReference {
   /**
-   * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+   * Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @type {string}
    * @memberof IoK8sApiCoreV1LocalObjectReference
    */
   name?: string;
-}
-
-export function IoK8sApiCoreV1LocalObjectReferenceFromJSON(
-  json: any,
-): IoK8sApiCoreV1LocalObjectReference {
-  return IoK8sApiCoreV1LocalObjectReferenceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1LocalObjectReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1LocalObjectReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: !exists(json, 'name') ? undefined : json['name'],
-  };
-}
-
-export function IoK8sApiCoreV1LocalObjectReferenceToJSON(
-  value?: IoK8sApiCoreV1LocalObjectReference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-  };
 }

@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionSpec,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionSpecFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionSpecToJSON,
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatus,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatusFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,59 +54,4 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResource
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinition
    */
   status?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatus;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinition {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionSpecFromJSON(
-      json['spec'],
-    ),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatusFromJSON(
-          json['status'],
-        ),
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionSpecToJSON(
-      value.spec,
-    ),
-    status: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatusToJSON(
-      value.status,
-    ),
-  };
 }

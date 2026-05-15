@@ -12,8 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1APIResource, V1APIResourceFromJSON, V1APIResourceToJSON } from './';
+import { V1APIResource } from './';
 
 /**
  * APIResourceList is a list of APIResource, it is used to expose the name of the resources supported in a specific group and version, and if the resource is namespaced.
@@ -45,38 +44,4 @@ export interface V1APIResourceList {
    * @memberof V1APIResourceList
    */
   resources: Array<V1APIResource>;
-}
-
-export function V1APIResourceListFromJSON(json: any): V1APIResourceList {
-  return V1APIResourceListFromJSONTyped(json, false);
-}
-
-export function V1APIResourceListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1APIResourceList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    groupVersion: json['groupVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    resources: (json['resources'] as Array<any>).map(V1APIResourceFromJSON),
-  };
-}
-
-export function V1APIResourceListToJSON(value?: V1APIResourceList | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    groupVersion: value.groupVersion,
-    kind: value.kind,
-    resources: (value.resources as Array<any>).map(V1APIResourceToJSON),
-  };
 }

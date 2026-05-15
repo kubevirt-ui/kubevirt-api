@@ -12,42 +12,16 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1FeatureKVM
  */
 export interface V1FeatureKVM {
-  /**
-   * Hide the KVM hypervisor from standard MSR based discovery. Defaults to false
-   * @type {boolean}
-   * @memberof V1FeatureKVM
-   */
-  hidden?: boolean;
-}
-
-export function V1FeatureKVMFromJSON(json: any): V1FeatureKVM {
-  return V1FeatureKVMFromJSONTyped(json, false);
-}
-
-export function V1FeatureKVMFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1FeatureKVM {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    hidden: !exists(json, 'hidden') ? undefined : json['hidden'],
-  };
-}
-
-export function V1FeatureKVMToJSON(value?: V1FeatureKVM | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    hidden: value.hidden,
-  };
+    /**
+     * Hide the KVM hypervisor from standard MSR based discovery. Defaults to false
+     * @type {boolean}
+     * @memberof V1FeatureKVM
+     */
+    hidden?: boolean;
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiNetworkingV1NetworkPolicySpec,
-  IoK8sApiNetworkingV1NetworkPolicySpecFromJSON,
-  IoK8sApiNetworkingV1NetworkPolicySpecToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -52,46 +47,4 @@ export interface IoK8sApiNetworkingV1NetworkPolicy {
    * @memberof IoK8sApiNetworkingV1NetworkPolicy
    */
   spec?: IoK8sApiNetworkingV1NetworkPolicySpec;
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicyFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1NetworkPolicy {
-  return IoK8sApiNetworkingV1NetworkPolicyFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicyFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1NetworkPolicy {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec')
-      ? undefined
-      : IoK8sApiNetworkingV1NetworkPolicySpecFromJSON(json['spec']),
-  };
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicyToJSON(
-  value?: IoK8sApiNetworkingV1NetworkPolicy | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiNetworkingV1NetworkPolicySpecToJSON(value.spec),
-  };
 }

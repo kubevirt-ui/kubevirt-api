@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAppsV1ReplicaSetCondition,
-  IoK8sApiAppsV1ReplicaSetConditionFromJSON,
-  IoK8sApiAppsV1ReplicaSetConditionToJSON,
 } from './';
 
 /**
@@ -26,7 +23,7 @@ import {
  */
 export interface IoK8sApiAppsV1ReplicaSetStatus {
   /**
-   * The number of available replicas (ready for at least minReadySeconds) for this replica set.
+   * The number of available non-terminating pods (ready for at least minReadySeconds) for this replica set.
    * @type {number}
    * @memberof IoK8sApiAppsV1ReplicaSetStatus
    */
@@ -38,7 +35,7 @@ export interface IoK8sApiAppsV1ReplicaSetStatus {
    */
   conditions?: Array<IoK8sApiAppsV1ReplicaSetCondition>;
   /**
-   * The number of pods that have labels matching the labels of the pod template of the replicaset.
+   * The number of non-terminating pods that have labels matching the labels of the pod template of the replicaset.
    * @type {number}
    * @memberof IoK8sApiAppsV1ReplicaSetStatus
    */
@@ -50,64 +47,23 @@ export interface IoK8sApiAppsV1ReplicaSetStatus {
    */
   observedGeneration?: number;
   /**
-   * readyReplicas is the number of pods targeted by this ReplicaSet with a Ready Condition.
+   * The number of non-terminating pods targeted by this ReplicaSet with a Ready Condition.
    * @type {number}
    * @memberof IoK8sApiAppsV1ReplicaSetStatus
    */
   readyReplicas?: number;
   /**
-   * Replicas is the most recently oberved number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller
+   * Replicas is the most recently observed number of non-terminating pods. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset
    * @type {number}
    * @memberof IoK8sApiAppsV1ReplicaSetStatus
    */
   replicas: number;
-}
-
-export function IoK8sApiAppsV1ReplicaSetStatusFromJSON(json: any): IoK8sApiAppsV1ReplicaSetStatus {
-  return IoK8sApiAppsV1ReplicaSetStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1ReplicaSetStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1ReplicaSetStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    availableReplicas: !exists(json, 'availableReplicas') ? undefined : json['availableReplicas'],
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(IoK8sApiAppsV1ReplicaSetConditionFromJSON),
-    fullyLabeledReplicas: !exists(json, 'fullyLabeledReplicas')
-      ? undefined
-      : json['fullyLabeledReplicas'],
-    observedGeneration: !exists(json, 'observedGeneration')
-      ? undefined
-      : json['observedGeneration'],
-    readyReplicas: !exists(json, 'readyReplicas') ? undefined : json['readyReplicas'],
-    replicas: json['replicas'],
-  };
-}
-
-export function IoK8sApiAppsV1ReplicaSetStatusToJSON(
-  value?: IoK8sApiAppsV1ReplicaSetStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    availableReplicas: value.availableReplicas,
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApiAppsV1ReplicaSetConditionToJSON),
-    fullyLabeledReplicas: value.fullyLabeledReplicas,
-    observedGeneration: value.observedGeneration,
-    readyReplicas: value.readyReplicas,
-    replicas: value.replicas,
-  };
+  /**
+   * The number of terminating pods for this replica set. Terminating pods have a non-null .metadata.deletionTimestamp and have not yet reached the Failed or Succeeded .status.phase.
+   *
+   * This is an alpha field. Enable DeploymentReplicaSetTerminatingReplicas to be able to use this field.
+   * @type {number}
+   * @memberof IoK8sApiAppsV1ReplicaSetStatus
+   */
+  terminatingReplicas?: number;
 }

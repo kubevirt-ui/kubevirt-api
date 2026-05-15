@@ -14,8 +14,6 @@
 
 import {
   IoK8sApiStorageV1CSINodeDriver,
-  IoK8sApiStorageV1CSINodeDriverFromJSON,
-  IoK8sApiStorageV1CSINodeDriverToJSON,
 } from './';
 
 /**
@@ -30,34 +28,4 @@ export interface IoK8sApiStorageV1CSINodeSpec {
    * @memberof IoK8sApiStorageV1CSINodeSpec
    */
   drivers: Array<IoK8sApiStorageV1CSINodeDriver>;
-}
-
-export function IoK8sApiStorageV1CSINodeSpecFromJSON(json: any): IoK8sApiStorageV1CSINodeSpec {
-  return IoK8sApiStorageV1CSINodeSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStorageV1CSINodeSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStorageV1CSINodeSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    drivers: (json['drivers'] as Array<any>).map(IoK8sApiStorageV1CSINodeDriverFromJSON),
-  };
-}
-
-export function IoK8sApiStorageV1CSINodeSpecToJSON(
-  value?: IoK8sApiStorageV1CSINodeSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    drivers: (value.drivers as Array<any>).map(IoK8sApiStorageV1CSINodeDriverToJSON),
-  };
 }

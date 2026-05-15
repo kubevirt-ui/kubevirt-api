@@ -12,18 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  K8sIoApiCoreV1ExecAction,
-  K8sIoApiCoreV1ExecActionFromJSON,
-  K8sIoApiCoreV1ExecActionToJSON,
-  K8sIoApiCoreV1HTTPGetAction,
-  K8sIoApiCoreV1HTTPGetActionFromJSON,
-  K8sIoApiCoreV1HTTPGetActionToJSON,
-  K8sIoApiCoreV1TCPSocketAction,
-  K8sIoApiCoreV1TCPSocketActionFromJSON,
-  K8sIoApiCoreV1TCPSocketActionToJSON,
-} from './';
+import type { K8sIoApiCoreV1ExecAction } from './K8sIoApiCoreV1ExecAction';
+import type { K8sIoApiCoreV1HTTPGetAction } from './K8sIoApiCoreV1HTTPGetAction';
+import type { K8sIoApiCoreV1TCPSocketAction } from './K8sIoApiCoreV1TCPSocketAction';
 
 /**
  * Probe describes a health check to be performed against a VirtualMachineInstance to determine whether it is alive or ready to receive traffic.
@@ -31,105 +22,58 @@ import {
  * @interface V1Probe
  */
 export interface V1Probe {
-  /**
-   *
-   * @type {K8sIoApiCoreV1ExecAction}
-   * @memberof V1Probe
-   */
-  exec?: K8sIoApiCoreV1ExecAction;
-  /**
-   * Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
-   * @type {number}
-   * @memberof V1Probe
-   */
-  failureThreshold?: number;
-  /**
-   * GuestAgentPing configures the guest-agent based ping probe
-   * @type {object}
-   * @memberof V1Probe
-   */
-  guestAgentPing?: object;
-  /**
-   *
-   * @type {K8sIoApiCoreV1HTTPGetAction}
-   * @memberof V1Probe
-   */
-  httpGet?: K8sIoApiCoreV1HTTPGetAction;
-  /**
-   * Number of seconds after the VirtualMachineInstance has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
-   * @type {number}
-   * @memberof V1Probe
-   */
-  initialDelaySeconds?: number;
-  /**
-   * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
-   * @type {number}
-   * @memberof V1Probe
-   */
-  periodSeconds?: number;
-  /**
-   * Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness. Minimum value is 1.
-   * @type {number}
-   * @memberof V1Probe
-   */
-  successThreshold?: number;
-  /**
-   *
-   * @type {K8sIoApiCoreV1TCPSocketAction}
-   * @memberof V1Probe
-   */
-  tcpSocket?: K8sIoApiCoreV1TCPSocketAction;
-  /**
-   * Number of seconds after which the probe times out. For exec probes the timeout fails the probe but does not terminate the command running on the guest. This means a blocking command can result in an increasing load on the guest. A small buffer will be added to the resulting workload exec probe to compensate for delays caused by the qemu guest exec mechanism. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
-   * @type {number}
-   * @memberof V1Probe
-   */
-  timeoutSeconds?: number;
-}
-
-export function V1ProbeFromJSON(json: any): V1Probe {
-  return V1ProbeFromJSONTyped(json, false);
-}
-
-export function V1ProbeFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Probe {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    exec: !exists(json, 'exec') ? undefined : K8sIoApiCoreV1ExecActionFromJSON(json['exec']),
-    failureThreshold: !exists(json, 'failureThreshold') ? undefined : json['failureThreshold'],
-    guestAgentPing: !exists(json, 'guestAgentPing') ? undefined : json['guestAgentPing'],
-    httpGet: !exists(json, 'httpGet')
-      ? undefined
-      : K8sIoApiCoreV1HTTPGetActionFromJSON(json['httpGet']),
-    initialDelaySeconds: !exists(json, 'initialDelaySeconds')
-      ? undefined
-      : json['initialDelaySeconds'],
-    periodSeconds: !exists(json, 'periodSeconds') ? undefined : json['periodSeconds'],
-    successThreshold: !exists(json, 'successThreshold') ? undefined : json['successThreshold'],
-    tcpSocket: !exists(json, 'tcpSocket')
-      ? undefined
-      : K8sIoApiCoreV1TCPSocketActionFromJSON(json['tcpSocket']),
-    timeoutSeconds: !exists(json, 'timeoutSeconds') ? undefined : json['timeoutSeconds'],
-  };
-}
-
-export function V1ProbeToJSON(value?: V1Probe | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    exec: K8sIoApiCoreV1ExecActionToJSON(value.exec),
-    failureThreshold: value.failureThreshold,
-    guestAgentPing: value.guestAgentPing,
-    httpGet: K8sIoApiCoreV1HTTPGetActionToJSON(value.httpGet),
-    initialDelaySeconds: value.initialDelaySeconds,
-    periodSeconds: value.periodSeconds,
-    successThreshold: value.successThreshold,
-    tcpSocket: K8sIoApiCoreV1TCPSocketActionToJSON(value.tcpSocket),
-    timeoutSeconds: value.timeoutSeconds,
-  };
+    /**
+     * 
+     * @type {K8sIoApiCoreV1ExecAction}
+     * @memberof V1Probe
+     */
+    exec?: K8sIoApiCoreV1ExecAction;
+    /**
+     * Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
+     * @type {number}
+     * @memberof V1Probe
+     */
+    failureThreshold?: number;
+    /**
+     * GuestAgentPing contacts the qemu-guest-agent for availability checks. Probe failures are automatically suppressed when the guest agent is unreachable for a non-fault reason: during live migration (guest paused on one pod while memory is transferred) and whenever the VM is paused for an intentional or transient reason such as a user pause, snapshot, save, or dump. Failures are not suppressed when the VM is paused due to a fault (IO error, crash, or postcopy failure).
+     * @type {object}
+     * @memberof V1Probe
+     */
+    guestAgentPing?: object;
+    /**
+     * 
+     * @type {K8sIoApiCoreV1HTTPGetAction}
+     * @memberof V1Probe
+     */
+    httpGet?: K8sIoApiCoreV1HTTPGetAction;
+    /**
+     * Number of seconds after the VirtualMachineInstance has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * @type {number}
+     * @memberof V1Probe
+     */
+    initialDelaySeconds?: number;
+    /**
+     * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+     * @type {number}
+     * @memberof V1Probe
+     */
+    periodSeconds?: number;
+    /**
+     * Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness. Minimum value is 1.
+     * @type {number}
+     * @memberof V1Probe
+     */
+    successThreshold?: number;
+    /**
+     * 
+     * @type {K8sIoApiCoreV1TCPSocketAction}
+     * @memberof V1Probe
+     */
+    tcpSocket?: K8sIoApiCoreV1TCPSocketAction;
+    /**
+     * Number of seconds after which the probe times out. For exec probes the timeout fails the probe but does not terminate the command running on the guest. This means a blocking command can result in an increasing load on the guest. A small buffer will be added to the resulting workload exec probe to compensate for delays caused by the qemu guest exec mechanism. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * @type {number}
+     * @memberof V1Probe
+     */
+    timeoutSeconds?: number;
 }

@@ -12,45 +12,16 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1TopologyHints
  */
 export interface V1TopologyHints {
-  /**
-   *
-   * @type {number}
-   * @memberof V1TopologyHints
-   */
-  tscFrequency?: number;
-}
-
-export function V1TopologyHintsFromJSON(json: any): V1TopologyHints {
-  return V1TopologyHintsFromJSONTyped(json, false);
-}
-
-export function V1TopologyHintsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1TopologyHints {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    tscFrequency: !exists(json, 'tscFrequency') ? undefined : json['tscFrequency'],
-  };
-}
-
-export function V1TopologyHintsToJSON(value?: V1TopologyHints | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    tscFrequency: value.tscFrequency,
-  };
+    /**
+     * 
+     * @type {number}
+     * @memberof V1TopologyHints
+     */
+    tscFrequency?: number;
 }

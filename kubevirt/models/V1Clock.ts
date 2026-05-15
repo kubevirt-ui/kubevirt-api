@@ -12,15 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1ClockOffsetUTC,
-  V1ClockOffsetUTCFromJSON,
-  V1ClockOffsetUTCToJSON,
-  V1Timer,
-  V1TimerFromJSON,
-  V1TimerToJSON,
-} from './';
+import type { V1ClockOffsetUTC } from './V1ClockOffsetUTC';
+import type { V1Timer } from './V1Timer';
 
 /**
  * Represents the clock and timers of a vmi.
@@ -28,51 +21,22 @@ import {
  * @interface V1Clock
  */
 export interface V1Clock {
-  /**
-   *
-   * @type {V1Timer}
-   * @memberof V1Clock
-   */
-  timer?: V1Timer;
-  /**
-   * Timezone sets the guest clock to the specified timezone. Zone name follows the TZ environment variable format (e.g. 'America/New_York').
-   * @type {string}
-   * @memberof V1Clock
-   */
-  timezone?: string;
-  /**
-   *
-   * @type {V1ClockOffsetUTC}
-   * @memberof V1Clock
-   */
-  utc?: V1ClockOffsetUTC;
-}
-
-export function V1ClockFromJSON(json: any): V1Clock {
-  return V1ClockFromJSONTyped(json, false);
-}
-
-export function V1ClockFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Clock {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    timer: !exists(json, 'timer') ? undefined : V1TimerFromJSON(json['timer']),
-    timezone: !exists(json, 'timezone') ? undefined : json['timezone'],
-    utc: !exists(json, 'utc') ? undefined : V1ClockOffsetUTCFromJSON(json['utc']),
-  };
-}
-
-export function V1ClockToJSON(value?: V1Clock | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    timer: V1TimerToJSON(value.timer),
-    timezone: value.timezone,
-    utc: V1ClockOffsetUTCToJSON(value.utc),
-  };
+    /**
+     * 
+     * @type {V1Timer}
+     * @memberof V1Clock
+     */
+    timer?: V1Timer;
+    /**
+     * Timezone sets the guest clock to the specified timezone. Zone name follows the TZ environment variable format (e.g. 'America/New_York').
+     * @type {string}
+     * @memberof V1Clock
+     */
+    timezone?: string;
+    /**
+     * 
+     * @type {V1ClockOffsetUTC}
+     * @memberof V1Clock
+     */
+    utc?: V1ClockOffsetUTC;
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionCondition,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionConditionFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionConditionToJSON,
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNames,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNamesFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNamesToJSON,
 } from './';
 
 /**
@@ -46,59 +41,4 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResource
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatus
    */
   storedVersions?: Array<string>;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatusFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatus {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatusFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    acceptedNames: !exists(json, 'acceptedNames')
-      ? undefined
-      : IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNamesFromJSON(
-          json['acceptedNames'],
-        ),
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(
-          IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionConditionFromJSON,
-        ),
-    storedVersions: !exists(json, 'storedVersions') ? undefined : json['storedVersions'],
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatusToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    acceptedNames:
-      IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNamesToJSON(
-        value.acceptedNames,
-      ),
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(
-            IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionConditionToJSON,
-          ),
-    storedVersions: value.storedVersions,
-  };
 }

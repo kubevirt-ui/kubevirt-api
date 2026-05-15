@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiNetworkingV1ServiceBackendPort,
-  IoK8sApiNetworkingV1ServiceBackendPortFromJSON,
-  IoK8sApiNetworkingV1ServiceBackendPortToJSON,
 } from './';
 
 /**
@@ -26,7 +23,7 @@ import {
  */
 export interface IoK8sApiNetworkingV1IngressServiceBackend {
   /**
-   * Name is the referenced service. The service must exist in the same namespace as the Ingress object.
+   * name is the referenced service. The service must exist in the same namespace as the Ingress object.
    * @type {string}
    * @memberof IoK8sApiNetworkingV1IngressServiceBackend
    */
@@ -37,40 +34,4 @@ export interface IoK8sApiNetworkingV1IngressServiceBackend {
    * @memberof IoK8sApiNetworkingV1IngressServiceBackend
    */
   port?: IoK8sApiNetworkingV1ServiceBackendPort;
-}
-
-export function IoK8sApiNetworkingV1IngressServiceBackendFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1IngressServiceBackend {
-  return IoK8sApiNetworkingV1IngressServiceBackendFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1IngressServiceBackendFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1IngressServiceBackend {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    port: !exists(json, 'port')
-      ? undefined
-      : IoK8sApiNetworkingV1ServiceBackendPortFromJSON(json['port']),
-  };
-}
-
-export function IoK8sApiNetworkingV1IngressServiceBackendToJSON(
-  value?: IoK8sApiNetworkingV1IngressServiceBackend | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    port: IoK8sApiNetworkingV1ServiceBackendPortToJSON(value.port),
-  };
 }

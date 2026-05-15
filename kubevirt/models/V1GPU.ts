@@ -12,62 +12,48 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1VGPUOptions, V1VGPUOptionsFromJSON, V1VGPUOptionsToJSON } from './';
+import type { V1VGPUOptions } from './V1VGPUOptions';
 
 /**
- *
+ * 
  * @export
  * @interface V1GPU
  */
 export interface V1GPU {
-  /**
-   *
-   * @type {string}
-   * @memberof V1GPU
-   */
-  deviceName: string;
-  /**
-   * Name of the GPU device as exposed by a device plugin
-   * @type {string}
-   * @memberof V1GPU
-   */
-  name: string;
-  /**
-   *
-   * @type {V1VGPUOptions}
-   * @memberof V1GPU
-   */
-  virtualGPUOptions?: V1VGPUOptions;
-}
-
-export function V1GPUFromJSON(json: any): V1GPU {
-  return V1GPUFromJSONTyped(json, false);
-}
-
-export function V1GPUFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1GPU {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    deviceName: json['deviceName'],
-    name: json['name'],
-    virtualGPUOptions: !exists(json, 'virtualGPUOptions')
-      ? undefined
-      : V1VGPUOptionsFromJSON(json['virtualGPUOptions']),
-  };
-}
-
-export function V1GPUToJSON(value?: V1GPU | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    deviceName: value.deviceName,
-    name: value.name,
-    virtualGPUOptions: V1VGPUOptionsToJSON(value.virtualGPUOptions),
-  };
+    /**
+     * ClaimName references the name of an entry in the VMI's spec.resourceClaims[] array. The referenced entry may use either resourceClaimName or resourceClaimTemplateName.
+     * @type {string}
+     * @memberof V1GPU
+     */
+    claimName?: string;
+    /**
+     * DeviceName is the name of the device provisioned by device-plugins
+     * @type {string}
+     * @memberof V1GPU
+     */
+    deviceName?: string;
+    /**
+     * Name of the GPU device as exposed by a device plugin
+     * @type {string}
+     * @memberof V1GPU
+     */
+    name: string;
+    /**
+     * RequestName specifies which request from the ResourceClaim/ResourceClaimTemplate spec.devices.requests array this claim request corresponds to.
+     * @type {string}
+     * @memberof V1GPU
+     */
+    requestName?: string;
+    /**
+     * If specified, the virtual network interface address and its tag will be provided to the guest via config drive
+     * @type {string}
+     * @memberof V1GPU
+     */
+    tag?: string;
+    /**
+     * 
+     * @type {V1VGPUOptions}
+     * @memberof V1GPU
+     */
+    virtualGPUOptions?: V1VGPUOptions;
 }

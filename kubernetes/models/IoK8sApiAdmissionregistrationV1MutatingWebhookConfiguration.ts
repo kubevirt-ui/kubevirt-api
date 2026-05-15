@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1MutatingWebhook,
-  IoK8sApiAdmissionregistrationV1MutatingWebhookFromJSON,
-  IoK8sApiAdmissionregistrationV1MutatingWebhookToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -52,51 +47,4 @@ export interface IoK8sApiAdmissionregistrationV1MutatingWebhookConfiguration {
    * @memberof IoK8sApiAdmissionregistrationV1MutatingWebhookConfiguration
    */
   webhooks?: Array<IoK8sApiAdmissionregistrationV1MutatingWebhook>;
-}
-
-export function IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1MutatingWebhookConfiguration {
-  return IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1MutatingWebhookConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    webhooks: !exists(json, 'webhooks')
-      ? undefined
-      : (json['webhooks'] as Array<any>).map(
-          IoK8sApiAdmissionregistrationV1MutatingWebhookFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationToJSON(
-  value?: IoK8sApiAdmissionregistrationV1MutatingWebhookConfiguration | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    webhooks:
-      value.webhooks === undefined
-        ? undefined
-        : (value.webhooks as Array<any>).map(IoK8sApiAdmissionregistrationV1MutatingWebhookToJSON),
-  };
 }

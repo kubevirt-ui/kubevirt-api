@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * OwnerReference contains enough information to let you identify an owning object. An owning object must be in the same namespace as the dependent, or be cluster-scoped, so there is no namespace field.
  * @export
@@ -26,7 +25,7 @@ export interface V1OwnerReference {
    */
   apiVersion: string;
   /**
-   * If true, AND if the owner has the "foregroundDeletion" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs "delete" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned.
+   * If true, AND if the owner has the "foregroundDeletion" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. See https://kubernetes.io/docs/concepts/architecture/garbage-collection/#foreground-deletion for how the garbage collector interacts with this field and enforces the foreground deletion. Defaults to false. To set this field, a user needs "delete" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned.
    * @type {boolean}
    * @memberof V1OwnerReference
    */
@@ -44,55 +43,15 @@ export interface V1OwnerReference {
    */
   kind: string;
   /**
-   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names
    * @type {string}
    * @memberof V1OwnerReference
    */
   name: string;
   /**
-   * UID of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+   * UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids
    * @type {string}
    * @memberof V1OwnerReference
    */
   uid: string;
-}
-
-export function V1OwnerReferenceFromJSON(json: any): V1OwnerReference {
-  return V1OwnerReferenceFromJSONTyped(json, false);
-}
-
-export function V1OwnerReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1OwnerReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: json['apiVersion'],
-    blockOwnerDeletion: !exists(json, 'blockOwnerDeletion')
-      ? undefined
-      : json['blockOwnerDeletion'],
-    controller: !exists(json, 'controller') ? undefined : json['controller'],
-    kind: json['kind'],
-    name: json['name'],
-    uid: json['uid'],
-  };
-}
-
-export function V1OwnerReferenceToJSON(value?: V1OwnerReference | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    blockOwnerDeletion: value.blockOwnerDeletion,
-    controller: value.controller,
-    kind: value.kind,
-    name: value.name,
-    uid: value.uid,
-  };
 }

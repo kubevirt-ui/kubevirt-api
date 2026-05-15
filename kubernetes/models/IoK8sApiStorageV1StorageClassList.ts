@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiStorageV1StorageClass,
-  IoK8sApiStorageV1StorageClassFromJSON,
-  IoK8sApiStorageV1StorageClassToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -35,7 +30,7 @@ export interface IoK8sApiStorageV1StorageClassList {
    */
   apiVersion?: string;
   /**
-   * Items is the list of StorageClasses
+   * items is the list of StorageClasses
    * @type {Array<IoK8sApiStorageV1StorageClass>}
    * @memberof IoK8sApiStorageV1StorageClassList
    */
@@ -52,44 +47,4 @@ export interface IoK8sApiStorageV1StorageClassList {
    * @memberof IoK8sApiStorageV1StorageClassList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiStorageV1StorageClassListFromJSON(
-  json: any,
-): IoK8sApiStorageV1StorageClassList {
-  return IoK8sApiStorageV1StorageClassListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStorageV1StorageClassListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStorageV1StorageClassList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(IoK8sApiStorageV1StorageClassFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiStorageV1StorageClassListToJSON(
-  value?: IoK8sApiStorageV1StorageClassList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(IoK8sApiStorageV1StorageClassToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

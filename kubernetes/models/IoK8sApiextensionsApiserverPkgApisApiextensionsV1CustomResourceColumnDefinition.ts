@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * CustomResourceColumnDefinition specifies a column for server side printing.
  * @export
@@ -55,49 +54,4 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResource
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceColumnDefinition
    */
   type: string;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceColumnDefinitionFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceColumnDefinition {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceColumnDefinitionFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceColumnDefinitionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceColumnDefinition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    description: !exists(json, 'description') ? undefined : json['description'],
-    format: !exists(json, 'format') ? undefined : json['format'],
-    jsonPath: json['jsonPath'],
-    name: json['name'],
-    priority: !exists(json, 'priority') ? undefined : json['priority'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceColumnDefinitionToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceColumnDefinition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    description: value.description,
-    format: value.format,
-    jsonPath: value.jsonPath,
-    name: value.name,
-    priority: value.priority,
-    type: value.type,
-  };
 }

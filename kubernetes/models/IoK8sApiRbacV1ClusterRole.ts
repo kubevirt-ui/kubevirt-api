@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiRbacV1AggregationRule,
-  IoK8sApiRbacV1AggregationRuleFromJSON,
-  IoK8sApiRbacV1AggregationRuleToJSON,
   IoK8sApiRbacV1PolicyRule,
-  IoK8sApiRbacV1PolicyRuleFromJSON,
-  IoK8sApiRbacV1PolicyRuleToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,49 +54,4 @@ export interface IoK8sApiRbacV1ClusterRole {
    * @memberof IoK8sApiRbacV1ClusterRole
    */
   rules?: Array<IoK8sApiRbacV1PolicyRule>;
-}
-
-export function IoK8sApiRbacV1ClusterRoleFromJSON(json: any): IoK8sApiRbacV1ClusterRole {
-  return IoK8sApiRbacV1ClusterRoleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiRbacV1ClusterRoleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiRbacV1ClusterRole {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    aggregationRule: !exists(json, 'aggregationRule')
-      ? undefined
-      : IoK8sApiRbacV1AggregationRuleFromJSON(json['aggregationRule']),
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    rules: !exists(json, 'rules')
-      ? undefined
-      : (json['rules'] as Array<any>).map(IoK8sApiRbacV1PolicyRuleFromJSON),
-  };
-}
-
-export function IoK8sApiRbacV1ClusterRoleToJSON(value?: IoK8sApiRbacV1ClusterRole | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    aggregationRule: IoK8sApiRbacV1AggregationRuleToJSON(value.aggregationRule),
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    rules:
-      value.rules === undefined
-        ? undefined
-        : (value.rules as Array<any>).map(IoK8sApiRbacV1PolicyRuleToJSON),
-  };
 }

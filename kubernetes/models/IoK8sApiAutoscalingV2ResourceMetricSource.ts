@@ -14,8 +14,6 @@
 
 import {
   IoK8sApiAutoscalingV2MetricTarget,
-  IoK8sApiAutoscalingV2MetricTargetFromJSON,
-  IoK8sApiAutoscalingV2MetricTargetToJSON,
 } from './';
 
 /**
@@ -36,38 +34,4 @@ export interface IoK8sApiAutoscalingV2ResourceMetricSource {
    * @memberof IoK8sApiAutoscalingV2ResourceMetricSource
    */
   target: IoK8sApiAutoscalingV2MetricTarget;
-}
-
-export function IoK8sApiAutoscalingV2ResourceMetricSourceFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV2ResourceMetricSource {
-  return IoK8sApiAutoscalingV2ResourceMetricSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV2ResourceMetricSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV2ResourceMetricSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    target: IoK8sApiAutoscalingV2MetricTargetFromJSON(json['target']),
-  };
-}
-
-export function IoK8sApiAutoscalingV2ResourceMetricSourceToJSON(
-  value?: IoK8sApiAutoscalingV2ResourceMetricSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    target: IoK8sApiAutoscalingV2MetricTargetToJSON(value.target),
-  };
 }

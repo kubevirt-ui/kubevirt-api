@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -37,40 +34,4 @@ export interface IoK8sApiAutoscalingV2MetricIdentifier {
    * @memberof IoK8sApiAutoscalingV2MetricIdentifier
    */
   selector?: IoK8sApimachineryPkgApisMetaV1LabelSelector;
-}
-
-export function IoK8sApiAutoscalingV2MetricIdentifierFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV2MetricIdentifier {
-  return IoK8sApiAutoscalingV2MetricIdentifierFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV2MetricIdentifierFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV2MetricIdentifier {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    selector: !exists(json, 'selector')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
-  };
-}
-
-export function IoK8sApiAutoscalingV2MetricIdentifierToJSON(
-  value?: IoK8sApiAutoscalingV2MetricIdentifier | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
-  };
 }

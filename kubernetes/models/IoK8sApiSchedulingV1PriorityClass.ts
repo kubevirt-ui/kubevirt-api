@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -56,61 +53,15 @@ export interface IoK8sApiSchedulingV1PriorityClass {
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ObjectMeta;
   /**
-   * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+   * preemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset.
    * @type {string}
    * @memberof IoK8sApiSchedulingV1PriorityClass
    */
   preemptionPolicy?: string;
   /**
-   * The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
+   * value represents the integer value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
    * @type {number}
    * @memberof IoK8sApiSchedulingV1PriorityClass
    */
   value: number;
-}
-
-export function IoK8sApiSchedulingV1PriorityClassFromJSON(
-  json: any,
-): IoK8sApiSchedulingV1PriorityClass {
-  return IoK8sApiSchedulingV1PriorityClassFromJSONTyped(json, false);
-}
-
-export function IoK8sApiSchedulingV1PriorityClassFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiSchedulingV1PriorityClass {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    description: !exists(json, 'description') ? undefined : json['description'],
-    globalDefault: !exists(json, 'globalDefault') ? undefined : json['globalDefault'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    preemptionPolicy: !exists(json, 'preemptionPolicy') ? undefined : json['preemptionPolicy'],
-    value: json['value'],
-  };
-}
-
-export function IoK8sApiSchedulingV1PriorityClassToJSON(
-  value?: IoK8sApiSchedulingV1PriorityClass | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    description: value.description,
-    globalDefault: value.globalDefault,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    preemptionPolicy: value.preemptionPolicy,
-    value: value.value,
-  };
 }

@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1SecretReference,
-  IoK8sApiCoreV1SecretReferenceFromJSON,
-  IoK8sApiCoreV1SecretReferenceToJSON,
 } from './';
 
 /**
@@ -26,25 +23,25 @@ import {
  */
 export interface IoK8sApiCoreV1FlexPersistentVolumeSource {
   /**
-   * Driver is the name of the driver to use for this volume.
+   * driver is the name of the driver to use for this volume.
    * @type {string}
    * @memberof IoK8sApiCoreV1FlexPersistentVolumeSource
    */
   driver: string;
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
+   * fsType is the Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
    * @type {string}
    * @memberof IoK8sApiCoreV1FlexPersistentVolumeSource
    */
   fsType?: string;
   /**
-   * Optional: Extra command options if any.
+   * options is Optional: this field holds extra command options if any.
    * @type {{ [key: string]: string; }}
    * @memberof IoK8sApiCoreV1FlexPersistentVolumeSource
    */
   options?: { [key: string]: string };
   /**
-   * Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly is Optional: defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
    * @type {boolean}
    * @memberof IoK8sApiCoreV1FlexPersistentVolumeSource
    */
@@ -55,46 +52,4 @@ export interface IoK8sApiCoreV1FlexPersistentVolumeSource {
    * @memberof IoK8sApiCoreV1FlexPersistentVolumeSource
    */
   secretRef?: IoK8sApiCoreV1SecretReference;
-}
-
-export function IoK8sApiCoreV1FlexPersistentVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1FlexPersistentVolumeSource {
-  return IoK8sApiCoreV1FlexPersistentVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1FlexPersistentVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1FlexPersistentVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    driver: json['driver'],
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    options: !exists(json, 'options') ? undefined : json['options'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    secretRef: !exists(json, 'secretRef')
-      ? undefined
-      : IoK8sApiCoreV1SecretReferenceFromJSON(json['secretRef']),
-  };
-}
-
-export function IoK8sApiCoreV1FlexPersistentVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1FlexPersistentVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    driver: value.driver,
-    fsType: value.fsType,
-    options: value.options,
-    readOnly: value.readOnly,
-    secretRef: IoK8sApiCoreV1SecretReferenceToJSON(value.secretRef),
-  };
 }

@@ -14,8 +14,6 @@
 
 import {
   IoK8sApiAutoscalingV2MetricValueStatus,
-  IoK8sApiAutoscalingV2MetricValueStatusFromJSON,
-  IoK8sApiAutoscalingV2MetricValueStatusToJSON,
 } from './';
 
 /**
@@ -31,43 +29,9 @@ export interface IoK8sApiAutoscalingV2ResourceMetricStatus {
    */
   current: IoK8sApiAutoscalingV2MetricValueStatus;
   /**
-   * Name is the name of the resource in question.
+   * name is the name of the resource in question.
    * @type {string}
    * @memberof IoK8sApiAutoscalingV2ResourceMetricStatus
    */
   name: string;
-}
-
-export function IoK8sApiAutoscalingV2ResourceMetricStatusFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV2ResourceMetricStatus {
-  return IoK8sApiAutoscalingV2ResourceMetricStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV2ResourceMetricStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV2ResourceMetricStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    current: IoK8sApiAutoscalingV2MetricValueStatusFromJSON(json['current']),
-    name: json['name'],
-  };
-}
-
-export function IoK8sApiAutoscalingV2ResourceMetricStatusToJSON(
-  value?: IoK8sApiAutoscalingV2ResourceMetricStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    current: IoK8sApiAutoscalingV2MetricValueStatusToJSON(value.current),
-    name: value.name,
-  };
 }

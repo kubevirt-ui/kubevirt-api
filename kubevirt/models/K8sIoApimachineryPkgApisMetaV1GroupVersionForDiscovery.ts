@@ -18,50 +18,16 @@
  * @interface K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery
  */
 export interface K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery {
-  /**
-   * groupVersion specifies the API group and version in the form "group/version"
-   * @type {string}
-   * @memberof K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery
-   */
-  groupVersion: string;
-  /**
-   * version specifies the version in the form of "version". This is to save the clients the trouble of splitting the GroupVersion.
-   * @type {string}
-   * @memberof K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery
-   */
-  version: string;
-}
-
-export function K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSON(
-  json: any,
-): K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery {
-  return K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    groupVersion: json['groupVersion'],
-    version: json['version'],
-  };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryToJSON(
-  value?: K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    groupVersion: value.groupVersion,
-    version: value.version,
-  };
+    /**
+     * groupVersion specifies the API group and version in the form "group/version"
+     * @type {string}
+     * @memberof K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery
+     */
+    groupVersion: string;
+    /**
+     * version specifies the version in the form of "version". This is to save the clients the trouble of splitting the GroupVersion.
+     * @type {string}
+     * @memberof K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery
+     */
+    version: string;
 }

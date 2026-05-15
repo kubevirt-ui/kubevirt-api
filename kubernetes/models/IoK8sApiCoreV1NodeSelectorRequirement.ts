@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
  * @export
@@ -27,71 +26,14 @@ export interface IoK8sApiCoreV1NodeSelectorRequirement {
   key: string;
   /**
    * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
-   *
-   * Possible enum values:
-   *  - `"DoesNotExist"`
-   *  - `"Exists"`
-   *  - `"Gt"`
-   *  - `"In"`
-   *  - `"Lt"`
-   *  - `"NotIn"`
    * @type {string}
    * @memberof IoK8sApiCoreV1NodeSelectorRequirement
    */
-  operator: IoK8sApiCoreV1NodeSelectorRequirementOperatorEnum;
+  operator: string;
   /**
    * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
    * @type {Array<string>}
    * @memberof IoK8sApiCoreV1NodeSelectorRequirement
    */
   values?: Array<string>;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1NodeSelectorRequirementOperatorEnum {
-  DoesNotExist = 'DoesNotExist',
-  Exists = 'Exists',
-  Gt = 'Gt',
-  In = 'In',
-  Lt = 'Lt',
-  NotIn = 'NotIn',
-}
-
-export function IoK8sApiCoreV1NodeSelectorRequirementFromJSON(
-  json: any,
-): IoK8sApiCoreV1NodeSelectorRequirement {
-  return IoK8sApiCoreV1NodeSelectorRequirementFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NodeSelectorRequirementFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NodeSelectorRequirement {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    key: json['key'],
-    operator: json['operator'],
-    values: !exists(json, 'values') ? undefined : json['values'],
-  };
-}
-
-export function IoK8sApiCoreV1NodeSelectorRequirementToJSON(
-  value?: IoK8sApiCoreV1NodeSelectorRequirement | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    key: value.key,
-    operator: value.operator,
-    values: value.values,
-  };
 }

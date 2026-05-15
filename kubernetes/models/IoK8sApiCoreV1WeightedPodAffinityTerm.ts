@@ -14,8 +14,6 @@
 
 import {
   IoK8sApiCoreV1PodAffinityTerm,
-  IoK8sApiCoreV1PodAffinityTermFromJSON,
-  IoK8sApiCoreV1PodAffinityTermToJSON,
 } from './';
 
 /**
@@ -36,38 +34,4 @@ export interface IoK8sApiCoreV1WeightedPodAffinityTerm {
    * @memberof IoK8sApiCoreV1WeightedPodAffinityTerm
    */
   weight: number;
-}
-
-export function IoK8sApiCoreV1WeightedPodAffinityTermFromJSON(
-  json: any,
-): IoK8sApiCoreV1WeightedPodAffinityTerm {
-  return IoK8sApiCoreV1WeightedPodAffinityTermFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1WeightedPodAffinityTermFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1WeightedPodAffinityTerm {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    podAffinityTerm: IoK8sApiCoreV1PodAffinityTermFromJSON(json['podAffinityTerm']),
-    weight: json['weight'],
-  };
-}
-
-export function IoK8sApiCoreV1WeightedPodAffinityTermToJSON(
-  value?: IoK8sApiCoreV1WeightedPodAffinityTerm | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    podAffinityTerm: IoK8sApiCoreV1PodAffinityTermToJSON(value.podAffinityTerm),
-    weight: value.weight,
-  };
 }

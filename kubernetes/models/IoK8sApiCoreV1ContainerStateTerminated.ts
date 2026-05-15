@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ContainerStateTerminated is a terminated state of a container.
  * @export
@@ -20,7 +19,7 @@ import { exists } from '../runtime';
  */
 export interface IoK8sApiCoreV1ContainerStateTerminated {
   /**
-   * Container's ID in the format 'docker://<container_id>'
+   * Container's ID in the format '<type>://<container_id>'
    * @type {string}
    * @memberof IoK8sApiCoreV1ContainerStateTerminated
    */
@@ -61,48 +60,4 @@ export interface IoK8sApiCoreV1ContainerStateTerminated {
    * @memberof IoK8sApiCoreV1ContainerStateTerminated
    */
   startedAt?: string;
-}
-
-export function IoK8sApiCoreV1ContainerStateTerminatedFromJSON(
-  json: any,
-): IoK8sApiCoreV1ContainerStateTerminated {
-  return IoK8sApiCoreV1ContainerStateTerminatedFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ContainerStateTerminatedFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ContainerStateTerminated {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    containerID: !exists(json, 'containerID') ? undefined : json['containerID'],
-    exitCode: json['exitCode'],
-    finishedAt: !exists(json, 'finishedAt') ? undefined : json['finishedAt'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    signal: !exists(json, 'signal') ? undefined : json['signal'],
-    startedAt: !exists(json, 'startedAt') ? undefined : json['startedAt'],
-  };
-}
-
-export function IoK8sApiCoreV1ContainerStateTerminatedToJSON(
-  value?: IoK8sApiCoreV1ContainerStateTerminated | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    containerID: value.containerID,
-    exitCode: value.exitCode,
-    finishedAt: value.finishedAt === undefined ? undefined : value.finishedAt,
-    message: value.message,
-    reason: value.reason,
-    signal: value.signal,
-    startedAt: value.startedAt === undefined ? undefined : value.startedAt,
-  };
 }

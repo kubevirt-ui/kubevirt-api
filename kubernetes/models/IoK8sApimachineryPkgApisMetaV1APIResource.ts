@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * APIResource specifies the name of a resource and whether it is namespaced.
  * @export
@@ -79,56 +78,4 @@ export interface IoK8sApimachineryPkgApisMetaV1APIResource {
    * @memberof IoK8sApimachineryPkgApisMetaV1APIResource
    */
   version?: string;
-}
-
-export function IoK8sApimachineryPkgApisMetaV1APIResourceFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1APIResource {
-  return IoK8sApimachineryPkgApisMetaV1APIResourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1APIResourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1APIResource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    categories: !exists(json, 'categories') ? undefined : json['categories'],
-    group: !exists(json, 'group') ? undefined : json['group'],
-    kind: json['kind'],
-    name: json['name'],
-    namespaced: json['namespaced'],
-    shortNames: !exists(json, 'shortNames') ? undefined : json['shortNames'],
-    singularName: json['singularName'],
-    storageVersionHash: !exists(json, 'storageVersionHash')
-      ? undefined
-      : json['storageVersionHash'],
-    verbs: json['verbs'],
-    version: !exists(json, 'version') ? undefined : json['version'],
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1APIResourceToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1APIResource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    categories: value.categories,
-    group: value.group,
-    kind: value.kind,
-    name: value.name,
-    namespaced: value.namespaced,
-    shortNames: value.shortNames,
-    singularName: value.singularName,
-    storageVersionHash: value.storageVersionHash,
-    verbs: value.verbs,
-    version: value.version,
-  };
 }

@@ -12,18 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ObjectReference,
-  IoK8sApiCoreV1ObjectReferenceFromJSON,
-  IoK8sApiCoreV1ObjectReferenceToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
- * Binding ties one object to another; for example, a pod is bound to a node by a scheduler. Deprecated in 1.7, please use the bindings subresource of pods instead.
+ * Binding ties one object to another; for example, a pod is bound to a node by a scheduler.
  * @export
  * @interface IoK8sApiCoreV1Binding
  */
@@ -52,40 +47,4 @@ export interface IoK8sApiCoreV1Binding {
    * @memberof IoK8sApiCoreV1Binding
    */
   target: IoK8sApiCoreV1ObjectReference;
-}
-
-export function IoK8sApiCoreV1BindingFromJSON(json: any): IoK8sApiCoreV1Binding {
-  return IoK8sApiCoreV1BindingFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1BindingFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1Binding {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    target: IoK8sApiCoreV1ObjectReferenceFromJSON(json['target']),
-  };
-}
-
-export function IoK8sApiCoreV1BindingToJSON(value?: IoK8sApiCoreV1Binding | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    target: IoK8sApiCoreV1ObjectReferenceToJSON(value.target),
-  };
 }

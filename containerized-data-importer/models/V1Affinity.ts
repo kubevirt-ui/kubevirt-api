@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1NodeAffinity,
-  V1NodeAffinityFromJSON,
-  V1NodeAffinityToJSON,
   V1PodAffinity,
-  V1PodAffinityFromJSON,
-  V1PodAffinityToJSON,
   V1PodAntiAffinity,
-  V1PodAntiAffinityFromJSON,
-  V1PodAntiAffinityToJSON,
 } from './';
 
 /**
@@ -49,39 +42,4 @@ export interface V1Affinity {
    * @memberof V1Affinity
    */
   podAntiAffinity?: V1PodAntiAffinity;
-}
-
-export function V1AffinityFromJSON(json: any): V1Affinity {
-  return V1AffinityFromJSONTyped(json, false);
-}
-
-export function V1AffinityFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1Affinity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    nodeAffinity: !exists(json, 'nodeAffinity')
-      ? undefined
-      : V1NodeAffinityFromJSON(json['nodeAffinity']),
-    podAffinity: !exists(json, 'podAffinity')
-      ? undefined
-      : V1PodAffinityFromJSON(json['podAffinity']),
-    podAntiAffinity: !exists(json, 'podAntiAffinity')
-      ? undefined
-      : V1PodAntiAffinityFromJSON(json['podAntiAffinity']),
-  };
-}
-
-export function V1AffinityToJSON(value?: V1Affinity | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    nodeAffinity: V1NodeAffinityToJSON(value.nodeAffinity),
-    podAffinity: V1PodAffinityToJSON(value.podAffinity),
-    podAntiAffinity: V1PodAntiAffinityToJSON(value.podAntiAffinity),
-  };
 }

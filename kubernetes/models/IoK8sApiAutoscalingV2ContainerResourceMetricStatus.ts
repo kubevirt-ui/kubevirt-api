@@ -14,8 +14,6 @@
 
 import {
   IoK8sApiAutoscalingV2MetricValueStatus,
-  IoK8sApiAutoscalingV2MetricValueStatusFromJSON,
-  IoK8sApiAutoscalingV2MetricValueStatusToJSON,
 } from './';
 
 /**
@@ -25,7 +23,7 @@ import {
  */
 export interface IoK8sApiAutoscalingV2ContainerResourceMetricStatus {
   /**
-   * Container is the name of the container in the pods of the scaling target
+   * container is the name of the container in the pods of the scaling target
    * @type {string}
    * @memberof IoK8sApiAutoscalingV2ContainerResourceMetricStatus
    */
@@ -37,45 +35,9 @@ export interface IoK8sApiAutoscalingV2ContainerResourceMetricStatus {
    */
   current: IoK8sApiAutoscalingV2MetricValueStatus;
   /**
-   * Name is the name of the resource in question.
+   * name is the name of the resource in question.
    * @type {string}
    * @memberof IoK8sApiAutoscalingV2ContainerResourceMetricStatus
    */
   name: string;
-}
-
-export function IoK8sApiAutoscalingV2ContainerResourceMetricStatusFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV2ContainerResourceMetricStatus {
-  return IoK8sApiAutoscalingV2ContainerResourceMetricStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV2ContainerResourceMetricStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV2ContainerResourceMetricStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    container: json['container'],
-    current: IoK8sApiAutoscalingV2MetricValueStatusFromJSON(json['current']),
-    name: json['name'],
-  };
-}
-
-export function IoK8sApiAutoscalingV2ContainerResourceMetricStatusToJSON(
-  value?: IoK8sApiAutoscalingV2ContainerResourceMetricStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    container: value.container,
-    current: IoK8sApiAutoscalingV2MetricValueStatusToJSON(value.current),
-    name: value.name,
-  };
 }

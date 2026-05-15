@@ -12,49 +12,43 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
+import type { V1VirtualMachineInstanceMigrationSource } from './V1VirtualMachineInstanceMigrationSource';
+import type { V1VirtualMachineInstanceMigrationTarget } from './V1VirtualMachineInstanceMigrationTarget';
+
 /**
- *
+ * 
  * @export
  * @interface V1VirtualMachineInstanceMigrationSpec
  */
 export interface V1VirtualMachineInstanceMigrationSpec {
-  /**
-   * The name of the VMI to perform the migration on. VMI must exist in the migration objects namespace
-   * @type {string}
-   * @memberof V1VirtualMachineInstanceMigrationSpec
-   */
-  vmiName?: string;
-}
-
-export function V1VirtualMachineInstanceMigrationSpecFromJSON(
-  json: any,
-): V1VirtualMachineInstanceMigrationSpec {
-  return V1VirtualMachineInstanceMigrationSpecFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceMigrationSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceMigrationSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    vmiName: !exists(json, 'vmiName') ? undefined : json['vmiName'],
-  };
-}
-
-export function V1VirtualMachineInstanceMigrationSpecToJSON(
-  value?: V1VirtualMachineInstanceMigrationSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    vmiName: value.vmiName,
-  };
+    /**
+     * AddedNodeSelector is an additional selector that can be used to complement a NodeSelector or NodeAffinity as set on the VM to restrict the set of allowed target nodes for a migration. In case of key collisions, values set on the VM objects are going to be preserved to ensure that addedNodeSelector can only restrict but not bypass constraints already set on the VM object.
+     * @type {{ [key: string]: string; }}
+     * @memberof V1VirtualMachineInstanceMigrationSpec
+     */
+    addedNodeSelector?: { [key: string]: string; };
+    /**
+     * Priority of the migration. This can be one of `system-critical`, `user-triggered`, `system-maintenance`.
+     * @type {string}
+     * @memberof V1VirtualMachineInstanceMigrationSpec
+     */
+    priority?: string;
+    /**
+     * 
+     * @type {V1VirtualMachineInstanceMigrationTarget}
+     * @memberof V1VirtualMachineInstanceMigrationSpec
+     */
+    receive?: V1VirtualMachineInstanceMigrationTarget;
+    /**
+     * 
+     * @type {V1VirtualMachineInstanceMigrationSource}
+     * @memberof V1VirtualMachineInstanceMigrationSpec
+     */
+    sendTo?: V1VirtualMachineInstanceMigrationSource;
+    /**
+     * The name of the VMI to perform the migration on. VMI must exist in the migration objects namespace
+     * @type {string}
+     * @memberof V1VirtualMachineInstanceMigrationSpec
+     */
+    vmiName?: string;
 }

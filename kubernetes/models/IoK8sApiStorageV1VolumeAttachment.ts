@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiStorageV1VolumeAttachmentSpec,
-  IoK8sApiStorageV1VolumeAttachmentSpecFromJSON,
-  IoK8sApiStorageV1VolumeAttachmentSpecToJSON,
   IoK8sApiStorageV1VolumeAttachmentStatus,
-  IoK8sApiStorageV1VolumeAttachmentStatusFromJSON,
-  IoK8sApiStorageV1VolumeAttachmentStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -63,48 +56,4 @@ export interface IoK8sApiStorageV1VolumeAttachment {
    * @memberof IoK8sApiStorageV1VolumeAttachment
    */
   status?: IoK8sApiStorageV1VolumeAttachmentStatus;
-}
-
-export function IoK8sApiStorageV1VolumeAttachmentFromJSON(
-  json: any,
-): IoK8sApiStorageV1VolumeAttachment {
-  return IoK8sApiStorageV1VolumeAttachmentFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStorageV1VolumeAttachmentFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStorageV1VolumeAttachment {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: IoK8sApiStorageV1VolumeAttachmentSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiStorageV1VolumeAttachmentStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiStorageV1VolumeAttachmentToJSON(
-  value?: IoK8sApiStorageV1VolumeAttachment | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiStorageV1VolumeAttachmentSpecToJSON(value.spec),
-    status: IoK8sApiStorageV1VolumeAttachmentStatusToJSON(value.status),
-  };
 }

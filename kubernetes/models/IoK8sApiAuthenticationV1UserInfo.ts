@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * UserInfo holds the information about the user needed to implement the user.Info interface.
  * @export
@@ -43,42 +42,4 @@ export interface IoK8sApiAuthenticationV1UserInfo {
    * @memberof IoK8sApiAuthenticationV1UserInfo
    */
   username?: string;
-}
-
-export function IoK8sApiAuthenticationV1UserInfoFromJSON(
-  json: any,
-): IoK8sApiAuthenticationV1UserInfo {
-  return IoK8sApiAuthenticationV1UserInfoFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthenticationV1UserInfoFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthenticationV1UserInfo {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    extra: !exists(json, 'extra') ? undefined : json['extra'],
-    groups: !exists(json, 'groups') ? undefined : json['groups'],
-    uid: !exists(json, 'uid') ? undefined : json['uid'],
-    username: !exists(json, 'username') ? undefined : json['username'],
-  };
-}
-
-export function IoK8sApiAuthenticationV1UserInfoToJSON(
-  value?: IoK8sApiAuthenticationV1UserInfo | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    extra: value.extra,
-    groups: value.groups,
-    uid: value.uid,
-    username: value.username,
-  };
 }

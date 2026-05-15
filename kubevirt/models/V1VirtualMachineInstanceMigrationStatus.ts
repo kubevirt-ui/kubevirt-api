@@ -12,12 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import {
-  V1VirtualMachineInstanceMigrationCondition,
-  V1VirtualMachineInstanceMigrationConditionFromJSON,
-  V1VirtualMachineInstanceMigrationConditionToJSON,
-} from './';
+import type { V1VirtualMachineInstanceMigrationCondition } from './V1VirtualMachineInstanceMigrationCondition';
+import type { V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp } from './V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp';
+import type { V1VirtualMachineInstanceMigrationState } from './V1VirtualMachineInstanceMigrationState';
 
 /**
  * VirtualMachineInstanceMigration reprents information pertaining to a VMI's migration.
@@ -25,55 +22,34 @@ import {
  * @interface V1VirtualMachineInstanceMigrationStatus
  */
 export interface V1VirtualMachineInstanceMigrationStatus {
-  /**
-   *
-   * @type {Array<V1VirtualMachineInstanceMigrationCondition>}
-   * @memberof V1VirtualMachineInstanceMigrationStatus
-   */
-  conditions?: Array<V1VirtualMachineInstanceMigrationCondition>;
-  /**
-   *
-   * @type {string}
-   * @memberof V1VirtualMachineInstanceMigrationStatus
-   */
-  phase?: string;
-}
-
-export function V1VirtualMachineInstanceMigrationStatusFromJSON(
-  json: any,
-): V1VirtualMachineInstanceMigrationStatus {
-  return V1VirtualMachineInstanceMigrationStatusFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceMigrationStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VirtualMachineInstanceMigrationStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(V1VirtualMachineInstanceMigrationConditionFromJSON),
-    phase: !exists(json, 'phase') ? undefined : json['phase'],
-  };
-}
-
-export function V1VirtualMachineInstanceMigrationStatusToJSON(
-  value?: V1VirtualMachineInstanceMigrationStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(V1VirtualMachineInstanceMigrationConditionToJSON),
-    phase: value.phase,
-  };
+    /**
+     * 
+     * @type {Array<V1VirtualMachineInstanceMigrationCondition>}
+     * @memberof V1VirtualMachineInstanceMigrationStatus
+     */
+    conditions?: Array<V1VirtualMachineInstanceMigrationCondition>;
+    /**
+     * 
+     * @type {V1VirtualMachineInstanceMigrationState}
+     * @memberof V1VirtualMachineInstanceMigrationStatus
+     */
+    migrationState?: V1VirtualMachineInstanceMigrationState;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1VirtualMachineInstanceMigrationStatus
+     */
+    phase?: string;
+    /**
+     * PhaseTransitionTimestamp is the timestamp of when the last phase change occurred
+     * @type {Array<V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp>}
+     * @memberof V1VirtualMachineInstanceMigrationStatus
+     */
+    phaseTransitionTimestamps?: Array<V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp>;
+    /**
+     * The synchronization addresses one can use to connect to the synchronization controller, includes the port, if multiple addresses are available, the first one is reported in the synchronizationAddress field.
+     * @type {Array<string>}
+     * @memberof V1VirtualMachineInstanceMigrationStatus
+     */
+    synchronizationAddresses?: Array<string>;
 }

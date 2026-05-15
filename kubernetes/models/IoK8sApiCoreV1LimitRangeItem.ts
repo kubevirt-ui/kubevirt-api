@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * LimitRangeItem defines a min/max usage limit for any resource that matches on kind.
  * @export
@@ -51,65 +50,8 @@ export interface IoK8sApiCoreV1LimitRangeItem {
   min?: { [key: string]: string };
   /**
    * Type of resource that this limit applies to.
-   *
-   * Possible enum values:
-   *  - `"Container"` Limit that applies to all containers in a namespace
-   *  - `"PersistentVolumeClaim"` Limit that applies to all persistent volume claims in a namespace
-   *  - `"Pod"` Limit that applies to all pods in a namespace
    * @type {string}
    * @memberof IoK8sApiCoreV1LimitRangeItem
    */
-  type: IoK8sApiCoreV1LimitRangeItemTypeEnum;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1LimitRangeItemTypeEnum {
-  Container = 'Container',
-  PersistentVolumeClaim = 'PersistentVolumeClaim',
-  Pod = 'Pod',
-}
-
-export function IoK8sApiCoreV1LimitRangeItemFromJSON(json: any): IoK8sApiCoreV1LimitRangeItem {
-  return IoK8sApiCoreV1LimitRangeItemFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1LimitRangeItemFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1LimitRangeItem {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    _default: !exists(json, 'default') ? undefined : json['default'],
-    defaultRequest: !exists(json, 'defaultRequest') ? undefined : json['defaultRequest'],
-    max: !exists(json, 'max') ? undefined : json['max'],
-    maxLimitRequestRatio: !exists(json, 'maxLimitRequestRatio')
-      ? undefined
-      : json['maxLimitRequestRatio'],
-    min: !exists(json, 'min') ? undefined : json['min'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1LimitRangeItemToJSON(
-  value?: IoK8sApiCoreV1LimitRangeItem | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    default: value._default,
-    defaultRequest: value.defaultRequest,
-    max: value.max,
-    maxLimitRequestRatio: value.maxLimitRequestRatio,
-    min: value.min,
-    type: value.type,
-  };
+  type: string;
 }

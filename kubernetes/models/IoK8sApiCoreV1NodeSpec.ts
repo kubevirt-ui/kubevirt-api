@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1NodeConfigSource,
-  IoK8sApiCoreV1NodeConfigSourceFromJSON,
-  IoK8sApiCoreV1NodeConfigSourceToJSON,
   IoK8sApiCoreV1Taint,
-  IoK8sApiCoreV1TaintFromJSON,
-  IoK8sApiCoreV1TaintToJSON,
 } from './';
 
 /**
@@ -70,51 +65,4 @@ export interface IoK8sApiCoreV1NodeSpec {
    * @memberof IoK8sApiCoreV1NodeSpec
    */
   unschedulable?: boolean;
-}
-
-export function IoK8sApiCoreV1NodeSpecFromJSON(json: any): IoK8sApiCoreV1NodeSpec {
-  return IoK8sApiCoreV1NodeSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NodeSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NodeSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    configSource: !exists(json, 'configSource')
-      ? undefined
-      : IoK8sApiCoreV1NodeConfigSourceFromJSON(json['configSource']),
-    externalID: !exists(json, 'externalID') ? undefined : json['externalID'],
-    podCIDR: !exists(json, 'podCIDR') ? undefined : json['podCIDR'],
-    podCIDRs: !exists(json, 'podCIDRs') ? undefined : json['podCIDRs'],
-    providerID: !exists(json, 'providerID') ? undefined : json['providerID'],
-    taints: !exists(json, 'taints')
-      ? undefined
-      : (json['taints'] as Array<any>).map(IoK8sApiCoreV1TaintFromJSON),
-    unschedulable: !exists(json, 'unschedulable') ? undefined : json['unschedulable'],
-  };
-}
-
-export function IoK8sApiCoreV1NodeSpecToJSON(value?: IoK8sApiCoreV1NodeSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    configSource: IoK8sApiCoreV1NodeConfigSourceToJSON(value.configSource),
-    externalID: value.externalID,
-    podCIDR: value.podCIDR,
-    podCIDRs: value.podCIDRs,
-    providerID: value.providerID,
-    taints:
-      value.taints === undefined
-        ? undefined
-        : (value.taints as Array<any>).map(IoK8sApiCoreV1TaintToJSON),
-    unschedulable: value.unschedulable,
-  };
 }

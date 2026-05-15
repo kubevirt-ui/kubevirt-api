@@ -12,9 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
- * PersistentVolumeClaimCondition contails details about state of pvc
+ * PersistentVolumeClaimCondition contains details about state of pvc
  * @export
  * @interface IoK8sApiCoreV1PersistentVolumeClaimCondition
  */
@@ -32,86 +31,27 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimCondition {
    */
   lastTransitionTime?: string;
   /**
-   * Human-readable message indicating details about last transition.
+   * message is the human-readable message indicating details about last transition.
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimCondition
    */
   message?: string;
   /**
-   * Unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports "ResizeStarted" that means the underlying persistent volume is being resized.
+   * reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports "Resizing" that means the underlying persistent volume is being resized.
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimCondition
    */
   reason?: string;
   /**
-   *
+   * Status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#:~:text=state%20of%20pvc-,conditions.status,-(string)%2C%20required
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimCondition
    */
   status: string;
   /**
-   *
-   *
-   *
-   * Possible enum values:
-   *  - `"FileSystemResizePending"` - controller resize is finished and a file system resize is pending on node
-   *  - `"Resizing"` - a user trigger resize of pvc has been started
+   * Type is the type of the condition. More info: https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#:~:text=set%20to%20%27ResizeStarted%27.-,PersistentVolumeClaimCondition,-contains%20details%20about
    * @type {string}
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimCondition
    */
-  type: IoK8sApiCoreV1PersistentVolumeClaimConditionTypeEnum;
-}
-
-/**
- * @export
- * @enum {string}
- */
-export enum IoK8sApiCoreV1PersistentVolumeClaimConditionTypeEnum {
-  FileSystemResizePending = 'FileSystemResizePending',
-  Resizing = 'Resizing',
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimConditionFromJSON(
-  json: any,
-): IoK8sApiCoreV1PersistentVolumeClaimCondition {
-  return IoK8sApiCoreV1PersistentVolumeClaimConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PersistentVolumeClaimCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastProbeTime: !exists(json, 'lastProbeTime') ? undefined : json['lastProbeTime'],
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimConditionToJSON(
-  value?: IoK8sApiCoreV1PersistentVolumeClaimCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastProbeTime: value.lastProbeTime === undefined ? undefined : value.lastProbeTime,
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
+  type: string;
 }

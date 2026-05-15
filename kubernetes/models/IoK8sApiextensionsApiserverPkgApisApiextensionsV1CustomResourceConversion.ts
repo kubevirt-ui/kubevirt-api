@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookConversion,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookConversionFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookConversionToJSON,
 } from './';
 
 /**
@@ -26,7 +23,7 @@ import {
  */
 export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceConversion {
   /**
-   * strategy specifies how custom resources are converted between versions. Allowed values are: - `None`: The converter only change the apiVersion and would not touch any other field in the custom resource. - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
+   * strategy specifies how custom resources are converted between versions. Allowed values are: - `"None"`: The converter only change the apiVersion and would not touch any other field in the custom resource. - `"Webhook"`: API Server will call to an external webhook to do the conversion. Additional information
    *   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhook to be set.
    * @type {string}
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceConversion
@@ -38,45 +35,4 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResource
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceConversion
    */
   webhook?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookConversion;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceConversionFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceConversion {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceConversionFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceConversionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceConversion {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    strategy: json['strategy'],
-    webhook: !exists(json, 'webhook')
-      ? undefined
-      : IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookConversionFromJSON(json['webhook']),
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceConversionToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceConversion | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    strategy: value.strategy,
-    webhook: IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookConversionToJSON(
-      value.webhook,
-    ),
-  };
 }

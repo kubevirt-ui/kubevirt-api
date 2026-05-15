@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -31,43 +28,4 @@ export interface IoK8sApiRbacV1AggregationRule {
    * @memberof IoK8sApiRbacV1AggregationRule
    */
   clusterRoleSelectors?: Array<IoK8sApimachineryPkgApisMetaV1LabelSelector>;
-}
-
-export function IoK8sApiRbacV1AggregationRuleFromJSON(json: any): IoK8sApiRbacV1AggregationRule {
-  return IoK8sApiRbacV1AggregationRuleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiRbacV1AggregationRuleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiRbacV1AggregationRule {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    clusterRoleSelectors: !exists(json, 'clusterRoleSelectors')
-      ? undefined
-      : (json['clusterRoleSelectors'] as Array<any>).map(
-          IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiRbacV1AggregationRuleToJSON(
-  value?: IoK8sApiRbacV1AggregationRule | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    clusterRoleSelectors:
-      value.clusterRoleSelectors === undefined
-        ? undefined
-        : (value.clusterRoleSelectors as Array<any>).map(
-            IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
-          ),
-  };
 }

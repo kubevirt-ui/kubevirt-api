@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * HorizontalPodAutoscalerCondition describes the state of a HorizontalPodAutoscaler at a certain point.
  * @export
@@ -49,47 +48,4 @@ export interface IoK8sApiAutoscalingV2HorizontalPodAutoscalerCondition {
    * @memberof IoK8sApiAutoscalingV2HorizontalPodAutoscalerCondition
    */
   type: string;
-}
-
-export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerConditionFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV2HorizontalPodAutoscalerCondition {
-  return IoK8sApiAutoscalingV2HorizontalPodAutoscalerConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV2HorizontalPodAutoscalerCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiAutoscalingV2HorizontalPodAutoscalerConditionToJSON(
-  value?: IoK8sApiAutoscalingV2HorizontalPodAutoscalerCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

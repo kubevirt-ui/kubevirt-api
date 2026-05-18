@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+<<<<<<<< HEAD:kubevirt/models/V1LiveUpdateConfiguration.ts
 /**
  * 
  * @export
@@ -24,6 +25,15 @@ export interface V1LiveUpdateConfiguration {
      * @memberof V1LiveUpdateConfiguration
      */
     maxCpuSockets?: number;
+========
+import { exists, mapValues } from '../runtime';
+/**
+ * 
+ * @export
+ * @interface V1beta1MemoryPreferenceRequirement
+ */
+export interface V1beta1MemoryPreferenceRequirement {
+>>>>>>>> upstream/main:kubevirt/models/V1beta1MemoryPreferenceRequirement.ts
     /**
      * Quantity is a fixed-point representation of a number. It provides convenient marshaling/unmarshaling in JSON and YAML, in addition to String() and AsInt64() accessors.
      * 
@@ -63,6 +73,7 @@ export interface V1LiveUpdateConfiguration {
      * 
      * This format is intended to make it difficult to use these numbers without writing some sort of special handling code in the hopes that that will cause implementors to also use a fixed point implementation.
      * @type {string}
+<<<<<<<< HEAD:kubevirt/models/V1LiveUpdateConfiguration.ts
      * @memberof V1LiveUpdateConfiguration
      */
     maxGuest?: string;
@@ -73,3 +84,47 @@ export interface V1LiveUpdateConfiguration {
      */
     maxHotplugRatio?: number;
 }
+========
+     * @memberof V1beta1MemoryPreferenceRequirement
+     */
+    guest: string;
+}
+
+/**
+ * Check if a given object implements the V1beta1MemoryPreferenceRequirement interface.
+ */
+export function instanceOfV1beta1MemoryPreferenceRequirement(value: object): boolean {
+    let isInstance = true;
+    isInstance = isInstance && "guest" in value;
+
+    return isInstance;
+}
+
+export function V1beta1MemoryPreferenceRequirementFromJSON(json: any): V1beta1MemoryPreferenceRequirement {
+    return V1beta1MemoryPreferenceRequirementFromJSONTyped(json, false);
+}
+
+export function V1beta1MemoryPreferenceRequirementFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1MemoryPreferenceRequirement {
+    if ((json === undefined) || (json === null)) {
+        return json;
+    }
+    return {
+        
+        'guest': json['guest'],
+    };
+}
+
+export function V1beta1MemoryPreferenceRequirementToJSON(value?: V1beta1MemoryPreferenceRequirement | null): any {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (value === null) {
+        return null;
+    }
+    return {
+        
+        'guest': value.guest,
+    };
+}
+
+>>>>>>>> upstream/main:kubevirt/models/V1beta1MemoryPreferenceRequirement.ts

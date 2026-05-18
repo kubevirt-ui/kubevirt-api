@@ -1,0 +1,50 @@
+---
+description: Verify all TypeScript models and interfaces are re-exported from their package index
+globs: "**/models/index.ts,**/models/*.ts,*/index.ts"
+alwaysApply: false
+---
+
+# Export Completeness Rule
+
+Whenever a model file is added or removed under any `*/models/` directory, or a `*/models/index.ts` is edited, **always verify export completeness** by running:
+
+```bash
+python3 -c "
+import os, re
+dirs = ['kubevirt', 'kubernetes', 'containerized-data-importer', 'nmstate', 'virt-template', 'console']
+ok = True
+for d in dirs:
+    models_dir = f'{d}/models'
+    index_path = f'{d}/models/index.ts'
+    if not os.path.isdir(models_dir):
+        continue
+    files = {f[:-3] for f in os.listdir(models_dir) if f.endswith('.ts') and f != 'index.ts'}
+    exported = set(re.findall(r\"export \* from '\./([^']+)'\", open(index_path).read())) if os.path.isfile(index_path) else set()
+    missing = sorted(files - exported)
+    if missing:
+        ok = False
+        print(f'MISSING from {index_path}:')
+        for m in missing: print(f'  export * from \"./{m}\";')
+if ok:
+    print('All exports OK')
+"
+```
+
+## Rules
+
+- Every `.ts` file in `*/models/` (except `index.ts` itself) **must** have a corresponding `export * from './FileName';` line in `*/models/index.ts`.
+- When adding a new model file, **immediately** add its export to the matching `index.ts`.
+- When removing a model file, **immediately** remove its export from the matching `index.ts`.
+- The `nmstate/index.ts` must export both `./models` and `./custom-models`.
+- Every `*/custom-models/` directory must have its own `index.ts` that exports all files, and the parent `*/index.ts` must re-export it.
+
+## Packages and their index paths
+
+| Package | models index | top-level index |
+|---------|-------------|-----------------|
+| `kubevirt` | `kubevirt/models/index.ts` | `kubevirt/index.ts` |
+| `kubernetes` | `kubernetes/models/index.ts` | `kubernetes/index.ts` |
+| `containerized-data-importer` | `containerized-data-importer/models/index.ts` | `containerized-data-importer/index.ts` |
+| `nmstate` | `nmstate/models/index.ts` | `nmstate/index.ts` (also exports `./custom-models`) |
+| `virt-template` | `virt-template/models/index.ts` | `virt-template/index.ts` |
+| `console` | `console/models/index.ts` | `console/index.ts` |

@@ -1,7 +1,4 @@
-import {
-  K8sIoApiCoreV1HTTPGetAction,
-  K8sIoApiCoreV1HTTPGetActionSchemeEnum,
-} from '../models/K8sIoApiCoreV1HTTPGetAction';
+import { K8sIoApiCoreV1HTTPGetAction } from '../models/K8sIoApiCoreV1HTTPGetAction';
 
 export const testObject: K8sIoApiCoreV1HTTPGetAction = {
   host: 'test-host',
@@ -12,5 +9,6 @@ export const testObject: K8sIoApiCoreV1HTTPGetAction = {
     },
   ],
   path: '/healthz',
-  scheme: K8sIoApiCoreV1HTTPGetActionSchemeEnum.Https,
+  port: 8080,
+  scheme: 'HTTPS',
 };

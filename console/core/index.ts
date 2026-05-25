@@ -1,3 +1,4 @@
+/* eslint-disable no-barrel-files/no-barrel-files */
 import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-types';
 
 export const PrometheusModel: K8sModel = {
@@ -807,6 +808,22 @@ export const StorageClassModel: K8sModel = {
   id: 'storageclass',
 };
 
+export const VolumeAttributesClassModel: K8sModel = {
+  label: 'VolumeAttributesClass',
+  // t('public~VolumeAttributesClass')
+  labelKey: 'public~VolumeAttributesClass',
+  labelPlural: 'VolumeAttributesClasses',
+  // t('public~VolumeAttributesClasses')
+  labelPluralKey: 'public~VolumeAttributesClasses',
+  apiVersion: 'v1',
+  apiGroup: 'storage.k8s.io',
+  plural: 'volumeattributesclasses',
+  abbr: 'VAC',
+  namespaced: false,
+  kind: 'VolumeAttributesClass',
+  id: 'volumeattributesclass',
+};
+
 export const LimitRangeModel: K8sModel = {
   label: 'LimitRange',
   // t('public~LimitRange')
@@ -1313,3 +1330,4 @@ export const MultiNetworkPolicyModel: K8sModel = {
   plural: 'multi-networkpolicies',
   crd: true,
 };
+

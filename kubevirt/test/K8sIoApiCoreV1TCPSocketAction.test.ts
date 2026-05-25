@@ -2,4 +2,5 @@ import { K8sIoApiCoreV1TCPSocketAction } from '../models/K8sIoApiCoreV1TCPSocket
 
 export const testObject: K8sIoApiCoreV1TCPSocketAction = {
   host: 'test-host',
+  port: 8080,
 };

@@ -1,9 +1,9 @@
-import { V1alpha1VirtualMachinePoolScaleInStrategy } from '../models/V1alpha1VirtualMachinePoolScaleInStrategy';
+import { V1beta1VirtualMachinePoolScaleInStrategy } from '../models/V1beta1VirtualMachinePoolScaleInStrategy';
 
-export const testObject: V1alpha1VirtualMachinePoolScaleInStrategy = {
+export const testObject: V1beta1VirtualMachinePoolScaleInStrategy = {
   proactive: {
     selectionPolicy: {
-      basePolicy: 'DescendingOrder',
+      sortPolicy: 'DescendingOrder',
     },
   },
 };

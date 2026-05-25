@@ -1,13 +1,9 @@
-import {
-  K8sIoApiCoreV1PersistentVolumeClaimSpec,
-  K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum,
-  K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum,
-} from '../models/K8sIoApiCoreV1PersistentVolumeClaimSpec';
+import { K8sIoApiCoreV1PersistentVolumeClaimSpec } from '../models/K8sIoApiCoreV1PersistentVolumeClaimSpec';
 
 export const testObject: K8sIoApiCoreV1PersistentVolumeClaimSpec = {
   accessModes: [
-    K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum.ReadWriteOnce,
-    K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum.ReadOnlyMany,
+    'ReadWriteOnce',
+    'ReadOnlyMany',
   ],
   dataSource: {
     apiGroup: 'snapshot.storage.k8s.io',
@@ -36,6 +32,6 @@ export const testObject: K8sIoApiCoreV1PersistentVolumeClaimSpec = {
   },
   storageClassName: 'test-storage-class',
   volumeAttributesClassName: 'test-volume-attributes-class',
-  volumeMode: K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum.Filesystem,
+  volumeMode: 'Filesystem',
   volumeName: 'test-volume',
 };

@@ -1,5 +1,5 @@
 import { K8sIoApiCoreV1Affinity } from '../models/K8sIoApiCoreV1Affinity';
-import { K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum } from '../models/K8sIoApiCoreV1NodeSelectorRequirement';
+
 
 export const testObject: K8sIoApiCoreV1Affinity = {
   nodeAffinity: {
@@ -9,14 +9,14 @@ export const testObject: K8sIoApiCoreV1Affinity = {
           matchExpressions: [
             {
               key: 'test-key',
-              operator: K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum.In,
+              operator: 'In',
               values: ['test-value'],
             },
           ],
           matchFields: [
             {
               key: 'test-field-key',
-              operator: K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum.Exists,
+              operator: 'Exists',
             },
           ],
         },
@@ -29,7 +29,7 @@ export const testObject: K8sIoApiCoreV1Affinity = {
           matchExpressions: [
             {
               key: 'test-required-key',
-              operator: K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum.NotIn,
+              operator: 'NotIn',
               values: ['test-excluded-value'],
             },
           ],

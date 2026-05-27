@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * LeaseCandidateSpec is a specification of a Lease.
  * @export
@@ -55,46 +54,4 @@ export interface IoK8sApiCoordinationV1alpha2LeaseCandidateSpec {
    * @memberof IoK8sApiCoordinationV1alpha2LeaseCandidateSpec
    */
   strategy: string;
-}
-
-export function IoK8sApiCoordinationV1alpha2LeaseCandidateSpecFromJSON(
-  json: any,
-): IoK8sApiCoordinationV1alpha2LeaseCandidateSpec {
-  return IoK8sApiCoordinationV1alpha2LeaseCandidateSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoordinationV1alpha2LeaseCandidateSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoordinationV1alpha2LeaseCandidateSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    binaryVersion: json['binaryVersion'],
-    emulationVersion: !exists(json, 'emulationVersion') ? undefined : json['emulationVersion'],
-    leaseName: json['leaseName'],
-    pingTime: !exists(json, 'pingTime') ? undefined : json['pingTime'],
-    renewTime: !exists(json, 'renewTime') ? undefined : json['renewTime'],
-    strategy: json['strategy'],
-  };
-}
-
-export function IoK8sApiCoordinationV1alpha2LeaseCandidateSpecToJSON(
-  value?: IoK8sApiCoordinationV1alpha2LeaseCandidateSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    binaryVersion: value.binaryVersion,
-    emulationVersion: value.emulationVersion,
-    leaseName: value.leaseName,
-    pingTime: value.pingTime === undefined ? undefined : value.pingTime,
-    renewTime: value.renewTime === undefined ? undefined : value.renewTime,
-    strategy: value.strategy,
-  };
 }

@@ -31,37 +31,3 @@ export interface IoK8sApiCoreV1TopologySelectorLabelRequirement {
    */
   values: Array<string>;
 }
-
-export function IoK8sApiCoreV1TopologySelectorLabelRequirementFromJSON(
-  json: any,
-): IoK8sApiCoreV1TopologySelectorLabelRequirement {
-  return IoK8sApiCoreV1TopologySelectorLabelRequirementFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1TopologySelectorLabelRequirementFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1TopologySelectorLabelRequirement {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    key: json['key'],
-    values: json['values'],
-  };
-}
-
-export function IoK8sApiCoreV1TopologySelectorLabelRequirementToJSON(
-  value?: IoK8sApiCoreV1TopologySelectorLabelRequirement | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    key: value.key,
-    values: value.values,
-  };
-}

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Represents a Quobyte mount that lasts the lifetime of a pod. Quobyte volumes do not support ownership management or SELinux relabeling.
  * @export
@@ -55,46 +54,4 @@ export interface IoK8sApiCoreV1QuobyteVolumeSource {
    * @memberof IoK8sApiCoreV1QuobyteVolumeSource
    */
   volume: string;
-}
-
-export function IoK8sApiCoreV1QuobyteVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1QuobyteVolumeSource {
-  return IoK8sApiCoreV1QuobyteVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1QuobyteVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1QuobyteVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    group: !exists(json, 'group') ? undefined : json['group'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    registry: json['registry'],
-    tenant: !exists(json, 'tenant') ? undefined : json['tenant'],
-    user: !exists(json, 'user') ? undefined : json['user'],
-    volume: json['volume'],
-  };
-}
-
-export function IoK8sApiCoreV1QuobyteVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1QuobyteVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    group: value.group,
-    readOnly: value.readOnly,
-    registry: value.registry,
-    tenant: value.tenant,
-    user: value.user,
-    volume: value.volume,
-  };
 }

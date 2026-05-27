@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  *
  * @export
@@ -31,52 +30,4 @@ export interface V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesVal
    * @memberof V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfo
    */
   version?: any | null;
-}
-
-/**
- * Check if a given object implements the V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfo interface.
- */
-export function instanceOfV1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfo(
-  _value: object,
-): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfoFromJSON(
-  json: any,
-): V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfo {
-  return V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfoFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfoFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfo {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    time: !exists(json, 'time') ? undefined : json['time'],
-    version: !exists(json, 'version') ? undefined : json['version'],
-  };
-}
-
-export function V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfoToJSON(
-  value?: V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfo | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    time: value.time,
-    version: value.version,
-  };
 }

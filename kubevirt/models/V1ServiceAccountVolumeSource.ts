@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * ServiceAccountVolumeSource adapts a ServiceAccount into a volume.
  * @export
@@ -26,40 +25,3 @@ export interface V1ServiceAccountVolumeSource {
      */
     serviceAccountName?: string;
 }
-
-/**
- * Check if a given object implements the V1ServiceAccountVolumeSource interface.
- */
-export function instanceOfV1ServiceAccountVolumeSource(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1ServiceAccountVolumeSourceFromJSON(json: any): V1ServiceAccountVolumeSource {
-    return V1ServiceAccountVolumeSourceFromJSONTyped(json, false);
-}
-
-export function V1ServiceAccountVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ServiceAccountVolumeSource {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'serviceAccountName': !exists(json, 'serviceAccountName') ? undefined : json['serviceAccountName'],
-    };
-}
-
-export function V1ServiceAccountVolumeSourceToJSON(value?: V1ServiceAccountVolumeSource | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'serviceAccountName': value.serviceAccountName,
-    };
-}
-

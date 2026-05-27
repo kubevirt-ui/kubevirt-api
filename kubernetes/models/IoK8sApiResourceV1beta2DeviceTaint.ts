@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * The device this taint is attached to has the "effect" on any claim which does not tolerate the taint and, through the claim, to pods using the claim.
  * @export
@@ -43,42 +42,4 @@ export interface IoK8sApiResourceV1beta2DeviceTaint {
    * @memberof IoK8sApiResourceV1beta2DeviceTaint
    */
   value?: string;
-}
-
-export function IoK8sApiResourceV1beta2DeviceTaintFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta2DeviceTaint {
-  return IoK8sApiResourceV1beta2DeviceTaintFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta2DeviceTaintFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta2DeviceTaint {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    effect: json['effect'],
-    key: json['key'],
-    timeAdded: !exists(json, 'timeAdded') ? undefined : json['timeAdded'],
-    value: !exists(json, 'value') ? undefined : json['value'],
-  };
-}
-
-export function IoK8sApiResourceV1beta2DeviceTaintToJSON(
-  value?: IoK8sApiResourceV1beta2DeviceTaint | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    effect: value.effect,
-    key: value.key,
-    timeAdded: value.timeAdded === undefined ? undefined : value.timeAdded,
-    value: value.value,
-  };
 }

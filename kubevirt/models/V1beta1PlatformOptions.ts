@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -26,40 +25,3 @@ export interface V1beta1PlatformOptions {
      */
     architecture?: string;
 }
-
-/**
- * Check if a given object implements the V1beta1PlatformOptions interface.
- */
-export function instanceOfV1beta1PlatformOptions(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1beta1PlatformOptionsFromJSON(json: any): V1beta1PlatformOptions {
-    return V1beta1PlatformOptionsFromJSONTyped(json, false);
-}
-
-export function V1beta1PlatformOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1PlatformOptions {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'architecture': !exists(json, 'architecture') ? undefined : json['architecture'],
-    };
-}
-
-export function V1beta1PlatformOptionsToJSON(value?: V1beta1PlatformOptions | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'architecture': value.architecture,
-    };
-}
-

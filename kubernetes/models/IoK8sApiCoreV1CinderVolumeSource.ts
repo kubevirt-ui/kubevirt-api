@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1LocalObjectReference,
-  IoK8sApiCoreV1LocalObjectReferenceFromJSON,
-  IoK8sApiCoreV1LocalObjectReferenceToJSON,
 } from './';
 
 /**
@@ -49,44 +46,4 @@ export interface IoK8sApiCoreV1CinderVolumeSource {
    * @memberof IoK8sApiCoreV1CinderVolumeSource
    */
   volumeID: string;
-}
-
-export function IoK8sApiCoreV1CinderVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1CinderVolumeSource {
-  return IoK8sApiCoreV1CinderVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1CinderVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1CinderVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    secretRef: !exists(json, 'secretRef')
-      ? undefined
-      : IoK8sApiCoreV1LocalObjectReferenceFromJSON(json['secretRef']),
-    volumeID: json['volumeID'],
-  };
-}
-
-export function IoK8sApiCoreV1CinderVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1CinderVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fsType: value.fsType,
-    readOnly: value.readOnly,
-    secretRef: IoK8sApiCoreV1LocalObjectReferenceToJSON(value.secretRef),
-    volumeID: value.volumeID,
-  };
 }

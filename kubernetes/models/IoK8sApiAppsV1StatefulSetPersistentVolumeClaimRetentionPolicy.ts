@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * StatefulSetPersistentVolumeClaimRetentionPolicy describes the policy used for PVCs created from the StatefulSet VolumeClaimTemplates.
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicy {
    * @memberof IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicy
    */
   whenScaled?: string;
-}
-
-export function IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyFromJSON(
-  json: any,
-): IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicy {
-  return IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicy {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    whenDeleted: !exists(json, 'whenDeleted') ? undefined : json['whenDeleted'],
-    whenScaled: !exists(json, 'whenScaled') ? undefined : json['whenScaled'],
-  };
-}
-
-export function IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyToJSON(
-  value?: IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicy | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    whenDeleted: value.whenDeleted,
-    whenScaled: value.whenScaled,
-  };
 }

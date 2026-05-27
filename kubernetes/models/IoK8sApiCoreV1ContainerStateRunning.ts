@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ContainerStateRunning is a running state of a container.
  * @export
@@ -25,36 +24,4 @@ export interface IoK8sApiCoreV1ContainerStateRunning {
    * @memberof IoK8sApiCoreV1ContainerStateRunning
    */
   startedAt?: string;
-}
-
-export function IoK8sApiCoreV1ContainerStateRunningFromJSON(
-  json: any,
-): IoK8sApiCoreV1ContainerStateRunning {
-  return IoK8sApiCoreV1ContainerStateRunningFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ContainerStateRunningFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ContainerStateRunning {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    startedAt: !exists(json, 'startedAt') ? undefined : json['startedAt'],
-  };
-}
-
-export function IoK8sApiCoreV1ContainerStateRunningToJSON(
-  value?: IoK8sApiCoreV1ContainerStateRunning | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    startedAt: value.startedAt === undefined ? undefined : value.startedAt,
-  };
 }

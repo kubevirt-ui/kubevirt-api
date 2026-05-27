@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingSpec,
-  IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingSpecFromJSON,
-  IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingSpecToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -56,46 +51,4 @@ export interface IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBinding
    * @memberof IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBinding
    */
   spec?: IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingSpec;
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBinding {
-  return IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBinding {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingSpecFromJSON(json['spec']),
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingToJSON(
-  value?: IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBinding | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingSpecToJSON(value.spec),
-  };
 }

@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAuthenticationV1TokenReviewSpec,
-  IoK8sApiAuthenticationV1TokenReviewSpecFromJSON,
-  IoK8sApiAuthenticationV1TokenReviewSpecToJSON,
   IoK8sApiAuthenticationV1TokenReviewStatus,
-  IoK8sApiAuthenticationV1TokenReviewStatusFromJSON,
-  IoK8sApiAuthenticationV1TokenReviewStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,48 +54,4 @@ export interface IoK8sApiAuthenticationV1TokenReview {
    * @memberof IoK8sApiAuthenticationV1TokenReview
    */
   status?: IoK8sApiAuthenticationV1TokenReviewStatus;
-}
-
-export function IoK8sApiAuthenticationV1TokenReviewFromJSON(
-  json: any,
-): IoK8sApiAuthenticationV1TokenReview {
-  return IoK8sApiAuthenticationV1TokenReviewFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthenticationV1TokenReviewFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthenticationV1TokenReview {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: IoK8sApiAuthenticationV1TokenReviewSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiAuthenticationV1TokenReviewStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiAuthenticationV1TokenReviewToJSON(
-  value?: IoK8sApiAuthenticationV1TokenReview | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiAuthenticationV1TokenReviewSpecToJSON(value.spec),
-    status: IoK8sApiAuthenticationV1TokenReviewStatusToJSON(value.status),
-  };
 }

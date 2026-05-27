@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * TLSConfiguration holds TLS options
  * @export
@@ -36,42 +35,3 @@ export interface V1TLSConfiguration {
      */
     minTLSVersion?: string;
 }
-
-/**
- * Check if a given object implements the V1TLSConfiguration interface.
- */
-export function instanceOfV1TLSConfiguration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1TLSConfigurationFromJSON(json: any): V1TLSConfiguration {
-    return V1TLSConfigurationFromJSONTyped(json, false);
-}
-
-export function V1TLSConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1TLSConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'ciphers': !exists(json, 'ciphers') ? undefined : json['ciphers'],
-        'minTLSVersion': !exists(json, 'minTLSVersion') ? undefined : json['minTLSVersion'],
-    };
-}
-
-export function V1TLSConfigurationToJSON(value?: V1TLSConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'ciphers': value.ciphers,
-        'minTLSVersion': value.minTLSVersion,
-    };
-}
-

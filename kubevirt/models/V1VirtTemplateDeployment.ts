@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -26,40 +25,3 @@ export interface V1VirtTemplateDeployment {
      */
     enabled?: boolean;
 }
-
-/**
- * Check if a given object implements the V1VirtTemplateDeployment interface.
- */
-export function instanceOfV1VirtTemplateDeployment(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1VirtTemplateDeploymentFromJSON(json: any): V1VirtTemplateDeployment {
-    return V1VirtTemplateDeploymentFromJSONTyped(json, false);
-}
-
-export function V1VirtTemplateDeploymentFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtTemplateDeployment {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
-    };
-}
-
-export function V1VirtTemplateDeploymentToJSON(value?: V1VirtTemplateDeployment | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'enabled': value.enabled,
-    };
-}
-

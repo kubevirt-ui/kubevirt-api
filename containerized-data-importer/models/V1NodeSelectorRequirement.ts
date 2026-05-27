@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
  * @export
@@ -58,36 +57,4 @@ export enum V1NodeSelectorRequirementOperatorEnum {
   In = 'In',
   Lt = 'Lt',
   NotIn = 'NotIn',
-}
-
-export function V1NodeSelectorRequirementFromJSON(json: any): V1NodeSelectorRequirement {
-  return V1NodeSelectorRequirementFromJSONTyped(json, false);
-}
-
-export function V1NodeSelectorRequirementFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1NodeSelectorRequirement {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    key: json['key'],
-    operator: json['operator'],
-    values: !exists(json, 'values') ? undefined : json['values'],
-  };
-}
-
-export function V1NodeSelectorRequirementToJSON(value?: V1NodeSelectorRequirement | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    key: value.key,
-    operator: value.operator,
-    values: value.values,
-  };
 }

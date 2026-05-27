@@ -31,37 +31,3 @@ export interface V1beta1DataSourceRefSourceDataSource {
    */
   namespace: string;
 }
-
-export function V1beta1DataSourceRefSourceDataSourceFromJSON(
-  json: any,
-): V1beta1DataSourceRefSourceDataSource {
-  return V1beta1DataSourceRefSourceDataSourceFromJSONTyped(json, false);
-}
-
-export function V1beta1DataSourceRefSourceDataSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataSourceRefSourceDataSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    namespace: json['namespace'],
-  };
-}
-
-export function V1beta1DataSourceRefSourceDataSourceToJSON(
-  value?: V1beta1DataSourceRefSourceDataSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    namespace: value.namespace,
-  };
-}

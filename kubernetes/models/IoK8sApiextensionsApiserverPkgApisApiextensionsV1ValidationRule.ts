@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ValidationRule describes a validation rule written in the CEL expression language.
  * @export
@@ -93,46 +92,4 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule
    */
   rule: string;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fieldPath: !exists(json, 'fieldPath') ? undefined : json['fieldPath'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    messageExpression: !exists(json, 'messageExpression') ? undefined : json['messageExpression'],
-    optionalOldSelf: !exists(json, 'optionalOldSelf') ? undefined : json['optionalOldSelf'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    rule: json['rule'],
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRuleToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fieldPath: value.fieldPath,
-    message: value.message,
-    messageExpression: value.messageExpression,
-    optionalOldSelf: value.optionalOldSelf,
-    reason: value.reason,
-    rule: value.rule,
-  };
 }

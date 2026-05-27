@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1KeyToPath,
-  IoK8sApiCoreV1KeyToPathFromJSON,
-  IoK8sApiCoreV1KeyToPathToJSON,
 } from './';
 
 /**
@@ -51,47 +48,4 @@ export interface IoK8sApiCoreV1SecretVolumeSource {
    * @memberof IoK8sApiCoreV1SecretVolumeSource
    */
   secretName?: string;
-}
-
-export function IoK8sApiCoreV1SecretVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1SecretVolumeSource {
-  return IoK8sApiCoreV1SecretVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1SecretVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1SecretVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    defaultMode: !exists(json, 'defaultMode') ? undefined : json['defaultMode'],
-    items: !exists(json, 'items')
-      ? undefined
-      : (json['items'] as Array<any>).map(IoK8sApiCoreV1KeyToPathFromJSON),
-    optional: !exists(json, 'optional') ? undefined : json['optional'],
-    secretName: !exists(json, 'secretName') ? undefined : json['secretName'],
-  };
-}
-
-export function IoK8sApiCoreV1SecretVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1SecretVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    defaultMode: value.defaultMode,
-    items:
-      value.items === undefined
-        ? undefined
-        : (value.items as Array<any>).map(IoK8sApiCoreV1KeyToPathToJSON),
-    optional: value.optional,
-    secretName: value.secretName,
-  };
 }

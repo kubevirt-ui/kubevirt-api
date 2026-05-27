@@ -12,37 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1FeatureSpinlocks } from './V1FeatureSpinlocks';
-import {
-    V1FeatureSpinlocksFromJSON,
-    V1FeatureSpinlocksFromJSONTyped,
-    V1FeatureSpinlocksToJSON,
-} from './V1FeatureSpinlocks';
 import type { V1FeatureState } from './V1FeatureState';
-import {
-    V1FeatureStateFromJSON,
-    V1FeatureStateFromJSONTyped,
-    V1FeatureStateToJSON,
-} from './V1FeatureState';
 import type { V1FeatureVendorID } from './V1FeatureVendorID';
-import {
-    V1FeatureVendorIDFromJSON,
-    V1FeatureVendorIDFromJSONTyped,
-    V1FeatureVendorIDToJSON,
-} from './V1FeatureVendorID';
 import type { V1SyNICTimer } from './V1SyNICTimer';
-import {
-    V1SyNICTimerFromJSON,
-    V1SyNICTimerFromJSONTyped,
-    V1SyNICTimerToJSON,
-} from './V1SyNICTimer';
 import type { V1TLBFlush } from './V1TLBFlush';
-import {
-    V1TLBFlushFromJSON,
-    V1TLBFlushFromJSONTyped,
-    V1TLBFlushToJSON,
-} from './V1TLBFlush';
 
 /**
  * Hyperv specific features.
@@ -135,66 +109,3 @@ export interface V1FeatureHyperv {
      */
     vpindex?: V1FeatureState;
 }
-
-/**
- * Check if a given object implements the V1FeatureHyperv interface.
- */
-export function instanceOfV1FeatureHyperv(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1FeatureHypervFromJSON(json: any): V1FeatureHyperv {
-    return V1FeatureHypervFromJSONTyped(json, false);
-}
-
-export function V1FeatureHypervFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1FeatureHyperv {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'evmcs': !exists(json, 'evmcs') ? undefined : V1FeatureStateFromJSON(json['evmcs']),
-        'frequencies': !exists(json, 'frequencies') ? undefined : V1FeatureStateFromJSON(json['frequencies']),
-        'ipi': !exists(json, 'ipi') ? undefined : V1FeatureStateFromJSON(json['ipi']),
-        'reenlightenment': !exists(json, 'reenlightenment') ? undefined : V1FeatureStateFromJSON(json['reenlightenment']),
-        'relaxed': !exists(json, 'relaxed') ? undefined : V1FeatureStateFromJSON(json['relaxed']),
-        'reset': !exists(json, 'reset') ? undefined : V1FeatureStateFromJSON(json['reset']),
-        'runtime': !exists(json, 'runtime') ? undefined : V1FeatureStateFromJSON(json['runtime']),
-        'spinlocks': !exists(json, 'spinlocks') ? undefined : V1FeatureSpinlocksFromJSON(json['spinlocks']),
-        'synic': !exists(json, 'synic') ? undefined : V1FeatureStateFromJSON(json['synic']),
-        'synictimer': !exists(json, 'synictimer') ? undefined : V1SyNICTimerFromJSON(json['synictimer']),
-        'tlbflush': !exists(json, 'tlbflush') ? undefined : V1TLBFlushFromJSON(json['tlbflush']),
-        'vapic': !exists(json, 'vapic') ? undefined : V1FeatureStateFromJSON(json['vapic']),
-        'vendorid': !exists(json, 'vendorid') ? undefined : V1FeatureVendorIDFromJSON(json['vendorid']),
-        'vpindex': !exists(json, 'vpindex') ? undefined : V1FeatureStateFromJSON(json['vpindex']),
-    };
-}
-
-export function V1FeatureHypervToJSON(value?: V1FeatureHyperv | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'evmcs': V1FeatureStateToJSON(value.evmcs),
-        'frequencies': V1FeatureStateToJSON(value.frequencies),
-        'ipi': V1FeatureStateToJSON(value.ipi),
-        'reenlightenment': V1FeatureStateToJSON(value.reenlightenment),
-        'relaxed': V1FeatureStateToJSON(value.relaxed),
-        'reset': V1FeatureStateToJSON(value.reset),
-        'runtime': V1FeatureStateToJSON(value.runtime),
-        'spinlocks': V1FeatureSpinlocksToJSON(value.spinlocks),
-        'synic': V1FeatureStateToJSON(value.synic),
-        'synictimer': V1SyNICTimerToJSON(value.synictimer),
-        'tlbflush': V1TLBFlushToJSON(value.tlbflush),
-        'vapic': V1FeatureStateToJSON(value.vapic),
-        'vendorid': V1FeatureVendorIDToJSON(value.vendorid),
-        'vpindex': V1FeatureStateToJSON(value.vpindex),
-    };
-}
-

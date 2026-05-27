@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1beta1DeviceClassSpec,
-  IoK8sApiResourceV1beta1DeviceClassSpecFromJSON,
-  IoK8sApiResourceV1beta1DeviceClassSpecToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -54,44 +49,4 @@ export interface IoK8sApiResourceV1beta1DeviceClass {
    * @memberof IoK8sApiResourceV1beta1DeviceClass
    */
   spec: IoK8sApiResourceV1beta1DeviceClassSpec;
-}
-
-export function IoK8sApiResourceV1beta1DeviceClassFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta1DeviceClass {
-  return IoK8sApiResourceV1beta1DeviceClassFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta1DeviceClassFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta1DeviceClass {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: IoK8sApiResourceV1beta1DeviceClassSpecFromJSON(json['spec']),
-  };
-}
-
-export function IoK8sApiResourceV1beta1DeviceClassToJSON(
-  value?: IoK8sApiResourceV1beta1DeviceClass | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiResourceV1beta1DeviceClassSpecToJSON(value.spec),
-  };
 }

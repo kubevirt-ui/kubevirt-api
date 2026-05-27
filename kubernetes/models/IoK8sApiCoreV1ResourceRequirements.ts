@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ResourceClaim,
-  IoK8sApiCoreV1ResourceClaimFromJSON,
-  IoK8sApiCoreV1ResourceClaimToJSON,
 } from './';
 
 /**
@@ -47,45 +44,4 @@ export interface IoK8sApiCoreV1ResourceRequirements {
    * @memberof IoK8sApiCoreV1ResourceRequirements
    */
   requests?: { [key: string]: string };
-}
-
-export function IoK8sApiCoreV1ResourceRequirementsFromJSON(
-  json: any,
-): IoK8sApiCoreV1ResourceRequirements {
-  return IoK8sApiCoreV1ResourceRequirementsFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ResourceRequirementsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ResourceRequirements {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    claims: !exists(json, 'claims')
-      ? undefined
-      : (json['claims'] as Array<any>).map(IoK8sApiCoreV1ResourceClaimFromJSON),
-    limits: !exists(json, 'limits') ? undefined : json['limits'],
-    requests: !exists(json, 'requests') ? undefined : json['requests'],
-  };
-}
-
-export function IoK8sApiCoreV1ResourceRequirementsToJSON(
-  value?: IoK8sApiCoreV1ResourceRequirements | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    claims:
-      value.claims === undefined
-        ? undefined
-        : (value.claims as Array<any>).map(IoK8sApiCoreV1ResourceClaimToJSON),
-    limits: value.limits,
-    requests: value.requests,
-  };
 }

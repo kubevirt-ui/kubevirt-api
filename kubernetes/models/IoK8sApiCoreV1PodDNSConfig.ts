@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1PodDNSConfigOption,
-  IoK8sApiCoreV1PodDNSConfigOptionFromJSON,
-  IoK8sApiCoreV1PodDNSConfigOptionToJSON,
 } from './';
 
 /**
@@ -43,41 +40,4 @@ export interface IoK8sApiCoreV1PodDNSConfig {
    * @memberof IoK8sApiCoreV1PodDNSConfig
    */
   searches?: Array<string>;
-}
-
-export function IoK8sApiCoreV1PodDNSConfigFromJSON(json: any): IoK8sApiCoreV1PodDNSConfig {
-  return IoK8sApiCoreV1PodDNSConfigFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodDNSConfigFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodDNSConfig {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    nameservers: !exists(json, 'nameservers') ? undefined : json['nameservers'],
-    options: !exists(json, 'options')
-      ? undefined
-      : (json['options'] as Array<any>).map(IoK8sApiCoreV1PodDNSConfigOptionFromJSON),
-    searches: !exists(json, 'searches') ? undefined : json['searches'],
-  };
-}
-
-export function IoK8sApiCoreV1PodDNSConfigToJSON(value?: IoK8sApiCoreV1PodDNSConfig | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    nameservers: value.nameservers,
-    options:
-      value.options === undefined
-        ? undefined
-        : (value.options as Array<any>).map(IoK8sApiCoreV1PodDNSConfigOptionToJSON),
-    searches: value.searches,
-  };
 }

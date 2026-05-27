@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node. This API is deprecated since 1.22: https://git.k8s.io/enhancements/keps/sig-node/281-dynamic-kubelet-configuration
  * @export
@@ -49,44 +48,4 @@ export interface IoK8sApiCoreV1ConfigMapNodeConfigSource {
    * @memberof IoK8sApiCoreV1ConfigMapNodeConfigSource
    */
   uid?: string;
-}
-
-export function IoK8sApiCoreV1ConfigMapNodeConfigSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1ConfigMapNodeConfigSource {
-  return IoK8sApiCoreV1ConfigMapNodeConfigSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ConfigMapNodeConfigSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ConfigMapNodeConfigSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    kubeletConfigKey: json['kubeletConfigKey'],
-    name: json['name'],
-    namespace: json['namespace'],
-    resourceVersion: !exists(json, 'resourceVersion') ? undefined : json['resourceVersion'],
-    uid: !exists(json, 'uid') ? undefined : json['uid'],
-  };
-}
-
-export function IoK8sApiCoreV1ConfigMapNodeConfigSourceToJSON(
-  value?: IoK8sApiCoreV1ConfigMapNodeConfigSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    kubeletConfigKey: value.kubeletConfigKey,
-    name: value.name,
-    namespace: value.namespace,
-    resourceVersion: value.resourceVersion,
-    uid: value.uid,
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * VolumeNodeResources is a set of resource limits for scheduling of volumes.
  * @export
@@ -25,36 +24,4 @@ export interface IoK8sApiStorageV1VolumeNodeResources {
    * @memberof IoK8sApiStorageV1VolumeNodeResources
    */
   count?: number;
-}
-
-export function IoK8sApiStorageV1VolumeNodeResourcesFromJSON(
-  json: any,
-): IoK8sApiStorageV1VolumeNodeResources {
-  return IoK8sApiStorageV1VolumeNodeResourcesFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStorageV1VolumeNodeResourcesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStorageV1VolumeNodeResources {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    count: !exists(json, 'count') ? undefined : json['count'],
-  };
-}
-
-export function IoK8sApiStorageV1VolumeNodeResourcesToJSON(
-  value?: IoK8sApiStorageV1VolumeNodeResources | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    count: value.count,
-  };
 }

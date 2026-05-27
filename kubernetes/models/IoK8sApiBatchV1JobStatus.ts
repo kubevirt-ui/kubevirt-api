@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiBatchV1JobCondition,
-  IoK8sApiBatchV1JobConditionFromJSON,
-  IoK8sApiBatchV1JobConditionToJSON,
   IoK8sApiBatchV1UncountedTerminatedPods,
-  IoK8sApiBatchV1UncountedTerminatedPodsFromJSON,
-  IoK8sApiBatchV1UncountedTerminatedPodsToJSON,
 } from './';
 
 /**
@@ -100,61 +95,4 @@ export interface IoK8sApiBatchV1JobStatus {
    * @memberof IoK8sApiBatchV1JobStatus
    */
   uncountedTerminatedPods?: IoK8sApiBatchV1UncountedTerminatedPods;
-}
-
-export function IoK8sApiBatchV1JobStatusFromJSON(json: any): IoK8sApiBatchV1JobStatus {
-  return IoK8sApiBatchV1JobStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiBatchV1JobStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiBatchV1JobStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    active: !exists(json, 'active') ? undefined : json['active'],
-    completedIndexes: !exists(json, 'completedIndexes') ? undefined : json['completedIndexes'],
-    completionTime: !exists(json, 'completionTime') ? undefined : json['completionTime'],
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(IoK8sApiBatchV1JobConditionFromJSON),
-    failed: !exists(json, 'failed') ? undefined : json['failed'],
-    failedIndexes: !exists(json, 'failedIndexes') ? undefined : json['failedIndexes'],
-    ready: !exists(json, 'ready') ? undefined : json['ready'],
-    startTime: !exists(json, 'startTime') ? undefined : json['startTime'],
-    succeeded: !exists(json, 'succeeded') ? undefined : json['succeeded'],
-    terminating: !exists(json, 'terminating') ? undefined : json['terminating'],
-    uncountedTerminatedPods: !exists(json, 'uncountedTerminatedPods')
-      ? undefined
-      : IoK8sApiBatchV1UncountedTerminatedPodsFromJSON(json['uncountedTerminatedPods']),
-  };
-}
-
-export function IoK8sApiBatchV1JobStatusToJSON(value?: IoK8sApiBatchV1JobStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    active: value.active,
-    completedIndexes: value.completedIndexes,
-    completionTime: value.completionTime === undefined ? undefined : value.completionTime,
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApiBatchV1JobConditionToJSON),
-    failed: value.failed,
-    failedIndexes: value.failedIndexes,
-    ready: value.ready,
-    startTime: value.startTime === undefined ? undefined : value.startTime,
-    succeeded: value.succeeded,
-    terminating: value.terminating,
-    uncountedTerminatedPods: IoK8sApiBatchV1UncountedTerminatedPodsToJSON(
-      value.uncountedTerminatedPods,
-    ),
-  };
 }

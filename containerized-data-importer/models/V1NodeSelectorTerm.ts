@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1NodeSelectorRequirement,
-  V1NodeSelectorRequirementFromJSON,
-  V1NodeSelectorRequirementToJSON,
 } from './';
 
 /**
@@ -37,44 +34,4 @@ export interface V1NodeSelectorTerm {
    * @memberof V1NodeSelectorTerm
    */
   matchFields?: Array<V1NodeSelectorRequirement>;
-}
-
-export function V1NodeSelectorTermFromJSON(json: any): V1NodeSelectorTerm {
-  return V1NodeSelectorTermFromJSONTyped(json, false);
-}
-
-export function V1NodeSelectorTermFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1NodeSelectorTerm {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    matchExpressions: !exists(json, 'matchExpressions')
-      ? undefined
-      : (json['matchExpressions'] as Array<any>).map(V1NodeSelectorRequirementFromJSON),
-    matchFields: !exists(json, 'matchFields')
-      ? undefined
-      : (json['matchFields'] as Array<any>).map(V1NodeSelectorRequirementFromJSON),
-  };
-}
-
-export function V1NodeSelectorTermToJSON(value?: V1NodeSelectorTerm | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    matchExpressions:
-      value.matchExpressions === undefined
-        ? undefined
-        : (value.matchExpressions as Array<any>).map(V1NodeSelectorRequirementToJSON),
-    matchFields:
-      value.matchFields === undefined
-        ? undefined
-        : (value.matchFields as Array<any>).map(V1NodeSelectorRequirementToJSON),
-  };
 }

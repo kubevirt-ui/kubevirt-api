@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAuthorizationV1NonResourceAttributes,
-  IoK8sApiAuthorizationV1NonResourceAttributesFromJSON,
-  IoK8sApiAuthorizationV1NonResourceAttributesToJSON,
   IoK8sApiAuthorizationV1ResourceAttributes,
-  IoK8sApiAuthorizationV1ResourceAttributesFromJSON,
-  IoK8sApiAuthorizationV1ResourceAttributesToJSON,
 } from './';
 
 /**
@@ -64,52 +59,4 @@ export interface IoK8sApiAuthorizationV1SubjectAccessReviewSpec {
    * @memberof IoK8sApiAuthorizationV1SubjectAccessReviewSpec
    */
   user?: string;
-}
-
-export function IoK8sApiAuthorizationV1SubjectAccessReviewSpecFromJSON(
-  json: any,
-): IoK8sApiAuthorizationV1SubjectAccessReviewSpec {
-  return IoK8sApiAuthorizationV1SubjectAccessReviewSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthorizationV1SubjectAccessReviewSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthorizationV1SubjectAccessReviewSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    extra: !exists(json, 'extra') ? undefined : json['extra'],
-    groups: !exists(json, 'groups') ? undefined : json['groups'],
-    nonResourceAttributes: !exists(json, 'nonResourceAttributes')
-      ? undefined
-      : IoK8sApiAuthorizationV1NonResourceAttributesFromJSON(json['nonResourceAttributes']),
-    resourceAttributes: !exists(json, 'resourceAttributes')
-      ? undefined
-      : IoK8sApiAuthorizationV1ResourceAttributesFromJSON(json['resourceAttributes']),
-    uid: !exists(json, 'uid') ? undefined : json['uid'],
-    user: !exists(json, 'user') ? undefined : json['user'],
-  };
-}
-
-export function IoK8sApiAuthorizationV1SubjectAccessReviewSpecToJSON(
-  value?: IoK8sApiAuthorizationV1SubjectAccessReviewSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    extra: value.extra,
-    groups: value.groups,
-    nonResourceAttributes: IoK8sApiAuthorizationV1NonResourceAttributesToJSON(
-      value.nonResourceAttributes,
-    ),
-    resourceAttributes: IoK8sApiAuthorizationV1ResourceAttributesToJSON(value.resourceAttributes),
-    uid: value.uid,
-    user: value.user,
-  };
 }

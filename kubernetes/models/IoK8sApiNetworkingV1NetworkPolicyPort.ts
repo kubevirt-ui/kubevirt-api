@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * NetworkPolicyPort describes a port to allow traffic on
  * @export
@@ -37,40 +36,4 @@ export interface IoK8sApiNetworkingV1NetworkPolicyPort {
    * @memberof IoK8sApiNetworkingV1NetworkPolicyPort
    */
   protocol?: string;
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicyPortFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1NetworkPolicyPort {
-  return IoK8sApiNetworkingV1NetworkPolicyPortFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicyPortFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1NetworkPolicyPort {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    endPort: !exists(json, 'endPort') ? undefined : json['endPort'],
-    port: !exists(json, 'port') ? undefined : json['port'],
-    protocol: !exists(json, 'protocol') ? undefined : json['protocol'],
-  };
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicyPortToJSON(
-  value?: IoK8sApiNetworkingV1NetworkPolicyPort | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    endPort: value.endPort,
-    port: value.port,
-    protocol: value.protocol,
-  };
 }

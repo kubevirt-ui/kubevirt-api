@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -32,42 +31,3 @@ export interface V1beta1VirtualMachinePoolNameGeneration {
      */
     appendIndexToSecretRefs?: boolean;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachinePoolNameGeneration interface.
- */
-export function instanceOfV1beta1VirtualMachinePoolNameGeneration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachinePoolNameGenerationFromJSON(json: any): V1beta1VirtualMachinePoolNameGeneration {
-    return V1beta1VirtualMachinePoolNameGenerationFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachinePoolNameGenerationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachinePoolNameGeneration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'appendIndexToConfigMapRefs': !exists(json, 'appendIndexToConfigMapRefs') ? undefined : json['appendIndexToConfigMapRefs'],
-        'appendIndexToSecretRefs': !exists(json, 'appendIndexToSecretRefs') ? undefined : json['appendIndexToSecretRefs'],
-    };
-}
-
-export function V1beta1VirtualMachinePoolNameGenerationToJSON(value?: V1beta1VirtualMachinePoolNameGeneration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'appendIndexToConfigMapRefs': value.appendIndexToConfigMapRefs,
-        'appendIndexToSecretRefs': value.appendIndexToSecretRefs,
-    };
-}
-

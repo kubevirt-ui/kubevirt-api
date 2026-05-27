@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * ResourceFieldSelector represents container resources (cpu, memory) and their output format
  * @export
@@ -74,45 +73,3 @@ export interface K8sIoApiCoreV1ResourceFieldSelector {
      */
     resource: string;
 }
-
-/**
- * Check if a given object implements the K8sIoApiCoreV1ResourceFieldSelector interface.
- */
-export function instanceOfK8sIoApiCoreV1ResourceFieldSelector(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "resource" in value;
-
-    return isInstance;
-}
-
-export function K8sIoApiCoreV1ResourceFieldSelectorFromJSON(json: any): K8sIoApiCoreV1ResourceFieldSelector {
-    return K8sIoApiCoreV1ResourceFieldSelectorFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1ResourceFieldSelectorFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1ResourceFieldSelector {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'containerName': !exists(json, 'containerName') ? undefined : json['containerName'],
-        'divisor': !exists(json, 'divisor') ? undefined : json['divisor'],
-        'resource': json['resource'],
-    };
-}
-
-export function K8sIoApiCoreV1ResourceFieldSelectorToJSON(value?: K8sIoApiCoreV1ResourceFieldSelector | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'containerName': value.containerName,
-        'divisor': value.divisor,
-        'resource': value.resource,
-    };
-}
-

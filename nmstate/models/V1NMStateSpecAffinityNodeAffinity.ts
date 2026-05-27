@@ -12,12 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import type { V1NMStateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution } from './V1NMStateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution';
-import {
-  V1NMStateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionFromJSON,
-  V1NMStateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionToJSON,
-} from './V1NMStateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution';
 
 /**
  * Describes node affinity scheduling rules for the pod.
@@ -45,63 +40,4 @@ export interface V1NMStateSpecAffinityNodeAffinity {
    * @memberof V1NMStateSpecAffinityNodeAffinity
    */
   requiredDuringSchedulingIgnoredDuringExecution?: V1NMStateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution;
-}
-
-/**
- * Check if a given object implements the V1NMStateSpecAffinityNodeAffinity interface.
- */
-export function instanceOfV1NMStateSpecAffinityNodeAffinity(_value: object): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1NMStateSpecAffinityNodeAffinityFromJSON(
-  json: any,
-): V1NMStateSpecAffinityNodeAffinity {
-  return V1NMStateSpecAffinityNodeAffinityFromJSONTyped(json, false);
-}
-
-export function V1NMStateSpecAffinityNodeAffinityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1NMStateSpecAffinityNodeAffinity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'preferredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : json['preferredDuringSchedulingIgnoredDuringExecution'],
-    requiredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'requiredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : V1NMStateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionFromJSON(
-          json['requiredDuringSchedulingIgnoredDuringExecution'],
-        ),
-  };
-}
-
-export function V1NMStateSpecAffinityNodeAffinityToJSON(
-  value?: V1NMStateSpecAffinityNodeAffinity | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution:
-      value.preferredDuringSchedulingIgnoredDuringExecution,
-    requiredDuringSchedulingIgnoredDuringExecution:
-      V1NMStateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionToJSON(
-        value.requiredDuringSchedulingIgnoredDuringExecution,
-      ),
-  };
 }

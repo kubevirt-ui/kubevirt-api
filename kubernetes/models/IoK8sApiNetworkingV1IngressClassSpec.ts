@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiNetworkingV1IngressClassParametersReference,
-  IoK8sApiNetworkingV1IngressClassParametersReferenceFromJSON,
-  IoK8sApiNetworkingV1IngressClassParametersReferenceToJSON,
 } from './';
 
 /**
@@ -37,40 +34,4 @@ export interface IoK8sApiNetworkingV1IngressClassSpec {
    * @memberof IoK8sApiNetworkingV1IngressClassSpec
    */
   parameters?: IoK8sApiNetworkingV1IngressClassParametersReference;
-}
-
-export function IoK8sApiNetworkingV1IngressClassSpecFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1IngressClassSpec {
-  return IoK8sApiNetworkingV1IngressClassSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1IngressClassSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1IngressClassSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    controller: !exists(json, 'controller') ? undefined : json['controller'],
-    parameters: !exists(json, 'parameters')
-      ? undefined
-      : IoK8sApiNetworkingV1IngressClassParametersReferenceFromJSON(json['parameters']),
-  };
-}
-
-export function IoK8sApiNetworkingV1IngressClassSpecToJSON(
-  value?: IoK8sApiNetworkingV1IngressClassSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    controller: value.controller,
-    parameters: IoK8sApiNetworkingV1IngressClassParametersReferenceToJSON(value.parameters),
-  };
 }

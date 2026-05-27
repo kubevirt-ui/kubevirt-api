@@ -12,23 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ContainerState,
-  IoK8sApiCoreV1ContainerStateFromJSON,
-  IoK8sApiCoreV1ContainerStateToJSON,
   IoK8sApiCoreV1ContainerUser,
-  IoK8sApiCoreV1ContainerUserFromJSON,
-  IoK8sApiCoreV1ContainerUserToJSON,
   IoK8sApiCoreV1ResourceRequirements,
-  IoK8sApiCoreV1ResourceRequirementsFromJSON,
-  IoK8sApiCoreV1ResourceRequirementsToJSON,
   IoK8sApiCoreV1ResourceStatus,
-  IoK8sApiCoreV1ResourceStatusFromJSON,
-  IoK8sApiCoreV1ResourceStatusToJSON,
   IoK8sApiCoreV1VolumeMountStatus,
-  IoK8sApiCoreV1VolumeMountStatusFromJSON,
-  IoK8sApiCoreV1VolumeMountStatusToJSON,
 } from './';
 
 /**
@@ -129,78 +118,4 @@ export interface IoK8sApiCoreV1ContainerStatus {
    * @memberof IoK8sApiCoreV1ContainerStatus
    */
   volumeMounts?: Array<IoK8sApiCoreV1VolumeMountStatus>;
-}
-
-export function IoK8sApiCoreV1ContainerStatusFromJSON(json: any): IoK8sApiCoreV1ContainerStatus {
-  return IoK8sApiCoreV1ContainerStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ContainerStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ContainerStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    allocatedResources: !exists(json, 'allocatedResources')
-      ? undefined
-      : json['allocatedResources'],
-    allocatedResourcesStatus: !exists(json, 'allocatedResourcesStatus')
-      ? undefined
-      : (json['allocatedResourcesStatus'] as Array<any>).map(IoK8sApiCoreV1ResourceStatusFromJSON),
-    containerID: !exists(json, 'containerID') ? undefined : json['containerID'],
-    image: json['image'],
-    imageID: json['imageID'],
-    lastState: !exists(json, 'lastState')
-      ? undefined
-      : IoK8sApiCoreV1ContainerStateFromJSON(json['lastState']),
-    name: json['name'],
-    ready: json['ready'],
-    resources: !exists(json, 'resources')
-      ? undefined
-      : IoK8sApiCoreV1ResourceRequirementsFromJSON(json['resources']),
-    restartCount: json['restartCount'],
-    started: !exists(json, 'started') ? undefined : json['started'],
-    state: !exists(json, 'state') ? undefined : IoK8sApiCoreV1ContainerStateFromJSON(json['state']),
-    stopSignal: !exists(json, 'stopSignal') ? undefined : json['stopSignal'],
-    user: !exists(json, 'user') ? undefined : IoK8sApiCoreV1ContainerUserFromJSON(json['user']),
-    volumeMounts: !exists(json, 'volumeMounts')
-      ? undefined
-      : (json['volumeMounts'] as Array<any>).map(IoK8sApiCoreV1VolumeMountStatusFromJSON),
-  };
-}
-
-export function IoK8sApiCoreV1ContainerStatusToJSON(
-  value?: IoK8sApiCoreV1ContainerStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    allocatedResources: value.allocatedResources,
-    allocatedResourcesStatus:
-      value.allocatedResourcesStatus === undefined
-        ? undefined
-        : (value.allocatedResourcesStatus as Array<any>).map(IoK8sApiCoreV1ResourceStatusToJSON),
-    containerID: value.containerID,
-    image: value.image,
-    imageID: value.imageID,
-    lastState: IoK8sApiCoreV1ContainerStateToJSON(value.lastState),
-    name: value.name,
-    ready: value.ready,
-    resources: IoK8sApiCoreV1ResourceRequirementsToJSON(value.resources),
-    restartCount: value.restartCount,
-    started: value.started,
-    state: IoK8sApiCoreV1ContainerStateToJSON(value.state),
-    stopSignal: value.stopSignal,
-    user: IoK8sApiCoreV1ContainerUserToJSON(value.user),
-    volumeMounts:
-      value.volumeMounts === undefined
-        ? undefined
-        : (value.volumeMounts as Array<any>).map(IoK8sApiCoreV1VolumeMountStatusToJSON),
-  };
 }

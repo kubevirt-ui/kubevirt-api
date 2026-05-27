@@ -25,31 +25,3 @@ export interface IoK8sApiCoreV1SleepAction {
    */
   seconds: number;
 }
-
-export function IoK8sApiCoreV1SleepActionFromJSON(json: any): IoK8sApiCoreV1SleepAction {
-  return IoK8sApiCoreV1SleepActionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1SleepActionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1SleepAction {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    seconds: json['seconds'],
-  };
-}
-
-export function IoK8sApiCoreV1SleepActionToJSON(value?: IoK8sApiCoreV1SleepAction | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    seconds: value.seconds,
-  };
-}

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.
  * @export
@@ -60,7 +59,6 @@ export interface K8sIoApiCoreV1Toleration {
     value?: string;
 }
 
-
 /**
  * @export
  */
@@ -79,49 +77,3 @@ export const K8sIoApiCoreV1TolerationOperatorEnum = {
     Exists: 'Exists'
 } as const;
 export type K8sIoApiCoreV1TolerationOperatorEnum = typeof K8sIoApiCoreV1TolerationOperatorEnum[keyof typeof K8sIoApiCoreV1TolerationOperatorEnum];
-
-
-/**
- * Check if a given object implements the K8sIoApiCoreV1Toleration interface.
- */
-export function instanceOfK8sIoApiCoreV1Toleration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function K8sIoApiCoreV1TolerationFromJSON(json: any): K8sIoApiCoreV1Toleration {
-    return K8sIoApiCoreV1TolerationFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1TolerationFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1Toleration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'effect': !exists(json, 'effect') ? undefined : json['effect'],
-        'key': !exists(json, 'key') ? undefined : json['key'],
-        'operator': !exists(json, 'operator') ? undefined : json['operator'],
-        'tolerationSeconds': !exists(json, 'tolerationSeconds') ? undefined : json['tolerationSeconds'],
-        'value': !exists(json, 'value') ? undefined : json['value'],
-    };
-}
-
-export function K8sIoApiCoreV1TolerationToJSON(value?: K8sIoApiCoreV1Toleration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'effect': value.effect,
-        'key': value.key,
-        'operator': value.operator,
-        'tolerationSeconds': value.tolerationSeconds,
-        'value': value.value,
-    };
-}
-

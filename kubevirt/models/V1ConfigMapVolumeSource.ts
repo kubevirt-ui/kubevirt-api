@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * ConfigMapVolumeSource adapts a ConfigMap into a volume. More info: https://kubernetes.io/docs/concepts/storage/volumes/#configmap
  * @export
@@ -38,44 +37,3 @@ export interface V1ConfigMapVolumeSource {
      */
     volumeLabel?: string;
 }
-
-/**
- * Check if a given object implements the V1ConfigMapVolumeSource interface.
- */
-export function instanceOfV1ConfigMapVolumeSource(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1ConfigMapVolumeSourceFromJSON(json: any): V1ConfigMapVolumeSource {
-    return V1ConfigMapVolumeSourceFromJSONTyped(json, false);
-}
-
-export function V1ConfigMapVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ConfigMapVolumeSource {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'name': !exists(json, 'name') ? undefined : json['name'],
-        'optional': !exists(json, 'optional') ? undefined : json['optional'],
-        'volumeLabel': !exists(json, 'volumeLabel') ? undefined : json['volumeLabel'],
-    };
-}
-
-export function V1ConfigMapVolumeSourceToJSON(value?: V1ConfigMapVolumeSource | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'name': value.name,
-        'optional': value.optional,
-        'volumeLabel': value.volumeLabel,
-    };
-}
-

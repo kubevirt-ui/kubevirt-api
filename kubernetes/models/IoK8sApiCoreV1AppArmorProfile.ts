@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * AppArmorProfile defines a pod or container's AppArmor settings.
  * @export
@@ -34,36 +33,4 @@ export interface IoK8sApiCoreV1AppArmorProfile {
    * @memberof IoK8sApiCoreV1AppArmorProfile
    */
   type: string;
-}
-
-export function IoK8sApiCoreV1AppArmorProfileFromJSON(json: any): IoK8sApiCoreV1AppArmorProfile {
-  return IoK8sApiCoreV1AppArmorProfileFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1AppArmorProfileFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1AppArmorProfile {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    localhostProfile: !exists(json, 'localhostProfile') ? undefined : json['localhostProfile'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1AppArmorProfileToJSON(
-  value?: IoK8sApiCoreV1AppArmorProfile | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    localhostProfile: value.localhostProfile,
-    type: value.type,
-  };
 }

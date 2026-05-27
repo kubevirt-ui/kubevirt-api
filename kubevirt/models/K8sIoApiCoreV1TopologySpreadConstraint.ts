@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
-import {
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 
 /**
  * TopologySpreadConstraint specifies how to spread matching pods among the given topology.
@@ -99,7 +93,6 @@ export interface K8sIoApiCoreV1TopologySpreadConstraint {
     whenUnsatisfiable: K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum;
 }
 
-
 /**
  * @export
  */
@@ -126,58 +119,3 @@ export const K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum = {
     ScheduleAnyway: 'ScheduleAnyway'
 } as const;
 export type K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum = typeof K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum[keyof typeof K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum];
-
-
-/**
- * Check if a given object implements the K8sIoApiCoreV1TopologySpreadConstraint interface.
- */
-export function instanceOfK8sIoApiCoreV1TopologySpreadConstraint(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "maxSkew" in value;
-    isInstance = isInstance && "topologyKey" in value;
-    isInstance = isInstance && "whenUnsatisfiable" in value;
-
-    return isInstance;
-}
-
-export function K8sIoApiCoreV1TopologySpreadConstraintFromJSON(json: any): K8sIoApiCoreV1TopologySpreadConstraint {
-    return K8sIoApiCoreV1TopologySpreadConstraintFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1TopologySpreadConstraintFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1TopologySpreadConstraint {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'labelSelector': !exists(json, 'labelSelector') ? undefined : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['labelSelector']),
-        'matchLabelKeys': !exists(json, 'matchLabelKeys') ? undefined : json['matchLabelKeys'],
-        'maxSkew': json['maxSkew'],
-        'minDomains': !exists(json, 'minDomains') ? undefined : json['minDomains'],
-        'nodeAffinityPolicy': !exists(json, 'nodeAffinityPolicy') ? undefined : json['nodeAffinityPolicy'],
-        'nodeTaintsPolicy': !exists(json, 'nodeTaintsPolicy') ? undefined : json['nodeTaintsPolicy'],
-        'topologyKey': json['topologyKey'],
-        'whenUnsatisfiable': json['whenUnsatisfiable'],
-    };
-}
-
-export function K8sIoApiCoreV1TopologySpreadConstraintToJSON(value?: K8sIoApiCoreV1TopologySpreadConstraint | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'labelSelector': K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.labelSelector),
-        'matchLabelKeys': value.matchLabelKeys,
-        'maxSkew': value.maxSkew,
-        'minDomains': value.minDomains,
-        'nodeAffinityPolicy': value.nodeAffinityPolicy,
-        'nodeTaintsPolicy': value.nodeTaintsPolicy,
-        'topologyKey': value.topologyKey,
-        'whenUnsatisfiable': value.whenUnsatisfiable,
-    };
-}
-

@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
-import {
-    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
-    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSONTyped,
-    K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-} from './K8sIoApiCoreV1TypedLocalObjectReference';
 
 /**
  * VirtualMachineSnapshotSpec is the spec for a VirtualMachineSnapshot resource
@@ -45,45 +39,3 @@ export interface V1beta1VirtualMachineSnapshotSpec {
      */
     source: K8sIoApiCoreV1TypedLocalObjectReference;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachineSnapshotSpec interface.
- */
-export function instanceOfV1beta1VirtualMachineSnapshotSpec(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "source" in value;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachineSnapshotSpecFromJSON(json: any): V1beta1VirtualMachineSnapshotSpec {
-    return V1beta1VirtualMachineSnapshotSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineSnapshotSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineSnapshotSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'deletionPolicy': !exists(json, 'deletionPolicy') ? undefined : json['deletionPolicy'],
-        'failureDeadline': !exists(json, 'failureDeadline') ? undefined : json['failureDeadline'],
-        'source': K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['source']),
-    };
-}
-
-export function V1beta1VirtualMachineSnapshotSpecToJSON(value?: V1beta1VirtualMachineSnapshotSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'deletionPolicy': value.deletionPolicy,
-        'failureDeadline': value.failureDeadline,
-        'source': K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.source),
-    };
-}
-

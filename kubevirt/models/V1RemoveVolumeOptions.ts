@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * RemoveVolumeOptions is provided when dynamically hot unplugging volume and disk
  * @export
@@ -32,43 +31,3 @@ export interface V1RemoveVolumeOptions {
      */
     name: string;
 }
-
-/**
- * Check if a given object implements the V1RemoveVolumeOptions interface.
- */
-export function instanceOfV1RemoveVolumeOptions(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "name" in value;
-
-    return isInstance;
-}
-
-export function V1RemoveVolumeOptionsFromJSON(json: any): V1RemoveVolumeOptions {
-    return V1RemoveVolumeOptionsFromJSONTyped(json, false);
-}
-
-export function V1RemoveVolumeOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1RemoveVolumeOptions {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'dryRun': !exists(json, 'dryRun') ? undefined : json['dryRun'],
-        'name': json['name'],
-    };
-}
-
-export function V1RemoveVolumeOptionsToJSON(value?: V1RemoveVolumeOptions | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'dryRun': value.dryRun,
-        'name': value.name,
-    };
-}
-

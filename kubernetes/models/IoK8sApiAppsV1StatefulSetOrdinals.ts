@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * StatefulSetOrdinals describes the policy used for replica ordinal assignment in this StatefulSet.
  * @export
@@ -28,36 +27,4 @@ export interface IoK8sApiAppsV1StatefulSetOrdinals {
    * @memberof IoK8sApiAppsV1StatefulSetOrdinals
    */
   start?: number;
-}
-
-export function IoK8sApiAppsV1StatefulSetOrdinalsFromJSON(
-  json: any,
-): IoK8sApiAppsV1StatefulSetOrdinals {
-  return IoK8sApiAppsV1StatefulSetOrdinalsFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1StatefulSetOrdinalsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1StatefulSetOrdinals {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    start: !exists(json, 'start') ? undefined : json['start'],
-  };
-}
-
-export function IoK8sApiAppsV1StatefulSetOrdinalsToJSON(
-  value?: IoK8sApiAppsV1StatefulSetOrdinals | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    start: value.start,
-  };
 }

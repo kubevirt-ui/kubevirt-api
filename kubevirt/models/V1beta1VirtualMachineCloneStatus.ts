@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1beta1Condition } from './V1beta1Condition';
-import {
-    V1beta1ConditionFromJSON,
-    V1beta1ConditionFromJSONTyped,
-    V1beta1ConditionToJSON,
-} from './V1beta1Condition';
 
 /**
  * 
@@ -63,50 +57,3 @@ export interface V1beta1VirtualMachineCloneStatus {
      */
     targetName?: string;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachineCloneStatus interface.
- */
-export function instanceOfV1beta1VirtualMachineCloneStatus(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachineCloneStatusFromJSON(json: any): V1beta1VirtualMachineCloneStatus {
-    return V1beta1VirtualMachineCloneStatusFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineCloneStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineCloneStatus {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'conditions': !exists(json, 'conditions') ? undefined : ((json['conditions'] as Array<any>).map(V1beta1ConditionFromJSON)),
-        'creationTime': !exists(json, 'creationTime') ? undefined : json['creationTime'],
-        'phase': !exists(json, 'phase') ? undefined : json['phase'],
-        'restoreName': !exists(json, 'restoreName') ? undefined : json['restoreName'],
-        'snapshotName': !exists(json, 'snapshotName') ? undefined : json['snapshotName'],
-        'targetName': !exists(json, 'targetName') ? undefined : json['targetName'],
-    };
-}
-
-export function V1beta1VirtualMachineCloneStatusToJSON(value?: V1beta1VirtualMachineCloneStatus | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'conditions': value.conditions === undefined ? undefined : ((value.conditions as Array<any>).map(V1beta1ConditionToJSON)),
-        'creationTime': value.creationTime,
-        'phase': value.phase,
-        'restoreName': value.restoreName,
-        'snapshotName': value.snapshotName,
-        'targetName': value.targetName,
-    };
-}
-

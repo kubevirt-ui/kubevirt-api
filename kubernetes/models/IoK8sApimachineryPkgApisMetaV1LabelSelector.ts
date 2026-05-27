@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirement,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirementToJSON,
 } from './';
 
 /**
@@ -37,47 +34,4 @@ export interface IoK8sApimachineryPkgApisMetaV1LabelSelector {
    * @memberof IoK8sApimachineryPkgApisMetaV1LabelSelector
    */
   matchLabels?: { [key: string]: string };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1LabelSelector {
-  return IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1LabelSelector {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    matchExpressions: !exists(json, 'matchExpressions')
-      ? undefined
-      : (json['matchExpressions'] as Array<any>).map(
-          IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSON,
-        ),
-    matchLabels: !exists(json, 'matchLabels') ? undefined : json['matchLabels'],
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1LabelSelector | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    matchExpressions:
-      value.matchExpressions === undefined
-        ? undefined
-        : (value.matchExpressions as Array<any>).map(
-            IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirementToJSON,
-          ),
-    matchLabels: value.matchLabels,
-  };
 }

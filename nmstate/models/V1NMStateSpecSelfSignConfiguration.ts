@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * SelfSignConfiguration defines self signed certificate configuration
  * @export
@@ -45,55 +44,4 @@ export interface V1NMStateSpecSelfSignConfiguration {
    * @memberof V1NMStateSpecSelfSignConfiguration
    */
   certRotateInterval?: any | null;
-}
-
-/**
- * Check if a given object implements the V1NMStateSpecSelfSignConfiguration interface.
- */
-export function instanceOfV1NMStateSpecSelfSignConfiguration(_value: object): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1NMStateSpecSelfSignConfigurationFromJSON(
-  json: any,
-): V1NMStateSpecSelfSignConfiguration {
-  return V1NMStateSpecSelfSignConfigurationFromJSONTyped(json, false);
-}
-
-export function V1NMStateSpecSelfSignConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1NMStateSpecSelfSignConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    caOverlapInterval: !exists(json, 'caOverlapInterval') ? undefined : json['caOverlapInterval'],
-    caRotateInterval: !exists(json, 'caRotateInterval') ? undefined : json['caRotateInterval'],
-    certOverlapInterval: !exists(json, 'certOverlapInterval')
-      ? undefined
-      : json['certOverlapInterval'],
-    certRotateInterval: !exists(json, 'certRotateInterval')
-      ? undefined
-      : json['certRotateInterval'],
-  };
-}
-
-export function V1NMStateSpecSelfSignConfigurationToJSON(
-  value?: V1NMStateSpecSelfSignConfiguration | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    caOverlapInterval: value.caOverlapInterval,
-    caRotateInterval: value.caRotateInterval,
-    certOverlapInterval: value.certOverlapInterval,
-    certRotateInterval: value.certRotateInterval,
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Represents an NFS mount that lasts the lifetime of a pod. NFS volumes do not support ownership management or SELinux relabeling.
  * @export
@@ -37,38 +36,4 @@ export interface IoK8sApiCoreV1NFSVolumeSource {
    * @memberof IoK8sApiCoreV1NFSVolumeSource
    */
   server: string;
-}
-
-export function IoK8sApiCoreV1NFSVolumeSourceFromJSON(json: any): IoK8sApiCoreV1NFSVolumeSource {
-  return IoK8sApiCoreV1NFSVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NFSVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NFSVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    path: json['path'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    server: json['server'],
-  };
-}
-
-export function IoK8sApiCoreV1NFSVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1NFSVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    path: value.path,
-    readOnly: value.readOnly,
-    server: value.server,
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * CustomResourceDefinitionNames indicates the names to serve this CustomResourceDefinition
  * @export
@@ -55,49 +54,4 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResource
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNames
    */
   singular?: string;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNamesFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNames {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNamesFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNamesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNames {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    categories: !exists(json, 'categories') ? undefined : json['categories'],
-    kind: json['kind'],
-    listKind: !exists(json, 'listKind') ? undefined : json['listKind'],
-    plural: json['plural'],
-    shortNames: !exists(json, 'shortNames') ? undefined : json['shortNames'],
-    singular: !exists(json, 'singular') ? undefined : json['singular'],
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNamesToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionNames | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    categories: value.categories,
-    kind: value.kind,
-    listKind: value.listKind,
-    plural: value.plural,
-    shortNames: value.shortNames,
-    singular: value.singular,
-  };
 }

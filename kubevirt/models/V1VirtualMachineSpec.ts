@@ -12,31 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1DataVolumeTemplateSpec } from './V1DataVolumeTemplateSpec';
-import {
-    V1DataVolumeTemplateSpecFromJSON,
-    V1DataVolumeTemplateSpecFromJSONTyped,
-    V1DataVolumeTemplateSpecToJSON,
-} from './V1DataVolumeTemplateSpec';
 import type { V1InstancetypeMatcher } from './V1InstancetypeMatcher';
-import {
-    V1InstancetypeMatcherFromJSON,
-    V1InstancetypeMatcherFromJSONTyped,
-    V1InstancetypeMatcherToJSON,
-} from './V1InstancetypeMatcher';
 import type { V1PreferenceMatcher } from './V1PreferenceMatcher';
-import {
-    V1PreferenceMatcherFromJSON,
-    V1PreferenceMatcherFromJSONTyped,
-    V1PreferenceMatcherToJSON,
-} from './V1PreferenceMatcher';
 import type { V1VirtualMachineInstanceTemplateSpec } from './V1VirtualMachineInstanceTemplateSpec';
-import {
-    V1VirtualMachineInstanceTemplateSpecFromJSON,
-    V1VirtualMachineInstanceTemplateSpecFromJSONTyped,
-    V1VirtualMachineInstanceTemplateSpecToJSON,
-} from './V1VirtualMachineInstanceTemplateSpec';
 
 /**
  * VirtualMachineSpec describes how the proper VirtualMachine should look like
@@ -87,53 +66,3 @@ export interface V1VirtualMachineSpec {
      */
     updateVolumesStrategy?: string;
 }
-
-/**
- * Check if a given object implements the V1VirtualMachineSpec interface.
- */
-export function instanceOfV1VirtualMachineSpec(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "template" in value;
-
-    return isInstance;
-}
-
-export function V1VirtualMachineSpecFromJSON(json: any): V1VirtualMachineSpec {
-    return V1VirtualMachineSpecFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'dataVolumeTemplates': !exists(json, 'dataVolumeTemplates') ? undefined : ((json['dataVolumeTemplates'] as Array<any>).map(V1DataVolumeTemplateSpecFromJSON)),
-        'instancetype': !exists(json, 'instancetype') ? undefined : V1InstancetypeMatcherFromJSON(json['instancetype']),
-        'preference': !exists(json, 'preference') ? undefined : V1PreferenceMatcherFromJSON(json['preference']),
-        'runStrategy': !exists(json, 'runStrategy') ? undefined : json['runStrategy'],
-        'running': !exists(json, 'running') ? undefined : json['running'],
-        'template': V1VirtualMachineInstanceTemplateSpecFromJSON(json['template']),
-        'updateVolumesStrategy': !exists(json, 'updateVolumesStrategy') ? undefined : json['updateVolumesStrategy'],
-    };
-}
-
-export function V1VirtualMachineSpecToJSON(value?: V1VirtualMachineSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'dataVolumeTemplates': value.dataVolumeTemplates === undefined ? undefined : ((value.dataVolumeTemplates as Array<any>).map(V1DataVolumeTemplateSpecToJSON)),
-        'instancetype': V1InstancetypeMatcherToJSON(value.instancetype),
-        'preference': V1PreferenceMatcherToJSON(value.preference),
-        'runStrategy': value.runStrategy,
-        'running': value.running,
-        'template': V1VirtualMachineInstanceTemplateSpecToJSON(value.template),
-        'updateVolumesStrategy': value.updateVolumesStrategy,
-    };
-}
-

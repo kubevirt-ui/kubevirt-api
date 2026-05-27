@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1VirtualMachineInstanceBackupStatus } from './V1VirtualMachineInstanceBackupStatus';
-import {
-    V1VirtualMachineInstanceBackupStatusFromJSON,
-    V1VirtualMachineInstanceBackupStatusFromJSONTyped,
-    V1VirtualMachineInstanceBackupStatusToJSON,
-} from './V1VirtualMachineInstanceBackupStatus';
 
 /**
  * ChangedBlockTrackingStatus represents the status of ChangedBlockTracking for a VM
@@ -39,43 +33,3 @@ export interface V1ChangedBlockTrackingStatus {
      */
     state: string;
 }
-
-/**
- * Check if a given object implements the V1ChangedBlockTrackingStatus interface.
- */
-export function instanceOfV1ChangedBlockTrackingStatus(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "state" in value;
-
-    return isInstance;
-}
-
-export function V1ChangedBlockTrackingStatusFromJSON(json: any): V1ChangedBlockTrackingStatus {
-    return V1ChangedBlockTrackingStatusFromJSONTyped(json, false);
-}
-
-export function V1ChangedBlockTrackingStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ChangedBlockTrackingStatus {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'backupStatus': !exists(json, 'backupStatus') ? undefined : V1VirtualMachineInstanceBackupStatusFromJSON(json['backupStatus']),
-        'state': json['state'],
-    };
-}
-
-export function V1ChangedBlockTrackingStatusToJSON(value?: V1ChangedBlockTrackingStatus | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'backupStatus': V1VirtualMachineInstanceBackupStatusToJSON(value.backupStatus),
-        'state': value.state,
-    };
-}
-

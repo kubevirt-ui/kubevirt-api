@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * NetworkDeviceData provides network-related details for the allocated device. This information may be filled by drivers or other components to configure or identify the device within a network context.
  * @export
@@ -43,40 +42,4 @@ export interface IoK8sApiResourceV1beta1NetworkDeviceData {
    * @memberof IoK8sApiResourceV1beta1NetworkDeviceData
    */
   ips?: Array<string>;
-}
-
-export function IoK8sApiResourceV1beta1NetworkDeviceDataFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta1NetworkDeviceData {
-  return IoK8sApiResourceV1beta1NetworkDeviceDataFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta1NetworkDeviceDataFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta1NetworkDeviceData {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    hardwareAddress: !exists(json, 'hardwareAddress') ? undefined : json['hardwareAddress'],
-    interfaceName: !exists(json, 'interfaceName') ? undefined : json['interfaceName'],
-    ips: !exists(json, 'ips') ? undefined : json['ips'],
-  };
-}
-
-export function IoK8sApiResourceV1beta1NetworkDeviceDataToJSON(
-  value?: IoK8sApiResourceV1beta1NetworkDeviceData | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    hardwareAddress: value.hardwareAddress,
-    interfaceName: value.interfaceName,
-    ips: value.ips,
-  };
 }

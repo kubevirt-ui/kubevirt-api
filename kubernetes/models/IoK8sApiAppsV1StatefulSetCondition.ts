@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * StatefulSetCondition describes the state of a statefulset at a certain point.
  * @export
@@ -49,47 +48,4 @@ export interface IoK8sApiAppsV1StatefulSetCondition {
    * @memberof IoK8sApiAppsV1StatefulSetCondition
    */
   type: string;
-}
-
-export function IoK8sApiAppsV1StatefulSetConditionFromJSON(
-  json: any,
-): IoK8sApiAppsV1StatefulSetCondition {
-  return IoK8sApiAppsV1StatefulSetConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1StatefulSetConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1StatefulSetCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiAppsV1StatefulSetConditionToJSON(
-  value?: IoK8sApiAppsV1StatefulSetCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

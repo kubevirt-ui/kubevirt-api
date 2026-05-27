@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
-import {
-    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
-    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSONTyped,
-    K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-} from './K8sIoApiCoreV1TypedLocalObjectReference';
 
 /**
  * VirtualMachineExportSpec is the spec for a VirtualMachineExport resource
@@ -44,46 +38,5 @@ export interface V1beta1VirtualMachineExportSpec {
      * @memberof V1beta1VirtualMachineExportSpec
      */
     ttlDuration?: string;
-}
-
-/**
- * Check if a given object implements the V1beta1VirtualMachineExportSpec interface.
- */
-export function instanceOfV1beta1VirtualMachineExportSpec(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "source" in value;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachineExportSpecFromJSON(json: any): V1beta1VirtualMachineExportSpec {
-    return V1beta1VirtualMachineExportSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineExportSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineExportSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'source': K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['source']),
-        'tokenSecretRef': !exists(json, 'tokenSecretRef') ? undefined : json['tokenSecretRef'],
-        'ttlDuration': !exists(json, 'ttlDuration') ? undefined : json['ttlDuration'],
-    };
-}
-
-export function V1beta1VirtualMachineExportSpecToJSON(value?: V1beta1VirtualMachineExportSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'source': K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.source),
-        'tokenSecretRef': value.tokenSecretRef,
-        'ttlDuration': value.ttlDuration,
-    };
 }
 

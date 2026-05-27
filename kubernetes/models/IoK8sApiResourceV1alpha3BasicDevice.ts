@@ -12,20 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import {
   IoK8sApiCoreV1NodeSelector,
-  IoK8sApiCoreV1NodeSelectorFromJSON,
-  IoK8sApiCoreV1NodeSelectorToJSON,
   IoK8sApiResourceV1alpha3DeviceAttribute,
-  IoK8sApiResourceV1alpha3DeviceAttributeFromJSON,
-  IoK8sApiResourceV1alpha3DeviceAttributeToJSON,
   IoK8sApiResourceV1alpha3DeviceCounterConsumption,
-  IoK8sApiResourceV1alpha3DeviceCounterConsumptionFromJSON,
-  IoK8sApiResourceV1alpha3DeviceCounterConsumptionToJSON,
   IoK8sApiResourceV1alpha3DeviceTaint,
-  IoK8sApiResourceV1alpha3DeviceTaintFromJSON,
-  IoK8sApiResourceV1alpha3DeviceTaintToJSON,
 } from './';
 
 /**
@@ -92,69 +83,4 @@ export interface IoK8sApiResourceV1alpha3BasicDevice {
    * @memberof IoK8sApiResourceV1alpha3BasicDevice
    */
   taints?: Array<IoK8sApiResourceV1alpha3DeviceTaint>;
-}
-
-export function IoK8sApiResourceV1alpha3BasicDeviceFromJSON(
-  json: any,
-): IoK8sApiResourceV1alpha3BasicDevice {
-  return IoK8sApiResourceV1alpha3BasicDeviceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3BasicDeviceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3BasicDevice {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    allNodes: !exists(json, 'allNodes') ? undefined : json['allNodes'],
-    attributes: !exists(json, 'attributes')
-      ? undefined
-      : mapValues(json['attributes'], IoK8sApiResourceV1alpha3DeviceAttributeFromJSON),
-    capacity: !exists(json, 'capacity') ? undefined : json['capacity'],
-    consumesCounters: !exists(json, 'consumesCounters')
-      ? undefined
-      : (json['consumesCounters'] as Array<any>).map(
-          IoK8sApiResourceV1alpha3DeviceCounterConsumptionFromJSON,
-        ),
-    nodeName: !exists(json, 'nodeName') ? undefined : json['nodeName'],
-    nodeSelector: !exists(json, 'nodeSelector')
-      ? undefined
-      : IoK8sApiCoreV1NodeSelectorFromJSON(json['nodeSelector']),
-    taints: !exists(json, 'taints')
-      ? undefined
-      : (json['taints'] as Array<any>).map(IoK8sApiResourceV1alpha3DeviceTaintFromJSON),
-  };
-}
-
-export function IoK8sApiResourceV1alpha3BasicDeviceToJSON(
-  value?: IoK8sApiResourceV1alpha3BasicDevice | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    allNodes: value.allNodes,
-    attributes:
-      value.attributes === undefined
-        ? undefined
-        : mapValues(value.attributes, IoK8sApiResourceV1alpha3DeviceAttributeToJSON),
-    capacity: value.capacity,
-    consumesCounters:
-      value.consumesCounters === undefined
-        ? undefined
-        : (value.consumesCounters as Array<any>).map(
-            IoK8sApiResourceV1alpha3DeviceCounterConsumptionToJSON,
-          ),
-    nodeName: value.nodeName,
-    nodeSelector: IoK8sApiCoreV1NodeSelectorToJSON(value.nodeSelector),
-    taints:
-      value.taints === undefined
-        ? undefined
-        : (value.taints as Array<any>).map(IoK8sApiResourceV1alpha3DeviceTaintToJSON),
-  };
 }

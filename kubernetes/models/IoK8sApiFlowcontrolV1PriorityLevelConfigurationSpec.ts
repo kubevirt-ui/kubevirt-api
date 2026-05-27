@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiFlowcontrolV1ExemptPriorityLevelConfiguration,
-  IoK8sApiFlowcontrolV1ExemptPriorityLevelConfigurationFromJSON,
-  IoK8sApiFlowcontrolV1ExemptPriorityLevelConfigurationToJSON,
   IoK8sApiFlowcontrolV1LimitedPriorityLevelConfiguration,
-  IoK8sApiFlowcontrolV1LimitedPriorityLevelConfigurationFromJSON,
-  IoK8sApiFlowcontrolV1LimitedPriorityLevelConfigurationToJSON,
 } from './';
 
 /**
@@ -46,44 +41,4 @@ export interface IoK8sApiFlowcontrolV1PriorityLevelConfigurationSpec {
    * @memberof IoK8sApiFlowcontrolV1PriorityLevelConfigurationSpec
    */
   type: string;
-}
-
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationSpecFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1PriorityLevelConfigurationSpec {
-  return IoK8sApiFlowcontrolV1PriorityLevelConfigurationSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1PriorityLevelConfigurationSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    exempt: !exists(json, 'exempt')
-      ? undefined
-      : IoK8sApiFlowcontrolV1ExemptPriorityLevelConfigurationFromJSON(json['exempt']),
-    limited: !exists(json, 'limited')
-      ? undefined
-      : IoK8sApiFlowcontrolV1LimitedPriorityLevelConfigurationFromJSON(json['limited']),
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationSpecToJSON(
-  value?: IoK8sApiFlowcontrolV1PriorityLevelConfigurationSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    exempt: IoK8sApiFlowcontrolV1ExemptPriorityLevelConfigurationToJSON(value.exempt),
-    limited: IoK8sApiFlowcontrolV1LimitedPriorityLevelConfigurationToJSON(value.limited),
-    type: value.type,
-  };
 }

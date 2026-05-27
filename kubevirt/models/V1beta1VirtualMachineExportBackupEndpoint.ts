@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * VirtualMachineExportBackupEndpoint contains the endpoint type and URL to interact with a backup export
  * @export
@@ -31,45 +30,5 @@ export interface V1beta1VirtualMachineExportBackupEndpoint {
      * @memberof V1beta1VirtualMachineExportBackupEndpoint
      */
     url: string;
-}
-
-/**
- * Check if a given object implements the V1beta1VirtualMachineExportBackupEndpoint interface.
- */
-export function instanceOfV1beta1VirtualMachineExportBackupEndpoint(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "endpoint" in value;
-    isInstance = isInstance && "url" in value;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachineExportBackupEndpointFromJSON(json: any): V1beta1VirtualMachineExportBackupEndpoint {
-    return V1beta1VirtualMachineExportBackupEndpointFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineExportBackupEndpointFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineExportBackupEndpoint {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'endpoint': json['endpoint'],
-        'url': json['url'],
-    };
-}
-
-export function V1beta1VirtualMachineExportBackupEndpointToJSON(value?: V1beta1VirtualMachineExportBackupEndpoint | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'endpoint': value.endpoint,
-        'url': value.url,
-    };
 }
 

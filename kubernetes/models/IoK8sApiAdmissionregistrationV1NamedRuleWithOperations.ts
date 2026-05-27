@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * NamedRuleWithOperations is a tuple of Operations and Resources with ResourceNames.
  * @export
@@ -61,46 +60,4 @@ export interface IoK8sApiAdmissionregistrationV1NamedRuleWithOperations {
    * @memberof IoK8sApiAdmissionregistrationV1NamedRuleWithOperations
    */
   scope?: string;
-}
-
-export function IoK8sApiAdmissionregistrationV1NamedRuleWithOperationsFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1NamedRuleWithOperations {
-  return IoK8sApiAdmissionregistrationV1NamedRuleWithOperationsFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1NamedRuleWithOperationsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1NamedRuleWithOperations {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiGroups: !exists(json, 'apiGroups') ? undefined : json['apiGroups'],
-    apiVersions: !exists(json, 'apiVersions') ? undefined : json['apiVersions'],
-    operations: !exists(json, 'operations') ? undefined : json['operations'],
-    resourceNames: !exists(json, 'resourceNames') ? undefined : json['resourceNames'],
-    resources: !exists(json, 'resources') ? undefined : json['resources'],
-    scope: !exists(json, 'scope') ? undefined : json['scope'],
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1NamedRuleWithOperationsToJSON(
-  value?: IoK8sApiAdmissionregistrationV1NamedRuleWithOperations | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiGroups: value.apiGroups,
-    apiVersions: value.apiVersions,
-    operations: value.operations,
-    resourceNames: value.resourceNames,
-    resources: value.resources,
-    scope: value.scope,
-  };
 }

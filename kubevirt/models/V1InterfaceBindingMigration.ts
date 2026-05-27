@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -26,40 +25,3 @@ export interface V1InterfaceBindingMigration {
      */
     method?: string;
 }
-
-/**
- * Check if a given object implements the V1InterfaceBindingMigration interface.
- */
-export function instanceOfV1InterfaceBindingMigration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1InterfaceBindingMigrationFromJSON(json: any): V1InterfaceBindingMigration {
-    return V1InterfaceBindingMigrationFromJSONTyped(json, false);
-}
-
-export function V1InterfaceBindingMigrationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1InterfaceBindingMigration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'method': !exists(json, 'method') ? undefined : json['method'],
-    };
-}
-
-export function V1InterfaceBindingMigrationToJSON(value?: V1InterfaceBindingMigration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'method': value.method,
-    };
-}
-

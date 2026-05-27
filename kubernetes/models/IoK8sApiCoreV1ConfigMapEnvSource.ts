@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ConfigMapEnvSource selects a ConfigMap to populate the environment variables with.
  *
@@ -33,38 +32,4 @@ export interface IoK8sApiCoreV1ConfigMapEnvSource {
    * @memberof IoK8sApiCoreV1ConfigMapEnvSource
    */
   optional?: boolean;
-}
-
-export function IoK8sApiCoreV1ConfigMapEnvSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1ConfigMapEnvSource {
-  return IoK8sApiCoreV1ConfigMapEnvSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ConfigMapEnvSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ConfigMapEnvSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: !exists(json, 'name') ? undefined : json['name'],
-    optional: !exists(json, 'optional') ? undefined : json['optional'],
-  };
-}
-
-export function IoK8sApiCoreV1ConfigMapEnvSourceToJSON(
-  value?: IoK8sApiCoreV1ConfigMapEnvSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    optional: value.optional,
-  };
 }

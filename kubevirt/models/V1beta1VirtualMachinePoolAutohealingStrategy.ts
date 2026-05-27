@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -32,42 +31,3 @@ export interface V1beta1VirtualMachinePoolAutohealingStrategy {
      */
     startUpFailureThreshold?: number;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachinePoolAutohealingStrategy interface.
- */
-export function instanceOfV1beta1VirtualMachinePoolAutohealingStrategy(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachinePoolAutohealingStrategyFromJSON(json: any): V1beta1VirtualMachinePoolAutohealingStrategy {
-    return V1beta1VirtualMachinePoolAutohealingStrategyFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachinePoolAutohealingStrategyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachinePoolAutohealingStrategy {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'minFailingToStartDuration': !exists(json, 'minFailingToStartDuration') ? undefined : json['minFailingToStartDuration'],
-        'startUpFailureThreshold': !exists(json, 'startUpFailureThreshold') ? undefined : json['startUpFailureThreshold'],
-    };
-}
-
-export function V1beta1VirtualMachinePoolAutohealingStrategyToJSON(value?: V1beta1VirtualMachinePoolAutohealingStrategy | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'minFailingToStartDuration': value.minFailingToStartDuration,
-        'startUpFailureThreshold': value.startUpFailureThreshold,
-    };
-}
-

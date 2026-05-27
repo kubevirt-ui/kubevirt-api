@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1ObjectMeta,
-  V1ObjectMetaFromJSON,
-  V1ObjectMetaToJSON,
   V1beta1DataImportCronSpec,
-  V1beta1DataImportCronSpecFromJSON,
-  V1beta1DataImportCronSpecToJSON,
   V1beta1DataImportCronStatus,
-  V1beta1DataImportCronStatusFromJSON,
-  V1beta1DataImportCronStatusToJSON,
 } from './';
 
 /**
@@ -61,42 +54,4 @@ export interface V1beta1DataImportCron {
    * @memberof V1beta1DataImportCron
    */
   status?: V1beta1DataImportCronStatus;
-}
-
-export function V1beta1DataImportCronFromJSON(json: any): V1beta1DataImportCron {
-  return V1beta1DataImportCronFromJSONTyped(json, false);
-}
-
-export function V1beta1DataImportCronFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataImportCron {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata') ? undefined : V1ObjectMetaFromJSON(json['metadata']),
-    spec: V1beta1DataImportCronSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : V1beta1DataImportCronStatusFromJSON(json['status']),
-  };
-}
-
-export function V1beta1DataImportCronToJSON(value?: V1beta1DataImportCron | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: V1ObjectMetaToJSON(value.metadata),
-    spec: V1beta1DataImportCronSpecToJSON(value.spec),
-    status: V1beta1DataImportCronStatusToJSON(value.status),
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -69,42 +68,3 @@ export interface V1ReservedOverhead {
      */
     memLock?: string;
 }
-
-/**
- * Check if a given object implements the V1ReservedOverhead interface.
- */
-export function instanceOfV1ReservedOverhead(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1ReservedOverheadFromJSON(json: any): V1ReservedOverhead {
-    return V1ReservedOverheadFromJSONTyped(json, false);
-}
-
-export function V1ReservedOverheadFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ReservedOverhead {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'addedOverhead': !exists(json, 'addedOverhead') ? undefined : json['addedOverhead'],
-        'memLock': !exists(json, 'memLock') ? undefined : json['memLock'],
-    };
-}
-
-export function V1ReservedOverheadToJSON(value?: V1ReservedOverhead | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'addedOverhead': value.addedOverhead,
-        'memLock': value.memLock,
-    };
-}
-

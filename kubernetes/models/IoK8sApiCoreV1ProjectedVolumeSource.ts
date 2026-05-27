@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1VolumeProjection,
-  IoK8sApiCoreV1VolumeProjectionFromJSON,
-  IoK8sApiCoreV1VolumeProjectionToJSON,
 } from './';
 
 /**
@@ -37,43 +34,4 @@ export interface IoK8sApiCoreV1ProjectedVolumeSource {
    * @memberof IoK8sApiCoreV1ProjectedVolumeSource
    */
   sources?: Array<IoK8sApiCoreV1VolumeProjection>;
-}
-
-export function IoK8sApiCoreV1ProjectedVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1ProjectedVolumeSource {
-  return IoK8sApiCoreV1ProjectedVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ProjectedVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ProjectedVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    defaultMode: !exists(json, 'defaultMode') ? undefined : json['defaultMode'],
-    sources: !exists(json, 'sources')
-      ? undefined
-      : (json['sources'] as Array<any>).map(IoK8sApiCoreV1VolumeProjectionFromJSON),
-  };
-}
-
-export function IoK8sApiCoreV1ProjectedVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1ProjectedVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    defaultMode: value.defaultMode,
-    sources:
-      value.sources === undefined
-        ? undefined
-        : (value.sources as Array<any>).map(IoK8sApiCoreV1VolumeProjectionToJSON),
-  };
 }

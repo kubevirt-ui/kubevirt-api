@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * DeviceConstraint must have exactly one field set besides Requests.
  * @export
@@ -37,38 +36,4 @@ export interface IoK8sApiResourceV1beta2DeviceConstraint {
    * @memberof IoK8sApiResourceV1beta2DeviceConstraint
    */
   requests?: Array<string>;
-}
-
-export function IoK8sApiResourceV1beta2DeviceConstraintFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta2DeviceConstraint {
-  return IoK8sApiResourceV1beta2DeviceConstraintFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta2DeviceConstraintFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta2DeviceConstraint {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    matchAttribute: !exists(json, 'matchAttribute') ? undefined : json['matchAttribute'],
-    requests: !exists(json, 'requests') ? undefined : json['requests'],
-  };
-}
-
-export function IoK8sApiResourceV1beta2DeviceConstraintToJSON(
-  value?: IoK8sApiResourceV1beta2DeviceConstraint | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    matchAttribute: value.matchAttribute,
-    requests: value.requests,
-  };
 }

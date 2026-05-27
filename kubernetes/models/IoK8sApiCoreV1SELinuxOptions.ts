@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * SELinuxOptions are the labels to be applied to the container
  * @export
@@ -43,40 +42,4 @@ export interface IoK8sApiCoreV1SELinuxOptions {
    * @memberof IoK8sApiCoreV1SELinuxOptions
    */
   user?: string;
-}
-
-export function IoK8sApiCoreV1SELinuxOptionsFromJSON(json: any): IoK8sApiCoreV1SELinuxOptions {
-  return IoK8sApiCoreV1SELinuxOptionsFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1SELinuxOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1SELinuxOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    level: !exists(json, 'level') ? undefined : json['level'],
-    role: !exists(json, 'role') ? undefined : json['role'],
-    type: !exists(json, 'type') ? undefined : json['type'],
-    user: !exists(json, 'user') ? undefined : json['user'],
-  };
-}
-
-export function IoK8sApiCoreV1SELinuxOptionsToJSON(
-  value?: IoK8sApiCoreV1SELinuxOptions | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    level: value.level,
-    role: value.role,
-    type: value.type,
-    user: value.user,
-  };
 }

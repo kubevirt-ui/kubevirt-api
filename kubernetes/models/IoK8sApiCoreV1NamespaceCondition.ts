@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * NamespaceCondition contains details about state of namespace.
  * @export
@@ -49,47 +48,4 @@ export interface IoK8sApiCoreV1NamespaceCondition {
    * @memberof IoK8sApiCoreV1NamespaceCondition
    */
   type: string;
-}
-
-export function IoK8sApiCoreV1NamespaceConditionFromJSON(
-  json: any,
-): IoK8sApiCoreV1NamespaceCondition {
-  return IoK8sApiCoreV1NamespaceConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NamespaceConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NamespaceCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1NamespaceConditionToJSON(
-  value?: IoK8sApiCoreV1NamespaceCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

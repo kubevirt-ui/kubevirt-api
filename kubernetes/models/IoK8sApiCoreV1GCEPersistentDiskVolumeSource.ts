@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Represents a Persistent Disk resource in Google Compute Engine.
  *
@@ -45,42 +44,4 @@ export interface IoK8sApiCoreV1GCEPersistentDiskVolumeSource {
    * @memberof IoK8sApiCoreV1GCEPersistentDiskVolumeSource
    */
   readOnly?: boolean;
-}
-
-export function IoK8sApiCoreV1GCEPersistentDiskVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1GCEPersistentDiskVolumeSource {
-  return IoK8sApiCoreV1GCEPersistentDiskVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1GCEPersistentDiskVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1GCEPersistentDiskVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    partition: !exists(json, 'partition') ? undefined : json['partition'],
-    pdName: json['pdName'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-  };
-}
-
-export function IoK8sApiCoreV1GCEPersistentDiskVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1GCEPersistentDiskVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fsType: value.fsType,
-    partition: value.partition,
-    pdName: value.pdName,
-    readOnly: value.readOnly,
-  };
 }

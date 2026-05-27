@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ExemptPriorityLevelConfiguration describes the configurable aspects of the handling of exempt requests. In the mandatory exempt configuration object the values in the fields here can be modified by authorized users, unlike the rest of the `spec`.
  * @export
@@ -37,40 +36,4 @@ export interface IoK8sApiFlowcontrolV1ExemptPriorityLevelConfiguration {
    * @memberof IoK8sApiFlowcontrolV1ExemptPriorityLevelConfiguration
    */
   nominalConcurrencyShares?: number;
-}
-
-export function IoK8sApiFlowcontrolV1ExemptPriorityLevelConfigurationFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1ExemptPriorityLevelConfiguration {
-  return IoK8sApiFlowcontrolV1ExemptPriorityLevelConfigurationFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1ExemptPriorityLevelConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1ExemptPriorityLevelConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lendablePercent: !exists(json, 'lendablePercent') ? undefined : json['lendablePercent'],
-    nominalConcurrencyShares: !exists(json, 'nominalConcurrencyShares')
-      ? undefined
-      : json['nominalConcurrencyShares'],
-  };
-}
-
-export function IoK8sApiFlowcontrolV1ExemptPriorityLevelConfigurationToJSON(
-  value?: IoK8sApiFlowcontrolV1ExemptPriorityLevelConfiguration | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lendablePercent: value.lendablePercent,
-    nominalConcurrencyShares: value.nominalConcurrencyShares,
-  };
 }

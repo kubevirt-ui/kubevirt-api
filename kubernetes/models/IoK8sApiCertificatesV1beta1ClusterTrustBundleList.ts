@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCertificatesV1beta1ClusterTrustBundle,
-  IoK8sApiCertificatesV1beta1ClusterTrustBundleFromJSON,
-  IoK8sApiCertificatesV1beta1ClusterTrustBundleToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -52,44 +47,4 @@ export interface IoK8sApiCertificatesV1beta1ClusterTrustBundleList {
    * @memberof IoK8sApiCertificatesV1beta1ClusterTrustBundleList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiCertificatesV1beta1ClusterTrustBundleListFromJSON(
-  json: any,
-): IoK8sApiCertificatesV1beta1ClusterTrustBundleList {
-  return IoK8sApiCertificatesV1beta1ClusterTrustBundleListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCertificatesV1beta1ClusterTrustBundleListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCertificatesV1beta1ClusterTrustBundleList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(IoK8sApiCertificatesV1beta1ClusterTrustBundleFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiCertificatesV1beta1ClusterTrustBundleListToJSON(
-  value?: IoK8sApiCertificatesV1beta1ClusterTrustBundleList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(IoK8sApiCertificatesV1beta1ClusterTrustBundleToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

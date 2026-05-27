@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiBatchV1CronJob,
-  IoK8sApiBatchV1CronJobFromJSON,
-  IoK8sApiBatchV1CronJobToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -52,40 +47,4 @@ export interface IoK8sApiBatchV1CronJobList {
    * @memberof IoK8sApiBatchV1CronJobList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiBatchV1CronJobListFromJSON(json: any): IoK8sApiBatchV1CronJobList {
-  return IoK8sApiBatchV1CronJobListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiBatchV1CronJobListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiBatchV1CronJobList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(IoK8sApiBatchV1CronJobFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiBatchV1CronJobListToJSON(value?: IoK8sApiBatchV1CronJobList | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(IoK8sApiBatchV1CronJobToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

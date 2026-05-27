@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * PodResourceClaim references exactly one ResourceClaim, either directly or by naming a ResourceClaimTemplate which is then turned into a ResourceClaim for the pod.
  * 
@@ -48,45 +47,3 @@ export interface K8sIoApiCoreV1PodResourceClaim {
      */
     resourceClaimTemplateName?: string;
 }
-
-/**
- * Check if a given object implements the K8sIoApiCoreV1PodResourceClaim interface.
- */
-export function instanceOfK8sIoApiCoreV1PodResourceClaim(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "name" in value;
-
-    return isInstance;
-}
-
-export function K8sIoApiCoreV1PodResourceClaimFromJSON(json: any): K8sIoApiCoreV1PodResourceClaim {
-    return K8sIoApiCoreV1PodResourceClaimFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1PodResourceClaimFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1PodResourceClaim {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'name': json['name'],
-        'resourceClaimName': !exists(json, 'resourceClaimName') ? undefined : json['resourceClaimName'],
-        'resourceClaimTemplateName': !exists(json, 'resourceClaimTemplateName') ? undefined : json['resourceClaimTemplateName'],
-    };
-}
-
-export function K8sIoApiCoreV1PodResourceClaimToJSON(value?: K8sIoApiCoreV1PodResourceClaim | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'name': value.name,
-        'resourceClaimName': value.resourceClaimName,
-        'resourceClaimTemplateName': value.resourceClaimTemplateName,
-    };
-}
-

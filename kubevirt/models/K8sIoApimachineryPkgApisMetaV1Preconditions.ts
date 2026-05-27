@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.
  * @export
@@ -32,42 +31,3 @@ export interface K8sIoApimachineryPkgApisMetaV1Preconditions {
      */
     uid?: string;
 }
-
-/**
- * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1Preconditions interface.
- */
-export function instanceOfK8sIoApimachineryPkgApisMetaV1Preconditions(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1Preconditions {
-    return K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1Preconditions {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'resourceVersion': !exists(json, 'resourceVersion') ? undefined : json['resourceVersion'],
-        'uid': !exists(json, 'uid') ? undefined : json['uid'],
-    };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1PreconditionsToJSON(value?: K8sIoApimachineryPkgApisMetaV1Preconditions | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'resourceVersion': value.resourceVersion,
-        'uid': value.uid,
-    };
-}
-

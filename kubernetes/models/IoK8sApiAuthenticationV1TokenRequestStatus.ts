@@ -31,37 +31,3 @@ export interface IoK8sApiAuthenticationV1TokenRequestStatus {
    */
   token: string;
 }
-
-export function IoK8sApiAuthenticationV1TokenRequestStatusFromJSON(
-  json: any,
-): IoK8sApiAuthenticationV1TokenRequestStatus {
-  return IoK8sApiAuthenticationV1TokenRequestStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthenticationV1TokenRequestStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthenticationV1TokenRequestStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    expirationTimestamp: json['expirationTimestamp'],
-    token: json['token'],
-  };
-}
-
-export function IoK8sApiAuthenticationV1TokenRequestStatusToJSON(
-  value?: IoK8sApiAuthenticationV1TokenRequestStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    expirationTimestamp: value.expirationTimestamp,
-    token: value.token,
-  };
-}

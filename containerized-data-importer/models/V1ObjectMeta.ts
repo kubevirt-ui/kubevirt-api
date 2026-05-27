@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1ManagedFieldsEntry,
-  V1ManagedFieldsEntryFromJSON,
-  V1ManagedFieldsEntryToJSON,
   V1OwnerReference,
-  V1OwnerReferenceFromJSON,
-  V1OwnerReferenceToJSON,
 } from './';
 
 /**
@@ -128,69 +123,4 @@ export interface V1ObjectMeta {
    * @memberof V1ObjectMeta
    */
   uid?: string;
-}
-
-export function V1ObjectMetaFromJSON(json: any): V1ObjectMeta {
-  return V1ObjectMetaFromJSONTyped(json, false);
-}
-
-export function V1ObjectMetaFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ObjectMeta {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    annotations: !exists(json, 'annotations') ? undefined : json['annotations'],
-    creationTimestamp: !exists(json, 'creationTimestamp') ? undefined : json['creationTimestamp'],
-    deletionGracePeriodSeconds: !exists(json, 'deletionGracePeriodSeconds')
-      ? undefined
-      : json['deletionGracePeriodSeconds'],
-    deletionTimestamp: !exists(json, 'deletionTimestamp') ? undefined : json['deletionTimestamp'],
-    finalizers: !exists(json, 'finalizers') ? undefined : json['finalizers'],
-    generateName: !exists(json, 'generateName') ? undefined : json['generateName'],
-    generation: !exists(json, 'generation') ? undefined : json['generation'],
-    labels: !exists(json, 'labels') ? undefined : json['labels'],
-    managedFields: !exists(json, 'managedFields')
-      ? undefined
-      : (json['managedFields'] as Array<any>).map(V1ManagedFieldsEntryFromJSON),
-    name: !exists(json, 'name') ? undefined : json['name'],
-    namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
-    ownerReferences: !exists(json, 'ownerReferences')
-      ? undefined
-      : (json['ownerReferences'] as Array<any>).map(V1OwnerReferenceFromJSON),
-    resourceVersion: !exists(json, 'resourceVersion') ? undefined : json['resourceVersion'],
-    selfLink: !exists(json, 'selfLink') ? undefined : json['selfLink'],
-    uid: !exists(json, 'uid') ? undefined : json['uid'],
-  };
-}
-
-export function V1ObjectMetaToJSON(value?: V1ObjectMeta | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    annotations: value.annotations,
-    creationTimestamp: value.creationTimestamp === undefined ? undefined : value.creationTimestamp,
-    deletionGracePeriodSeconds: value.deletionGracePeriodSeconds,
-    deletionTimestamp: value.deletionTimestamp === undefined ? undefined : value.deletionTimestamp,
-    finalizers: value.finalizers,
-    generateName: value.generateName,
-    generation: value.generation,
-    labels: value.labels,
-    managedFields:
-      value.managedFields === undefined
-        ? undefined
-        : (value.managedFields as Array<any>).map(V1ManagedFieldsEntryToJSON),
-    name: value.name,
-    namespace: value.namespace,
-    ownerReferences:
-      value.ownerReferences === undefined
-        ? undefined
-        : (value.ownerReferences as Array<any>).map(V1OwnerReferenceToJSON),
-    resourceVersion: value.resourceVersion,
-    selfLink: value.selfLink,
-    uid: value.uid,
-  };
 }

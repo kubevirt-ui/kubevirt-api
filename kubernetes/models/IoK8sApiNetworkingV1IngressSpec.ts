@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiNetworkingV1IngressBackend,
-  IoK8sApiNetworkingV1IngressBackendFromJSON,
-  IoK8sApiNetworkingV1IngressBackendToJSON,
   IoK8sApiNetworkingV1IngressRule,
-  IoK8sApiNetworkingV1IngressRuleFromJSON,
-  IoK8sApiNetworkingV1IngressRuleToJSON,
   IoK8sApiNetworkingV1IngressTLS,
-  IoK8sApiNetworkingV1IngressTLSFromJSON,
-  IoK8sApiNetworkingV1IngressTLSToJSON,
 } from './';
 
 /**
@@ -55,54 +48,4 @@ export interface IoK8sApiNetworkingV1IngressSpec {
    * @memberof IoK8sApiNetworkingV1IngressSpec
    */
   tls?: Array<IoK8sApiNetworkingV1IngressTLS>;
-}
-
-export function IoK8sApiNetworkingV1IngressSpecFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1IngressSpec {
-  return IoK8sApiNetworkingV1IngressSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1IngressSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1IngressSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    defaultBackend: !exists(json, 'defaultBackend')
-      ? undefined
-      : IoK8sApiNetworkingV1IngressBackendFromJSON(json['defaultBackend']),
-    ingressClassName: !exists(json, 'ingressClassName') ? undefined : json['ingressClassName'],
-    rules: !exists(json, 'rules')
-      ? undefined
-      : (json['rules'] as Array<any>).map(IoK8sApiNetworkingV1IngressRuleFromJSON),
-    tls: !exists(json, 'tls')
-      ? undefined
-      : (json['tls'] as Array<any>).map(IoK8sApiNetworkingV1IngressTLSFromJSON),
-  };
-}
-
-export function IoK8sApiNetworkingV1IngressSpecToJSON(
-  value?: IoK8sApiNetworkingV1IngressSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    defaultBackend: IoK8sApiNetworkingV1IngressBackendToJSON(value.defaultBackend),
-    ingressClassName: value.ingressClassName,
-    rules:
-      value.rules === undefined
-        ? undefined
-        : (value.rules as Array<any>).map(IoK8sApiNetworkingV1IngressRuleToJSON),
-    tls:
-      value.tls === undefined
-        ? undefined
-        : (value.tls as Array<any>).map(IoK8sApiNetworkingV1IngressTLSToJSON),
-  };
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1MatchResources,
-  IoK8sApiAdmissionregistrationV1MatchResourcesFromJSON,
-  IoK8sApiAdmissionregistrationV1MatchResourcesToJSON,
   IoK8sApiAdmissionregistrationV1ParamRef,
-  IoK8sApiAdmissionregistrationV1ParamRefFromJSON,
-  IoK8sApiAdmissionregistrationV1ParamRefToJSON,
 } from './';
 
 /**
@@ -70,49 +65,4 @@ export interface IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBinding
    * @memberof IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingSpec
    */
   validationActions?: Array<string>;
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingSpecFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingSpec {
-  return IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingSpecFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    matchResources: !exists(json, 'matchResources')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1MatchResourcesFromJSON(json['matchResources']),
-    paramRef: !exists(json, 'paramRef')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1ParamRefFromJSON(json['paramRef']),
-    policyName: !exists(json, 'policyName') ? undefined : json['policyName'],
-    validationActions: !exists(json, 'validationActions') ? undefined : json['validationActions'],
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingSpecToJSON(
-  value?: IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    matchResources: IoK8sApiAdmissionregistrationV1MatchResourcesToJSON(value.matchResources),
-    paramRef: IoK8sApiAdmissionregistrationV1ParamRefToJSON(value.paramRef),
-    policyName: value.policyName,
-    validationActions: value.validationActions,
-  };
 }

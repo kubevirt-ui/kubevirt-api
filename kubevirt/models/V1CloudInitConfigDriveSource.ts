@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApiCoreV1LocalObjectReference } from './K8sIoApiCoreV1LocalObjectReference';
-import {
-    K8sIoApiCoreV1LocalObjectReferenceFromJSON,
-    K8sIoApiCoreV1LocalObjectReferenceFromJSONTyped,
-    K8sIoApiCoreV1LocalObjectReferenceToJSON,
-} from './K8sIoApiCoreV1LocalObjectReference';
 
 /**
  * Represents a cloud-init config drive user data source. More info: https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html
@@ -63,50 +57,3 @@ export interface V1CloudInitConfigDriveSource {
      */
     userDataBase64?: string;
 }
-
-/**
- * Check if a given object implements the V1CloudInitConfigDriveSource interface.
- */
-export function instanceOfV1CloudInitConfigDriveSource(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1CloudInitConfigDriveSourceFromJSON(json: any): V1CloudInitConfigDriveSource {
-    return V1CloudInitConfigDriveSourceFromJSONTyped(json, false);
-}
-
-export function V1CloudInitConfigDriveSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1CloudInitConfigDriveSource {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'networkData': !exists(json, 'networkData') ? undefined : json['networkData'],
-        'networkDataBase64': !exists(json, 'networkDataBase64') ? undefined : json['networkDataBase64'],
-        'networkDataSecretRef': !exists(json, 'networkDataSecretRef') ? undefined : K8sIoApiCoreV1LocalObjectReferenceFromJSON(json['networkDataSecretRef']),
-        'secretRef': !exists(json, 'secretRef') ? undefined : K8sIoApiCoreV1LocalObjectReferenceFromJSON(json['secretRef']),
-        'userData': !exists(json, 'userData') ? undefined : json['userData'],
-        'userDataBase64': !exists(json, 'userDataBase64') ? undefined : json['userDataBase64'],
-    };
-}
-
-export function V1CloudInitConfigDriveSourceToJSON(value?: V1CloudInitConfigDriveSource | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'networkData': value.networkData,
-        'networkDataBase64': value.networkDataBase64,
-        'networkDataSecretRef': K8sIoApiCoreV1LocalObjectReferenceToJSON(value.networkDataSecretRef),
-        'secretRef': K8sIoApiCoreV1LocalObjectReferenceToJSON(value.secretRef),
-        'userData': value.userData,
-        'userDataBase64': value.userDataBase64,
-    };
-}
-

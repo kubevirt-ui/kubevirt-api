@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PodFailurePolicyOnExitCodesRequirement describes the requirement for handling a failed pod based on its container exit codes. In particular, it lookups the .state.terminated.exitCode for each app container and init container status, represented by the .status.containerStatuses and .status.initContainerStatuses fields in the Pod status, respectively. Containers completed with success (exit code 0) are excluded from the requirement check.
  * @export
@@ -45,40 +44,4 @@ export interface IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirement {
    * @memberof IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirement
    */
   values: Array<number>;
-}
-
-export function IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirementFromJSON(
-  json: any,
-): IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirement {
-  return IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirementFromJSONTyped(json, false);
-}
-
-export function IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirementFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirement {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    containerName: !exists(json, 'containerName') ? undefined : json['containerName'],
-    operator: json['operator'],
-    values: json['values'],
-  };
-}
-
-export function IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirementToJSON(
-  value?: IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirement | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    containerName: value.containerName,
-    operator: value.operator,
-    values: value.values,
-  };
 }

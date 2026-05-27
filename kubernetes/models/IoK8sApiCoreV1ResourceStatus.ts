@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ResourceHealth,
-  IoK8sApiCoreV1ResourceHealthFromJSON,
-  IoK8sApiCoreV1ResourceHealthToJSON,
 } from './';
 
 /**
@@ -37,41 +34,4 @@ export interface IoK8sApiCoreV1ResourceStatus {
    * @memberof IoK8sApiCoreV1ResourceStatus
    */
   resources?: Array<IoK8sApiCoreV1ResourceHealth>;
-}
-
-export function IoK8sApiCoreV1ResourceStatusFromJSON(json: any): IoK8sApiCoreV1ResourceStatus {
-  return IoK8sApiCoreV1ResourceStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ResourceStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ResourceStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    resources: !exists(json, 'resources')
-      ? undefined
-      : (json['resources'] as Array<any>).map(IoK8sApiCoreV1ResourceHealthFromJSON),
-  };
-}
-
-export function IoK8sApiCoreV1ResourceStatusToJSON(
-  value?: IoK8sApiCoreV1ResourceStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    resources:
-      value.resources === undefined
-        ? undefined
-        : (value.resources as Array<any>).map(IoK8sApiCoreV1ResourceHealthToJSON),
-  };
 }

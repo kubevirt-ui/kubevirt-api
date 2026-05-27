@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * VirtualMachinePoolOpportunisticScaleInStrategy represents opportunistic scale-in strategy
  * @export
@@ -26,40 +25,3 @@ export interface V1beta1VirtualMachinePoolOpportunisticScaleInStrategy {
      */
     statePreservation?: string;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachinePoolOpportunisticScaleInStrategy interface.
- */
-export function instanceOfV1beta1VirtualMachinePoolOpportunisticScaleInStrategy(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachinePoolOpportunisticScaleInStrategyFromJSON(json: any): V1beta1VirtualMachinePoolOpportunisticScaleInStrategy {
-    return V1beta1VirtualMachinePoolOpportunisticScaleInStrategyFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachinePoolOpportunisticScaleInStrategyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachinePoolOpportunisticScaleInStrategy {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'statePreservation': !exists(json, 'statePreservation') ? undefined : json['statePreservation'],
-    };
-}
-
-export function V1beta1VirtualMachinePoolOpportunisticScaleInStrategyToJSON(value?: V1beta1VirtualMachinePoolOpportunisticScaleInStrategy | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'statePreservation': value.statePreservation,
-    };
-}
-

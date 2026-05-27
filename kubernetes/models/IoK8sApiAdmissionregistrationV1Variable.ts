@@ -31,37 +31,3 @@ export interface IoK8sApiAdmissionregistrationV1Variable {
    */
   name: string;
 }
-
-export function IoK8sApiAdmissionregistrationV1VariableFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1Variable {
-  return IoK8sApiAdmissionregistrationV1VariableFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1VariableFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1Variable {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    expression: json['expression'],
-    name: json['name'],
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1VariableToJSON(
-  value?: IoK8sApiAdmissionregistrationV1Variable | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    expression: value.expression,
-    name: value.name,
-  };
-}

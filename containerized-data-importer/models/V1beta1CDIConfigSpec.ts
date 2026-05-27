@@ -12,23 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1LocalObjectReference,
-  V1LocalObjectReferenceFromJSON,
-  V1LocalObjectReferenceToJSON,
   V1ResourceRequirements,
-  V1ResourceRequirementsFromJSON,
-  V1ResourceRequirementsToJSON,
   V1beta1FilesystemOverhead,
-  V1beta1FilesystemOverheadFromJSON,
-  V1beta1FilesystemOverheadToJSON,
   V1beta1ImportProxy,
-  V1beta1ImportProxyFromJSON,
-  V1beta1ImportProxyToJSON,
   V1beta1TLSSecurityProfile,
-  V1beta1TLSSecurityProfileFromJSON,
-  V1beta1TLSSecurityProfileToJSON,
 } from './';
 
 /**
@@ -109,75 +98,4 @@ export interface V1beta1CDIConfigSpec {
    * @memberof V1beta1CDIConfigSpec
    */
   uploadProxyURLOverride?: string;
-}
-
-export function V1beta1CDIConfigSpecFromJSON(json: any): V1beta1CDIConfigSpec {
-  return V1beta1CDIConfigSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1CDIConfigSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1CDIConfigSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    dataVolumeTTLSeconds: !exists(json, 'dataVolumeTTLSeconds')
-      ? undefined
-      : json['dataVolumeTTLSeconds'],
-    featureGates: !exists(json, 'featureGates') ? undefined : json['featureGates'],
-    filesystemOverhead: !exists(json, 'filesystemOverhead')
-      ? undefined
-      : V1beta1FilesystemOverheadFromJSON(json['filesystemOverhead']),
-    imagePullSecrets: !exists(json, 'imagePullSecrets')
-      ? undefined
-      : (json['imagePullSecrets'] as Array<any>).map(V1LocalObjectReferenceFromJSON),
-    importProxy: !exists(json, 'importProxy')
-      ? undefined
-      : V1beta1ImportProxyFromJSON(json['importProxy']),
-    insecureRegistries: !exists(json, 'insecureRegistries')
-      ? undefined
-      : json['insecureRegistries'],
-    logVerbosity: !exists(json, 'logVerbosity') ? undefined : json['logVerbosity'],
-    podResourceRequirements: !exists(json, 'podResourceRequirements')
-      ? undefined
-      : V1ResourceRequirementsFromJSON(json['podResourceRequirements']),
-    preallocation: !exists(json, 'preallocation') ? undefined : json['preallocation'],
-    scratchSpaceStorageClass: !exists(json, 'scratchSpaceStorageClass')
-      ? undefined
-      : json['scratchSpaceStorageClass'],
-    tlsSecurityProfile: !exists(json, 'tlsSecurityProfile')
-      ? undefined
-      : V1beta1TLSSecurityProfileFromJSON(json['tlsSecurityProfile']),
-    uploadProxyURLOverride: !exists(json, 'uploadProxyURLOverride')
-      ? undefined
-      : json['uploadProxyURLOverride'],
-  };
-}
-
-export function V1beta1CDIConfigSpecToJSON(value?: V1beta1CDIConfigSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    dataVolumeTTLSeconds: value.dataVolumeTTLSeconds,
-    featureGates: value.featureGates,
-    filesystemOverhead: V1beta1FilesystemOverheadToJSON(value.filesystemOverhead),
-    imagePullSecrets:
-      value.imagePullSecrets === undefined
-        ? undefined
-        : (value.imagePullSecrets as Array<any>).map(V1LocalObjectReferenceToJSON),
-    importProxy: V1beta1ImportProxyToJSON(value.importProxy),
-    insecureRegistries: value.insecureRegistries,
-    logVerbosity: value.logVerbosity,
-    podResourceRequirements: V1ResourceRequirementsToJSON(value.podResourceRequirements),
-    preallocation: value.preallocation,
-    scratchSpaceStorageClass: value.scratchSpaceStorageClass,
-    tlsSecurityProfile: V1beta1TLSSecurityProfileToJSON(value.tlsSecurityProfile),
-    uploadProxyURLOverride: value.uploadProxyURLOverride,
-  };
 }

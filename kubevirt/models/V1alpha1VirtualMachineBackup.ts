@@ -12,25 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
-import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import type { V1alpha1VirtualMachineBackupSpec } from './V1alpha1VirtualMachineBackupSpec';
-import {
-    V1alpha1VirtualMachineBackupSpecFromJSON,
-    V1alpha1VirtualMachineBackupSpecFromJSONTyped,
-    V1alpha1VirtualMachineBackupSpecToJSON,
-} from './V1alpha1VirtualMachineBackupSpec';
 import type { V1alpha1VirtualMachineBackupStatus } from './V1alpha1VirtualMachineBackupStatus';
-import {
-    V1alpha1VirtualMachineBackupStatusFromJSON,
-    V1alpha1VirtualMachineBackupStatusFromJSONTyped,
-    V1alpha1VirtualMachineBackupStatusToJSON,
-} from './V1alpha1VirtualMachineBackupStatus';
 
 /**
  * VirtualMachineBackup defines the operation of backing up a VM
@@ -69,49 +53,3 @@ export interface V1alpha1VirtualMachineBackup {
      */
     status?: V1alpha1VirtualMachineBackupStatus;
 }
-
-/**
- * Check if a given object implements the V1alpha1VirtualMachineBackup interface.
- */
-export function instanceOfV1alpha1VirtualMachineBackup(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "spec" in value;
-
-    return isInstance;
-}
-
-export function V1alpha1VirtualMachineBackupFromJSON(json: any): V1alpha1VirtualMachineBackup {
-    return V1alpha1VirtualMachineBackupFromJSONTyped(json, false);
-}
-
-export function V1alpha1VirtualMachineBackupFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachineBackup {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-        'spec': V1alpha1VirtualMachineBackupSpecFromJSON(json['spec']),
-        'status': !exists(json, 'status') ? undefined : V1alpha1VirtualMachineBackupStatusFromJSON(json['status']),
-    };
-}
-
-export function V1alpha1VirtualMachineBackupToJSON(value?: V1alpha1VirtualMachineBackup | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'kind': value.kind,
-        'metadata': K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-        'spec': V1alpha1VirtualMachineBackupSpecToJSON(value.spec),
-        'status': V1alpha1VirtualMachineBackupStatusToJSON(value.status),
-    };
-}
-

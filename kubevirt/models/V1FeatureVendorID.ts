@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -32,42 +31,3 @@ export interface V1FeatureVendorID {
      */
     vendorid?: string;
 }
-
-/**
- * Check if a given object implements the V1FeatureVendorID interface.
- */
-export function instanceOfV1FeatureVendorID(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1FeatureVendorIDFromJSON(json: any): V1FeatureVendorID {
-    return V1FeatureVendorIDFromJSONTyped(json, false);
-}
-
-export function V1FeatureVendorIDFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1FeatureVendorID {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
-        'vendorid': !exists(json, 'vendorid') ? undefined : json['vendorid'],
-    };
-}
-
-export function V1FeatureVendorIDToJSON(value?: V1FeatureVendorID | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'enabled': value.enabled,
-        'vendorid': value.vendorid,
-    };
-}
-

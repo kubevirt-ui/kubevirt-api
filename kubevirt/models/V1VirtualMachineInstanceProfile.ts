@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1CustomProfile } from './V1CustomProfile';
-import {
-    V1CustomProfileFromJSON,
-    V1CustomProfileFromJSONTyped,
-    V1CustomProfileToJSON,
-} from './V1CustomProfile';
 
 /**
  * 
@@ -33,40 +27,3 @@ export interface V1VirtualMachineInstanceProfile {
      */
     customProfile?: V1CustomProfile;
 }
-
-/**
- * Check if a given object implements the V1VirtualMachineInstanceProfile interface.
- */
-export function instanceOfV1VirtualMachineInstanceProfile(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1VirtualMachineInstanceProfileFromJSON(json: any): V1VirtualMachineInstanceProfile {
-    return V1VirtualMachineInstanceProfileFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceProfileFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceProfile {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'customProfile': !exists(json, 'customProfile') ? undefined : V1CustomProfileFromJSON(json['customProfile']),
-    };
-}
-
-export function V1VirtualMachineInstanceProfileToJSON(value?: V1VirtualMachineInstanceProfile | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'customProfile': V1CustomProfileToJSON(value.customProfile),
-    };
-}
-

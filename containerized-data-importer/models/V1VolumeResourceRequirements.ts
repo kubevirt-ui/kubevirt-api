@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * VolumeResourceRequirements describes the storage resource requirements for a volume.
  * @export
@@ -31,36 +30,4 @@ export interface V1VolumeResourceRequirements {
    * @memberof V1VolumeResourceRequirements
    */
   requests?: { [key: string]: string };
-}
-
-export function V1VolumeResourceRequirementsFromJSON(json: any): V1VolumeResourceRequirements {
-  return V1VolumeResourceRequirementsFromJSONTyped(json, false);
-}
-
-export function V1VolumeResourceRequirementsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1VolumeResourceRequirements {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    limits: !exists(json, 'limits') ? undefined : json['limits'],
-    requests: !exists(json, 'requests') ? undefined : json['requests'],
-  };
-}
-
-export function V1VolumeResourceRequirementsToJSON(
-  value?: V1VolumeResourceRequirements | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    limits: value.limits,
-    requests: value.requests,
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * The node this Taint is attached to has the "effect" on any pod that does not tolerate the Taint.
  * @export
@@ -43,38 +42,4 @@ export interface IoK8sApiCoreV1Taint {
    * @memberof IoK8sApiCoreV1Taint
    */
   value?: string;
-}
-
-export function IoK8sApiCoreV1TaintFromJSON(json: any): IoK8sApiCoreV1Taint {
-  return IoK8sApiCoreV1TaintFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1TaintFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1Taint {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    effect: json['effect'],
-    key: json['key'],
-    timeAdded: !exists(json, 'timeAdded') ? undefined : json['timeAdded'],
-    value: !exists(json, 'value') ? undefined : json['value'],
-  };
-}
-
-export function IoK8sApiCoreV1TaintToJSON(value?: IoK8sApiCoreV1Taint | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    effect: value.effect,
-    key: value.key,
-    timeAdded: value.timeAdded === undefined ? undefined : value.timeAdded,
-    value: value.value,
-  };
 }

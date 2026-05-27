@@ -25,31 +25,3 @@ export interface IoK8sApiCoreV1HostIP {
    */
   ip: string;
 }
-
-export function IoK8sApiCoreV1HostIPFromJSON(json: any): IoK8sApiCoreV1HostIP {
-  return IoK8sApiCoreV1HostIPFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1HostIPFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1HostIP {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    ip: json['ip'],
-  };
-}
-
-export function IoK8sApiCoreV1HostIPToJSON(value?: IoK8sApiCoreV1HostIP | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    ip: value.ip,
-  };
-}

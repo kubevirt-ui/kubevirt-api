@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1beta2DeviceSelector,
-  IoK8sApiResourceV1beta2DeviceSelectorFromJSON,
-  IoK8sApiResourceV1beta2DeviceSelectorToJSON,
   IoK8sApiResourceV1beta2DeviceToleration,
-  IoK8sApiResourceV1beta2DeviceTolerationFromJSON,
-  IoK8sApiResourceV1beta2DeviceTolerationToJSON,
 } from './';
 
 /**
@@ -91,56 +86,4 @@ export interface IoK8sApiResourceV1beta2ExactDeviceRequest {
    * @memberof IoK8sApiResourceV1beta2ExactDeviceRequest
    */
   tolerations?: Array<IoK8sApiResourceV1beta2DeviceToleration>;
-}
-
-export function IoK8sApiResourceV1beta2ExactDeviceRequestFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta2ExactDeviceRequest {
-  return IoK8sApiResourceV1beta2ExactDeviceRequestFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta2ExactDeviceRequestFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta2ExactDeviceRequest {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    adminAccess: !exists(json, 'adminAccess') ? undefined : json['adminAccess'],
-    allocationMode: !exists(json, 'allocationMode') ? undefined : json['allocationMode'],
-    count: !exists(json, 'count') ? undefined : json['count'],
-    deviceClassName: json['deviceClassName'],
-    selectors: !exists(json, 'selectors')
-      ? undefined
-      : (json['selectors'] as Array<any>).map(IoK8sApiResourceV1beta2DeviceSelectorFromJSON),
-    tolerations: !exists(json, 'tolerations')
-      ? undefined
-      : (json['tolerations'] as Array<any>).map(IoK8sApiResourceV1beta2DeviceTolerationFromJSON),
-  };
-}
-
-export function IoK8sApiResourceV1beta2ExactDeviceRequestToJSON(
-  value?: IoK8sApiResourceV1beta2ExactDeviceRequest | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    adminAccess: value.adminAccess,
-    allocationMode: value.allocationMode,
-    count: value.count,
-    deviceClassName: value.deviceClassName,
-    selectors:
-      value.selectors === undefined
-        ? undefined
-        : (value.selectors as Array<any>).map(IoK8sApiResourceV1beta2DeviceSelectorToJSON),
-    tolerations:
-      value.tolerations === undefined
-        ? undefined
-        : (value.tolerations as Array<any>).map(IoK8sApiResourceV1beta2DeviceTolerationToJSON),
-  };
 }

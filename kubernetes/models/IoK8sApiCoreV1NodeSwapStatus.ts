@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * NodeSwapStatus represents swap memory information.
  * @export
@@ -25,34 +24,4 @@ export interface IoK8sApiCoreV1NodeSwapStatus {
    * @memberof IoK8sApiCoreV1NodeSwapStatus
    */
   capacity?: number;
-}
-
-export function IoK8sApiCoreV1NodeSwapStatusFromJSON(json: any): IoK8sApiCoreV1NodeSwapStatus {
-  return IoK8sApiCoreV1NodeSwapStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NodeSwapStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NodeSwapStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    capacity: !exists(json, 'capacity') ? undefined : json['capacity'],
-  };
-}
-
-export function IoK8sApiCoreV1NodeSwapStatusToJSON(
-  value?: IoK8sApiCoreV1NodeSwapStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    capacity: value.capacity,
-  };
 }

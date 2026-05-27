@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirement,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirementToJSON,
 } from './';
 
 /**
@@ -37,47 +34,4 @@ export interface IoK8sApiAuthorizationV1LabelSelectorAttributes {
    * @memberof IoK8sApiAuthorizationV1LabelSelectorAttributes
    */
   requirements?: Array<IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirement>;
-}
-
-export function IoK8sApiAuthorizationV1LabelSelectorAttributesFromJSON(
-  json: any,
-): IoK8sApiAuthorizationV1LabelSelectorAttributes {
-  return IoK8sApiAuthorizationV1LabelSelectorAttributesFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthorizationV1LabelSelectorAttributesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthorizationV1LabelSelectorAttributes {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    rawSelector: !exists(json, 'rawSelector') ? undefined : json['rawSelector'],
-    requirements: !exists(json, 'requirements')
-      ? undefined
-      : (json['requirements'] as Array<any>).map(
-          IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirementFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiAuthorizationV1LabelSelectorAttributesToJSON(
-  value?: IoK8sApiAuthorizationV1LabelSelectorAttributes | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    rawSelector: value.rawSelector,
-    requirements:
-      value.requirements === undefined
-        ? undefined
-        : (value.requirements as Array<any>).map(
-            IoK8sApimachineryPkgApisMetaV1LabelSelectorRequirementToJSON,
-          ),
-  };
 }

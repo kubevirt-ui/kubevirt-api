@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * MigrateOptions may be provided on migrate request.
  * @export
@@ -44,46 +43,3 @@ export interface V1MigrateOptions {
      */
     kind?: string;
 }
-
-/**
- * Check if a given object implements the V1MigrateOptions interface.
- */
-export function instanceOfV1MigrateOptions(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1MigrateOptionsFromJSON(json: any): V1MigrateOptions {
-    return V1MigrateOptionsFromJSONTyped(json, false);
-}
-
-export function V1MigrateOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1MigrateOptions {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'addedNodeSelector': !exists(json, 'addedNodeSelector') ? undefined : json['addedNodeSelector'],
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'dryRun': !exists(json, 'dryRun') ? undefined : json['dryRun'],
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-    };
-}
-
-export function V1MigrateOptionsToJSON(value?: V1MigrateOptions | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'addedNodeSelector': value.addedNodeSelector,
-        'apiVersion': value.apiVersion,
-        'dryRun': value.dryRun,
-        'kind': value.kind,
-    };
-}
-

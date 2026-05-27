@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1Condition,
-  IoK8sApimachineryPkgApisMetaV1ConditionFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ConditionToJSON,
 } from './';
 
 /**
@@ -31,41 +28,4 @@ export interface IoK8sApiNetworkingV1beta1ServiceCIDRStatus {
    * @memberof IoK8sApiNetworkingV1beta1ServiceCIDRStatus
    */
   conditions?: Array<IoK8sApimachineryPkgApisMetaV1Condition>;
-}
-
-export function IoK8sApiNetworkingV1beta1ServiceCIDRStatusFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1beta1ServiceCIDRStatus {
-  return IoK8sApiNetworkingV1beta1ServiceCIDRStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1beta1ServiceCIDRStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1beta1ServiceCIDRStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(IoK8sApimachineryPkgApisMetaV1ConditionFromJSON),
-  };
-}
-
-export function IoK8sApiNetworkingV1beta1ServiceCIDRStatusToJSON(
-  value?: IoK8sApiNetworkingV1beta1ServiceCIDRStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApimachineryPkgApisMetaV1ConditionToJSON),
-  };
 }

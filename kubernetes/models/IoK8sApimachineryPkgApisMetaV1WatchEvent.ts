@@ -68,37 +68,3 @@ export interface IoK8sApimachineryPkgApisMetaV1WatchEvent {
    */
   type: string;
 }
-
-export function IoK8sApimachineryPkgApisMetaV1WatchEventFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1WatchEvent {
-  return IoK8sApimachineryPkgApisMetaV1WatchEventFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1WatchEventFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1WatchEvent {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    object: json['object'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1WatchEventToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1WatchEvent | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    object: value.object,
-    type: value.type,
-  };
-}

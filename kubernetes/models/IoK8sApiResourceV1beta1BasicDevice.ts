@@ -12,23 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import {
   IoK8sApiCoreV1NodeSelector,
-  IoK8sApiCoreV1NodeSelectorFromJSON,
-  IoK8sApiCoreV1NodeSelectorToJSON,
   IoK8sApiResourceV1beta1DeviceAttribute,
-  IoK8sApiResourceV1beta1DeviceAttributeFromJSON,
-  IoK8sApiResourceV1beta1DeviceAttributeToJSON,
   IoK8sApiResourceV1beta1DeviceCapacity,
-  IoK8sApiResourceV1beta1DeviceCapacityFromJSON,
-  IoK8sApiResourceV1beta1DeviceCapacityToJSON,
   IoK8sApiResourceV1beta1DeviceCounterConsumption,
-  IoK8sApiResourceV1beta1DeviceCounterConsumptionFromJSON,
-  IoK8sApiResourceV1beta1DeviceCounterConsumptionToJSON,
   IoK8sApiResourceV1beta1DeviceTaint,
-  IoK8sApiResourceV1beta1DeviceTaintFromJSON,
-  IoK8sApiResourceV1beta1DeviceTaintToJSON,
 } from './';
 
 /**
@@ -95,74 +84,4 @@ export interface IoK8sApiResourceV1beta1BasicDevice {
    * @memberof IoK8sApiResourceV1beta1BasicDevice
    */
   taints?: Array<IoK8sApiResourceV1beta1DeviceTaint>;
-}
-
-export function IoK8sApiResourceV1beta1BasicDeviceFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta1BasicDevice {
-  return IoK8sApiResourceV1beta1BasicDeviceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta1BasicDeviceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta1BasicDevice {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    allNodes: !exists(json, 'allNodes') ? undefined : json['allNodes'],
-    attributes: !exists(json, 'attributes')
-      ? undefined
-      : mapValues(json['attributes'], IoK8sApiResourceV1beta1DeviceAttributeFromJSON),
-    capacity: !exists(json, 'capacity')
-      ? undefined
-      : mapValues(json['capacity'], IoK8sApiResourceV1beta1DeviceCapacityFromJSON),
-    consumesCounters: !exists(json, 'consumesCounters')
-      ? undefined
-      : (json['consumesCounters'] as Array<any>).map(
-          IoK8sApiResourceV1beta1DeviceCounterConsumptionFromJSON,
-        ),
-    nodeName: !exists(json, 'nodeName') ? undefined : json['nodeName'],
-    nodeSelector: !exists(json, 'nodeSelector')
-      ? undefined
-      : IoK8sApiCoreV1NodeSelectorFromJSON(json['nodeSelector']),
-    taints: !exists(json, 'taints')
-      ? undefined
-      : (json['taints'] as Array<any>).map(IoK8sApiResourceV1beta1DeviceTaintFromJSON),
-  };
-}
-
-export function IoK8sApiResourceV1beta1BasicDeviceToJSON(
-  value?: IoK8sApiResourceV1beta1BasicDevice | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    allNodes: value.allNodes,
-    attributes:
-      value.attributes === undefined
-        ? undefined
-        : mapValues(value.attributes, IoK8sApiResourceV1beta1DeviceAttributeToJSON),
-    capacity:
-      value.capacity === undefined
-        ? undefined
-        : mapValues(value.capacity, IoK8sApiResourceV1beta1DeviceCapacityToJSON),
-    consumesCounters:
-      value.consumesCounters === undefined
-        ? undefined
-        : (value.consumesCounters as Array<any>).map(
-            IoK8sApiResourceV1beta1DeviceCounterConsumptionToJSON,
-          ),
-    nodeName: value.nodeName,
-    nodeSelector: IoK8sApiCoreV1NodeSelectorToJSON(value.nodeSelector),
-    taints:
-      value.taints === undefined
-        ? undefined
-        : (value.taints as Array<any>).map(IoK8sApiResourceV1beta1DeviceTaintToJSON),
-  };
 }

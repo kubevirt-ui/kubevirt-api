@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBinding,
-  IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingFromJSON,
-  IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -52,51 +47,4 @@ export interface IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBinding
    * @memberof IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingListFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingList {
-  return IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingListFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(
-      IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingFromJSON,
-    ),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingListToJSON(
-  value?: IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(
-      IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyBindingToJSON,
-    ),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

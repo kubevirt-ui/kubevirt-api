@@ -31,35 +31,3 @@ export interface IoK8sApiCoreV1AttachedVolume {
    */
   name: string;
 }
-
-export function IoK8sApiCoreV1AttachedVolumeFromJSON(json: any): IoK8sApiCoreV1AttachedVolume {
-  return IoK8sApiCoreV1AttachedVolumeFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1AttachedVolumeFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1AttachedVolume {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    devicePath: json['devicePath'],
-    name: json['name'],
-  };
-}
-
-export function IoK8sApiCoreV1AttachedVolumeToJSON(
-  value?: IoK8sApiCoreV1AttachedVolume | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    devicePath: value.devicePath,
-    name: value.name,
-  };
-}

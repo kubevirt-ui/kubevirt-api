@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -26,40 +25,3 @@ export interface V1HypervTimer {
      */
     present?: boolean;
 }
-
-/**
- * Check if a given object implements the V1HypervTimer interface.
- */
-export function instanceOfV1HypervTimer(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1HypervTimerFromJSON(json: any): V1HypervTimer {
-    return V1HypervTimerFromJSONTyped(json, false);
-}
-
-export function V1HypervTimerFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1HypervTimer {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'present': !exists(json, 'present') ? undefined : json['present'],
-    };
-}
-
-export function V1HypervTimerToJSON(value?: V1HypervTimer | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'present': value.present,
-    };
-}
-

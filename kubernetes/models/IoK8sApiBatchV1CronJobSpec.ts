@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiBatchV1JobTemplateSpec,
-  IoK8sApiBatchV1JobTemplateSpecFromJSON,
-  IoK8sApiBatchV1JobTemplateSpecToJSON,
 } from './';
 
 /**
@@ -75,52 +72,4 @@ export interface IoK8sApiBatchV1CronJobSpec {
    * @memberof IoK8sApiBatchV1CronJobSpec
    */
   timeZone?: string;
-}
-
-export function IoK8sApiBatchV1CronJobSpecFromJSON(json: any): IoK8sApiBatchV1CronJobSpec {
-  return IoK8sApiBatchV1CronJobSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiBatchV1CronJobSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiBatchV1CronJobSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    concurrencyPolicy: !exists(json, 'concurrencyPolicy') ? undefined : json['concurrencyPolicy'],
-    failedJobsHistoryLimit: !exists(json, 'failedJobsHistoryLimit')
-      ? undefined
-      : json['failedJobsHistoryLimit'],
-    jobTemplate: IoK8sApiBatchV1JobTemplateSpecFromJSON(json['jobTemplate']),
-    schedule: json['schedule'],
-    startingDeadlineSeconds: !exists(json, 'startingDeadlineSeconds')
-      ? undefined
-      : json['startingDeadlineSeconds'],
-    successfulJobsHistoryLimit: !exists(json, 'successfulJobsHistoryLimit')
-      ? undefined
-      : json['successfulJobsHistoryLimit'],
-    suspend: !exists(json, 'suspend') ? undefined : json['suspend'],
-    timeZone: !exists(json, 'timeZone') ? undefined : json['timeZone'],
-  };
-}
-
-export function IoK8sApiBatchV1CronJobSpecToJSON(value?: IoK8sApiBatchV1CronJobSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    concurrencyPolicy: value.concurrencyPolicy,
-    failedJobsHistoryLimit: value.failedJobsHistoryLimit,
-    jobTemplate: IoK8sApiBatchV1JobTemplateSpecToJSON(value.jobTemplate),
-    schedule: value.schedule,
-    startingDeadlineSeconds: value.startingDeadlineSeconds,
-    successfulJobsHistoryLimit: value.successfulJobsHistoryLimit,
-    suspend: value.suspend,
-    timeZone: value.timeZone,
-  };
 }

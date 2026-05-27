@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * NodeRuntimeHandlerFeatures is a set of features implemented by the runtime handler.
  * @export
@@ -31,40 +30,4 @@ export interface IoK8sApiCoreV1NodeRuntimeHandlerFeatures {
    * @memberof IoK8sApiCoreV1NodeRuntimeHandlerFeatures
    */
   userNamespaces?: boolean;
-}
-
-export function IoK8sApiCoreV1NodeRuntimeHandlerFeaturesFromJSON(
-  json: any,
-): IoK8sApiCoreV1NodeRuntimeHandlerFeatures {
-  return IoK8sApiCoreV1NodeRuntimeHandlerFeaturesFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NodeRuntimeHandlerFeaturesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NodeRuntimeHandlerFeatures {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    recursiveReadOnlyMounts: !exists(json, 'recursiveReadOnlyMounts')
-      ? undefined
-      : json['recursiveReadOnlyMounts'],
-    userNamespaces: !exists(json, 'userNamespaces') ? undefined : json['userNamespaces'],
-  };
-}
-
-export function IoK8sApiCoreV1NodeRuntimeHandlerFeaturesToJSON(
-  value?: IoK8sApiCoreV1NodeRuntimeHandlerFeatures | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    recursiveReadOnlyMounts: value.recursiveReadOnlyMounts,
-    userNamespaces: value.userNamespaces,
-  };
 }

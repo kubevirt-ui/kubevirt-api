@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1NamespaceSpec,
-  IoK8sApiCoreV1NamespaceSpecFromJSON,
-  IoK8sApiCoreV1NamespaceSpecToJSON,
   IoK8sApiCoreV1NamespaceStatus,
-  IoK8sApiCoreV1NamespaceStatusFromJSON,
-  IoK8sApiCoreV1NamespaceStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,44 +54,4 @@ export interface IoK8sApiCoreV1Namespace {
    * @memberof IoK8sApiCoreV1Namespace
    */
   status?: IoK8sApiCoreV1NamespaceStatus;
-}
-
-export function IoK8sApiCoreV1NamespaceFromJSON(json: any): IoK8sApiCoreV1Namespace {
-  return IoK8sApiCoreV1NamespaceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NamespaceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1Namespace {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec') ? undefined : IoK8sApiCoreV1NamespaceSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiCoreV1NamespaceStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiCoreV1NamespaceToJSON(value?: IoK8sApiCoreV1Namespace | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiCoreV1NamespaceSpecToJSON(value.spec),
-    status: IoK8sApiCoreV1NamespaceStatusToJSON(value.status),
-  };
 }

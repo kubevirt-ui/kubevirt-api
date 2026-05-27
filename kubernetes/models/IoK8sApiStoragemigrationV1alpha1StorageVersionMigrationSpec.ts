@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiStoragemigrationV1alpha1GroupVersionResource,
-  IoK8sApiStoragemigrationV1alpha1GroupVersionResourceFromJSON,
-  IoK8sApiStoragemigrationV1alpha1GroupVersionResourceToJSON,
 } from './';
 
 /**
@@ -37,38 +34,4 @@ export interface IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationSpec {
    * @memberof IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationSpec
    */
   resource: IoK8sApiStoragemigrationV1alpha1GroupVersionResource;
-}
-
-export function IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationSpecFromJSON(
-  json: any,
-): IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationSpec {
-  return IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    continueToken: !exists(json, 'continueToken') ? undefined : json['continueToken'],
-    resource: IoK8sApiStoragemigrationV1alpha1GroupVersionResourceFromJSON(json['resource']),
-  };
-}
-
-export function IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationSpecToJSON(
-  value?: IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    continueToken: value.continueToken,
-    resource: IoK8sApiStoragemigrationV1alpha1GroupVersionResourceToJSON(value.resource),
-  };
 }

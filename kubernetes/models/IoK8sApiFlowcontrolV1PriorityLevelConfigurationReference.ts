@@ -25,35 +25,3 @@ export interface IoK8sApiFlowcontrolV1PriorityLevelConfigurationReference {
    */
   name: string;
 }
-
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationReferenceFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1PriorityLevelConfigurationReference {
-  return IoK8sApiFlowcontrolV1PriorityLevelConfigurationReferenceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1PriorityLevelConfigurationReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-  };
-}
-
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationReferenceToJSON(
-  value?: IoK8sApiFlowcontrolV1PriorityLevelConfigurationReference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-  };
-}

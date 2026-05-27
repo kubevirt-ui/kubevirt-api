@@ -25,31 +25,3 @@ export interface IoK8sApiCoreV1PodIP {
    */
   ip: string;
 }
-
-export function IoK8sApiCoreV1PodIPFromJSON(json: any): IoK8sApiCoreV1PodIP {
-  return IoK8sApiCoreV1PodIPFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodIPFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodIP {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    ip: json['ip'],
-  };
-}
-
-export function IoK8sApiCoreV1PodIPToJSON(value?: IoK8sApiCoreV1PodIP | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    ip: value.ip,
-  };
-}

@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiFlowcontrolV1FlowDistinguisherMethod,
-  IoK8sApiFlowcontrolV1FlowDistinguisherMethodFromJSON,
-  IoK8sApiFlowcontrolV1FlowDistinguisherMethodToJSON,
   IoK8sApiFlowcontrolV1PolicyRulesWithSubjects,
-  IoK8sApiFlowcontrolV1PolicyRulesWithSubjectsFromJSON,
-  IoK8sApiFlowcontrolV1PolicyRulesWithSubjectsToJSON,
   IoK8sApiFlowcontrolV1PriorityLevelConfigurationReference,
-  IoK8sApiFlowcontrolV1PriorityLevelConfigurationReferenceFromJSON,
-  IoK8sApiFlowcontrolV1PriorityLevelConfigurationReferenceToJSON,
 } from './';
 
 /**
@@ -55,57 +48,4 @@ export interface IoK8sApiFlowcontrolV1FlowSchemaSpec {
    * @memberof IoK8sApiFlowcontrolV1FlowSchemaSpec
    */
   rules?: Array<IoK8sApiFlowcontrolV1PolicyRulesWithSubjects>;
-}
-
-export function IoK8sApiFlowcontrolV1FlowSchemaSpecFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1FlowSchemaSpec {
-  return IoK8sApiFlowcontrolV1FlowSchemaSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1FlowSchemaSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1FlowSchemaSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    distinguisherMethod: !exists(json, 'distinguisherMethod')
-      ? undefined
-      : IoK8sApiFlowcontrolV1FlowDistinguisherMethodFromJSON(json['distinguisherMethod']),
-    matchingPrecedence: !exists(json, 'matchingPrecedence')
-      ? undefined
-      : json['matchingPrecedence'],
-    priorityLevelConfiguration: IoK8sApiFlowcontrolV1PriorityLevelConfigurationReferenceFromJSON(
-      json['priorityLevelConfiguration'],
-    ),
-    rules: !exists(json, 'rules')
-      ? undefined
-      : (json['rules'] as Array<any>).map(IoK8sApiFlowcontrolV1PolicyRulesWithSubjectsFromJSON),
-  };
-}
-
-export function IoK8sApiFlowcontrolV1FlowSchemaSpecToJSON(
-  value?: IoK8sApiFlowcontrolV1FlowSchemaSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    distinguisherMethod: IoK8sApiFlowcontrolV1FlowDistinguisherMethodToJSON(
-      value.distinguisherMethod,
-    ),
-    matchingPrecedence: value.matchingPrecedence,
-    priorityLevelConfiguration: IoK8sApiFlowcontrolV1PriorityLevelConfigurationReferenceToJSON(
-      value.priorityLevelConfiguration,
-    ),
-    rules:
-      value.rules === undefined
-        ? undefined
-        : (value.rules as Array<any>).map(IoK8sApiFlowcontrolV1PolicyRulesWithSubjectsToJSON),
-  };
 }

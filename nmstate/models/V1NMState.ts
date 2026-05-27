@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import type { V1NMStateSpec } from './V1NMStateSpec';
-import { V1NMStateSpecFromJSON, V1NMStateSpecToJSON } from './V1NMStateSpec';
 import type { V1NMStateStatus } from './V1NMStateStatus';
-import { V1NMStateStatusFromJSON, V1NMStateStatusToJSON } from './V1NMStateStatus';
 
 /**
  * NMState is the Schema for the nmstates API
@@ -61,46 +58,4 @@ export interface V1NMState {
    * @memberof V1NMState
    */
   status?: V1NMStateStatus;
-}
-
-/**
- * Check if a given object implements the V1NMState interface.
- */
-export function instanceOfV1NMState(_value: object): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1NMStateFromJSON(json: any): V1NMState {
-  return V1NMStateFromJSONTyped(json, false);
-}
-
-export function V1NMStateFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1NMState {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata') ? undefined : json['metadata'],
-    spec: !exists(json, 'spec') ? undefined : V1NMStateSpecFromJSON(json['spec']),
-    status: !exists(json, 'status') ? undefined : V1NMStateStatusFromJSON(json['status']),
-  };
-}
-
-export function V1NMStateToJSON(value?: V1NMState | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: value.metadata,
-    spec: V1NMStateSpecToJSON(value.spec),
-    status: V1NMStateStatusToJSON(value.status),
-  };
 }

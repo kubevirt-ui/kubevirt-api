@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * Represents a disk created on the cluster level
  * @export
@@ -80,48 +79,3 @@ export interface V1HostDisk {
      */
     type: string;
 }
-
-/**
- * Check if a given object implements the V1HostDisk interface.
- */
-export function instanceOfV1HostDisk(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "path" in value;
-    isInstance = isInstance && "type" in value;
-
-    return isInstance;
-}
-
-export function V1HostDiskFromJSON(json: any): V1HostDisk {
-    return V1HostDiskFromJSONTyped(json, false);
-}
-
-export function V1HostDiskFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1HostDisk {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'capacity': !exists(json, 'capacity') ? undefined : json['capacity'],
-        'path': json['path'],
-        'shared': !exists(json, 'shared') ? undefined : json['shared'],
-        'type': json['type'],
-    };
-}
-
-export function V1HostDiskToJSON(value?: V1HostDisk | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'capacity': value.capacity,
-        'path': value.path,
-        'shared': value.shared,
-        'type': value.type,
-    };
-}
-

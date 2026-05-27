@@ -12,8 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1ResourceClaim, V1ResourceClaimFromJSON, V1ResourceClaimToJSON } from './';
+import { V1ResourceClaim } from './';
 
 /**
  * ResourceRequirements describes the compute resource requirements.
@@ -43,41 +42,4 @@ export interface V1ResourceRequirements {
    * @memberof V1ResourceRequirements
    */
   requests?: { [key: string]: string };
-}
-
-export function V1ResourceRequirementsFromJSON(json: any): V1ResourceRequirements {
-  return V1ResourceRequirementsFromJSONTyped(json, false);
-}
-
-export function V1ResourceRequirementsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1ResourceRequirements {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    claims: !exists(json, 'claims')
-      ? undefined
-      : (json['claims'] as Array<any>).map(V1ResourceClaimFromJSON),
-    limits: !exists(json, 'limits') ? undefined : json['limits'],
-    requests: !exists(json, 'requests') ? undefined : json['requests'],
-  };
-}
-
-export function V1ResourceRequirementsToJSON(value?: V1ResourceRequirements | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    claims:
-      value.claims === undefined
-        ? undefined
-        : (value.claims as Array<any>).map(V1ResourceClaimToJSON),
-    limits: value.limits,
-    requests: value.requests,
-  };
 }

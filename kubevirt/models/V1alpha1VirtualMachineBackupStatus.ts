@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import type { K8sIoApimachineryPkgApisMetaV1Condition } from './K8sIoApimachineryPkgApisMetaV1Condition';
 import type { V1alpha1BackupVolumeInfo } from './V1alpha1BackupVolumeInfo';
-import {
-    V1alpha1BackupVolumeInfoFromJSON,
-    V1alpha1BackupVolumeInfoFromJSONTyped,
-    V1alpha1BackupVolumeInfoToJSON,
-} from './V1alpha1BackupVolumeInfo';
-import type { V1alpha1Condition } from './V1alpha1Condition';
-import {
-    V1alpha1ConditionFromJSON,
-    V1alpha1ConditionFromJSONTyped,
-    V1alpha1ConditionToJSON,
-} from './V1alpha1Condition';
 
 /**
  * VirtualMachineBackupStatus is the status for a VirtualMachineBackup resource
@@ -40,10 +29,10 @@ export interface V1alpha1VirtualMachineBackupStatus {
     checkpointName?: string;
     /**
      * 
-     * @type {Array<V1alpha1Condition>}
+     * @type {Array<K8sIoApimachineryPkgApisMetaV1Condition>}
      * @memberof V1alpha1VirtualMachineBackupStatus
      */
-    conditions?: Array<V1alpha1Condition>;
+    conditions?: Array<K8sIoApimachineryPkgApisMetaV1Condition>;
     /**
      * EndpointCert is the raw CACert that is to be used when connecting to an exported backup endpoint in pull mode.
      * @type {string}
@@ -63,48 +52,3 @@ export interface V1alpha1VirtualMachineBackupStatus {
      */
     type?: string;
 }
-
-/**
- * Check if a given object implements the V1alpha1VirtualMachineBackupStatus interface.
- */
-export function instanceOfV1alpha1VirtualMachineBackupStatus(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1alpha1VirtualMachineBackupStatusFromJSON(json: any): V1alpha1VirtualMachineBackupStatus {
-    return V1alpha1VirtualMachineBackupStatusFromJSONTyped(json, false);
-}
-
-export function V1alpha1VirtualMachineBackupStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachineBackupStatus {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'checkpointName': !exists(json, 'checkpointName') ? undefined : json['checkpointName'],
-        'conditions': !exists(json, 'conditions') ? undefined : ((json['conditions'] as Array<any>).map(V1alpha1ConditionFromJSON)),
-        'endpointCert': !exists(json, 'endpointCert') ? undefined : json['endpointCert'],
-        'includedVolumes': !exists(json, 'includedVolumes') ? undefined : ((json['includedVolumes'] as Array<any>).map(V1alpha1BackupVolumeInfoFromJSON)),
-        'type': !exists(json, 'type') ? undefined : json['type'],
-    };
-}
-
-export function V1alpha1VirtualMachineBackupStatusToJSON(value?: V1alpha1VirtualMachineBackupStatus | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'checkpointName': value.checkpointName,
-        'conditions': value.conditions === undefined ? undefined : ((value.conditions as Array<any>).map(V1alpha1ConditionToJSON)),
-        'endpointCert': value.endpointCert,
-        'includedVolumes': value.includedVolumes === undefined ? undefined : ((value.includedVolumes as Array<any>).map(V1alpha1BackupVolumeInfoToJSON)),
-        'type': value.type,
-    };
-}
-

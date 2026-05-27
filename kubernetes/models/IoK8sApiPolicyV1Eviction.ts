@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1DeleteOptions,
-  IoK8sApimachineryPkgApisMetaV1DeleteOptionsFromJSON,
-  IoK8sApimachineryPkgApisMetaV1DeleteOptionsToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -52,42 +47,4 @@ export interface IoK8sApiPolicyV1Eviction {
    * @memberof IoK8sApiPolicyV1Eviction
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ObjectMeta;
-}
-
-export function IoK8sApiPolicyV1EvictionFromJSON(json: any): IoK8sApiPolicyV1Eviction {
-  return IoK8sApiPolicyV1EvictionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiPolicyV1EvictionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiPolicyV1Eviction {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    deleteOptions: !exists(json, 'deleteOptions')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1DeleteOptionsFromJSON(json['deleteOptions']),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiPolicyV1EvictionToJSON(value?: IoK8sApiPolicyV1Eviction | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    deleteOptions: IoK8sApimachineryPkgApisMetaV1DeleteOptionsToJSON(value.deleteOptions),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-  };
 }

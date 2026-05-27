@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -150,52 +145,4 @@ export interface IoK8sApiStorageV1CSIStorageCapacity {
    * @memberof IoK8sApiStorageV1CSIStorageCapacity
    */
   storageClassName: string;
-}
-
-export function IoK8sApiStorageV1CSIStorageCapacityFromJSON(
-  json: any,
-): IoK8sApiStorageV1CSIStorageCapacity {
-  return IoK8sApiStorageV1CSIStorageCapacityFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStorageV1CSIStorageCapacityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStorageV1CSIStorageCapacity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    capacity: !exists(json, 'capacity') ? undefined : json['capacity'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    maximumVolumeSize: !exists(json, 'maximumVolumeSize') ? undefined : json['maximumVolumeSize'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    nodeTopology: !exists(json, 'nodeTopology')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['nodeTopology']),
-    storageClassName: json['storageClassName'],
-  };
-}
-
-export function IoK8sApiStorageV1CSIStorageCapacityToJSON(
-  value?: IoK8sApiStorageV1CSIStorageCapacity | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    capacity: value.capacity,
-    kind: value.kind,
-    maximumVolumeSize: value.maximumVolumeSize,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    nodeTopology: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.nodeTopology),
-    storageClassName: value.storageClassName,
-  };
 }

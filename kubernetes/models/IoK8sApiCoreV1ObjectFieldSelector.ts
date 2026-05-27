@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ObjectFieldSelector selects an APIVersioned field of an object.
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiCoreV1ObjectFieldSelector {
    * @memberof IoK8sApiCoreV1ObjectFieldSelector
    */
   fieldPath: string;
-}
-
-export function IoK8sApiCoreV1ObjectFieldSelectorFromJSON(
-  json: any,
-): IoK8sApiCoreV1ObjectFieldSelector {
-  return IoK8sApiCoreV1ObjectFieldSelectorFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ObjectFieldSelectorFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ObjectFieldSelector {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    fieldPath: json['fieldPath'],
-  };
-}
-
-export function IoK8sApiCoreV1ObjectFieldSelectorToJSON(
-  value?: IoK8sApiCoreV1ObjectFieldSelector | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    fieldPath: value.fieldPath,
-  };
 }

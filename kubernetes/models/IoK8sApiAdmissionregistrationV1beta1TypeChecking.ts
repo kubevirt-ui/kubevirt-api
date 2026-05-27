@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1beta1ExpressionWarning,
-  IoK8sApiAdmissionregistrationV1beta1ExpressionWarningFromJSON,
-  IoK8sApiAdmissionregistrationV1beta1ExpressionWarningToJSON,
 } from './';
 
 /**
@@ -31,45 +28,4 @@ export interface IoK8sApiAdmissionregistrationV1beta1TypeChecking {
    * @memberof IoK8sApiAdmissionregistrationV1beta1TypeChecking
    */
   expressionWarnings?: Array<IoK8sApiAdmissionregistrationV1beta1ExpressionWarning>;
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1TypeCheckingFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1beta1TypeChecking {
-  return IoK8sApiAdmissionregistrationV1beta1TypeCheckingFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1TypeCheckingFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1beta1TypeChecking {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    expressionWarnings: !exists(json, 'expressionWarnings')
-      ? undefined
-      : (json['expressionWarnings'] as Array<any>).map(
-          IoK8sApiAdmissionregistrationV1beta1ExpressionWarningFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1TypeCheckingToJSON(
-  value?: IoK8sApiAdmissionregistrationV1beta1TypeChecking | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    expressionWarnings:
-      value.expressionWarnings === undefined
-        ? undefined
-        : (value.expressionWarnings as Array<any>).map(
-            IoK8sApiAdmissionregistrationV1beta1ExpressionWarningToJSON,
-          ),
-  };
 }

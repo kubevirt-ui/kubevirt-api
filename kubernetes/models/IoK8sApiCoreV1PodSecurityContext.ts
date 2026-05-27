@@ -12,23 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1AppArmorProfile,
-  IoK8sApiCoreV1AppArmorProfileFromJSON,
-  IoK8sApiCoreV1AppArmorProfileToJSON,
   IoK8sApiCoreV1SELinuxOptions,
-  IoK8sApiCoreV1SELinuxOptionsFromJSON,
-  IoK8sApiCoreV1SELinuxOptionsToJSON,
   IoK8sApiCoreV1SeccompProfile,
-  IoK8sApiCoreV1SeccompProfileFromJSON,
-  IoK8sApiCoreV1SeccompProfileToJSON,
   IoK8sApiCoreV1Sysctl,
-  IoK8sApiCoreV1SysctlFromJSON,
-  IoK8sApiCoreV1SysctlToJSON,
   IoK8sApiCoreV1WindowsSecurityContextOptions,
-  IoK8sApiCoreV1WindowsSecurityContextOptionsFromJSON,
-  IoK8sApiCoreV1WindowsSecurityContextOptionsToJSON,
 } from './';
 
 /**
@@ -129,81 +118,4 @@ export interface IoK8sApiCoreV1PodSecurityContext {
    * @memberof IoK8sApiCoreV1PodSecurityContext
    */
   windowsOptions?: IoK8sApiCoreV1WindowsSecurityContextOptions;
-}
-
-export function IoK8sApiCoreV1PodSecurityContextFromJSON(
-  json: any,
-): IoK8sApiCoreV1PodSecurityContext {
-  return IoK8sApiCoreV1PodSecurityContextFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodSecurityContextFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodSecurityContext {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    appArmorProfile: !exists(json, 'appArmorProfile')
-      ? undefined
-      : IoK8sApiCoreV1AppArmorProfileFromJSON(json['appArmorProfile']),
-    fsGroup: !exists(json, 'fsGroup') ? undefined : json['fsGroup'],
-    fsGroupChangePolicy: !exists(json, 'fsGroupChangePolicy')
-      ? undefined
-      : json['fsGroupChangePolicy'],
-    runAsGroup: !exists(json, 'runAsGroup') ? undefined : json['runAsGroup'],
-    runAsNonRoot: !exists(json, 'runAsNonRoot') ? undefined : json['runAsNonRoot'],
-    runAsUser: !exists(json, 'runAsUser') ? undefined : json['runAsUser'],
-    seLinuxChangePolicy: !exists(json, 'seLinuxChangePolicy')
-      ? undefined
-      : json['seLinuxChangePolicy'],
-    seLinuxOptions: !exists(json, 'seLinuxOptions')
-      ? undefined
-      : IoK8sApiCoreV1SELinuxOptionsFromJSON(json['seLinuxOptions']),
-    seccompProfile: !exists(json, 'seccompProfile')
-      ? undefined
-      : IoK8sApiCoreV1SeccompProfileFromJSON(json['seccompProfile']),
-    supplementalGroups: !exists(json, 'supplementalGroups')
-      ? undefined
-      : json['supplementalGroups'],
-    supplementalGroupsPolicy: !exists(json, 'supplementalGroupsPolicy')
-      ? undefined
-      : json['supplementalGroupsPolicy'],
-    sysctls: !exists(json, 'sysctls')
-      ? undefined
-      : (json['sysctls'] as Array<any>).map(IoK8sApiCoreV1SysctlFromJSON),
-    windowsOptions: !exists(json, 'windowsOptions')
-      ? undefined
-      : IoK8sApiCoreV1WindowsSecurityContextOptionsFromJSON(json['windowsOptions']),
-  };
-}
-
-export function IoK8sApiCoreV1PodSecurityContextToJSON(
-  value?: IoK8sApiCoreV1PodSecurityContext | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    appArmorProfile: IoK8sApiCoreV1AppArmorProfileToJSON(value.appArmorProfile),
-    fsGroup: value.fsGroup,
-    fsGroupChangePolicy: value.fsGroupChangePolicy,
-    runAsGroup: value.runAsGroup,
-    runAsNonRoot: value.runAsNonRoot,
-    runAsUser: value.runAsUser,
-    seLinuxChangePolicy: value.seLinuxChangePolicy,
-    seLinuxOptions: IoK8sApiCoreV1SELinuxOptionsToJSON(value.seLinuxOptions),
-    seccompProfile: IoK8sApiCoreV1SeccompProfileToJSON(value.seccompProfile),
-    supplementalGroups: value.supplementalGroups,
-    supplementalGroupsPolicy: value.supplementalGroupsPolicy,
-    sysctls:
-      value.sysctls === undefined
-        ? undefined
-        : (value.sysctls as Array<any>).map(IoK8sApiCoreV1SysctlToJSON),
-    windowsOptions: IoK8sApiCoreV1WindowsSecurityContextOptionsToJSON(value.windowsOptions),
-  };
 }

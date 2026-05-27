@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiNetworkingV1beta1ServiceCIDR,
-  IoK8sApiNetworkingV1beta1ServiceCIDRFromJSON,
-  IoK8sApiNetworkingV1beta1ServiceCIDRToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -52,44 +47,4 @@ export interface IoK8sApiNetworkingV1beta1ServiceCIDRList {
    * @memberof IoK8sApiNetworkingV1beta1ServiceCIDRList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiNetworkingV1beta1ServiceCIDRListFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1beta1ServiceCIDRList {
-  return IoK8sApiNetworkingV1beta1ServiceCIDRListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1beta1ServiceCIDRListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1beta1ServiceCIDRList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(IoK8sApiNetworkingV1beta1ServiceCIDRFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiNetworkingV1beta1ServiceCIDRListToJSON(
-  value?: IoK8sApiNetworkingV1beta1ServiceCIDRList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(IoK8sApiNetworkingV1beta1ServiceCIDRToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

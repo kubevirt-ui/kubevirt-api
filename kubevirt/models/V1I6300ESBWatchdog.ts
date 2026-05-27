@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * i6300esb watchdog device.
  * @export
@@ -26,40 +25,3 @@ export interface V1I6300ESBWatchdog {
      */
     action?: string;
 }
-
-/**
- * Check if a given object implements the V1I6300ESBWatchdog interface.
- */
-export function instanceOfV1I6300ESBWatchdog(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1I6300ESBWatchdogFromJSON(json: any): V1I6300ESBWatchdog {
-    return V1I6300ESBWatchdogFromJSONTyped(json, false);
-}
-
-export function V1I6300ESBWatchdogFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1I6300ESBWatchdog {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'action': !exists(json, 'action') ? undefined : json['action'],
-    };
-}
-
-export function V1I6300ESBWatchdogToJSON(value?: V1I6300ESBWatchdog | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'action': value.action,
-    };
-}
-

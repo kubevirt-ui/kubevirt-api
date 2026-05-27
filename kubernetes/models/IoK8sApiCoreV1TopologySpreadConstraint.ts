@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -84,54 +81,4 @@ export interface IoK8sApiCoreV1TopologySpreadConstraint {
    * @memberof IoK8sApiCoreV1TopologySpreadConstraint
    */
   whenUnsatisfiable: string;
-}
-
-export function IoK8sApiCoreV1TopologySpreadConstraintFromJSON(
-  json: any,
-): IoK8sApiCoreV1TopologySpreadConstraint {
-  return IoK8sApiCoreV1TopologySpreadConstraintFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1TopologySpreadConstraintFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1TopologySpreadConstraint {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    labelSelector: !exists(json, 'labelSelector')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['labelSelector']),
-    matchLabelKeys: !exists(json, 'matchLabelKeys') ? undefined : json['matchLabelKeys'],
-    maxSkew: json['maxSkew'],
-    minDomains: !exists(json, 'minDomains') ? undefined : json['minDomains'],
-    nodeAffinityPolicy: !exists(json, 'nodeAffinityPolicy')
-      ? undefined
-      : json['nodeAffinityPolicy'],
-    nodeTaintsPolicy: !exists(json, 'nodeTaintsPolicy') ? undefined : json['nodeTaintsPolicy'],
-    topologyKey: json['topologyKey'],
-    whenUnsatisfiable: json['whenUnsatisfiable'],
-  };
-}
-
-export function IoK8sApiCoreV1TopologySpreadConstraintToJSON(
-  value?: IoK8sApiCoreV1TopologySpreadConstraint | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    labelSelector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.labelSelector),
-    matchLabelKeys: value.matchLabelKeys,
-    maxSkew: value.maxSkew,
-    minDomains: value.minDomains,
-    nodeAffinityPolicy: value.nodeAffinityPolicy,
-    nodeTaintsPolicy: value.nodeTaintsPolicy,
-    topologyKey: value.topologyKey,
-    whenUnsatisfiable: value.whenUnsatisfiable,
-  };
 }

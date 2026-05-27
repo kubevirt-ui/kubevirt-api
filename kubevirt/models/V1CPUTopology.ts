@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * CPUTopology allows specifying the amount of cores, sockets and threads.
  * @export
@@ -38,44 +37,3 @@ export interface V1CPUTopology {
      */
     threads?: number;
 }
-
-/**
- * Check if a given object implements the V1CPUTopology interface.
- */
-export function instanceOfV1CPUTopology(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1CPUTopologyFromJSON(json: any): V1CPUTopology {
-    return V1CPUTopologyFromJSONTyped(json, false);
-}
-
-export function V1CPUTopologyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1CPUTopology {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'cores': !exists(json, 'cores') ? undefined : json['cores'],
-        'sockets': !exists(json, 'sockets') ? undefined : json['sockets'],
-        'threads': !exists(json, 'threads') ? undefined : json['threads'],
-    };
-}
-
-export function V1CPUTopologyToJSON(value?: V1CPUTopology | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'cores': value.cores,
-        'sockets': value.sockets,
-        'threads': value.threads,
-    };
-}
-

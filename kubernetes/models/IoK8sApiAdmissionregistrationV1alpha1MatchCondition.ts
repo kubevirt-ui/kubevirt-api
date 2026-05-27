@@ -41,37 +41,3 @@ export interface IoK8sApiAdmissionregistrationV1alpha1MatchCondition {
    */
   name: string;
 }
-
-export function IoK8sApiAdmissionregistrationV1alpha1MatchConditionFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1alpha1MatchCondition {
-  return IoK8sApiAdmissionregistrationV1alpha1MatchConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1MatchConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1alpha1MatchCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    expression: json['expression'],
-    name: json['name'],
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1MatchConditionToJSON(
-  value?: IoK8sApiAdmissionregistrationV1alpha1MatchCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    expression: value.expression,
-    name: value.name,
-  };
-}

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * QGSConfiguration holds QGS configuration
  * @export
@@ -32,42 +31,3 @@ export interface V1TDXAttestationConfiguration {
      */
     qgsSocketPath?: string;
 }
-
-/**
- * Check if a given object implements the V1TDXAttestationConfiguration interface.
- */
-export function instanceOfV1TDXAttestationConfiguration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1TDXAttestationConfigurationFromJSON(json: any): V1TDXAttestationConfiguration {
-    return V1TDXAttestationConfigurationFromJSONTyped(json, false);
-}
-
-export function V1TDXAttestationConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1TDXAttestationConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'enforced': !exists(json, 'enforced') ? undefined : json['enforced'],
-        'qgsSocketPath': !exists(json, 'qgsSocketPath') ? undefined : json['qgsSocketPath'],
-    };
-}
-
-export function V1TDXAttestationConfigurationToJSON(value?: V1TDXAttestationConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'enforced': value.enforced,
-        'qgsSocketPath': value.qgsSocketPath,
-    };
-}
-

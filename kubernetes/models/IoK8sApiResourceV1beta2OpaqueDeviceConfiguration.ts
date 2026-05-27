@@ -72,37 +72,3 @@ export interface IoK8sApiResourceV1beta2OpaqueDeviceConfiguration {
    */
   parameters: object;
 }
-
-export function IoK8sApiResourceV1beta2OpaqueDeviceConfigurationFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta2OpaqueDeviceConfiguration {
-  return IoK8sApiResourceV1beta2OpaqueDeviceConfigurationFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta2OpaqueDeviceConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta2OpaqueDeviceConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    driver: json['driver'],
-    parameters: json['parameters'],
-  };
-}
-
-export function IoK8sApiResourceV1beta2OpaqueDeviceConfigurationToJSON(
-  value?: IoK8sApiResourceV1beta2OpaqueDeviceConfiguration | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    driver: value.driver,
-    parameters: value.parameters,
-  };
-}

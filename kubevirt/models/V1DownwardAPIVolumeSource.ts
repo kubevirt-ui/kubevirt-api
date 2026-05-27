@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApiCoreV1DownwardAPIVolumeFile } from './K8sIoApiCoreV1DownwardAPIVolumeFile';
-import {
-    K8sIoApiCoreV1DownwardAPIVolumeFileFromJSON,
-    K8sIoApiCoreV1DownwardAPIVolumeFileFromJSONTyped,
-    K8sIoApiCoreV1DownwardAPIVolumeFileToJSON,
-} from './K8sIoApiCoreV1DownwardAPIVolumeFile';
 
 /**
  * DownwardAPIVolumeSource represents a volume containing downward API info.
@@ -39,42 +33,3 @@ export interface V1DownwardAPIVolumeSource {
      */
     volumeLabel?: string;
 }
-
-/**
- * Check if a given object implements the V1DownwardAPIVolumeSource interface.
- */
-export function instanceOfV1DownwardAPIVolumeSource(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1DownwardAPIVolumeSourceFromJSON(json: any): V1DownwardAPIVolumeSource {
-    return V1DownwardAPIVolumeSourceFromJSONTyped(json, false);
-}
-
-export function V1DownwardAPIVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DownwardAPIVolumeSource {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'fields': !exists(json, 'fields') ? undefined : ((json['fields'] as Array<any>).map(K8sIoApiCoreV1DownwardAPIVolumeFileFromJSON)),
-        'volumeLabel': !exists(json, 'volumeLabel') ? undefined : json['volumeLabel'],
-    };
-}
-
-export function V1DownwardAPIVolumeSourceToJSON(value?: V1DownwardAPIVolumeSource | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'fields': value.fields === undefined ? undefined : ((value.fields as Array<any>).map(K8sIoApiCoreV1DownwardAPIVolumeFileToJSON)),
-        'volumeLabel': value.volumeLabel,
-    };
-}
-

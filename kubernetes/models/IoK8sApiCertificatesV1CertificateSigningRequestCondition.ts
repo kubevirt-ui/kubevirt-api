@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * CertificateSigningRequestCondition describes a condition of a CertificateSigningRequest object
  * @export
@@ -65,49 +64,4 @@ export interface IoK8sApiCertificatesV1CertificateSigningRequestCondition {
    * @memberof IoK8sApiCertificatesV1CertificateSigningRequestCondition
    */
   type: string;
-}
-
-export function IoK8sApiCertificatesV1CertificateSigningRequestConditionFromJSON(
-  json: any,
-): IoK8sApiCertificatesV1CertificateSigningRequestCondition {
-  return IoK8sApiCertificatesV1CertificateSigningRequestConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCertificatesV1CertificateSigningRequestConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCertificatesV1CertificateSigningRequestCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    lastUpdateTime: !exists(json, 'lastUpdateTime') ? undefined : json['lastUpdateTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiCertificatesV1CertificateSigningRequestConditionToJSON(
-  value?: IoK8sApiCertificatesV1CertificateSigningRequestCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    lastUpdateTime: value.lastUpdateTime === undefined ? undefined : value.lastUpdateTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

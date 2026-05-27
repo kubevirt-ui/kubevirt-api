@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1NodeSelector,
-  IoK8sApiCoreV1NodeSelectorFromJSON,
-  IoK8sApiCoreV1NodeSelectorToJSON,
 } from './';
 
 /**
@@ -31,38 +28,4 @@ export interface IoK8sApiCoreV1VolumeNodeAffinity {
    * @memberof IoK8sApiCoreV1VolumeNodeAffinity
    */
   required?: IoK8sApiCoreV1NodeSelector;
-}
-
-export function IoK8sApiCoreV1VolumeNodeAffinityFromJSON(
-  json: any,
-): IoK8sApiCoreV1VolumeNodeAffinity {
-  return IoK8sApiCoreV1VolumeNodeAffinityFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1VolumeNodeAffinityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1VolumeNodeAffinity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    required: !exists(json, 'required')
-      ? undefined
-      : IoK8sApiCoreV1NodeSelectorFromJSON(json['required']),
-  };
-}
-
-export function IoK8sApiCoreV1VolumeNodeAffinityToJSON(
-  value?: IoK8sApiCoreV1VolumeNodeAffinity | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    required: IoK8sApiCoreV1NodeSelectorToJSON(value.required),
-  };
 }

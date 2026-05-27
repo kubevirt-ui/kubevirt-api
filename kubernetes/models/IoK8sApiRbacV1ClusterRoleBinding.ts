@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiRbacV1RoleRef,
-  IoK8sApiRbacV1RoleRefFromJSON,
-  IoK8sApiRbacV1RoleRefToJSON,
   IoK8sApiRbacV1Subject,
-  IoK8sApiRbacV1SubjectFromJSON,
-  IoK8sApiRbacV1SubjectToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,51 +54,4 @@ export interface IoK8sApiRbacV1ClusterRoleBinding {
    * @memberof IoK8sApiRbacV1ClusterRoleBinding
    */
   subjects?: Array<IoK8sApiRbacV1Subject>;
-}
-
-export function IoK8sApiRbacV1ClusterRoleBindingFromJSON(
-  json: any,
-): IoK8sApiRbacV1ClusterRoleBinding {
-  return IoK8sApiRbacV1ClusterRoleBindingFromJSONTyped(json, false);
-}
-
-export function IoK8sApiRbacV1ClusterRoleBindingFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiRbacV1ClusterRoleBinding {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    roleRef: IoK8sApiRbacV1RoleRefFromJSON(json['roleRef']),
-    subjects: !exists(json, 'subjects')
-      ? undefined
-      : (json['subjects'] as Array<any>).map(IoK8sApiRbacV1SubjectFromJSON),
-  };
-}
-
-export function IoK8sApiRbacV1ClusterRoleBindingToJSON(
-  value?: IoK8sApiRbacV1ClusterRoleBinding | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    roleRef: IoK8sApiRbacV1RoleRefToJSON(value.roleRef),
-    subjects:
-      value.subjects === undefined
-        ? undefined
-        : (value.subjects as Array<any>).map(IoK8sApiRbacV1SubjectToJSON),
-  };
 }

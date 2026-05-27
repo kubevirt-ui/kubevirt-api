@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1LocalObjectReference,
-  IoK8sApiCoreV1LocalObjectReferenceFromJSON,
-  IoK8sApiCoreV1LocalObjectReferenceToJSON,
 } from './';
 
 /**
@@ -55,44 +52,4 @@ export interface IoK8sApiCoreV1CSIVolumeSource {
    * @memberof IoK8sApiCoreV1CSIVolumeSource
    */
   volumeAttributes?: { [key: string]: string };
-}
-
-export function IoK8sApiCoreV1CSIVolumeSourceFromJSON(json: any): IoK8sApiCoreV1CSIVolumeSource {
-  return IoK8sApiCoreV1CSIVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1CSIVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1CSIVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    driver: json['driver'],
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    nodePublishSecretRef: !exists(json, 'nodePublishSecretRef')
-      ? undefined
-      : IoK8sApiCoreV1LocalObjectReferenceFromJSON(json['nodePublishSecretRef']),
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    volumeAttributes: !exists(json, 'volumeAttributes') ? undefined : json['volumeAttributes'],
-  };
-}
-
-export function IoK8sApiCoreV1CSIVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1CSIVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    driver: value.driver,
-    fsType: value.fsType,
-    nodePublishSecretRef: IoK8sApiCoreV1LocalObjectReferenceToJSON(value.nodePublishSecretRef),
-    readOnly: value.readOnly,
-    volumeAttributes: value.volumeAttributes,
-  };
 }

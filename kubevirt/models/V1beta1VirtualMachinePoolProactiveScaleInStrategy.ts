@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1beta1VirtualMachinePoolSelectionPolicy } from './V1beta1VirtualMachinePoolSelectionPolicy';
-import {
-    V1beta1VirtualMachinePoolSelectionPolicyFromJSON,
-    V1beta1VirtualMachinePoolSelectionPolicyFromJSONTyped,
-    V1beta1VirtualMachinePoolSelectionPolicyToJSON,
-} from './V1beta1VirtualMachinePoolSelectionPolicy';
 
 /**
  * VirtualMachinePoolProactiveScaleInStrategy represents proactive scale-in strategy
@@ -39,42 +33,3 @@ export interface V1beta1VirtualMachinePoolProactiveScaleInStrategy {
      */
     statePreservation?: string;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachinePoolProactiveScaleInStrategy interface.
- */
-export function instanceOfV1beta1VirtualMachinePoolProactiveScaleInStrategy(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachinePoolProactiveScaleInStrategyFromJSON(json: any): V1beta1VirtualMachinePoolProactiveScaleInStrategy {
-    return V1beta1VirtualMachinePoolProactiveScaleInStrategyFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachinePoolProactiveScaleInStrategyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachinePoolProactiveScaleInStrategy {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'selectionPolicy': !exists(json, 'selectionPolicy') ? undefined : V1beta1VirtualMachinePoolSelectionPolicyFromJSON(json['selectionPolicy']),
-        'statePreservation': !exists(json, 'statePreservation') ? undefined : json['statePreservation'],
-    };
-}
-
-export function V1beta1VirtualMachinePoolProactiveScaleInStrategyToJSON(value?: V1beta1VirtualMachinePoolProactiveScaleInStrategy | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'selectionPolicy': V1beta1VirtualMachinePoolSelectionPolicyToJSON(value.selectionPolicy),
-        'statePreservation': value.statePreservation,
-    };
-}
-

@@ -12,12 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import type { V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfo } from './V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfo';
-import {
-  V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfoFromJSON,
-  V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfoToJSON,
-} from './V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfo';
 
 /**
  *
@@ -37,58 +32,4 @@ export interface V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesVal
    * @memberof V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValue
    */
   state?: any | null;
-}
-
-/**
- * Check if a given object implements the V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValue interface.
- */
-export function instanceOfV1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValue(
-  _value: object,
-): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueFromJSON(
-  json: any,
-): V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValue {
-  return V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValue {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    metaInfo: !exists(json, 'metaInfo')
-      ? undefined
-      : V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfoFromJSON(
-          json['metaInfo'],
-        ),
-    state: !exists(json, 'state') ? undefined : json['state'],
-  };
-}
-
-export function V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueToJSON(
-  value?: V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValue | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    metaInfo: V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfoToJSON(
-      value.metaInfo,
-    ),
-    state: value.state,
-  };
 }

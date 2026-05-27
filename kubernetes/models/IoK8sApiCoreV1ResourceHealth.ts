@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ResourceHealth represents the health of a resource. It has the latest device health information. This is a part of KEP https://kep.k8s.io/4680.
  * @export
@@ -39,36 +38,4 @@ export interface IoK8sApiCoreV1ResourceHealth {
    * @memberof IoK8sApiCoreV1ResourceHealth
    */
   resourceID: string;
-}
-
-export function IoK8sApiCoreV1ResourceHealthFromJSON(json: any): IoK8sApiCoreV1ResourceHealth {
-  return IoK8sApiCoreV1ResourceHealthFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ResourceHealthFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ResourceHealth {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    health: !exists(json, 'health') ? undefined : json['health'],
-    resourceID: json['resourceID'],
-  };
-}
-
-export function IoK8sApiCoreV1ResourceHealthToJSON(
-  value?: IoK8sApiCoreV1ResourceHealth | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    health: value.health,
-    resourceID: value.resourceID,
-  };
 }

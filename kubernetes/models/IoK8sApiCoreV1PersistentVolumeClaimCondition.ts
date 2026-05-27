@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PersistentVolumeClaimCondition contains details about state of pvc
  * @export
@@ -55,49 +54,4 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimCondition {
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimCondition
    */
   type: string;
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimConditionFromJSON(
-  json: any,
-): IoK8sApiCoreV1PersistentVolumeClaimCondition {
-  return IoK8sApiCoreV1PersistentVolumeClaimConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PersistentVolumeClaimCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastProbeTime: !exists(json, 'lastProbeTime') ? undefined : json['lastProbeTime'],
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimConditionToJSON(
-  value?: IoK8sApiCoreV1PersistentVolumeClaimCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastProbeTime: value.lastProbeTime === undefined ? undefined : value.lastProbeTime,
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

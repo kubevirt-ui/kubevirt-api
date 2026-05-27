@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1LifecycleHandler,
-  IoK8sApiCoreV1LifecycleHandlerFromJSON,
-  IoK8sApiCoreV1LifecycleHandlerToJSON,
 } from './';
 
 /**
@@ -43,40 +40,4 @@ export interface IoK8sApiCoreV1Lifecycle {
    * @memberof IoK8sApiCoreV1Lifecycle
    */
   stopSignal?: string;
-}
-
-export function IoK8sApiCoreV1LifecycleFromJSON(json: any): IoK8sApiCoreV1Lifecycle {
-  return IoK8sApiCoreV1LifecycleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1LifecycleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1Lifecycle {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    postStart: !exists(json, 'postStart')
-      ? undefined
-      : IoK8sApiCoreV1LifecycleHandlerFromJSON(json['postStart']),
-    preStop: !exists(json, 'preStop')
-      ? undefined
-      : IoK8sApiCoreV1LifecycleHandlerFromJSON(json['preStop']),
-    stopSignal: !exists(json, 'stopSignal') ? undefined : json['stopSignal'],
-  };
-}
-
-export function IoK8sApiCoreV1LifecycleToJSON(value?: IoK8sApiCoreV1Lifecycle | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    postStart: IoK8sApiCoreV1LifecycleHandlerToJSON(value.postStart),
-    preStop: IoK8sApiCoreV1LifecycleHandlerToJSON(value.preStop),
-    stopSignal: value.stopSignal,
-  };
 }

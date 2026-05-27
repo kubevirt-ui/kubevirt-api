@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * GroupVersion contains the "group/version" and "version" string of a version. It is made a struct to keep extensibility.
  * @export
@@ -32,44 +31,3 @@ export interface K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery {
      */
     version: string;
 }
-
-/**
- * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery interface.
- */
-export function instanceOfK8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "groupVersion" in value;
-    isInstance = isInstance && "version" in value;
-
-    return isInstance;
-}
-
-export function K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery {
-    return K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'groupVersion': json['groupVersion'],
-        'version': json['version'],
-    };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscoveryToJSON(value?: K8sIoApimachineryPkgApisMetaV1GroupVersionForDiscovery | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'groupVersion': value.groupVersion,
-        'version': value.version,
-    };
-}
-

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PortStatus represents the error condition of a service port
  * @export
@@ -40,36 +39,4 @@ export interface IoK8sApiCoreV1PortStatus {
    * @memberof IoK8sApiCoreV1PortStatus
    */
   protocol: string;
-}
-
-export function IoK8sApiCoreV1PortStatusFromJSON(json: any): IoK8sApiCoreV1PortStatus {
-  return IoK8sApiCoreV1PortStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PortStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PortStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    error: !exists(json, 'error') ? undefined : json['error'],
-    port: json['port'],
-    protocol: json['protocol'],
-  };
-}
-
-export function IoK8sApiCoreV1PortStatusToJSON(value?: IoK8sApiCoreV1PortStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    error: value.error,
-    port: value.port,
-    protocol: value.protocol,
-  };
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiNetworkingV1NetworkPolicyPeer,
-  IoK8sApiNetworkingV1NetworkPolicyPeerFromJSON,
-  IoK8sApiNetworkingV1NetworkPolicyPeerToJSON,
   IoK8sApiNetworkingV1NetworkPolicyPort,
-  IoK8sApiNetworkingV1NetworkPolicyPortFromJSON,
-  IoK8sApiNetworkingV1NetworkPolicyPortToJSON,
 } from './';
 
 /**
@@ -40,48 +35,4 @@ export interface IoK8sApiNetworkingV1NetworkPolicyEgressRule {
    * @memberof IoK8sApiNetworkingV1NetworkPolicyEgressRule
    */
   to?: Array<IoK8sApiNetworkingV1NetworkPolicyPeer>;
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicyEgressRuleFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1NetworkPolicyEgressRule {
-  return IoK8sApiNetworkingV1NetworkPolicyEgressRuleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicyEgressRuleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1NetworkPolicyEgressRule {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    ports: !exists(json, 'ports')
-      ? undefined
-      : (json['ports'] as Array<any>).map(IoK8sApiNetworkingV1NetworkPolicyPortFromJSON),
-    to: !exists(json, 'to')
-      ? undefined
-      : (json['to'] as Array<any>).map(IoK8sApiNetworkingV1NetworkPolicyPeerFromJSON),
-  };
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicyEgressRuleToJSON(
-  value?: IoK8sApiNetworkingV1NetworkPolicyEgressRule | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    ports:
-      value.ports === undefined
-        ? undefined
-        : (value.ports as Array<any>).map(IoK8sApiNetworkingV1NetworkPolicyPortToJSON),
-    to:
-      value.to === undefined
-        ? undefined
-        : (value.to as Array<any>).map(IoK8sApiNetworkingV1NetworkPolicyPeerToJSON),
-  };
 }

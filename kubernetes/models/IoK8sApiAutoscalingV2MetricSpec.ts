@@ -12,23 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAutoscalingV2ContainerResourceMetricSource,
-  IoK8sApiAutoscalingV2ContainerResourceMetricSourceFromJSON,
-  IoK8sApiAutoscalingV2ContainerResourceMetricSourceToJSON,
   IoK8sApiAutoscalingV2ExternalMetricSource,
-  IoK8sApiAutoscalingV2ExternalMetricSourceFromJSON,
-  IoK8sApiAutoscalingV2ExternalMetricSourceToJSON,
   IoK8sApiAutoscalingV2ObjectMetricSource,
-  IoK8sApiAutoscalingV2ObjectMetricSourceFromJSON,
-  IoK8sApiAutoscalingV2ObjectMetricSourceToJSON,
   IoK8sApiAutoscalingV2PodsMetricSource,
-  IoK8sApiAutoscalingV2PodsMetricSourceFromJSON,
-  IoK8sApiAutoscalingV2PodsMetricSourceToJSON,
   IoK8sApiAutoscalingV2ResourceMetricSource,
-  IoK8sApiAutoscalingV2ResourceMetricSourceFromJSON,
-  IoK8sApiAutoscalingV2ResourceMetricSourceToJSON,
 } from './';
 
 /**
@@ -73,58 +62,4 @@ export interface IoK8sApiAutoscalingV2MetricSpec {
    * @memberof IoK8sApiAutoscalingV2MetricSpec
    */
   type: string;
-}
-
-export function IoK8sApiAutoscalingV2MetricSpecFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV2MetricSpec {
-  return IoK8sApiAutoscalingV2MetricSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV2MetricSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV2MetricSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    containerResource: !exists(json, 'containerResource')
-      ? undefined
-      : IoK8sApiAutoscalingV2ContainerResourceMetricSourceFromJSON(json['containerResource']),
-    external: !exists(json, 'external')
-      ? undefined
-      : IoK8sApiAutoscalingV2ExternalMetricSourceFromJSON(json['external']),
-    object: !exists(json, 'object')
-      ? undefined
-      : IoK8sApiAutoscalingV2ObjectMetricSourceFromJSON(json['object']),
-    pods: !exists(json, 'pods')
-      ? undefined
-      : IoK8sApiAutoscalingV2PodsMetricSourceFromJSON(json['pods']),
-    resource: !exists(json, 'resource')
-      ? undefined
-      : IoK8sApiAutoscalingV2ResourceMetricSourceFromJSON(json['resource']),
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiAutoscalingV2MetricSpecToJSON(
-  value?: IoK8sApiAutoscalingV2MetricSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    containerResource: IoK8sApiAutoscalingV2ContainerResourceMetricSourceToJSON(
-      value.containerResource,
-    ),
-    external: IoK8sApiAutoscalingV2ExternalMetricSourceToJSON(value.external),
-    object: IoK8sApiAutoscalingV2ObjectMetricSourceToJSON(value.object),
-    pods: IoK8sApiAutoscalingV2PodsMetricSourceToJSON(value.pods),
-    resource: IoK8sApiAutoscalingV2ResourceMetricSourceToJSON(value.resource),
-    type: value.type,
-  };
 }

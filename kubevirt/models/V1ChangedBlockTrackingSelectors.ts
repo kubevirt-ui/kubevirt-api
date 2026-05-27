@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
-import {
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 
 /**
  * 
@@ -39,42 +33,3 @@ export interface V1ChangedBlockTrackingSelectors {
      */
     virtualMachineLabelSelector?: K8sIoApimachineryPkgApisMetaV1LabelSelector;
 }
-
-/**
- * Check if a given object implements the V1ChangedBlockTrackingSelectors interface.
- */
-export function instanceOfV1ChangedBlockTrackingSelectors(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1ChangedBlockTrackingSelectorsFromJSON(json: any): V1ChangedBlockTrackingSelectors {
-    return V1ChangedBlockTrackingSelectorsFromJSONTyped(json, false);
-}
-
-export function V1ChangedBlockTrackingSelectorsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ChangedBlockTrackingSelectors {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'namespaceLabelSelector': !exists(json, 'namespaceLabelSelector') ? undefined : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['namespaceLabelSelector']),
-        'virtualMachineLabelSelector': !exists(json, 'virtualMachineLabelSelector') ? undefined : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['virtualMachineLabelSelector']),
-    };
-}
-
-export function V1ChangedBlockTrackingSelectorsToJSON(value?: V1ChangedBlockTrackingSelectors | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'namespaceLabelSelector': K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.namespaceLabelSelector),
-        'virtualMachineLabelSelector': K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.virtualMachineLabelSelector),
-    };
-}
-

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCertificatesV1beta1ClusterTrustBundleSpec,
-  IoK8sApiCertificatesV1beta1ClusterTrustBundleSpecFromJSON,
-  IoK8sApiCertificatesV1beta1ClusterTrustBundleSpecToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -56,44 +51,4 @@ export interface IoK8sApiCertificatesV1beta1ClusterTrustBundle {
    * @memberof IoK8sApiCertificatesV1beta1ClusterTrustBundle
    */
   spec: IoK8sApiCertificatesV1beta1ClusterTrustBundleSpec;
-}
-
-export function IoK8sApiCertificatesV1beta1ClusterTrustBundleFromJSON(
-  json: any,
-): IoK8sApiCertificatesV1beta1ClusterTrustBundle {
-  return IoK8sApiCertificatesV1beta1ClusterTrustBundleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCertificatesV1beta1ClusterTrustBundleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCertificatesV1beta1ClusterTrustBundle {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: IoK8sApiCertificatesV1beta1ClusterTrustBundleSpecFromJSON(json['spec']),
-  };
-}
-
-export function IoK8sApiCertificatesV1beta1ClusterTrustBundleToJSON(
-  value?: IoK8sApiCertificatesV1beta1ClusterTrustBundle | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiCertificatesV1beta1ClusterTrustBundleSpecToJSON(value.spec),
-  };
 }

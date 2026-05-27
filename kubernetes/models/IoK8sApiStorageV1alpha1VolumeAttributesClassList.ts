@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiStorageV1alpha1VolumeAttributesClass,
-  IoK8sApiStorageV1alpha1VolumeAttributesClassFromJSON,
-  IoK8sApiStorageV1alpha1VolumeAttributesClassToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -52,44 +47,4 @@ export interface IoK8sApiStorageV1alpha1VolumeAttributesClassList {
    * @memberof IoK8sApiStorageV1alpha1VolumeAttributesClassList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiStorageV1alpha1VolumeAttributesClassListFromJSON(
-  json: any,
-): IoK8sApiStorageV1alpha1VolumeAttributesClassList {
-  return IoK8sApiStorageV1alpha1VolumeAttributesClassListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStorageV1alpha1VolumeAttributesClassListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStorageV1alpha1VolumeAttributesClassList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(IoK8sApiStorageV1alpha1VolumeAttributesClassFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiStorageV1alpha1VolumeAttributesClassListToJSON(
-  value?: IoK8sApiStorageV1alpha1VolumeAttributesClassList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(IoK8sApiStorageV1alpha1VolumeAttributesClassToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

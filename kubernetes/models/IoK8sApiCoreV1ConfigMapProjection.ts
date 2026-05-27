@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1KeyToPath,
-  IoK8sApiCoreV1KeyToPathFromJSON,
-  IoK8sApiCoreV1KeyToPathToJSON,
 } from './';
 
 /**
@@ -45,45 +42,4 @@ export interface IoK8sApiCoreV1ConfigMapProjection {
    * @memberof IoK8sApiCoreV1ConfigMapProjection
    */
   optional?: boolean;
-}
-
-export function IoK8sApiCoreV1ConfigMapProjectionFromJSON(
-  json: any,
-): IoK8sApiCoreV1ConfigMapProjection {
-  return IoK8sApiCoreV1ConfigMapProjectionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ConfigMapProjectionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ConfigMapProjection {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    items: !exists(json, 'items')
-      ? undefined
-      : (json['items'] as Array<any>).map(IoK8sApiCoreV1KeyToPathFromJSON),
-    name: !exists(json, 'name') ? undefined : json['name'],
-    optional: !exists(json, 'optional') ? undefined : json['optional'],
-  };
-}
-
-export function IoK8sApiCoreV1ConfigMapProjectionToJSON(
-  value?: IoK8sApiCoreV1ConfigMapProjection | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    items:
-      value.items === undefined
-        ? undefined
-        : (value.items as Array<any>).map(IoK8sApiCoreV1KeyToPathToJSON),
-    name: value.name,
-    optional: value.optional,
-  };
 }

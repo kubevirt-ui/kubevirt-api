@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApiCoreV1NodeSelectorRequirement } from './K8sIoApiCoreV1NodeSelectorRequirement';
-import {
-    K8sIoApiCoreV1NodeSelectorRequirementFromJSON,
-    K8sIoApiCoreV1NodeSelectorRequirementFromJSONTyped,
-    K8sIoApiCoreV1NodeSelectorRequirementToJSON,
-} from './K8sIoApiCoreV1NodeSelectorRequirement';
 import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
-import {
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 
 /**
  * VirtualMachinePoolSelectors specifies filtering criteria for VM selection. If both are specified, both must match for a VM to be selected. If only one is specified, only that one must match for a VM to be selected.
@@ -45,42 +34,3 @@ export interface V1beta1VirtualMachinePoolSelectors {
      */
     nodeSelectorRequirementMatcher?: Array<K8sIoApiCoreV1NodeSelectorRequirement>;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachinePoolSelectors interface.
- */
-export function instanceOfV1beta1VirtualMachinePoolSelectors(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachinePoolSelectorsFromJSON(json: any): V1beta1VirtualMachinePoolSelectors {
-    return V1beta1VirtualMachinePoolSelectorsFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachinePoolSelectorsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachinePoolSelectors {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'labelSelector': !exists(json, 'labelSelector') ? undefined : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['labelSelector']),
-        'nodeSelectorRequirementMatcher': !exists(json, 'nodeSelectorRequirementMatcher') ? undefined : ((json['nodeSelectorRequirementMatcher'] as Array<any>).map(K8sIoApiCoreV1NodeSelectorRequirementFromJSON)),
-    };
-}
-
-export function V1beta1VirtualMachinePoolSelectorsToJSON(value?: V1beta1VirtualMachinePoolSelectors | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'labelSelector': K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.labelSelector),
-        'nodeSelectorRequirementMatcher': value.nodeSelectorRequirementMatcher === undefined ? undefined : ((value.nodeSelectorRequirementMatcher as Array<any>).map(K8sIoApiCoreV1NodeSelectorRequirementToJSON)),
-    };
-}
-

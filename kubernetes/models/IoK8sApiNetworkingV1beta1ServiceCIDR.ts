@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiNetworkingV1beta1ServiceCIDRSpec,
-  IoK8sApiNetworkingV1beta1ServiceCIDRSpecFromJSON,
-  IoK8sApiNetworkingV1beta1ServiceCIDRSpecToJSON,
   IoK8sApiNetworkingV1beta1ServiceCIDRStatus,
-  IoK8sApiNetworkingV1beta1ServiceCIDRStatusFromJSON,
-  IoK8sApiNetworkingV1beta1ServiceCIDRStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,50 +54,4 @@ export interface IoK8sApiNetworkingV1beta1ServiceCIDR {
    * @memberof IoK8sApiNetworkingV1beta1ServiceCIDR
    */
   status?: IoK8sApiNetworkingV1beta1ServiceCIDRStatus;
-}
-
-export function IoK8sApiNetworkingV1beta1ServiceCIDRFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1beta1ServiceCIDR {
-  return IoK8sApiNetworkingV1beta1ServiceCIDRFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1beta1ServiceCIDRFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1beta1ServiceCIDR {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec')
-      ? undefined
-      : IoK8sApiNetworkingV1beta1ServiceCIDRSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiNetworkingV1beta1ServiceCIDRStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiNetworkingV1beta1ServiceCIDRToJSON(
-  value?: IoK8sApiNetworkingV1beta1ServiceCIDR | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiNetworkingV1beta1ServiceCIDRSpecToJSON(value.spec),
-    status: IoK8sApiNetworkingV1beta1ServiceCIDRStatusToJSON(value.status),
-  };
 }

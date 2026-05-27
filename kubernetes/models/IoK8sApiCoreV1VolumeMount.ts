@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * VolumeMount describes a mounting of a Volume within a container.
  * @export
@@ -69,44 +68,4 @@ export interface IoK8sApiCoreV1VolumeMount {
    * @memberof IoK8sApiCoreV1VolumeMount
    */
   subPathExpr?: string;
-}
-
-export function IoK8sApiCoreV1VolumeMountFromJSON(json: any): IoK8sApiCoreV1VolumeMount {
-  return IoK8sApiCoreV1VolumeMountFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1VolumeMountFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1VolumeMount {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    mountPath: json['mountPath'],
-    mountPropagation: !exists(json, 'mountPropagation') ? undefined : json['mountPropagation'],
-    name: json['name'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    recursiveReadOnly: !exists(json, 'recursiveReadOnly') ? undefined : json['recursiveReadOnly'],
-    subPath: !exists(json, 'subPath') ? undefined : json['subPath'],
-    subPathExpr: !exists(json, 'subPathExpr') ? undefined : json['subPathExpr'],
-  };
-}
-
-export function IoK8sApiCoreV1VolumeMountToJSON(value?: IoK8sApiCoreV1VolumeMount | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    mountPath: value.mountPath,
-    mountPropagation: value.mountPropagation,
-    name: value.name,
-    readOnly: value.readOnly,
-    recursiveReadOnly: value.recursiveReadOnly,
-    subPath: value.subPath,
-    subPathExpr: value.subPathExpr,
-  };
 }

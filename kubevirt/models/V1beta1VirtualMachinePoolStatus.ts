@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1beta1VirtualMachinePoolCondition } from './V1beta1VirtualMachinePoolCondition';
-import {
-    V1beta1VirtualMachinePoolConditionFromJSON,
-    V1beta1VirtualMachinePoolConditionFromJSONTyped,
-    V1beta1VirtualMachinePoolConditionToJSON,
-} from './V1beta1VirtualMachinePoolCondition';
 
 /**
  * 
@@ -51,46 +45,3 @@ export interface V1beta1VirtualMachinePoolStatus {
      */
     replicas?: number;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachinePoolStatus interface.
- */
-export function instanceOfV1beta1VirtualMachinePoolStatus(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachinePoolStatusFromJSON(json: any): V1beta1VirtualMachinePoolStatus {
-    return V1beta1VirtualMachinePoolStatusFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachinePoolStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachinePoolStatus {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'conditions': !exists(json, 'conditions') ? undefined : ((json['conditions'] as Array<any>).map(V1beta1VirtualMachinePoolConditionFromJSON)),
-        'labelSelector': !exists(json, 'labelSelector') ? undefined : json['labelSelector'],
-        'readyReplicas': !exists(json, 'readyReplicas') ? undefined : json['readyReplicas'],
-        'replicas': !exists(json, 'replicas') ? undefined : json['replicas'],
-    };
-}
-
-export function V1beta1VirtualMachinePoolStatusToJSON(value?: V1beta1VirtualMachinePoolStatus | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'conditions': value.conditions === undefined ? undefined : ((value.conditions as Array<any>).map(V1beta1VirtualMachinePoolConditionToJSON)),
-        'labelSelector': value.labelSelector,
-        'readyReplicas': value.readyReplicas,
-        'replicas': value.replicas,
-    };
-}
-

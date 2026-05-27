@@ -31,33 +31,3 @@ export interface V1beta1ImportStatus {
    */
   digest: string;
 }
-
-export function V1beta1ImportStatusFromJSON(json: any): V1beta1ImportStatus {
-  return V1beta1ImportStatusFromJSONTyped(json, false);
-}
-
-export function V1beta1ImportStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1ImportStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    dataVolumeName: json['DataVolumeName'],
-    digest: json['Digest'],
-  };
-}
-
-export function V1beta1ImportStatusToJSON(value?: V1beta1ImportStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    DataVolumeName: value.dataVolumeName,
-    Digest: value.digest,
-  };
-}

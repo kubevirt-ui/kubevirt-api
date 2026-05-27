@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * IPBlock describes a particular CIDR (Ex. "192.168.1.0/24","2001:db8::/64") that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs that should not be included within this rule.
  * @export
@@ -31,34 +30,4 @@ export interface IoK8sApiNetworkingV1IPBlock {
    * @memberof IoK8sApiNetworkingV1IPBlock
    */
   except?: Array<string>;
-}
-
-export function IoK8sApiNetworkingV1IPBlockFromJSON(json: any): IoK8sApiNetworkingV1IPBlock {
-  return IoK8sApiNetworkingV1IPBlockFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1IPBlockFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1IPBlock {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    cidr: json['cidr'],
-    except: !exists(json, 'except') ? undefined : json['except'],
-  };
-}
-
-export function IoK8sApiNetworkingV1IPBlockToJSON(value?: IoK8sApiNetworkingV1IPBlock | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    cidr: value.cidr,
-    except: value.except,
-  };
 }

@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ObjectReference,
-  IoK8sApiCoreV1ObjectReferenceFromJSON,
-  IoK8sApiCoreV1ObjectReferenceToJSON,
 } from './';
 
 /**
@@ -43,46 +40,4 @@ export interface IoK8sApiBatchV1CronJobStatus {
    * @memberof IoK8sApiBatchV1CronJobStatus
    */
   lastSuccessfulTime?: string;
-}
-
-export function IoK8sApiBatchV1CronJobStatusFromJSON(json: any): IoK8sApiBatchV1CronJobStatus {
-  return IoK8sApiBatchV1CronJobStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiBatchV1CronJobStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiBatchV1CronJobStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    active: !exists(json, 'active')
-      ? undefined
-      : (json['active'] as Array<any>).map(IoK8sApiCoreV1ObjectReferenceFromJSON),
-    lastScheduleTime: !exists(json, 'lastScheduleTime') ? undefined : json['lastScheduleTime'],
-    lastSuccessfulTime: !exists(json, 'lastSuccessfulTime')
-      ? undefined
-      : json['lastSuccessfulTime'],
-  };
-}
-
-export function IoK8sApiBatchV1CronJobStatusToJSON(
-  value?: IoK8sApiBatchV1CronJobStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    active:
-      value.active === undefined
-        ? undefined
-        : (value.active as Array<any>).map(IoK8sApiCoreV1ObjectReferenceToJSON),
-    lastScheduleTime: value.lastScheduleTime === undefined ? undefined : value.lastScheduleTime,
-    lastSuccessfulTime:
-      value.lastSuccessfulTime === undefined ? undefined : value.lastSuccessfulTime,
-  };
 }

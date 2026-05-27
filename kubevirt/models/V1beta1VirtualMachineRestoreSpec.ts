@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
-import {
-    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
-    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSONTyped,
-    K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-} from './K8sIoApiCoreV1TypedLocalObjectReference';
 import type { V1beta1VolumeRestoreOverride } from './V1beta1VolumeRestoreOverride';
-import {
-    V1beta1VolumeRestoreOverrideFromJSON,
-    V1beta1VolumeRestoreOverrideFromJSONTyped,
-    V1beta1VolumeRestoreOverrideToJSON,
-} from './V1beta1VolumeRestoreOverride';
 
 /**
  * VirtualMachineRestoreSpec is the spec for a VirtualMachineRestore resource
@@ -77,54 +66,3 @@ export interface V1beta1VirtualMachineRestoreSpec {
      */
     volumeRestorePolicy?: string;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachineRestoreSpec interface.
- */
-export function instanceOfV1beta1VirtualMachineRestoreSpec(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "target" in value;
-    isInstance = isInstance && "virtualMachineSnapshotName" in value;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachineRestoreSpecFromJSON(json: any): V1beta1VirtualMachineRestoreSpec {
-    return V1beta1VirtualMachineRestoreSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineRestoreSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineRestoreSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'patches': !exists(json, 'patches') ? undefined : json['patches'],
-        'target': K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['target']),
-        'targetReadinessPolicy': !exists(json, 'targetReadinessPolicy') ? undefined : json['targetReadinessPolicy'],
-        'virtualMachineSnapshotName': json['virtualMachineSnapshotName'],
-        'volumeOwnershipPolicy': !exists(json, 'volumeOwnershipPolicy') ? undefined : json['volumeOwnershipPolicy'],
-        'volumeRestoreOverrides': !exists(json, 'volumeRestoreOverrides') ? undefined : ((json['volumeRestoreOverrides'] as Array<any>).map(V1beta1VolumeRestoreOverrideFromJSON)),
-        'volumeRestorePolicy': !exists(json, 'volumeRestorePolicy') ? undefined : json['volumeRestorePolicy'],
-    };
-}
-
-export function V1beta1VirtualMachineRestoreSpecToJSON(value?: V1beta1VirtualMachineRestoreSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'patches': value.patches,
-        'target': K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.target),
-        'targetReadinessPolicy': value.targetReadinessPolicy,
-        'virtualMachineSnapshotName': value.virtualMachineSnapshotName,
-        'volumeOwnershipPolicy': value.volumeOwnershipPolicy,
-        'volumeRestoreOverrides': value.volumeRestoreOverrides === undefined ? undefined : ((value.volumeRestoreOverrides as Array<any>).map(V1beta1VolumeRestoreOverrideToJSON)),
-        'volumeRestorePolicy': value.volumeRestorePolicy,
-    };
-}
-

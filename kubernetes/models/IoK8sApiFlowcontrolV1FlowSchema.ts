@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiFlowcontrolV1FlowSchemaSpec,
-  IoK8sApiFlowcontrolV1FlowSchemaSpecFromJSON,
-  IoK8sApiFlowcontrolV1FlowSchemaSpecToJSON,
   IoK8sApiFlowcontrolV1FlowSchemaStatus,
-  IoK8sApiFlowcontrolV1FlowSchemaStatusFromJSON,
-  IoK8sApiFlowcontrolV1FlowSchemaStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,50 +54,4 @@ export interface IoK8sApiFlowcontrolV1FlowSchema {
    * @memberof IoK8sApiFlowcontrolV1FlowSchema
    */
   status?: IoK8sApiFlowcontrolV1FlowSchemaStatus;
-}
-
-export function IoK8sApiFlowcontrolV1FlowSchemaFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1FlowSchema {
-  return IoK8sApiFlowcontrolV1FlowSchemaFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1FlowSchemaFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1FlowSchema {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec')
-      ? undefined
-      : IoK8sApiFlowcontrolV1FlowSchemaSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiFlowcontrolV1FlowSchemaStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiFlowcontrolV1FlowSchemaToJSON(
-  value?: IoK8sApiFlowcontrolV1FlowSchema | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiFlowcontrolV1FlowSchemaSpecToJSON(value.spec),
-    status: IoK8sApiFlowcontrolV1FlowSchemaStatusToJSON(value.status),
-  };
 }

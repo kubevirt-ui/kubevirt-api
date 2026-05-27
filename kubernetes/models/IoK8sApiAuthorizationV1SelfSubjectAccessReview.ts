@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpec,
-  IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpecFromJSON,
-  IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpecToJSON,
   IoK8sApiAuthorizationV1SubjectAccessReviewStatus,
-  IoK8sApiAuthorizationV1SubjectAccessReviewStatusFromJSON,
-  IoK8sApiAuthorizationV1SubjectAccessReviewStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,48 +54,4 @@ export interface IoK8sApiAuthorizationV1SelfSubjectAccessReview {
    * @memberof IoK8sApiAuthorizationV1SelfSubjectAccessReview
    */
   status?: IoK8sApiAuthorizationV1SubjectAccessReviewStatus;
-}
-
-export function IoK8sApiAuthorizationV1SelfSubjectAccessReviewFromJSON(
-  json: any,
-): IoK8sApiAuthorizationV1SelfSubjectAccessReview {
-  return IoK8sApiAuthorizationV1SelfSubjectAccessReviewFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthorizationV1SelfSubjectAccessReviewFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthorizationV1SelfSubjectAccessReview {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiAuthorizationV1SubjectAccessReviewStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiAuthorizationV1SelfSubjectAccessReviewToJSON(
-  value?: IoK8sApiAuthorizationV1SelfSubjectAccessReview | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiAuthorizationV1SelfSubjectAccessReviewSpecToJSON(value.spec),
-    status: IoK8sApiAuthorizationV1SubjectAccessReviewStatusToJSON(value.status),
-  };
 }

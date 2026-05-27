@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PriorityLevelConfigurationCondition defines the condition of priority level.
  * @export
@@ -49,47 +48,4 @@ export interface IoK8sApiFlowcontrolV1PriorityLevelConfigurationCondition {
    * @memberof IoK8sApiFlowcontrolV1PriorityLevelConfigurationCondition
    */
   type?: string;
-}
-
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationConditionFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1PriorityLevelConfigurationCondition {
-  return IoK8sApiFlowcontrolV1PriorityLevelConfigurationConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1PriorityLevelConfigurationCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: !exists(json, 'status') ? undefined : json['status'],
-    type: !exists(json, 'type') ? undefined : json['type'],
-  };
-}
-
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationConditionToJSON(
-  value?: IoK8sApiFlowcontrolV1PriorityLevelConfigurationCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

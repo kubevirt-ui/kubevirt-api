@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoordinationV1LeaseSpec,
-  IoK8sApiCoordinationV1LeaseSpecFromJSON,
-  IoK8sApiCoordinationV1LeaseSpecToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -52,40 +47,4 @@ export interface IoK8sApiCoordinationV1Lease {
    * @memberof IoK8sApiCoordinationV1Lease
    */
   spec?: IoK8sApiCoordinationV1LeaseSpec;
-}
-
-export function IoK8sApiCoordinationV1LeaseFromJSON(json: any): IoK8sApiCoordinationV1Lease {
-  return IoK8sApiCoordinationV1LeaseFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoordinationV1LeaseFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoordinationV1Lease {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec') ? undefined : IoK8sApiCoordinationV1LeaseSpecFromJSON(json['spec']),
-  };
-}
-
-export function IoK8sApiCoordinationV1LeaseToJSON(value?: IoK8sApiCoordinationV1Lease | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiCoordinationV1LeaseSpecToJSON(value.spec),
-  };
 }

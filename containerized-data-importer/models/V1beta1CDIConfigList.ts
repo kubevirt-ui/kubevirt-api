@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1ListMeta,
-  V1ListMetaFromJSON,
-  V1ListMetaToJSON,
   V1beta1CDIConfig,
-  V1beta1CDIConfigFromJSON,
-  V1beta1CDIConfigToJSON,
 } from './';
 
 /**
@@ -52,38 +47,4 @@ export interface V1beta1CDIConfigList {
    * @memberof V1beta1CDIConfigList
    */
   metadata: V1ListMeta;
-}
-
-export function V1beta1CDIConfigListFromJSON(json: any): V1beta1CDIConfigList {
-  return V1beta1CDIConfigListFromJSONTyped(json, false);
-}
-
-export function V1beta1CDIConfigListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1CDIConfigList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1beta1CDIConfigFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: V1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function V1beta1CDIConfigListToJSON(value?: V1beta1CDIConfigList | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1beta1CDIConfigToJSON),
-    kind: value.kind,
-    metadata: V1ListMetaToJSON(value.metadata),
-  };
 }

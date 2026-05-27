@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * NonResourceRule holds information that describes a rule for the non-resource
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiAuthorizationV1NonResourceRule {
    * @memberof IoK8sApiAuthorizationV1NonResourceRule
    */
   verbs: Array<string>;
-}
-
-export function IoK8sApiAuthorizationV1NonResourceRuleFromJSON(
-  json: any,
-): IoK8sApiAuthorizationV1NonResourceRule {
-  return IoK8sApiAuthorizationV1NonResourceRuleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthorizationV1NonResourceRuleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthorizationV1NonResourceRule {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    nonResourceURLs: !exists(json, 'nonResourceURLs') ? undefined : json['nonResourceURLs'],
-    verbs: json['verbs'],
-  };
-}
-
-export function IoK8sApiAuthorizationV1NonResourceRuleToJSON(
-  value?: IoK8sApiAuthorizationV1NonResourceRule | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    nonResourceURLs: value.nonResourceURLs,
-    verbs: value.verbs,
-  };
 }

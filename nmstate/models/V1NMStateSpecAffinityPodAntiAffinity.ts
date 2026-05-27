@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
  * @export
@@ -45,59 +44,4 @@ export interface V1NMStateSpecAffinityPodAntiAffinity {
    * @memberof V1NMStateSpecAffinityPodAntiAffinity
    */
   requiredDuringSchedulingIgnoredDuringExecution?: any | null;
-}
-
-/**
- * Check if a given object implements the V1NMStateSpecAffinityPodAntiAffinity interface.
- */
-export function instanceOfV1NMStateSpecAffinityPodAntiAffinity(_value: object): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1NMStateSpecAffinityPodAntiAffinityFromJSON(
-  json: any,
-): V1NMStateSpecAffinityPodAntiAffinity {
-  return V1NMStateSpecAffinityPodAntiAffinityFromJSONTyped(json, false);
-}
-
-export function V1NMStateSpecAffinityPodAntiAffinityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1NMStateSpecAffinityPodAntiAffinity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'preferredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : json['preferredDuringSchedulingIgnoredDuringExecution'],
-    requiredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'requiredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : json['requiredDuringSchedulingIgnoredDuringExecution'],
-  };
-}
-
-export function V1NMStateSpecAffinityPodAntiAffinityToJSON(
-  value?: V1NMStateSpecAffinityPodAntiAffinity | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution:
-      value.preferredDuringSchedulingIgnoredDuringExecution,
-    requiredDuringSchedulingIgnoredDuringExecution:
-      value.requiredDuringSchedulingIgnoredDuringExecution,
-  };
 }

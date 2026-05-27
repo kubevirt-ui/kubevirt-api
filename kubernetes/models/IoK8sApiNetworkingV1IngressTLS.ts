@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * IngressTLS describes the transport layer security associated with an ingress.
  * @export
@@ -31,36 +30,4 @@ export interface IoK8sApiNetworkingV1IngressTLS {
    * @memberof IoK8sApiNetworkingV1IngressTLS
    */
   secretName?: string;
-}
-
-export function IoK8sApiNetworkingV1IngressTLSFromJSON(json: any): IoK8sApiNetworkingV1IngressTLS {
-  return IoK8sApiNetworkingV1IngressTLSFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1IngressTLSFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1IngressTLS {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    hosts: !exists(json, 'hosts') ? undefined : json['hosts'],
-    secretName: !exists(json, 'secretName') ? undefined : json['secretName'],
-  };
-}
-
-export function IoK8sApiNetworkingV1IngressTLSToJSON(
-  value?: IoK8sApiNetworkingV1IngressTLS | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    hosts: value.hosts,
-    secretName: value.secretName,
-  };
 }

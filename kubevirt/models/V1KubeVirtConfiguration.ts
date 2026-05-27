@@ -12,133 +12,27 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
-import {
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 import type { V1ArchConfiguration } from './V1ArchConfiguration';
-import {
-    V1ArchConfigurationFromJSON,
-    V1ArchConfigurationFromJSONTyped,
-    V1ArchConfigurationToJSON,
-} from './V1ArchConfiguration';
 import type { V1ChangedBlockTrackingSelectors } from './V1ChangedBlockTrackingSelectors';
-import {
-    V1ChangedBlockTrackingSelectorsFromJSON,
-    V1ChangedBlockTrackingSelectorsFromJSONTyped,
-    V1ChangedBlockTrackingSelectorsToJSON,
-} from './V1ChangedBlockTrackingSelectors';
 import type { V1CommonInstancetypesDeployment } from './V1CommonInstancetypesDeployment';
-import {
-    V1CommonInstancetypesDeploymentFromJSON,
-    V1CommonInstancetypesDeploymentFromJSONTyped,
-    V1CommonInstancetypesDeploymentToJSON,
-} from './V1CommonInstancetypesDeployment';
 import type { V1ConfidentialComputeConfiguration } from './V1ConfidentialComputeConfiguration';
-import {
-    V1ConfidentialComputeConfigurationFromJSON,
-    V1ConfidentialComputeConfigurationFromJSONTyped,
-    V1ConfidentialComputeConfigurationToJSON,
-} from './V1ConfidentialComputeConfiguration';
 import type { V1DeveloperConfiguration } from './V1DeveloperConfiguration';
-import {
-    V1DeveloperConfigurationFromJSON,
-    V1DeveloperConfigurationFromJSONTyped,
-    V1DeveloperConfigurationToJSON,
-} from './V1DeveloperConfiguration';
 import type { V1HypervisorConfiguration } from './V1HypervisorConfiguration';
-import {
-    V1HypervisorConfigurationFromJSON,
-    V1HypervisorConfigurationFromJSONTyped,
-    V1HypervisorConfigurationToJSON,
-} from './V1HypervisorConfiguration';
 import type { V1InstancetypeConfiguration } from './V1InstancetypeConfiguration';
-import {
-    V1InstancetypeConfigurationFromJSON,
-    V1InstancetypeConfigurationFromJSONTyped,
-    V1InstancetypeConfigurationToJSON,
-} from './V1InstancetypeConfiguration';
 import type { V1KSMConfiguration } from './V1KSMConfiguration';
-import {
-    V1KSMConfigurationFromJSON,
-    V1KSMConfigurationFromJSONTyped,
-    V1KSMConfigurationToJSON,
-} from './V1KSMConfiguration';
 import type { V1LiveUpdateConfiguration } from './V1LiveUpdateConfiguration';
-import {
-    V1LiveUpdateConfigurationFromJSON,
-    V1LiveUpdateConfigurationFromJSONTyped,
-    V1LiveUpdateConfigurationToJSON,
-} from './V1LiveUpdateConfiguration';
 import type { V1MediatedDevicesConfiguration } from './V1MediatedDevicesConfiguration';
-import {
-    V1MediatedDevicesConfigurationFromJSON,
-    V1MediatedDevicesConfigurationFromJSONTyped,
-    V1MediatedDevicesConfigurationToJSON,
-} from './V1MediatedDevicesConfiguration';
 import type { V1MigrationConfiguration } from './V1MigrationConfiguration';
-import {
-    V1MigrationConfigurationFromJSON,
-    V1MigrationConfigurationFromJSONTyped,
-    V1MigrationConfigurationToJSON,
-} from './V1MigrationConfiguration';
 import type { V1NetworkConfiguration } from './V1NetworkConfiguration';
-import {
-    V1NetworkConfigurationFromJSON,
-    V1NetworkConfigurationFromJSONTyped,
-    V1NetworkConfigurationToJSON,
-} from './V1NetworkConfiguration';
 import type { V1PermittedHostDevices } from './V1PermittedHostDevices';
-import {
-    V1PermittedHostDevicesFromJSON,
-    V1PermittedHostDevicesFromJSONTyped,
-    V1PermittedHostDevicesToJSON,
-} from './V1PermittedHostDevices';
 import type { V1ReloadableComponentConfiguration } from './V1ReloadableComponentConfiguration';
-import {
-    V1ReloadableComponentConfigurationFromJSON,
-    V1ReloadableComponentConfigurationFromJSONTyped,
-    V1ReloadableComponentConfigurationToJSON,
-} from './V1ReloadableComponentConfiguration';
 import type { V1SMBiosConfiguration } from './V1SMBiosConfiguration';
-import {
-    V1SMBiosConfigurationFromJSON,
-    V1SMBiosConfigurationFromJSONTyped,
-    V1SMBiosConfigurationToJSON,
-} from './V1SMBiosConfiguration';
 import type { V1SeccompConfiguration } from './V1SeccompConfiguration';
-import {
-    V1SeccompConfigurationFromJSON,
-    V1SeccompConfigurationFromJSONTyped,
-    V1SeccompConfigurationToJSON,
-} from './V1SeccompConfiguration';
 import type { V1SupportContainerResources } from './V1SupportContainerResources';
-import {
-    V1SupportContainerResourcesFromJSON,
-    V1SupportContainerResourcesFromJSONTyped,
-    V1SupportContainerResourcesToJSON,
-} from './V1SupportContainerResources';
 import type { V1TLSConfiguration } from './V1TLSConfiguration';
-import {
-    V1TLSConfigurationFromJSON,
-    V1TLSConfigurationFromJSONTyped,
-    V1TLSConfigurationToJSON,
-} from './V1TLSConfiguration';
 import type { V1VirtTemplateDeployment } from './V1VirtTemplateDeployment';
-import {
-    V1VirtTemplateDeploymentFromJSON,
-    V1VirtTemplateDeploymentFromJSONTyped,
-    V1VirtTemplateDeploymentToJSON,
-} from './V1VirtTemplateDeployment';
 import type { V1VirtualMachineOptions } from './V1VirtualMachineOptions';
-import {
-    V1VirtualMachineOptionsFromJSON,
-    V1VirtualMachineOptionsFromJSONTyped,
-    V1VirtualMachineOptionsToJSON,
-} from './V1VirtualMachineOptions';
 
 /**
  * KubeVirtConfiguration holds all kubevirt configurations
@@ -439,7 +333,6 @@ export interface V1KubeVirtConfiguration {
     webhookConfiguration?: V1ReloadableComponentConfiguration;
 }
 
-
 /**
  * @export
  */
@@ -449,123 +342,3 @@ export const V1KubeVirtConfigurationImagePullPolicyEnum = {
     Never: 'Never'
 } as const;
 export type V1KubeVirtConfigurationImagePullPolicyEnum = typeof V1KubeVirtConfigurationImagePullPolicyEnum[keyof typeof V1KubeVirtConfigurationImagePullPolicyEnum];
-
-
-/**
- * Check if a given object implements the V1KubeVirtConfiguration interface.
- */
-export function instanceOfV1KubeVirtConfiguration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1KubeVirtConfigurationFromJSON(json: any): V1KubeVirtConfiguration {
-    return V1KubeVirtConfigurationFromJSONTyped(json, false);
-}
-
-export function V1KubeVirtConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KubeVirtConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'additionalGuestMemoryOverheadRatio': !exists(json, 'additionalGuestMemoryOverheadRatio') ? undefined : json['additionalGuestMemoryOverheadRatio'],
-        'apiConfiguration': !exists(json, 'apiConfiguration') ? undefined : V1ReloadableComponentConfigurationFromJSON(json['apiConfiguration']),
-        'architectureConfiguration': !exists(json, 'architectureConfiguration') ? undefined : V1ArchConfigurationFromJSON(json['architectureConfiguration']),
-        'autoCPULimitNamespaceLabelSelector': !exists(json, 'autoCPULimitNamespaceLabelSelector') ? undefined : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['autoCPULimitNamespaceLabelSelector']),
-        'changedBlockTrackingLabelSelectors': !exists(json, 'changedBlockTrackingLabelSelectors') ? undefined : V1ChangedBlockTrackingSelectorsFromJSON(json['changedBlockTrackingLabelSelectors']),
-        'commonInstancetypesDeployment': !exists(json, 'commonInstancetypesDeployment') ? undefined : V1CommonInstancetypesDeploymentFromJSON(json['commonInstancetypesDeployment']),
-        'confidentialCompute': !exists(json, 'confidentialCompute') ? undefined : V1ConfidentialComputeConfigurationFromJSON(json['confidentialCompute']),
-        'controllerConfiguration': !exists(json, 'controllerConfiguration') ? undefined : V1ReloadableComponentConfigurationFromJSON(json['controllerConfiguration']),
-        'cpuModel': !exists(json, 'cpuModel') ? undefined : json['cpuModel'],
-        'cpuRequest': !exists(json, 'cpuRequest') ? undefined : json['cpuRequest'],
-        'defaultRuntimeClass': !exists(json, 'defaultRuntimeClass') ? undefined : json['defaultRuntimeClass'],
-        'developerConfiguration': !exists(json, 'developerConfiguration') ? undefined : V1DeveloperConfigurationFromJSON(json['developerConfiguration']),
-        'emulatedMachines': !exists(json, 'emulatedMachines') ? undefined : json['emulatedMachines'],
-        'evictionStrategy': !exists(json, 'evictionStrategy') ? undefined : json['evictionStrategy'],
-        'handlerConfiguration': !exists(json, 'handlerConfiguration') ? undefined : V1ReloadableComponentConfigurationFromJSON(json['handlerConfiguration']),
-        'hypervisors': !exists(json, 'hypervisors') ? undefined : ((json['hypervisors'] as Array<any>).map(V1HypervisorConfigurationFromJSON)),
-        'imagePullPolicy': !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
-        'instancetype': !exists(json, 'instancetype') ? undefined : V1InstancetypeConfigurationFromJSON(json['instancetype']),
-        'ksmConfiguration': !exists(json, 'ksmConfiguration') ? undefined : V1KSMConfigurationFromJSON(json['ksmConfiguration']),
-        'liveUpdateConfiguration': !exists(json, 'liveUpdateConfiguration') ? undefined : V1LiveUpdateConfigurationFromJSON(json['liveUpdateConfiguration']),
-        'machineType': !exists(json, 'machineType') ? undefined : json['machineType'],
-        'mediatedDevicesConfiguration': !exists(json, 'mediatedDevicesConfiguration') ? undefined : V1MediatedDevicesConfigurationFromJSON(json['mediatedDevicesConfiguration']),
-        'memBalloonStatsPeriod': !exists(json, 'memBalloonStatsPeriod') ? undefined : json['memBalloonStatsPeriod'],
-        'migrations': !exists(json, 'migrations') ? undefined : V1MigrationConfigurationFromJSON(json['migrations']),
-        'minCPUModel': !exists(json, 'minCPUModel') ? undefined : json['minCPUModel'],
-        'network': !exists(json, 'network') ? undefined : V1NetworkConfigurationFromJSON(json['network']),
-        'obsoleteCPUModels': !exists(json, 'obsoleteCPUModels') ? undefined : json['obsoleteCPUModels'],
-        'ovmfPath': !exists(json, 'ovmfPath') ? undefined : json['ovmfPath'],
-        'permittedHostDevices': !exists(json, 'permittedHostDevices') ? undefined : V1PermittedHostDevicesFromJSON(json['permittedHostDevices']),
-        'roleAggregationStrategy': !exists(json, 'roleAggregationStrategy') ? undefined : json['roleAggregationStrategy'],
-        'seccompConfiguration': !exists(json, 'seccompConfiguration') ? undefined : V1SeccompConfigurationFromJSON(json['seccompConfiguration']),
-        'selinuxLauncherType': !exists(json, 'selinuxLauncherType') ? undefined : json['selinuxLauncherType'],
-        'smbios': !exists(json, 'smbios') ? undefined : V1SMBiosConfigurationFromJSON(json['smbios']),
-        'supportContainerResources': !exists(json, 'supportContainerResources') ? undefined : ((json['supportContainerResources'] as Array<any>).map(V1SupportContainerResourcesFromJSON)),
-        'supportedGuestAgentVersions': !exists(json, 'supportedGuestAgentVersions') ? undefined : json['supportedGuestAgentVersions'],
-        'tlsConfiguration': !exists(json, 'tlsConfiguration') ? undefined : V1TLSConfigurationFromJSON(json['tlsConfiguration']),
-        'virtTemplateDeployment': !exists(json, 'virtTemplateDeployment') ? undefined : V1VirtTemplateDeploymentFromJSON(json['virtTemplateDeployment']),
-        'virtualMachineInstancesPerNode': !exists(json, 'virtualMachineInstancesPerNode') ? undefined : json['virtualMachineInstancesPerNode'],
-        'virtualMachineOptions': !exists(json, 'virtualMachineOptions') ? undefined : V1VirtualMachineOptionsFromJSON(json['virtualMachineOptions']),
-        'vmRolloutStrategy': !exists(json, 'vmRolloutStrategy') ? undefined : json['vmRolloutStrategy'],
-        'vmStateStorageClass': !exists(json, 'vmStateStorageClass') ? undefined : json['vmStateStorageClass'],
-        'webhookConfiguration': !exists(json, 'webhookConfiguration') ? undefined : V1ReloadableComponentConfigurationFromJSON(json['webhookConfiguration']),
-    };
-}
-
-export function V1KubeVirtConfigurationToJSON(value?: V1KubeVirtConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'additionalGuestMemoryOverheadRatio': value.additionalGuestMemoryOverheadRatio,
-        'apiConfiguration': V1ReloadableComponentConfigurationToJSON(value.apiConfiguration),
-        'architectureConfiguration': V1ArchConfigurationToJSON(value.architectureConfiguration),
-        'autoCPULimitNamespaceLabelSelector': K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.autoCPULimitNamespaceLabelSelector),
-        'changedBlockTrackingLabelSelectors': V1ChangedBlockTrackingSelectorsToJSON(value.changedBlockTrackingLabelSelectors),
-        'commonInstancetypesDeployment': V1CommonInstancetypesDeploymentToJSON(value.commonInstancetypesDeployment),
-        'confidentialCompute': V1ConfidentialComputeConfigurationToJSON(value.confidentialCompute),
-        'controllerConfiguration': V1ReloadableComponentConfigurationToJSON(value.controllerConfiguration),
-        'cpuModel': value.cpuModel,
-        'cpuRequest': value.cpuRequest,
-        'defaultRuntimeClass': value.defaultRuntimeClass,
-        'developerConfiguration': V1DeveloperConfigurationToJSON(value.developerConfiguration),
-        'emulatedMachines': value.emulatedMachines,
-        'evictionStrategy': value.evictionStrategy,
-        'handlerConfiguration': V1ReloadableComponentConfigurationToJSON(value.handlerConfiguration),
-        'hypervisors': value.hypervisors === undefined ? undefined : ((value.hypervisors as Array<any>).map(V1HypervisorConfigurationToJSON)),
-        'imagePullPolicy': value.imagePullPolicy,
-        'instancetype': V1InstancetypeConfigurationToJSON(value.instancetype),
-        'ksmConfiguration': V1KSMConfigurationToJSON(value.ksmConfiguration),
-        'liveUpdateConfiguration': V1LiveUpdateConfigurationToJSON(value.liveUpdateConfiguration),
-        'machineType': value.machineType,
-        'mediatedDevicesConfiguration': V1MediatedDevicesConfigurationToJSON(value.mediatedDevicesConfiguration),
-        'memBalloonStatsPeriod': value.memBalloonStatsPeriod,
-        'migrations': V1MigrationConfigurationToJSON(value.migrations),
-        'minCPUModel': value.minCPUModel,
-        'network': V1NetworkConfigurationToJSON(value.network),
-        'obsoleteCPUModels': value.obsoleteCPUModels,
-        'ovmfPath': value.ovmfPath,
-        'permittedHostDevices': V1PermittedHostDevicesToJSON(value.permittedHostDevices),
-        'roleAggregationStrategy': value.roleAggregationStrategy,
-        'seccompConfiguration': V1SeccompConfigurationToJSON(value.seccompConfiguration),
-        'selinuxLauncherType': value.selinuxLauncherType,
-        'smbios': V1SMBiosConfigurationToJSON(value.smbios),
-        'supportContainerResources': value.supportContainerResources === undefined ? undefined : ((value.supportContainerResources as Array<any>).map(V1SupportContainerResourcesToJSON)),
-        'supportedGuestAgentVersions': value.supportedGuestAgentVersions,
-        'tlsConfiguration': V1TLSConfigurationToJSON(value.tlsConfiguration),
-        'virtTemplateDeployment': V1VirtTemplateDeploymentToJSON(value.virtTemplateDeployment),
-        'virtualMachineInstancesPerNode': value.virtualMachineInstancesPerNode,
-        'virtualMachineOptions': V1VirtualMachineOptionsToJSON(value.virtualMachineOptions),
-        'vmRolloutStrategy': value.vmRolloutStrategy,
-        'vmStateStorageClass': value.vmStateStorageClass,
-        'webhookConfiguration': V1ReloadableComponentConfigurationToJSON(value.webhookConfiguration),
-    };
-}
-

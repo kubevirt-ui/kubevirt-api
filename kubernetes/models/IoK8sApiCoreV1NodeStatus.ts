@@ -12,35 +12,16 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1AttachedVolume,
-  IoK8sApiCoreV1AttachedVolumeFromJSON,
-  IoK8sApiCoreV1AttachedVolumeToJSON,
   IoK8sApiCoreV1ContainerImage,
-  IoK8sApiCoreV1ContainerImageFromJSON,
-  IoK8sApiCoreV1ContainerImageToJSON,
   IoK8sApiCoreV1NodeAddress,
-  IoK8sApiCoreV1NodeAddressFromJSON,
-  IoK8sApiCoreV1NodeAddressToJSON,
   IoK8sApiCoreV1NodeCondition,
-  IoK8sApiCoreV1NodeConditionFromJSON,
-  IoK8sApiCoreV1NodeConditionToJSON,
   IoK8sApiCoreV1NodeConfigStatus,
-  IoK8sApiCoreV1NodeConfigStatusFromJSON,
-  IoK8sApiCoreV1NodeConfigStatusToJSON,
   IoK8sApiCoreV1NodeDaemonEndpoints,
-  IoK8sApiCoreV1NodeDaemonEndpointsFromJSON,
-  IoK8sApiCoreV1NodeDaemonEndpointsToJSON,
   IoK8sApiCoreV1NodeFeatures,
-  IoK8sApiCoreV1NodeFeaturesFromJSON,
-  IoK8sApiCoreV1NodeFeaturesToJSON,
   IoK8sApiCoreV1NodeRuntimeHandler,
-  IoK8sApiCoreV1NodeRuntimeHandlerFromJSON,
-  IoK8sApiCoreV1NodeRuntimeHandlerToJSON,
   IoK8sApiCoreV1NodeSystemInfo,
-  IoK8sApiCoreV1NodeSystemInfoFromJSON,
-  IoK8sApiCoreV1NodeSystemInfoToJSON,
 } from './';
 
 /**
@@ -127,89 +108,4 @@ export interface IoK8sApiCoreV1NodeStatus {
    * @memberof IoK8sApiCoreV1NodeStatus
    */
   volumesInUse?: Array<string>;
-}
-
-export function IoK8sApiCoreV1NodeStatusFromJSON(json: any): IoK8sApiCoreV1NodeStatus {
-  return IoK8sApiCoreV1NodeStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NodeStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NodeStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    addresses: !exists(json, 'addresses')
-      ? undefined
-      : (json['addresses'] as Array<any>).map(IoK8sApiCoreV1NodeAddressFromJSON),
-    allocatable: !exists(json, 'allocatable') ? undefined : json['allocatable'],
-    capacity: !exists(json, 'capacity') ? undefined : json['capacity'],
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(IoK8sApiCoreV1NodeConditionFromJSON),
-    config: !exists(json, 'config')
-      ? undefined
-      : IoK8sApiCoreV1NodeConfigStatusFromJSON(json['config']),
-    daemonEndpoints: !exists(json, 'daemonEndpoints')
-      ? undefined
-      : IoK8sApiCoreV1NodeDaemonEndpointsFromJSON(json['daemonEndpoints']),
-    features: !exists(json, 'features')
-      ? undefined
-      : IoK8sApiCoreV1NodeFeaturesFromJSON(json['features']),
-    images: !exists(json, 'images')
-      ? undefined
-      : (json['images'] as Array<any>).map(IoK8sApiCoreV1ContainerImageFromJSON),
-    nodeInfo: !exists(json, 'nodeInfo')
-      ? undefined
-      : IoK8sApiCoreV1NodeSystemInfoFromJSON(json['nodeInfo']),
-    phase: !exists(json, 'phase') ? undefined : json['phase'],
-    runtimeHandlers: !exists(json, 'runtimeHandlers')
-      ? undefined
-      : (json['runtimeHandlers'] as Array<any>).map(IoK8sApiCoreV1NodeRuntimeHandlerFromJSON),
-    volumesAttached: !exists(json, 'volumesAttached')
-      ? undefined
-      : (json['volumesAttached'] as Array<any>).map(IoK8sApiCoreV1AttachedVolumeFromJSON),
-    volumesInUse: !exists(json, 'volumesInUse') ? undefined : json['volumesInUse'],
-  };
-}
-
-export function IoK8sApiCoreV1NodeStatusToJSON(value?: IoK8sApiCoreV1NodeStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    addresses:
-      value.addresses === undefined
-        ? undefined
-        : (value.addresses as Array<any>).map(IoK8sApiCoreV1NodeAddressToJSON),
-    allocatable: value.allocatable,
-    capacity: value.capacity,
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApiCoreV1NodeConditionToJSON),
-    config: IoK8sApiCoreV1NodeConfigStatusToJSON(value.config),
-    daemonEndpoints: IoK8sApiCoreV1NodeDaemonEndpointsToJSON(value.daemonEndpoints),
-    features: IoK8sApiCoreV1NodeFeaturesToJSON(value.features),
-    images:
-      value.images === undefined
-        ? undefined
-        : (value.images as Array<any>).map(IoK8sApiCoreV1ContainerImageToJSON),
-    nodeInfo: IoK8sApiCoreV1NodeSystemInfoToJSON(value.nodeInfo),
-    phase: value.phase,
-    runtimeHandlers:
-      value.runtimeHandlers === undefined
-        ? undefined
-        : (value.runtimeHandlers as Array<any>).map(IoK8sApiCoreV1NodeRuntimeHandlerToJSON),
-    volumesAttached:
-      value.volumesAttached === undefined
-        ? undefined
-        : (value.volumesAttached as Array<any>).map(IoK8sApiCoreV1AttachedVolumeToJSON),
-    volumesInUse: value.volumesInUse,
-  };
 }

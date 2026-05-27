@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * A scoped-resource selector requirement is a selector that contains values, a scope name, and an operator that relates the scope name and values.
  * @export
@@ -37,40 +36,4 @@ export interface IoK8sApiCoreV1ScopedResourceSelectorRequirement {
    * @memberof IoK8sApiCoreV1ScopedResourceSelectorRequirement
    */
   values?: Array<string>;
-}
-
-export function IoK8sApiCoreV1ScopedResourceSelectorRequirementFromJSON(
-  json: any,
-): IoK8sApiCoreV1ScopedResourceSelectorRequirement {
-  return IoK8sApiCoreV1ScopedResourceSelectorRequirementFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ScopedResourceSelectorRequirementFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ScopedResourceSelectorRequirement {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    operator: json['operator'],
-    scopeName: json['scopeName'],
-    values: !exists(json, 'values') ? undefined : json['values'],
-  };
-}
-
-export function IoK8sApiCoreV1ScopedResourceSelectorRequirementToJSON(
-  value?: IoK8sApiCoreV1ScopedResourceSelectorRequirement | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    operator: value.operator,
-    scopeName: value.scopeName,
-    values: value.values,
-  };
 }

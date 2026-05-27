@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * Condition defines conditions
  * @export
@@ -44,48 +43,3 @@ export interface V1beta1Condition {
      */
     type: string;
 }
-
-/**
- * Check if a given object implements the V1beta1Condition interface.
- */
-export function instanceOfV1beta1Condition(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "status" in value;
-    isInstance = isInstance && "type" in value;
-
-    return isInstance;
-}
-
-export function V1beta1ConditionFromJSON(json: any): V1beta1Condition {
-    return V1beta1ConditionFromJSONTyped(json, false);
-}
-
-export function V1beta1ConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1Condition {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'message': !exists(json, 'message') ? undefined : json['message'],
-        'reason': !exists(json, 'reason') ? undefined : json['reason'],
-        'status': json['status'],
-        'type': json['type'],
-    };
-}
-
-export function V1beta1ConditionToJSON(value?: V1beta1Condition | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'message': value.message,
-        'reason': value.reason,
-        'status': value.status,
-        'type': value.type,
-    };
-}
-

@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1alpha3DeviceClaim,
-  IoK8sApiResourceV1alpha3DeviceClaimFromJSON,
-  IoK8sApiResourceV1alpha3DeviceClaimToJSON,
 } from './';
 
 /**
@@ -31,38 +28,4 @@ export interface IoK8sApiResourceV1alpha3ResourceClaimSpec {
    * @memberof IoK8sApiResourceV1alpha3ResourceClaimSpec
    */
   devices?: IoK8sApiResourceV1alpha3DeviceClaim;
-}
-
-export function IoK8sApiResourceV1alpha3ResourceClaimSpecFromJSON(
-  json: any,
-): IoK8sApiResourceV1alpha3ResourceClaimSpec {
-  return IoK8sApiResourceV1alpha3ResourceClaimSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3ResourceClaimSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3ResourceClaimSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    devices: !exists(json, 'devices')
-      ? undefined
-      : IoK8sApiResourceV1alpha3DeviceClaimFromJSON(json['devices']),
-  };
-}
-
-export function IoK8sApiResourceV1alpha3ResourceClaimSpecToJSON(
-  value?: IoK8sApiResourceV1alpha3ResourceClaimSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    devices: IoK8sApiResourceV1alpha3DeviceClaimToJSON(value.devices),
-  };
 }

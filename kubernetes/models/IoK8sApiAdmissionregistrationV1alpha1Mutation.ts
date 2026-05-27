@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1alpha1ApplyConfiguration,
-  IoK8sApiAdmissionregistrationV1alpha1ApplyConfigurationFromJSON,
-  IoK8sApiAdmissionregistrationV1alpha1ApplyConfigurationToJSON,
   IoK8sApiAdmissionregistrationV1alpha1JSONPatch,
-  IoK8sApiAdmissionregistrationV1alpha1JSONPatchFromJSON,
-  IoK8sApiAdmissionregistrationV1alpha1JSONPatchToJSON,
 } from './';
 
 /**
@@ -46,46 +41,4 @@ export interface IoK8sApiAdmissionregistrationV1alpha1Mutation {
    * @memberof IoK8sApiAdmissionregistrationV1alpha1Mutation
    */
   patchType: string;
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1MutationFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1alpha1Mutation {
-  return IoK8sApiAdmissionregistrationV1alpha1MutationFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1MutationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1alpha1Mutation {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    applyConfiguration: !exists(json, 'applyConfiguration')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1alpha1ApplyConfigurationFromJSON(json['applyConfiguration']),
-    jsonPatch: !exists(json, 'jsonPatch')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1alpha1JSONPatchFromJSON(json['jsonPatch']),
-    patchType: json['patchType'],
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1MutationToJSON(
-  value?: IoK8sApiAdmissionregistrationV1alpha1Mutation | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    applyConfiguration: IoK8sApiAdmissionregistrationV1alpha1ApplyConfigurationToJSON(
-      value.applyConfiguration,
-    ),
-    jsonPatch: IoK8sApiAdmissionregistrationV1alpha1JSONPatchToJSON(value.jsonPatch),
-    patchType: value.patchType,
-  };
 }

@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1DiskVerification } from './V1DiskVerification';
-import {
-    V1DiskVerificationFromJSON,
-    V1DiskVerificationFromJSONTyped,
-    V1DiskVerificationToJSON,
-} from './V1DiskVerification';
 import type { V1LogVerbosity } from './V1LogVerbosity';
-import {
-    V1LogVerbosityFromJSON,
-    V1LogVerbosityFromJSONTyped,
-    V1LogVerbosityToJSON,
-} from './V1LogVerbosity';
 
 /**
  * DeveloperConfiguration holds developer options
@@ -105,62 +94,3 @@ export interface V1DeveloperConfiguration {
      */
     useEmulation?: boolean;
 }
-
-/**
- * Check if a given object implements the V1DeveloperConfiguration interface.
- */
-export function instanceOfV1DeveloperConfiguration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1DeveloperConfigurationFromJSON(json: any): V1DeveloperConfiguration {
-    return V1DeveloperConfigurationFromJSONTyped(json, false);
-}
-
-export function V1DeveloperConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DeveloperConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'clusterProfiler': !exists(json, 'clusterProfiler') ? undefined : json['clusterProfiler'],
-        'cpuAllocationRatio': !exists(json, 'cpuAllocationRatio') ? undefined : json['cpuAllocationRatio'],
-        'disabledFeatureGates': !exists(json, 'disabledFeatureGates') ? undefined : json['disabledFeatureGates'],
-        'diskVerification': !exists(json, 'diskVerification') ? undefined : V1DiskVerificationFromJSON(json['diskVerification']),
-        'featureGates': !exists(json, 'featureGates') ? undefined : json['featureGates'],
-        'logVerbosity': !exists(json, 'logVerbosity') ? undefined : V1LogVerbosityFromJSON(json['logVerbosity']),
-        'memoryOvercommit': !exists(json, 'memoryOvercommit') ? undefined : json['memoryOvercommit'],
-        'minimumClusterTSCFrequency': !exists(json, 'minimumClusterTSCFrequency') ? undefined : json['minimumClusterTSCFrequency'],
-        'minimumReservePVCBytes': !exists(json, 'minimumReservePVCBytes') ? undefined : json['minimumReservePVCBytes'],
-        'nodeSelectors': !exists(json, 'nodeSelectors') ? undefined : json['nodeSelectors'],
-        'pvcTolerateLessSpaceUpToPercent': !exists(json, 'pvcTolerateLessSpaceUpToPercent') ? undefined : json['pvcTolerateLessSpaceUpToPercent'],
-        'useEmulation': !exists(json, 'useEmulation') ? undefined : json['useEmulation'],
-    };
-}
-
-export function V1DeveloperConfigurationToJSON(value?: V1DeveloperConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'clusterProfiler': value.clusterProfiler,
-        'cpuAllocationRatio': value.cpuAllocationRatio,
-        'disabledFeatureGates': value.disabledFeatureGates,
-        'diskVerification': V1DiskVerificationToJSON(value.diskVerification),
-        'featureGates': value.featureGates,
-        'logVerbosity': V1LogVerbosityToJSON(value.logVerbosity),
-        'memoryOvercommit': value.memoryOvercommit,
-        'minimumClusterTSCFrequency': value.minimumClusterTSCFrequency,
-        'minimumReservePVCBytes': value.minimumReservePVCBytes,
-        'nodeSelectors': value.nodeSelectors,
-        'pvcTolerateLessSpaceUpToPercent': value.pvcTolerateLessSpaceUpToPercent,
-        'useEmulation': value.useEmulation,
-    };
-}
-

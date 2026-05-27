@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PodResourceClaim references exactly one ResourceClaim, either directly or by naming a ResourceClaimTemplate which is then turned into a ResourceClaim for the pod.
  *
@@ -47,40 +46,4 @@ export interface IoK8sApiCoreV1PodResourceClaim {
    * @memberof IoK8sApiCoreV1PodResourceClaim
    */
   resourceClaimTemplateName?: string;
-}
-
-export function IoK8sApiCoreV1PodResourceClaimFromJSON(json: any): IoK8sApiCoreV1PodResourceClaim {
-  return IoK8sApiCoreV1PodResourceClaimFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodResourceClaimFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodResourceClaim {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    resourceClaimName: !exists(json, 'resourceClaimName') ? undefined : json['resourceClaimName'],
-    resourceClaimTemplateName: !exists(json, 'resourceClaimTemplateName')
-      ? undefined
-      : json['resourceClaimTemplateName'],
-  };
-}
-
-export function IoK8sApiCoreV1PodResourceClaimToJSON(
-  value?: IoK8sApiCoreV1PodResourceClaim | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    resourceClaimName: value.resourceClaimName,
-    resourceClaimTemplateName: value.resourceClaimTemplateName,
-  };
 }

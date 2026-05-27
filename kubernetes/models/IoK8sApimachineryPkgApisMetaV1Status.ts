@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
   IoK8sApimachineryPkgApisMetaV1StatusDetails,
-  IoK8sApimachineryPkgApisMetaV1StatusDetailsFromJSON,
-  IoK8sApimachineryPkgApisMetaV1StatusDetailsToJSON,
 } from './';
 
 /**
@@ -76,54 +71,4 @@ export interface IoK8sApimachineryPkgApisMetaV1Status {
    * @memberof IoK8sApimachineryPkgApisMetaV1Status
    */
   status?: string;
-}
-
-export function IoK8sApimachineryPkgApisMetaV1StatusFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1Status {
-  return IoK8sApimachineryPkgApisMetaV1StatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1StatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1Status {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    code: !exists(json, 'code') ? undefined : json['code'],
-    details: !exists(json, 'details')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1StatusDetailsFromJSON(json['details']),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: !exists(json, 'status') ? undefined : json['status'],
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1StatusToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1Status | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    code: value.code,
-    details: IoK8sApimachineryPkgApisMetaV1StatusDetailsToJSON(value.details),
-    kind: value.kind,
-    message: value.message,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-    reason: value.reason,
-    status: value.status,
-  };
 }

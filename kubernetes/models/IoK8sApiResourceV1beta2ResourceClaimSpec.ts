@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1beta2DeviceClaim,
-  IoK8sApiResourceV1beta2DeviceClaimFromJSON,
-  IoK8sApiResourceV1beta2DeviceClaimToJSON,
 } from './';
 
 /**
@@ -31,38 +28,4 @@ export interface IoK8sApiResourceV1beta2ResourceClaimSpec {
    * @memberof IoK8sApiResourceV1beta2ResourceClaimSpec
    */
   devices?: IoK8sApiResourceV1beta2DeviceClaim;
-}
-
-export function IoK8sApiResourceV1beta2ResourceClaimSpecFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta2ResourceClaimSpec {
-  return IoK8sApiResourceV1beta2ResourceClaimSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta2ResourceClaimSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta2ResourceClaimSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    devices: !exists(json, 'devices')
-      ? undefined
-      : IoK8sApiResourceV1beta2DeviceClaimFromJSON(json['devices']),
-  };
-}
-
-export function IoK8sApiResourceV1beta2ResourceClaimSpecToJSON(
-  value?: IoK8sApiResourceV1beta2ResourceClaimSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    devices: IoK8sApiResourceV1beta2DeviceClaimToJSON(value.devices),
-  };
 }

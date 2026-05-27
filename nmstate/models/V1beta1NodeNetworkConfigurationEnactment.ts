@@ -12,12 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import type { V1beta1NodeNetworkConfigurationEnactmentStatus } from './V1beta1NodeNetworkConfigurationEnactmentStatus';
-import {
-  V1beta1NodeNetworkConfigurationEnactmentStatusFromJSON,
-  V1beta1NodeNetworkConfigurationEnactmentStatusToJSON,
-} from './V1beta1NodeNetworkConfigurationEnactmentStatus';
 
 /**
  * NodeNetworkConfigurationEnactment is the Schema for the nodenetworkconfigurationenactments API
@@ -56,53 +51,4 @@ export interface V1beta1NodeNetworkConfigurationEnactment {
    * @memberof V1beta1NodeNetworkConfigurationEnactment
    */
   status?: V1beta1NodeNetworkConfigurationEnactmentStatus;
-}
-
-/**
- * Check if a given object implements the V1beta1NodeNetworkConfigurationEnactment interface.
- */
-export function instanceOfV1beta1NodeNetworkConfigurationEnactment(_value: object): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1beta1NodeNetworkConfigurationEnactmentFromJSON(
-  json: any,
-): V1beta1NodeNetworkConfigurationEnactment {
-  return V1beta1NodeNetworkConfigurationEnactmentFromJSONTyped(json, false);
-}
-
-export function V1beta1NodeNetworkConfigurationEnactmentFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1NodeNetworkConfigurationEnactment {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata') ? undefined : json['metadata'],
-    status: !exists(json, 'status')
-      ? undefined
-      : V1beta1NodeNetworkConfigurationEnactmentStatusFromJSON(json['status']),
-  };
-}
-
-export function V1beta1NodeNetworkConfigurationEnactmentToJSON(
-  value?: V1beta1NodeNetworkConfigurationEnactment | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: value.metadata,
-    status: V1beta1NodeNetworkConfigurationEnactmentStatusToJSON(value.status),
-  };
 }

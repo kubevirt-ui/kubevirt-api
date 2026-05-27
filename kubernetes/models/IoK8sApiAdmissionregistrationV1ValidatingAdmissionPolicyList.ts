@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicy,
-  IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyFromJSON,
-  IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -52,48 +47,4 @@ export interface IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyList {
    * @memberof IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyListFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyList {
-  return IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(
-      IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyFromJSON,
-    ),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyListToJSON(
-  value?: IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(
-      IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyToJSON,
-    ),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { V1PodAffinityTerm, V1PodAffinityTermFromJSON, V1PodAffinityTermToJSON } from './';
+import { V1PodAffinityTerm } from './';
 
 /**
  * The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)
@@ -32,34 +32,4 @@ export interface V1WeightedPodAffinityTerm {
    * @memberof V1WeightedPodAffinityTerm
    */
   weight: number;
-}
-
-export function V1WeightedPodAffinityTermFromJSON(json: any): V1WeightedPodAffinityTerm {
-  return V1WeightedPodAffinityTermFromJSONTyped(json, false);
-}
-
-export function V1WeightedPodAffinityTermFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1WeightedPodAffinityTerm {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    podAffinityTerm: V1PodAffinityTermFromJSON(json['podAffinityTerm']),
-    weight: json['weight'],
-  };
-}
-
-export function V1WeightedPodAffinityTermToJSON(value?: V1WeightedPodAffinityTerm | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    podAffinityTerm: V1PodAffinityTermToJSON(value.podAffinityTerm),
-    weight: value.weight,
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -36,42 +35,3 @@ export interface V1beta1SpreadOptions {
      */
     ratio?: number;
 }
-
-/**
- * Check if a given object implements the V1beta1SpreadOptions interface.
- */
-export function instanceOfV1beta1SpreadOptions(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1beta1SpreadOptionsFromJSON(json: any): V1beta1SpreadOptions {
-    return V1beta1SpreadOptionsFromJSONTyped(json, false);
-}
-
-export function V1beta1SpreadOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1SpreadOptions {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'across': !exists(json, 'across') ? undefined : json['across'],
-        'ratio': !exists(json, 'ratio') ? undefined : json['ratio'],
-    };
-}
-
-export function V1beta1SpreadOptionsToJSON(value?: V1beta1SpreadOptions | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'across': value.across,
-        'ratio': value.ratio,
-    };
-}
-

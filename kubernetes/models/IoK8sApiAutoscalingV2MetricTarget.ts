@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * MetricTarget defines the target value, average value, or average utilization of a specific metric
  * @export
@@ -115,44 +114,4 @@ export interface IoK8sApiAutoscalingV2MetricTarget {
    * @memberof IoK8sApiAutoscalingV2MetricTarget
    */
   value?: string;
-}
-
-export function IoK8sApiAutoscalingV2MetricTargetFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV2MetricTarget {
-  return IoK8sApiAutoscalingV2MetricTargetFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV2MetricTargetFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV2MetricTarget {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    averageUtilization: !exists(json, 'averageUtilization')
-      ? undefined
-      : json['averageUtilization'],
-    averageValue: !exists(json, 'averageValue') ? undefined : json['averageValue'],
-    type: json['type'],
-    value: !exists(json, 'value') ? undefined : json['value'],
-  };
-}
-
-export function IoK8sApiAutoscalingV2MetricTargetToJSON(
-  value?: IoK8sApiAutoscalingV2MetricTarget | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    averageUtilization: value.averageUtilization,
-    averageValue: value.averageValue,
-    type: value.type,
-    value: value.value,
-  };
 }

@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1FeatureState } from './V1FeatureState';
-import {
-    V1FeatureStateFromJSON,
-    V1FeatureStateFromJSONTyped,
-    V1FeatureStateToJSON,
-} from './V1FeatureState';
 
 /**
  * 
@@ -45,44 +39,3 @@ export interface V1TLBFlush {
      */
     extended?: V1FeatureState;
 }
-
-/**
- * Check if a given object implements the V1TLBFlush interface.
- */
-export function instanceOfV1TLBFlush(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1TLBFlushFromJSON(json: any): V1TLBFlush {
-    return V1TLBFlushFromJSONTyped(json, false);
-}
-
-export function V1TLBFlushFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1TLBFlush {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'direct': !exists(json, 'direct') ? undefined : V1FeatureStateFromJSON(json['direct']),
-        'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
-        'extended': !exists(json, 'extended') ? undefined : V1FeatureStateFromJSON(json['extended']),
-    };
-}
-
-export function V1TLBFlushToJSON(value?: V1TLBFlush | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'direct': V1FeatureStateToJSON(value.direct),
-        'enabled': value.enabled,
-        'extended': V1FeatureStateToJSON(value.extended),
-    };
-}
-

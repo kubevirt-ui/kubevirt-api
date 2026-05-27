@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1RESTClientConfiguration } from './V1RESTClientConfiguration';
-import {
-    V1RESTClientConfigurationFromJSON,
-    V1RESTClientConfigurationFromJSONTyped,
-    V1RESTClientConfigurationToJSON,
-} from './V1RESTClientConfiguration';
 
 /**
  * ReloadableComponentConfiguration holds all generic k8s configuration options which can be reloaded by components without requiring a restart.
@@ -33,40 +27,3 @@ export interface V1ReloadableComponentConfiguration {
      */
     restClient?: V1RESTClientConfiguration;
 }
-
-/**
- * Check if a given object implements the V1ReloadableComponentConfiguration interface.
- */
-export function instanceOfV1ReloadableComponentConfiguration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1ReloadableComponentConfigurationFromJSON(json: any): V1ReloadableComponentConfiguration {
-    return V1ReloadableComponentConfigurationFromJSONTyped(json, false);
-}
-
-export function V1ReloadableComponentConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ReloadableComponentConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'restClient': !exists(json, 'restClient') ? undefined : V1RESTClientConfigurationFromJSON(json['restClient']),
-    };
-}
-
-export function V1ReloadableComponentConfigurationToJSON(value?: V1ReloadableComponentConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'restClient': V1RESTClientConfigurationToJSON(value.restClient),
-    };
-}
-

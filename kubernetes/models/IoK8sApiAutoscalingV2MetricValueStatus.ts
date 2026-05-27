@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * MetricValueStatus holds the current value for a metric
  * @export
@@ -109,42 +108,4 @@ export interface IoK8sApiAutoscalingV2MetricValueStatus {
    * @memberof IoK8sApiAutoscalingV2MetricValueStatus
    */
   value?: string;
-}
-
-export function IoK8sApiAutoscalingV2MetricValueStatusFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV2MetricValueStatus {
-  return IoK8sApiAutoscalingV2MetricValueStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV2MetricValueStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV2MetricValueStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    averageUtilization: !exists(json, 'averageUtilization')
-      ? undefined
-      : json['averageUtilization'],
-    averageValue: !exists(json, 'averageValue') ? undefined : json['averageValue'],
-    value: !exists(json, 'value') ? undefined : json['value'],
-  };
-}
-
-export function IoK8sApiAutoscalingV2MetricValueStatusToJSON(
-  value?: IoK8sApiAutoscalingV2MetricValueStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    averageUtilization: value.averageUtilization,
-    averageValue: value.averageValue,
-    value: value.value,
-  };
 }

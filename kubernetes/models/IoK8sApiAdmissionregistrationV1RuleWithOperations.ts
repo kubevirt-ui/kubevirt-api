@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * RuleWithOperations is a tuple of Operations and Resources. It is recommended to make sure that all the tuple expansions are valid.
  * @export
@@ -55,44 +54,4 @@ export interface IoK8sApiAdmissionregistrationV1RuleWithOperations {
    * @memberof IoK8sApiAdmissionregistrationV1RuleWithOperations
    */
   scope?: string;
-}
-
-export function IoK8sApiAdmissionregistrationV1RuleWithOperationsFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1RuleWithOperations {
-  return IoK8sApiAdmissionregistrationV1RuleWithOperationsFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1RuleWithOperationsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1RuleWithOperations {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiGroups: !exists(json, 'apiGroups') ? undefined : json['apiGroups'],
-    apiVersions: !exists(json, 'apiVersions') ? undefined : json['apiVersions'],
-    operations: !exists(json, 'operations') ? undefined : json['operations'],
-    resources: !exists(json, 'resources') ? undefined : json['resources'],
-    scope: !exists(json, 'scope') ? undefined : json['scope'],
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1RuleWithOperationsToJSON(
-  value?: IoK8sApiAdmissionregistrationV1RuleWithOperations | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiGroups: value.apiGroups,
-    apiVersions: value.apiVersions,
-    operations: value.operations,
-    resources: value.resources,
-    scope: value.scope,
-  };
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1beta2DeviceSelector,
-  IoK8sApiResourceV1beta2DeviceSelectorFromJSON,
-  IoK8sApiResourceV1beta2DeviceSelectorToJSON,
   IoK8sApiResourceV1beta2DeviceToleration,
-  IoK8sApiResourceV1beta2DeviceTolerationFromJSON,
-  IoK8sApiResourceV1beta2DeviceTolerationToJSON,
 } from './';
 
 /**
@@ -92,56 +87,4 @@ export interface IoK8sApiResourceV1beta2DeviceSubRequest {
    * @memberof IoK8sApiResourceV1beta2DeviceSubRequest
    */
   tolerations?: Array<IoK8sApiResourceV1beta2DeviceToleration>;
-}
-
-export function IoK8sApiResourceV1beta2DeviceSubRequestFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta2DeviceSubRequest {
-  return IoK8sApiResourceV1beta2DeviceSubRequestFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta2DeviceSubRequestFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta2DeviceSubRequest {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    allocationMode: !exists(json, 'allocationMode') ? undefined : json['allocationMode'],
-    count: !exists(json, 'count') ? undefined : json['count'],
-    deviceClassName: json['deviceClassName'],
-    name: json['name'],
-    selectors: !exists(json, 'selectors')
-      ? undefined
-      : (json['selectors'] as Array<any>).map(IoK8sApiResourceV1beta2DeviceSelectorFromJSON),
-    tolerations: !exists(json, 'tolerations')
-      ? undefined
-      : (json['tolerations'] as Array<any>).map(IoK8sApiResourceV1beta2DeviceTolerationFromJSON),
-  };
-}
-
-export function IoK8sApiResourceV1beta2DeviceSubRequestToJSON(
-  value?: IoK8sApiResourceV1beta2DeviceSubRequest | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    allocationMode: value.allocationMode,
-    count: value.count,
-    deviceClassName: value.deviceClassName,
-    name: value.name,
-    selectors:
-      value.selectors === undefined
-        ? undefined
-        : (value.selectors as Array<any>).map(IoK8sApiResourceV1beta2DeviceSelectorToJSON),
-    tolerations:
-      value.tolerations === undefined
-        ? undefined
-        : (value.tolerations as Array<any>).map(IoK8sApiResourceV1beta2DeviceTolerationToJSON),
-  };
 }

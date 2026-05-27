@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1ResourceRequirementsWithoutClaims } from './V1ResourceRequirementsWithoutClaims';
-import {
-    V1ResourceRequirementsWithoutClaimsFromJSON,
-    V1ResourceRequirementsWithoutClaimsFromJSONTyped,
-    V1ResourceRequirementsWithoutClaimsToJSON,
-} from './V1ResourceRequirementsWithoutClaims';
 
 /**
  * SupportContainerResources are used to specify the cpu/memory request and limits for the containers that support various features of Virtual Machines. These containers are usually idle and don't require a lot of memory or cpu.
@@ -39,44 +33,3 @@ export interface V1SupportContainerResources {
      */
     type: string;
 }
-
-/**
- * Check if a given object implements the V1SupportContainerResources interface.
- */
-export function instanceOfV1SupportContainerResources(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "resources" in value;
-    isInstance = isInstance && "type" in value;
-
-    return isInstance;
-}
-
-export function V1SupportContainerResourcesFromJSON(json: any): V1SupportContainerResources {
-    return V1SupportContainerResourcesFromJSONTyped(json, false);
-}
-
-export function V1SupportContainerResourcesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SupportContainerResources {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'resources': V1ResourceRequirementsWithoutClaimsFromJSON(json['resources']),
-        'type': json['type'],
-    };
-}
-
-export function V1SupportContainerResourcesToJSON(value?: V1SupportContainerResources | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'resources': V1ResourceRequirementsWithoutClaimsToJSON(value.resources),
-        'type': value.type,
-    };
-}
-

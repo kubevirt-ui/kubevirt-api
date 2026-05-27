@@ -14,11 +14,7 @@
 
 import {
   IoK8sApiAutoscalingV2MetricIdentifier,
-  IoK8sApiAutoscalingV2MetricIdentifierFromJSON,
-  IoK8sApiAutoscalingV2MetricIdentifierToJSON,
   IoK8sApiAutoscalingV2MetricValueStatus,
-  IoK8sApiAutoscalingV2MetricValueStatusFromJSON,
-  IoK8sApiAutoscalingV2MetricValueStatusToJSON,
 } from './';
 
 /**
@@ -39,38 +35,4 @@ export interface IoK8sApiAutoscalingV2PodsMetricStatus {
    * @memberof IoK8sApiAutoscalingV2PodsMetricStatus
    */
   metric: IoK8sApiAutoscalingV2MetricIdentifier;
-}
-
-export function IoK8sApiAutoscalingV2PodsMetricStatusFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV2PodsMetricStatus {
-  return IoK8sApiAutoscalingV2PodsMetricStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV2PodsMetricStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV2PodsMetricStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    current: IoK8sApiAutoscalingV2MetricValueStatusFromJSON(json['current']),
-    metric: IoK8sApiAutoscalingV2MetricIdentifierFromJSON(json['metric']),
-  };
-}
-
-export function IoK8sApiAutoscalingV2PodsMetricStatusToJSON(
-  value?: IoK8sApiAutoscalingV2PodsMetricStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    current: IoK8sApiAutoscalingV2MetricValueStatusToJSON(value.current),
-    metric: IoK8sApiAutoscalingV2MetricIdentifierToJSON(value.metric),
-  };
 }

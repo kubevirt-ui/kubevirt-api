@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
  * @export
@@ -55,46 +54,4 @@ export interface IoK8sApiCoreV1AzureDiskVolumeSource {
    * @memberof IoK8sApiCoreV1AzureDiskVolumeSource
    */
   readOnly?: boolean;
-}
-
-export function IoK8sApiCoreV1AzureDiskVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1AzureDiskVolumeSource {
-  return IoK8sApiCoreV1AzureDiskVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1AzureDiskVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1AzureDiskVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    cachingMode: !exists(json, 'cachingMode') ? undefined : json['cachingMode'],
-    diskName: json['diskName'],
-    diskURI: json['diskURI'],
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-  };
-}
-
-export function IoK8sApiCoreV1AzureDiskVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1AzureDiskVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    cachingMode: value.cachingMode,
-    diskName: value.diskName,
-    diskURI: value.diskURI,
-    fsType: value.fsType,
-    kind: value.kind,
-    readOnly: value.readOnly,
-  };
 }

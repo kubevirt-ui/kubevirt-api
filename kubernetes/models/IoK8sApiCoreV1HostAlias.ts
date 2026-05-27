@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod's hosts file.
  * @export
@@ -31,34 +30,4 @@ export interface IoK8sApiCoreV1HostAlias {
    * @memberof IoK8sApiCoreV1HostAlias
    */
   ip: string;
-}
-
-export function IoK8sApiCoreV1HostAliasFromJSON(json: any): IoK8sApiCoreV1HostAlias {
-  return IoK8sApiCoreV1HostAliasFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1HostAliasFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1HostAlias {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    hostnames: !exists(json, 'hostnames') ? undefined : json['hostnames'],
-    ip: json['ip'],
-  };
-}
-
-export function IoK8sApiCoreV1HostAliasToJSON(value?: IoK8sApiCoreV1HostAlias | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    hostnames: value.hostnames,
-    ip: value.ip,
-  };
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1EndpointAddress,
-  IoK8sApiCoreV1EndpointAddressFromJSON,
-  IoK8sApiCoreV1EndpointAddressToJSON,
   IoK8sApiCoreV1EndpointPort,
-  IoK8sApiCoreV1EndpointPortFromJSON,
-  IoK8sApiCoreV1EndpointPortToJSON,
 } from './';
 
 /**
@@ -58,53 +53,4 @@ export interface IoK8sApiCoreV1EndpointSubset {
    * @memberof IoK8sApiCoreV1EndpointSubset
    */
   ports?: Array<IoK8sApiCoreV1EndpointPort>;
-}
-
-export function IoK8sApiCoreV1EndpointSubsetFromJSON(json: any): IoK8sApiCoreV1EndpointSubset {
-  return IoK8sApiCoreV1EndpointSubsetFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1EndpointSubsetFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1EndpointSubset {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    addresses: !exists(json, 'addresses')
-      ? undefined
-      : (json['addresses'] as Array<any>).map(IoK8sApiCoreV1EndpointAddressFromJSON),
-    notReadyAddresses: !exists(json, 'notReadyAddresses')
-      ? undefined
-      : (json['notReadyAddresses'] as Array<any>).map(IoK8sApiCoreV1EndpointAddressFromJSON),
-    ports: !exists(json, 'ports')
-      ? undefined
-      : (json['ports'] as Array<any>).map(IoK8sApiCoreV1EndpointPortFromJSON),
-  };
-}
-
-export function IoK8sApiCoreV1EndpointSubsetToJSON(
-  value?: IoK8sApiCoreV1EndpointSubset | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    addresses:
-      value.addresses === undefined
-        ? undefined
-        : (value.addresses as Array<any>).map(IoK8sApiCoreV1EndpointAddressToJSON),
-    notReadyAddresses:
-      value.notReadyAddresses === undefined
-        ? undefined
-        : (value.notReadyAddresses as Array<any>).map(IoK8sApiCoreV1EndpointAddressToJSON),
-    ports:
-      value.ports === undefined
-        ? undefined
-        : (value.ports as Array<any>).map(IoK8sApiCoreV1EndpointPortToJSON),
-  };
 }

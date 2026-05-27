@@ -25,35 +25,3 @@ export interface IoK8sApiCoreV1PodSchedulingGate {
    */
   name: string;
 }
-
-export function IoK8sApiCoreV1PodSchedulingGateFromJSON(
-  json: any,
-): IoK8sApiCoreV1PodSchedulingGate {
-  return IoK8sApiCoreV1PodSchedulingGateFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodSchedulingGateFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodSchedulingGate {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-  };
-}
-
-export function IoK8sApiCoreV1PodSchedulingGateToJSON(
-  value?: IoK8sApiCoreV1PodSchedulingGate | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-  };
-}

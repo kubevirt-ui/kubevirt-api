@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1USBSelector } from './V1USBSelector';
-import {
-    V1USBSelectorFromJSON,
-    V1USBSelectorFromJSONTyped,
-    V1USBSelectorToJSON,
-} from './V1USBSelector';
 
 /**
  * 
@@ -45,45 +39,3 @@ export interface V1USBHostDevice {
      */
     selectors?: Array<V1USBSelector>;
 }
-
-/**
- * Check if a given object implements the V1USBHostDevice interface.
- */
-export function instanceOfV1USBHostDevice(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "resourceName" in value;
-
-    return isInstance;
-}
-
-export function V1USBHostDeviceFromJSON(json: any): V1USBHostDevice {
-    return V1USBHostDeviceFromJSONTyped(json, false);
-}
-
-export function V1USBHostDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1USBHostDevice {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'externalResourceProvider': !exists(json, 'externalResourceProvider') ? undefined : json['externalResourceProvider'],
-        'resourceName': json['resourceName'],
-        'selectors': !exists(json, 'selectors') ? undefined : ((json['selectors'] as Array<any>).map(V1USBSelectorFromJSON)),
-    };
-}
-
-export function V1USBHostDeviceToJSON(value?: V1USBHostDevice | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'externalResourceProvider': value.externalResourceProvider,
-        'resourceName': value.resourceName,
-        'selectors': value.selectors === undefined ? undefined : ((value.selectors as Array<any>).map(V1USBSelectorToJSON)),
-    };
-}
-

@@ -31,33 +31,3 @@ export interface IoK8sApiCoreV1NodeAddress {
    */
   type: string;
 }
-
-export function IoK8sApiCoreV1NodeAddressFromJSON(json: any): IoK8sApiCoreV1NodeAddress {
-  return IoK8sApiCoreV1NodeAddressFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NodeAddressFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NodeAddress {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    address: json['address'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1NodeAddressToJSON(value?: IoK8sApiCoreV1NodeAddress | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    address: value.address,
-    type: value.type,
-  };
-}

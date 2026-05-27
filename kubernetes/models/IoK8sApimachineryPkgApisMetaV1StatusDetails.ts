@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1StatusCause,
-  IoK8sApimachineryPkgApisMetaV1StatusCauseFromJSON,
-  IoK8sApimachineryPkgApisMetaV1StatusCauseToJSON,
 } from './';
 
 /**
@@ -61,51 +58,4 @@ export interface IoK8sApimachineryPkgApisMetaV1StatusDetails {
    * @memberof IoK8sApimachineryPkgApisMetaV1StatusDetails
    */
   uid?: string;
-}
-
-export function IoK8sApimachineryPkgApisMetaV1StatusDetailsFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1StatusDetails {
-  return IoK8sApimachineryPkgApisMetaV1StatusDetailsFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1StatusDetailsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1StatusDetails {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    causes: !exists(json, 'causes')
-      ? undefined
-      : (json['causes'] as Array<any>).map(IoK8sApimachineryPkgApisMetaV1StatusCauseFromJSON),
-    group: !exists(json, 'group') ? undefined : json['group'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    name: !exists(json, 'name') ? undefined : json['name'],
-    retryAfterSeconds: !exists(json, 'retryAfterSeconds') ? undefined : json['retryAfterSeconds'],
-    uid: !exists(json, 'uid') ? undefined : json['uid'],
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1StatusDetailsToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1StatusDetails | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    causes:
-      value.causes === undefined
-        ? undefined
-        : (value.causes as Array<any>).map(IoK8sApimachineryPkgApisMetaV1StatusCauseToJSON),
-    group: value.group,
-    kind: value.kind,
-    name: value.name,
-    retryAfterSeconds: value.retryAfterSeconds,
-    uid: value.uid,
-  };
 }

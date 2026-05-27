@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -26,40 +25,3 @@ export interface V1SEVPolicy {
      */
     encryptedState?: boolean;
 }
-
-/**
- * Check if a given object implements the V1SEVPolicy interface.
- */
-export function instanceOfV1SEVPolicy(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1SEVPolicyFromJSON(json: any): V1SEVPolicy {
-    return V1SEVPolicyFromJSONTyped(json, false);
-}
-
-export function V1SEVPolicyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SEVPolicy {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'encryptedState': !exists(json, 'encryptedState') ? undefined : json['encryptedState'],
-    };
-}
-
-export function V1SEVPolicyToJSON(value?: V1SEVPolicy | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'encryptedState': value.encryptedState,
-    };
-}
-

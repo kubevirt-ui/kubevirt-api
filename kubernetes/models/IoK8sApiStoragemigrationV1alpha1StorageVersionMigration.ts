@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationSpec,
-  IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationSpecFromJSON,
-  IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationSpecToJSON,
   IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationStatus,
-  IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationStatusFromJSON,
-  IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,50 +54,4 @@ export interface IoK8sApiStoragemigrationV1alpha1StorageVersionMigration {
    * @memberof IoK8sApiStoragemigrationV1alpha1StorageVersionMigration
    */
   status?: IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationStatus;
-}
-
-export function IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationFromJSON(
-  json: any,
-): IoK8sApiStoragemigrationV1alpha1StorageVersionMigration {
-  return IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStoragemigrationV1alpha1StorageVersionMigration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec')
-      ? undefined
-      : IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationToJSON(
-  value?: IoK8sApiStoragemigrationV1alpha1StorageVersionMigration | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationSpecToJSON(value.spec),
-    status: IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationStatusToJSON(value.status),
-  };
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiApiserverinternalV1alpha1StorageVersion,
-  IoK8sApiApiserverinternalV1alpha1StorageVersionFromJSON,
-  IoK8sApiApiserverinternalV1alpha1StorageVersionToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -52,46 +47,4 @@ export interface IoK8sApiApiserverinternalV1alpha1StorageVersionList {
    * @memberof IoK8sApiApiserverinternalV1alpha1StorageVersionList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiApiserverinternalV1alpha1StorageVersionListFromJSON(
-  json: any,
-): IoK8sApiApiserverinternalV1alpha1StorageVersionList {
-  return IoK8sApiApiserverinternalV1alpha1StorageVersionListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiApiserverinternalV1alpha1StorageVersionListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiApiserverinternalV1alpha1StorageVersionList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(
-      IoK8sApiApiserverinternalV1alpha1StorageVersionFromJSON,
-    ),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiApiserverinternalV1alpha1StorageVersionListToJSON(
-  value?: IoK8sApiApiserverinternalV1alpha1StorageVersionList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(IoK8sApiApiserverinternalV1alpha1StorageVersionToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

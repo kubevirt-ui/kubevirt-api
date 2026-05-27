@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * FilesystemOverhead defines the reserved size for PVCs with VolumeMode: Filesystem
  * @export
@@ -31,34 +30,4 @@ export interface V1beta1FilesystemOverhead {
    * @memberof V1beta1FilesystemOverhead
    */
   storageClass?: { [key: string]: string };
-}
-
-export function V1beta1FilesystemOverheadFromJSON(json: any): V1beta1FilesystemOverhead {
-  return V1beta1FilesystemOverheadFromJSONTyped(json, false);
-}
-
-export function V1beta1FilesystemOverheadFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1FilesystemOverhead {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    global: !exists(json, 'global') ? undefined : json['global'],
-    storageClass: !exists(json, 'storageClass') ? undefined : json['storageClass'],
-  };
-}
-
-export function V1beta1FilesystemOverheadToJSON(value?: V1beta1FilesystemOverhead | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    global: value.global,
-    storageClass: value.storageClass,
-  };
 }

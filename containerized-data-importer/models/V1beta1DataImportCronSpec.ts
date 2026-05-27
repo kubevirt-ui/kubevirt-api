@@ -12,8 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1beta1DataVolume, V1beta1DataVolumeFromJSON, V1beta1DataVolumeToJSON } from './';
+import { V1beta1DataVolume } from './';
 
 /**
  * DataImportCronSpec defines specification for DataImportCron
@@ -40,7 +39,7 @@ export interface V1beta1DataImportCronSpec {
    */
   managedDataSource: string;
   /**
-   * RetentionPolicy specifies whether the created DataVolumes and DataSources are retained when their DataImportCron is deleted. Default is RatainAll.
+   * RetentionPolicy specifies whether the created DataVolumes and DataSources are retained when their DataImportCron is deleted. Default is RetainAll.
    * @type {string}
    * @memberof V1beta1DataImportCronSpec
    */
@@ -57,42 +56,4 @@ export interface V1beta1DataImportCronSpec {
    * @memberof V1beta1DataImportCronSpec
    */
   template: V1beta1DataVolume;
-}
-
-export function V1beta1DataImportCronSpecFromJSON(json: any): V1beta1DataImportCronSpec {
-  return V1beta1DataImportCronSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1DataImportCronSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataImportCronSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    garbageCollect: !exists(json, 'garbageCollect') ? undefined : json['garbageCollect'],
-    importsToKeep: !exists(json, 'importsToKeep') ? undefined : json['importsToKeep'],
-    managedDataSource: json['managedDataSource'],
-    retentionPolicy: !exists(json, 'retentionPolicy') ? undefined : json['retentionPolicy'],
-    schedule: json['schedule'],
-    template: V1beta1DataVolumeFromJSON(json['template']),
-  };
-}
-
-export function V1beta1DataImportCronSpecToJSON(value?: V1beta1DataImportCronSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    garbageCollect: value.garbageCollect,
-    importsToKeep: value.importsToKeep,
-    managedDataSource: value.managedDataSource,
-    retentionPolicy: value.retentionPolicy,
-    schedule: value.schedule,
-    template: V1beta1DataVolumeToJSON(value.template),
-  };
 }

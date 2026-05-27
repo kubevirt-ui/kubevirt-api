@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ObjectFieldSelector,
-  IoK8sApiCoreV1ObjectFieldSelectorFromJSON,
-  IoK8sApiCoreV1ObjectFieldSelectorToJSON,
   IoK8sApiCoreV1ResourceFieldSelector,
-  IoK8sApiCoreV1ResourceFieldSelectorFromJSON,
-  IoK8sApiCoreV1ResourceFieldSelectorToJSON,
 } from './';
 
 /**
@@ -52,46 +47,4 @@ export interface IoK8sApiCoreV1DownwardAPIVolumeFile {
    * @memberof IoK8sApiCoreV1DownwardAPIVolumeFile
    */
   resourceFieldRef?: IoK8sApiCoreV1ResourceFieldSelector;
-}
-
-export function IoK8sApiCoreV1DownwardAPIVolumeFileFromJSON(
-  json: any,
-): IoK8sApiCoreV1DownwardAPIVolumeFile {
-  return IoK8sApiCoreV1DownwardAPIVolumeFileFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1DownwardAPIVolumeFileFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1DownwardAPIVolumeFile {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fieldRef: !exists(json, 'fieldRef')
-      ? undefined
-      : IoK8sApiCoreV1ObjectFieldSelectorFromJSON(json['fieldRef']),
-    mode: !exists(json, 'mode') ? undefined : json['mode'],
-    path: json['path'],
-    resourceFieldRef: !exists(json, 'resourceFieldRef')
-      ? undefined
-      : IoK8sApiCoreV1ResourceFieldSelectorFromJSON(json['resourceFieldRef']),
-  };
-}
-
-export function IoK8sApiCoreV1DownwardAPIVolumeFileToJSON(
-  value?: IoK8sApiCoreV1DownwardAPIVolumeFile | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fieldRef: IoK8sApiCoreV1ObjectFieldSelectorToJSON(value.fieldRef),
-    mode: value.mode,
-    path: value.path,
-    resourceFieldRef: IoK8sApiCoreV1ResourceFieldSelectorToJSON(value.resourceFieldRef),
-  };
 }

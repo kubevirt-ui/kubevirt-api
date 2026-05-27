@@ -31,37 +31,3 @@ export interface IoK8sApiFlowcontrolV1ServiceAccountSubject {
    */
   namespace: string;
 }
-
-export function IoK8sApiFlowcontrolV1ServiceAccountSubjectFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1ServiceAccountSubject {
-  return IoK8sApiFlowcontrolV1ServiceAccountSubjectFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1ServiceAccountSubjectFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1ServiceAccountSubject {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    namespace: json['namespace'],
-  };
-}
-
-export function IoK8sApiFlowcontrolV1ServiceAccountSubjectToJSON(
-  value?: IoK8sApiFlowcontrolV1ServiceAccountSubject | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    namespace: value.namespace,
-  };
-}

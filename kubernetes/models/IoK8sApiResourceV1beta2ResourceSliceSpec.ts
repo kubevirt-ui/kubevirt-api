@@ -12,20 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1NodeSelector,
-  IoK8sApiCoreV1NodeSelectorFromJSON,
-  IoK8sApiCoreV1NodeSelectorToJSON,
   IoK8sApiResourceV1beta2CounterSet,
-  IoK8sApiResourceV1beta2CounterSetFromJSON,
-  IoK8sApiResourceV1beta2CounterSetToJSON,
   IoK8sApiResourceV1beta2Device,
-  IoK8sApiResourceV1beta2DeviceFromJSON,
-  IoK8sApiResourceV1beta2DeviceToJSON,
   IoK8sApiResourceV1beta2ResourcePool,
-  IoK8sApiResourceV1beta2ResourcePoolFromJSON,
-  IoK8sApiResourceV1beta2ResourcePoolToJSON,
 } from './';
 
 /**
@@ -98,64 +89,4 @@ export interface IoK8sApiResourceV1beta2ResourceSliceSpec {
    * @memberof IoK8sApiResourceV1beta2ResourceSliceSpec
    */
   sharedCounters?: Array<IoK8sApiResourceV1beta2CounterSet>;
-}
-
-export function IoK8sApiResourceV1beta2ResourceSliceSpecFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta2ResourceSliceSpec {
-  return IoK8sApiResourceV1beta2ResourceSliceSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta2ResourceSliceSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta2ResourceSliceSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    allNodes: !exists(json, 'allNodes') ? undefined : json['allNodes'],
-    devices: !exists(json, 'devices')
-      ? undefined
-      : (json['devices'] as Array<any>).map(IoK8sApiResourceV1beta2DeviceFromJSON),
-    driver: json['driver'],
-    nodeName: !exists(json, 'nodeName') ? undefined : json['nodeName'],
-    nodeSelector: !exists(json, 'nodeSelector')
-      ? undefined
-      : IoK8sApiCoreV1NodeSelectorFromJSON(json['nodeSelector']),
-    perDeviceNodeSelection: !exists(json, 'perDeviceNodeSelection')
-      ? undefined
-      : json['perDeviceNodeSelection'],
-    pool: IoK8sApiResourceV1beta2ResourcePoolFromJSON(json['pool']),
-    sharedCounters: !exists(json, 'sharedCounters')
-      ? undefined
-      : (json['sharedCounters'] as Array<any>).map(IoK8sApiResourceV1beta2CounterSetFromJSON),
-  };
-}
-
-export function IoK8sApiResourceV1beta2ResourceSliceSpecToJSON(
-  value?: IoK8sApiResourceV1beta2ResourceSliceSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    allNodes: value.allNodes,
-    devices:
-      value.devices === undefined
-        ? undefined
-        : (value.devices as Array<any>).map(IoK8sApiResourceV1beta2DeviceToJSON),
-    driver: value.driver,
-    nodeName: value.nodeName,
-    nodeSelector: IoK8sApiCoreV1NodeSelectorToJSON(value.nodeSelector),
-    perDeviceNodeSelection: value.perDeviceNodeSelection,
-    pool: IoK8sApiResourceV1beta2ResourcePoolToJSON(value.pool),
-    sharedCounters:
-      value.sharedCounters === undefined
-        ? undefined
-        : (value.sharedCounters as Array<any>).map(IoK8sApiResourceV1beta2CounterSetToJSON),
-  };
 }

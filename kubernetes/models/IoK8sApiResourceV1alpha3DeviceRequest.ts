@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1alpha3DeviceSelector,
-  IoK8sApiResourceV1alpha3DeviceSelectorFromJSON,
-  IoK8sApiResourceV1alpha3DeviceSelectorToJSON,
   IoK8sApiResourceV1alpha3DeviceSubRequest,
-  IoK8sApiResourceV1alpha3DeviceSubRequestFromJSON,
-  IoK8sApiResourceV1alpha3DeviceSubRequestToJSON,
   IoK8sApiResourceV1alpha3DeviceToleration,
-  IoK8sApiResourceV1alpha3DeviceTolerationFromJSON,
-  IoK8sApiResourceV1alpha3DeviceTolerationToJSON,
 } from './';
 
 /**
@@ -122,67 +115,4 @@ export interface IoK8sApiResourceV1alpha3DeviceRequest {
    * @memberof IoK8sApiResourceV1alpha3DeviceRequest
    */
   tolerations?: Array<IoK8sApiResourceV1alpha3DeviceToleration>;
-}
-
-export function IoK8sApiResourceV1alpha3DeviceRequestFromJSON(
-  json: any,
-): IoK8sApiResourceV1alpha3DeviceRequest {
-  return IoK8sApiResourceV1alpha3DeviceRequestFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3DeviceRequestFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3DeviceRequest {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    adminAccess: !exists(json, 'adminAccess') ? undefined : json['adminAccess'],
-    allocationMode: !exists(json, 'allocationMode') ? undefined : json['allocationMode'],
-    count: !exists(json, 'count') ? undefined : json['count'],
-    deviceClassName: !exists(json, 'deviceClassName') ? undefined : json['deviceClassName'],
-    firstAvailable: !exists(json, 'firstAvailable')
-      ? undefined
-      : (json['firstAvailable'] as Array<any>).map(
-          IoK8sApiResourceV1alpha3DeviceSubRequestFromJSON,
-        ),
-    name: json['name'],
-    selectors: !exists(json, 'selectors')
-      ? undefined
-      : (json['selectors'] as Array<any>).map(IoK8sApiResourceV1alpha3DeviceSelectorFromJSON),
-    tolerations: !exists(json, 'tolerations')
-      ? undefined
-      : (json['tolerations'] as Array<any>).map(IoK8sApiResourceV1alpha3DeviceTolerationFromJSON),
-  };
-}
-
-export function IoK8sApiResourceV1alpha3DeviceRequestToJSON(
-  value?: IoK8sApiResourceV1alpha3DeviceRequest | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    adminAccess: value.adminAccess,
-    allocationMode: value.allocationMode,
-    count: value.count,
-    deviceClassName: value.deviceClassName,
-    firstAvailable:
-      value.firstAvailable === undefined
-        ? undefined
-        : (value.firstAvailable as Array<any>).map(IoK8sApiResourceV1alpha3DeviceSubRequestToJSON),
-    name: value.name,
-    selectors:
-      value.selectors === undefined
-        ? undefined
-        : (value.selectors as Array<any>).map(IoK8sApiResourceV1alpha3DeviceSelectorToJSON),
-    tolerations:
-      value.tolerations === undefined
-        ? undefined
-        : (value.tolerations as Array<any>).map(IoK8sApiResourceV1alpha3DeviceTolerationToJSON),
-  };
 }

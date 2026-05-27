@@ -12,24 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import {
     K8sIoApimachineryPkgApisMetaV1LabelSelector,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
     V1alpha1VirtualMachinePoolNameGeneration,
-    V1alpha1VirtualMachinePoolNameGenerationFromJSON,
-    V1alpha1VirtualMachinePoolNameGenerationFromJSONTyped,
-    V1alpha1VirtualMachinePoolNameGenerationToJSON,
     V1alpha1VirtualMachinePoolScaleInStrategy,
-    V1alpha1VirtualMachinePoolScaleInStrategyFromJSON,
-    V1alpha1VirtualMachinePoolScaleInStrategyFromJSONTyped,
-    V1alpha1VirtualMachinePoolScaleInStrategyToJSON,
     V1alpha1VirtualMachineTemplateSpec,
-    V1alpha1VirtualMachineTemplateSpecFromJSON,
-    V1alpha1VirtualMachineTemplateSpecFromJSONTyped,
-    V1alpha1VirtualMachineTemplateSpecToJSON,
 } from './';
 
 /**
@@ -81,43 +68,3 @@ export interface V1alpha1VirtualMachinePoolSpec {
      */
     virtualMachineTemplate: V1alpha1VirtualMachineTemplateSpec;
 }
-
-export function V1alpha1VirtualMachinePoolSpecFromJSON(json: any): V1alpha1VirtualMachinePoolSpec {
-    return V1alpha1VirtualMachinePoolSpecFromJSONTyped(json, false);
-}
-
-export function V1alpha1VirtualMachinePoolSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachinePoolSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'maxUnavailable': !exists(json, 'maxUnavailable') ? undefined : json['maxUnavailable'],
-        'nameGeneration': !exists(json, 'nameGeneration') ? undefined : V1alpha1VirtualMachinePoolNameGenerationFromJSON(json['nameGeneration']),
-        'paused': !exists(json, 'paused') ? undefined : json['paused'],
-        'replicas': !exists(json, 'replicas') ? undefined : json['replicas'],
-        'scaleInStrategy': !exists(json, 'scaleInStrategy') ? undefined : V1alpha1VirtualMachinePoolScaleInStrategyFromJSON(json['scaleInStrategy']),
-        'selector': K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
-        'virtualMachineTemplate': V1alpha1VirtualMachineTemplateSpecFromJSON(json['virtualMachineTemplate']),
-    };
-}
-
-export function V1alpha1VirtualMachinePoolSpecToJSON(value?: V1alpha1VirtualMachinePoolSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'maxUnavailable': value.maxUnavailable,
-        'nameGeneration': V1alpha1VirtualMachinePoolNameGenerationToJSON(value.nameGeneration),
-        'paused': value.paused,
-        'replicas': value.replicas,
-        'scaleInStrategy': V1alpha1VirtualMachinePoolScaleInStrategyToJSON(value.scaleInStrategy),
-        'selector': K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
-        'virtualMachineTemplate': V1alpha1VirtualMachineTemplateSpecToJSON(value.virtualMachineTemplate),
-    };
-}
-

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1alpha3DeviceClassConfiguration,
-  IoK8sApiResourceV1alpha3DeviceClassConfigurationFromJSON,
-  IoK8sApiResourceV1alpha3DeviceClassConfigurationToJSON,
   IoK8sApiResourceV1alpha3DeviceSelector,
-  IoK8sApiResourceV1alpha3DeviceSelectorFromJSON,
-  IoK8sApiResourceV1alpha3DeviceSelectorToJSON,
 } from './';
 
 /**
@@ -42,50 +37,4 @@ export interface IoK8sApiResourceV1alpha3DeviceClassSpec {
    * @memberof IoK8sApiResourceV1alpha3DeviceClassSpec
    */
   selectors?: Array<IoK8sApiResourceV1alpha3DeviceSelector>;
-}
-
-export function IoK8sApiResourceV1alpha3DeviceClassSpecFromJSON(
-  json: any,
-): IoK8sApiResourceV1alpha3DeviceClassSpec {
-  return IoK8sApiResourceV1alpha3DeviceClassSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3DeviceClassSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3DeviceClassSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    config: !exists(json, 'config')
-      ? undefined
-      : (json['config'] as Array<any>).map(
-          IoK8sApiResourceV1alpha3DeviceClassConfigurationFromJSON,
-        ),
-    selectors: !exists(json, 'selectors')
-      ? undefined
-      : (json['selectors'] as Array<any>).map(IoK8sApiResourceV1alpha3DeviceSelectorFromJSON),
-  };
-}
-
-export function IoK8sApiResourceV1alpha3DeviceClassSpecToJSON(
-  value?: IoK8sApiResourceV1alpha3DeviceClassSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    config:
-      value.config === undefined
-        ? undefined
-        : (value.config as Array<any>).map(IoK8sApiResourceV1alpha3DeviceClassConfigurationToJSON),
-    selectors:
-      value.selectors === undefined
-        ? undefined
-        : (value.selectors as Array<any>).map(IoK8sApiResourceV1alpha3DeviceSelectorToJSON),
-  };
 }

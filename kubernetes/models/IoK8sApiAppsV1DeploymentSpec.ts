@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAppsV1DeploymentStrategy,
-  IoK8sApiAppsV1DeploymentStrategyFromJSON,
-  IoK8sApiAppsV1DeploymentStrategyToJSON,
   IoK8sApiCoreV1PodTemplateSpec,
-  IoK8sApiCoreV1PodTemplateSpecFromJSON,
-  IoK8sApiCoreV1PodTemplateSpecToJSON,
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -79,54 +72,4 @@ export interface IoK8sApiAppsV1DeploymentSpec {
    * @memberof IoK8sApiAppsV1DeploymentSpec
    */
   template: IoK8sApiCoreV1PodTemplateSpec;
-}
-
-export function IoK8sApiAppsV1DeploymentSpecFromJSON(json: any): IoK8sApiAppsV1DeploymentSpec {
-  return IoK8sApiAppsV1DeploymentSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1DeploymentSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1DeploymentSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    minReadySeconds: !exists(json, 'minReadySeconds') ? undefined : json['minReadySeconds'],
-    paused: !exists(json, 'paused') ? undefined : json['paused'],
-    progressDeadlineSeconds: !exists(json, 'progressDeadlineSeconds')
-      ? undefined
-      : json['progressDeadlineSeconds'],
-    replicas: !exists(json, 'replicas') ? undefined : json['replicas'],
-    revisionHistoryLimit: !exists(json, 'revisionHistoryLimit')
-      ? undefined
-      : json['revisionHistoryLimit'],
-    selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
-    strategy: !exists(json, 'strategy')
-      ? undefined
-      : IoK8sApiAppsV1DeploymentStrategyFromJSON(json['strategy']),
-    template: IoK8sApiCoreV1PodTemplateSpecFromJSON(json['template']),
-  };
-}
-
-export function IoK8sApiAppsV1DeploymentSpecToJSON(
-  value?: IoK8sApiAppsV1DeploymentSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    minReadySeconds: value.minReadySeconds,
-    paused: value.paused,
-    progressDeadlineSeconds: value.progressDeadlineSeconds,
-    replicas: value.replicas,
-    revisionHistoryLimit: value.revisionHistoryLimit,
-    selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
-    strategy: IoK8sApiAppsV1DeploymentStrategyToJSON(value.strategy),
-    template: IoK8sApiCoreV1PodTemplateSpecToJSON(value.template),
-  };
 }

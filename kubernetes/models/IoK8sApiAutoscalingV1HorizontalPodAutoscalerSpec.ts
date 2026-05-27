@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAutoscalingV1CrossVersionObjectReference,
-  IoK8sApiAutoscalingV1CrossVersionObjectReferenceFromJSON,
-  IoK8sApiAutoscalingV1CrossVersionObjectReferenceToJSON,
 } from './';
 
 /**
@@ -49,46 +46,4 @@ export interface IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpec {
    * @memberof IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpec
    */
   targetCPUUtilizationPercentage?: number;
-}
-
-export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpecFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpec {
-  return IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    maxReplicas: json['maxReplicas'],
-    minReplicas: !exists(json, 'minReplicas') ? undefined : json['minReplicas'],
-    scaleTargetRef: IoK8sApiAutoscalingV1CrossVersionObjectReferenceFromJSON(
-      json['scaleTargetRef'],
-    ),
-    targetCPUUtilizationPercentage: !exists(json, 'targetCPUUtilizationPercentage')
-      ? undefined
-      : json['targetCPUUtilizationPercentage'],
-  };
-}
-
-export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpecToJSON(
-  value?: IoK8sApiAutoscalingV1HorizontalPodAutoscalerSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    maxReplicas: value.maxReplicas,
-    minReplicas: value.minReplicas,
-    scaleTargetRef: IoK8sApiAutoscalingV1CrossVersionObjectReferenceToJSON(value.scaleTargetRef),
-    targetCPUUtilizationPercentage: value.targetCPUUtilizationPercentage,
-  };
 }

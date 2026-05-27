@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -63,46 +60,4 @@ export interface IoK8sApiAdmissionregistrationV1beta1ParamRef {
    * @memberof IoK8sApiAdmissionregistrationV1beta1ParamRef
    */
   selector?: IoK8sApimachineryPkgApisMetaV1LabelSelector;
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1ParamRefFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1beta1ParamRef {
-  return IoK8sApiAdmissionregistrationV1beta1ParamRefFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1ParamRefFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1beta1ParamRef {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: !exists(json, 'name') ? undefined : json['name'],
-    namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
-    parameterNotFoundAction: !exists(json, 'parameterNotFoundAction')
-      ? undefined
-      : json['parameterNotFoundAction'],
-    selector: !exists(json, 'selector')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1ParamRefToJSON(
-  value?: IoK8sApiAdmissionregistrationV1beta1ParamRef | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    namespace: value.namespace,
-    parameterNotFoundAction: value.parameterNotFoundAction,
-    selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
-  };
 }

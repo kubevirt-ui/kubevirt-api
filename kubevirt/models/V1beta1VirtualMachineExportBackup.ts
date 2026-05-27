@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1beta1VirtualMachineExportBackupEndpoint } from './V1beta1VirtualMachineExportBackupEndpoint';
-import {
-    V1beta1VirtualMachineExportBackupEndpointFromJSON,
-    V1beta1VirtualMachineExportBackupEndpointFromJSONTyped,
-    V1beta1VirtualMachineExportBackupEndpointToJSON,
-} from './V1beta1VirtualMachineExportBackupEndpoint';
 
 /**
  * VirtualMachineExportBackup contains the URL and available formats for the exported backup
@@ -38,44 +32,5 @@ export interface V1beta1VirtualMachineExportBackup {
      * @memberof V1beta1VirtualMachineExportBackup
      */
     name: string;
-}
-
-/**
- * Check if a given object implements the V1beta1VirtualMachineExportBackup interface.
- */
-export function instanceOfV1beta1VirtualMachineExportBackup(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "name" in value;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachineExportBackupFromJSON(json: any): V1beta1VirtualMachineExportBackup {
-    return V1beta1VirtualMachineExportBackupFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineExportBackupFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineExportBackup {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'endpoints': !exists(json, 'endpoints') ? undefined : ((json['endpoints'] as Array<any>).map(V1beta1VirtualMachineExportBackupEndpointFromJSON)),
-        'name': json['name'],
-    };
-}
-
-export function V1beta1VirtualMachineExportBackupToJSON(value?: V1beta1VirtualMachineExportBackup | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'endpoints': value.endpoints === undefined ? undefined : ((value.endpoints as Array<any>).map(V1beta1VirtualMachineExportBackupEndpointToJSON)),
-        'name': value.name,
-    };
 }
 

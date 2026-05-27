@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -32,33 +31,3 @@ export interface V1alpha1VirtualMachinePoolNameGeneration {
      */
     appendIndexToSecretRefs?: boolean;
 }
-
-export function V1alpha1VirtualMachinePoolNameGenerationFromJSON(json: any): V1alpha1VirtualMachinePoolNameGeneration {
-    return V1alpha1VirtualMachinePoolNameGenerationFromJSONTyped(json, false);
-}
-
-export function V1alpha1VirtualMachinePoolNameGenerationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachinePoolNameGeneration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'appendIndexToConfigMapRefs': !exists(json, 'appendIndexToConfigMapRefs') ? undefined : json['appendIndexToConfigMapRefs'],
-        'appendIndexToSecretRefs': !exists(json, 'appendIndexToSecretRefs') ? undefined : json['appendIndexToSecretRefs'],
-    };
-}
-
-export function V1alpha1VirtualMachinePoolNameGenerationToJSON(value?: V1alpha1VirtualMachinePoolNameGeneration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'appendIndexToConfigMapRefs': value.appendIndexToConfigMapRefs,
-        'appendIndexToSecretRefs': value.appendIndexToSecretRefs,
-    };
-}
-

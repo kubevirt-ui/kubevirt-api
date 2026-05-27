@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -26,40 +25,3 @@ export interface V1FeatureKVM {
      */
     hidden?: boolean;
 }
-
-/**
- * Check if a given object implements the V1FeatureKVM interface.
- */
-export function instanceOfV1FeatureKVM(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1FeatureKVMFromJSON(json: any): V1FeatureKVM {
-    return V1FeatureKVMFromJSONTyped(json, false);
-}
-
-export function V1FeatureKVMFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1FeatureKVM {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'hidden': !exists(json, 'hidden') ? undefined : json['hidden'],
-    };
-}
-
-export function V1FeatureKVMToJSON(value?: V1FeatureKVM | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'hidden': value.hidden,
-    };
-}
-

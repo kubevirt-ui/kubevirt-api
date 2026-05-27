@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * SEVPlatformInfo contains information about the AMD SEV features for the node.
  * @export
@@ -44,46 +43,3 @@ export interface V1SEVPlatformInfo {
      */
     pdh?: string;
 }
-
-/**
- * Check if a given object implements the V1SEVPlatformInfo interface.
- */
-export function instanceOfV1SEVPlatformInfo(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1SEVPlatformInfoFromJSON(json: any): V1SEVPlatformInfo {
-    return V1SEVPlatformInfoFromJSONTyped(json, false);
-}
-
-export function V1SEVPlatformInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SEVPlatformInfo {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'certChain': !exists(json, 'certChain') ? undefined : json['certChain'],
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'pdh': !exists(json, 'pdh') ? undefined : json['pdh'],
-    };
-}
-
-export function V1SEVPlatformInfoToJSON(value?: V1SEVPlatformInfo | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'certChain': value.certChain,
-        'kind': value.kind,
-        'pdh': value.pdh,
-    };
-}
-

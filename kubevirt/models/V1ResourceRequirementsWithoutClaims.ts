@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * ResourceRequirementsWithoutClaims describes the compute resource requirements. This struct was taken from the k8s.ResourceRequirements and cleaned up the `Claims` field.
  * @export
@@ -32,42 +31,3 @@ export interface V1ResourceRequirementsWithoutClaims {
      */
     requests?: { [key: string]: string; };
 }
-
-/**
- * Check if a given object implements the V1ResourceRequirementsWithoutClaims interface.
- */
-export function instanceOfV1ResourceRequirementsWithoutClaims(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1ResourceRequirementsWithoutClaimsFromJSON(json: any): V1ResourceRequirementsWithoutClaims {
-    return V1ResourceRequirementsWithoutClaimsFromJSONTyped(json, false);
-}
-
-export function V1ResourceRequirementsWithoutClaimsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ResourceRequirementsWithoutClaims {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'limits': !exists(json, 'limits') ? undefined : json['limits'],
-        'requests': !exists(json, 'requests') ? undefined : json['requests'],
-    };
-}
-
-export function V1ResourceRequirementsWithoutClaimsToJSON(value?: V1ResourceRequirementsWithoutClaims | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'limits': value.limits,
-        'requests': value.requests,
-    };
-}
-

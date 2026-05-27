@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Represents a Photon Controller persistent disk resource.
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiCoreV1PhotonPersistentDiskVolumeSource {
    * @memberof IoK8sApiCoreV1PhotonPersistentDiskVolumeSource
    */
   pdID: string;
-}
-
-export function IoK8sApiCoreV1PhotonPersistentDiskVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1PhotonPersistentDiskVolumeSource {
-  return IoK8sApiCoreV1PhotonPersistentDiskVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PhotonPersistentDiskVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PhotonPersistentDiskVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    pdID: json['pdID'],
-  };
-}
-
-export function IoK8sApiCoreV1PhotonPersistentDiskVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1PhotonPersistentDiskVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fsType: value.fsType,
-    pdID: value.pdID,
-  };
 }

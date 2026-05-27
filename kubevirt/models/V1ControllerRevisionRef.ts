@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -26,40 +25,3 @@ export interface V1ControllerRevisionRef {
      */
     name?: string;
 }
-
-/**
- * Check if a given object implements the V1ControllerRevisionRef interface.
- */
-export function instanceOfV1ControllerRevisionRef(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1ControllerRevisionRefFromJSON(json: any): V1ControllerRevisionRef {
-    return V1ControllerRevisionRefFromJSONTyped(json, false);
-}
-
-export function V1ControllerRevisionRefFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ControllerRevisionRef {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'name': !exists(json, 'name') ? undefined : json['name'],
-    };
-}
-
-export function V1ControllerRevisionRefToJSON(value?: V1ControllerRevisionRef | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'name': value.name,
-    };
-}
-

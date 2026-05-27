@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiFlowcontrolV1FlowSchemaCondition,
-  IoK8sApiFlowcontrolV1FlowSchemaConditionFromJSON,
-  IoK8sApiFlowcontrolV1FlowSchemaConditionToJSON,
 } from './';
 
 /**
@@ -31,41 +28,4 @@ export interface IoK8sApiFlowcontrolV1FlowSchemaStatus {
    * @memberof IoK8sApiFlowcontrolV1FlowSchemaStatus
    */
   conditions?: Array<IoK8sApiFlowcontrolV1FlowSchemaCondition>;
-}
-
-export function IoK8sApiFlowcontrolV1FlowSchemaStatusFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1FlowSchemaStatus {
-  return IoK8sApiFlowcontrolV1FlowSchemaStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1FlowSchemaStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1FlowSchemaStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(IoK8sApiFlowcontrolV1FlowSchemaConditionFromJSON),
-  };
-}
-
-export function IoK8sApiFlowcontrolV1FlowSchemaStatusToJSON(
-  value?: IoK8sApiFlowcontrolV1FlowSchemaStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApiFlowcontrolV1FlowSchemaConditionToJSON),
-  };
 }

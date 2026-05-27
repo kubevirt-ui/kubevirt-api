@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * RollingUpdateStatefulSetStrategy is used to communicate parameter for RollingUpdateStatefulSetStrategyType.
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiAppsV1RollingUpdateStatefulSetStrategy {
    * @memberof IoK8sApiAppsV1RollingUpdateStatefulSetStrategy
    */
   partition?: number;
-}
-
-export function IoK8sApiAppsV1RollingUpdateStatefulSetStrategyFromJSON(
-  json: any,
-): IoK8sApiAppsV1RollingUpdateStatefulSetStrategy {
-  return IoK8sApiAppsV1RollingUpdateStatefulSetStrategyFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1RollingUpdateStatefulSetStrategyFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1RollingUpdateStatefulSetStrategy {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    maxUnavailable: !exists(json, 'maxUnavailable') ? undefined : json['maxUnavailable'],
-    partition: !exists(json, 'partition') ? undefined : json['partition'],
-  };
-}
-
-export function IoK8sApiAppsV1RollingUpdateStatefulSetStrategyToJSON(
-  value?: IoK8sApiAppsV1RollingUpdateStatefulSetStrategy | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    maxUnavailable: value.maxUnavailable,
-    partition: value.partition,
-  };
 }

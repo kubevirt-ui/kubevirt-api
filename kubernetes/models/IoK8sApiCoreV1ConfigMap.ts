@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,44 +58,4 @@ export interface IoK8sApiCoreV1ConfigMap {
    * @memberof IoK8sApiCoreV1ConfigMap
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ObjectMeta;
-}
-
-export function IoK8sApiCoreV1ConfigMapFromJSON(json: any): IoK8sApiCoreV1ConfigMap {
-  return IoK8sApiCoreV1ConfigMapFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ConfigMapFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ConfigMap {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    binaryData: !exists(json, 'binaryData') ? undefined : json['binaryData'],
-    data: !exists(json, 'data') ? undefined : json['data'],
-    immutable: !exists(json, 'immutable') ? undefined : json['immutable'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiCoreV1ConfigMapToJSON(value?: IoK8sApiCoreV1ConfigMap | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    binaryData: value.binaryData,
-    data: value.data,
-    immutable: value.immutable,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-  };
 }

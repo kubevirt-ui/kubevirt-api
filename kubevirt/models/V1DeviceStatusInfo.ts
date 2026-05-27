@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1DeviceResourceClaimStatus } from './V1DeviceResourceClaimStatus';
-import {
-    V1DeviceResourceClaimStatusFromJSON,
-    V1DeviceResourceClaimStatusFromJSONTyped,
-    V1DeviceResourceClaimStatusToJSON,
-} from './V1DeviceResourceClaimStatus';
 
 /**
  * 
@@ -38,44 +32,5 @@ export interface V1DeviceStatusInfo {
      * @memberof V1DeviceStatusInfo
      */
     name: string;
-}
-
-/**
- * Check if a given object implements the V1DeviceStatusInfo interface.
- */
-export function instanceOfV1DeviceStatusInfo(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "name" in value;
-
-    return isInstance;
-}
-
-export function V1DeviceStatusInfoFromJSON(json: any): V1DeviceStatusInfo {
-    return V1DeviceStatusInfoFromJSONTyped(json, false);
-}
-
-export function V1DeviceStatusInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DeviceStatusInfo {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'deviceResourceClaimStatus': !exists(json, 'deviceResourceClaimStatus') ? undefined : V1DeviceResourceClaimStatusFromJSON(json['deviceResourceClaimStatus']),
-        'name': json['name'],
-    };
-}
-
-export function V1DeviceStatusInfoToJSON(value?: V1DeviceStatusInfo | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'deviceResourceClaimStatus': V1DeviceResourceClaimStatusToJSON(value.deviceResourceClaimStatus),
-        'name': value.name,
-    };
 }
 

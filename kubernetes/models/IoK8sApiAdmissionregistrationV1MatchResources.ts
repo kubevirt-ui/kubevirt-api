@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1NamedRuleWithOperations,
-  IoK8sApiAdmissionregistrationV1NamedRuleWithOperationsFromJSON,
-  IoK8sApiAdmissionregistrationV1NamedRuleWithOperationsToJSON,
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -64,66 +59,4 @@ export interface IoK8sApiAdmissionregistrationV1MatchResources {
    * @memberof IoK8sApiAdmissionregistrationV1MatchResources
    */
   resourceRules?: Array<IoK8sApiAdmissionregistrationV1NamedRuleWithOperations>;
-}
-
-export function IoK8sApiAdmissionregistrationV1MatchResourcesFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1MatchResources {
-  return IoK8sApiAdmissionregistrationV1MatchResourcesFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1MatchResourcesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1MatchResources {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    excludeResourceRules: !exists(json, 'excludeResourceRules')
-      ? undefined
-      : (json['excludeResourceRules'] as Array<any>).map(
-          IoK8sApiAdmissionregistrationV1NamedRuleWithOperationsFromJSON,
-        ),
-    matchPolicy: !exists(json, 'matchPolicy') ? undefined : json['matchPolicy'],
-    namespaceSelector: !exists(json, 'namespaceSelector')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['namespaceSelector']),
-    objectSelector: !exists(json, 'objectSelector')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['objectSelector']),
-    resourceRules: !exists(json, 'resourceRules')
-      ? undefined
-      : (json['resourceRules'] as Array<any>).map(
-          IoK8sApiAdmissionregistrationV1NamedRuleWithOperationsFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1MatchResourcesToJSON(
-  value?: IoK8sApiAdmissionregistrationV1MatchResources | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    excludeResourceRules:
-      value.excludeResourceRules === undefined
-        ? undefined
-        : (value.excludeResourceRules as Array<any>).map(
-            IoK8sApiAdmissionregistrationV1NamedRuleWithOperationsToJSON,
-          ),
-    matchPolicy: value.matchPolicy,
-    namespaceSelector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.namespaceSelector),
-    objectSelector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.objectSelector),
-    resourceRules:
-      value.resourceRules === undefined
-        ? undefined
-        : (value.resourceRules as Array<any>).map(
-            IoK8sApiAdmissionregistrationV1NamedRuleWithOperationsToJSON,
-          ),
-  };
 }

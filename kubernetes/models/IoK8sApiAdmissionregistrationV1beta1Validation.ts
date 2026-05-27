@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Validation specifies the CEL expression which is used to apply the validation.
  * @export
@@ -68,42 +67,4 @@ export interface IoK8sApiAdmissionregistrationV1beta1Validation {
    * @memberof IoK8sApiAdmissionregistrationV1beta1Validation
    */
   reason?: string;
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1ValidationFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1beta1Validation {
-  return IoK8sApiAdmissionregistrationV1beta1ValidationFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1ValidationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1beta1Validation {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    expression: json['expression'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    messageExpression: !exists(json, 'messageExpression') ? undefined : json['messageExpression'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1ValidationToJSON(
-  value?: IoK8sApiAdmissionregistrationV1beta1Validation | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    expression: value.expression,
-    message: value.message,
-    messageExpression: value.messageExpression,
-    reason: value.reason,
-  };
 }

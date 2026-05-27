@@ -12,23 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1alpha1MatchCondition,
-  IoK8sApiAdmissionregistrationV1alpha1MatchConditionFromJSON,
-  IoK8sApiAdmissionregistrationV1alpha1MatchConditionToJSON,
   IoK8sApiAdmissionregistrationV1alpha1MatchResources,
-  IoK8sApiAdmissionregistrationV1alpha1MatchResourcesFromJSON,
-  IoK8sApiAdmissionregistrationV1alpha1MatchResourcesToJSON,
   IoK8sApiAdmissionregistrationV1alpha1Mutation,
-  IoK8sApiAdmissionregistrationV1alpha1MutationFromJSON,
-  IoK8sApiAdmissionregistrationV1alpha1MutationToJSON,
   IoK8sApiAdmissionregistrationV1alpha1ParamKind,
-  IoK8sApiAdmissionregistrationV1alpha1ParamKindFromJSON,
-  IoK8sApiAdmissionregistrationV1alpha1ParamKindToJSON,
   IoK8sApiAdmissionregistrationV1alpha1Variable,
-  IoK8sApiAdmissionregistrationV1alpha1VariableFromJSON,
-  IoK8sApiAdmissionregistrationV1alpha1VariableToJSON,
 } from './';
 
 /**
@@ -100,79 +89,4 @@ export interface IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicySpe
    * @memberof IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicySpec
    */
   variables?: Array<IoK8sApiAdmissionregistrationV1alpha1Variable>;
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicySpecFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicySpec {
-  return IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicySpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicySpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicySpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    failurePolicy: !exists(json, 'failurePolicy') ? undefined : json['failurePolicy'],
-    matchConditions: !exists(json, 'matchConditions')
-      ? undefined
-      : (json['matchConditions'] as Array<any>).map(
-          IoK8sApiAdmissionregistrationV1alpha1MatchConditionFromJSON,
-        ),
-    matchConstraints: !exists(json, 'matchConstraints')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1alpha1MatchResourcesFromJSON(json['matchConstraints']),
-    mutations: !exists(json, 'mutations')
-      ? undefined
-      : (json['mutations'] as Array<any>).map(
-          IoK8sApiAdmissionregistrationV1alpha1MutationFromJSON,
-        ),
-    paramKind: !exists(json, 'paramKind')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1alpha1ParamKindFromJSON(json['paramKind']),
-    reinvocationPolicy: !exists(json, 'reinvocationPolicy')
-      ? undefined
-      : json['reinvocationPolicy'],
-    variables: !exists(json, 'variables')
-      ? undefined
-      : (json['variables'] as Array<any>).map(
-          IoK8sApiAdmissionregistrationV1alpha1VariableFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicySpecToJSON(
-  value?: IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicySpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    failurePolicy: value.failurePolicy,
-    matchConditions:
-      value.matchConditions === undefined
-        ? undefined
-        : (value.matchConditions as Array<any>).map(
-            IoK8sApiAdmissionregistrationV1alpha1MatchConditionToJSON,
-          ),
-    matchConstraints: IoK8sApiAdmissionregistrationV1alpha1MatchResourcesToJSON(
-      value.matchConstraints,
-    ),
-    mutations:
-      value.mutations === undefined
-        ? undefined
-        : (value.mutations as Array<any>).map(IoK8sApiAdmissionregistrationV1alpha1MutationToJSON),
-    paramKind: IoK8sApiAdmissionregistrationV1alpha1ParamKindToJSON(value.paramKind),
-    reinvocationPolicy: value.reinvocationPolicy,
-    variables:
-      value.variables === undefined
-        ? undefined
-        : (value.variables as Array<any>).map(IoK8sApiAdmissionregistrationV1alpha1VariableToJSON),
-  };
 }

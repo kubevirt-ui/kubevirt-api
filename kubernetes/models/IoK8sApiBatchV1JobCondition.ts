@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * JobCondition describes current state of a job.
  * @export
@@ -55,45 +54,4 @@ export interface IoK8sApiBatchV1JobCondition {
    * @memberof IoK8sApiBatchV1JobCondition
    */
   type: string;
-}
-
-export function IoK8sApiBatchV1JobConditionFromJSON(json: any): IoK8sApiBatchV1JobCondition {
-  return IoK8sApiBatchV1JobConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiBatchV1JobConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiBatchV1JobCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastProbeTime: !exists(json, 'lastProbeTime') ? undefined : json['lastProbeTime'],
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiBatchV1JobConditionToJSON(value?: IoK8sApiBatchV1JobCondition | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastProbeTime: value.lastProbeTime === undefined ? undefined : value.lastProbeTime,
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

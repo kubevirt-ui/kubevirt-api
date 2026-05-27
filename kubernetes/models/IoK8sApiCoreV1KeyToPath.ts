@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Maps a string key to a path within a volume.
  * @export
@@ -37,36 +36,4 @@ export interface IoK8sApiCoreV1KeyToPath {
    * @memberof IoK8sApiCoreV1KeyToPath
    */
   path: string;
-}
-
-export function IoK8sApiCoreV1KeyToPathFromJSON(json: any): IoK8sApiCoreV1KeyToPath {
-  return IoK8sApiCoreV1KeyToPathFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1KeyToPathFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1KeyToPath {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    key: json['key'],
-    mode: !exists(json, 'mode') ? undefined : json['mode'],
-    path: json['path'],
-  };
-}
-
-export function IoK8sApiCoreV1KeyToPathToJSON(value?: IoK8sApiCoreV1KeyToPath | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    key: value.key,
-    mode: value.mode,
-    path: value.path,
-  };
 }

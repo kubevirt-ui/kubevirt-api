@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
-import {
-    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import type { V1beta1VirtualMachineSnapshot } from './V1beta1VirtualMachineSnapshot';
-import {
-    V1beta1VirtualMachineSnapshotFromJSON,
-    V1beta1VirtualMachineSnapshotFromJSONTyped,
-    V1beta1VirtualMachineSnapshotToJSON,
-} from './V1beta1VirtualMachineSnapshot';
 
 /**
  * VirtualMachineSnapshotList is a list of VirtualMachineSnapshot resources
@@ -57,48 +46,3 @@ export interface V1beta1VirtualMachineSnapshotList {
      */
     metadata: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachineSnapshotList interface.
- */
-export function instanceOfV1beta1VirtualMachineSnapshotList(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "items" in value;
-    isInstance = isInstance && "metadata" in value;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachineSnapshotListFromJSON(json: any): V1beta1VirtualMachineSnapshotList {
-    return V1beta1VirtualMachineSnapshotListFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineSnapshotListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineSnapshotList {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'items': ((json['items'] as Array<any>).map(V1beta1VirtualMachineSnapshotFromJSON)),
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'metadata': K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-    };
-}
-
-export function V1beta1VirtualMachineSnapshotListToJSON(value?: V1beta1VirtualMachineSnapshotList | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'items': ((value.items as Array<any>).map(V1beta1VirtualMachineSnapshotToJSON)),
-        'kind': value.kind,
-        'metadata': K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-    };
-}
-

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * VolumeResourceRequirements describes the storage resource requirements for a volume.
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiCoreV1VolumeResourceRequirements {
    * @memberof IoK8sApiCoreV1VolumeResourceRequirements
    */
   requests?: { [key: string]: string };
-}
-
-export function IoK8sApiCoreV1VolumeResourceRequirementsFromJSON(
-  json: any,
-): IoK8sApiCoreV1VolumeResourceRequirements {
-  return IoK8sApiCoreV1VolumeResourceRequirementsFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1VolumeResourceRequirementsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1VolumeResourceRequirements {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    limits: !exists(json, 'limits') ? undefined : json['limits'],
-    requests: !exists(json, 'requests') ? undefined : json['requests'],
-  };
-}
-
-export function IoK8sApiCoreV1VolumeResourceRequirementsToJSON(
-  value?: IoK8sApiCoreV1VolumeResourceRequirements | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    limits: value.limits,
-    requests: value.requests,
-  };
 }

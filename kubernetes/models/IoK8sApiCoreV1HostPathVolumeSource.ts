@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Represents a host path mapped into a pod. Host path volumes do not support ownership management or SELinux relabeling.
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiCoreV1HostPathVolumeSource {
    * @memberof IoK8sApiCoreV1HostPathVolumeSource
    */
   type?: string;
-}
-
-export function IoK8sApiCoreV1HostPathVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1HostPathVolumeSource {
-  return IoK8sApiCoreV1HostPathVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1HostPathVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1HostPathVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    path: json['path'],
-    type: !exists(json, 'type') ? undefined : json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1HostPathVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1HostPathVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    path: value.path,
-    type: value.type,
-  };
 }

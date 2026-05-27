@@ -12,12 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import {
     V1alpha1VirtualMachinePoolSelectionPolicy,
-    V1alpha1VirtualMachinePoolSelectionPolicyFromJSON,
-    V1alpha1VirtualMachinePoolSelectionPolicyFromJSONTyped,
-    V1alpha1VirtualMachinePoolSelectionPolicyToJSON,
 } from './';
 
 /**
@@ -33,31 +29,3 @@ export interface V1alpha1VirtualMachinePoolProactiveScaleInStrategy {
      */
     selectionPolicy?: V1alpha1VirtualMachinePoolSelectionPolicy;
 }
-
-export function V1alpha1VirtualMachinePoolProactiveScaleInStrategyFromJSON(json: any): V1alpha1VirtualMachinePoolProactiveScaleInStrategy {
-    return V1alpha1VirtualMachinePoolProactiveScaleInStrategyFromJSONTyped(json, false);
-}
-
-export function V1alpha1VirtualMachinePoolProactiveScaleInStrategyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachinePoolProactiveScaleInStrategy {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'selectionPolicy': !exists(json, 'selectionPolicy') ? undefined : V1alpha1VirtualMachinePoolSelectionPolicyFromJSON(json['selectionPolicy']),
-    };
-}
-
-export function V1alpha1VirtualMachinePoolProactiveScaleInStrategyToJSON(value?: V1alpha1VirtualMachinePoolProactiveScaleInStrategy | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'selectionPolicy': V1alpha1VirtualMachinePoolSelectionPolicyToJSON(value.selectionPolicy),
-    };
-}
-

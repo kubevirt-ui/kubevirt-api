@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAuthenticationV1BoundObjectReference,
-  IoK8sApiAuthenticationV1BoundObjectReferenceFromJSON,
-  IoK8sApiAuthenticationV1BoundObjectReferenceToJSON,
 } from './';
 
 /**
@@ -43,42 +40,4 @@ export interface IoK8sApiAuthenticationV1TokenRequestSpec {
    * @memberof IoK8sApiAuthenticationV1TokenRequestSpec
    */
   expirationSeconds?: number;
-}
-
-export function IoK8sApiAuthenticationV1TokenRequestSpecFromJSON(
-  json: any,
-): IoK8sApiAuthenticationV1TokenRequestSpec {
-  return IoK8sApiAuthenticationV1TokenRequestSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthenticationV1TokenRequestSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthenticationV1TokenRequestSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    audiences: json['audiences'],
-    boundObjectRef: !exists(json, 'boundObjectRef')
-      ? undefined
-      : IoK8sApiAuthenticationV1BoundObjectReferenceFromJSON(json['boundObjectRef']),
-    expirationSeconds: !exists(json, 'expirationSeconds') ? undefined : json['expirationSeconds'],
-  };
-}
-
-export function IoK8sApiAuthenticationV1TokenRequestSpecToJSON(
-  value?: IoK8sApiAuthenticationV1TokenRequestSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    audiences: value.audiences,
-    boundObjectRef: IoK8sApiAuthenticationV1BoundObjectReferenceToJSON(value.boundObjectRef),
-    expirationSeconds: value.expirationSeconds,
-  };
 }

@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiFlowcontrolV1LimitResponse,
-  IoK8sApiFlowcontrolV1LimitResponseFromJSON,
-  IoK8sApiFlowcontrolV1LimitResponseToJSON,
 } from './';
 
 /**
@@ -65,48 +62,4 @@ export interface IoK8sApiFlowcontrolV1LimitedPriorityLevelConfiguration {
    * @memberof IoK8sApiFlowcontrolV1LimitedPriorityLevelConfiguration
    */
   nominalConcurrencyShares?: number;
-}
-
-export function IoK8sApiFlowcontrolV1LimitedPriorityLevelConfigurationFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1LimitedPriorityLevelConfiguration {
-  return IoK8sApiFlowcontrolV1LimitedPriorityLevelConfigurationFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1LimitedPriorityLevelConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1LimitedPriorityLevelConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    borrowingLimitPercent: !exists(json, 'borrowingLimitPercent')
-      ? undefined
-      : json['borrowingLimitPercent'],
-    lendablePercent: !exists(json, 'lendablePercent') ? undefined : json['lendablePercent'],
-    limitResponse: !exists(json, 'limitResponse')
-      ? undefined
-      : IoK8sApiFlowcontrolV1LimitResponseFromJSON(json['limitResponse']),
-    nominalConcurrencyShares: !exists(json, 'nominalConcurrencyShares')
-      ? undefined
-      : json['nominalConcurrencyShares'],
-  };
-}
-
-export function IoK8sApiFlowcontrolV1LimitedPriorityLevelConfigurationToJSON(
-  value?: IoK8sApiFlowcontrolV1LimitedPriorityLevelConfiguration | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    borrowingLimitPercent: value.borrowingLimitPercent,
-    lendablePercent: value.lendablePercent,
-    limitResponse: IoK8sApiFlowcontrolV1LimitResponseToJSON(value.limitResponse),
-    nominalConcurrencyShares: value.nominalConcurrencyShares,
-  };
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1TopologySelectorTerm,
-  IoK8sApiCoreV1TopologySelectorTermFromJSON,
-  IoK8sApiCoreV1TopologySelectorTermToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -90,61 +85,4 @@ export interface IoK8sApiStorageV1StorageClass {
    * @memberof IoK8sApiStorageV1StorageClass
    */
   volumeBindingMode?: string;
-}
-
-export function IoK8sApiStorageV1StorageClassFromJSON(json: any): IoK8sApiStorageV1StorageClass {
-  return IoK8sApiStorageV1StorageClassFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStorageV1StorageClassFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStorageV1StorageClass {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    allowVolumeExpansion: !exists(json, 'allowVolumeExpansion')
-      ? undefined
-      : json['allowVolumeExpansion'],
-    allowedTopologies: !exists(json, 'allowedTopologies')
-      ? undefined
-      : (json['allowedTopologies'] as Array<any>).map(IoK8sApiCoreV1TopologySelectorTermFromJSON),
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    mountOptions: !exists(json, 'mountOptions') ? undefined : json['mountOptions'],
-    parameters: !exists(json, 'parameters') ? undefined : json['parameters'],
-    provisioner: json['provisioner'],
-    reclaimPolicy: !exists(json, 'reclaimPolicy') ? undefined : json['reclaimPolicy'],
-    volumeBindingMode: !exists(json, 'volumeBindingMode') ? undefined : json['volumeBindingMode'],
-  };
-}
-
-export function IoK8sApiStorageV1StorageClassToJSON(
-  value?: IoK8sApiStorageV1StorageClass | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    allowVolumeExpansion: value.allowVolumeExpansion,
-    allowedTopologies:
-      value.allowedTopologies === undefined
-        ? undefined
-        : (value.allowedTopologies as Array<any>).map(IoK8sApiCoreV1TopologySelectorTermToJSON),
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    mountOptions: value.mountOptions,
-    parameters: value.parameters,
-    provisioner: value.provisioner,
-    reclaimPolicy: value.reclaimPolicy,
-    volumeBindingMode: value.volumeBindingMode,
-  };
 }

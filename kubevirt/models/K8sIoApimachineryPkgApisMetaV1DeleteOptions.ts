@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1Preconditions } from './K8sIoApimachineryPkgApisMetaV1Preconditions';
-import {
-    K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSON,
-    K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1PreconditionsToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1Preconditions';
 
 /**
  * DeleteOptions may be provided when deleting an API object.
@@ -75,54 +69,3 @@ export interface K8sIoApimachineryPkgApisMetaV1DeleteOptions {
      */
     propagationPolicy?: string;
 }
-
-/**
- * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1DeleteOptions interface.
- */
-export function instanceOfK8sIoApimachineryPkgApisMetaV1DeleteOptions(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function K8sIoApimachineryPkgApisMetaV1DeleteOptionsFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1DeleteOptions {
-    return K8sIoApimachineryPkgApisMetaV1DeleteOptionsFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1DeleteOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1DeleteOptions {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'dryRun': !exists(json, 'dryRun') ? undefined : json['dryRun'],
-        'gracePeriodSeconds': !exists(json, 'gracePeriodSeconds') ? undefined : json['gracePeriodSeconds'],
-        'ignoreStoreReadErrorWithClusterBreakingPotential': !exists(json, 'ignoreStoreReadErrorWithClusterBreakingPotential') ? undefined : json['ignoreStoreReadErrorWithClusterBreakingPotential'],
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'orphanDependents': !exists(json, 'orphanDependents') ? undefined : json['orphanDependents'],
-        'preconditions': !exists(json, 'preconditions') ? undefined : K8sIoApimachineryPkgApisMetaV1PreconditionsFromJSON(json['preconditions']),
-        'propagationPolicy': !exists(json, 'propagationPolicy') ? undefined : json['propagationPolicy'],
-    };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1DeleteOptionsToJSON(value?: K8sIoApimachineryPkgApisMetaV1DeleteOptions | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'dryRun': value.dryRun,
-        'gracePeriodSeconds': value.gracePeriodSeconds,
-        'ignoreStoreReadErrorWithClusterBreakingPotential': value.ignoreStoreReadErrorWithClusterBreakingPotential,
-        'kind': value.kind,
-        'orphanDependents': value.orphanDependents,
-        'preconditions': K8sIoApimachineryPkgApisMetaV1PreconditionsToJSON(value.preconditions),
-        'propagationPolicy': value.propagationPolicy,
-    };
-}
-

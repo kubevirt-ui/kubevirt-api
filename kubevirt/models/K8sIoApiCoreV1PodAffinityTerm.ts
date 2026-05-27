@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
-import {
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 
 /**
  * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running
@@ -63,51 +57,3 @@ export interface K8sIoApiCoreV1PodAffinityTerm {
      */
     topologyKey: string;
 }
-
-/**
- * Check if a given object implements the K8sIoApiCoreV1PodAffinityTerm interface.
- */
-export function instanceOfK8sIoApiCoreV1PodAffinityTerm(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "topologyKey" in value;
-
-    return isInstance;
-}
-
-export function K8sIoApiCoreV1PodAffinityTermFromJSON(json: any): K8sIoApiCoreV1PodAffinityTerm {
-    return K8sIoApiCoreV1PodAffinityTermFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1PodAffinityTermFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1PodAffinityTerm {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'labelSelector': !exists(json, 'labelSelector') ? undefined : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['labelSelector']),
-        'matchLabelKeys': !exists(json, 'matchLabelKeys') ? undefined : json['matchLabelKeys'],
-        'mismatchLabelKeys': !exists(json, 'mismatchLabelKeys') ? undefined : json['mismatchLabelKeys'],
-        'namespaceSelector': !exists(json, 'namespaceSelector') ? undefined : K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['namespaceSelector']),
-        'namespaces': !exists(json, 'namespaces') ? undefined : json['namespaces'],
-        'topologyKey': json['topologyKey'],
-    };
-}
-
-export function K8sIoApiCoreV1PodAffinityTermToJSON(value?: K8sIoApiCoreV1PodAffinityTerm | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'labelSelector': K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.labelSelector),
-        'matchLabelKeys': value.matchLabelKeys,
-        'mismatchLabelKeys': value.mismatchLabelKeys,
-        'namespaceSelector': K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.namespaceSelector),
-        'namespaces': value.namespaces,
-        'topologyKey': value.topologyKey,
-    };
-}
-

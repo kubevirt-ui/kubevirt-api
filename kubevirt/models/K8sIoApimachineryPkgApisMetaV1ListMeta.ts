@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.
  * @export
@@ -44,46 +43,3 @@ export interface K8sIoApimachineryPkgApisMetaV1ListMeta {
      */
     selfLink?: string;
 }
-
-/**
- * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1ListMeta interface.
- */
-export function instanceOfK8sIoApimachineryPkgApisMetaV1ListMeta(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1ListMeta {
-    return K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1ListMeta {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        '_continue': !exists(json, 'continue') ? undefined : json['continue'],
-        'remainingItemCount': !exists(json, 'remainingItemCount') ? undefined : json['remainingItemCount'],
-        'resourceVersion': !exists(json, 'resourceVersion') ? undefined : json['resourceVersion'],
-        'selfLink': !exists(json, 'selfLink') ? undefined : json['selfLink'],
-    };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value?: K8sIoApimachineryPkgApisMetaV1ListMeta | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'continue': value._continue,
-        'remainingItemCount': value.remainingItemCount,
-        'resourceVersion': value.resourceVersion,
-        'selfLink': value.selfLink,
-    };
-}
-

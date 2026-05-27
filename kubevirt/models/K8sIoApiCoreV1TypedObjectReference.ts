@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * TypedObjectReference contains enough information to let you locate the typed referenced object
  * @export
@@ -44,48 +43,3 @@ export interface K8sIoApiCoreV1TypedObjectReference {
      */
     namespace?: string;
 }
-
-/**
- * Check if a given object implements the K8sIoApiCoreV1TypedObjectReference interface.
- */
-export function instanceOfK8sIoApiCoreV1TypedObjectReference(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "kind" in value;
-    isInstance = isInstance && "name" in value;
-
-    return isInstance;
-}
-
-export function K8sIoApiCoreV1TypedObjectReferenceFromJSON(json: any): K8sIoApiCoreV1TypedObjectReference {
-    return K8sIoApiCoreV1TypedObjectReferenceFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1TypedObjectReferenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1TypedObjectReference {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiGroup': !exists(json, 'apiGroup') ? undefined : json['apiGroup'],
-        'kind': json['kind'],
-        'name': json['name'],
-        'namespace': !exists(json, 'namespace') ? undefined : json['namespace'],
-    };
-}
-
-export function K8sIoApiCoreV1TypedObjectReferenceToJSON(value?: K8sIoApiCoreV1TypedObjectReference | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiGroup': value.apiGroup,
-        'kind': value.kind,
-        'name': value.name,
-        'namespace': value.namespace,
-    };
-}
-

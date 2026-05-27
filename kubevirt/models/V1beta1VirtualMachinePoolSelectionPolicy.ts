@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1beta1VirtualMachinePoolSelectors } from './V1beta1VirtualMachinePoolSelectors';
-import {
-    V1beta1VirtualMachinePoolSelectorsFromJSON,
-    V1beta1VirtualMachinePoolSelectorsFromJSONTyped,
-    V1beta1VirtualMachinePoolSelectorsToJSON,
-} from './V1beta1VirtualMachinePoolSelectors';
 
 /**
  * VirtualMachinePoolSelectionPolicy defines the priority in which VM instances are selected for proactive scale-in or update
@@ -39,42 +33,3 @@ export interface V1beta1VirtualMachinePoolSelectionPolicy {
      */
     sortPolicy?: string;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachinePoolSelectionPolicy interface.
- */
-export function instanceOfV1beta1VirtualMachinePoolSelectionPolicy(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachinePoolSelectionPolicyFromJSON(json: any): V1beta1VirtualMachinePoolSelectionPolicy {
-    return V1beta1VirtualMachinePoolSelectionPolicyFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachinePoolSelectionPolicyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachinePoolSelectionPolicy {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'selectors': !exists(json, 'selectors') ? undefined : V1beta1VirtualMachinePoolSelectorsFromJSON(json['selectors']),
-        'sortPolicy': !exists(json, 'sortPolicy') ? undefined : json['sortPolicy'],
-    };
-}
-
-export function V1beta1VirtualMachinePoolSelectionPolicyToJSON(value?: V1beta1VirtualMachinePoolSelectionPolicy | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'selectors': V1beta1VirtualMachinePoolSelectorsToJSON(value.selectors),
-        'sortPolicy': value.sortPolicy,
-    };
-}
-

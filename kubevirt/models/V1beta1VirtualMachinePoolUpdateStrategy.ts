@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1beta1VirtualMachinePoolProactiveUpdateStrategy } from './V1beta1VirtualMachinePoolProactiveUpdateStrategy';
-import {
-    V1beta1VirtualMachinePoolProactiveUpdateStrategyFromJSON,
-    V1beta1VirtualMachinePoolProactiveUpdateStrategyFromJSONTyped,
-    V1beta1VirtualMachinePoolProactiveUpdateStrategyToJSON,
-} from './V1beta1VirtualMachinePoolProactiveUpdateStrategy';
 
 /**
  * VirtualMachinePoolUpdateStrategy specifies how the VMPool controller manages updating VMs within a VMPool, by default it is proactive update.
@@ -45,44 +39,3 @@ export interface V1beta1VirtualMachinePoolUpdateStrategy {
      */
     unmanaged?: object;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachinePoolUpdateStrategy interface.
- */
-export function instanceOfV1beta1VirtualMachinePoolUpdateStrategy(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachinePoolUpdateStrategyFromJSON(json: any): V1beta1VirtualMachinePoolUpdateStrategy {
-    return V1beta1VirtualMachinePoolUpdateStrategyFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachinePoolUpdateStrategyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachinePoolUpdateStrategy {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'opportunistic': !exists(json, 'opportunistic') ? undefined : json['opportunistic'],
-        'proactive': !exists(json, 'proactive') ? undefined : V1beta1VirtualMachinePoolProactiveUpdateStrategyFromJSON(json['proactive']),
-        'unmanaged': !exists(json, 'unmanaged') ? undefined : json['unmanaged'],
-    };
-}
-
-export function V1beta1VirtualMachinePoolUpdateStrategyToJSON(value?: V1beta1VirtualMachinePoolUpdateStrategy | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'opportunistic': value.opportunistic,
-        'proactive': V1beta1VirtualMachinePoolProactiveUpdateStrategyToJSON(value.proactive),
-        'unmanaged': value.unmanaged,
-    };
-}
-

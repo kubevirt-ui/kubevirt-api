@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiFlowcontrolV1GroupSubject,
-  IoK8sApiFlowcontrolV1GroupSubjectFromJSON,
-  IoK8sApiFlowcontrolV1GroupSubjectToJSON,
   IoK8sApiFlowcontrolV1ServiceAccountSubject,
-  IoK8sApiFlowcontrolV1ServiceAccountSubjectFromJSON,
-  IoK8sApiFlowcontrolV1ServiceAccountSubjectToJSON,
   IoK8sApiFlowcontrolV1UserSubject,
-  IoK8sApiFlowcontrolV1UserSubjectFromJSON,
-  IoK8sApiFlowcontrolV1UserSubjectToJSON,
 } from './';
 
 /**
@@ -55,46 +48,4 @@ export interface IoK8sApiFlowcontrolV1Subject {
    * @memberof IoK8sApiFlowcontrolV1Subject
    */
   user?: IoK8sApiFlowcontrolV1UserSubject;
-}
-
-export function IoK8sApiFlowcontrolV1SubjectFromJSON(json: any): IoK8sApiFlowcontrolV1Subject {
-  return IoK8sApiFlowcontrolV1SubjectFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1SubjectFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1Subject {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    group: !exists(json, 'group')
-      ? undefined
-      : IoK8sApiFlowcontrolV1GroupSubjectFromJSON(json['group']),
-    kind: json['kind'],
-    serviceAccount: !exists(json, 'serviceAccount')
-      ? undefined
-      : IoK8sApiFlowcontrolV1ServiceAccountSubjectFromJSON(json['serviceAccount']),
-    user: !exists(json, 'user')
-      ? undefined
-      : IoK8sApiFlowcontrolV1UserSubjectFromJSON(json['user']),
-  };
-}
-
-export function IoK8sApiFlowcontrolV1SubjectToJSON(
-  value?: IoK8sApiFlowcontrolV1Subject | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    group: IoK8sApiFlowcontrolV1GroupSubjectToJSON(value.group),
-    kind: value.kind,
-    serviceAccount: IoK8sApiFlowcontrolV1ServiceAccountSubjectToJSON(value.serviceAccount),
-    user: IoK8sApiFlowcontrolV1UserSubjectToJSON(value.user),
-  };
 }

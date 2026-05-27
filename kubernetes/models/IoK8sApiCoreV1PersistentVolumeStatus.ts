@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PersistentVolumeStatus is the current status of a persistent volume.
  * @export
@@ -43,45 +42,4 @@ export interface IoK8sApiCoreV1PersistentVolumeStatus {
    * @memberof IoK8sApiCoreV1PersistentVolumeStatus
    */
   reason?: string;
-}
-
-export function IoK8sApiCoreV1PersistentVolumeStatusFromJSON(
-  json: any,
-): IoK8sApiCoreV1PersistentVolumeStatus {
-  return IoK8sApiCoreV1PersistentVolumeStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PersistentVolumeStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PersistentVolumeStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastPhaseTransitionTime: !exists(json, 'lastPhaseTransitionTime')
-      ? undefined
-      : json['lastPhaseTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    phase: !exists(json, 'phase') ? undefined : json['phase'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-  };
-}
-
-export function IoK8sApiCoreV1PersistentVolumeStatusToJSON(
-  value?: IoK8sApiCoreV1PersistentVolumeStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastPhaseTransitionTime:
-      value.lastPhaseTransitionTime === undefined ? undefined : value.lastPhaseTransitionTime,
-    message: value.message,
-    phase: value.phase,
-    reason: value.reason,
-  };
 }

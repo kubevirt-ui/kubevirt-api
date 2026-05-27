@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ObjectReference,
-  IoK8sApiCoreV1ObjectReferenceFromJSON,
-  IoK8sApiCoreV1ObjectReferenceToJSON,
 } from './';
 
 /**
@@ -55,46 +52,4 @@ export interface IoK8sApiCoreV1StorageOSPersistentVolumeSource {
    * @memberof IoK8sApiCoreV1StorageOSPersistentVolumeSource
    */
   volumeNamespace?: string;
-}
-
-export function IoK8sApiCoreV1StorageOSPersistentVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1StorageOSPersistentVolumeSource {
-  return IoK8sApiCoreV1StorageOSPersistentVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1StorageOSPersistentVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1StorageOSPersistentVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    secretRef: !exists(json, 'secretRef')
-      ? undefined
-      : IoK8sApiCoreV1ObjectReferenceFromJSON(json['secretRef']),
-    volumeName: !exists(json, 'volumeName') ? undefined : json['volumeName'],
-    volumeNamespace: !exists(json, 'volumeNamespace') ? undefined : json['volumeNamespace'],
-  };
-}
-
-export function IoK8sApiCoreV1StorageOSPersistentVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1StorageOSPersistentVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fsType: value.fsType,
-    readOnly: value.readOnly,
-    secretRef: IoK8sApiCoreV1ObjectReferenceToJSON(value.secretRef),
-    volumeName: value.volumeName,
-    volumeNamespace: value.volumeNamespace,
-  };
 }

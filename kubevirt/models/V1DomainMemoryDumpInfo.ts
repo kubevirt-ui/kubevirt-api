@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * DomainMemoryDumpInfo represents the memory dump information
  * @export
@@ -44,46 +43,3 @@ export interface V1DomainMemoryDumpInfo {
      */
     targetFileName?: string;
 }
-
-/**
- * Check if a given object implements the V1DomainMemoryDumpInfo interface.
- */
-export function instanceOfV1DomainMemoryDumpInfo(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1DomainMemoryDumpInfoFromJSON(json: any): V1DomainMemoryDumpInfo {
-    return V1DomainMemoryDumpInfoFromJSONTyped(json, false);
-}
-
-export function V1DomainMemoryDumpInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DomainMemoryDumpInfo {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'claimName': !exists(json, 'claimName') ? undefined : json['claimName'],
-        'endTimestamp': !exists(json, 'endTimestamp') ? undefined : json['endTimestamp'],
-        'startTimestamp': !exists(json, 'startTimestamp') ? undefined : json['startTimestamp'],
-        'targetFileName': !exists(json, 'targetFileName') ? undefined : json['targetFileName'],
-    };
-}
-
-export function V1DomainMemoryDumpInfoToJSON(value?: V1DomainMemoryDumpInfo | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'claimName': value.claimName,
-        'endTimestamp': value.endTimestamp,
-        'startTimestamp': value.startTimestamp,
-        'targetFileName': value.targetFileName,
-    };
-}
-

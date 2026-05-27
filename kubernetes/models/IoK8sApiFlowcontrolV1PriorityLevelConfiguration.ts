@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiFlowcontrolV1PriorityLevelConfigurationSpec,
-  IoK8sApiFlowcontrolV1PriorityLevelConfigurationSpecFromJSON,
-  IoK8sApiFlowcontrolV1PriorityLevelConfigurationSpecToJSON,
   IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatus,
-  IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatusFromJSON,
-  IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,50 +54,4 @@ export interface IoK8sApiFlowcontrolV1PriorityLevelConfiguration {
    * @memberof IoK8sApiFlowcontrolV1PriorityLevelConfiguration
    */
   status?: IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatus;
-}
-
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1PriorityLevelConfiguration {
-  return IoK8sApiFlowcontrolV1PriorityLevelConfigurationFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1PriorityLevelConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec')
-      ? undefined
-      : IoK8sApiFlowcontrolV1PriorityLevelConfigurationSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationToJSON(
-  value?: IoK8sApiFlowcontrolV1PriorityLevelConfiguration | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiFlowcontrolV1PriorityLevelConfigurationSpecToJSON(value.spec),
-    status: IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatusToJSON(value.status),
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * DeviceAttribute must have exactly one field set.
  * @export
@@ -43,42 +42,4 @@ export interface IoK8sApiResourceV1beta2DeviceAttribute {
    * @memberof IoK8sApiResourceV1beta2DeviceAttribute
    */
   version?: string;
-}
-
-export function IoK8sApiResourceV1beta2DeviceAttributeFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta2DeviceAttribute {
-  return IoK8sApiResourceV1beta2DeviceAttributeFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta2DeviceAttributeFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta2DeviceAttribute {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    bool: !exists(json, 'bool') ? undefined : json['bool'],
-    _int: !exists(json, 'int') ? undefined : json['int'],
-    string: !exists(json, 'string') ? undefined : json['string'],
-    version: !exists(json, 'version') ? undefined : json['version'],
-  };
-}
-
-export function IoK8sApiResourceV1beta2DeviceAttributeToJSON(
-  value?: IoK8sApiResourceV1beta2DeviceAttribute | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    bool: value.bool,
-    int: value._int,
-    string: value.string,
-    version: value.version,
-  };
 }

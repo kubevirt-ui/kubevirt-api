@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * QueuingConfiguration holds the configuration parameters for queuing
  * @export
@@ -37,40 +36,4 @@ export interface IoK8sApiFlowcontrolV1QueuingConfiguration {
    * @memberof IoK8sApiFlowcontrolV1QueuingConfiguration
    */
   queues?: number;
-}
-
-export function IoK8sApiFlowcontrolV1QueuingConfigurationFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1QueuingConfiguration {
-  return IoK8sApiFlowcontrolV1QueuingConfigurationFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1QueuingConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1QueuingConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    handSize: !exists(json, 'handSize') ? undefined : json['handSize'],
-    queueLengthLimit: !exists(json, 'queueLengthLimit') ? undefined : json['queueLengthLimit'],
-    queues: !exists(json, 'queues') ? undefined : json['queues'],
-  };
-}
-
-export function IoK8sApiFlowcontrolV1QueuingConfigurationToJSON(
-  value?: IoK8sApiFlowcontrolV1QueuingConfiguration | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    handSize: value.handSize,
-    queueLengthLimit: value.queueLengthLimit,
-    queues: value.queues,
-  };
 }

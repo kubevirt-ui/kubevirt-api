@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -32,44 +31,3 @@ export interface V1Filesystem {
      */
     virtiofs: object;
 }
-
-/**
- * Check if a given object implements the V1Filesystem interface.
- */
-export function instanceOfV1Filesystem(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "name" in value;
-    isInstance = isInstance && "virtiofs" in value;
-
-    return isInstance;
-}
-
-export function V1FilesystemFromJSON(json: any): V1Filesystem {
-    return V1FilesystemFromJSONTyped(json, false);
-}
-
-export function V1FilesystemFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Filesystem {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'name': json['name'],
-        'virtiofs': json['virtiofs'],
-    };
-}
-
-export function V1FilesystemToJSON(value?: V1Filesystem | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'name': value.name,
-        'virtiofs': value.virtiofs,
-    };
-}
-

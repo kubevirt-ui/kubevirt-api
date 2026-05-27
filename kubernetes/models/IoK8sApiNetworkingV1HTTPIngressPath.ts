@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiNetworkingV1IngressBackend,
-  IoK8sApiNetworkingV1IngressBackendFromJSON,
-  IoK8sApiNetworkingV1IngressBackendToJSON,
 } from './';
 
 /**
@@ -53,40 +50,4 @@ export interface IoK8sApiNetworkingV1HTTPIngressPath {
    * @memberof IoK8sApiNetworkingV1HTTPIngressPath
    */
   pathType: string;
-}
-
-export function IoK8sApiNetworkingV1HTTPIngressPathFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1HTTPIngressPath {
-  return IoK8sApiNetworkingV1HTTPIngressPathFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1HTTPIngressPathFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1HTTPIngressPath {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    backend: IoK8sApiNetworkingV1IngressBackendFromJSON(json['backend']),
-    path: !exists(json, 'path') ? undefined : json['path'],
-    pathType: json['pathType'],
-  };
-}
-
-export function IoK8sApiNetworkingV1HTTPIngressPathToJSON(
-  value?: IoK8sApiNetworkingV1HTTPIngressPath | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    backend: IoK8sApiNetworkingV1IngressBackendToJSON(value.backend),
-    path: value.path,
-    pathType: value.pathType,
-  };
 }

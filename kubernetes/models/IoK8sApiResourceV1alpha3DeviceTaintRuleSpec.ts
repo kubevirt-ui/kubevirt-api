@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1alpha3DeviceTaint,
-  IoK8sApiResourceV1alpha3DeviceTaintFromJSON,
   IoK8sApiResourceV1alpha3DeviceTaintSelector,
-  IoK8sApiResourceV1alpha3DeviceTaintSelectorFromJSON,
-  IoK8sApiResourceV1alpha3DeviceTaintSelectorToJSON,
-  IoK8sApiResourceV1alpha3DeviceTaintToJSON,
 } from './';
 
 /**
@@ -40,40 +35,4 @@ export interface IoK8sApiResourceV1alpha3DeviceTaintRuleSpec {
    * @memberof IoK8sApiResourceV1alpha3DeviceTaintRuleSpec
    */
   taint: IoK8sApiResourceV1alpha3DeviceTaint;
-}
-
-export function IoK8sApiResourceV1alpha3DeviceTaintRuleSpecFromJSON(
-  json: any,
-): IoK8sApiResourceV1alpha3DeviceTaintRuleSpec {
-  return IoK8sApiResourceV1alpha3DeviceTaintRuleSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3DeviceTaintRuleSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3DeviceTaintRuleSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    deviceSelector: !exists(json, 'deviceSelector')
-      ? undefined
-      : IoK8sApiResourceV1alpha3DeviceTaintSelectorFromJSON(json['deviceSelector']),
-    taint: IoK8sApiResourceV1alpha3DeviceTaintFromJSON(json['taint']),
-  };
-}
-
-export function IoK8sApiResourceV1alpha3DeviceTaintRuleSpecToJSON(
-  value?: IoK8sApiResourceV1alpha3DeviceTaintRuleSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    deviceSelector: IoK8sApiResourceV1alpha3DeviceTaintSelectorToJSON(value.deviceSelector),
-    taint: IoK8sApiResourceV1alpha3DeviceTaintToJSON(value.taint),
-  };
 }

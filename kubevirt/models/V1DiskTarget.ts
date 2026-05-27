@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -38,44 +37,3 @@ export interface V1DiskTarget {
      */
     readonly?: boolean;
 }
-
-/**
- * Check if a given object implements the V1DiskTarget interface.
- */
-export function instanceOfV1DiskTarget(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1DiskTargetFromJSON(json: any): V1DiskTarget {
-    return V1DiskTargetFromJSONTyped(json, false);
-}
-
-export function V1DiskTargetFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DiskTarget {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'bus': !exists(json, 'bus') ? undefined : json['bus'],
-        'pciAddress': !exists(json, 'pciAddress') ? undefined : json['pciAddress'],
-        'readonly': !exists(json, 'readonly') ? undefined : json['readonly'],
-    };
-}
-
-export function V1DiskTargetToJSON(value?: V1DiskTarget | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'bus': value.bus,
-        'pciAddress': value.pciAddress,
-        'readonly': value.readonly,
-    };
-}
-

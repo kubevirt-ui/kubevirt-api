@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
  * @export
@@ -37,36 +36,4 @@ export interface V1LabelSelectorRequirement {
    * @memberof V1LabelSelectorRequirement
    */
   values?: Array<string>;
-}
-
-export function V1LabelSelectorRequirementFromJSON(json: any): V1LabelSelectorRequirement {
-  return V1LabelSelectorRequirementFromJSONTyped(json, false);
-}
-
-export function V1LabelSelectorRequirementFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1LabelSelectorRequirement {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    key: json['key'],
-    operator: json['operator'],
-    values: !exists(json, 'values') ? undefined : json['values'],
-  };
-}
-
-export function V1LabelSelectorRequirementToJSON(value?: V1LabelSelectorRequirement | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    key: value.key,
-    operator: value.operator,
-    values: value.values,
-  };
 }

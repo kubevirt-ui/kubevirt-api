@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Spec to control the desired behavior of rolling update.
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiAppsV1RollingUpdateDeployment {
    * @memberof IoK8sApiAppsV1RollingUpdateDeployment
    */
   maxUnavailable?: string;
-}
-
-export function IoK8sApiAppsV1RollingUpdateDeploymentFromJSON(
-  json: any,
-): IoK8sApiAppsV1RollingUpdateDeployment {
-  return IoK8sApiAppsV1RollingUpdateDeploymentFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1RollingUpdateDeploymentFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1RollingUpdateDeployment {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    maxSurge: !exists(json, 'maxSurge') ? undefined : json['maxSurge'],
-    maxUnavailable: !exists(json, 'maxUnavailable') ? undefined : json['maxUnavailable'],
-  };
-}
-
-export function IoK8sApiAppsV1RollingUpdateDeploymentToJSON(
-  value?: IoK8sApiAppsV1RollingUpdateDeployment | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    maxSurge: value.maxSurge,
-    maxUnavailable: value.maxUnavailable,
-  };
 }

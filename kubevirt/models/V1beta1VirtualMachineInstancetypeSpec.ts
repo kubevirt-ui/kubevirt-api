@@ -12,43 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1DiskIOThreads } from './V1DiskIOThreads';
-import {
-    V1DiskIOThreadsFromJSON,
-    V1DiskIOThreadsFromJSONTyped,
-    V1DiskIOThreadsToJSON,
-} from './V1DiskIOThreads';
 import type { V1GPU } from './V1GPU';
-import {
-    V1GPUFromJSON,
-    V1GPUFromJSONTyped,
-    V1GPUToJSON,
-} from './V1GPU';
 import type { V1HostDevice } from './V1HostDevice';
-import {
-    V1HostDeviceFromJSON,
-    V1HostDeviceFromJSONTyped,
-    V1HostDeviceToJSON,
-} from './V1HostDevice';
 import type { V1LaunchSecurity } from './V1LaunchSecurity';
-import {
-    V1LaunchSecurityFromJSON,
-    V1LaunchSecurityFromJSONTyped,
-    V1LaunchSecurityToJSON,
-} from './V1LaunchSecurity';
 import type { V1beta1CPUInstancetype } from './V1beta1CPUInstancetype';
-import {
-    V1beta1CPUInstancetypeFromJSON,
-    V1beta1CPUInstancetypeFromJSONTyped,
-    V1beta1CPUInstancetypeToJSON,
-} from './V1beta1CPUInstancetype';
 import type { V1beta1MemoryInstancetype } from './V1beta1MemoryInstancetype';
-import {
-    V1beta1MemoryInstancetypeFromJSON,
-    V1beta1MemoryInstancetypeFromJSONTyped,
-    V1beta1MemoryInstancetypeToJSON,
-} from './V1beta1MemoryInstancetype';
 
 /**
  * VirtualMachineInstancetypeSpec is a description of the VirtualMachineInstancetype or VirtualMachineClusterInstancetype.
@@ -123,60 +92,3 @@ export interface V1beta1VirtualMachineInstancetypeSpec {
      */
     schedulerName?: string;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachineInstancetypeSpec interface.
- */
-export function instanceOfV1beta1VirtualMachineInstancetypeSpec(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "cpu" in value;
-    isInstance = isInstance && "memory" in value;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachineInstancetypeSpecFromJSON(json: any): V1beta1VirtualMachineInstancetypeSpec {
-    return V1beta1VirtualMachineInstancetypeSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineInstancetypeSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineInstancetypeSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'annotations': !exists(json, 'annotations') ? undefined : json['annotations'],
-        'cpu': V1beta1CPUInstancetypeFromJSON(json['cpu']),
-        'gpus': !exists(json, 'gpus') ? undefined : ((json['gpus'] as Array<any>).map(V1GPUFromJSON)),
-        'hostDevices': !exists(json, 'hostDevices') ? undefined : ((json['hostDevices'] as Array<any>).map(V1HostDeviceFromJSON)),
-        'ioThreads': !exists(json, 'ioThreads') ? undefined : V1DiskIOThreadsFromJSON(json['ioThreads']),
-        'ioThreadsPolicy': !exists(json, 'ioThreadsPolicy') ? undefined : json['ioThreadsPolicy'],
-        'launchSecurity': !exists(json, 'launchSecurity') ? undefined : V1LaunchSecurityFromJSON(json['launchSecurity']),
-        'memory': V1beta1MemoryInstancetypeFromJSON(json['memory']),
-        'nodeSelector': !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
-        'schedulerName': !exists(json, 'schedulerName') ? undefined : json['schedulerName'],
-    };
-}
-
-export function V1beta1VirtualMachineInstancetypeSpecToJSON(value?: V1beta1VirtualMachineInstancetypeSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'annotations': value.annotations,
-        'cpu': V1beta1CPUInstancetypeToJSON(value.cpu),
-        'gpus': value.gpus === undefined ? undefined : ((value.gpus as Array<any>).map(V1GPUToJSON)),
-        'hostDevices': value.hostDevices === undefined ? undefined : ((value.hostDevices as Array<any>).map(V1HostDeviceToJSON)),
-        'ioThreads': V1DiskIOThreadsToJSON(value.ioThreads),
-        'ioThreadsPolicy': value.ioThreadsPolicy,
-        'launchSecurity': V1LaunchSecurityToJSON(value.launchSecurity),
-        'memory': V1beta1MemoryInstancetypeToJSON(value.memory),
-        'nodeSelector': value.nodeSelector,
-        'schedulerName': value.schedulerName,
-    };
-}
-

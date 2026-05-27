@@ -12,20 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ExecAction,
-  IoK8sApiCoreV1ExecActionFromJSON,
-  IoK8sApiCoreV1ExecActionToJSON,
   IoK8sApiCoreV1HTTPGetAction,
-  IoK8sApiCoreV1HTTPGetActionFromJSON,
-  IoK8sApiCoreV1HTTPGetActionToJSON,
   IoK8sApiCoreV1SleepAction,
-  IoK8sApiCoreV1SleepActionFromJSON,
-  IoK8sApiCoreV1SleepActionToJSON,
   IoK8sApiCoreV1TCPSocketAction,
-  IoK8sApiCoreV1TCPSocketActionFromJSON,
-  IoK8sApiCoreV1TCPSocketActionToJSON,
 } from './';
 
 /**
@@ -58,44 +49,4 @@ export interface IoK8sApiCoreV1LifecycleHandler {
    * @memberof IoK8sApiCoreV1LifecycleHandler
    */
   tcpSocket?: IoK8sApiCoreV1TCPSocketAction;
-}
-
-export function IoK8sApiCoreV1LifecycleHandlerFromJSON(json: any): IoK8sApiCoreV1LifecycleHandler {
-  return IoK8sApiCoreV1LifecycleHandlerFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1LifecycleHandlerFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1LifecycleHandler {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    exec: !exists(json, 'exec') ? undefined : IoK8sApiCoreV1ExecActionFromJSON(json['exec']),
-    httpGet: !exists(json, 'httpGet')
-      ? undefined
-      : IoK8sApiCoreV1HTTPGetActionFromJSON(json['httpGet']),
-    sleep: !exists(json, 'sleep') ? undefined : IoK8sApiCoreV1SleepActionFromJSON(json['sleep']),
-    tcpSocket: !exists(json, 'tcpSocket')
-      ? undefined
-      : IoK8sApiCoreV1TCPSocketActionFromJSON(json['tcpSocket']),
-  };
-}
-
-export function IoK8sApiCoreV1LifecycleHandlerToJSON(
-  value?: IoK8sApiCoreV1LifecycleHandler | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    exec: IoK8sApiCoreV1ExecActionToJSON(value.exec),
-    httpGet: IoK8sApiCoreV1HTTPGetActionToJSON(value.httpGet),
-    sleep: IoK8sApiCoreV1SleepActionToJSON(value.sleep),
-    tcpSocket: IoK8sApiCoreV1TCPSocketActionToJSON(value.tcpSocket),
-  };
 }

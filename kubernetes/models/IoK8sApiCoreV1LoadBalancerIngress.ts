@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1PortStatus,
-  IoK8sApiCoreV1PortStatusFromJSON,
-  IoK8sApiCoreV1PortStatusToJSON,
 } from './';
 
 /**
@@ -49,47 +46,4 @@ export interface IoK8sApiCoreV1LoadBalancerIngress {
    * @memberof IoK8sApiCoreV1LoadBalancerIngress
    */
   ports?: Array<IoK8sApiCoreV1PortStatus>;
-}
-
-export function IoK8sApiCoreV1LoadBalancerIngressFromJSON(
-  json: any,
-): IoK8sApiCoreV1LoadBalancerIngress {
-  return IoK8sApiCoreV1LoadBalancerIngressFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1LoadBalancerIngressFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1LoadBalancerIngress {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    hostname: !exists(json, 'hostname') ? undefined : json['hostname'],
-    ip: !exists(json, 'ip') ? undefined : json['ip'],
-    ipMode: !exists(json, 'ipMode') ? undefined : json['ipMode'],
-    ports: !exists(json, 'ports')
-      ? undefined
-      : (json['ports'] as Array<any>).map(IoK8sApiCoreV1PortStatusFromJSON),
-  };
-}
-
-export function IoK8sApiCoreV1LoadBalancerIngressToJSON(
-  value?: IoK8sApiCoreV1LoadBalancerIngress | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    hostname: value.hostname,
-    ip: value.ip,
-    ipMode: value.ipMode,
-    ports:
-      value.ports === undefined
-        ? undefined
-        : (value.ports as Array<any>).map(IoK8sApiCoreV1PortStatusToJSON),
-  };
 }

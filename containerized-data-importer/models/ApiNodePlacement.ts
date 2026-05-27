@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1Affinity,
-  V1AffinityFromJSON,
-  V1AffinityToJSON,
   V1Toleration,
-  V1TolerationFromJSON,
-  V1TolerationToJSON,
 } from './';
 
 /**
@@ -46,41 +41,4 @@ export interface ApiNodePlacement {
    * @memberof ApiNodePlacement
    */
   tolerations?: Array<V1Toleration>;
-}
-
-export function ApiNodePlacementFromJSON(json: any): ApiNodePlacement {
-  return ApiNodePlacementFromJSONTyped(json, false);
-}
-
-export function ApiNodePlacementFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): ApiNodePlacement {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    affinity: !exists(json, 'affinity') ? undefined : V1AffinityFromJSON(json['affinity']),
-    nodeSelector: !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
-    tolerations: !exists(json, 'tolerations')
-      ? undefined
-      : (json['tolerations'] as Array<any>).map(V1TolerationFromJSON),
-  };
-}
-
-export function ApiNodePlacementToJSON(value?: ApiNodePlacement | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    affinity: V1AffinityToJSON(value.affinity),
-    nodeSelector: value.nodeSelector,
-    tolerations:
-      value.tolerations === undefined
-        ? undefined
-        : (value.tolerations as Array<any>).map(V1TolerationToJSON),
-  };
 }

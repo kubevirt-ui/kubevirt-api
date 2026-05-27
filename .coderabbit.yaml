@@ -1,0 +1,61 @@
+language: "en-US"
+
+reviews:
+  profile: assertive
+  request_changes_workflow: true
+  high_level_summary: true
+  high_level_summary_instructions: |
+    If this PR touches */swagger.json or */.crds/*.yaml, state which definitions changed
+    and whether every TypeScript model change matches the source diff.
+
+  auto_review:
+    enabled: true
+    auto_incremental_review: true
+    drafts: false
+
+  path_instructions:
+    - path: "**"
+      instructions: |
+        Repo context: every model file in this repo exports a single TypeScript interface and nothing else.
+        Pipeline A (swagger): <pkg>/swagger.json → <pkg>/models/ (interface only).
+        Pipeline B (CRDs): <pkg>/.crds/*.yaml → nmstate/models/ (interface only, `any | null` for apiVersion/kind/metadata) or virt-template/models/ (interface only, @required {true/false} JSDoc).
+        nmstate/custom-models/ is manually maintained — never modified by swagger/CRD updates.
+        Cross-check: every swagger definition change must have a matching TS file change and vice versa. Flag mismatches as blockers.
+
+    - path: "{kubevirt,containerized-data-importer,kubernetes}/swagger.json"
+      instructions: |
+        For every definition added/removed/changed: verify a TS interface file was created/deleted/edited in <pkg>/models/ and index.ts exports updated.
+        Naming: v1.Foo → V1Foo.ts, v1beta1.Foo → V1beta1Foo.ts, k8s.io.apimachinery.pkg.apis.meta.v1.Foo → K8sIoApimachineryPkgApisMetaV1Foo.ts.
+
+    - path: "{nmstate,virt-template}/.crds/*.yaml"
+      instructions: |
+        Find changed fields under spec.versions[].schema.openAPIV3Schema. Verify the corresponding TS models in <pkg>/models/ reflect every field add/remove/type change. nmstate/custom-models/ is not affected. Flag unmatched schema changes as blockers.
+
+    - path: "{kubevirt,containerized-data-importer,kubernetes,nmstate}/models/*.ts"
+      instructions: |
+        Must export a single TypeScript interface only.
+        Verify: required[] fields are non-optional, absent fields are optional, type ["string","null"] → string | null, no import references a deleted type.
+        nmstate: top-level k8s fields (apiVersion, kind, metadata) must be typed `any | null`.
+
+    - path: "virt-template/models/*.ts"
+      instructions: |
+        Interface only. JSDoc uses @required {true/false}. Verify field types and required/optional status match the CRD schema.
+
+    - path: "{kubevirt,containerized-data-importer,kubernetes}/models/index.ts"
+      instructions: |
+        Every added model file needs a new export line; every deleted file loses its export. Exports must stay alphabetically ordered within each prefix group (K8s*, V1*, V1alpha1*, V1beta1*).
+
+    - path: "kubevirt/test/*.test.ts"
+      instructions: |
+        Test objects must satisfy the current interface. New required fields need values; removed fields must be absent. Deleted models → deleted test file. Renamed models → renamed test file.
+
+  pre_merge_checks:
+    custom_checks:
+      - name: "swagger-ts-consistency"
+        mode: error
+        instructions: |
+          PASS only if ALL are true:
+          1. Every added swagger definition has a correctly named TS interface file in <pkg>/models/ exported from index.ts.
+          2. Every removed swagger definition has its TS file deleted and export removed from index.ts.
+          3. Every changed CRD YAML has its new/removed properties reflected in the TS model.
+          FAIL otherwise.

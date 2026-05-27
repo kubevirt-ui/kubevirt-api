@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1alpha1BackupVolumeInfo } from './V1alpha1BackupVolumeInfo';
-import {
-    V1alpha1BackupVolumeInfoFromJSON,
-    V1alpha1BackupVolumeInfoFromJSONTyped,
-    V1alpha1BackupVolumeInfoToJSON,
-} from './V1alpha1BackupVolumeInfo';
 
 /**
  * VirtualMachineInstanceBackupStatus tracks the information of the executed backup
@@ -75,54 +69,3 @@ export interface V1VirtualMachineInstanceBackupStatus {
      */
     volumes?: Array<V1alpha1BackupVolumeInfo>;
 }
-
-/**
- * Check if a given object implements the V1VirtualMachineInstanceBackupStatus interface.
- */
-export function instanceOfV1VirtualMachineInstanceBackupStatus(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1VirtualMachineInstanceBackupStatusFromJSON(json: any): V1VirtualMachineInstanceBackupStatus {
-    return V1VirtualMachineInstanceBackupStatusFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceBackupStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceBackupStatus {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'backupMsg': !exists(json, 'backupMsg') ? undefined : json['backupMsg'],
-        'backupName': !exists(json, 'backupName') ? undefined : json['backupName'],
-        'checkpointName': !exists(json, 'checkpointName') ? undefined : json['checkpointName'],
-        'completed': !exists(json, 'completed') ? undefined : json['completed'],
-        'endTimestamp': !exists(json, 'endTimestamp') ? undefined : json['endTimestamp'],
-        'failed': !exists(json, 'failed') ? undefined : json['failed'],
-        'startTimestamp': !exists(json, 'startTimestamp') ? undefined : json['startTimestamp'],
-        'volumes': !exists(json, 'volumes') ? undefined : ((json['volumes'] as Array<any>).map(V1alpha1BackupVolumeInfoFromJSON)),
-    };
-}
-
-export function V1VirtualMachineInstanceBackupStatusToJSON(value?: V1VirtualMachineInstanceBackupStatus | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'backupMsg': value.backupMsg,
-        'backupName': value.backupName,
-        'checkpointName': value.checkpointName,
-        'completed': value.completed,
-        'endTimestamp': value.endTimestamp,
-        'failed': value.failed,
-        'startTimestamp': value.startTimestamp,
-        'volumes': value.volumes === undefined ? undefined : ((value.volumes as Array<any>).map(V1alpha1BackupVolumeInfoToJSON)),
-    };
-}
-

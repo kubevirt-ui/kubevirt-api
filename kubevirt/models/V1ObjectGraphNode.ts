@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApiCoreV1TypedObjectReference } from './K8sIoApiCoreV1TypedObjectReference';
-import {
-    K8sIoApiCoreV1TypedObjectReferenceFromJSON,
-    K8sIoApiCoreV1TypedObjectReferenceFromJSONTyped,
-    K8sIoApiCoreV1TypedObjectReferenceToJSON,
-} from './K8sIoApiCoreV1TypedObjectReference';
 
 /**
  * ObjectGraphNode represents an individual node in the graph.
@@ -63,51 +57,3 @@ export interface V1ObjectGraphNode {
      */
     optional?: boolean;
 }
-
-/**
- * Check if a given object implements the V1ObjectGraphNode interface.
- */
-export function instanceOfV1ObjectGraphNode(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "objectReference" in value;
-
-    return isInstance;
-}
-
-export function V1ObjectGraphNodeFromJSON(json: any): V1ObjectGraphNode {
-    return V1ObjectGraphNodeFromJSONTyped(json, false);
-}
-
-export function V1ObjectGraphNodeFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ObjectGraphNode {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'children': !exists(json, 'children') ? undefined : ((json['children'] as Array<any>).map(V1ObjectGraphNodeFromJSON)),
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'labels': !exists(json, 'labels') ? undefined : json['labels'],
-        'objectReference': K8sIoApiCoreV1TypedObjectReferenceFromJSON(json['objectReference']),
-        'optional': !exists(json, 'optional') ? undefined : json['optional'],
-    };
-}
-
-export function V1ObjectGraphNodeToJSON(value?: V1ObjectGraphNode | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'children': value.children === undefined ? undefined : ((value.children as Array<any>).map(V1ObjectGraphNodeToJSON)),
-        'kind': value.kind,
-        'labels': value.labels,
-        'objectReference': K8sIoApiCoreV1TypedObjectReferenceToJSON(value.objectReference),
-        'optional': value.optional,
-    };
-}
-

@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1BIOS } from './V1BIOS';
-import {
-    V1BIOSFromJSON,
-    V1BIOSFromJSONTyped,
-    V1BIOSToJSON,
-} from './V1BIOS';
 import type { V1EFI } from './V1EFI';
-import {
-    V1EFIFromJSON,
-    V1EFIFromJSONTyped,
-    V1EFIToJSON,
-} from './V1EFI';
 
 /**
  * Represents the firmware blob used to assist in the domain creation process. Used for setting the QEMU BIOS file path for the libvirt domain.
@@ -45,42 +34,3 @@ export interface V1Bootloader {
      */
     efi?: V1EFI;
 }
-
-/**
- * Check if a given object implements the V1Bootloader interface.
- */
-export function instanceOfV1Bootloader(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1BootloaderFromJSON(json: any): V1Bootloader {
-    return V1BootloaderFromJSONTyped(json, false);
-}
-
-export function V1BootloaderFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Bootloader {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'bios': !exists(json, 'bios') ? undefined : V1BIOSFromJSON(json['bios']),
-        'efi': !exists(json, 'efi') ? undefined : V1EFIFromJSON(json['efi']),
-    };
-}
-
-export function V1BootloaderToJSON(value?: V1Bootloader | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'bios': V1BIOSToJSON(value.bios),
-        'efi': V1EFIToJSON(value.efi),
-    };
-}
-

@@ -25,33 +25,3 @@ export interface IoK8sApiCoreV1PodReadinessGate {
    */
   conditionType: string;
 }
-
-export function IoK8sApiCoreV1PodReadinessGateFromJSON(json: any): IoK8sApiCoreV1PodReadinessGate {
-  return IoK8sApiCoreV1PodReadinessGateFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodReadinessGateFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodReadinessGate {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditionType: json['conditionType'],
-  };
-}
-
-export function IoK8sApiCoreV1PodReadinessGateToJSON(
-  value?: IoK8sApiCoreV1PodReadinessGate | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditionType: value.conditionType,
-  };
-}

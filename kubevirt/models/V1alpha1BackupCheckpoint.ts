@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1alpha1BackupVolumeInfo } from './V1alpha1BackupVolumeInfo';
-import {
-    V1alpha1BackupVolumeInfoFromJSON,
-    V1alpha1BackupVolumeInfoFromJSONTyped,
-    V1alpha1BackupVolumeInfoToJSON,
-} from './V1alpha1BackupVolumeInfo';
 
 /**
  * 
@@ -45,44 +39,3 @@ export interface V1alpha1BackupCheckpoint {
      */
     volumes?: Array<V1alpha1BackupVolumeInfo>;
 }
-
-/**
- * Check if a given object implements the V1alpha1BackupCheckpoint interface.
- */
-export function instanceOfV1alpha1BackupCheckpoint(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1alpha1BackupCheckpointFromJSON(json: any): V1alpha1BackupCheckpoint {
-    return V1alpha1BackupCheckpointFromJSONTyped(json, false);
-}
-
-export function V1alpha1BackupCheckpointFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1BackupCheckpoint {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'creationTime': !exists(json, 'creationTime') ? undefined : json['creationTime'],
-        'name': !exists(json, 'name') ? undefined : json['name'],
-        'volumes': !exists(json, 'volumes') ? undefined : ((json['volumes'] as Array<any>).map(V1alpha1BackupVolumeInfoFromJSON)),
-    };
-}
-
-export function V1alpha1BackupCheckpointToJSON(value?: V1alpha1BackupCheckpoint | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'creationTime': value.creationTime,
-        'name': value.name,
-        'volumes': value.volumes === undefined ? undefined : ((value.volumes as Array<any>).map(V1alpha1BackupVolumeInfoToJSON)),
-    };
-}
-

@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
 import {
   IoK8sApiResourceV1beta2Counter,
-  IoK8sApiResourceV1beta2CounterFromJSON,
-  IoK8sApiResourceV1beta2CounterToJSON,
 } from './';
 
 /**
@@ -41,38 +38,4 @@ export interface IoK8sApiResourceV1beta2CounterSet {
    * @memberof IoK8sApiResourceV1beta2CounterSet
    */
   name: string;
-}
-
-export function IoK8sApiResourceV1beta2CounterSetFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta2CounterSet {
-  return IoK8sApiResourceV1beta2CounterSetFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta2CounterSetFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta2CounterSet {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    counters: mapValues(json['counters'], IoK8sApiResourceV1beta2CounterFromJSON),
-    name: json['name'],
-  };
-}
-
-export function IoK8sApiResourceV1beta2CounterSetToJSON(
-  value?: IoK8sApiResourceV1beta2CounterSet | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    counters: mapValues(value.counters, IoK8sApiResourceV1beta2CounterToJSON),
-    name: value.name,
-  };
 }

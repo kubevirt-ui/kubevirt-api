@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -44,37 +43,3 @@ export interface V1alpha1VirtualMachinePoolCondition {
      */
     type: string;
 }
-
-export function V1alpha1VirtualMachinePoolConditionFromJSON(json: any): V1alpha1VirtualMachinePoolCondition {
-    return V1alpha1VirtualMachinePoolConditionFromJSONTyped(json, false);
-}
-
-export function V1alpha1VirtualMachinePoolConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachinePoolCondition {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'message': !exists(json, 'message') ? undefined : json['message'],
-        'reason': !exists(json, 'reason') ? undefined : json['reason'],
-        'status': json['status'],
-        'type': json['type'],
-    };
-}
-
-export function V1alpha1VirtualMachinePoolConditionToJSON(value?: V1alpha1VirtualMachinePoolCondition | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'message': value.message,
-        'reason': value.reason,
-        'status': value.status,
-        'type': value.type,
-    };
-}
-

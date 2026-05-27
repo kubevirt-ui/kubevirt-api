@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1PodTemplateSpec,
-  IoK8sApiCoreV1PodTemplateSpecFromJSON,
-  IoK8sApiCoreV1PodTemplateSpecToJSON,
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -52,42 +47,4 @@ export interface IoK8sApiAppsV1ReplicaSetSpec {
    * @memberof IoK8sApiAppsV1ReplicaSetSpec
    */
   template?: IoK8sApiCoreV1PodTemplateSpec;
-}
-
-export function IoK8sApiAppsV1ReplicaSetSpecFromJSON(json: any): IoK8sApiAppsV1ReplicaSetSpec {
-  return IoK8sApiAppsV1ReplicaSetSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1ReplicaSetSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1ReplicaSetSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    minReadySeconds: !exists(json, 'minReadySeconds') ? undefined : json['minReadySeconds'],
-    replicas: !exists(json, 'replicas') ? undefined : json['replicas'],
-    selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
-    template: !exists(json, 'template')
-      ? undefined
-      : IoK8sApiCoreV1PodTemplateSpecFromJSON(json['template']),
-  };
-}
-
-export function IoK8sApiAppsV1ReplicaSetSpecToJSON(
-  value?: IoK8sApiAppsV1ReplicaSetSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    minReadySeconds: value.minReadySeconds,
-    replicas: value.replicas,
-    selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
-    template: IoK8sApiCoreV1PodTemplateSpecToJSON(value.template),
-  };
 }

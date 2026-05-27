@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiNetworkingV1NetworkPolicyEgressRule,
-  IoK8sApiNetworkingV1NetworkPolicyEgressRuleFromJSON,
-  IoK8sApiNetworkingV1NetworkPolicyEgressRuleToJSON,
   IoK8sApiNetworkingV1NetworkPolicyIngressRule,
-  IoK8sApiNetworkingV1NetworkPolicyIngressRuleFromJSON,
-  IoK8sApiNetworkingV1NetworkPolicyIngressRuleToJSON,
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -55,52 +48,4 @@ export interface IoK8sApiNetworkingV1NetworkPolicySpec {
    * @memberof IoK8sApiNetworkingV1NetworkPolicySpec
    */
   policyTypes?: Array<string>;
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicySpecFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1NetworkPolicySpec {
-  return IoK8sApiNetworkingV1NetworkPolicySpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicySpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1NetworkPolicySpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    egress: !exists(json, 'egress')
-      ? undefined
-      : (json['egress'] as Array<any>).map(IoK8sApiNetworkingV1NetworkPolicyEgressRuleFromJSON),
-    ingress: !exists(json, 'ingress')
-      ? undefined
-      : (json['ingress'] as Array<any>).map(IoK8sApiNetworkingV1NetworkPolicyIngressRuleFromJSON),
-    podSelector: IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['podSelector']),
-    policyTypes: !exists(json, 'policyTypes') ? undefined : json['policyTypes'],
-  };
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicySpecToJSON(
-  value?: IoK8sApiNetworkingV1NetworkPolicySpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    egress:
-      value.egress === undefined
-        ? undefined
-        : (value.egress as Array<any>).map(IoK8sApiNetworkingV1NetworkPolicyEgressRuleToJSON),
-    ingress:
-      value.ingress === undefined
-        ? undefined
-        : (value.ingress as Array<any>).map(IoK8sApiNetworkingV1NetworkPolicyIngressRuleToJSON),
-    podSelector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.podSelector),
-    policyTypes: value.policyTypes,
-  };
 }

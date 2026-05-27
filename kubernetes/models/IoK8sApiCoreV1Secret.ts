@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -67,46 +64,4 @@ export interface IoK8sApiCoreV1Secret {
    * @memberof IoK8sApiCoreV1Secret
    */
   type?: string;
-}
-
-export function IoK8sApiCoreV1SecretFromJSON(json: any): IoK8sApiCoreV1Secret {
-  return IoK8sApiCoreV1SecretFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1SecretFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1Secret {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    data: !exists(json, 'data') ? undefined : json['data'],
-    immutable: !exists(json, 'immutable') ? undefined : json['immutable'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    stringData: !exists(json, 'stringData') ? undefined : json['stringData'],
-    type: !exists(json, 'type') ? undefined : json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1SecretToJSON(value?: IoK8sApiCoreV1Secret | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    data: value.data,
-    immutable: value.immutable,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    stringData: value.stringData,
-    type: value.type,
-  };
 }

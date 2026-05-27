@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ModifyVolumeStatus represents the status object of ControllerModifyVolume operation
  * @export
@@ -40,40 +39,4 @@ export interface IoK8sApiCoreV1ModifyVolumeStatus {
    * @memberof IoK8sApiCoreV1ModifyVolumeStatus
    */
   targetVolumeAttributesClassName?: string;
-}
-
-export function IoK8sApiCoreV1ModifyVolumeStatusFromJSON(
-  json: any,
-): IoK8sApiCoreV1ModifyVolumeStatus {
-  return IoK8sApiCoreV1ModifyVolumeStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ModifyVolumeStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ModifyVolumeStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    status: json['status'],
-    targetVolumeAttributesClassName: !exists(json, 'targetVolumeAttributesClassName')
-      ? undefined
-      : json['targetVolumeAttributesClassName'],
-  };
-}
-
-export function IoK8sApiCoreV1ModifyVolumeStatusToJSON(
-  value?: IoK8sApiCoreV1ModifyVolumeStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    status: value.status,
-    targetVolumeAttributesClassName: value.targetVolumeAttributesClassName,
-  };
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1NodeSelector,
-  V1NodeSelectorFromJSON,
-  V1NodeSelectorToJSON,
   V1PreferredSchedulingTerm,
-  V1PreferredSchedulingTermFromJSON,
-  V1PreferredSchedulingTermToJSON,
 } from './';
 
 /**
@@ -40,53 +35,4 @@ export interface V1NodeAffinity {
    * @memberof V1NodeAffinity
    */
   requiredDuringSchedulingIgnoredDuringExecution?: V1NodeSelector;
-}
-
-export function V1NodeAffinityFromJSON(json: any): V1NodeAffinity {
-  return V1NodeAffinityFromJSONTyped(json, false);
-}
-
-export function V1NodeAffinityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1NodeAffinity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'preferredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : (json['preferredDuringSchedulingIgnoredDuringExecution'] as Array<any>).map(
-          V1PreferredSchedulingTermFromJSON,
-        ),
-    requiredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'requiredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : V1NodeSelectorFromJSON(json['requiredDuringSchedulingIgnoredDuringExecution']),
-  };
-}
-
-export function V1NodeAffinityToJSON(value?: V1NodeAffinity | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution:
-      value.preferredDuringSchedulingIgnoredDuringExecution === undefined
-        ? undefined
-        : (value.preferredDuringSchedulingIgnoredDuringExecution as Array<any>).map(
-            V1PreferredSchedulingTermToJSON,
-          ),
-    requiredDuringSchedulingIgnoredDuringExecution: V1NodeSelectorToJSON(
-      value.requiredDuringSchedulingIgnoredDuringExecution,
-    ),
-  };
 }

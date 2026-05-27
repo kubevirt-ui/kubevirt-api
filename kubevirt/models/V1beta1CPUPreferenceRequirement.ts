@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -26,41 +25,3 @@ export interface V1beta1CPUPreferenceRequirement {
      */
     guest: number;
 }
-
-/**
- * Check if a given object implements the V1beta1CPUPreferenceRequirement interface.
- */
-export function instanceOfV1beta1CPUPreferenceRequirement(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "guest" in value;
-
-    return isInstance;
-}
-
-export function V1beta1CPUPreferenceRequirementFromJSON(json: any): V1beta1CPUPreferenceRequirement {
-    return V1beta1CPUPreferenceRequirementFromJSONTyped(json, false);
-}
-
-export function V1beta1CPUPreferenceRequirementFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1CPUPreferenceRequirement {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'guest': json['guest'],
-    };
-}
-
-export function V1beta1CPUPreferenceRequirementToJSON(value?: V1beta1CPUPreferenceRequirement | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'guest': value.guest,
-    };
-}
-

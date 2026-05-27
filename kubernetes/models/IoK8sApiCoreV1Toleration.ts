@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.
  * @export
@@ -49,40 +48,4 @@ export interface IoK8sApiCoreV1Toleration {
    * @memberof IoK8sApiCoreV1Toleration
    */
   value?: string;
-}
-
-export function IoK8sApiCoreV1TolerationFromJSON(json: any): IoK8sApiCoreV1Toleration {
-  return IoK8sApiCoreV1TolerationFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1TolerationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1Toleration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    effect: !exists(json, 'effect') ? undefined : json['effect'],
-    key: !exists(json, 'key') ? undefined : json['key'],
-    operator: !exists(json, 'operator') ? undefined : json['operator'],
-    tolerationSeconds: !exists(json, 'tolerationSeconds') ? undefined : json['tolerationSeconds'],
-    value: !exists(json, 'value') ? undefined : json['value'],
-  };
-}
-
-export function IoK8sApiCoreV1TolerationToJSON(value?: IoK8sApiCoreV1Toleration | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    effect: value.effect,
-    key: value.key,
-    operator: value.operator,
-    tolerationSeconds: value.tolerationSeconds,
-    value: value.value,
-  };
 }

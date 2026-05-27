@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Condition contains details for one aspect of the current state of this API Resource.
  * @export
@@ -55,48 +54,4 @@ export interface IoK8sApimachineryPkgApisMetaV1Condition {
    * @memberof IoK8sApimachineryPkgApisMetaV1Condition
    */
   type: string;
-}
-
-export function IoK8sApimachineryPkgApisMetaV1ConditionFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1Condition {
-  return IoK8sApimachineryPkgApisMetaV1ConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1ConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1Condition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastTransitionTime: json['lastTransitionTime'],
-    message: json['message'],
-    observedGeneration: !exists(json, 'observedGeneration')
-      ? undefined
-      : json['observedGeneration'],
-    reason: json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1ConditionToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1Condition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastTransitionTime: value.lastTransitionTime,
-    message: value.message,
-    observedGeneration: value.observedGeneration,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

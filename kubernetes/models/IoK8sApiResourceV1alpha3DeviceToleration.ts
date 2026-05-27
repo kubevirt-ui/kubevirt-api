@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * The ResourceClaim this DeviceToleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.
  * @export
@@ -49,44 +48,4 @@ export interface IoK8sApiResourceV1alpha3DeviceToleration {
    * @memberof IoK8sApiResourceV1alpha3DeviceToleration
    */
   value?: string;
-}
-
-export function IoK8sApiResourceV1alpha3DeviceTolerationFromJSON(
-  json: any,
-): IoK8sApiResourceV1alpha3DeviceToleration {
-  return IoK8sApiResourceV1alpha3DeviceTolerationFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3DeviceTolerationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3DeviceToleration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    effect: !exists(json, 'effect') ? undefined : json['effect'],
-    key: !exists(json, 'key') ? undefined : json['key'],
-    operator: !exists(json, 'operator') ? undefined : json['operator'],
-    tolerationSeconds: !exists(json, 'tolerationSeconds') ? undefined : json['tolerationSeconds'],
-    value: !exists(json, 'value') ? undefined : json['value'],
-  };
-}
-
-export function IoK8sApiResourceV1alpha3DeviceTolerationToJSON(
-  value?: IoK8sApiResourceV1alpha3DeviceToleration | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    effect: value.effect,
-    key: value.key,
-    operator: value.operator,
-    tolerationSeconds: value.tolerationSeconds,
-    value: value.value,
-  };
 }

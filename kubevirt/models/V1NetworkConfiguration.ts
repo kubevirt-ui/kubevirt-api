@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1InterfaceBindingPlugin } from './V1InterfaceBindingPlugin';
-import {
-    V1InterfaceBindingPluginFromJSON,
-    V1InterfaceBindingPluginFromJSONTyped,
-    V1InterfaceBindingPluginToJSON,
-} from './V1InterfaceBindingPlugin';
 
 /**
  * NetworkConfiguration holds network options
@@ -51,46 +45,3 @@ export interface V1NetworkConfiguration {
      */
     permitSlirpInterface?: boolean;
 }
-
-/**
- * Check if a given object implements the V1NetworkConfiguration interface.
- */
-export function instanceOfV1NetworkConfiguration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1NetworkConfigurationFromJSON(json: any): V1NetworkConfiguration {
-    return V1NetworkConfigurationFromJSONTyped(json, false);
-}
-
-export function V1NetworkConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1NetworkConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'binding': !exists(json, 'binding') ? undefined : (mapValues(json['binding'], V1InterfaceBindingPluginFromJSON)),
-        'defaultNetworkInterface': !exists(json, 'defaultNetworkInterface') ? undefined : json['defaultNetworkInterface'],
-        'permitBridgeInterfaceOnPodNetwork': !exists(json, 'permitBridgeInterfaceOnPodNetwork') ? undefined : json['permitBridgeInterfaceOnPodNetwork'],
-        'permitSlirpInterface': !exists(json, 'permitSlirpInterface') ? undefined : json['permitSlirpInterface'],
-    };
-}
-
-export function V1NetworkConfigurationToJSON(value?: V1NetworkConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'binding': value.binding === undefined ? undefined : (mapValues(value.binding, V1InterfaceBindingPluginToJSON)),
-        'defaultNetworkInterface': value.defaultNetworkInterface,
-        'permitBridgeInterfaceOnPodNetwork': value.permitBridgeInterfaceOnPodNetwork,
-        'permitSlirpInterface': value.permitSlirpInterface,
-    };
-}
-

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -32,42 +31,3 @@ export interface V1PITTimer {
      */
     tickPolicy?: string;
 }
-
-/**
- * Check if a given object implements the V1PITTimer interface.
- */
-export function instanceOfV1PITTimer(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1PITTimerFromJSON(json: any): V1PITTimer {
-    return V1PITTimerFromJSONTyped(json, false);
-}
-
-export function V1PITTimerFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PITTimer {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'present': !exists(json, 'present') ? undefined : json['present'],
-        'tickPolicy': !exists(json, 'tickPolicy') ? undefined : json['tickPolicy'],
-    };
-}
-
-export function V1PITTimerToJSON(value?: V1PITTimer | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'present': value.present,
-        'tickPolicy': value.tickPolicy,
-    };
-}
-

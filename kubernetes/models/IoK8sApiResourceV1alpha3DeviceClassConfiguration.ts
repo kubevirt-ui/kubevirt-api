@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1alpha3OpaqueDeviceConfiguration,
-  IoK8sApiResourceV1alpha3OpaqueDeviceConfigurationFromJSON,
-  IoK8sApiResourceV1alpha3OpaqueDeviceConfigurationToJSON,
 } from './';
 
 /**
@@ -31,38 +28,4 @@ export interface IoK8sApiResourceV1alpha3DeviceClassConfiguration {
    * @memberof IoK8sApiResourceV1alpha3DeviceClassConfiguration
    */
   opaque?: IoK8sApiResourceV1alpha3OpaqueDeviceConfiguration;
-}
-
-export function IoK8sApiResourceV1alpha3DeviceClassConfigurationFromJSON(
-  json: any,
-): IoK8sApiResourceV1alpha3DeviceClassConfiguration {
-  return IoK8sApiResourceV1alpha3DeviceClassConfigurationFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3DeviceClassConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3DeviceClassConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    opaque: !exists(json, 'opaque')
-      ? undefined
-      : IoK8sApiResourceV1alpha3OpaqueDeviceConfigurationFromJSON(json['opaque']),
-  };
-}
-
-export function IoK8sApiResourceV1alpha3DeviceClassConfigurationToJSON(
-  value?: IoK8sApiResourceV1alpha3DeviceClassConfiguration | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    opaque: IoK8sApiResourceV1alpha3OpaqueDeviceConfigurationToJSON(value.opaque),
-  };
 }

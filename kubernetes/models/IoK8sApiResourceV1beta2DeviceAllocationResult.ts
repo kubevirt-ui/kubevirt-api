@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1beta2DeviceAllocationConfiguration,
-  IoK8sApiResourceV1beta2DeviceAllocationConfigurationFromJSON,
-  IoK8sApiResourceV1beta2DeviceAllocationConfigurationToJSON,
   IoK8sApiResourceV1beta2DeviceRequestAllocationResult,
-  IoK8sApiResourceV1beta2DeviceRequestAllocationResultFromJSON,
-  IoK8sApiResourceV1beta2DeviceRequestAllocationResultToJSON,
 } from './';
 
 /**
@@ -42,56 +37,4 @@ export interface IoK8sApiResourceV1beta2DeviceAllocationResult {
    * @memberof IoK8sApiResourceV1beta2DeviceAllocationResult
    */
   results?: Array<IoK8sApiResourceV1beta2DeviceRequestAllocationResult>;
-}
-
-export function IoK8sApiResourceV1beta2DeviceAllocationResultFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta2DeviceAllocationResult {
-  return IoK8sApiResourceV1beta2DeviceAllocationResultFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta2DeviceAllocationResultFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta2DeviceAllocationResult {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    config: !exists(json, 'config')
-      ? undefined
-      : (json['config'] as Array<any>).map(
-          IoK8sApiResourceV1beta2DeviceAllocationConfigurationFromJSON,
-        ),
-    results: !exists(json, 'results')
-      ? undefined
-      : (json['results'] as Array<any>).map(
-          IoK8sApiResourceV1beta2DeviceRequestAllocationResultFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiResourceV1beta2DeviceAllocationResultToJSON(
-  value?: IoK8sApiResourceV1beta2DeviceAllocationResult | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    config:
-      value.config === undefined
-        ? undefined
-        : (value.config as Array<any>).map(
-            IoK8sApiResourceV1beta2DeviceAllocationConfigurationToJSON,
-          ),
-    results:
-      value.results === undefined
-        ? undefined
-        : (value.results as Array<any>).map(
-            IoK8sApiResourceV1beta2DeviceRequestAllocationResultToJSON,
-          ),
-  };
 }

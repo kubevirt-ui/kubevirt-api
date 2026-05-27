@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * VirtualMachineInstanceMigrationPhaseTransitionTimestamp gives a timestamp in relation to when a phase is set on a vmi
  * @export
@@ -32,42 +31,3 @@ export interface V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp {
      */
     phaseTransitionTimestamp?: string;
 }
-
-/**
- * Check if a given object implements the V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp interface.
- */
-export function instanceOfV1VirtualMachineInstanceMigrationPhaseTransitionTimestamp(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSON(json: any): V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp {
-    return V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceMigrationPhaseTransitionTimestampFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'phase': !exists(json, 'phase') ? undefined : json['phase'],
-        'phaseTransitionTimestamp': !exists(json, 'phaseTransitionTimestamp') ? undefined : json['phaseTransitionTimestamp'],
-    };
-}
-
-export function V1VirtualMachineInstanceMigrationPhaseTransitionTimestampToJSON(value?: V1VirtualMachineInstanceMigrationPhaseTransitionTimestamp | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'phase': value.phase,
-        'phaseTransitionTimestamp': value.phaseTransitionTimestamp,
-    };
-}
-

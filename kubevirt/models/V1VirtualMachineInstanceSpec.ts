@@ -12,73 +12,17 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApiCoreV1Affinity } from './K8sIoApiCoreV1Affinity';
-import {
-    K8sIoApiCoreV1AffinityFromJSON,
-    K8sIoApiCoreV1AffinityFromJSONTyped,
-    K8sIoApiCoreV1AffinityToJSON,
-} from './K8sIoApiCoreV1Affinity';
 import type { K8sIoApiCoreV1PodDNSConfig } from './K8sIoApiCoreV1PodDNSConfig';
-import {
-    K8sIoApiCoreV1PodDNSConfigFromJSON,
-    K8sIoApiCoreV1PodDNSConfigFromJSONTyped,
-    K8sIoApiCoreV1PodDNSConfigToJSON,
-} from './K8sIoApiCoreV1PodDNSConfig';
 import type { K8sIoApiCoreV1PodResourceClaim } from './K8sIoApiCoreV1PodResourceClaim';
-import {
-    K8sIoApiCoreV1PodResourceClaimFromJSON,
-    K8sIoApiCoreV1PodResourceClaimFromJSONTyped,
-    K8sIoApiCoreV1PodResourceClaimToJSON,
-} from './K8sIoApiCoreV1PodResourceClaim';
 import type { K8sIoApiCoreV1Toleration } from './K8sIoApiCoreV1Toleration';
-import {
-    K8sIoApiCoreV1TolerationFromJSON,
-    K8sIoApiCoreV1TolerationFromJSONTyped,
-    K8sIoApiCoreV1TolerationToJSON,
-} from './K8sIoApiCoreV1Toleration';
 import type { K8sIoApiCoreV1TopologySpreadConstraint } from './K8sIoApiCoreV1TopologySpreadConstraint';
-import {
-    K8sIoApiCoreV1TopologySpreadConstraintFromJSON,
-    K8sIoApiCoreV1TopologySpreadConstraintFromJSONTyped,
-    K8sIoApiCoreV1TopologySpreadConstraintToJSON,
-} from './K8sIoApiCoreV1TopologySpreadConstraint';
 import type { V1AccessCredential } from './V1AccessCredential';
-import {
-    V1AccessCredentialFromJSON,
-    V1AccessCredentialFromJSONTyped,
-    V1AccessCredentialToJSON,
-} from './V1AccessCredential';
 import type { V1DomainSpec } from './V1DomainSpec';
-import {
-    V1DomainSpecFromJSON,
-    V1DomainSpecFromJSONTyped,
-    V1DomainSpecToJSON,
-} from './V1DomainSpec';
 import type { V1Network } from './V1Network';
-import {
-    V1NetworkFromJSON,
-    V1NetworkFromJSONTyped,
-    V1NetworkToJSON,
-} from './V1Network';
 import type { V1Probe } from './V1Probe';
-import {
-    V1ProbeFromJSON,
-    V1ProbeFromJSONTyped,
-    V1ProbeToJSON,
-} from './V1Probe';
 import type { V1UtilityVolume } from './V1UtilityVolume';
-import {
-    V1UtilityVolumeFromJSON,
-    V1UtilityVolumeFromJSONTyped,
-    V1UtilityVolumeToJSON,
-} from './V1UtilityVolume';
 import type { V1Volume } from './V1Volume';
-import {
-    V1VolumeFromJSON,
-    V1VolumeFromJSONTyped,
-    V1VolumeToJSON,
-} from './V1Volume';
 
 /**
  * VirtualMachineInstanceSpec is a description of a VirtualMachineInstance.
@@ -230,7 +174,6 @@ export interface V1VirtualMachineInstanceSpec {
     volumes?: Array<V1Volume>;
 }
 
-
 /**
  * @export
  */
@@ -241,84 +184,3 @@ export const V1VirtualMachineInstanceSpecDnsPolicyEnum = {
     None: 'None'
 } as const;
 export type V1VirtualMachineInstanceSpecDnsPolicyEnum = typeof V1VirtualMachineInstanceSpecDnsPolicyEnum[keyof typeof V1VirtualMachineInstanceSpecDnsPolicyEnum];
-
-
-/**
- * Check if a given object implements the V1VirtualMachineInstanceSpec interface.
- */
-export function instanceOfV1VirtualMachineInstanceSpec(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "domain" in value;
-
-    return isInstance;
-}
-
-export function V1VirtualMachineInstanceSpecFromJSON(json: any): V1VirtualMachineInstanceSpec {
-    return V1VirtualMachineInstanceSpecFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'accessCredentials': !exists(json, 'accessCredentials') ? undefined : ((json['accessCredentials'] as Array<any>).map(V1AccessCredentialFromJSON)),
-        'affinity': !exists(json, 'affinity') ? undefined : K8sIoApiCoreV1AffinityFromJSON(json['affinity']),
-        'architecture': !exists(json, 'architecture') ? undefined : json['architecture'],
-        'dnsConfig': !exists(json, 'dnsConfig') ? undefined : K8sIoApiCoreV1PodDNSConfigFromJSON(json['dnsConfig']),
-        'dnsPolicy': !exists(json, 'dnsPolicy') ? undefined : json['dnsPolicy'],
-        'domain': V1DomainSpecFromJSON(json['domain']),
-        'evictionStrategy': !exists(json, 'evictionStrategy') ? undefined : json['evictionStrategy'],
-        'hostname': !exists(json, 'hostname') ? undefined : json['hostname'],
-        'livenessProbe': !exists(json, 'livenessProbe') ? undefined : V1ProbeFromJSON(json['livenessProbe']),
-        'networks': !exists(json, 'networks') ? undefined : ((json['networks'] as Array<any>).map(V1NetworkFromJSON)),
-        'nodeSelector': !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
-        'priorityClassName': !exists(json, 'priorityClassName') ? undefined : json['priorityClassName'],
-        'readinessProbe': !exists(json, 'readinessProbe') ? undefined : V1ProbeFromJSON(json['readinessProbe']),
-        'resourceClaims': !exists(json, 'resourceClaims') ? undefined : ((json['resourceClaims'] as Array<any>).map(K8sIoApiCoreV1PodResourceClaimFromJSON)),
-        'schedulerName': !exists(json, 'schedulerName') ? undefined : json['schedulerName'],
-        'startStrategy': !exists(json, 'startStrategy') ? undefined : json['startStrategy'],
-        'subdomain': !exists(json, 'subdomain') ? undefined : json['subdomain'],
-        'terminationGracePeriodSeconds': !exists(json, 'terminationGracePeriodSeconds') ? undefined : json['terminationGracePeriodSeconds'],
-        'tolerations': !exists(json, 'tolerations') ? undefined : ((json['tolerations'] as Array<any>).map(K8sIoApiCoreV1TolerationFromJSON)),
-        'topologySpreadConstraints': !exists(json, 'topologySpreadConstraints') ? undefined : ((json['topologySpreadConstraints'] as Array<any>).map(K8sIoApiCoreV1TopologySpreadConstraintFromJSON)),
-        'utilityVolumes': !exists(json, 'utilityVolumes') ? undefined : ((json['utilityVolumes'] as Array<any>).map(V1UtilityVolumeFromJSON)),
-        'volumes': !exists(json, 'volumes') ? undefined : ((json['volumes'] as Array<any>).map(V1VolumeFromJSON)),
-    };
-}
-
-export function V1VirtualMachineInstanceSpecToJSON(value?: V1VirtualMachineInstanceSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'accessCredentials': value.accessCredentials === undefined ? undefined : ((value.accessCredentials as Array<any>).map(V1AccessCredentialToJSON)),
-        'affinity': K8sIoApiCoreV1AffinityToJSON(value.affinity),
-        'architecture': value.architecture,
-        'dnsConfig': K8sIoApiCoreV1PodDNSConfigToJSON(value.dnsConfig),
-        'dnsPolicy': value.dnsPolicy,
-        'domain': V1DomainSpecToJSON(value.domain),
-        'evictionStrategy': value.evictionStrategy,
-        'hostname': value.hostname,
-        'livenessProbe': V1ProbeToJSON(value.livenessProbe),
-        'networks': value.networks === undefined ? undefined : ((value.networks as Array<any>).map(V1NetworkToJSON)),
-        'nodeSelector': value.nodeSelector,
-        'priorityClassName': value.priorityClassName,
-        'readinessProbe': V1ProbeToJSON(value.readinessProbe),
-        'resourceClaims': value.resourceClaims === undefined ? undefined : ((value.resourceClaims as Array<any>).map(K8sIoApiCoreV1PodResourceClaimToJSON)),
-        'schedulerName': value.schedulerName,
-        'startStrategy': value.startStrategy,
-        'subdomain': value.subdomain,
-        'terminationGracePeriodSeconds': value.terminationGracePeriodSeconds,
-        'tolerations': value.tolerations === undefined ? undefined : ((value.tolerations as Array<any>).map(K8sIoApiCoreV1TolerationToJSON)),
-        'topologySpreadConstraints': value.topologySpreadConstraints === undefined ? undefined : ((value.topologySpreadConstraints as Array<any>).map(K8sIoApiCoreV1TopologySpreadConstraintToJSON)),
-        'utilityVolumes': value.utilityVolumes === undefined ? undefined : ((value.utilityVolumes as Array<any>).map(V1UtilityVolumeToJSON)),
-        'volumes': value.volumes === undefined ? undefined : ((value.volumes as Array<any>).map(V1VolumeToJSON)),
-    };
-}
-

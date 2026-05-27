@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -92,46 +89,4 @@ export interface IoK8sApiAppsV1ControllerRevision {
    * @memberof IoK8sApiAppsV1ControllerRevision
    */
   revision: number;
-}
-
-export function IoK8sApiAppsV1ControllerRevisionFromJSON(
-  json: any,
-): IoK8sApiAppsV1ControllerRevision {
-  return IoK8sApiAppsV1ControllerRevisionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1ControllerRevisionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1ControllerRevision {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    data: !exists(json, 'data') ? undefined : json['data'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    revision: json['revision'],
-  };
-}
-
-export function IoK8sApiAppsV1ControllerRevisionToJSON(
-  value?: IoK8sApiAppsV1ControllerRevision | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    data: value.data,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    revision: value.revision,
-  };
 }

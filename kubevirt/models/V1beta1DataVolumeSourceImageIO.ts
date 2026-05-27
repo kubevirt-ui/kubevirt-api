@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * DataVolumeSourceImageIO provides the parameters to create a Data Volume from an imageio source
  * @export
@@ -50,50 +49,3 @@ export interface V1beta1DataVolumeSourceImageIO {
      */
     url: string;
 }
-
-/**
- * Check if a given object implements the V1beta1DataVolumeSourceImageIO interface.
- */
-export function instanceOfV1beta1DataVolumeSourceImageIO(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "diskId" in value;
-    isInstance = isInstance && "url" in value;
-
-    return isInstance;
-}
-
-export function V1beta1DataVolumeSourceImageIOFromJSON(json: any): V1beta1DataVolumeSourceImageIO {
-    return V1beta1DataVolumeSourceImageIOFromJSONTyped(json, false);
-}
-
-export function V1beta1DataVolumeSourceImageIOFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataVolumeSourceImageIO {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'certConfigMap': !exists(json, 'certConfigMap') ? undefined : json['certConfigMap'],
-        'diskId': json['diskId'],
-        'insecureSkipVerify': !exists(json, 'insecureSkipVerify') ? undefined : json['insecureSkipVerify'],
-        'secretRef': !exists(json, 'secretRef') ? undefined : json['secretRef'],
-        'url': json['url'],
-    };
-}
-
-export function V1beta1DataVolumeSourceImageIOToJSON(value?: V1beta1DataVolumeSourceImageIO | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'certConfigMap': value.certConfigMap,
-        'diskId': value.diskId,
-        'insecureSkipVerify': value.insecureSkipVerify,
-        'secretRef': value.secretRef,
-        'url': value.url,
-    };
-}
-

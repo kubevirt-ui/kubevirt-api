@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ServicePort,
-  IoK8sApiCoreV1ServicePortFromJSON,
-  IoK8sApiCoreV1ServicePortToJSON,
   IoK8sApiCoreV1SessionAffinityConfig,
-  IoK8sApiCoreV1SessionAffinityConfigFromJSON,
-  IoK8sApiCoreV1SessionAffinityConfigToJSON,
 } from './';
 
 /**
@@ -152,91 +147,4 @@ export interface IoK8sApiCoreV1ServiceSpec {
    * @memberof IoK8sApiCoreV1ServiceSpec
    */
   type?: string;
-}
-
-export function IoK8sApiCoreV1ServiceSpecFromJSON(json: any): IoK8sApiCoreV1ServiceSpec {
-  return IoK8sApiCoreV1ServiceSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ServiceSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ServiceSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    allocateLoadBalancerNodePorts: !exists(json, 'allocateLoadBalancerNodePorts')
-      ? undefined
-      : json['allocateLoadBalancerNodePorts'],
-    clusterIP: !exists(json, 'clusterIP') ? undefined : json['clusterIP'],
-    clusterIPs: !exists(json, 'clusterIPs') ? undefined : json['clusterIPs'],
-    externalIPs: !exists(json, 'externalIPs') ? undefined : json['externalIPs'],
-    externalName: !exists(json, 'externalName') ? undefined : json['externalName'],
-    externalTrafficPolicy: !exists(json, 'externalTrafficPolicy')
-      ? undefined
-      : json['externalTrafficPolicy'],
-    healthCheckNodePort: !exists(json, 'healthCheckNodePort')
-      ? undefined
-      : json['healthCheckNodePort'],
-    internalTrafficPolicy: !exists(json, 'internalTrafficPolicy')
-      ? undefined
-      : json['internalTrafficPolicy'],
-    ipFamilies: !exists(json, 'ipFamilies') ? undefined : json['ipFamilies'],
-    ipFamilyPolicy: !exists(json, 'ipFamilyPolicy') ? undefined : json['ipFamilyPolicy'],
-    loadBalancerClass: !exists(json, 'loadBalancerClass') ? undefined : json['loadBalancerClass'],
-    loadBalancerIP: !exists(json, 'loadBalancerIP') ? undefined : json['loadBalancerIP'],
-    loadBalancerSourceRanges: !exists(json, 'loadBalancerSourceRanges')
-      ? undefined
-      : json['loadBalancerSourceRanges'],
-    ports: !exists(json, 'ports')
-      ? undefined
-      : (json['ports'] as Array<any>).map(IoK8sApiCoreV1ServicePortFromJSON),
-    publishNotReadyAddresses: !exists(json, 'publishNotReadyAddresses')
-      ? undefined
-      : json['publishNotReadyAddresses'],
-    selector: !exists(json, 'selector') ? undefined : json['selector'],
-    sessionAffinity: !exists(json, 'sessionAffinity') ? undefined : json['sessionAffinity'],
-    sessionAffinityConfig: !exists(json, 'sessionAffinityConfig')
-      ? undefined
-      : IoK8sApiCoreV1SessionAffinityConfigFromJSON(json['sessionAffinityConfig']),
-    trafficDistribution: !exists(json, 'trafficDistribution')
-      ? undefined
-      : json['trafficDistribution'],
-    type: !exists(json, 'type') ? undefined : json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1ServiceSpecToJSON(value?: IoK8sApiCoreV1ServiceSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    allocateLoadBalancerNodePorts: value.allocateLoadBalancerNodePorts,
-    clusterIP: value.clusterIP,
-    clusterIPs: value.clusterIPs,
-    externalIPs: value.externalIPs,
-    externalName: value.externalName,
-    externalTrafficPolicy: value.externalTrafficPolicy,
-    healthCheckNodePort: value.healthCheckNodePort,
-    internalTrafficPolicy: value.internalTrafficPolicy,
-    ipFamilies: value.ipFamilies,
-    ipFamilyPolicy: value.ipFamilyPolicy,
-    loadBalancerClass: value.loadBalancerClass,
-    loadBalancerIP: value.loadBalancerIP,
-    loadBalancerSourceRanges: value.loadBalancerSourceRanges,
-    ports:
-      value.ports === undefined
-        ? undefined
-        : (value.ports as Array<any>).map(IoK8sApiCoreV1ServicePortToJSON),
-    publishNotReadyAddresses: value.publishNotReadyAddresses,
-    selector: value.selector,
-    sessionAffinity: value.sessionAffinity,
-    sessionAffinityConfig: IoK8sApiCoreV1SessionAffinityConfigToJSON(value.sessionAffinityConfig),
-    trafficDistribution: value.trafficDistribution,
-    type: value.type,
-  };
 }

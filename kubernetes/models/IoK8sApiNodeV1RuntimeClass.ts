@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiNodeV1Overhead,
-  IoK8sApiNodeV1OverheadFromJSON,
-  IoK8sApiNodeV1OverheadToJSON,
   IoK8sApiNodeV1Scheduling,
-  IoK8sApiNodeV1SchedulingFromJSON,
-  IoK8sApiNodeV1SchedulingToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -67,48 +60,4 @@ export interface IoK8sApiNodeV1RuntimeClass {
    * @memberof IoK8sApiNodeV1RuntimeClass
    */
   scheduling?: IoK8sApiNodeV1Scheduling;
-}
-
-export function IoK8sApiNodeV1RuntimeClassFromJSON(json: any): IoK8sApiNodeV1RuntimeClass {
-  return IoK8sApiNodeV1RuntimeClassFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNodeV1RuntimeClassFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNodeV1RuntimeClass {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    handler: json['handler'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    overhead: !exists(json, 'overhead')
-      ? undefined
-      : IoK8sApiNodeV1OverheadFromJSON(json['overhead']),
-    scheduling: !exists(json, 'scheduling')
-      ? undefined
-      : IoK8sApiNodeV1SchedulingFromJSON(json['scheduling']),
-  };
-}
-
-export function IoK8sApiNodeV1RuntimeClassToJSON(value?: IoK8sApiNodeV1RuntimeClass | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    handler: value.handler,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    overhead: IoK8sApiNodeV1OverheadToJSON(value.overhead),
-    scheduling: IoK8sApiNodeV1SchedulingToJSON(value.scheduling),
-  };
 }

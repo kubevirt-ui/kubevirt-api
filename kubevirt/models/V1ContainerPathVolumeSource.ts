@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * ContainerPathVolumeSource represents a path from the virt-launcher container to be exposed to the VM via virtiofs. The path must correspond to an existing volumeMount in the virt-launcher pod's compute container.
  * @export
@@ -32,43 +31,3 @@ export interface V1ContainerPathVolumeSource {
      */
     readOnly?: boolean;
 }
-
-/**
- * Check if a given object implements the V1ContainerPathVolumeSource interface.
- */
-export function instanceOfV1ContainerPathVolumeSource(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "path" in value;
-
-    return isInstance;
-}
-
-export function V1ContainerPathVolumeSourceFromJSON(json: any): V1ContainerPathVolumeSource {
-    return V1ContainerPathVolumeSourceFromJSONTyped(json, false);
-}
-
-export function V1ContainerPathVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ContainerPathVolumeSource {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'path': json['path'],
-        'readOnly': !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    };
-}
-
-export function V1ContainerPathVolumeSourceToJSON(value?: V1ContainerPathVolumeSource | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'path': value.path,
-        'readOnly': value.readOnly,
-    };
-}
-

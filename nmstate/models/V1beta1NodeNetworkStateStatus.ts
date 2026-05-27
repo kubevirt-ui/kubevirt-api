@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * NodeNetworkStateStatus is the status of the NodeNetworkState of a specific node
  * @export
@@ -55,61 +54,4 @@ export interface V1beta1NodeNetworkStateStatus {
    * @memberof V1beta1NodeNetworkStateStatus
    */
   lastSuccessfulUpdateTime?: any | null;
-}
-
-/**
- * Check if a given object implements the V1beta1NodeNetworkStateStatus interface.
- */
-export function instanceOfV1beta1NodeNetworkStateStatus(_value: object): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1beta1NodeNetworkStateStatusFromJSON(json: any): V1beta1NodeNetworkStateStatus {
-  return V1beta1NodeNetworkStateStatusFromJSONTyped(json, false);
-}
-
-export function V1beta1NodeNetworkStateStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1NodeNetworkStateStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions') ? undefined : json['conditions'],
-    currentState: !exists(json, 'currentState') ? undefined : json['currentState'],
-    handlerNetworkManagerVersion: !exists(json, 'handlerNetworkManagerVersion')
-      ? undefined
-      : json['handlerNetworkManagerVersion'],
-    handlerNmstateVersion: !exists(json, 'handlerNmstateVersion')
-      ? undefined
-      : json['handlerNmstateVersion'],
-    hostNetworkManagerVersion: !exists(json, 'hostNetworkManagerVersion')
-      ? undefined
-      : json['hostNetworkManagerVersion'],
-    lastSuccessfulUpdateTime: !exists(json, 'lastSuccessfulUpdateTime')
-      ? undefined
-      : json['lastSuccessfulUpdateTime'],
-  };
-}
-
-export function V1beta1NodeNetworkStateStatusToJSON(
-  value?: V1beta1NodeNetworkStateStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions: value.conditions,
-    currentState: value.currentState,
-    handlerNetworkManagerVersion: value.handlerNetworkManagerVersion,
-    handlerNmstateVersion: value.handlerNmstateVersion,
-    hostNetworkManagerVersion: value.hostNetworkManagerVersion,
-    lastSuccessfulUpdateTime: value.lastSuccessfulUpdateTime,
-  };
 }

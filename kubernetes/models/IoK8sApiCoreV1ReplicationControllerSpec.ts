@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1PodTemplateSpec,
-  IoK8sApiCoreV1PodTemplateSpecFromJSON,
-  IoK8sApiCoreV1PodTemplateSpecToJSON,
 } from './';
 
 /**
@@ -49,44 +46,4 @@ export interface IoK8sApiCoreV1ReplicationControllerSpec {
    * @memberof IoK8sApiCoreV1ReplicationControllerSpec
    */
   template?: IoK8sApiCoreV1PodTemplateSpec;
-}
-
-export function IoK8sApiCoreV1ReplicationControllerSpecFromJSON(
-  json: any,
-): IoK8sApiCoreV1ReplicationControllerSpec {
-  return IoK8sApiCoreV1ReplicationControllerSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ReplicationControllerSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ReplicationControllerSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    minReadySeconds: !exists(json, 'minReadySeconds') ? undefined : json['minReadySeconds'],
-    replicas: !exists(json, 'replicas') ? undefined : json['replicas'],
-    selector: !exists(json, 'selector') ? undefined : json['selector'],
-    template: !exists(json, 'template')
-      ? undefined
-      : IoK8sApiCoreV1PodTemplateSpecFromJSON(json['template']),
-  };
-}
-
-export function IoK8sApiCoreV1ReplicationControllerSpecToJSON(
-  value?: IoK8sApiCoreV1ReplicationControllerSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    minReadySeconds: value.minReadySeconds,
-    replicas: value.replicas,
-    selector: value.selector,
-    template: IoK8sApiCoreV1PodTemplateSpecToJSON(value.template),
-  };
 }

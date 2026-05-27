@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support ownership management or SELinux relabeling.
  * @export
@@ -43,44 +42,4 @@ export interface IoK8sApiCoreV1GlusterfsPersistentVolumeSource {
    * @memberof IoK8sApiCoreV1GlusterfsPersistentVolumeSource
    */
   readOnly?: boolean;
-}
-
-export function IoK8sApiCoreV1GlusterfsPersistentVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1GlusterfsPersistentVolumeSource {
-  return IoK8sApiCoreV1GlusterfsPersistentVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1GlusterfsPersistentVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1GlusterfsPersistentVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    endpoints: json['endpoints'],
-    endpointsNamespace: !exists(json, 'endpointsNamespace')
-      ? undefined
-      : json['endpointsNamespace'],
-    path: json['path'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-  };
-}
-
-export function IoK8sApiCoreV1GlusterfsPersistentVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1GlusterfsPersistentVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    endpoints: value.endpoints,
-    endpointsNamespace: value.endpointsNamespace,
-    path: value.path,
-    readOnly: value.readOnly,
-  };
 }

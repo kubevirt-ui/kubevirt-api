@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * DataImportCronCondition represents the state of a data import cron condition
  * @export
@@ -55,47 +54,4 @@ export interface V1beta1DataImportCronCondition {
    * @memberof V1beta1DataImportCronCondition
    */
   type: string;
-}
-
-export function V1beta1DataImportCronConditionFromJSON(json: any): V1beta1DataImportCronCondition {
-  return V1beta1DataImportCronConditionFromJSONTyped(json, false);
-}
-
-export function V1beta1DataImportCronConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataImportCronCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastHeartbeatTime: !exists(json, 'lastHeartbeatTime') ? undefined : json['lastHeartbeatTime'],
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function V1beta1DataImportCronConditionToJSON(
-  value?: V1beta1DataImportCronCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastHeartbeatTime: value.lastHeartbeatTime === undefined ? undefined : value.lastHeartbeatTime,
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

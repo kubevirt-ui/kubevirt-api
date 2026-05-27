@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAppsV1RollingUpdateStatefulSetStrategy,
-  IoK8sApiAppsV1RollingUpdateStatefulSetStrategyFromJSON,
-  IoK8sApiAppsV1RollingUpdateStatefulSetStrategyToJSON,
 } from './';
 
 /**
@@ -37,40 +34,4 @@ export interface IoK8sApiAppsV1StatefulSetUpdateStrategy {
    * @memberof IoK8sApiAppsV1StatefulSetUpdateStrategy
    */
   type?: string;
-}
-
-export function IoK8sApiAppsV1StatefulSetUpdateStrategyFromJSON(
-  json: any,
-): IoK8sApiAppsV1StatefulSetUpdateStrategy {
-  return IoK8sApiAppsV1StatefulSetUpdateStrategyFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1StatefulSetUpdateStrategyFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1StatefulSetUpdateStrategy {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    rollingUpdate: !exists(json, 'rollingUpdate')
-      ? undefined
-      : IoK8sApiAppsV1RollingUpdateStatefulSetStrategyFromJSON(json['rollingUpdate']),
-    type: !exists(json, 'type') ? undefined : json['type'],
-  };
-}
-
-export function IoK8sApiAppsV1StatefulSetUpdateStrategyToJSON(
-  value?: IoK8sApiAppsV1StatefulSetUpdateStrategy | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    rollingUpdate: IoK8sApiAppsV1RollingUpdateStatefulSetStrategyToJSON(value.rollingUpdate),
-    type: value.type,
-  };
 }

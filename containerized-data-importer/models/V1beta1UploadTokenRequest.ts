@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1ObjectMeta,
-  V1ObjectMetaFromJSON,
-  V1ObjectMetaToJSON,
   V1beta1UploadTokenRequestSpec,
-  V1beta1UploadTokenRequestSpecFromJSON,
-  V1beta1UploadTokenRequestSpecToJSON,
   V1beta1UploadTokenRequestStatus,
-  V1beta1UploadTokenRequestStatusFromJSON,
-  V1beta1UploadTokenRequestStatusToJSON,
 } from './';
 
 /**
@@ -61,40 +54,4 @@ export interface V1beta1UploadTokenRequest {
    * @memberof V1beta1UploadTokenRequest
    */
   status: V1beta1UploadTokenRequestStatus;
-}
-
-export function V1beta1UploadTokenRequestFromJSON(json: any): V1beta1UploadTokenRequest {
-  return V1beta1UploadTokenRequestFromJSONTyped(json, false);
-}
-
-export function V1beta1UploadTokenRequestFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1UploadTokenRequest {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: V1ObjectMetaFromJSON(json['metadata']),
-    spec: V1beta1UploadTokenRequestSpecFromJSON(json['spec']),
-    status: V1beta1UploadTokenRequestStatusFromJSON(json['status']),
-  };
-}
-
-export function V1beta1UploadTokenRequestToJSON(value?: V1beta1UploadTokenRequest | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: V1ObjectMetaToJSON(value.metadata),
-    spec: V1beta1UploadTokenRequestSpecToJSON(value.spec),
-    status: V1beta1UploadTokenRequestStatusToJSON(value.status),
-  };
 }

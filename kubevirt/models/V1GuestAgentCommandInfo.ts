@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * List of commands that QEMU guest agent supports
  * @export
@@ -32,43 +31,3 @@ export interface V1GuestAgentCommandInfo {
      */
     name: string;
 }
-
-/**
- * Check if a given object implements the V1GuestAgentCommandInfo interface.
- */
-export function instanceOfV1GuestAgentCommandInfo(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "name" in value;
-
-    return isInstance;
-}
-
-export function V1GuestAgentCommandInfoFromJSON(json: any): V1GuestAgentCommandInfo {
-    return V1GuestAgentCommandInfoFromJSONTyped(json, false);
-}
-
-export function V1GuestAgentCommandInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1GuestAgentCommandInfo {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
-        'name': json['name'],
-    };
-}
-
-export function V1GuestAgentCommandInfoToJSON(value?: V1GuestAgentCommandInfo | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'enabled': value.enabled,
-        'name': value.name,
-    };
-}
-

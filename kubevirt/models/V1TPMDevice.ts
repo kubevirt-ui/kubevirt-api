@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -32,42 +31,3 @@ export interface V1TPMDevice {
      */
     persistent?: boolean;
 }
-
-/**
- * Check if a given object implements the V1TPMDevice interface.
- */
-export function instanceOfV1TPMDevice(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1TPMDeviceFromJSON(json: any): V1TPMDevice {
-    return V1TPMDeviceFromJSONTyped(json, false);
-}
-
-export function V1TPMDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1TPMDevice {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
-        'persistent': !exists(json, 'persistent') ? undefined : json['persistent'],
-    };
-}
-
-export function V1TPMDeviceToJSON(value?: V1TPMDevice | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'enabled': value.enabled,
-        'persistent': value.persistent,
-    };
-}
-

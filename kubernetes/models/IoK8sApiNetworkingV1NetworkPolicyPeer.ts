@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiNetworkingV1IPBlock,
-  IoK8sApiNetworkingV1IPBlockFromJSON,
-  IoK8sApiNetworkingV1IPBlockToJSON,
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -46,46 +41,4 @@ export interface IoK8sApiNetworkingV1NetworkPolicyPeer {
    * @memberof IoK8sApiNetworkingV1NetworkPolicyPeer
    */
   podSelector?: IoK8sApimachineryPkgApisMetaV1LabelSelector;
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicyPeerFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1NetworkPolicyPeer {
-  return IoK8sApiNetworkingV1NetworkPolicyPeerFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicyPeerFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1NetworkPolicyPeer {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    ipBlock: !exists(json, 'ipBlock')
-      ? undefined
-      : IoK8sApiNetworkingV1IPBlockFromJSON(json['ipBlock']),
-    namespaceSelector: !exists(json, 'namespaceSelector')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['namespaceSelector']),
-    podSelector: !exists(json, 'podSelector')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['podSelector']),
-  };
-}
-
-export function IoK8sApiNetworkingV1NetworkPolicyPeerToJSON(
-  value?: IoK8sApiNetworkingV1NetworkPolicyPeer | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    ipBlock: IoK8sApiNetworkingV1IPBlockToJSON(value.ipBlock),
-    namespaceSelector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.namespaceSelector),
-    podSelector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.podSelector),
-  };
 }

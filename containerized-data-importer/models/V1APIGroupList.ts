@@ -12,8 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1APIGroup, V1APIGroupFromJSON, V1APIGroupToJSON } from './';
+import { V1APIGroup } from './';
 
 /**
  * APIGroupList is a list of APIGroup, to allow clients to discover the API at /apis.
@@ -39,36 +38,4 @@ export interface V1APIGroupList {
    * @memberof V1APIGroupList
    */
   kind?: string;
-}
-
-export function V1APIGroupListFromJSON(json: any): V1APIGroupList {
-  return V1APIGroupListFromJSONTyped(json, false);
-}
-
-export function V1APIGroupListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1APIGroupList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    groups: (json['groups'] as Array<any>).map(V1APIGroupFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-  };
-}
-
-export function V1APIGroupListToJSON(value?: V1APIGroupList | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    groups: (value.groups as Array<any>).map(V1APIGroupToJSON),
-    kind: value.kind,
-  };
 }

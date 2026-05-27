@@ -25,31 +25,3 @@ export interface IoK8sApiDiscoveryV1ForNode {
    */
   name: string;
 }
-
-export function IoK8sApiDiscoveryV1ForNodeFromJSON(json: any): IoK8sApiDiscoveryV1ForNode {
-  return IoK8sApiDiscoveryV1ForNodeFromJSONTyped(json, false);
-}
-
-export function IoK8sApiDiscoveryV1ForNodeFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiDiscoveryV1ForNode {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-  };
-}
-
-export function IoK8sApiDiscoveryV1ForNodeToJSON(value?: IoK8sApiDiscoveryV1ForNode | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-  };
-}

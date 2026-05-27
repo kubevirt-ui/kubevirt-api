@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1Preconditions,
-  IoK8sApimachineryPkgApisMetaV1PreconditionsFromJSON,
-  IoK8sApimachineryPkgApisMetaV1PreconditionsToJSON,
 } from './';
 
 /**
@@ -73,60 +70,4 @@ export interface IoK8sApimachineryPkgApisMetaV1DeleteOptions {
    * @memberof IoK8sApimachineryPkgApisMetaV1DeleteOptions
    */
   propagationPolicy?: string;
-}
-
-export function IoK8sApimachineryPkgApisMetaV1DeleteOptionsFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1DeleteOptions {
-  return IoK8sApimachineryPkgApisMetaV1DeleteOptionsFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1DeleteOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1DeleteOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    dryRun: !exists(json, 'dryRun') ? undefined : json['dryRun'],
-    gracePeriodSeconds: !exists(json, 'gracePeriodSeconds')
-      ? undefined
-      : json['gracePeriodSeconds'],
-    ignoreStoreReadErrorWithClusterBreakingPotential: !exists(
-      json,
-      'ignoreStoreReadErrorWithClusterBreakingPotential',
-    )
-      ? undefined
-      : json['ignoreStoreReadErrorWithClusterBreakingPotential'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    orphanDependents: !exists(json, 'orphanDependents') ? undefined : json['orphanDependents'],
-    preconditions: !exists(json, 'preconditions')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1PreconditionsFromJSON(json['preconditions']),
-    propagationPolicy: !exists(json, 'propagationPolicy') ? undefined : json['propagationPolicy'],
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1DeleteOptionsToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1DeleteOptions | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    dryRun: value.dryRun,
-    gracePeriodSeconds: value.gracePeriodSeconds,
-    ignoreStoreReadErrorWithClusterBreakingPotential:
-      value.ignoreStoreReadErrorWithClusterBreakingPotential,
-    kind: value.kind,
-    orphanDependents: value.orphanDependents,
-    preconditions: IoK8sApimachineryPkgApisMetaV1PreconditionsToJSON(value.preconditions),
-    propagationPolicy: value.propagationPolicy,
-  };
 }

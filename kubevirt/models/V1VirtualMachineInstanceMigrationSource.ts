@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -32,44 +31,3 @@ export interface V1VirtualMachineInstanceMigrationSource {
      */
     migrationID: string;
 }
-
-/**
- * Check if a given object implements the V1VirtualMachineInstanceMigrationSource interface.
- */
-export function instanceOfV1VirtualMachineInstanceMigrationSource(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "connectURL" in value;
-    isInstance = isInstance && "migrationID" in value;
-
-    return isInstance;
-}
-
-export function V1VirtualMachineInstanceMigrationSourceFromJSON(json: any): V1VirtualMachineInstanceMigrationSource {
-    return V1VirtualMachineInstanceMigrationSourceFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceMigrationSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigrationSource {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'connectURL': json['connectURL'],
-        'migrationID': json['migrationID'],
-    };
-}
-
-export function V1VirtualMachineInstanceMigrationSourceToJSON(value?: V1VirtualMachineInstanceMigrationSource | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'connectURL': value.connectURL,
-        'migrationID': value.migrationID,
-    };
-}
-

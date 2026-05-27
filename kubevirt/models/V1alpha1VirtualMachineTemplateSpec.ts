@@ -12,16 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import {
     K8sIoApimachineryPkgApisMetaV1ObjectMeta,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
     V1VirtualMachineSpec,
-    V1VirtualMachineSpecFromJSON,
-    V1VirtualMachineSpecFromJSONTyped,
-    V1VirtualMachineSpecToJSON,
 } from './';
 
 /**
@@ -43,33 +36,3 @@ export interface V1alpha1VirtualMachineTemplateSpec {
      */
     spec?: V1VirtualMachineSpec;
 }
-
-export function V1alpha1VirtualMachineTemplateSpecFromJSON(json: any): V1alpha1VirtualMachineTemplateSpec {
-    return V1alpha1VirtualMachineTemplateSpecFromJSONTyped(json, false);
-}
-
-export function V1alpha1VirtualMachineTemplateSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachineTemplateSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-        'spec': !exists(json, 'spec') ? undefined : V1VirtualMachineSpecFromJSON(json['spec']),
-    };
-}
-
-export function V1alpha1VirtualMachineTemplateSpecToJSON(value?: V1alpha1VirtualMachineTemplateSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'metadata': K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-        'spec': V1VirtualMachineSpecToJSON(value.spec),
-    };
-}
-

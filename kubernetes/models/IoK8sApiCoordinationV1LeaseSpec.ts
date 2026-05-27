@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * LeaseSpec is a specification of a Lease.
  * @export
@@ -61,50 +60,4 @@ export interface IoK8sApiCoordinationV1LeaseSpec {
    * @memberof IoK8sApiCoordinationV1LeaseSpec
    */
   strategy?: string;
-}
-
-export function IoK8sApiCoordinationV1LeaseSpecFromJSON(
-  json: any,
-): IoK8sApiCoordinationV1LeaseSpec {
-  return IoK8sApiCoordinationV1LeaseSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoordinationV1LeaseSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoordinationV1LeaseSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    acquireTime: !exists(json, 'acquireTime') ? undefined : json['acquireTime'],
-    holderIdentity: !exists(json, 'holderIdentity') ? undefined : json['holderIdentity'],
-    leaseDurationSeconds: !exists(json, 'leaseDurationSeconds')
-      ? undefined
-      : json['leaseDurationSeconds'],
-    leaseTransitions: !exists(json, 'leaseTransitions') ? undefined : json['leaseTransitions'],
-    preferredHolder: !exists(json, 'preferredHolder') ? undefined : json['preferredHolder'],
-    renewTime: !exists(json, 'renewTime') ? undefined : json['renewTime'],
-    strategy: !exists(json, 'strategy') ? undefined : json['strategy'],
-  };
-}
-
-export function IoK8sApiCoordinationV1LeaseSpecToJSON(
-  value?: IoK8sApiCoordinationV1LeaseSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    acquireTime: value.acquireTime === undefined ? undefined : value.acquireTime,
-    holderIdentity: value.holderIdentity,
-    leaseDurationSeconds: value.leaseDurationSeconds,
-    leaseTransitions: value.leaseTransitions,
-    preferredHolder: value.preferredHolder,
-    renewTime: value.renewTime === undefined ? undefined : value.renewTime,
-    strategy: value.strategy,
-  };
 }

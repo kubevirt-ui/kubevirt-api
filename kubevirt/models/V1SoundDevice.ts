@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * Represents the user's configuration to emulate sound cards in the VMI.
  * @export
@@ -32,43 +31,3 @@ export interface V1SoundDevice {
      */
     name: string;
 }
-
-/**
- * Check if a given object implements the V1SoundDevice interface.
- */
-export function instanceOfV1SoundDevice(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "name" in value;
-
-    return isInstance;
-}
-
-export function V1SoundDeviceFromJSON(json: any): V1SoundDevice {
-    return V1SoundDeviceFromJSONTyped(json, false);
-}
-
-export function V1SoundDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SoundDevice {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'model': !exists(json, 'model') ? undefined : json['model'],
-        'name': json['name'],
-    };
-}
-
-export function V1SoundDeviceToJSON(value?: V1SoundDevice | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'model': value.model,
-        'name': value.name,
-    };
-}
-

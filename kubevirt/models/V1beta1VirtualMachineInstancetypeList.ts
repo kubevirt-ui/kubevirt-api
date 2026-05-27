@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
-import {
-    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import type { V1beta1VirtualMachineInstancetype } from './V1beta1VirtualMachineInstancetype';
-import {
-    V1beta1VirtualMachineInstancetypeFromJSON,
-    V1beta1VirtualMachineInstancetypeFromJSONTyped,
-    V1beta1VirtualMachineInstancetypeToJSON,
-} from './V1beta1VirtualMachineInstancetype';
 
 /**
  * VirtualMachineInstancetypeList is a list of VirtualMachineInstancetype resources.
@@ -57,47 +46,3 @@ export interface V1beta1VirtualMachineInstancetypeList {
      */
     metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachineInstancetypeList interface.
- */
-export function instanceOfV1beta1VirtualMachineInstancetypeList(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "items" in value;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachineInstancetypeListFromJSON(json: any): V1beta1VirtualMachineInstancetypeList {
-    return V1beta1VirtualMachineInstancetypeListFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineInstancetypeListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineInstancetypeList {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'items': ((json['items'] as Array<any>).map(V1beta1VirtualMachineInstancetypeFromJSON)),
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-    };
-}
-
-export function V1beta1VirtualMachineInstancetypeListToJSON(value?: V1beta1VirtualMachineInstancetypeList | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'items': ((value.items as Array<any>).map(V1beta1VirtualMachineInstancetypeToJSON)),
-        'kind': value.kind,
-        'metadata': K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-    };
-}
-

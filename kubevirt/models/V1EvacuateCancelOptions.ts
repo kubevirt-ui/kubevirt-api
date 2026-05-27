@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * EvacuateCancelOptions may be provided on evacuate cancel request.
  * @export
@@ -44,47 +43,3 @@ export interface V1EvacuateCancelOptions {
      */
     kind?: string;
 }
-
-/**
- * Check if a given object implements the V1EvacuateCancelOptions interface.
- */
-export function instanceOfV1EvacuateCancelOptions(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "evacuationNodeName" in value;
-
-    return isInstance;
-}
-
-export function V1EvacuateCancelOptionsFromJSON(json: any): V1EvacuateCancelOptions {
-    return V1EvacuateCancelOptionsFromJSONTyped(json, false);
-}
-
-export function V1EvacuateCancelOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1EvacuateCancelOptions {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'dryRun': !exists(json, 'dryRun') ? undefined : json['dryRun'],
-        'evacuationNodeName': json['evacuationNodeName'],
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-    };
-}
-
-export function V1EvacuateCancelOptionsToJSON(value?: V1EvacuateCancelOptions | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'dryRun': value.dryRun,
-        'evacuationNodeName': value.evacuationNodeName,
-        'kind': value.kind,
-    };
-}
-

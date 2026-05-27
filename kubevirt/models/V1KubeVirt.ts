@@ -12,25 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
-import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import type { V1KubeVirtSpec } from './V1KubeVirtSpec';
-import {
-    V1KubeVirtSpecFromJSON,
-    V1KubeVirtSpecFromJSONTyped,
-    V1KubeVirtSpecToJSON,
-} from './V1KubeVirtSpec';
 import type { V1KubeVirtStatus } from './V1KubeVirtStatus';
-import {
-    V1KubeVirtStatusFromJSON,
-    V1KubeVirtStatusFromJSONTyped,
-    V1KubeVirtStatusToJSON,
-} from './V1KubeVirtStatus';
 
 /**
  * KubeVirt represents the object deploying all KubeVirt resources
@@ -69,49 +53,3 @@ export interface V1KubeVirt {
      */
     status?: V1KubeVirtStatus;
 }
-
-/**
- * Check if a given object implements the V1KubeVirt interface.
- */
-export function instanceOfV1KubeVirt(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "spec" in value;
-
-    return isInstance;
-}
-
-export function V1KubeVirtFromJSON(json: any): V1KubeVirt {
-    return V1KubeVirtFromJSONTyped(json, false);
-}
-
-export function V1KubeVirtFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KubeVirt {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-        'spec': V1KubeVirtSpecFromJSON(json['spec']),
-        'status': !exists(json, 'status') ? undefined : V1KubeVirtStatusFromJSON(json['status']),
-    };
-}
-
-export function V1KubeVirtToJSON(value?: V1KubeVirt | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'kind': value.kind,
-        'metadata': K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-        'spec': V1KubeVirtSpecToJSON(value.spec),
-        'status': V1KubeVirtStatusToJSON(value.status),
-    };
-}
-

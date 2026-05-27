@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ResourceFieldSelector represents container resources (cpu, memory) and their output format
  * @export
@@ -73,40 +72,4 @@ export interface IoK8sApiCoreV1ResourceFieldSelector {
    * @memberof IoK8sApiCoreV1ResourceFieldSelector
    */
   resource: string;
-}
-
-export function IoK8sApiCoreV1ResourceFieldSelectorFromJSON(
-  json: any,
-): IoK8sApiCoreV1ResourceFieldSelector {
-  return IoK8sApiCoreV1ResourceFieldSelectorFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ResourceFieldSelectorFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ResourceFieldSelector {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    containerName: !exists(json, 'containerName') ? undefined : json['containerName'],
-    divisor: !exists(json, 'divisor') ? undefined : json['divisor'],
-    resource: json['resource'],
-  };
-}
-
-export function IoK8sApiCoreV1ResourceFieldSelectorToJSON(
-  value?: IoK8sApiCoreV1ResourceFieldSelector | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    containerName: value.containerName,
-    divisor: value.divisor,
-    resource: value.resource,
-  };
 }

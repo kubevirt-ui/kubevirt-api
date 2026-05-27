@@ -12,26 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAppsV1StatefulSetOrdinals,
-  IoK8sApiAppsV1StatefulSetOrdinalsFromJSON,
-  IoK8sApiAppsV1StatefulSetOrdinalsToJSON,
   IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicy,
-  IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyFromJSON,
-  IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyToJSON,
   IoK8sApiAppsV1StatefulSetUpdateStrategy,
-  IoK8sApiAppsV1StatefulSetUpdateStrategyFromJSON,
-  IoK8sApiAppsV1StatefulSetUpdateStrategyToJSON,
   IoK8sApiCoreV1PersistentVolumeClaim,
-  IoK8sApiCoreV1PersistentVolumeClaimFromJSON,
-  IoK8sApiCoreV1PersistentVolumeClaimToJSON,
   IoK8sApiCoreV1PodTemplateSpec,
-  IoK8sApiCoreV1PodTemplateSpecFromJSON,
-  IoK8sApiCoreV1PodTemplateSpecToJSON,
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -106,76 +93,4 @@ export interface IoK8sApiAppsV1StatefulSetSpec {
    * @memberof IoK8sApiAppsV1StatefulSetSpec
    */
   volumeClaimTemplates?: Array<IoK8sApiCoreV1PersistentVolumeClaim>;
-}
-
-export function IoK8sApiAppsV1StatefulSetSpecFromJSON(json: any): IoK8sApiAppsV1StatefulSetSpec {
-  return IoK8sApiAppsV1StatefulSetSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1StatefulSetSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1StatefulSetSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    minReadySeconds: !exists(json, 'minReadySeconds') ? undefined : json['minReadySeconds'],
-    ordinals: !exists(json, 'ordinals')
-      ? undefined
-      : IoK8sApiAppsV1StatefulSetOrdinalsFromJSON(json['ordinals']),
-    persistentVolumeClaimRetentionPolicy: !exists(json, 'persistentVolumeClaimRetentionPolicy')
-      ? undefined
-      : IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyFromJSON(
-          json['persistentVolumeClaimRetentionPolicy'],
-        ),
-    podManagementPolicy: !exists(json, 'podManagementPolicy')
-      ? undefined
-      : json['podManagementPolicy'],
-    replicas: !exists(json, 'replicas') ? undefined : json['replicas'],
-    revisionHistoryLimit: !exists(json, 'revisionHistoryLimit')
-      ? undefined
-      : json['revisionHistoryLimit'],
-    selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
-    serviceName: !exists(json, 'serviceName') ? undefined : json['serviceName'],
-    template: IoK8sApiCoreV1PodTemplateSpecFromJSON(json['template']),
-    updateStrategy: !exists(json, 'updateStrategy')
-      ? undefined
-      : IoK8sApiAppsV1StatefulSetUpdateStrategyFromJSON(json['updateStrategy']),
-    volumeClaimTemplates: !exists(json, 'volumeClaimTemplates')
-      ? undefined
-      : (json['volumeClaimTemplates'] as Array<any>).map(
-          IoK8sApiCoreV1PersistentVolumeClaimFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiAppsV1StatefulSetSpecToJSON(
-  value?: IoK8sApiAppsV1StatefulSetSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    minReadySeconds: value.minReadySeconds,
-    ordinals: IoK8sApiAppsV1StatefulSetOrdinalsToJSON(value.ordinals),
-    persistentVolumeClaimRetentionPolicy:
-      IoK8sApiAppsV1StatefulSetPersistentVolumeClaimRetentionPolicyToJSON(
-        value.persistentVolumeClaimRetentionPolicy,
-      ),
-    podManagementPolicy: value.podManagementPolicy,
-    replicas: value.replicas,
-    revisionHistoryLimit: value.revisionHistoryLimit,
-    selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
-    serviceName: value.serviceName,
-    template: IoK8sApiCoreV1PodTemplateSpecToJSON(value.template),
-    updateStrategy: IoK8sApiAppsV1StatefulSetUpdateStrategyToJSON(value.updateStrategy),
-    volumeClaimTemplates:
-      value.volumeClaimTemplates === undefined
-        ? undefined
-        : (value.volumeClaimTemplates as Array<any>).map(IoK8sApiCoreV1PersistentVolumeClaimToJSON),
-  };
 }

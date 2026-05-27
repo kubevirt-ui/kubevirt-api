@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PodCondition contains details for the current condition of this pod.
  * @export
@@ -61,49 +60,4 @@ export interface IoK8sApiCoreV1PodCondition {
    * @memberof IoK8sApiCoreV1PodCondition
    */
   type: string;
-}
-
-export function IoK8sApiCoreV1PodConditionFromJSON(json: any): IoK8sApiCoreV1PodCondition {
-  return IoK8sApiCoreV1PodConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastProbeTime: !exists(json, 'lastProbeTime') ? undefined : json['lastProbeTime'],
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    observedGeneration: !exists(json, 'observedGeneration')
-      ? undefined
-      : json['observedGeneration'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1PodConditionToJSON(value?: IoK8sApiCoreV1PodCondition | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastProbeTime: value.lastProbeTime === undefined ? undefined : value.lastProbeTime,
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    observedGeneration: value.observedGeneration,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

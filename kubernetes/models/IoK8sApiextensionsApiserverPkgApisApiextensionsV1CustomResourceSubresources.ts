@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourceScale,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourceScaleFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourceScaleToJSON,
 } from './';
 
 /**
@@ -37,47 +34,4 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResource
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresources
    */
   status?: object;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourcesFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresources {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourcesFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourcesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresources {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    scale: !exists(json, 'scale')
-      ? undefined
-      : IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourceScaleFromJSON(
-          json['scale'],
-        ),
-    status: !exists(json, 'status') ? undefined : json['status'],
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourcesToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresources | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    scale: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourceScaleToJSON(
-      value.scale,
-    ),
-    status: value.status,
-  };
 }

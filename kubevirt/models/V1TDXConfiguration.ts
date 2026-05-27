@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1TDXAttestationConfiguration } from './V1TDXAttestationConfiguration';
-import {
-    V1TDXAttestationConfigurationFromJSON,
-    V1TDXAttestationConfigurationFromJSONTyped,
-    V1TDXAttestationConfigurationToJSON,
-} from './V1TDXAttestationConfiguration';
 
 /**
  * 
@@ -33,40 +27,3 @@ export interface V1TDXConfiguration {
      */
     attestation?: V1TDXAttestationConfiguration;
 }
-
-/**
- * Check if a given object implements the V1TDXConfiguration interface.
- */
-export function instanceOfV1TDXConfiguration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1TDXConfigurationFromJSON(json: any): V1TDXConfiguration {
-    return V1TDXConfigurationFromJSONTyped(json, false);
-}
-
-export function V1TDXConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1TDXConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'attestation': !exists(json, 'attestation') ? undefined : V1TDXAttestationConfigurationFromJSON(json['attestation']),
-    };
-}
-
-export function V1TDXConfigurationToJSON(value?: V1TDXConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'attestation': V1TDXAttestationConfigurationToJSON(value.attestation),
-    };
-}
-

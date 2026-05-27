@@ -12,26 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1beta1AuditAnnotation,
-  IoK8sApiAdmissionregistrationV1beta1AuditAnnotationFromJSON,
-  IoK8sApiAdmissionregistrationV1beta1AuditAnnotationToJSON,
   IoK8sApiAdmissionregistrationV1beta1MatchCondition,
-  IoK8sApiAdmissionregistrationV1beta1MatchConditionFromJSON,
-  IoK8sApiAdmissionregistrationV1beta1MatchConditionToJSON,
   IoK8sApiAdmissionregistrationV1beta1MatchResources,
-  IoK8sApiAdmissionregistrationV1beta1MatchResourcesFromJSON,
-  IoK8sApiAdmissionregistrationV1beta1MatchResourcesToJSON,
   IoK8sApiAdmissionregistrationV1beta1ParamKind,
-  IoK8sApiAdmissionregistrationV1beta1ParamKindFromJSON,
-  IoK8sApiAdmissionregistrationV1beta1ParamKindToJSON,
   IoK8sApiAdmissionregistrationV1beta1Validation,
-  IoK8sApiAdmissionregistrationV1beta1ValidationFromJSON,
-  IoK8sApiAdmissionregistrationV1beta1ValidationToJSON,
   IoK8sApiAdmissionregistrationV1beta1Variable,
-  IoK8sApiAdmissionregistrationV1beta1VariableFromJSON,
-  IoK8sApiAdmissionregistrationV1beta1VariableToJSON,
 } from './';
 
 /**
@@ -101,89 +88,4 @@ export interface IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicySp
    * @memberof IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicySpec
    */
   variables?: Array<IoK8sApiAdmissionregistrationV1beta1Variable>;
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicySpecFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicySpec {
-  return IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicySpecFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicySpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicySpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    auditAnnotations: !exists(json, 'auditAnnotations')
-      ? undefined
-      : (json['auditAnnotations'] as Array<any>).map(
-          IoK8sApiAdmissionregistrationV1beta1AuditAnnotationFromJSON,
-        ),
-    failurePolicy: !exists(json, 'failurePolicy') ? undefined : json['failurePolicy'],
-    matchConditions: !exists(json, 'matchConditions')
-      ? undefined
-      : (json['matchConditions'] as Array<any>).map(
-          IoK8sApiAdmissionregistrationV1beta1MatchConditionFromJSON,
-        ),
-    matchConstraints: !exists(json, 'matchConstraints')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1beta1MatchResourcesFromJSON(json['matchConstraints']),
-    paramKind: !exists(json, 'paramKind')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1beta1ParamKindFromJSON(json['paramKind']),
-    validations: !exists(json, 'validations')
-      ? undefined
-      : (json['validations'] as Array<any>).map(
-          IoK8sApiAdmissionregistrationV1beta1ValidationFromJSON,
-        ),
-    variables: !exists(json, 'variables')
-      ? undefined
-      : (json['variables'] as Array<any>).map(IoK8sApiAdmissionregistrationV1beta1VariableFromJSON),
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicySpecToJSON(
-  value?: IoK8sApiAdmissionregistrationV1beta1ValidatingAdmissionPolicySpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    auditAnnotations:
-      value.auditAnnotations === undefined
-        ? undefined
-        : (value.auditAnnotations as Array<any>).map(
-            IoK8sApiAdmissionregistrationV1beta1AuditAnnotationToJSON,
-          ),
-    failurePolicy: value.failurePolicy,
-    matchConditions:
-      value.matchConditions === undefined
-        ? undefined
-        : (value.matchConditions as Array<any>).map(
-            IoK8sApiAdmissionregistrationV1beta1MatchConditionToJSON,
-          ),
-    matchConstraints: IoK8sApiAdmissionregistrationV1beta1MatchResourcesToJSON(
-      value.matchConstraints,
-    ),
-    paramKind: IoK8sApiAdmissionregistrationV1beta1ParamKindToJSON(value.paramKind),
-    validations:
-      value.validations === undefined
-        ? undefined
-        : (value.validations as Array<any>).map(
-            IoK8sApiAdmissionregistrationV1beta1ValidationToJSON,
-          ),
-    variables:
-      value.variables === undefined
-        ? undefined
-        : (value.variables as Array<any>).map(IoK8sApiAdmissionregistrationV1beta1VariableToJSON),
-  };
 }

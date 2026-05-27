@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -26,40 +25,3 @@ export interface V1InstancetypeConfiguration {
      */
     referencePolicy?: string;
 }
-
-/**
- * Check if a given object implements the V1InstancetypeConfiguration interface.
- */
-export function instanceOfV1InstancetypeConfiguration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1InstancetypeConfigurationFromJSON(json: any): V1InstancetypeConfiguration {
-    return V1InstancetypeConfigurationFromJSONTyped(json, false);
-}
-
-export function V1InstancetypeConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1InstancetypeConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'referencePolicy': !exists(json, 'referencePolicy') ? undefined : json['referencePolicy'],
-    };
-}
-
-export function V1InstancetypeConfigurationToJSON(value?: V1InstancetypeConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'referencePolicy': value.referencePolicy,
-    };
-}
-

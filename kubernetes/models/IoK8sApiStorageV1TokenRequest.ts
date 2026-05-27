@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * TokenRequest contains parameters of a service account token.
  * @export
@@ -31,36 +30,4 @@ export interface IoK8sApiStorageV1TokenRequest {
    * @memberof IoK8sApiStorageV1TokenRequest
    */
   expirationSeconds?: number;
-}
-
-export function IoK8sApiStorageV1TokenRequestFromJSON(json: any): IoK8sApiStorageV1TokenRequest {
-  return IoK8sApiStorageV1TokenRequestFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStorageV1TokenRequestFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStorageV1TokenRequest {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    audience: json['audience'],
-    expirationSeconds: !exists(json, 'expirationSeconds') ? undefined : json['expirationSeconds'],
-  };
-}
-
-export function IoK8sApiStorageV1TokenRequestToJSON(
-  value?: IoK8sApiStorageV1TokenRequest | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    audience: value.audience,
-    expirationSeconds: value.expirationSeconds,
-  };
 }

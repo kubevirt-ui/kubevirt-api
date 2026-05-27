@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * NodeNetworkConfigurationPolicySpec defines the desired state of NodeNetworkConfigurationPolicy
  * @export
@@ -47,51 +46,4 @@ export interface V1NodeNetworkConfigurationPolicySpec {
    * @memberof V1NodeNetworkConfigurationPolicySpec
    */
   nodeSelector?: { [key: string]: any } | null;
-}
-
-/**
- * Check if a given object implements the V1NodeNetworkConfigurationPolicySpec interface.
- */
-export function instanceOfV1NodeNetworkConfigurationPolicySpec(_value: object): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1NodeNetworkConfigurationPolicySpecFromJSON(
-  json: any,
-): V1NodeNetworkConfigurationPolicySpec {
-  return V1NodeNetworkConfigurationPolicySpecFromJSONTyped(json, false);
-}
-
-export function V1NodeNetworkConfigurationPolicySpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1NodeNetworkConfigurationPolicySpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    capture: !exists(json, 'capture') ? undefined : json['capture'],
-    desiredState: !exists(json, 'desiredState') ? undefined : json['desiredState'],
-    maxUnavailable: !exists(json, 'maxUnavailable') ? undefined : json['maxUnavailable'],
-    nodeSelector: !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
-  };
-}
-
-export function V1NodeNetworkConfigurationPolicySpecToJSON(
-  value?: V1NodeNetworkConfigurationPolicySpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    capture: value.capture,
-    desiredState: value.desiredState,
-    maxUnavailable: value.maxUnavailable,
-    nodeSelector: value.nodeSelector,
-  };
 }

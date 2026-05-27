@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1NUMA } from './V1NUMA';
-import {
-    V1NUMAFromJSON,
-    V1NUMAFromJSONTyped,
-    V1NUMAToJSON,
-} from './V1NUMA';
 import type { V1Realtime } from './V1Realtime';
-import {
-    V1RealtimeFromJSON,
-    V1RealtimeFromJSONTyped,
-    V1RealtimeToJSON,
-} from './V1Realtime';
 
 /**
  * CPUInstancetype contains the CPU related configuration of a given VirtualMachineInstancetypeSpec.
@@ -79,53 +68,3 @@ export interface V1beta1CPUInstancetype {
      */
     realtime?: V1Realtime;
 }
-
-/**
- * Check if a given object implements the V1beta1CPUInstancetype interface.
- */
-export function instanceOfV1beta1CPUInstancetype(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "guest" in value;
-
-    return isInstance;
-}
-
-export function V1beta1CPUInstancetypeFromJSON(json: any): V1beta1CPUInstancetype {
-    return V1beta1CPUInstancetypeFromJSONTyped(json, false);
-}
-
-export function V1beta1CPUInstancetypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1CPUInstancetype {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'dedicatedCPUPlacement': !exists(json, 'dedicatedCPUPlacement') ? undefined : json['dedicatedCPUPlacement'],
-        'guest': json['guest'],
-        'isolateEmulatorThread': !exists(json, 'isolateEmulatorThread') ? undefined : json['isolateEmulatorThread'],
-        'maxSockets': !exists(json, 'maxSockets') ? undefined : json['maxSockets'],
-        'model': !exists(json, 'model') ? undefined : json['model'],
-        'numa': !exists(json, 'numa') ? undefined : V1NUMAFromJSON(json['numa']),
-        'realtime': !exists(json, 'realtime') ? undefined : V1RealtimeFromJSON(json['realtime']),
-    };
-}
-
-export function V1beta1CPUInstancetypeToJSON(value?: V1beta1CPUInstancetype | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'dedicatedCPUPlacement': value.dedicatedCPUPlacement,
-        'guest': value.guest,
-        'isolateEmulatorThread': value.isolateEmulatorThread,
-        'maxSockets': value.maxSockets,
-        'model': value.model,
-        'numa': V1NUMAToJSON(value.numa),
-        'realtime': V1RealtimeToJSON(value.realtime),
-    };
-}
-

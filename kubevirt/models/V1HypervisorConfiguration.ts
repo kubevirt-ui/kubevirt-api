@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * HypervisorConfiguration holds information regarding the hypervisor present on cluster nodes.
  * @export
@@ -26,40 +25,3 @@ export interface V1HypervisorConfiguration {
      */
     name?: string;
 }
-
-/**
- * Check if a given object implements the V1HypervisorConfiguration interface.
- */
-export function instanceOfV1HypervisorConfiguration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1HypervisorConfigurationFromJSON(json: any): V1HypervisorConfiguration {
-    return V1HypervisorConfigurationFromJSONTyped(json, false);
-}
-
-export function V1HypervisorConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1HypervisorConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'name': !exists(json, 'name') ? undefined : json['name'],
-    };
-}
-
-export function V1HypervisorConfigurationToJSON(value?: V1HypervisorConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'name': value.name,
-    };
-}
-

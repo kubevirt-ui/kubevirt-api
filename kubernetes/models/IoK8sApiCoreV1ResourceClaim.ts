@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ResourceClaim references one entry in PodSpec.ResourceClaims.
  * @export
@@ -31,34 +30,4 @@ export interface IoK8sApiCoreV1ResourceClaim {
    * @memberof IoK8sApiCoreV1ResourceClaim
    */
   request?: string;
-}
-
-export function IoK8sApiCoreV1ResourceClaimFromJSON(json: any): IoK8sApiCoreV1ResourceClaim {
-  return IoK8sApiCoreV1ResourceClaimFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ResourceClaimFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ResourceClaim {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    request: !exists(json, 'request') ? undefined : json['request'],
-  };
-}
-
-export function IoK8sApiCoreV1ResourceClaimToJSON(value?: IoK8sApiCoreV1ResourceClaim | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    request: value.request,
-  };
 }

@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1SecretReference,
-  IoK8sApiCoreV1SecretReferenceFromJSON,
-  IoK8sApiCoreV1SecretReferenceToJSON,
 } from './';
 
 /**
@@ -85,54 +82,4 @@ export interface IoK8sApiCoreV1ScaleIOPersistentVolumeSource {
    * @memberof IoK8sApiCoreV1ScaleIOPersistentVolumeSource
    */
   volumeName?: string;
-}
-
-export function IoK8sApiCoreV1ScaleIOPersistentVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1ScaleIOPersistentVolumeSource {
-  return IoK8sApiCoreV1ScaleIOPersistentVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ScaleIOPersistentVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ScaleIOPersistentVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    gateway: json['gateway'],
-    protectionDomain: !exists(json, 'protectionDomain') ? undefined : json['protectionDomain'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    secretRef: IoK8sApiCoreV1SecretReferenceFromJSON(json['secretRef']),
-    sslEnabled: !exists(json, 'sslEnabled') ? undefined : json['sslEnabled'],
-    storageMode: !exists(json, 'storageMode') ? undefined : json['storageMode'],
-    storagePool: !exists(json, 'storagePool') ? undefined : json['storagePool'],
-    system: json['system'],
-    volumeName: !exists(json, 'volumeName') ? undefined : json['volumeName'],
-  };
-}
-
-export function IoK8sApiCoreV1ScaleIOPersistentVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1ScaleIOPersistentVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fsType: value.fsType,
-    gateway: value.gateway,
-    protectionDomain: value.protectionDomain,
-    readOnly: value.readOnly,
-    secretRef: IoK8sApiCoreV1SecretReferenceToJSON(value.secretRef),
-    sslEnabled: value.sslEnabled,
-    storageMode: value.storageMode,
-    storagePool: value.storagePool,
-    system: value.system,
-    volumeName: value.volumeName,
-  };
 }

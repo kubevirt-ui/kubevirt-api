@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * If set, the VM will be booted from the defined kernel / initrd.
  * @export
@@ -56,7 +55,6 @@ export interface V1KernelBootContainer {
     kernelPath?: string;
 }
 
-
 /**
  * @export
  */
@@ -66,50 +64,3 @@ export const V1KernelBootContainerImagePullPolicyEnum = {
     Never: 'Never'
 } as const;
 export type V1KernelBootContainerImagePullPolicyEnum = typeof V1KernelBootContainerImagePullPolicyEnum[keyof typeof V1KernelBootContainerImagePullPolicyEnum];
-
-
-/**
- * Check if a given object implements the V1KernelBootContainer interface.
- */
-export function instanceOfV1KernelBootContainer(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "image" in value;
-
-    return isInstance;
-}
-
-export function V1KernelBootContainerFromJSON(json: any): V1KernelBootContainer {
-    return V1KernelBootContainerFromJSONTyped(json, false);
-}
-
-export function V1KernelBootContainerFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KernelBootContainer {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'image': json['image'],
-        'imagePullPolicy': !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
-        'imagePullSecret': !exists(json, 'imagePullSecret') ? undefined : json['imagePullSecret'],
-        'initrdPath': !exists(json, 'initrdPath') ? undefined : json['initrdPath'],
-        'kernelPath': !exists(json, 'kernelPath') ? undefined : json['kernelPath'],
-    };
-}
-
-export function V1KernelBootContainerToJSON(value?: V1KernelBootContainer | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'image': value.image,
-        'imagePullPolicy': value.imagePullPolicy,
-        'imagePullSecret': value.imagePullSecret,
-        'initrdPath': value.initrdPath,
-        'kernelPath': value.kernelPath,
-    };
-}
-

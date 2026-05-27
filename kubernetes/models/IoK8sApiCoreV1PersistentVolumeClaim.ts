@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1PersistentVolumeClaimSpec,
-  IoK8sApiCoreV1PersistentVolumeClaimSpecFromJSON,
-  IoK8sApiCoreV1PersistentVolumeClaimSpecToJSON,
   IoK8sApiCoreV1PersistentVolumeClaimStatus,
-  IoK8sApiCoreV1PersistentVolumeClaimStatusFromJSON,
-  IoK8sApiCoreV1PersistentVolumeClaimStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,50 +54,4 @@ export interface IoK8sApiCoreV1PersistentVolumeClaim {
    * @memberof IoK8sApiCoreV1PersistentVolumeClaim
    */
   status?: IoK8sApiCoreV1PersistentVolumeClaimStatus;
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimFromJSON(
-  json: any,
-): IoK8sApiCoreV1PersistentVolumeClaim {
-  return IoK8sApiCoreV1PersistentVolumeClaimFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PersistentVolumeClaim {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec')
-      ? undefined
-      : IoK8sApiCoreV1PersistentVolumeClaimSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiCoreV1PersistentVolumeClaimStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimToJSON(
-  value?: IoK8sApiCoreV1PersistentVolumeClaim | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiCoreV1PersistentVolumeClaimSpecToJSON(value.spec),
-    status: IoK8sApiCoreV1PersistentVolumeClaimStatusToJSON(value.status),
-  };
 }

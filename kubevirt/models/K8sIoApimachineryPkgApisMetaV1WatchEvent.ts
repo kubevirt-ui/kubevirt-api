@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * Event represents a single event to a watched resource.
  * @export
@@ -69,44 +68,3 @@ export interface K8sIoApimachineryPkgApisMetaV1WatchEvent {
      */
     type: string;
 }
-
-/**
- * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1WatchEvent interface.
- */
-export function instanceOfK8sIoApimachineryPkgApisMetaV1WatchEvent(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "object" in value;
-    isInstance = isInstance && "type" in value;
-
-    return isInstance;
-}
-
-export function K8sIoApimachineryPkgApisMetaV1WatchEventFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1WatchEvent {
-    return K8sIoApimachineryPkgApisMetaV1WatchEventFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1WatchEventFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1WatchEvent {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'object': json['object'],
-        'type': json['type'],
-    };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1WatchEventToJSON(value?: K8sIoApimachineryPkgApisMetaV1WatchEvent | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'object': value.object,
-        'type': value.type,
-    };
-}
-

@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1beta1VirtualMachinePoolSelectionPolicy } from './V1beta1VirtualMachinePoolSelectionPolicy';
-import {
-    V1beta1VirtualMachinePoolSelectionPolicyFromJSON,
-    V1beta1VirtualMachinePoolSelectionPolicyFromJSONTyped,
-    V1beta1VirtualMachinePoolSelectionPolicyToJSON,
-} from './V1beta1VirtualMachinePoolSelectionPolicy';
 
 /**
  * VirtualMachinePoolProactiveUpdateStrategy represents proactive update strategy
@@ -33,40 +27,3 @@ export interface V1beta1VirtualMachinePoolProactiveUpdateStrategy {
      */
     selectionPolicy?: V1beta1VirtualMachinePoolSelectionPolicy;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachinePoolProactiveUpdateStrategy interface.
- */
-export function instanceOfV1beta1VirtualMachinePoolProactiveUpdateStrategy(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachinePoolProactiveUpdateStrategyFromJSON(json: any): V1beta1VirtualMachinePoolProactiveUpdateStrategy {
-    return V1beta1VirtualMachinePoolProactiveUpdateStrategyFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachinePoolProactiveUpdateStrategyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachinePoolProactiveUpdateStrategy {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'selectionPolicy': !exists(json, 'selectionPolicy') ? undefined : V1beta1VirtualMachinePoolSelectionPolicyFromJSON(json['selectionPolicy']),
-    };
-}
-
-export function V1beta1VirtualMachinePoolProactiveUpdateStrategyToJSON(value?: V1beta1VirtualMachinePoolProactiveUpdateStrategy | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'selectionPolicy': V1beta1VirtualMachinePoolSelectionPolicyToJSON(value.selectionPolicy),
-    };
-}
-

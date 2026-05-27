@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1InterfaceBindingMigration } from './V1InterfaceBindingMigration';
-import {
-    V1InterfaceBindingMigrationFromJSON,
-    V1InterfaceBindingMigrationFromJSONTyped,
-    V1InterfaceBindingMigrationToJSON,
-} from './V1InterfaceBindingMigration';
 import type { V1ResourceRequirementsWithoutClaims } from './V1ResourceRequirementsWithoutClaims';
-import {
-    V1ResourceRequirementsWithoutClaimsFromJSON,
-    V1ResourceRequirementsWithoutClaimsFromJSONTyped,
-    V1ResourceRequirementsWithoutClaimsToJSON,
-} from './V1ResourceRequirementsWithoutClaims';
 
 /**
  * 
@@ -69,50 +58,3 @@ export interface V1InterfaceBindingPlugin {
      */
     sidecarImage?: string;
 }
-
-/**
- * Check if a given object implements the V1InterfaceBindingPlugin interface.
- */
-export function instanceOfV1InterfaceBindingPlugin(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1InterfaceBindingPluginFromJSON(json: any): V1InterfaceBindingPlugin {
-    return V1InterfaceBindingPluginFromJSONTyped(json, false);
-}
-
-export function V1InterfaceBindingPluginFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1InterfaceBindingPlugin {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'computeResourceOverhead': !exists(json, 'computeResourceOverhead') ? undefined : V1ResourceRequirementsWithoutClaimsFromJSON(json['computeResourceOverhead']),
-        'domainAttachmentType': !exists(json, 'domainAttachmentType') ? undefined : json['domainAttachmentType'],
-        'downwardAPI': !exists(json, 'downwardAPI') ? undefined : json['downwardAPI'],
-        'migration': !exists(json, 'migration') ? undefined : V1InterfaceBindingMigrationFromJSON(json['migration']),
-        'networkAttachmentDefinition': !exists(json, 'networkAttachmentDefinition') ? undefined : json['networkAttachmentDefinition'],
-        'sidecarImage': !exists(json, 'sidecarImage') ? undefined : json['sidecarImage'],
-    };
-}
-
-export function V1InterfaceBindingPluginToJSON(value?: V1InterfaceBindingPlugin | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'computeResourceOverhead': V1ResourceRequirementsWithoutClaimsToJSON(value.computeResourceOverhead),
-        'domainAttachmentType': value.domainAttachmentType,
-        'downwardAPI': value.downwardAPI,
-        'migration': V1InterfaceBindingMigrationToJSON(value.migration),
-        'networkAttachmentDefinition': value.networkAttachmentDefinition,
-        'sidecarImage': value.sidecarImage,
-    };
-}
-

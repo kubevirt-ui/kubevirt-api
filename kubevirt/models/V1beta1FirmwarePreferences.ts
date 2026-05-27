@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1EFI } from './V1EFI';
-import {
-    V1EFIFromJSON,
-    V1EFIFromJSONTyped,
-    V1EFIToJSON,
-} from './V1EFI';
 
 /**
  * FirmwarePreferences contains various optional defaults for Firmware.
@@ -65,48 +59,3 @@ export interface V1beta1FirmwarePreferences {
      */
     preferredUseSecureBoot?: boolean;
 }
-
-/**
- * Check if a given object implements the V1beta1FirmwarePreferences interface.
- */
-export function instanceOfV1beta1FirmwarePreferences(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1beta1FirmwarePreferencesFromJSON(json: any): V1beta1FirmwarePreferences {
-    return V1beta1FirmwarePreferencesFromJSONTyped(json, false);
-}
-
-export function V1beta1FirmwarePreferencesFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1FirmwarePreferences {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'preferredEfi': !exists(json, 'preferredEfi') ? undefined : V1EFIFromJSON(json['preferredEfi']),
-        'preferredUseBios': !exists(json, 'preferredUseBios') ? undefined : json['preferredUseBios'],
-        'preferredUseBiosSerial': !exists(json, 'preferredUseBiosSerial') ? undefined : json['preferredUseBiosSerial'],
-        'preferredUseEfi': !exists(json, 'preferredUseEfi') ? undefined : json['preferredUseEfi'],
-        'preferredUseSecureBoot': !exists(json, 'preferredUseSecureBoot') ? undefined : json['preferredUseSecureBoot'],
-    };
-}
-
-export function V1beta1FirmwarePreferencesToJSON(value?: V1beta1FirmwarePreferences | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'preferredEfi': V1EFIToJSON(value.preferredEfi),
-        'preferredUseBios': value.preferredUseBios,
-        'preferredUseBiosSerial': value.preferredUseBiosSerial,
-        'preferredUseEfi': value.preferredUseEfi,
-        'preferredUseSecureBoot': value.preferredUseSecureBoot,
-    };
-}
-

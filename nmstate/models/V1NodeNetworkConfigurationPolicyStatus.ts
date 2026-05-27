@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * NodeNetworkConfigurationPolicyStatus defines the observed state of NodeNetworkConfigurationPolicy
  * @export
@@ -38,53 +37,4 @@ export interface V1NodeNetworkConfigurationPolicyStatus {
    * @memberof V1NodeNetworkConfigurationPolicyStatus
    */
   unavailableNodeCount?: any | null;
-}
-
-/**
- * Check if a given object implements the V1NodeNetworkConfigurationPolicyStatus interface.
- */
-export function instanceOfV1NodeNetworkConfigurationPolicyStatus(_value: object): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1NodeNetworkConfigurationPolicyStatusFromJSON(
-  json: any,
-): V1NodeNetworkConfigurationPolicyStatus {
-  return V1NodeNetworkConfigurationPolicyStatusFromJSONTyped(json, false);
-}
-
-export function V1NodeNetworkConfigurationPolicyStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1NodeNetworkConfigurationPolicyStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions') ? undefined : json['conditions'],
-    lastUnavailableNodeCountUpdate: !exists(json, 'lastUnavailableNodeCountUpdate')
-      ? undefined
-      : json['lastUnavailableNodeCountUpdate'],
-    unavailableNodeCount: !exists(json, 'unavailableNodeCount')
-      ? undefined
-      : json['unavailableNodeCount'],
-  };
-}
-
-export function V1NodeNetworkConfigurationPolicyStatusToJSON(
-  value?: V1NodeNetworkConfigurationPolicyStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions: value.conditions,
-    lastUnavailableNodeCountUpdate: value.lastUnavailableNodeCountUpdate,
-    unavailableNodeCount: value.unavailableNodeCount,
-  };
 }

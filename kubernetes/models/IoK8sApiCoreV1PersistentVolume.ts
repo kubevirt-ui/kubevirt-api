@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1PersistentVolumeSpec,
-  IoK8sApiCoreV1PersistentVolumeSpecFromJSON,
-  IoK8sApiCoreV1PersistentVolumeSpecToJSON,
   IoK8sApiCoreV1PersistentVolumeStatus,
-  IoK8sApiCoreV1PersistentVolumeStatusFromJSON,
-  IoK8sApiCoreV1PersistentVolumeStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,48 +54,4 @@ export interface IoK8sApiCoreV1PersistentVolume {
    * @memberof IoK8sApiCoreV1PersistentVolume
    */
   status?: IoK8sApiCoreV1PersistentVolumeStatus;
-}
-
-export function IoK8sApiCoreV1PersistentVolumeFromJSON(json: any): IoK8sApiCoreV1PersistentVolume {
-  return IoK8sApiCoreV1PersistentVolumeFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PersistentVolumeFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PersistentVolume {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec')
-      ? undefined
-      : IoK8sApiCoreV1PersistentVolumeSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiCoreV1PersistentVolumeStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiCoreV1PersistentVolumeToJSON(
-  value?: IoK8sApiCoreV1PersistentVolume | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiCoreV1PersistentVolumeSpecToJSON(value.spec),
-    status: IoK8sApiCoreV1PersistentVolumeStatusToJSON(value.status),
-  };
 }

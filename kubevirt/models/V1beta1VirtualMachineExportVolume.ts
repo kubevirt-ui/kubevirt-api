@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1beta1VirtualMachineExportVolumeFormat } from './V1beta1VirtualMachineExportVolumeFormat';
-import {
-    V1beta1VirtualMachineExportVolumeFormatFromJSON,
-    V1beta1VirtualMachineExportVolumeFormatFromJSONTyped,
-    V1beta1VirtualMachineExportVolumeFormatToJSON,
-} from './V1beta1VirtualMachineExportVolumeFormat';
 
 /**
  * VirtualMachineExportVolume contains the name and available formats for the exported volume
@@ -38,44 +32,5 @@ export interface V1beta1VirtualMachineExportVolume {
      * @memberof V1beta1VirtualMachineExportVolume
      */
     name: string;
-}
-
-/**
- * Check if a given object implements the V1beta1VirtualMachineExportVolume interface.
- */
-export function instanceOfV1beta1VirtualMachineExportVolume(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "name" in value;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachineExportVolumeFromJSON(json: any): V1beta1VirtualMachineExportVolume {
-    return V1beta1VirtualMachineExportVolumeFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineExportVolumeFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineExportVolume {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'formats': !exists(json, 'formats') ? undefined : ((json['formats'] as Array<any>).map(V1beta1VirtualMachineExportVolumeFormatFromJSON)),
-        'name': json['name'],
-    };
-}
-
-export function V1beta1VirtualMachineExportVolumeToJSON(value?: V1beta1VirtualMachineExportVolume | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'formats': value.formats === undefined ? undefined : ((value.formats as Array<any>).map(V1beta1VirtualMachineExportVolumeFormatToJSON)),
-        'name': value.name,
-    };
 }
 

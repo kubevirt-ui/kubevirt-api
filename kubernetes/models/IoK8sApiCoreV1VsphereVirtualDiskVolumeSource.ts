@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Represents a vSphere volume resource.
  * @export
@@ -43,42 +42,4 @@ export interface IoK8sApiCoreV1VsphereVirtualDiskVolumeSource {
    * @memberof IoK8sApiCoreV1VsphereVirtualDiskVolumeSource
    */
   volumePath: string;
-}
-
-export function IoK8sApiCoreV1VsphereVirtualDiskVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1VsphereVirtualDiskVolumeSource {
-  return IoK8sApiCoreV1VsphereVirtualDiskVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1VsphereVirtualDiskVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1VsphereVirtualDiskVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    storagePolicyID: !exists(json, 'storagePolicyID') ? undefined : json['storagePolicyID'],
-    storagePolicyName: !exists(json, 'storagePolicyName') ? undefined : json['storagePolicyName'],
-    volumePath: json['volumePath'],
-  };
-}
-
-export function IoK8sApiCoreV1VsphereVirtualDiskVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1VsphereVirtualDiskVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fsType: value.fsType,
-    storagePolicyID: value.storagePolicyID,
-    storagePolicyName: value.storagePolicyName,
-    volumePath: value.volumePath,
-  };
 }

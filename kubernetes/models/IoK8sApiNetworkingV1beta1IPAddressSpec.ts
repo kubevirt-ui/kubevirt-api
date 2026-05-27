@@ -14,8 +14,6 @@
 
 import {
   IoK8sApiNetworkingV1beta1ParentReference,
-  IoK8sApiNetworkingV1beta1ParentReferenceFromJSON,
-  IoK8sApiNetworkingV1beta1ParentReferenceToJSON,
 } from './';
 
 /**
@@ -30,36 +28,4 @@ export interface IoK8sApiNetworkingV1beta1IPAddressSpec {
    * @memberof IoK8sApiNetworkingV1beta1IPAddressSpec
    */
   parentRef: IoK8sApiNetworkingV1beta1ParentReference;
-}
-
-export function IoK8sApiNetworkingV1beta1IPAddressSpecFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1beta1IPAddressSpec {
-  return IoK8sApiNetworkingV1beta1IPAddressSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1beta1IPAddressSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1beta1IPAddressSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    parentRef: IoK8sApiNetworkingV1beta1ParentReferenceFromJSON(json['parentRef']),
-  };
-}
-
-export function IoK8sApiNetworkingV1beta1IPAddressSpecToJSON(
-  value?: IoK8sApiNetworkingV1beta1IPAddressSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    parentRef: IoK8sApiNetworkingV1beta1ParentReferenceToJSON(value.parentRef),
-  };
 }

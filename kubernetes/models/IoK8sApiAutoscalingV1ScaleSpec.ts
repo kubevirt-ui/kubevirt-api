@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ScaleSpec describes the attributes of a scale subresource.
  * @export
@@ -25,34 +24,4 @@ export interface IoK8sApiAutoscalingV1ScaleSpec {
    * @memberof IoK8sApiAutoscalingV1ScaleSpec
    */
   replicas?: number;
-}
-
-export function IoK8sApiAutoscalingV1ScaleSpecFromJSON(json: any): IoK8sApiAutoscalingV1ScaleSpec {
-  return IoK8sApiAutoscalingV1ScaleSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV1ScaleSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV1ScaleSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    replicas: !exists(json, 'replicas') ? undefined : json['replicas'],
-  };
-}
-
-export function IoK8sApiAutoscalingV1ScaleSpecToJSON(
-  value?: IoK8sApiAutoscalingV1ScaleSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    replicas: value.replicas,
-  };
 }

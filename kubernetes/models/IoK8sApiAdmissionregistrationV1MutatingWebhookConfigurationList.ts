@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1MutatingWebhookConfiguration,
-  IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationFromJSON,
-  IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -52,48 +47,4 @@ export interface IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationList
    * @memberof IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationListFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationList {
-  return IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(
-      IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationFromJSON,
-    ),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationListToJSON(
-  value?: IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(
-      IoK8sApiAdmissionregistrationV1MutatingWebhookConfigurationToJSON,
-    ),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

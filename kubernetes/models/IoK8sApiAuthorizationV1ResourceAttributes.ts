@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAuthorizationV1FieldSelectorAttributes,
-  IoK8sApiAuthorizationV1FieldSelectorAttributesFromJSON,
-  IoK8sApiAuthorizationV1FieldSelectorAttributesToJSON,
   IoK8sApiAuthorizationV1LabelSelectorAttributes,
-  IoK8sApiAuthorizationV1LabelSelectorAttributesFromJSON,
-  IoK8sApiAuthorizationV1LabelSelectorAttributesToJSON,
 } from './';
 
 /**
@@ -82,56 +77,4 @@ export interface IoK8sApiAuthorizationV1ResourceAttributes {
    * @memberof IoK8sApiAuthorizationV1ResourceAttributes
    */
   version?: string;
-}
-
-export function IoK8sApiAuthorizationV1ResourceAttributesFromJSON(
-  json: any,
-): IoK8sApiAuthorizationV1ResourceAttributes {
-  return IoK8sApiAuthorizationV1ResourceAttributesFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthorizationV1ResourceAttributesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthorizationV1ResourceAttributes {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fieldSelector: !exists(json, 'fieldSelector')
-      ? undefined
-      : IoK8sApiAuthorizationV1FieldSelectorAttributesFromJSON(json['fieldSelector']),
-    group: !exists(json, 'group') ? undefined : json['group'],
-    labelSelector: !exists(json, 'labelSelector')
-      ? undefined
-      : IoK8sApiAuthorizationV1LabelSelectorAttributesFromJSON(json['labelSelector']),
-    name: !exists(json, 'name') ? undefined : json['name'],
-    namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
-    resource: !exists(json, 'resource') ? undefined : json['resource'],
-    subresource: !exists(json, 'subresource') ? undefined : json['subresource'],
-    verb: !exists(json, 'verb') ? undefined : json['verb'],
-    version: !exists(json, 'version') ? undefined : json['version'],
-  };
-}
-
-export function IoK8sApiAuthorizationV1ResourceAttributesToJSON(
-  value?: IoK8sApiAuthorizationV1ResourceAttributes | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fieldSelector: IoK8sApiAuthorizationV1FieldSelectorAttributesToJSON(value.fieldSelector),
-    group: value.group,
-    labelSelector: IoK8sApiAuthorizationV1LabelSelectorAttributesToJSON(value.labelSelector),
-    name: value.name,
-    namespace: value.namespace,
-    resource: value.resource,
-    subresource: value.subresource,
-    verb: value.verb,
-    version: value.version,
-  };
 }

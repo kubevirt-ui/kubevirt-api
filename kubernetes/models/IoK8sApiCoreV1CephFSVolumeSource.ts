@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1LocalObjectReference,
-  IoK8sApiCoreV1LocalObjectReferenceFromJSON,
-  IoK8sApiCoreV1LocalObjectReferenceToJSON,
 } from './';
 
 /**
@@ -61,48 +58,4 @@ export interface IoK8sApiCoreV1CephFSVolumeSource {
    * @memberof IoK8sApiCoreV1CephFSVolumeSource
    */
   user?: string;
-}
-
-export function IoK8sApiCoreV1CephFSVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1CephFSVolumeSource {
-  return IoK8sApiCoreV1CephFSVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1CephFSVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1CephFSVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    monitors: json['monitors'],
-    path: !exists(json, 'path') ? undefined : json['path'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    secretFile: !exists(json, 'secretFile') ? undefined : json['secretFile'],
-    secretRef: !exists(json, 'secretRef')
-      ? undefined
-      : IoK8sApiCoreV1LocalObjectReferenceFromJSON(json['secretRef']),
-    user: !exists(json, 'user') ? undefined : json['user'],
-  };
-}
-
-export function IoK8sApiCoreV1CephFSVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1CephFSVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    monitors: value.monitors,
-    path: value.path,
-    readOnly: value.readOnly,
-    secretFile: value.secretFile,
-    secretRef: IoK8sApiCoreV1LocalObjectReferenceToJSON(value.secretRef),
-    user: value.user,
-  };
 }

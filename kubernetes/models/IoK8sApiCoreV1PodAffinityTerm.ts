@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -61,48 +58,4 @@ export interface IoK8sApiCoreV1PodAffinityTerm {
    * @memberof IoK8sApiCoreV1PodAffinityTerm
    */
   topologyKey: string;
-}
-
-export function IoK8sApiCoreV1PodAffinityTermFromJSON(json: any): IoK8sApiCoreV1PodAffinityTerm {
-  return IoK8sApiCoreV1PodAffinityTermFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodAffinityTermFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodAffinityTerm {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    labelSelector: !exists(json, 'labelSelector')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['labelSelector']),
-    matchLabelKeys: !exists(json, 'matchLabelKeys') ? undefined : json['matchLabelKeys'],
-    mismatchLabelKeys: !exists(json, 'mismatchLabelKeys') ? undefined : json['mismatchLabelKeys'],
-    namespaceSelector: !exists(json, 'namespaceSelector')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['namespaceSelector']),
-    namespaces: !exists(json, 'namespaces') ? undefined : json['namespaces'],
-    topologyKey: json['topologyKey'],
-  };
-}
-
-export function IoK8sApiCoreV1PodAffinityTermToJSON(
-  value?: IoK8sApiCoreV1PodAffinityTerm | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    labelSelector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.labelSelector),
-    matchLabelKeys: value.matchLabelKeys,
-    mismatchLabelKeys: value.mismatchLabelKeys,
-    namespaceSelector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.namespaceSelector),
-    namespaces: value.namespaces,
-    topologyKey: value.topologyKey,
-  };
 }

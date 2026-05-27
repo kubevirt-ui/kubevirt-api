@@ -12,23 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ContainerStatus,
-  IoK8sApiCoreV1ContainerStatusFromJSON,
-  IoK8sApiCoreV1ContainerStatusToJSON,
   IoK8sApiCoreV1HostIP,
-  IoK8sApiCoreV1HostIPFromJSON,
-  IoK8sApiCoreV1HostIPToJSON,
   IoK8sApiCoreV1PodCondition,
-  IoK8sApiCoreV1PodConditionFromJSON,
-  IoK8sApiCoreV1PodConditionToJSON,
   IoK8sApiCoreV1PodIP,
-  IoK8sApiCoreV1PodIPFromJSON,
-  IoK8sApiCoreV1PodIPToJSON,
   IoK8sApiCoreV1PodResourceClaimStatus,
-  IoK8sApiCoreV1PodResourceClaimStatusFromJSON,
-  IoK8sApiCoreV1PodResourceClaimStatusToJSON,
 } from './';
 
 /**
@@ -143,107 +132,4 @@ export interface IoK8sApiCoreV1PodStatus {
    * @memberof IoK8sApiCoreV1PodStatus
    */
   startTime?: string;
-}
-
-export function IoK8sApiCoreV1PodStatusFromJSON(json: any): IoK8sApiCoreV1PodStatus {
-  return IoK8sApiCoreV1PodStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(IoK8sApiCoreV1PodConditionFromJSON),
-    containerStatuses: !exists(json, 'containerStatuses')
-      ? undefined
-      : (json['containerStatuses'] as Array<any>).map(IoK8sApiCoreV1ContainerStatusFromJSON),
-    ephemeralContainerStatuses: !exists(json, 'ephemeralContainerStatuses')
-      ? undefined
-      : (json['ephemeralContainerStatuses'] as Array<any>).map(
-          IoK8sApiCoreV1ContainerStatusFromJSON,
-        ),
-    hostIP: !exists(json, 'hostIP') ? undefined : json['hostIP'],
-    hostIPs: !exists(json, 'hostIPs')
-      ? undefined
-      : (json['hostIPs'] as Array<any>).map(IoK8sApiCoreV1HostIPFromJSON),
-    initContainerStatuses: !exists(json, 'initContainerStatuses')
-      ? undefined
-      : (json['initContainerStatuses'] as Array<any>).map(IoK8sApiCoreV1ContainerStatusFromJSON),
-    message: !exists(json, 'message') ? undefined : json['message'],
-    nominatedNodeName: !exists(json, 'nominatedNodeName') ? undefined : json['nominatedNodeName'],
-    observedGeneration: !exists(json, 'observedGeneration')
-      ? undefined
-      : json['observedGeneration'],
-    phase: !exists(json, 'phase') ? undefined : json['phase'],
-    podIP: !exists(json, 'podIP') ? undefined : json['podIP'],
-    podIPs: !exists(json, 'podIPs')
-      ? undefined
-      : (json['podIPs'] as Array<any>).map(IoK8sApiCoreV1PodIPFromJSON),
-    qosClass: !exists(json, 'qosClass') ? undefined : json['qosClass'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    resize: !exists(json, 'resize') ? undefined : json['resize'],
-    resourceClaimStatuses: !exists(json, 'resourceClaimStatuses')
-      ? undefined
-      : (json['resourceClaimStatuses'] as Array<any>).map(
-          IoK8sApiCoreV1PodResourceClaimStatusFromJSON,
-        ),
-    startTime: !exists(json, 'startTime') ? undefined : json['startTime'],
-  };
-}
-
-export function IoK8sApiCoreV1PodStatusToJSON(value?: IoK8sApiCoreV1PodStatus | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApiCoreV1PodConditionToJSON),
-    containerStatuses:
-      value.containerStatuses === undefined
-        ? undefined
-        : (value.containerStatuses as Array<any>).map(IoK8sApiCoreV1ContainerStatusToJSON),
-    ephemeralContainerStatuses:
-      value.ephemeralContainerStatuses === undefined
-        ? undefined
-        : (value.ephemeralContainerStatuses as Array<any>).map(IoK8sApiCoreV1ContainerStatusToJSON),
-    hostIP: value.hostIP,
-    hostIPs:
-      value.hostIPs === undefined
-        ? undefined
-        : (value.hostIPs as Array<any>).map(IoK8sApiCoreV1HostIPToJSON),
-    initContainerStatuses:
-      value.initContainerStatuses === undefined
-        ? undefined
-        : (value.initContainerStatuses as Array<any>).map(IoK8sApiCoreV1ContainerStatusToJSON),
-    message: value.message,
-    nominatedNodeName: value.nominatedNodeName,
-    observedGeneration: value.observedGeneration,
-    phase: value.phase,
-    podIP: value.podIP,
-    podIPs:
-      value.podIPs === undefined
-        ? undefined
-        : (value.podIPs as Array<any>).map(IoK8sApiCoreV1PodIPToJSON),
-    qosClass: value.qosClass,
-    reason: value.reason,
-    resize: value.resize,
-    resourceClaimStatuses:
-      value.resourceClaimStatuses === undefined
-        ? undefined
-        : (value.resourceClaimStatuses as Array<any>).map(
-            IoK8sApiCoreV1PodResourceClaimStatusToJSON,
-          ),
-    startTime: value.startTime === undefined ? undefined : value.startTime,
-  };
 }

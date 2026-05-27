@@ -12,12 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import type { V1NMStateSpecProbeConfigurationDns } from './V1NMStateSpecProbeConfigurationDns';
-import {
-  V1NMStateSpecProbeConfigurationDnsFromJSON,
-  V1NMStateSpecProbeConfigurationDnsToJSON,
-} from './V1NMStateSpecProbeConfigurationDns';
 
 /**
  * ProbeConfiguration is an optional configuration of NMstate probes testing various functionalities.
@@ -32,45 +27,4 @@ export interface V1NMStateSpecProbeConfiguration {
    * @memberof V1NMStateSpecProbeConfiguration
    */
   dns?: V1NMStateSpecProbeConfigurationDns;
-}
-
-/**
- * Check if a given object implements the V1NMStateSpecProbeConfiguration interface.
- */
-export function instanceOfV1NMStateSpecProbeConfiguration(_value: object): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1NMStateSpecProbeConfigurationFromJSON(
-  json: any,
-): V1NMStateSpecProbeConfiguration {
-  return V1NMStateSpecProbeConfigurationFromJSONTyped(json, false);
-}
-
-export function V1NMStateSpecProbeConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1NMStateSpecProbeConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    dns: !exists(json, 'dns') ? undefined : V1NMStateSpecProbeConfigurationDnsFromJSON(json['dns']),
-  };
-}
-
-export function V1NMStateSpecProbeConfigurationToJSON(
-  value?: V1NMStateSpecProbeConfiguration | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    dns: V1NMStateSpecProbeConfigurationDnsToJSON(value.dns),
-  };
 }

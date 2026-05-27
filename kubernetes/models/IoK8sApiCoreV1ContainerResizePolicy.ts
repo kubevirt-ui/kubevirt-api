@@ -31,37 +31,3 @@ export interface IoK8sApiCoreV1ContainerResizePolicy {
    */
   restartPolicy: string;
 }
-
-export function IoK8sApiCoreV1ContainerResizePolicyFromJSON(
-  json: any,
-): IoK8sApiCoreV1ContainerResizePolicy {
-  return IoK8sApiCoreV1ContainerResizePolicyFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ContainerResizePolicyFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ContainerResizePolicy {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    resourceName: json['resourceName'],
-    restartPolicy: json['restartPolicy'],
-  };
-}
-
-export function IoK8sApiCoreV1ContainerResizePolicyToJSON(
-  value?: IoK8sApiCoreV1ContainerResizePolicy | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    resourceName: value.resourceName,
-    restartPolicy: value.restartPolicy,
-  };
-}

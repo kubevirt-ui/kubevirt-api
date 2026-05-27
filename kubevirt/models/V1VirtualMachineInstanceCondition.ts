@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -44,48 +43,3 @@ export interface V1VirtualMachineInstanceCondition {
      */
     type: string;
 }
-
-/**
- * Check if a given object implements the V1VirtualMachineInstanceCondition interface.
- */
-export function instanceOfV1VirtualMachineInstanceCondition(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "status" in value;
-    isInstance = isInstance && "type" in value;
-
-    return isInstance;
-}
-
-export function V1VirtualMachineInstanceConditionFromJSON(json: any): V1VirtualMachineInstanceCondition {
-    return V1VirtualMachineInstanceConditionFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceCondition {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'message': !exists(json, 'message') ? undefined : json['message'],
-        'reason': !exists(json, 'reason') ? undefined : json['reason'],
-        'status': json['status'],
-        'type': json['type'],
-    };
-}
-
-export function V1VirtualMachineInstanceConditionToJSON(value?: V1VirtualMachineInstanceCondition | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'message': value.message,
-        'reason': value.reason,
-        'status': value.status,
-        'type': value.type,
-    };
-}
-

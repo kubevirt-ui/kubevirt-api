@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1alpha3OpaqueDeviceConfiguration,
-  IoK8sApiResourceV1alpha3OpaqueDeviceConfigurationFromJSON,
-  IoK8sApiResourceV1alpha3OpaqueDeviceConfigurationToJSON,
 } from './';
 
 /**
@@ -39,40 +36,4 @@ export interface IoK8sApiResourceV1alpha3DeviceClaimConfiguration {
    * @memberof IoK8sApiResourceV1alpha3DeviceClaimConfiguration
    */
   requests?: Array<string>;
-}
-
-export function IoK8sApiResourceV1alpha3DeviceClaimConfigurationFromJSON(
-  json: any,
-): IoK8sApiResourceV1alpha3DeviceClaimConfiguration {
-  return IoK8sApiResourceV1alpha3DeviceClaimConfigurationFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3DeviceClaimConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3DeviceClaimConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    opaque: !exists(json, 'opaque')
-      ? undefined
-      : IoK8sApiResourceV1alpha3OpaqueDeviceConfigurationFromJSON(json['opaque']),
-    requests: !exists(json, 'requests') ? undefined : json['requests'],
-  };
-}
-
-export function IoK8sApiResourceV1alpha3DeviceClaimConfigurationToJSON(
-  value?: IoK8sApiResourceV1alpha3DeviceClaimConfiguration | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    opaque: IoK8sApiResourceV1alpha3OpaqueDeviceConfigurationToJSON(value.opaque),
-    requests: value.requests,
-  };
 }

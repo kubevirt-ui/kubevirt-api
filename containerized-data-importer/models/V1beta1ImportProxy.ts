@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ImportProxy provides the information on how to configure the importer pod proxy.
  * @export
@@ -52,38 +51,4 @@ export interface V1beta1ImportProxy {
    * @memberof V1beta1ImportProxy
    */
   trustedCAProxy?: string;
-}
-
-export function V1beta1ImportProxyFromJSON(json: any): V1beta1ImportProxy {
-  return V1beta1ImportProxyFromJSONTyped(json, false);
-}
-
-export function V1beta1ImportProxyFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1ImportProxy {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    hTTPProxy: !exists(json, 'HTTPProxy') ? undefined : json['HTTPProxy'],
-    hTTPSProxy: !exists(json, 'HTTPSProxy') ? undefined : json['HTTPSProxy'],
-    noProxy: !exists(json, 'noProxy') ? undefined : json['noProxy'],
-    trustedCAProxy: !exists(json, 'trustedCAProxy') ? undefined : json['trustedCAProxy'],
-  };
-}
-
-export function V1beta1ImportProxyToJSON(value?: V1beta1ImportProxy | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    HTTPProxy: value.hTTPProxy,
-    HTTPSProxy: value.hTTPSProxy,
-    noProxy: value.noProxy,
-    trustedCAProxy: value.trustedCAProxy,
-  };
 }

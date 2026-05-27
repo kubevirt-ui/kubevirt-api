@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * OwnerReference contains enough information to let you identify an owning object. An owning object must be in the same namespace as the dependent, or be cluster-scoped, so there is no namespace field.
  * @export
@@ -55,48 +54,4 @@ export interface IoK8sApimachineryPkgApisMetaV1OwnerReference {
    * @memberof IoK8sApimachineryPkgApisMetaV1OwnerReference
    */
   uid: string;
-}
-
-export function IoK8sApimachineryPkgApisMetaV1OwnerReferenceFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1OwnerReference {
-  return IoK8sApimachineryPkgApisMetaV1OwnerReferenceFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1OwnerReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1OwnerReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: json['apiVersion'],
-    blockOwnerDeletion: !exists(json, 'blockOwnerDeletion')
-      ? undefined
-      : json['blockOwnerDeletion'],
-    controller: !exists(json, 'controller') ? undefined : json['controller'],
-    kind: json['kind'],
-    name: json['name'],
-    uid: json['uid'],
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1OwnerReferenceToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1OwnerReference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    blockOwnerDeletion: value.blockOwnerDeletion,
-    controller: value.controller,
-    kind: value.kind,
-    name: value.name,
-    uid: value.uid,
-  };
 }

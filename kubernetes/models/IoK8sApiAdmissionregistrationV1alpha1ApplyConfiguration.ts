@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ApplyConfiguration defines the desired configuration values of an object.
  * @export
@@ -52,36 +51,4 @@ export interface IoK8sApiAdmissionregistrationV1alpha1ApplyConfiguration {
    * @memberof IoK8sApiAdmissionregistrationV1alpha1ApplyConfiguration
    */
   expression?: string;
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1ApplyConfigurationFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1alpha1ApplyConfiguration {
-  return IoK8sApiAdmissionregistrationV1alpha1ApplyConfigurationFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1ApplyConfigurationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1alpha1ApplyConfiguration {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    expression: !exists(json, 'expression') ? undefined : json['expression'],
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1ApplyConfigurationToJSON(
-  value?: IoK8sApiAdmissionregistrationV1alpha1ApplyConfiguration | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    expression: value.expression,
-  };
 }

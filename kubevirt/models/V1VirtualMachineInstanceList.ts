@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
-import {
-    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import type { V1VirtualMachineInstance } from './V1VirtualMachineInstance';
-import {
-    V1VirtualMachineInstanceFromJSON,
-    V1VirtualMachineInstanceFromJSONTyped,
-    V1VirtualMachineInstanceToJSON,
-} from './V1VirtualMachineInstance';
 
 /**
  * VirtualMachineInstanceList is a list of VirtualMachines
@@ -57,47 +46,3 @@ export interface V1VirtualMachineInstanceList {
      */
     metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
-
-/**
- * Check if a given object implements the V1VirtualMachineInstanceList interface.
- */
-export function instanceOfV1VirtualMachineInstanceList(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "items" in value;
-
-    return isInstance;
-}
-
-export function V1VirtualMachineInstanceListFromJSON(json: any): V1VirtualMachineInstanceList {
-    return V1VirtualMachineInstanceListFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceList {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'items': ((json['items'] as Array<any>).map(V1VirtualMachineInstanceFromJSON)),
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-    };
-}
-
-export function V1VirtualMachineInstanceListToJSON(value?: V1VirtualMachineInstanceList | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'items': ((value.items as Array<any>).map(V1VirtualMachineInstanceToJSON)),
-        'kind': value.kind,
-        'metadata': K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-    };
-}
-

@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReference,
-  IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReferenceFromJSON,
-  IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReferenceToJSON,
 } from './';
 
 /**
@@ -67,52 +64,4 @@ export interface IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceSpec {
    * @memberof IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceSpec
    */
   versionPriority: number;
-}
-
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceSpecFromJSON(
-  json: any,
-): IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceSpec {
-  return IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    caBundle: !exists(json, 'caBundle') ? undefined : json['caBundle'],
-    group: !exists(json, 'group') ? undefined : json['group'],
-    groupPriorityMinimum: json['groupPriorityMinimum'],
-    insecureSkipTLSVerify: !exists(json, 'insecureSkipTLSVerify')
-      ? undefined
-      : json['insecureSkipTLSVerify'],
-    service: !exists(json, 'service')
-      ? undefined
-      : IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReferenceFromJSON(json['service']),
-    version: !exists(json, 'version') ? undefined : json['version'],
-    versionPriority: json['versionPriority'],
-  };
-}
-
-export function IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceSpecToJSON(
-  value?: IoK8sKubeAggregatorPkgApisApiregistrationV1APIServiceSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    caBundle: value.caBundle,
-    group: value.group,
-    groupPriorityMinimum: value.groupPriorityMinimum,
-    insecureSkipTLSVerify: value.insecureSkipTLSVerify,
-    service: IoK8sKubeAggregatorPkgApisApiregistrationV1ServiceReferenceToJSON(value.service),
-    version: value.version,
-    versionPriority: value.versionPriority,
-  };
 }

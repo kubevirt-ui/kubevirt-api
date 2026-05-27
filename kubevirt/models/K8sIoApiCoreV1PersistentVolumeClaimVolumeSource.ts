@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * PersistentVolumeClaimVolumeSource references the user's PVC in the same namespace. This volume finds the bound PV and mounts that volume for the pod. A PersistentVolumeClaimVolumeSource is, essentially, a wrapper around another type of volume that is owned by someone else (the system).
  * @export
@@ -32,43 +31,3 @@ export interface K8sIoApiCoreV1PersistentVolumeClaimVolumeSource {
      */
     readOnly?: boolean;
 }
-
-/**
- * Check if a given object implements the K8sIoApiCoreV1PersistentVolumeClaimVolumeSource interface.
- */
-export function instanceOfK8sIoApiCoreV1PersistentVolumeClaimVolumeSource(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "claimName" in value;
-
-    return isInstance;
-}
-
-export function K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceFromJSON(json: any): K8sIoApiCoreV1PersistentVolumeClaimVolumeSource {
-    return K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1PersistentVolumeClaimVolumeSource {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'claimName': json['claimName'],
-        'readOnly': !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    };
-}
-
-export function K8sIoApiCoreV1PersistentVolumeClaimVolumeSourceToJSON(value?: K8sIoApiCoreV1PersistentVolumeClaimVolumeSource | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'claimName': value.claimName,
-        'readOnly': value.readOnly,
-    };
-}
-

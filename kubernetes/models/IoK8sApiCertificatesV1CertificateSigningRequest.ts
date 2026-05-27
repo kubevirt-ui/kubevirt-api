@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCertificatesV1CertificateSigningRequestSpec,
-  IoK8sApiCertificatesV1CertificateSigningRequestSpecFromJSON,
-  IoK8sApiCertificatesV1CertificateSigningRequestSpecToJSON,
   IoK8sApiCertificatesV1CertificateSigningRequestStatus,
-  IoK8sApiCertificatesV1CertificateSigningRequestStatusFromJSON,
-  IoK8sApiCertificatesV1CertificateSigningRequestStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -67,48 +60,4 @@ export interface IoK8sApiCertificatesV1CertificateSigningRequest {
    * @memberof IoK8sApiCertificatesV1CertificateSigningRequest
    */
   status?: IoK8sApiCertificatesV1CertificateSigningRequestStatus;
-}
-
-export function IoK8sApiCertificatesV1CertificateSigningRequestFromJSON(
-  json: any,
-): IoK8sApiCertificatesV1CertificateSigningRequest {
-  return IoK8sApiCertificatesV1CertificateSigningRequestFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCertificatesV1CertificateSigningRequestFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCertificatesV1CertificateSigningRequest {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: IoK8sApiCertificatesV1CertificateSigningRequestSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiCertificatesV1CertificateSigningRequestStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiCertificatesV1CertificateSigningRequestToJSON(
-  value?: IoK8sApiCertificatesV1CertificateSigningRequest | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiCertificatesV1CertificateSigningRequestSpecToJSON(value.spec),
-    status: IoK8sApiCertificatesV1CertificateSigningRequestStatusToJSON(value.status),
-  };
 }

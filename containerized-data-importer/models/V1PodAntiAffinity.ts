@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1PodAffinityTerm,
-  V1PodAffinityTermFromJSON,
-  V1PodAffinityTermToJSON,
   V1WeightedPodAffinityTerm,
-  V1WeightedPodAffinityTermFromJSON,
-  V1WeightedPodAffinityTermToJSON,
 } from './';
 
 /**
@@ -40,58 +35,4 @@ export interface V1PodAntiAffinity {
    * @memberof V1PodAntiAffinity
    */
   requiredDuringSchedulingIgnoredDuringExecution?: Array<V1PodAffinityTerm>;
-}
-
-export function V1PodAntiAffinityFromJSON(json: any): V1PodAntiAffinity {
-  return V1PodAntiAffinityFromJSONTyped(json, false);
-}
-
-export function V1PodAntiAffinityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1PodAntiAffinity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'preferredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : (json['preferredDuringSchedulingIgnoredDuringExecution'] as Array<any>).map(
-          V1WeightedPodAffinityTermFromJSON,
-        ),
-    requiredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'requiredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : (json['requiredDuringSchedulingIgnoredDuringExecution'] as Array<any>).map(
-          V1PodAffinityTermFromJSON,
-        ),
-  };
-}
-
-export function V1PodAntiAffinityToJSON(value?: V1PodAntiAffinity | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution:
-      value.preferredDuringSchedulingIgnoredDuringExecution === undefined
-        ? undefined
-        : (value.preferredDuringSchedulingIgnoredDuringExecution as Array<any>).map(
-            V1WeightedPodAffinityTermToJSON,
-          ),
-    requiredDuringSchedulingIgnoredDuringExecution:
-      value.requiredDuringSchedulingIgnoredDuringExecution === undefined
-        ? undefined
-        : (value.requiredDuringSchedulingIgnoredDuringExecution as Array<any>).map(
-            V1PodAffinityTermToJSON,
-          ),
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Represents a Persistent Disk resource in AWS.
  *
@@ -45,42 +44,4 @@ export interface IoK8sApiCoreV1AWSElasticBlockStoreVolumeSource {
    * @memberof IoK8sApiCoreV1AWSElasticBlockStoreVolumeSource
    */
   volumeID: string;
-}
-
-export function IoK8sApiCoreV1AWSElasticBlockStoreVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1AWSElasticBlockStoreVolumeSource {
-  return IoK8sApiCoreV1AWSElasticBlockStoreVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1AWSElasticBlockStoreVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1AWSElasticBlockStoreVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    partition: !exists(json, 'partition') ? undefined : json['partition'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    volumeID: json['volumeID'],
-  };
-}
-
-export function IoK8sApiCoreV1AWSElasticBlockStoreVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1AWSElasticBlockStoreVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fsType: value.fsType,
-    partition: value.partition,
-    readOnly: value.readOnly,
-    volumeID: value.volumeID,
-  };
 }

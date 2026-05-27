@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1beta1PlatformOptions,
-  V1beta1PlatformOptionsFromJSON,
-  V1beta1PlatformOptionsToJSON,
 } from './';
 
 /**
@@ -61,48 +58,4 @@ export interface V1beta1DataVolumeSourceRegistry {
    * @memberof V1beta1DataVolumeSourceRegistry
    */
   url?: string;
-}
-
-export function V1beta1DataVolumeSourceRegistryFromJSON(
-  json: any,
-): V1beta1DataVolumeSourceRegistry {
-  return V1beta1DataVolumeSourceRegistryFromJSONTyped(json, false);
-}
-
-export function V1beta1DataVolumeSourceRegistryFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataVolumeSourceRegistry {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    certConfigMap: !exists(json, 'certConfigMap') ? undefined : json['certConfigMap'],
-    imageStream: !exists(json, 'imageStream') ? undefined : json['imageStream'],
-    platform: !exists(json, 'platform')
-      ? undefined
-      : V1beta1PlatformOptionsFromJSON(json['platform']),
-    pullMethod: !exists(json, 'pullMethod') ? undefined : json['pullMethod'],
-    secretRef: !exists(json, 'secretRef') ? undefined : json['secretRef'],
-    url: !exists(json, 'url') ? undefined : json['url'],
-  };
-}
-
-export function V1beta1DataVolumeSourceRegistryToJSON(
-  value?: V1beta1DataVolumeSourceRegistry | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    certConfigMap: value.certConfigMap,
-    imageStream: value.imageStream,
-    platform: V1beta1PlatformOptionsToJSON(value.platform),
-    pullMethod: value.pullMethod,
-    secretRef: value.secretRef,
-    url: value.url,
-  };
 }

@@ -14,8 +14,6 @@
 
 import {
   IoK8sApiCoreV1LimitRangeItem,
-  IoK8sApiCoreV1LimitRangeItemFromJSON,
-  IoK8sApiCoreV1LimitRangeItemToJSON,
 } from './';
 
 /**
@@ -30,34 +28,4 @@ export interface IoK8sApiCoreV1LimitRangeSpec {
    * @memberof IoK8sApiCoreV1LimitRangeSpec
    */
   limits: Array<IoK8sApiCoreV1LimitRangeItem>;
-}
-
-export function IoK8sApiCoreV1LimitRangeSpecFromJSON(json: any): IoK8sApiCoreV1LimitRangeSpec {
-  return IoK8sApiCoreV1LimitRangeSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1LimitRangeSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1LimitRangeSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    limits: (json['limits'] as Array<any>).map(IoK8sApiCoreV1LimitRangeItemFromJSON),
-  };
-}
-
-export function IoK8sApiCoreV1LimitRangeSpecToJSON(
-  value?: IoK8sApiCoreV1LimitRangeSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    limits: (value.limits as Array<any>).map(IoK8sApiCoreV1LimitRangeItemToJSON),
-  };
 }

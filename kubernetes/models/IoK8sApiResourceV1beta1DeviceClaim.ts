@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1beta1DeviceClaimConfiguration,
-  IoK8sApiResourceV1beta1DeviceClaimConfigurationFromJSON,
-  IoK8sApiResourceV1beta1DeviceClaimConfigurationToJSON,
   IoK8sApiResourceV1beta1DeviceConstraint,
-  IoK8sApiResourceV1beta1DeviceConstraintFromJSON,
-  IoK8sApiResourceV1beta1DeviceConstraintToJSON,
   IoK8sApiResourceV1beta1DeviceRequest,
-  IoK8sApiResourceV1beta1DeviceRequestFromJSON,
-  IoK8sApiResourceV1beta1DeviceRequestToJSON,
 } from './';
 
 /**
@@ -49,55 +42,4 @@ export interface IoK8sApiResourceV1beta1DeviceClaim {
    * @memberof IoK8sApiResourceV1beta1DeviceClaim
    */
   requests?: Array<IoK8sApiResourceV1beta1DeviceRequest>;
-}
-
-export function IoK8sApiResourceV1beta1DeviceClaimFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta1DeviceClaim {
-  return IoK8sApiResourceV1beta1DeviceClaimFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta1DeviceClaimFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta1DeviceClaim {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    config: !exists(json, 'config')
-      ? undefined
-      : (json['config'] as Array<any>).map(IoK8sApiResourceV1beta1DeviceClaimConfigurationFromJSON),
-    constraints: !exists(json, 'constraints')
-      ? undefined
-      : (json['constraints'] as Array<any>).map(IoK8sApiResourceV1beta1DeviceConstraintFromJSON),
-    requests: !exists(json, 'requests')
-      ? undefined
-      : (json['requests'] as Array<any>).map(IoK8sApiResourceV1beta1DeviceRequestFromJSON),
-  };
-}
-
-export function IoK8sApiResourceV1beta1DeviceClaimToJSON(
-  value?: IoK8sApiResourceV1beta1DeviceClaim | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    config:
-      value.config === undefined
-        ? undefined
-        : (value.config as Array<any>).map(IoK8sApiResourceV1beta1DeviceClaimConfigurationToJSON),
-    constraints:
-      value.constraints === undefined
-        ? undefined
-        : (value.constraints as Array<any>).map(IoK8sApiResourceV1beta1DeviceConstraintToJSON),
-    requests:
-      value.requests === undefined
-        ? undefined
-        : (value.requests as Array<any>).map(IoK8sApiResourceV1beta1DeviceRequestToJSON),
-  };
 }

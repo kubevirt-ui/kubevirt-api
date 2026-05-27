@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * VolumeResourceRequirements describes the storage resource requirements for a volume.
  * @export
@@ -32,42 +31,3 @@ export interface K8sIoApiCoreV1VolumeResourceRequirements {
      */
     requests?: { [key: string]: string; };
 }
-
-/**
- * Check if a given object implements the K8sIoApiCoreV1VolumeResourceRequirements interface.
- */
-export function instanceOfK8sIoApiCoreV1VolumeResourceRequirements(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function K8sIoApiCoreV1VolumeResourceRequirementsFromJSON(json: any): K8sIoApiCoreV1VolumeResourceRequirements {
-    return K8sIoApiCoreV1VolumeResourceRequirementsFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1VolumeResourceRequirementsFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1VolumeResourceRequirements {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'limits': !exists(json, 'limits') ? undefined : json['limits'],
-        'requests': !exists(json, 'requests') ? undefined : json['requests'],
-    };
-}
-
-export function K8sIoApiCoreV1VolumeResourceRequirementsToJSON(value?: K8sIoApiCoreV1VolumeResourceRequirements | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'limits': value.limits,
-        'requests': value.requests,
-    };
-}
-

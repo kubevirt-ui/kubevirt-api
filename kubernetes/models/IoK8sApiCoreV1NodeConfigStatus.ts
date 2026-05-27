@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1NodeConfigSource,
-  IoK8sApiCoreV1NodeConfigSourceFromJSON,
-  IoK8sApiCoreV1NodeConfigSourceToJSON,
 } from './';
 
 /**
@@ -49,46 +46,4 @@ export interface IoK8sApiCoreV1NodeConfigStatus {
    * @memberof IoK8sApiCoreV1NodeConfigStatus
    */
   lastKnownGood?: IoK8sApiCoreV1NodeConfigSource;
-}
-
-export function IoK8sApiCoreV1NodeConfigStatusFromJSON(json: any): IoK8sApiCoreV1NodeConfigStatus {
-  return IoK8sApiCoreV1NodeConfigStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NodeConfigStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NodeConfigStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    active: !exists(json, 'active')
-      ? undefined
-      : IoK8sApiCoreV1NodeConfigSourceFromJSON(json['active']),
-    assigned: !exists(json, 'assigned')
-      ? undefined
-      : IoK8sApiCoreV1NodeConfigSourceFromJSON(json['assigned']),
-    error: !exists(json, 'error') ? undefined : json['error'],
-    lastKnownGood: !exists(json, 'lastKnownGood')
-      ? undefined
-      : IoK8sApiCoreV1NodeConfigSourceFromJSON(json['lastKnownGood']),
-  };
-}
-
-export function IoK8sApiCoreV1NodeConfigStatusToJSON(
-  value?: IoK8sApiCoreV1NodeConfigStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    active: IoK8sApiCoreV1NodeConfigSourceToJSON(value.active),
-    assigned: IoK8sApiCoreV1NodeConfigSourceToJSON(value.assigned),
-    error: value.error,
-    lastKnownGood: IoK8sApiCoreV1NodeConfigSourceToJSON(value.lastKnownGood),
-  };
 }

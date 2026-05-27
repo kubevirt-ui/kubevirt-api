@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry } from './K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry';
-import {
-    K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSON,
-    K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntry';
 import type { K8sIoApimachineryPkgApisMetaV1OwnerReference } from './K8sIoApimachineryPkgApisMetaV1OwnerReference';
-import {
-    K8sIoApimachineryPkgApisMetaV1OwnerReferenceFromJSON,
-    K8sIoApimachineryPkgApisMetaV1OwnerReferenceFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1OwnerReferenceToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1OwnerReference';
 
 /**
  * ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.
@@ -39,11 +28,11 @@ export interface K8sIoApimachineryPkgApisMetaV1ObjectMeta {
      */
     annotations?: { [key: string]: string; };
     /**
-     * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+     * CreationTimestamp is a timestamp representing the server time when this object was created.
      * @type {string}
      * @memberof K8sIoApimachineryPkgApisMetaV1ObjectMeta
      */
-    creationTimestamp?: string;
+    creationTimestamp?: string | null;
     /**
      * Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only.
      * @type {number}
@@ -133,68 +122,3 @@ export interface K8sIoApimachineryPkgApisMetaV1ObjectMeta {
      */
     uid?: string;
 }
-
-/**
- * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1ObjectMeta interface.
- */
-export function instanceOfK8sIoApimachineryPkgApisMetaV1ObjectMeta(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1ObjectMeta {
-    return K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1ObjectMeta {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'annotations': !exists(json, 'annotations') ? undefined : json['annotations'],
-        'creationTimestamp': !exists(json, 'creationTimestamp') ? undefined : json['creationTimestamp'],
-        'deletionGracePeriodSeconds': !exists(json, 'deletionGracePeriodSeconds') ? undefined : json['deletionGracePeriodSeconds'],
-        'deletionTimestamp': !exists(json, 'deletionTimestamp') ? undefined : json['deletionTimestamp'],
-        'finalizers': !exists(json, 'finalizers') ? undefined : json['finalizers'],
-        'generateName': !exists(json, 'generateName') ? undefined : json['generateName'],
-        'generation': !exists(json, 'generation') ? undefined : json['generation'],
-        'labels': !exists(json, 'labels') ? undefined : json['labels'],
-        'managedFields': !exists(json, 'managedFields') ? undefined : ((json['managedFields'] as Array<any>).map(K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryFromJSON)),
-        'name': !exists(json, 'name') ? undefined : json['name'],
-        'namespace': !exists(json, 'namespace') ? undefined : json['namespace'],
-        'ownerReferences': !exists(json, 'ownerReferences') ? undefined : ((json['ownerReferences'] as Array<any>).map(K8sIoApimachineryPkgApisMetaV1OwnerReferenceFromJSON)),
-        'resourceVersion': !exists(json, 'resourceVersion') ? undefined : json['resourceVersion'],
-        'selfLink': !exists(json, 'selfLink') ? undefined : json['selfLink'],
-        'uid': !exists(json, 'uid') ? undefined : json['uid'],
-    };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value?: K8sIoApimachineryPkgApisMetaV1ObjectMeta | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'annotations': value.annotations,
-        'creationTimestamp': value.creationTimestamp,
-        'deletionGracePeriodSeconds': value.deletionGracePeriodSeconds,
-        'deletionTimestamp': value.deletionTimestamp,
-        'finalizers': value.finalizers,
-        'generateName': value.generateName,
-        'generation': value.generation,
-        'labels': value.labels,
-        'managedFields': value.managedFields === undefined ? undefined : ((value.managedFields as Array<any>).map(K8sIoApimachineryPkgApisMetaV1ManagedFieldsEntryToJSON)),
-        'name': value.name,
-        'namespace': value.namespace,
-        'ownerReferences': value.ownerReferences === undefined ? undefined : ((value.ownerReferences as Array<any>).map(K8sIoApimachineryPkgApisMetaV1OwnerReferenceToJSON)),
-        'resourceVersion': value.resourceVersion,
-        'selfLink': value.selfLink,
-        'uid': value.uid,
-    };
-}
-

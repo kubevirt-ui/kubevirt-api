@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1HTTPHeader,
-  IoK8sApiCoreV1HTTPHeaderFromJSON,
-  IoK8sApiCoreV1HTTPHeaderToJSON,
 } from './';
 
 /**
@@ -55,45 +52,4 @@ export interface IoK8sApiCoreV1HTTPGetAction {
    * @memberof IoK8sApiCoreV1HTTPGetAction
    */
   scheme?: string;
-}
-
-export function IoK8sApiCoreV1HTTPGetActionFromJSON(json: any): IoK8sApiCoreV1HTTPGetAction {
-  return IoK8sApiCoreV1HTTPGetActionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1HTTPGetActionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1HTTPGetAction {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    host: !exists(json, 'host') ? undefined : json['host'],
-    httpHeaders: !exists(json, 'httpHeaders')
-      ? undefined
-      : (json['httpHeaders'] as Array<any>).map(IoK8sApiCoreV1HTTPHeaderFromJSON),
-    path: !exists(json, 'path') ? undefined : json['path'],
-    port: json['port'],
-    scheme: !exists(json, 'scheme') ? undefined : json['scheme'],
-  };
-}
-
-export function IoK8sApiCoreV1HTTPGetActionToJSON(value?: IoK8sApiCoreV1HTTPGetAction | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    host: value.host,
-    httpHeaders:
-      value.httpHeaders === undefined
-        ? undefined
-        : (value.httpHeaders as Array<any>).map(IoK8sApiCoreV1HTTPHeaderToJSON),
-    path: value.path,
-    port: value.port,
-    scheme: value.scheme,
-  };
 }

@@ -12,25 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1DHCPOptions } from './V1DHCPOptions';
-import {
-    V1DHCPOptionsFromJSON,
-    V1DHCPOptionsFromJSONTyped,
-    V1DHCPOptionsToJSON,
-} from './V1DHCPOptions';
 import type { V1PluginBinding } from './V1PluginBinding';
-import {
-    V1PluginBindingFromJSON,
-    V1PluginBindingFromJSONTyped,
-    V1PluginBindingToJSON,
-} from './V1PluginBinding';
 import type { V1Port } from './V1Port';
-import {
-    V1PortFromJSON,
-    V1PortFromJSONTyped,
-    V1PortToJSON,
-} from './V1Port';
 
 /**
  * 
@@ -147,75 +131,3 @@ export interface V1Interface {
      */
     tag?: string;
 }
-
-/**
- * Check if a given object implements the V1Interface interface.
- */
-export function instanceOfV1Interface(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "name" in value;
-
-    return isInstance;
-}
-
-export function V1InterfaceFromJSON(json: any): V1Interface {
-    return V1InterfaceFromJSONTyped(json, false);
-}
-
-export function V1InterfaceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Interface {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'acpiIndex': !exists(json, 'acpiIndex') ? undefined : json['acpiIndex'],
-        'binding': !exists(json, 'binding') ? undefined : V1PluginBindingFromJSON(json['binding']),
-        'bootOrder': !exists(json, 'bootOrder') ? undefined : json['bootOrder'],
-        'bridge': !exists(json, 'bridge') ? undefined : json['bridge'],
-        'dhcpOptions': !exists(json, 'dhcpOptions') ? undefined : V1DHCPOptionsFromJSON(json['dhcpOptions']),
-        'macAddress': !exists(json, 'macAddress') ? undefined : json['macAddress'],
-        'macvtap': !exists(json, 'macvtap') ? undefined : json['macvtap'],
-        'masquerade': !exists(json, 'masquerade') ? undefined : json['masquerade'],
-        'model': !exists(json, 'model') ? undefined : json['model'],
-        'name': json['name'],
-        'passt': !exists(json, 'passt') ? undefined : json['passt'],
-        'passtBinding': !exists(json, 'passtBinding') ? undefined : json['passtBinding'],
-        'pciAddress': !exists(json, 'pciAddress') ? undefined : json['pciAddress'],
-        'ports': !exists(json, 'ports') ? undefined : ((json['ports'] as Array<any>).map(V1PortFromJSON)),
-        'slirp': !exists(json, 'slirp') ? undefined : json['slirp'],
-        'sriov': !exists(json, 'sriov') ? undefined : json['sriov'],
-        'state': !exists(json, 'state') ? undefined : json['state'],
-        'tag': !exists(json, 'tag') ? undefined : json['tag'],
-    };
-}
-
-export function V1InterfaceToJSON(value?: V1Interface | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'acpiIndex': value.acpiIndex,
-        'binding': V1PluginBindingToJSON(value.binding),
-        'bootOrder': value.bootOrder,
-        'bridge': value.bridge,
-        'dhcpOptions': V1DHCPOptionsToJSON(value.dhcpOptions),
-        'macAddress': value.macAddress,
-        'macvtap': value.macvtap,
-        'masquerade': value.masquerade,
-        'model': value.model,
-        'name': value.name,
-        'passt': value.passt,
-        'passtBinding': value.passtBinding,
-        'pciAddress': value.pciAddress,
-        'ports': value.ports === undefined ? undefined : ((value.ports as Array<any>).map(V1PortToJSON)),
-        'slirp': value.slirp,
-        'sriov': value.sriov,
-        'state': value.state,
-        'tag': value.tag,
-    };
-}
-

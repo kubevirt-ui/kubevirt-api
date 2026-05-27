@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Represents an empty directory for a pod. Empty directory volumes support ownership management and SELinux relabeling.
  * @export
@@ -67,38 +66,4 @@ export interface IoK8sApiCoreV1EmptyDirVolumeSource {
    * @memberof IoK8sApiCoreV1EmptyDirVolumeSource
    */
   sizeLimit?: string;
-}
-
-export function IoK8sApiCoreV1EmptyDirVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1EmptyDirVolumeSource {
-  return IoK8sApiCoreV1EmptyDirVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1EmptyDirVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1EmptyDirVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    medium: !exists(json, 'medium') ? undefined : json['medium'],
-    sizeLimit: !exists(json, 'sizeLimit') ? undefined : json['sizeLimit'],
-  };
-}
-
-export function IoK8sApiCoreV1EmptyDirVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1EmptyDirVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    medium: value.medium,
-    sizeLimit: value.sizeLimit,
-  };
 }

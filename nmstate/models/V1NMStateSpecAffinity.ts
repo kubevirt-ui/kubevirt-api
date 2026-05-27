@@ -12,22 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import type { V1NMStateSpecAffinityNodeAffinity } from './V1NMStateSpecAffinityNodeAffinity';
-import {
-  V1NMStateSpecAffinityNodeAffinityFromJSON,
-  V1NMStateSpecAffinityNodeAffinityToJSON,
-} from './V1NMStateSpecAffinityNodeAffinity';
 import type { V1NMStateSpecAffinityPodAffinity } from './V1NMStateSpecAffinityPodAffinity';
-import {
-  V1NMStateSpecAffinityPodAffinityFromJSON,
-  V1NMStateSpecAffinityPodAffinityToJSON,
-} from './V1NMStateSpecAffinityPodAffinity';
 import type { V1NMStateSpecAffinityPodAntiAffinity } from './V1NMStateSpecAffinityPodAntiAffinity';
-import {
-  V1NMStateSpecAffinityPodAntiAffinityFromJSON,
-  V1NMStateSpecAffinityPodAntiAffinityToJSON,
-} from './V1NMStateSpecAffinityPodAntiAffinity';
 
 /**
  * Affinity is an optional affinity selector that will be added to handler DaemonSet manifest.
@@ -53,51 +40,4 @@ export interface V1NMStateSpecAffinity {
    * @memberof V1NMStateSpecAffinity
    */
   podAntiAffinity?: V1NMStateSpecAffinityPodAntiAffinity;
-}
-
-/**
- * Check if a given object implements the V1NMStateSpecAffinity interface.
- */
-export function instanceOfV1NMStateSpecAffinity(_value: object): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1NMStateSpecAffinityFromJSON(json: any): V1NMStateSpecAffinity {
-  return V1NMStateSpecAffinityFromJSONTyped(json, false);
-}
-
-export function V1NMStateSpecAffinityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1NMStateSpecAffinity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    nodeAffinity: !exists(json, 'nodeAffinity')
-      ? undefined
-      : V1NMStateSpecAffinityNodeAffinityFromJSON(json['nodeAffinity']),
-    podAffinity: !exists(json, 'podAffinity')
-      ? undefined
-      : V1NMStateSpecAffinityPodAffinityFromJSON(json['podAffinity']),
-    podAntiAffinity: !exists(json, 'podAntiAffinity')
-      ? undefined
-      : V1NMStateSpecAffinityPodAntiAffinityFromJSON(json['podAntiAffinity']),
-  };
-}
-
-export function V1NMStateSpecAffinityToJSON(value?: V1NMStateSpecAffinity | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    nodeAffinity: V1NMStateSpecAffinityNodeAffinityToJSON(value.nodeAffinity),
-    podAffinity: V1NMStateSpecAffinityPodAffinityToJSON(value.podAffinity),
-    podAntiAffinity: V1NMStateSpecAffinityPodAntiAffinityToJSON(value.podAntiAffinity),
-  };
 }

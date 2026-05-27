@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ScaleStatus represents the current status of a scale subresource.
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiAutoscalingV1ScaleStatus {
    * @memberof IoK8sApiAutoscalingV1ScaleStatus
    */
   selector?: string;
-}
-
-export function IoK8sApiAutoscalingV1ScaleStatusFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV1ScaleStatus {
-  return IoK8sApiAutoscalingV1ScaleStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV1ScaleStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV1ScaleStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    replicas: json['replicas'],
-    selector: !exists(json, 'selector') ? undefined : json['selector'],
-  };
-}
-
-export function IoK8sApiAutoscalingV1ScaleStatusToJSON(
-  value?: IoK8sApiAutoscalingV1ScaleStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    replicas: value.replicas,
-    selector: value.selector,
-  };
 }

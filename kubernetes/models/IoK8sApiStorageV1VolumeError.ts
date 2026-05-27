@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * VolumeError captures an error encountered during a volume operation.
  * @export
@@ -39,38 +38,4 @@ export interface IoK8sApiStorageV1VolumeError {
    * @memberof IoK8sApiStorageV1VolumeError
    */
   time?: string;
-}
-
-export function IoK8sApiStorageV1VolumeErrorFromJSON(json: any): IoK8sApiStorageV1VolumeError {
-  return IoK8sApiStorageV1VolumeErrorFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStorageV1VolumeErrorFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStorageV1VolumeError {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    errorCode: !exists(json, 'errorCode') ? undefined : json['errorCode'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    time: !exists(json, 'time') ? undefined : json['time'],
-  };
-}
-
-export function IoK8sApiStorageV1VolumeErrorToJSON(
-  value?: IoK8sApiStorageV1VolumeError | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    errorCode: value.errorCode,
-    message: value.message,
-    time: value.time === undefined ? undefined : value.time,
-  };
 }

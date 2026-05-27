@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * CustomResourceSubresourceScale defines how to serve the scale subresource for CustomResources.
  * @export
@@ -37,43 +36,4 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResource
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourceScale
    */
   statusReplicasPath: string;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourceScaleFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourceScale {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourceScaleFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourceScaleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourceScale {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    labelSelectorPath: !exists(json, 'labelSelectorPath') ? undefined : json['labelSelectorPath'],
-    specReplicasPath: json['specReplicasPath'],
-    statusReplicasPath: json['statusReplicasPath'],
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourceScaleToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourceScale | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    labelSelectorPath: value.labelSelectorPath,
-    specReplicasPath: value.specReplicasPath,
-    statusReplicasPath: value.statusReplicasPath,
-  };
 }

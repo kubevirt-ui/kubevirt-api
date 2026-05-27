@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
  * @export
@@ -47,7 +46,6 @@ export interface K8sIoApiCoreV1NodeSelectorRequirement {
     values?: Array<string>;
 }
 
-
 /**
  * @export
  */
@@ -60,47 +58,3 @@ export const K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum = {
     NotIn: 'NotIn'
 } as const;
 export type K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum = typeof K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum[keyof typeof K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum];
-
-
-/**
- * Check if a given object implements the K8sIoApiCoreV1NodeSelectorRequirement interface.
- */
-export function instanceOfK8sIoApiCoreV1NodeSelectorRequirement(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "key" in value;
-    isInstance = isInstance && "operator" in value;
-
-    return isInstance;
-}
-
-export function K8sIoApiCoreV1NodeSelectorRequirementFromJSON(json: any): K8sIoApiCoreV1NodeSelectorRequirement {
-    return K8sIoApiCoreV1NodeSelectorRequirementFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1NodeSelectorRequirementFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1NodeSelectorRequirement {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'key': json['key'],
-        'operator': json['operator'],
-        'values': !exists(json, 'values') ? undefined : json['values'],
-    };
-}
-
-export function K8sIoApiCoreV1NodeSelectorRequirementToJSON(value?: K8sIoApiCoreV1NodeSelectorRequirement | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'key': value.key,
-        'operator': value.operator,
-        'values': value.values,
-    };
-}
-

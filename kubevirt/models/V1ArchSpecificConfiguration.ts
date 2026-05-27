@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -38,44 +37,3 @@ export interface V1ArchSpecificConfiguration {
      */
     ovmfPath?: string;
 }
-
-/**
- * Check if a given object implements the V1ArchSpecificConfiguration interface.
- */
-export function instanceOfV1ArchSpecificConfiguration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1ArchSpecificConfigurationFromJSON(json: any): V1ArchSpecificConfiguration {
-    return V1ArchSpecificConfigurationFromJSONTyped(json, false);
-}
-
-export function V1ArchSpecificConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ArchSpecificConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'emulatedMachines': !exists(json, 'emulatedMachines') ? undefined : json['emulatedMachines'],
-        'machineType': !exists(json, 'machineType') ? undefined : json['machineType'],
-        'ovmfPath': !exists(json, 'ovmfPath') ? undefined : json['ovmfPath'],
-    };
-}
-
-export function V1ArchSpecificConfigurationToJSON(value?: V1ArchSpecificConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'emulatedMachines': value.emulatedMachines,
-        'machineType': value.machineType,
-        'ovmfPath': value.ovmfPath,
-    };
-}
-

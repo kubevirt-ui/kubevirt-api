@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -55,46 +52,4 @@ export interface IoK8sApiCoreV1ClusterTrustBundleProjection {
    * @memberof IoK8sApiCoreV1ClusterTrustBundleProjection
    */
   signerName?: string;
-}
-
-export function IoK8sApiCoreV1ClusterTrustBundleProjectionFromJSON(
-  json: any,
-): IoK8sApiCoreV1ClusterTrustBundleProjection {
-  return IoK8sApiCoreV1ClusterTrustBundleProjectionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ClusterTrustBundleProjectionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ClusterTrustBundleProjection {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    labelSelector: !exists(json, 'labelSelector')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['labelSelector']),
-    name: !exists(json, 'name') ? undefined : json['name'],
-    optional: !exists(json, 'optional') ? undefined : json['optional'],
-    path: json['path'],
-    signerName: !exists(json, 'signerName') ? undefined : json['signerName'],
-  };
-}
-
-export function IoK8sApiCoreV1ClusterTrustBundleProjectionToJSON(
-  value?: IoK8sApiCoreV1ClusterTrustBundleProjection | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    labelSelector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.labelSelector),
-    name: value.name,
-    optional: value.optional,
-    path: value.path,
-    signerName: value.signerName,
-  };
 }

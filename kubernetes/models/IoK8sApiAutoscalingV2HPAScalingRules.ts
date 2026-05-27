@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAutoscalingV2HPAScalingPolicy,
-  IoK8sApiAutoscalingV2HPAScalingPolicyFromJSON,
-  IoK8sApiAutoscalingV2HPAScalingPolicyToJSON,
 } from './';
 
 /**
@@ -89,49 +86,4 @@ export interface IoK8sApiAutoscalingV2HPAScalingRules {
    * @memberof IoK8sApiAutoscalingV2HPAScalingRules
    */
   tolerance?: string;
-}
-
-export function IoK8sApiAutoscalingV2HPAScalingRulesFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV2HPAScalingRules {
-  return IoK8sApiAutoscalingV2HPAScalingRulesFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV2HPAScalingRulesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV2HPAScalingRules {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    policies: !exists(json, 'policies')
-      ? undefined
-      : (json['policies'] as Array<any>).map(IoK8sApiAutoscalingV2HPAScalingPolicyFromJSON),
-    selectPolicy: !exists(json, 'selectPolicy') ? undefined : json['selectPolicy'],
-    stabilizationWindowSeconds: !exists(json, 'stabilizationWindowSeconds')
-      ? undefined
-      : json['stabilizationWindowSeconds'],
-    tolerance: !exists(json, 'tolerance') ? undefined : json['tolerance'],
-  };
-}
-
-export function IoK8sApiAutoscalingV2HPAScalingRulesToJSON(
-  value?: IoK8sApiAutoscalingV2HPAScalingRules | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    policies:
-      value.policies === undefined
-        ? undefined
-        : (value.policies as Array<any>).map(IoK8sApiAutoscalingV2HPAScalingPolicyToJSON),
-    selectPolicy: value.selectPolicy,
-    stabilizationWindowSeconds: value.stabilizationWindowSeconds,
-    tolerance: value.tolerance,
-  };
 }

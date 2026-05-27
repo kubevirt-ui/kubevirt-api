@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiStorageV1TokenRequest,
-  IoK8sApiStorageV1TokenRequestFromJSON,
-  IoK8sApiStorageV1TokenRequestToJSON,
 } from './';
 
 /**
@@ -126,59 +123,4 @@ export interface IoK8sApiStorageV1CSIDriverSpec {
    * @memberof IoK8sApiStorageV1CSIDriverSpec
    */
   volumeLifecycleModes?: Array<string>;
-}
-
-export function IoK8sApiStorageV1CSIDriverSpecFromJSON(json: any): IoK8sApiStorageV1CSIDriverSpec {
-  return IoK8sApiStorageV1CSIDriverSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStorageV1CSIDriverSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStorageV1CSIDriverSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    attachRequired: !exists(json, 'attachRequired') ? undefined : json['attachRequired'],
-    fsGroupPolicy: !exists(json, 'fsGroupPolicy') ? undefined : json['fsGroupPolicy'],
-    nodeAllocatableUpdatePeriodSeconds: !exists(json, 'nodeAllocatableUpdatePeriodSeconds')
-      ? undefined
-      : json['nodeAllocatableUpdatePeriodSeconds'],
-    podInfoOnMount: !exists(json, 'podInfoOnMount') ? undefined : json['podInfoOnMount'],
-    requiresRepublish: !exists(json, 'requiresRepublish') ? undefined : json['requiresRepublish'],
-    seLinuxMount: !exists(json, 'seLinuxMount') ? undefined : json['seLinuxMount'],
-    storageCapacity: !exists(json, 'storageCapacity') ? undefined : json['storageCapacity'],
-    tokenRequests: !exists(json, 'tokenRequests')
-      ? undefined
-      : (json['tokenRequests'] as Array<any>).map(IoK8sApiStorageV1TokenRequestFromJSON),
-    volumeLifecycleModes: !exists(json, 'volumeLifecycleModes')
-      ? undefined
-      : json['volumeLifecycleModes'],
-  };
-}
-
-export function IoK8sApiStorageV1CSIDriverSpecToJSON(
-  value?: IoK8sApiStorageV1CSIDriverSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    attachRequired: value.attachRequired,
-    fsGroupPolicy: value.fsGroupPolicy,
-    nodeAllocatableUpdatePeriodSeconds: value.nodeAllocatableUpdatePeriodSeconds,
-    podInfoOnMount: value.podInfoOnMount,
-    requiresRepublish: value.requiresRepublish,
-    seLinuxMount: value.seLinuxMount,
-    storageCapacity: value.storageCapacity,
-    tokenRequests:
-      value.tokenRequests === undefined
-        ? undefined
-        : (value.tokenRequests as Array<any>).map(IoK8sApiStorageV1TokenRequestToJSON),
-    volumeLifecycleModes: value.volumeLifecycleModes,
-  };
 }

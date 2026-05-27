@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * NonResourceAttributes includes the authorization attributes available for non-resource requests to the Authorizer interface
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiAuthorizationV1NonResourceAttributes {
    * @memberof IoK8sApiAuthorizationV1NonResourceAttributes
    */
   verb?: string;
-}
-
-export function IoK8sApiAuthorizationV1NonResourceAttributesFromJSON(
-  json: any,
-): IoK8sApiAuthorizationV1NonResourceAttributes {
-  return IoK8sApiAuthorizationV1NonResourceAttributesFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthorizationV1NonResourceAttributesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthorizationV1NonResourceAttributes {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    path: !exists(json, 'path') ? undefined : json['path'],
-    verb: !exists(json, 'verb') ? undefined : json['verb'],
-  };
-}
-
-export function IoK8sApiAuthorizationV1NonResourceAttributesToJSON(
-  value?: IoK8sApiAuthorizationV1NonResourceAttributes | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    path: value.path,
-    verb: value.verb,
-  };
 }

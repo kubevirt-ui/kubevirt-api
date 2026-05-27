@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiFlowcontrolV1NonResourcePolicyRule,
-  IoK8sApiFlowcontrolV1NonResourcePolicyRuleFromJSON,
-  IoK8sApiFlowcontrolV1NonResourcePolicyRuleToJSON,
   IoK8sApiFlowcontrolV1ResourcePolicyRule,
-  IoK8sApiFlowcontrolV1ResourcePolicyRuleFromJSON,
-  IoK8sApiFlowcontrolV1ResourcePolicyRuleToJSON,
   IoK8sApiFlowcontrolV1Subject,
-  IoK8sApiFlowcontrolV1SubjectFromJSON,
-  IoK8sApiFlowcontrolV1SubjectToJSON,
 } from './';
 
 /**
@@ -49,54 +42,4 @@ export interface IoK8sApiFlowcontrolV1PolicyRulesWithSubjects {
    * @memberof IoK8sApiFlowcontrolV1PolicyRulesWithSubjects
    */
   subjects: Array<IoK8sApiFlowcontrolV1Subject>;
-}
-
-export function IoK8sApiFlowcontrolV1PolicyRulesWithSubjectsFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1PolicyRulesWithSubjects {
-  return IoK8sApiFlowcontrolV1PolicyRulesWithSubjectsFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1PolicyRulesWithSubjectsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1PolicyRulesWithSubjects {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    nonResourceRules: !exists(json, 'nonResourceRules')
-      ? undefined
-      : (json['nonResourceRules'] as Array<any>).map(
-          IoK8sApiFlowcontrolV1NonResourcePolicyRuleFromJSON,
-        ),
-    resourceRules: !exists(json, 'resourceRules')
-      ? undefined
-      : (json['resourceRules'] as Array<any>).map(IoK8sApiFlowcontrolV1ResourcePolicyRuleFromJSON),
-    subjects: (json['subjects'] as Array<any>).map(IoK8sApiFlowcontrolV1SubjectFromJSON),
-  };
-}
-
-export function IoK8sApiFlowcontrolV1PolicyRulesWithSubjectsToJSON(
-  value?: IoK8sApiFlowcontrolV1PolicyRulesWithSubjects | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    nonResourceRules:
-      value.nonResourceRules === undefined
-        ? undefined
-        : (value.nonResourceRules as Array<any>).map(
-            IoK8sApiFlowcontrolV1NonResourcePolicyRuleToJSON,
-          ),
-    resourceRules:
-      value.resourceRules === undefined
-        ? undefined
-        : (value.resourceRules as Array<any>).map(IoK8sApiFlowcontrolV1ResourcePolicyRuleToJSON),
-    subjects: (value.subjects as Array<any>).map(IoK8sApiFlowcontrolV1SubjectToJSON),
-  };
 }

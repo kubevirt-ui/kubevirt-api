@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApiCoreV1PodDNSConfigOption } from './K8sIoApiCoreV1PodDNSConfigOption';
-import {
-    K8sIoApiCoreV1PodDNSConfigOptionFromJSON,
-    K8sIoApiCoreV1PodDNSConfigOptionFromJSONTyped,
-    K8sIoApiCoreV1PodDNSConfigOptionToJSON,
-} from './K8sIoApiCoreV1PodDNSConfigOption';
 
 /**
  * PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.
@@ -45,44 +39,3 @@ export interface K8sIoApiCoreV1PodDNSConfig {
      */
     searches?: Array<string>;
 }
-
-/**
- * Check if a given object implements the K8sIoApiCoreV1PodDNSConfig interface.
- */
-export function instanceOfK8sIoApiCoreV1PodDNSConfig(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function K8sIoApiCoreV1PodDNSConfigFromJSON(json: any): K8sIoApiCoreV1PodDNSConfig {
-    return K8sIoApiCoreV1PodDNSConfigFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1PodDNSConfigFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1PodDNSConfig {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'nameservers': !exists(json, 'nameservers') ? undefined : json['nameservers'],
-        'options': !exists(json, 'options') ? undefined : ((json['options'] as Array<any>).map(K8sIoApiCoreV1PodDNSConfigOptionFromJSON)),
-        'searches': !exists(json, 'searches') ? undefined : json['searches'],
-    };
-}
-
-export function K8sIoApiCoreV1PodDNSConfigToJSON(value?: K8sIoApiCoreV1PodDNSConfig | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'nameservers': value.nameservers,
-        'options': value.options === undefined ? undefined : ((value.options as Array<any>).map(K8sIoApiCoreV1PodDNSConfigOptionToJSON)),
-        'searches': value.searches,
-    };
-}
-

@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1SecretReference,
-  IoK8sApiCoreV1SecretReferenceFromJSON,
-  IoK8sApiCoreV1SecretReferenceToJSON,
 } from './';
 
 /**
@@ -61,48 +58,4 @@ export interface IoK8sApiCoreV1CephFSPersistentVolumeSource {
    * @memberof IoK8sApiCoreV1CephFSPersistentVolumeSource
    */
   user?: string;
-}
-
-export function IoK8sApiCoreV1CephFSPersistentVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1CephFSPersistentVolumeSource {
-  return IoK8sApiCoreV1CephFSPersistentVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1CephFSPersistentVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1CephFSPersistentVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    monitors: json['monitors'],
-    path: !exists(json, 'path') ? undefined : json['path'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    secretFile: !exists(json, 'secretFile') ? undefined : json['secretFile'],
-    secretRef: !exists(json, 'secretRef')
-      ? undefined
-      : IoK8sApiCoreV1SecretReferenceFromJSON(json['secretRef']),
-    user: !exists(json, 'user') ? undefined : json['user'],
-  };
-}
-
-export function IoK8sApiCoreV1CephFSPersistentVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1CephFSPersistentVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    monitors: value.monitors,
-    path: value.path,
-    readOnly: value.readOnly,
-    secretFile: value.secretFile,
-    secretRef: IoK8sApiCoreV1SecretReferenceToJSON(value.secretRef),
-    user: value.user,
-  };
 }

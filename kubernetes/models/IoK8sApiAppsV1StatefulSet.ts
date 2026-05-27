@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAppsV1StatefulSetSpec,
-  IoK8sApiAppsV1StatefulSetSpecFromJSON,
-  IoK8sApiAppsV1StatefulSetSpecToJSON,
   IoK8sApiAppsV1StatefulSetStatus,
-  IoK8sApiAppsV1StatefulSetStatusFromJSON,
-  IoK8sApiAppsV1StatefulSetStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -65,44 +58,4 @@ export interface IoK8sApiAppsV1StatefulSet {
    * @memberof IoK8sApiAppsV1StatefulSet
    */
   status?: IoK8sApiAppsV1StatefulSetStatus;
-}
-
-export function IoK8sApiAppsV1StatefulSetFromJSON(json: any): IoK8sApiAppsV1StatefulSet {
-  return IoK8sApiAppsV1StatefulSetFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1StatefulSetFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1StatefulSet {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec') ? undefined : IoK8sApiAppsV1StatefulSetSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiAppsV1StatefulSetStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiAppsV1StatefulSetToJSON(value?: IoK8sApiAppsV1StatefulSet | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiAppsV1StatefulSetSpecToJSON(value.spec),
-    status: IoK8sApiAppsV1StatefulSetStatusToJSON(value.status),
-  };
 }

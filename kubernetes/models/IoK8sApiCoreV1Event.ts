@@ -12,20 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1EventSeries,
-  IoK8sApiCoreV1EventSeriesFromJSON,
-  IoK8sApiCoreV1EventSeriesToJSON,
   IoK8sApiCoreV1EventSource,
-  IoK8sApiCoreV1EventSourceFromJSON,
-  IoK8sApiCoreV1EventSourceToJSON,
   IoK8sApiCoreV1ObjectReference,
-  IoK8sApiCoreV1ObjectReferenceFromJSON,
-  IoK8sApiCoreV1ObjectReferenceToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -136,68 +127,4 @@ export interface IoK8sApiCoreV1Event {
    * @memberof IoK8sApiCoreV1Event
    */
   type?: string;
-}
-
-export function IoK8sApiCoreV1EventFromJSON(json: any): IoK8sApiCoreV1Event {
-  return IoK8sApiCoreV1EventFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1EventFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1Event {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    action: !exists(json, 'action') ? undefined : json['action'],
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    count: !exists(json, 'count') ? undefined : json['count'],
-    eventTime: !exists(json, 'eventTime') ? undefined : json['eventTime'],
-    firstTimestamp: !exists(json, 'firstTimestamp') ? undefined : json['firstTimestamp'],
-    involvedObject: IoK8sApiCoreV1ObjectReferenceFromJSON(json['involvedObject']),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    lastTimestamp: !exists(json, 'lastTimestamp') ? undefined : json['lastTimestamp'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    related: !exists(json, 'related')
-      ? undefined
-      : IoK8sApiCoreV1ObjectReferenceFromJSON(json['related']),
-    reportingComponent: !exists(json, 'reportingComponent')
-      ? undefined
-      : json['reportingComponent'],
-    reportingInstance: !exists(json, 'reportingInstance') ? undefined : json['reportingInstance'],
-    series: !exists(json, 'series') ? undefined : IoK8sApiCoreV1EventSeriesFromJSON(json['series']),
-    source: !exists(json, 'source') ? undefined : IoK8sApiCoreV1EventSourceFromJSON(json['source']),
-    type: !exists(json, 'type') ? undefined : json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1EventToJSON(value?: IoK8sApiCoreV1Event | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    action: value.action,
-    apiVersion: value.apiVersion,
-    count: value.count,
-    eventTime: value.eventTime === undefined ? undefined : value.eventTime,
-    firstTimestamp: value.firstTimestamp === undefined ? undefined : value.firstTimestamp,
-    involvedObject: IoK8sApiCoreV1ObjectReferenceToJSON(value.involvedObject),
-    kind: value.kind,
-    lastTimestamp: value.lastTimestamp === undefined ? undefined : value.lastTimestamp,
-    message: value.message,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    reason: value.reason,
-    related: IoK8sApiCoreV1ObjectReferenceToJSON(value.related),
-    reportingComponent: value.reportingComponent,
-    reportingInstance: value.reportingInstance,
-    series: IoK8sApiCoreV1EventSeriesToJSON(value.series),
-    source: IoK8sApiCoreV1EventSourceToJSON(value.source),
-    type: value.type,
-  };
 }

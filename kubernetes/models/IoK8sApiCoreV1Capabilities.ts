@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Adds and removes POSIX capabilities from running containers.
  * @export
@@ -31,34 +30,4 @@ export interface IoK8sApiCoreV1Capabilities {
    * @memberof IoK8sApiCoreV1Capabilities
    */
   drop?: Array<string>;
-}
-
-export function IoK8sApiCoreV1CapabilitiesFromJSON(json: any): IoK8sApiCoreV1Capabilities {
-  return IoK8sApiCoreV1CapabilitiesFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1CapabilitiesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1Capabilities {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    add: !exists(json, 'add') ? undefined : json['add'],
-    drop: !exists(json, 'drop') ? undefined : json['drop'],
-  };
-}
-
-export function IoK8sApiCoreV1CapabilitiesToJSON(value?: IoK8sApiCoreV1Capabilities | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    add: value.add,
-    drop: value.drop,
-  };
 }

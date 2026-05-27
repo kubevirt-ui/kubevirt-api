@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * NodeCondition contains condition information for a node.
  * @export
@@ -55,45 +54,4 @@ export interface IoK8sApiCoreV1NodeCondition {
    * @memberof IoK8sApiCoreV1NodeCondition
    */
   type: string;
-}
-
-export function IoK8sApiCoreV1NodeConditionFromJSON(json: any): IoK8sApiCoreV1NodeCondition {
-  return IoK8sApiCoreV1NodeConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NodeConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NodeCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastHeartbeatTime: !exists(json, 'lastHeartbeatTime') ? undefined : json['lastHeartbeatTime'],
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1NodeConditionToJSON(value?: IoK8sApiCoreV1NodeCondition | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastHeartbeatTime: value.lastHeartbeatTime === undefined ? undefined : value.lastHeartbeatTime,
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

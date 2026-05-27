@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ResourceClaimConsumerReference contains enough information to let you locate the consumer of a ResourceClaim. The user must be a resource in the same namespace as the ResourceClaim.
  * @export
@@ -43,42 +42,4 @@ export interface IoK8sApiResourceV1alpha3ResourceClaimConsumerReference {
    * @memberof IoK8sApiResourceV1alpha3ResourceClaimConsumerReference
    */
   uid: string;
-}
-
-export function IoK8sApiResourceV1alpha3ResourceClaimConsumerReferenceFromJSON(
-  json: any,
-): IoK8sApiResourceV1alpha3ResourceClaimConsumerReference {
-  return IoK8sApiResourceV1alpha3ResourceClaimConsumerReferenceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3ResourceClaimConsumerReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3ResourceClaimConsumerReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiGroup: !exists(json, 'apiGroup') ? undefined : json['apiGroup'],
-    name: json['name'],
-    resource: json['resource'],
-    uid: json['uid'],
-  };
-}
-
-export function IoK8sApiResourceV1alpha3ResourceClaimConsumerReferenceToJSON(
-  value?: IoK8sApiResourceV1alpha3ResourceClaimConsumerReference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiGroup: value.apiGroup,
-    name: value.name,
-    resource: value.resource,
-    uid: value.uid,
-  };
 }

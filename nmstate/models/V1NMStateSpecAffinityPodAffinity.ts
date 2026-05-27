@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
  * @export
@@ -45,59 +44,4 @@ export interface V1NMStateSpecAffinityPodAffinity {
    * @memberof V1NMStateSpecAffinityPodAffinity
    */
   requiredDuringSchedulingIgnoredDuringExecution?: any | null;
-}
-
-/**
- * Check if a given object implements the V1NMStateSpecAffinityPodAffinity interface.
- */
-export function instanceOfV1NMStateSpecAffinityPodAffinity(_value: object): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1NMStateSpecAffinityPodAffinityFromJSON(
-  json: any,
-): V1NMStateSpecAffinityPodAffinity {
-  return V1NMStateSpecAffinityPodAffinityFromJSONTyped(json, false);
-}
-
-export function V1NMStateSpecAffinityPodAffinityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1NMStateSpecAffinityPodAffinity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'preferredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : json['preferredDuringSchedulingIgnoredDuringExecution'],
-    requiredDuringSchedulingIgnoredDuringExecution: !exists(
-      json,
-      'requiredDuringSchedulingIgnoredDuringExecution',
-    )
-      ? undefined
-      : json['requiredDuringSchedulingIgnoredDuringExecution'],
-  };
-}
-
-export function V1NMStateSpecAffinityPodAffinityToJSON(
-  value?: V1NMStateSpecAffinityPodAffinity | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preferredDuringSchedulingIgnoredDuringExecution:
-      value.preferredDuringSchedulingIgnoredDuringExecution,
-    requiredDuringSchedulingIgnoredDuringExecution:
-      value.requiredDuringSchedulingIgnoredDuringExecution,
-  };
 }

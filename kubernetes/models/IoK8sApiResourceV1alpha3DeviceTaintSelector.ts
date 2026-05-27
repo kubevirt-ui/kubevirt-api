@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1alpha3DeviceSelector,
-  IoK8sApiResourceV1alpha3DeviceSelectorFromJSON,
-  IoK8sApiResourceV1alpha3DeviceSelectorToJSON,
 } from './';
 
 /**
@@ -59,49 +56,4 @@ export interface IoK8sApiResourceV1alpha3DeviceTaintSelector {
    * @memberof IoK8sApiResourceV1alpha3DeviceTaintSelector
    */
   selectors?: Array<IoK8sApiResourceV1alpha3DeviceSelector>;
-}
-
-export function IoK8sApiResourceV1alpha3DeviceTaintSelectorFromJSON(
-  json: any,
-): IoK8sApiResourceV1alpha3DeviceTaintSelector {
-  return IoK8sApiResourceV1alpha3DeviceTaintSelectorFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3DeviceTaintSelectorFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3DeviceTaintSelector {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    device: !exists(json, 'device') ? undefined : json['device'],
-    deviceClassName: !exists(json, 'deviceClassName') ? undefined : json['deviceClassName'],
-    driver: !exists(json, 'driver') ? undefined : json['driver'],
-    pool: !exists(json, 'pool') ? undefined : json['pool'],
-    selectors: !exists(json, 'selectors')
-      ? undefined
-      : (json['selectors'] as Array<any>).map(IoK8sApiResourceV1alpha3DeviceSelectorFromJSON),
-  };
-}
-
-export function IoK8sApiResourceV1alpha3DeviceTaintSelectorToJSON(
-  value?: IoK8sApiResourceV1alpha3DeviceTaintSelector | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    device: value.device,
-    deviceClassName: value.deviceClassName,
-    driver: value.driver,
-    pool: value.pool,
-    selectors:
-      value.selectors === undefined
-        ? undefined
-        : (value.selectors as Array<any>).map(IoK8sApiResourceV1alpha3DeviceSelectorToJSON),
-  };
 }

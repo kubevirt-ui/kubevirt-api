@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingSpec,
-  IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingSpecFromJSON,
-  IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingSpecToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -56,51 +51,4 @@ export interface IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBin
    * @memberof IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding
    */
   spec?: IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingSpec;
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding {
-  return IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingSpecFromJSON(
-          json['spec'],
-        ),
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingToJSON(
-  value?: IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBinding | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingSpecToJSON(value.spec),
-  };
 }

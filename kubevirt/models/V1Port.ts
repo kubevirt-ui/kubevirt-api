@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * Port represents a port to expose from the virtual machine. Default protocol TCP. The port field is mandatory
  * @export
@@ -38,45 +37,3 @@ export interface V1Port {
      */
     protocol?: string;
 }
-
-/**
- * Check if a given object implements the V1Port interface.
- */
-export function instanceOfV1Port(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "port" in value;
-
-    return isInstance;
-}
-
-export function V1PortFromJSON(json: any): V1Port {
-    return V1PortFromJSONTyped(json, false);
-}
-
-export function V1PortFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Port {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'name': !exists(json, 'name') ? undefined : json['name'],
-        'port': json['port'],
-        'protocol': !exists(json, 'protocol') ? undefined : json['protocol'],
-    };
-}
-
-export function V1PortToJSON(value?: V1Port | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'name': value.name,
-        'port': value.port,
-        'protocol': value.protocol,
-    };
-}
-

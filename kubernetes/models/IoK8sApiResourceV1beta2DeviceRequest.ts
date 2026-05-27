@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1beta2DeviceSubRequest,
-  IoK8sApiResourceV1beta2DeviceSubRequestFromJSON,
-  IoK8sApiResourceV1beta2DeviceSubRequestToJSON,
   IoK8sApiResourceV1beta2ExactDeviceRequest,
-  IoK8sApiResourceV1beta2ExactDeviceRequestFromJSON,
-  IoK8sApiResourceV1beta2ExactDeviceRequestToJSON,
 } from './';
 
 /**
@@ -52,47 +47,4 @@ export interface IoK8sApiResourceV1beta2DeviceRequest {
    * @memberof IoK8sApiResourceV1beta2DeviceRequest
    */
   name: string;
-}
-
-export function IoK8sApiResourceV1beta2DeviceRequestFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta2DeviceRequest {
-  return IoK8sApiResourceV1beta2DeviceRequestFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta2DeviceRequestFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta2DeviceRequest {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    exactly: !exists(json, 'exactly')
-      ? undefined
-      : IoK8sApiResourceV1beta2ExactDeviceRequestFromJSON(json['exactly']),
-    firstAvailable: !exists(json, 'firstAvailable')
-      ? undefined
-      : (json['firstAvailable'] as Array<any>).map(IoK8sApiResourceV1beta2DeviceSubRequestFromJSON),
-    name: json['name'],
-  };
-}
-
-export function IoK8sApiResourceV1beta2DeviceRequestToJSON(
-  value?: IoK8sApiResourceV1beta2DeviceRequest | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    exactly: IoK8sApiResourceV1beta2ExactDeviceRequestToJSON(value.exactly),
-    firstAvailable:
-      value.firstAvailable === undefined
-        ? undefined
-        : (value.firstAvailable as Array<any>).map(IoK8sApiResourceV1beta2DeviceSubRequestToJSON),
-    name: value.name,
-  };
 }

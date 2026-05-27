@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * SuccessPolicyRule describes rule for declaring a Job as succeeded. Each rule must have at least one of the "succeededIndexes" or "succeededCount" specified.
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiBatchV1SuccessPolicyRule {
    * @memberof IoK8sApiBatchV1SuccessPolicyRule
    */
   succeededIndexes?: string;
-}
-
-export function IoK8sApiBatchV1SuccessPolicyRuleFromJSON(
-  json: any,
-): IoK8sApiBatchV1SuccessPolicyRule {
-  return IoK8sApiBatchV1SuccessPolicyRuleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiBatchV1SuccessPolicyRuleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiBatchV1SuccessPolicyRule {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    succeededCount: !exists(json, 'succeededCount') ? undefined : json['succeededCount'],
-    succeededIndexes: !exists(json, 'succeededIndexes') ? undefined : json['succeededIndexes'],
-  };
-}
-
-export function IoK8sApiBatchV1SuccessPolicyRuleToJSON(
-  value?: IoK8sApiBatchV1SuccessPolicyRule | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    succeededCount: value.succeededCount,
-    succeededIndexes: value.succeededIndexes,
-  };
 }

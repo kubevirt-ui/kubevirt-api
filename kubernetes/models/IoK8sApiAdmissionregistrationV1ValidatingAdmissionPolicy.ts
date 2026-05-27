@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicySpec,
-  IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicySpecFromJSON,
-  IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicySpecToJSON,
   IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyStatus,
-  IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyStatusFromJSON,
-  IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,50 +54,4 @@ export interface IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicy {
    * @memberof IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicy
    */
   status?: IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyStatus;
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicy {
-  return IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicy {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicySpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyToJSON(
-  value?: IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicy | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicySpecToJSON(value.spec),
-    status: IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyStatusToJSON(value.status),
-  };
 }

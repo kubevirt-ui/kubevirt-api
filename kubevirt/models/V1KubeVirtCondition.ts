@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * KubeVirtCondition represents a condition of a KubeVirt deployment
  * @export
@@ -44,48 +43,3 @@ export interface V1KubeVirtCondition {
      */
     type: string;
 }
-
-/**
- * Check if a given object implements the V1KubeVirtCondition interface.
- */
-export function instanceOfV1KubeVirtCondition(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "status" in value;
-    isInstance = isInstance && "type" in value;
-
-    return isInstance;
-}
-
-export function V1KubeVirtConditionFromJSON(json: any): V1KubeVirtCondition {
-    return V1KubeVirtConditionFromJSONTyped(json, false);
-}
-
-export function V1KubeVirtConditionFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1KubeVirtCondition {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'message': !exists(json, 'message') ? undefined : json['message'],
-        'reason': !exists(json, 'reason') ? undefined : json['reason'],
-        'status': json['status'],
-        'type': json['type'],
-    };
-}
-
-export function V1KubeVirtConditionToJSON(value?: V1KubeVirtCondition | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'message': value.message,
-        'reason': value.reason,
-        'status': value.status,
-        'type': value.type,
-    };
-}
-

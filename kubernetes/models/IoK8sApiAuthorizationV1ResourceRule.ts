@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ResourceRule is the list of actions the subject is allowed to perform on resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
  * @export
@@ -44,42 +43,4 @@ export interface IoK8sApiAuthorizationV1ResourceRule {
    * @memberof IoK8sApiAuthorizationV1ResourceRule
    */
   verbs: Array<string>;
-}
-
-export function IoK8sApiAuthorizationV1ResourceRuleFromJSON(
-  json: any,
-): IoK8sApiAuthorizationV1ResourceRule {
-  return IoK8sApiAuthorizationV1ResourceRuleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthorizationV1ResourceRuleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthorizationV1ResourceRule {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiGroups: !exists(json, 'apiGroups') ? undefined : json['apiGroups'],
-    resourceNames: !exists(json, 'resourceNames') ? undefined : json['resourceNames'],
-    resources: !exists(json, 'resources') ? undefined : json['resources'],
-    verbs: json['verbs'],
-  };
-}
-
-export function IoK8sApiAuthorizationV1ResourceRuleToJSON(
-  value?: IoK8sApiAuthorizationV1ResourceRule | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiGroups: value.apiGroups,
-    resourceNames: value.resourceNames,
-    resources: value.resources,
-    verbs: value.verbs,
-  };
 }

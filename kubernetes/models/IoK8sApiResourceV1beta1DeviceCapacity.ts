@@ -61,35 +61,3 @@ export interface IoK8sApiResourceV1beta1DeviceCapacity {
    */
   value: string;
 }
-
-export function IoK8sApiResourceV1beta1DeviceCapacityFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta1DeviceCapacity {
-  return IoK8sApiResourceV1beta1DeviceCapacityFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta1DeviceCapacityFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta1DeviceCapacity {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    value: json['value'],
-  };
-}
-
-export function IoK8sApiResourceV1beta1DeviceCapacityToJSON(
-  value?: IoK8sApiResourceV1beta1DeviceCapacity | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    value: value.value,
-  };
-}

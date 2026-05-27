@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * SecretEnvSource selects a Secret to populate the environment variables with.
  *
@@ -33,36 +32,4 @@ export interface IoK8sApiCoreV1SecretEnvSource {
    * @memberof IoK8sApiCoreV1SecretEnvSource
    */
   optional?: boolean;
-}
-
-export function IoK8sApiCoreV1SecretEnvSourceFromJSON(json: any): IoK8sApiCoreV1SecretEnvSource {
-  return IoK8sApiCoreV1SecretEnvSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1SecretEnvSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1SecretEnvSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: !exists(json, 'name') ? undefined : json['name'],
-    optional: !exists(json, 'optional') ? undefined : json['optional'],
-  };
-}
-
-export function IoK8sApiCoreV1SecretEnvSourceToJSON(
-  value?: IoK8sApiCoreV1SecretEnvSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    optional: value.optional,
-  };
 }

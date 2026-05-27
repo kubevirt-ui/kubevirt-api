@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAppsV1ReplicaSetCondition,
-  IoK8sApiAppsV1ReplicaSetConditionFromJSON,
-  IoK8sApiAppsV1ReplicaSetConditionToJSON,
 } from './';
 
 /**
@@ -69,57 +66,4 @@ export interface IoK8sApiAppsV1ReplicaSetStatus {
    * @memberof IoK8sApiAppsV1ReplicaSetStatus
    */
   terminatingReplicas?: number;
-}
-
-export function IoK8sApiAppsV1ReplicaSetStatusFromJSON(json: any): IoK8sApiAppsV1ReplicaSetStatus {
-  return IoK8sApiAppsV1ReplicaSetStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1ReplicaSetStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1ReplicaSetStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    availableReplicas: !exists(json, 'availableReplicas') ? undefined : json['availableReplicas'],
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(IoK8sApiAppsV1ReplicaSetConditionFromJSON),
-    fullyLabeledReplicas: !exists(json, 'fullyLabeledReplicas')
-      ? undefined
-      : json['fullyLabeledReplicas'],
-    observedGeneration: !exists(json, 'observedGeneration')
-      ? undefined
-      : json['observedGeneration'],
-    readyReplicas: !exists(json, 'readyReplicas') ? undefined : json['readyReplicas'],
-    replicas: json['replicas'],
-    terminatingReplicas: !exists(json, 'terminatingReplicas')
-      ? undefined
-      : json['terminatingReplicas'],
-  };
-}
-
-export function IoK8sApiAppsV1ReplicaSetStatusToJSON(
-  value?: IoK8sApiAppsV1ReplicaSetStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    availableReplicas: value.availableReplicas,
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApiAppsV1ReplicaSetConditionToJSON),
-    fullyLabeledReplicas: value.fullyLabeledReplicas,
-    observedGeneration: value.observedGeneration,
-    readyReplicas: value.readyReplicas,
-    replicas: value.replicas,
-    terminatingReplicas: value.terminatingReplicas,
-  };
 }

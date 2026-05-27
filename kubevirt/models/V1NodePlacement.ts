@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApiCoreV1Affinity } from './K8sIoApiCoreV1Affinity';
-import {
-    K8sIoApiCoreV1AffinityFromJSON,
-    K8sIoApiCoreV1AffinityFromJSONTyped,
-    K8sIoApiCoreV1AffinityToJSON,
-} from './K8sIoApiCoreV1Affinity';
 import type { K8sIoApiCoreV1Toleration } from './K8sIoApiCoreV1Toleration';
-import {
-    K8sIoApiCoreV1TolerationFromJSON,
-    K8sIoApiCoreV1TolerationFromJSONTyped,
-    K8sIoApiCoreV1TolerationToJSON,
-} from './K8sIoApiCoreV1Toleration';
 
 /**
  * NodePlacement describes node scheduling configuration.
@@ -51,44 +40,3 @@ export interface V1NodePlacement {
      */
     tolerations?: Array<K8sIoApiCoreV1Toleration>;
 }
-
-/**
- * Check if a given object implements the V1NodePlacement interface.
- */
-export function instanceOfV1NodePlacement(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1NodePlacementFromJSON(json: any): V1NodePlacement {
-    return V1NodePlacementFromJSONTyped(json, false);
-}
-
-export function V1NodePlacementFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1NodePlacement {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'affinity': !exists(json, 'affinity') ? undefined : K8sIoApiCoreV1AffinityFromJSON(json['affinity']),
-        'nodeSelector': !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
-        'tolerations': !exists(json, 'tolerations') ? undefined : ((json['tolerations'] as Array<any>).map(K8sIoApiCoreV1TolerationFromJSON)),
-    };
-}
-
-export function V1NodePlacementToJSON(value?: V1NodePlacement | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'affinity': K8sIoApiCoreV1AffinityToJSON(value.affinity),
-        'nodeSelector': value.nodeSelector,
-        'tolerations': value.tolerations === undefined ? undefined : ((value.tolerations as Array<any>).map(K8sIoApiCoreV1TolerationToJSON)),
-    };
-}
-

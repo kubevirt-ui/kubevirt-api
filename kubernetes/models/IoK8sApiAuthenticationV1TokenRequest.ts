@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAuthenticationV1TokenRequestSpec,
-  IoK8sApiAuthenticationV1TokenRequestSpecFromJSON,
-  IoK8sApiAuthenticationV1TokenRequestSpecToJSON,
   IoK8sApiAuthenticationV1TokenRequestStatus,
-  IoK8sApiAuthenticationV1TokenRequestStatusFromJSON,
-  IoK8sApiAuthenticationV1TokenRequestStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,48 +54,4 @@ export interface IoK8sApiAuthenticationV1TokenRequest {
    * @memberof IoK8sApiAuthenticationV1TokenRequest
    */
   status?: IoK8sApiAuthenticationV1TokenRequestStatus;
-}
-
-export function IoK8sApiAuthenticationV1TokenRequestFromJSON(
-  json: any,
-): IoK8sApiAuthenticationV1TokenRequest {
-  return IoK8sApiAuthenticationV1TokenRequestFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthenticationV1TokenRequestFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthenticationV1TokenRequest {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: IoK8sApiAuthenticationV1TokenRequestSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiAuthenticationV1TokenRequestStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiAuthenticationV1TokenRequestToJSON(
-  value?: IoK8sApiAuthenticationV1TokenRequest | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiAuthenticationV1TokenRequestSpecToJSON(value.spec),
-    status: IoK8sApiAuthenticationV1TokenRequestStatusToJSON(value.status),
-  };
 }

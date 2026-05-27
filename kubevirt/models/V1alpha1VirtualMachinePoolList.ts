@@ -12,16 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import {
     K8sIoApimachineryPkgApisMetaV1ListMeta,
-    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
     V1alpha1VirtualMachinePool,
-    V1alpha1VirtualMachinePoolFromJSON,
-    V1alpha1VirtualMachinePoolFromJSONTyped,
-    V1alpha1VirtualMachinePoolToJSON,
 } from './';
 
 /**
@@ -55,37 +48,3 @@ export interface V1alpha1VirtualMachinePoolList {
      */
     metadata?: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
-
-export function V1alpha1VirtualMachinePoolListFromJSON(json: any): V1alpha1VirtualMachinePoolList {
-    return V1alpha1VirtualMachinePoolListFromJSONTyped(json, false);
-}
-
-export function V1alpha1VirtualMachinePoolListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachinePoolList {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'items': ((json['items'] as Array<any>).map(V1alpha1VirtualMachinePoolFromJSON)),
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-    };
-}
-
-export function V1alpha1VirtualMachinePoolListToJSON(value?: V1alpha1VirtualMachinePoolList | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'items': ((value.items as Array<any>).map(V1alpha1VirtualMachinePoolToJSON)),
-        'kind': value.kind,
-        'metadata': K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-    };
-}
-

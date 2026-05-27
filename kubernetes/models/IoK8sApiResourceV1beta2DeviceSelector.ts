@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1beta2CELDeviceSelector,
-  IoK8sApiResourceV1beta2CELDeviceSelectorFromJSON,
-  IoK8sApiResourceV1beta2CELDeviceSelectorToJSON,
 } from './';
 
 /**
@@ -31,38 +28,4 @@ export interface IoK8sApiResourceV1beta2DeviceSelector {
    * @memberof IoK8sApiResourceV1beta2DeviceSelector
    */
   cel?: IoK8sApiResourceV1beta2CELDeviceSelector;
-}
-
-export function IoK8sApiResourceV1beta2DeviceSelectorFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta2DeviceSelector {
-  return IoK8sApiResourceV1beta2DeviceSelectorFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta2DeviceSelectorFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta2DeviceSelector {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    cel: !exists(json, 'cel')
-      ? undefined
-      : IoK8sApiResourceV1beta2CELDeviceSelectorFromJSON(json['cel']),
-  };
-}
-
-export function IoK8sApiResourceV1beta2DeviceSelectorToJSON(
-  value?: IoK8sApiResourceV1beta2DeviceSelector | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    cel: IoK8sApiResourceV1beta2CELDeviceSelectorToJSON(value.cel),
-  };
 }

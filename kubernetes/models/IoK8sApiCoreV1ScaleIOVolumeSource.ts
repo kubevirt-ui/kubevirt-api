@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1LocalObjectReference,
-  IoK8sApiCoreV1LocalObjectReferenceFromJSON,
-  IoK8sApiCoreV1LocalObjectReferenceToJSON,
 } from './';
 
 /**
@@ -85,54 +82,4 @@ export interface IoK8sApiCoreV1ScaleIOVolumeSource {
    * @memberof IoK8sApiCoreV1ScaleIOVolumeSource
    */
   volumeName?: string;
-}
-
-export function IoK8sApiCoreV1ScaleIOVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1ScaleIOVolumeSource {
-  return IoK8sApiCoreV1ScaleIOVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ScaleIOVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ScaleIOVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    gateway: json['gateway'],
-    protectionDomain: !exists(json, 'protectionDomain') ? undefined : json['protectionDomain'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    secretRef: IoK8sApiCoreV1LocalObjectReferenceFromJSON(json['secretRef']),
-    sslEnabled: !exists(json, 'sslEnabled') ? undefined : json['sslEnabled'],
-    storageMode: !exists(json, 'storageMode') ? undefined : json['storageMode'],
-    storagePool: !exists(json, 'storagePool') ? undefined : json['storagePool'],
-    system: json['system'],
-    volumeName: !exists(json, 'volumeName') ? undefined : json['volumeName'],
-  };
-}
-
-export function IoK8sApiCoreV1ScaleIOVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1ScaleIOVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fsType: value.fsType,
-    gateway: value.gateway,
-    protectionDomain: value.protectionDomain,
-    readOnly: value.readOnly,
-    secretRef: IoK8sApiCoreV1LocalObjectReferenceToJSON(value.secretRef),
-    sslEnabled: value.sslEnabled,
-    storageMode: value.storageMode,
-    storagePool: value.storagePool,
-    system: value.system,
-    volumeName: value.volumeName,
-  };
 }

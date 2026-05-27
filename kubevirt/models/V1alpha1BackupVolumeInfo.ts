@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * BackupVolumeInfo contains information about a volume included in a backup
  * @export
@@ -44,48 +43,3 @@ export interface V1alpha1BackupVolumeInfo {
      */
     volumeName: string;
 }
-
-/**
- * Check if a given object implements the V1alpha1BackupVolumeInfo interface.
- */
-export function instanceOfV1alpha1BackupVolumeInfo(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "diskTarget" in value;
-    isInstance = isInstance && "volumeName" in value;
-
-    return isInstance;
-}
-
-export function V1alpha1BackupVolumeInfoFromJSON(json: any): V1alpha1BackupVolumeInfo {
-    return V1alpha1BackupVolumeInfoFromJSONTyped(json, false);
-}
-
-export function V1alpha1BackupVolumeInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1BackupVolumeInfo {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'dataEndpoint': !exists(json, 'dataEndpoint') ? undefined : json['dataEndpoint'],
-        'diskTarget': json['diskTarget'],
-        'mapEndpoint': !exists(json, 'mapEndpoint') ? undefined : json['mapEndpoint'],
-        'volumeName': json['volumeName'],
-    };
-}
-
-export function V1alpha1BackupVolumeInfoToJSON(value?: V1alpha1BackupVolumeInfo | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'dataEndpoint': value.dataEndpoint,
-        'diskTarget': value.diskTarget,
-        'mapEndpoint': value.mapEndpoint,
-        'volumeName': value.volumeName,
-    };
-}
-

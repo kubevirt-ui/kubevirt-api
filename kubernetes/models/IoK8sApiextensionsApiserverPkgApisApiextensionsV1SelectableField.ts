@@ -25,35 +25,3 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1SelectableFiel
    */
   jsonPath: string;
 }
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1SelectableFieldFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1SelectableField {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1SelectableFieldFromJSONTyped(json, false);
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1SelectableFieldFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1SelectableField {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    jsonPath: json['jsonPath'],
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1SelectableFieldToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1SelectableField | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    jsonPath: value.jsonPath,
-  };
-}

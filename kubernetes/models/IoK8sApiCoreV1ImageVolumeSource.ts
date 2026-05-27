@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ImageVolumeSource represents a image volume resource.
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiCoreV1ImageVolumeSource {
    * @memberof IoK8sApiCoreV1ImageVolumeSource
    */
   reference?: string;
-}
-
-export function IoK8sApiCoreV1ImageVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1ImageVolumeSource {
-  return IoK8sApiCoreV1ImageVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ImageVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ImageVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    pullPolicy: !exists(json, 'pullPolicy') ? undefined : json['pullPolicy'],
-    reference: !exists(json, 'reference') ? undefined : json['reference'],
-  };
-}
-
-export function IoK8sApiCoreV1ImageVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1ImageVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    pullPolicy: value.pullPolicy,
-    reference: value.reference,
-  };
 }

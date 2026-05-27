@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
-import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import type { V1VirtualMachineInstanceSpec } from './V1VirtualMachineInstanceSpec';
-import {
-    V1VirtualMachineInstanceSpecFromJSON,
-    V1VirtualMachineInstanceSpecFromJSONTyped,
-    V1VirtualMachineInstanceSpecToJSON,
-} from './V1VirtualMachineInstanceSpec';
 
 /**
  * 
@@ -45,42 +34,3 @@ export interface V1VirtualMachineInstanceTemplateSpec {
      */
     spec?: V1VirtualMachineInstanceSpec;
 }
-
-/**
- * Check if a given object implements the V1VirtualMachineInstanceTemplateSpec interface.
- */
-export function instanceOfV1VirtualMachineInstanceTemplateSpec(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1VirtualMachineInstanceTemplateSpecFromJSON(json: any): V1VirtualMachineInstanceTemplateSpec {
-    return V1VirtualMachineInstanceTemplateSpecFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceTemplateSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceTemplateSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-        'spec': !exists(json, 'spec') ? undefined : V1VirtualMachineInstanceSpecFromJSON(json['spec']),
-    };
-}
-
-export function V1VirtualMachineInstanceTemplateSpecToJSON(value?: V1VirtualMachineInstanceTemplateSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'metadata': K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-        'spec': V1VirtualMachineInstanceSpecToJSON(value.spec),
-    };
-}
-

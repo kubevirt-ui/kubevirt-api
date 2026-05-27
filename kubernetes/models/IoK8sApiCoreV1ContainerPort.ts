@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ContainerPort represents a network port in a single container.
  * @export
@@ -49,40 +48,4 @@ export interface IoK8sApiCoreV1ContainerPort {
    * @memberof IoK8sApiCoreV1ContainerPort
    */
   protocol?: string;
-}
-
-export function IoK8sApiCoreV1ContainerPortFromJSON(json: any): IoK8sApiCoreV1ContainerPort {
-  return IoK8sApiCoreV1ContainerPortFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ContainerPortFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ContainerPort {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    containerPort: json['containerPort'],
-    hostIP: !exists(json, 'hostIP') ? undefined : json['hostIP'],
-    hostPort: !exists(json, 'hostPort') ? undefined : json['hostPort'],
-    name: !exists(json, 'name') ? undefined : json['name'],
-    protocol: !exists(json, 'protocol') ? undefined : json['protocol'],
-  };
-}
-
-export function IoK8sApiCoreV1ContainerPortToJSON(value?: IoK8sApiCoreV1ContainerPort | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    containerPort: value.containerPort,
-    hostIP: value.hostIP,
-    hostPort: value.hostPort,
-    name: value.name,
-    protocol: value.protocol,
-  };
 }

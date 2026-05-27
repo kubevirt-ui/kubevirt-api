@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import type { V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValue } from './V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValue';
 
 import type { V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfo } from './V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfo';
-import {
-  V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfoFromJSON,
-  V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfoToJSON,
-} from './V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfo';
 
 /**
  * NodeNetworkConfigurationEnactmentStatus defines the observed state of NodeNetworkConfigurationEnactment
@@ -67,62 +62,4 @@ export interface V1beta1NodeNetworkConfigurationEnactmentStatus {
    * @memberof V1beta1NodeNetworkConfigurationEnactmentStatus
    */
   policyGeneration?: any | null;
-}
-
-/**
- * Check if a given object implements the V1beta1NodeNetworkConfigurationEnactmentStatus interface.
- */
-export function instanceOfV1beta1NodeNetworkConfigurationEnactmentStatus(_value: object): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1beta1NodeNetworkConfigurationEnactmentStatusFromJSON(
-  json: any,
-): V1beta1NodeNetworkConfigurationEnactmentStatus {
-  return V1beta1NodeNetworkConfigurationEnactmentStatusFromJSONTyped(json, false);
-}
-
-export function V1beta1NodeNetworkConfigurationEnactmentStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1NodeNetworkConfigurationEnactmentStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    capturedStates: !exists(json, 'capturedStates') ? undefined : json['capturedStates'],
-    conditions: !exists(json, 'conditions') ? undefined : json['conditions'],
-    desiredState: !exists(json, 'desiredState') ? undefined : json['desiredState'],
-    desiredStateMetaInfo: !exists(json, 'desiredStateMetaInfo')
-      ? undefined
-      : V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfoFromJSON(
-          json['desiredStateMetaInfo'],
-        ),
-    features: !exists(json, 'features') ? undefined : json['features'],
-    policyGeneration: !exists(json, 'policyGeneration') ? undefined : json['policyGeneration'],
-  };
-}
-
-export function V1beta1NodeNetworkConfigurationEnactmentStatusToJSON(
-  value?: V1beta1NodeNetworkConfigurationEnactmentStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    capturedStates: value.capturedStates,
-    conditions: value.conditions,
-    desiredState: value.desiredState,
-    desiredStateMetaInfo:
-      V1beta1NodeNetworkConfigurationEnactmentStatusCapturedStatesValueMetaInfoToJSON(
-        value.desiredStateMetaInfo,
-      ),
-    features: value.features,
-    policyGeneration: value.policyGeneration,
-  };
 }

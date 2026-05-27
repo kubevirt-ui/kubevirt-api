@@ -12,8 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1LabelSelector, V1LabelSelectorFromJSON, V1LabelSelectorToJSON } from './';
+import { V1LabelSelector } from './';
 
 /**
  * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running
@@ -57,46 +56,4 @@ export interface V1PodAffinityTerm {
    * @memberof V1PodAffinityTerm
    */
   topologyKey: string;
-}
-
-export function V1PodAffinityTermFromJSON(json: any): V1PodAffinityTerm {
-  return V1PodAffinityTermFromJSONTyped(json, false);
-}
-
-export function V1PodAffinityTermFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1PodAffinityTerm {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    labelSelector: !exists(json, 'labelSelector')
-      ? undefined
-      : V1LabelSelectorFromJSON(json['labelSelector']),
-    matchLabelKeys: !exists(json, 'matchLabelKeys') ? undefined : json['matchLabelKeys'],
-    mismatchLabelKeys: !exists(json, 'mismatchLabelKeys') ? undefined : json['mismatchLabelKeys'],
-    namespaceSelector: !exists(json, 'namespaceSelector')
-      ? undefined
-      : V1LabelSelectorFromJSON(json['namespaceSelector']),
-    namespaces: !exists(json, 'namespaces') ? undefined : json['namespaces'],
-    topologyKey: json['topologyKey'],
-  };
-}
-
-export function V1PodAffinityTermToJSON(value?: V1PodAffinityTerm | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    labelSelector: V1LabelSelectorToJSON(value.labelSelector),
-    matchLabelKeys: value.matchLabelKeys,
-    mismatchLabelKeys: value.mismatchLabelKeys,
-    namespaceSelector: V1LabelSelectorToJSON(value.namespaceSelector),
-    namespaces: value.namespaces,
-    topologyKey: value.topologyKey,
-  };
 }

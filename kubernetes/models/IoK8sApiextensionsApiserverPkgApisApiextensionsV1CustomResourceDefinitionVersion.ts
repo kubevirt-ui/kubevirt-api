@@ -12,20 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceColumnDefinition,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceColumnDefinitionFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceColumnDefinitionToJSON,
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresources,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourcesFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourcesToJSON,
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidation,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidationFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidationToJSON,
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1SelectableField,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1SelectableFieldFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1SelectableFieldToJSON,
 } from './';
 
 /**
@@ -88,87 +79,4 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResource
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionVersion
    */
   subresources?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresources;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionVersionFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionVersion {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionVersionFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionVersionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionVersion {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    additionalPrinterColumns: !exists(json, 'additionalPrinterColumns')
-      ? undefined
-      : (json['additionalPrinterColumns'] as Array<any>).map(
-          IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceColumnDefinitionFromJSON,
-        ),
-    deprecated: !exists(json, 'deprecated') ? undefined : json['deprecated'],
-    deprecationWarning: !exists(json, 'deprecationWarning')
-      ? undefined
-      : json['deprecationWarning'],
-    name: json['name'],
-    schema: !exists(json, 'schema')
-      ? undefined
-      : IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidationFromJSON(
-          json['schema'],
-        ),
-    selectableFields: !exists(json, 'selectableFields')
-      ? undefined
-      : (json['selectableFields'] as Array<any>).map(
-          IoK8sApiextensionsApiserverPkgApisApiextensionsV1SelectableFieldFromJSON,
-        ),
-    served: json['served'],
-    storage: json['storage'],
-    subresources: !exists(json, 'subresources')
-      ? undefined
-      : IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourcesFromJSON(
-          json['subresources'],
-        ),
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionVersionToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceDefinitionVersion | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    additionalPrinterColumns:
-      value.additionalPrinterColumns === undefined
-        ? undefined
-        : (value.additionalPrinterColumns as Array<any>).map(
-            IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceColumnDefinitionToJSON,
-          ),
-    deprecated: value.deprecated,
-    deprecationWarning: value.deprecationWarning,
-    name: value.name,
-    schema: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceValidationToJSON(
-      value.schema,
-    ),
-    selectableFields:
-      value.selectableFields === undefined
-        ? undefined
-        : (value.selectableFields as Array<any>).map(
-            IoK8sApiextensionsApiserverPkgApisApiextensionsV1SelectableFieldToJSON,
-          ),
-    served: value.served,
-    storage: value.storage,
-    subresources: IoK8sApiextensionsApiserverPkgApisApiextensionsV1CustomResourceSubresourcesToJSON(
-      value.subresources,
-    ),
-  };
 }

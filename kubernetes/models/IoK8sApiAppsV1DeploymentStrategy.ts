@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAppsV1RollingUpdateDeployment,
-  IoK8sApiAppsV1RollingUpdateDeploymentFromJSON,
-  IoK8sApiAppsV1RollingUpdateDeploymentToJSON,
 } from './';
 
 /**
@@ -37,40 +34,4 @@ export interface IoK8sApiAppsV1DeploymentStrategy {
    * @memberof IoK8sApiAppsV1DeploymentStrategy
    */
   type?: string;
-}
-
-export function IoK8sApiAppsV1DeploymentStrategyFromJSON(
-  json: any,
-): IoK8sApiAppsV1DeploymentStrategy {
-  return IoK8sApiAppsV1DeploymentStrategyFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1DeploymentStrategyFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1DeploymentStrategy {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    rollingUpdate: !exists(json, 'rollingUpdate')
-      ? undefined
-      : IoK8sApiAppsV1RollingUpdateDeploymentFromJSON(json['rollingUpdate']),
-    type: !exists(json, 'type') ? undefined : json['type'],
-  };
-}
-
-export function IoK8sApiAppsV1DeploymentStrategyToJSON(
-  value?: IoK8sApiAppsV1DeploymentStrategy | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    rollingUpdate: IoK8sApiAppsV1RollingUpdateDeploymentToJSON(value.rollingUpdate),
-    type: value.type,
-  };
 }

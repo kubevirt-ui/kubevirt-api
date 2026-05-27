@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -74,44 +73,3 @@ export interface V1LiveUpdateConfiguration {
      */
     maxHotplugRatio?: number;
 }
-
-/**
- * Check if a given object implements the V1LiveUpdateConfiguration interface.
- */
-export function instanceOfV1LiveUpdateConfiguration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1LiveUpdateConfigurationFromJSON(json: any): V1LiveUpdateConfiguration {
-    return V1LiveUpdateConfigurationFromJSONTyped(json, false);
-}
-
-export function V1LiveUpdateConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1LiveUpdateConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'maxCpuSockets': !exists(json, 'maxCpuSockets') ? undefined : json['maxCpuSockets'],
-        'maxGuest': !exists(json, 'maxGuest') ? undefined : json['maxGuest'],
-        'maxHotplugRatio': !exists(json, 'maxHotplugRatio') ? undefined : json['maxHotplugRatio'],
-    };
-}
-
-export function V1LiveUpdateConfigurationToJSON(value?: V1LiveUpdateConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'maxCpuSockets': value.maxCpuSockets,
-        'maxGuest': value.maxGuest,
-        'maxHotplugRatio': value.maxHotplugRatio,
-    };
-}
-

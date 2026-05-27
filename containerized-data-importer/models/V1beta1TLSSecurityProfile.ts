@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1beta1CustomTLSProfile,
-  V1beta1CustomTLSProfileFromJSON,
-  V1beta1CustomTLSProfileToJSON,
 } from './';
 
 /**
@@ -61,40 +58,4 @@ export interface V1beta1TLSSecurityProfile {
    * @memberof V1beta1TLSSecurityProfile
    */
   type?: string;
-}
-
-export function V1beta1TLSSecurityProfileFromJSON(json: any): V1beta1TLSSecurityProfile {
-  return V1beta1TLSSecurityProfileFromJSONTyped(json, false);
-}
-
-export function V1beta1TLSSecurityProfileFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1TLSSecurityProfile {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    custom: !exists(json, 'custom') ? undefined : V1beta1CustomTLSProfileFromJSON(json['custom']),
-    intermediate: !exists(json, 'intermediate') ? undefined : json['intermediate'],
-    modern: !exists(json, 'modern') ? undefined : json['modern'],
-    old: !exists(json, 'old') ? undefined : json['old'],
-    type: !exists(json, 'type') ? undefined : json['type'],
-  };
-}
-
-export function V1beta1TLSSecurityProfileToJSON(value?: V1beta1TLSSecurityProfile | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    custom: V1beta1CustomTLSProfileToJSON(value.custom),
-    intermediate: value.intermediate,
-    modern: value.modern,
-    old: value.old,
-    type: value.type,
-  };
 }

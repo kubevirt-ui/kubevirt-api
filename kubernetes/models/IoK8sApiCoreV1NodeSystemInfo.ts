@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1NodeSwapStatus,
-  IoK8sApiCoreV1NodeSwapStatusFromJSON,
-  IoK8sApiCoreV1NodeSwapStatusToJSON,
 } from './';
 
 /**
@@ -91,54 +88,4 @@ export interface IoK8sApiCoreV1NodeSystemInfo {
    * @memberof IoK8sApiCoreV1NodeSystemInfo
    */
   systemUUID: string;
-}
-
-export function IoK8sApiCoreV1NodeSystemInfoFromJSON(json: any): IoK8sApiCoreV1NodeSystemInfo {
-  return IoK8sApiCoreV1NodeSystemInfoFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NodeSystemInfoFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NodeSystemInfo {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    architecture: json['architecture'],
-    bootID: json['bootID'],
-    containerRuntimeVersion: json['containerRuntimeVersion'],
-    kernelVersion: json['kernelVersion'],
-    kubeProxyVersion: json['kubeProxyVersion'],
-    kubeletVersion: json['kubeletVersion'],
-    machineID: json['machineID'],
-    operatingSystem: json['operatingSystem'],
-    osImage: json['osImage'],
-    swap: !exists(json, 'swap') ? undefined : IoK8sApiCoreV1NodeSwapStatusFromJSON(json['swap']),
-    systemUUID: json['systemUUID'],
-  };
-}
-
-export function IoK8sApiCoreV1NodeSystemInfoToJSON(
-  value?: IoK8sApiCoreV1NodeSystemInfo | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    architecture: value.architecture,
-    bootID: value.bootID,
-    containerRuntimeVersion: value.containerRuntimeVersion,
-    kernelVersion: value.kernelVersion,
-    kubeProxyVersion: value.kubeProxyVersion,
-    kubeletVersion: value.kubeletVersion,
-    machineID: value.machineID,
-    operatingSystem: value.operatingSystem,
-    osImage: value.osImage,
-    swap: IoK8sApiCoreV1NodeSwapStatusToJSON(value.swap),
-    systemUUID: value.systemUUID,
-  };
 }

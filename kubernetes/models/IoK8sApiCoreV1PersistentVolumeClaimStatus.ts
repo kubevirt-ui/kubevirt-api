@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ModifyVolumeStatus,
-  IoK8sApiCoreV1ModifyVolumeStatusFromJSON,
-  IoK8sApiCoreV1ModifyVolumeStatusToJSON,
   IoK8sApiCoreV1PersistentVolumeClaimCondition,
-  IoK8sApiCoreV1PersistentVolumeClaimConditionFromJSON,
-  IoK8sApiCoreV1PersistentVolumeClaimConditionToJSON,
 } from './';
 
 /**
@@ -115,65 +110,4 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimStatus {
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimStatus
    */
   phase?: string;
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimStatusFromJSON(
-  json: any,
-): IoK8sApiCoreV1PersistentVolumeClaimStatus {
-  return IoK8sApiCoreV1PersistentVolumeClaimStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PersistentVolumeClaimStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    accessModes: !exists(json, 'accessModes') ? undefined : json['accessModes'],
-    allocatedResourceStatuses: !exists(json, 'allocatedResourceStatuses')
-      ? undefined
-      : json['allocatedResourceStatuses'],
-    allocatedResources: !exists(json, 'allocatedResources')
-      ? undefined
-      : json['allocatedResources'],
-    capacity: !exists(json, 'capacity') ? undefined : json['capacity'],
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(
-          IoK8sApiCoreV1PersistentVolumeClaimConditionFromJSON,
-        ),
-    currentVolumeAttributesClassName: !exists(json, 'currentVolumeAttributesClassName')
-      ? undefined
-      : json['currentVolumeAttributesClassName'],
-    modifyVolumeStatus: !exists(json, 'modifyVolumeStatus')
-      ? undefined
-      : IoK8sApiCoreV1ModifyVolumeStatusFromJSON(json['modifyVolumeStatus']),
-    phase: !exists(json, 'phase') ? undefined : json['phase'],
-  };
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimStatusToJSON(
-  value?: IoK8sApiCoreV1PersistentVolumeClaimStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    accessModes: value.accessModes,
-    allocatedResourceStatuses: value.allocatedResourceStatuses,
-    allocatedResources: value.allocatedResources,
-    capacity: value.capacity,
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApiCoreV1PersistentVolumeClaimConditionToJSON),
-    currentVolumeAttributesClassName: value.currentVolumeAttributesClassName,
-    modifyVolumeStatus: IoK8sApiCoreV1ModifyVolumeStatusToJSON(value.modifyVolumeStatus),
-    phase: value.phase,
-  };
 }

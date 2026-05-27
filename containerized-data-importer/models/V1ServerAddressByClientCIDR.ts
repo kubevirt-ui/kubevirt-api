@@ -31,33 +31,3 @@ export interface V1ServerAddressByClientCIDR {
    */
   serverAddress: string;
 }
-
-export function V1ServerAddressByClientCIDRFromJSON(json: any): V1ServerAddressByClientCIDR {
-  return V1ServerAddressByClientCIDRFromJSONTyped(json, false);
-}
-
-export function V1ServerAddressByClientCIDRFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1ServerAddressByClientCIDR {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    clientCIDR: json['clientCIDR'],
-    serverAddress: json['serverAddress'],
-  };
-}
-
-export function V1ServerAddressByClientCIDRToJSON(value?: V1ServerAddressByClientCIDR | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    clientCIDR: value.clientCIDR,
-    serverAddress: value.serverAddress,
-  };
-}

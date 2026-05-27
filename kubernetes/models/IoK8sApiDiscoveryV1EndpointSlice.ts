@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiDiscoveryV1Endpoint,
-  IoK8sApiDiscoveryV1EndpointFromJSON,
   IoK8sApiDiscoveryV1EndpointPort,
-  IoK8sApiDiscoveryV1EndpointPortFromJSON,
-  IoK8sApiDiscoveryV1EndpointPortToJSON,
-  IoK8sApiDiscoveryV1EndpointToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -67,53 +60,4 @@ export interface IoK8sApiDiscoveryV1EndpointSlice {
    * @memberof IoK8sApiDiscoveryV1EndpointSlice
    */
   ports?: Array<IoK8sApiDiscoveryV1EndpointPort>;
-}
-
-export function IoK8sApiDiscoveryV1EndpointSliceFromJSON(
-  json: any,
-): IoK8sApiDiscoveryV1EndpointSlice {
-  return IoK8sApiDiscoveryV1EndpointSliceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiDiscoveryV1EndpointSliceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiDiscoveryV1EndpointSlice {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    addressType: json['addressType'],
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    endpoints: (json['endpoints'] as Array<any>).map(IoK8sApiDiscoveryV1EndpointFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    ports: !exists(json, 'ports')
-      ? undefined
-      : (json['ports'] as Array<any>).map(IoK8sApiDiscoveryV1EndpointPortFromJSON),
-  };
-}
-
-export function IoK8sApiDiscoveryV1EndpointSliceToJSON(
-  value?: IoK8sApiDiscoveryV1EndpointSlice | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    addressType: value.addressType,
-    apiVersion: value.apiVersion,
-    endpoints: (value.endpoints as Array<any>).map(IoK8sApiDiscoveryV1EndpointToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    ports:
-      value.ports === undefined
-        ? undefined
-        : (value.ports as Array<any>).map(IoK8sApiDiscoveryV1EndpointPortToJSON),
-  };
 }

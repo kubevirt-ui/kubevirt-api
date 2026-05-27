@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1NodePlacement } from './V1NodePlacement';
-import {
-    V1NodePlacementFromJSON,
-    V1NodePlacementFromJSONTyped,
-    V1NodePlacementToJSON,
-} from './V1NodePlacement';
 
 /**
  * 
@@ -39,42 +33,3 @@ export interface V1ComponentConfig {
      */
     replicas?: number;
 }
-
-/**
- * Check if a given object implements the V1ComponentConfig interface.
- */
-export function instanceOfV1ComponentConfig(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1ComponentConfigFromJSON(json: any): V1ComponentConfig {
-    return V1ComponentConfigFromJSONTyped(json, false);
-}
-
-export function V1ComponentConfigFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ComponentConfig {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'nodePlacement': !exists(json, 'nodePlacement') ? undefined : V1NodePlacementFromJSON(json['nodePlacement']),
-        'replicas': !exists(json, 'replicas') ? undefined : json['replicas'],
-    };
-}
-
-export function V1ComponentConfigToJSON(value?: V1ComponentConfig | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'nodePlacement': V1NodePlacementToJSON(value.nodePlacement),
-        'replicas': value.replicas,
-    };
-}
-

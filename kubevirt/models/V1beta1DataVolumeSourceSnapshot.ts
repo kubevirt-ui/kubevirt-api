@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * DataVolumeSourceSnapshot provides the parameters to create a Data Volume from an existing VolumeSnapshot
  * @export
@@ -32,44 +31,3 @@ export interface V1beta1DataVolumeSourceSnapshot {
      */
     namespace: string;
 }
-
-/**
- * Check if a given object implements the V1beta1DataVolumeSourceSnapshot interface.
- */
-export function instanceOfV1beta1DataVolumeSourceSnapshot(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "name" in value;
-    isInstance = isInstance && "namespace" in value;
-
-    return isInstance;
-}
-
-export function V1beta1DataVolumeSourceSnapshotFromJSON(json: any): V1beta1DataVolumeSourceSnapshot {
-    return V1beta1DataVolumeSourceSnapshotFromJSONTyped(json, false);
-}
-
-export function V1beta1DataVolumeSourceSnapshotFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1DataVolumeSourceSnapshot {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'name': json['name'],
-        'namespace': json['namespace'],
-    };
-}
-
-export function V1beta1DataVolumeSourceSnapshotToJSON(value?: V1beta1DataVolumeSourceSnapshot | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'name': value.name,
-        'namespace': value.namespace,
-    };
-}
-

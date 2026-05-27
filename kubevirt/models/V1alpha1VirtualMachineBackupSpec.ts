@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
-import {
-    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
-    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSONTyped,
-    K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-} from './K8sIoApiCoreV1TypedLocalObjectReference';
 
 /**
  * VirtualMachineBackupSpec is the spec for a VirtualMachineBackup resource
@@ -69,53 +63,3 @@ export interface V1alpha1VirtualMachineBackupSpec {
      */
     ttlDuration?: string;
 }
-
-/**
- * Check if a given object implements the V1alpha1VirtualMachineBackupSpec interface.
- */
-export function instanceOfV1alpha1VirtualMachineBackupSpec(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "source" in value;
-
-    return isInstance;
-}
-
-export function V1alpha1VirtualMachineBackupSpecFromJSON(json: any): V1alpha1VirtualMachineBackupSpec {
-    return V1alpha1VirtualMachineBackupSpecFromJSONTyped(json, false);
-}
-
-export function V1alpha1VirtualMachineBackupSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachineBackupSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'forceFullBackup': !exists(json, 'forceFullBackup') ? undefined : json['forceFullBackup'],
-        'mode': !exists(json, 'mode') ? undefined : json['mode'],
-        'pvcName': !exists(json, 'pvcName') ? undefined : json['pvcName'],
-        'skipQuiesce': !exists(json, 'skipQuiesce') ? undefined : json['skipQuiesce'],
-        'source': K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['source']),
-        'tokenSecretRef': !exists(json, 'tokenSecretRef') ? undefined : json['tokenSecretRef'],
-        'ttlDuration': !exists(json, 'ttlDuration') ? undefined : json['ttlDuration'],
-    };
-}
-
-export function V1alpha1VirtualMachineBackupSpecToJSON(value?: V1alpha1VirtualMachineBackupSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'forceFullBackup': value.forceFullBackup,
-        'mode': value.mode,
-        'pvcName': value.pvcName,
-        'skipQuiesce': value.skipQuiesce,
-        'source': K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.source),
-        'tokenSecretRef': value.tokenSecretRef,
-        'ttlDuration': value.ttlDuration,
-    };
-}
-

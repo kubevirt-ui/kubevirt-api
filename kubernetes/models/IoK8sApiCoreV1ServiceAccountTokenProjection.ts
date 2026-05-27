@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ServiceAccountTokenProjection represents a projected service account token volume. This projection can be used to insert a service account token into the pods runtime filesystem for use against APIs (Kubernetes API Server or otherwise).
  * @export
@@ -37,40 +36,4 @@ export interface IoK8sApiCoreV1ServiceAccountTokenProjection {
    * @memberof IoK8sApiCoreV1ServiceAccountTokenProjection
    */
   path: string;
-}
-
-export function IoK8sApiCoreV1ServiceAccountTokenProjectionFromJSON(
-  json: any,
-): IoK8sApiCoreV1ServiceAccountTokenProjection {
-  return IoK8sApiCoreV1ServiceAccountTokenProjectionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ServiceAccountTokenProjectionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ServiceAccountTokenProjection {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    audience: !exists(json, 'audience') ? undefined : json['audience'],
-    expirationSeconds: !exists(json, 'expirationSeconds') ? undefined : json['expirationSeconds'],
-    path: json['path'],
-  };
-}
-
-export function IoK8sApiCoreV1ServiceAccountTokenProjectionToJSON(
-  value?: IoK8sApiCoreV1ServiceAccountTokenProjection | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    audience: value.audience,
-    expirationSeconds: value.expirationSeconds,
-    path: value.path,
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ParamKind is a tuple of Group Kind and Version.
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiAdmissionregistrationV1ParamKind {
    * @memberof IoK8sApiAdmissionregistrationV1ParamKind
    */
   kind?: string;
-}
-
-export function IoK8sApiAdmissionregistrationV1ParamKindFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1ParamKind {
-  return IoK8sApiAdmissionregistrationV1ParamKindFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1ParamKindFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1ParamKind {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1ParamKindToJSON(
-  value?: IoK8sApiAdmissionregistrationV1ParamKind | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-  };
 }

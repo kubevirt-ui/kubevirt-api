@@ -14,8 +14,6 @@
 
 import {
   IoK8sApiBatchV1PodFailurePolicyRule,
-  IoK8sApiBatchV1PodFailurePolicyRuleFromJSON,
-  IoK8sApiBatchV1PodFailurePolicyRuleToJSON,
 } from './';
 
 /**
@@ -30,36 +28,4 @@ export interface IoK8sApiBatchV1PodFailurePolicy {
    * @memberof IoK8sApiBatchV1PodFailurePolicy
    */
   rules: Array<IoK8sApiBatchV1PodFailurePolicyRule>;
-}
-
-export function IoK8sApiBatchV1PodFailurePolicyFromJSON(
-  json: any,
-): IoK8sApiBatchV1PodFailurePolicy {
-  return IoK8sApiBatchV1PodFailurePolicyFromJSONTyped(json, false);
-}
-
-export function IoK8sApiBatchV1PodFailurePolicyFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiBatchV1PodFailurePolicy {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    rules: (json['rules'] as Array<any>).map(IoK8sApiBatchV1PodFailurePolicyRuleFromJSON),
-  };
-}
-
-export function IoK8sApiBatchV1PodFailurePolicyToJSON(
-  value?: IoK8sApiBatchV1PodFailurePolicy | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    rules: (value.rules as Array<any>).map(IoK8sApiBatchV1PodFailurePolicyRuleToJSON),
-  };
 }

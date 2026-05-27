@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1ListMeta,
-  V1ListMetaFromJSON,
-  V1ListMetaToJSON,
   V1beta1CDI,
-  V1beta1CDIFromJSON,
-  V1beta1CDIToJSON,
 } from './';
 
 /**
@@ -52,38 +47,4 @@ export interface V1beta1CDIList {
    * @memberof V1beta1CDIList
    */
   metadata: V1ListMeta;
-}
-
-export function V1beta1CDIListFromJSON(json: any): V1beta1CDIList {
-  return V1beta1CDIListFromJSONTyped(json, false);
-}
-
-export function V1beta1CDIListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1CDIList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(V1beta1CDIFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: V1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function V1beta1CDIListToJSON(value?: V1beta1CDIList | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(V1beta1CDIToJSON),
-    kind: value.kind,
-    metadata: V1ListMetaToJSON(value.metadata),
-  };
 }

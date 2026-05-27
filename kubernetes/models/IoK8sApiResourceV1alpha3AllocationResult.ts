@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1NodeSelector,
-  IoK8sApiCoreV1NodeSelectorFromJSON,
-  IoK8sApiCoreV1NodeSelectorToJSON,
   IoK8sApiResourceV1alpha3DeviceAllocationResult,
-  IoK8sApiResourceV1alpha3DeviceAllocationResultFromJSON,
-  IoK8sApiResourceV1alpha3DeviceAllocationResultToJSON,
 } from './';
 
 /**
@@ -40,42 +35,4 @@ export interface IoK8sApiResourceV1alpha3AllocationResult {
    * @memberof IoK8sApiResourceV1alpha3AllocationResult
    */
   nodeSelector?: IoK8sApiCoreV1NodeSelector;
-}
-
-export function IoK8sApiResourceV1alpha3AllocationResultFromJSON(
-  json: any,
-): IoK8sApiResourceV1alpha3AllocationResult {
-  return IoK8sApiResourceV1alpha3AllocationResultFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3AllocationResultFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3AllocationResult {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    devices: !exists(json, 'devices')
-      ? undefined
-      : IoK8sApiResourceV1alpha3DeviceAllocationResultFromJSON(json['devices']),
-    nodeSelector: !exists(json, 'nodeSelector')
-      ? undefined
-      : IoK8sApiCoreV1NodeSelectorFromJSON(json['nodeSelector']),
-  };
-}
-
-export function IoK8sApiResourceV1alpha3AllocationResultToJSON(
-  value?: IoK8sApiResourceV1alpha3AllocationResult | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    devices: IoK8sApiResourceV1alpha3DeviceAllocationResultToJSON(value.devices),
-    nodeSelector: IoK8sApiCoreV1NodeSelectorToJSON(value.nodeSelector),
-  };
 }

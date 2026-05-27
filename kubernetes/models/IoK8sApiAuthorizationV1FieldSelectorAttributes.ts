@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1FieldSelectorRequirement,
-  IoK8sApimachineryPkgApisMetaV1FieldSelectorRequirementFromJSON,
-  IoK8sApimachineryPkgApisMetaV1FieldSelectorRequirementToJSON,
 } from './';
 
 /**
@@ -37,47 +34,4 @@ export interface IoK8sApiAuthorizationV1FieldSelectorAttributes {
    * @memberof IoK8sApiAuthorizationV1FieldSelectorAttributes
    */
   requirements?: Array<IoK8sApimachineryPkgApisMetaV1FieldSelectorRequirement>;
-}
-
-export function IoK8sApiAuthorizationV1FieldSelectorAttributesFromJSON(
-  json: any,
-): IoK8sApiAuthorizationV1FieldSelectorAttributes {
-  return IoK8sApiAuthorizationV1FieldSelectorAttributesFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthorizationV1FieldSelectorAttributesFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthorizationV1FieldSelectorAttributes {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    rawSelector: !exists(json, 'rawSelector') ? undefined : json['rawSelector'],
-    requirements: !exists(json, 'requirements')
-      ? undefined
-      : (json['requirements'] as Array<any>).map(
-          IoK8sApimachineryPkgApisMetaV1FieldSelectorRequirementFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiAuthorizationV1FieldSelectorAttributesToJSON(
-  value?: IoK8sApiAuthorizationV1FieldSelectorAttributes | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    rawSelector: value.rawSelector,
-    requirements:
-      value.requirements === undefined
-        ? undefined
-        : (value.requirements as Array<any>).map(
-            IoK8sApimachineryPkgApisMetaV1FieldSelectorRequirementToJSON,
-          ),
-  };
 }

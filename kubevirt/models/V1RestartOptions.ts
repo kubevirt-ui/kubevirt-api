@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * RestartOptions may be provided when deleting an API object.
  * @export
@@ -44,46 +43,3 @@ export interface V1RestartOptions {
      */
     kind?: string;
 }
-
-/**
- * Check if a given object implements the V1RestartOptions interface.
- */
-export function instanceOfV1RestartOptions(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1RestartOptionsFromJSON(json: any): V1RestartOptions {
-    return V1RestartOptionsFromJSONTyped(json, false);
-}
-
-export function V1RestartOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1RestartOptions {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'dryRun': !exists(json, 'dryRun') ? undefined : json['dryRun'],
-        'gracePeriodSeconds': !exists(json, 'gracePeriodSeconds') ? undefined : json['gracePeriodSeconds'],
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-    };
-}
-
-export function V1RestartOptionsToJSON(value?: V1RestartOptions | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'dryRun': value.dryRun,
-        'gracePeriodSeconds': value.gracePeriodSeconds,
-        'kind': value.kind,
-    };
-}
-

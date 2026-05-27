@@ -12,17 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import type { V1NodeNetworkConfigurationPolicySpec } from './V1NodeNetworkConfigurationPolicySpec';
-import {
-  V1NodeNetworkConfigurationPolicySpecFromJSON,
-  V1NodeNetworkConfigurationPolicySpecToJSON,
-} from './V1NodeNetworkConfigurationPolicySpec';
 import type { V1NodeNetworkConfigurationPolicyStatus } from './V1NodeNetworkConfigurationPolicyStatus';
-import {
-  V1NodeNetworkConfigurationPolicyStatusFromJSON,
-  V1NodeNetworkConfigurationPolicyStatusToJSON,
-} from './V1NodeNetworkConfigurationPolicyStatus';
 
 /**
  * NodeNetworkConfigurationPolicy is the Schema for the nodenetworkconfigurationpolicies API
@@ -67,57 +58,4 @@ export interface V1beta1NodeNetworkConfigurationPolicy {
    * @memberof V1beta1NodeNetworkConfigurationPolicy
    */
   status?: V1NodeNetworkConfigurationPolicyStatus;
-}
-
-/**
- * Check if a given object implements the V1beta1NodeNetworkConfigurationPolicy interface.
- */
-export function instanceOfV1beta1NodeNetworkConfigurationPolicy(_value: object): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1beta1NodeNetworkConfigurationPolicyFromJSON(
-  json: any,
-): V1beta1NodeNetworkConfigurationPolicy {
-  return V1beta1NodeNetworkConfigurationPolicyFromJSONTyped(json, false);
-}
-
-export function V1beta1NodeNetworkConfigurationPolicyFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1NodeNetworkConfigurationPolicy {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata') ? undefined : json['metadata'],
-    spec: !exists(json, 'spec')
-      ? undefined
-      : V1NodeNetworkConfigurationPolicySpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : V1NodeNetworkConfigurationPolicyStatusFromJSON(json['status']),
-  };
-}
-
-export function V1beta1NodeNetworkConfigurationPolicyToJSON(
-  value?: V1beta1NodeNetworkConfigurationPolicy | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: value.metadata,
-    spec: V1NodeNetworkConfigurationPolicySpecToJSON(value.spec),
-    status: V1NodeNetworkConfigurationPolicyStatusToJSON(value.status),
-  };
 }

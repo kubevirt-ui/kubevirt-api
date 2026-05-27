@@ -12,23 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   ApiNodePlacement,
-  ApiNodePlacementFromJSON,
-  ApiNodePlacementToJSON,
   V1beta1CDICertConfig,
-  V1beta1CDICertConfigFromJSON,
-  V1beta1CDICertConfigToJSON,
   V1beta1CDIConfigSpec,
-  V1beta1CDIConfigSpecFromJSON,
-  V1beta1CDIConfigSpecToJSON,
   V1beta1ComponentConfig,
-  V1beta1ComponentConfigFromJSON,
-  V1beta1ComponentConfigToJSON,
   V1beta1CustomizeComponents,
-  V1beta1CustomizeComponentsFromJSON,
-  V1beta1CustomizeComponentsToJSON,
 } from './';
 
 /**
@@ -106,54 +95,4 @@ export enum V1beta1CDISpecImagePullPolicyEnum {
   Always = 'Always',
   IfNotPresent = 'IfNotPresent',
   Never = 'Never',
-}
-
-export function V1beta1CDISpecFromJSON(json: any): V1beta1CDISpec {
-  return V1beta1CDISpecFromJSONTyped(json, false);
-}
-
-export function V1beta1CDISpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1CDISpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    certConfig: !exists(json, 'certConfig')
-      ? undefined
-      : V1beta1CDICertConfigFromJSON(json['certConfig']),
-    cloneStrategyOverride: !exists(json, 'cloneStrategyOverride')
-      ? undefined
-      : json['cloneStrategyOverride'],
-    config: !exists(json, 'config') ? undefined : V1beta1CDIConfigSpecFromJSON(json['config']),
-    customizeComponents: !exists(json, 'customizeComponents')
-      ? undefined
-      : V1beta1CustomizeComponentsFromJSON(json['customizeComponents']),
-    imagePullPolicy: !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
-    infra: !exists(json, 'infra') ? undefined : V1beta1ComponentConfigFromJSON(json['infra']),
-    priorityClass: !exists(json, 'priorityClass') ? undefined : json['priorityClass'],
-    uninstallStrategy: !exists(json, 'uninstallStrategy') ? undefined : json['uninstallStrategy'],
-    workload: !exists(json, 'workload') ? undefined : ApiNodePlacementFromJSON(json['workload']),
-  };
-}
-
-export function V1beta1CDISpecToJSON(value?: V1beta1CDISpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    certConfig: V1beta1CDICertConfigToJSON(value.certConfig),
-    cloneStrategyOverride: value.cloneStrategyOverride,
-    config: V1beta1CDIConfigSpecToJSON(value.config),
-    customizeComponents: V1beta1CustomizeComponentsToJSON(value.customizeComponents),
-    imagePullPolicy: value.imagePullPolicy,
-    infra: V1beta1ComponentConfigToJSON(value.infra),
-    priorityClass: value.priorityClass,
-    uninstallStrategy: value.uninstallStrategy,
-    workload: ApiNodePlacementToJSON(value.workload),
-  };
 }

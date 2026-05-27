@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.
  * @export
@@ -41,36 +40,4 @@ export interface V1StatusCause {
    * @memberof V1StatusCause
    */
   reason?: string;
-}
-
-export function V1StatusCauseFromJSON(json: any): V1StatusCause {
-  return V1StatusCauseFromJSONTyped(json, false);
-}
-
-export function V1StatusCauseFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1StatusCause {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    field: !exists(json, 'field') ? undefined : json['field'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-  };
-}
-
-export function V1StatusCauseToJSON(value?: V1StatusCause | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    field: value.field,
-    message: value.message,
-    reason: value.reason,
-  };
 }

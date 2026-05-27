@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1SecretReference,
-  IoK8sApiCoreV1SecretReferenceFromJSON,
-  IoK8sApiCoreV1SecretReferenceToJSON,
 } from './';
 
 /**
@@ -49,44 +46,4 @@ export interface IoK8sApiCoreV1CinderPersistentVolumeSource {
    * @memberof IoK8sApiCoreV1CinderPersistentVolumeSource
    */
   volumeID: string;
-}
-
-export function IoK8sApiCoreV1CinderPersistentVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1CinderPersistentVolumeSource {
-  return IoK8sApiCoreV1CinderPersistentVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1CinderPersistentVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1CinderPersistentVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    secretRef: !exists(json, 'secretRef')
-      ? undefined
-      : IoK8sApiCoreV1SecretReferenceFromJSON(json['secretRef']),
-    volumeID: json['volumeID'],
-  };
-}
-
-export function IoK8sApiCoreV1CinderPersistentVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1CinderPersistentVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fsType: value.fsType,
-    readOnly: value.readOnly,
-    secretRef: IoK8sApiCoreV1SecretReferenceToJSON(value.secretRef),
-    volumeID: value.volumeID,
-  };
 }

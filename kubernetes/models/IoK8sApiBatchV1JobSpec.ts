@@ -12,20 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiBatchV1PodFailurePolicy,
-  IoK8sApiBatchV1PodFailurePolicyFromJSON,
-  IoK8sApiBatchV1PodFailurePolicyToJSON,
   IoK8sApiBatchV1SuccessPolicy,
-  IoK8sApiBatchV1SuccessPolicyFromJSON,
-  IoK8sApiBatchV1SuccessPolicyToJSON,
   IoK8sApiCoreV1PodTemplateSpec,
-  IoK8sApiCoreV1PodTemplateSpecFromJSON,
-  IoK8sApiCoreV1PodTemplateSpecToJSON,
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -143,76 +134,4 @@ export interface IoK8sApiBatchV1JobSpec {
    * @memberof IoK8sApiBatchV1JobSpec
    */
   ttlSecondsAfterFinished?: number;
-}
-
-export function IoK8sApiBatchV1JobSpecFromJSON(json: any): IoK8sApiBatchV1JobSpec {
-  return IoK8sApiBatchV1JobSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiBatchV1JobSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiBatchV1JobSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    activeDeadlineSeconds: !exists(json, 'activeDeadlineSeconds')
-      ? undefined
-      : json['activeDeadlineSeconds'],
-    backoffLimit: !exists(json, 'backoffLimit') ? undefined : json['backoffLimit'],
-    backoffLimitPerIndex: !exists(json, 'backoffLimitPerIndex')
-      ? undefined
-      : json['backoffLimitPerIndex'],
-    completionMode: !exists(json, 'completionMode') ? undefined : json['completionMode'],
-    completions: !exists(json, 'completions') ? undefined : json['completions'],
-    managedBy: !exists(json, 'managedBy') ? undefined : json['managedBy'],
-    manualSelector: !exists(json, 'manualSelector') ? undefined : json['manualSelector'],
-    maxFailedIndexes: !exists(json, 'maxFailedIndexes') ? undefined : json['maxFailedIndexes'],
-    parallelism: !exists(json, 'parallelism') ? undefined : json['parallelism'],
-    podFailurePolicy: !exists(json, 'podFailurePolicy')
-      ? undefined
-      : IoK8sApiBatchV1PodFailurePolicyFromJSON(json['podFailurePolicy']),
-    podReplacementPolicy: !exists(json, 'podReplacementPolicy')
-      ? undefined
-      : json['podReplacementPolicy'],
-    selector: !exists(json, 'selector')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
-    successPolicy: !exists(json, 'successPolicy')
-      ? undefined
-      : IoK8sApiBatchV1SuccessPolicyFromJSON(json['successPolicy']),
-    suspend: !exists(json, 'suspend') ? undefined : json['suspend'],
-    template: IoK8sApiCoreV1PodTemplateSpecFromJSON(json['template']),
-    ttlSecondsAfterFinished: !exists(json, 'ttlSecondsAfterFinished')
-      ? undefined
-      : json['ttlSecondsAfterFinished'],
-  };
-}
-
-export function IoK8sApiBatchV1JobSpecToJSON(value?: IoK8sApiBatchV1JobSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    activeDeadlineSeconds: value.activeDeadlineSeconds,
-    backoffLimit: value.backoffLimit,
-    backoffLimitPerIndex: value.backoffLimitPerIndex,
-    completionMode: value.completionMode,
-    completions: value.completions,
-    managedBy: value.managedBy,
-    manualSelector: value.manualSelector,
-    maxFailedIndexes: value.maxFailedIndexes,
-    parallelism: value.parallelism,
-    podFailurePolicy: IoK8sApiBatchV1PodFailurePolicyToJSON(value.podFailurePolicy),
-    podReplacementPolicy: value.podReplacementPolicy,
-    selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
-    successPolicy: IoK8sApiBatchV1SuccessPolicyToJSON(value.successPolicy),
-    suspend: value.suspend,
-    template: IoK8sApiCoreV1PodTemplateSpecToJSON(value.template),
-    ttlSecondsAfterFinished: value.ttlSecondsAfterFinished,
-  };
 }

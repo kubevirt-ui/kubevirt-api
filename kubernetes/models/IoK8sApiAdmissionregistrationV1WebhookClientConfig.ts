@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1ServiceReference,
-  IoK8sApiAdmissionregistrationV1ServiceReferenceFromJSON,
-  IoK8sApiAdmissionregistrationV1ServiceReferenceToJSON,
 } from './';
 
 /**
@@ -53,42 +50,4 @@ export interface IoK8sApiAdmissionregistrationV1WebhookClientConfig {
    * @memberof IoK8sApiAdmissionregistrationV1WebhookClientConfig
    */
   url?: string;
-}
-
-export function IoK8sApiAdmissionregistrationV1WebhookClientConfigFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1WebhookClientConfig {
-  return IoK8sApiAdmissionregistrationV1WebhookClientConfigFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1WebhookClientConfigFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1WebhookClientConfig {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    caBundle: !exists(json, 'caBundle') ? undefined : json['caBundle'],
-    service: !exists(json, 'service')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1ServiceReferenceFromJSON(json['service']),
-    url: !exists(json, 'url') ? undefined : json['url'],
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1WebhookClientConfigToJSON(
-  value?: IoK8sApiAdmissionregistrationV1WebhookClientConfig | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    caBundle: value.caBundle,
-    service: IoK8sApiAdmissionregistrationV1ServiceReferenceToJSON(value.service),
-    url: value.url,
-  };
 }

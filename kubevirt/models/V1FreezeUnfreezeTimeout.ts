@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * FreezeUnfreezeTimeout represent the time unfreeze will be triggered if guest was not unfrozen by unfreeze command
  * @export
@@ -26,41 +25,3 @@ export interface V1FreezeUnfreezeTimeout {
      */
     unfreezeTimeout: string;
 }
-
-/**
- * Check if a given object implements the V1FreezeUnfreezeTimeout interface.
- */
-export function instanceOfV1FreezeUnfreezeTimeout(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "unfreezeTimeout" in value;
-
-    return isInstance;
-}
-
-export function V1FreezeUnfreezeTimeoutFromJSON(json: any): V1FreezeUnfreezeTimeout {
-    return V1FreezeUnfreezeTimeoutFromJSONTyped(json, false);
-}
-
-export function V1FreezeUnfreezeTimeoutFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1FreezeUnfreezeTimeout {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'unfreezeTimeout': json['unfreezeTimeout'],
-    };
-}
-
-export function V1FreezeUnfreezeTimeoutToJSON(value?: V1FreezeUnfreezeTimeout | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'unfreezeTimeout': value.unfreezeTimeout,
-    };
-}
-

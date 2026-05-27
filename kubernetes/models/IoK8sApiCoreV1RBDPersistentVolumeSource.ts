@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1SecretReference,
-  IoK8sApiCoreV1SecretReferenceFromJSON,
-  IoK8sApiCoreV1SecretReferenceToJSON,
 } from './';
 
 /**
@@ -73,52 +70,4 @@ export interface IoK8sApiCoreV1RBDPersistentVolumeSource {
    * @memberof IoK8sApiCoreV1RBDPersistentVolumeSource
    */
   user?: string;
-}
-
-export function IoK8sApiCoreV1RBDPersistentVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1RBDPersistentVolumeSource {
-  return IoK8sApiCoreV1RBDPersistentVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1RBDPersistentVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1RBDPersistentVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    image: json['image'],
-    keyring: !exists(json, 'keyring') ? undefined : json['keyring'],
-    monitors: json['monitors'],
-    pool: !exists(json, 'pool') ? undefined : json['pool'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    secretRef: !exists(json, 'secretRef')
-      ? undefined
-      : IoK8sApiCoreV1SecretReferenceFromJSON(json['secretRef']),
-    user: !exists(json, 'user') ? undefined : json['user'],
-  };
-}
-
-export function IoK8sApiCoreV1RBDPersistentVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1RBDPersistentVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fsType: value.fsType,
-    image: value.image,
-    keyring: value.keyring,
-    monitors: value.monitors,
-    pool: value.pool,
-    readOnly: value.readOnly,
-    secretRef: IoK8sApiCoreV1SecretReferenceToJSON(value.secretRef),
-    user: value.user,
-  };
 }

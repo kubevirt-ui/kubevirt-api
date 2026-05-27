@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -50,48 +49,3 @@ export interface V1SMBiosConfiguration {
      */
     version?: string;
 }
-
-/**
- * Check if a given object implements the V1SMBiosConfiguration interface.
- */
-export function instanceOfV1SMBiosConfiguration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1SMBiosConfigurationFromJSON(json: any): V1SMBiosConfiguration {
-    return V1SMBiosConfigurationFromJSONTyped(json, false);
-}
-
-export function V1SMBiosConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1SMBiosConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'family': !exists(json, 'family') ? undefined : json['family'],
-        'manufacturer': !exists(json, 'manufacturer') ? undefined : json['manufacturer'],
-        'product': !exists(json, 'product') ? undefined : json['product'],
-        'sku': !exists(json, 'sku') ? undefined : json['sku'],
-        'version': !exists(json, 'version') ? undefined : json['version'],
-    };
-}
-
-export function V1SMBiosConfigurationToJSON(value?: V1SMBiosConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'family': value.family,
-        'manufacturer': value.manufacturer,
-        'product': value.product,
-        'sku': value.sku,
-        'version': value.version,
-    };
-}
-

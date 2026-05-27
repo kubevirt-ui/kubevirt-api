@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * EndpointPort is a tuple that describes a single port. Deprecated: This API is deprecated in v1.33+.
  * @export
@@ -52,38 +51,4 @@ export interface IoK8sApiCoreV1EndpointPort {
    * @memberof IoK8sApiCoreV1EndpointPort
    */
   protocol?: string;
-}
-
-export function IoK8sApiCoreV1EndpointPortFromJSON(json: any): IoK8sApiCoreV1EndpointPort {
-  return IoK8sApiCoreV1EndpointPortFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1EndpointPortFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1EndpointPort {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    appProtocol: !exists(json, 'appProtocol') ? undefined : json['appProtocol'],
-    name: !exists(json, 'name') ? undefined : json['name'],
-    port: json['port'],
-    protocol: !exists(json, 'protocol') ? undefined : json['protocol'],
-  };
-}
-
-export function IoK8sApiCoreV1EndpointPortToJSON(value?: IoK8sApiCoreV1EndpointPort | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    appProtocol: value.appProtocol,
-    name: value.name,
-    port: value.port,
-    protocol: value.protocol,
-  };
 }

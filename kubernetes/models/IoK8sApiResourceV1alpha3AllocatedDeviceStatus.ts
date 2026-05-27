@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1alpha3NetworkDeviceData,
-  IoK8sApiResourceV1alpha3NetworkDeviceDataFromJSON,
-  IoK8sApiResourceV1alpha3NetworkDeviceDataToJSON,
   IoK8sApimachineryPkgApisMetaV1Condition,
-  IoK8sApimachineryPkgApisMetaV1ConditionFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ConditionToJSON,
 } from './';
 
 /**
@@ -107,53 +102,4 @@ export interface IoK8sApiResourceV1alpha3AllocatedDeviceStatus {
    * @memberof IoK8sApiResourceV1alpha3AllocatedDeviceStatus
    */
   pool: string;
-}
-
-export function IoK8sApiResourceV1alpha3AllocatedDeviceStatusFromJSON(
-  json: any,
-): IoK8sApiResourceV1alpha3AllocatedDeviceStatus {
-  return IoK8sApiResourceV1alpha3AllocatedDeviceStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3AllocatedDeviceStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3AllocatedDeviceStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(IoK8sApimachineryPkgApisMetaV1ConditionFromJSON),
-    data: !exists(json, 'data') ? undefined : json['data'],
-    device: json['device'],
-    driver: json['driver'],
-    networkData: !exists(json, 'networkData')
-      ? undefined
-      : IoK8sApiResourceV1alpha3NetworkDeviceDataFromJSON(json['networkData']),
-    pool: json['pool'],
-  };
-}
-
-export function IoK8sApiResourceV1alpha3AllocatedDeviceStatusToJSON(
-  value?: IoK8sApiResourceV1alpha3AllocatedDeviceStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApimachineryPkgApisMetaV1ConditionToJSON),
-    data: value.data,
-    device: value.device,
-    driver: value.driver,
-    networkData: IoK8sApiResourceV1alpha3NetworkDeviceDataToJSON(value.networkData),
-    pool: value.pool,
-  };
 }

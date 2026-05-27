@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAppsV1DeploymentCondition,
-  IoK8sApiAppsV1DeploymentConditionFromJSON,
-  IoK8sApiAppsV1DeploymentConditionToJSON,
 } from './';
 
 /**
@@ -81,61 +78,4 @@ export interface IoK8sApiAppsV1DeploymentStatus {
    * @memberof IoK8sApiAppsV1DeploymentStatus
    */
   updatedReplicas?: number;
-}
-
-export function IoK8sApiAppsV1DeploymentStatusFromJSON(json: any): IoK8sApiAppsV1DeploymentStatus {
-  return IoK8sApiAppsV1DeploymentStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1DeploymentStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1DeploymentStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    availableReplicas: !exists(json, 'availableReplicas') ? undefined : json['availableReplicas'],
-    collisionCount: !exists(json, 'collisionCount') ? undefined : json['collisionCount'],
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(IoK8sApiAppsV1DeploymentConditionFromJSON),
-    observedGeneration: !exists(json, 'observedGeneration')
-      ? undefined
-      : json['observedGeneration'],
-    readyReplicas: !exists(json, 'readyReplicas') ? undefined : json['readyReplicas'],
-    replicas: !exists(json, 'replicas') ? undefined : json['replicas'],
-    terminatingReplicas: !exists(json, 'terminatingReplicas')
-      ? undefined
-      : json['terminatingReplicas'],
-    unavailableReplicas: !exists(json, 'unavailableReplicas')
-      ? undefined
-      : json['unavailableReplicas'],
-    updatedReplicas: !exists(json, 'updatedReplicas') ? undefined : json['updatedReplicas'],
-  };
-}
-
-export function IoK8sApiAppsV1DeploymentStatusToJSON(
-  value?: IoK8sApiAppsV1DeploymentStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    availableReplicas: value.availableReplicas,
-    collisionCount: value.collisionCount,
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApiAppsV1DeploymentConditionToJSON),
-    observedGeneration: value.observedGeneration,
-    readyReplicas: value.readyReplicas,
-    replicas: value.replicas,
-    terminatingReplicas: value.terminatingReplicas,
-    unavailableReplicas: value.unavailableReplicas,
-    updatedReplicas: value.updatedReplicas,
-  };
 }

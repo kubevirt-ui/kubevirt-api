@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ClusterTrustBundleSpec contains the signer and trust anchors.
  * @export
@@ -43,38 +42,4 @@ export interface IoK8sApiCertificatesV1alpha1ClusterTrustBundleSpec {
    * @memberof IoK8sApiCertificatesV1alpha1ClusterTrustBundleSpec
    */
   trustBundle: string;
-}
-
-export function IoK8sApiCertificatesV1alpha1ClusterTrustBundleSpecFromJSON(
-  json: any,
-): IoK8sApiCertificatesV1alpha1ClusterTrustBundleSpec {
-  return IoK8sApiCertificatesV1alpha1ClusterTrustBundleSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCertificatesV1alpha1ClusterTrustBundleSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCertificatesV1alpha1ClusterTrustBundleSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    signerName: !exists(json, 'signerName') ? undefined : json['signerName'],
-    trustBundle: json['trustBundle'],
-  };
-}
-
-export function IoK8sApiCertificatesV1alpha1ClusterTrustBundleSpecToJSON(
-  value?: IoK8sApiCertificatesV1alpha1ClusterTrustBundleSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    signerName: value.signerName,
-    trustBundle: value.trustBundle,
-  };
 }

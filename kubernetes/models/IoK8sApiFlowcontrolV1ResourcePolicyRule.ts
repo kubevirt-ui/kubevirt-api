@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ResourcePolicyRule is a predicate that matches some resource requests, testing the request's verb and the target resource. A ResourcePolicyRule matches a resource request if and only if: (a) at least one member of verbs matches the request, (b) at least one member of apiGroups matches the request, (c) at least one member of resources matches the request, and (d) either (d1) the request does not specify a namespace (i.e., `Namespace==""`) and clusterScope is true or (d2) the request specifies a namespace and least one member of namespaces matches the request's namespace.
  * @export
@@ -49,44 +48,4 @@ export interface IoK8sApiFlowcontrolV1ResourcePolicyRule {
    * @memberof IoK8sApiFlowcontrolV1ResourcePolicyRule
    */
   verbs: Array<string>;
-}
-
-export function IoK8sApiFlowcontrolV1ResourcePolicyRuleFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1ResourcePolicyRule {
-  return IoK8sApiFlowcontrolV1ResourcePolicyRuleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1ResourcePolicyRuleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1ResourcePolicyRule {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiGroups: json['apiGroups'],
-    clusterScope: !exists(json, 'clusterScope') ? undefined : json['clusterScope'],
-    namespaces: !exists(json, 'namespaces') ? undefined : json['namespaces'],
-    resources: json['resources'],
-    verbs: json['verbs'],
-  };
-}
-
-export function IoK8sApiFlowcontrolV1ResourcePolicyRuleToJSON(
-  value?: IoK8sApiFlowcontrolV1ResourcePolicyRule | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiGroups: value.apiGroups,
-    clusterScope: value.clusterScope,
-    namespaces: value.namespaces,
-    resources: value.resources,
-    verbs: value.verbs,
-  };
 }

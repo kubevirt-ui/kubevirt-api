@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAuthenticationV1UserInfo,
-  IoK8sApiAuthenticationV1UserInfoFromJSON,
-  IoK8sApiAuthenticationV1UserInfoToJSON,
 } from './';
 
 /**
@@ -49,44 +46,4 @@ export interface IoK8sApiAuthenticationV1TokenReviewStatus {
    * @memberof IoK8sApiAuthenticationV1TokenReviewStatus
    */
   user?: IoK8sApiAuthenticationV1UserInfo;
-}
-
-export function IoK8sApiAuthenticationV1TokenReviewStatusFromJSON(
-  json: any,
-): IoK8sApiAuthenticationV1TokenReviewStatus {
-  return IoK8sApiAuthenticationV1TokenReviewStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthenticationV1TokenReviewStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthenticationV1TokenReviewStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    audiences: !exists(json, 'audiences') ? undefined : json['audiences'],
-    authenticated: !exists(json, 'authenticated') ? undefined : json['authenticated'],
-    error: !exists(json, 'error') ? undefined : json['error'],
-    user: !exists(json, 'user')
-      ? undefined
-      : IoK8sApiAuthenticationV1UserInfoFromJSON(json['user']),
-  };
-}
-
-export function IoK8sApiAuthenticationV1TokenReviewStatusToJSON(
-  value?: IoK8sApiAuthenticationV1TokenReviewStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    audiences: value.audiences,
-    authenticated: value.authenticated,
-    error: value.error,
-    user: IoK8sApiAuthenticationV1UserInfoToJSON(value.user),
-  };
 }

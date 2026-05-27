@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ResourceQuotaSpec,
-  IoK8sApiCoreV1ResourceQuotaSpecFromJSON,
-  IoK8sApiCoreV1ResourceQuotaSpecToJSON,
   IoK8sApiCoreV1ResourceQuotaStatus,
-  IoK8sApiCoreV1ResourceQuotaStatusFromJSON,
-  IoK8sApiCoreV1ResourceQuotaStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -61,44 +54,4 @@ export interface IoK8sApiCoreV1ResourceQuota {
    * @memberof IoK8sApiCoreV1ResourceQuota
    */
   status?: IoK8sApiCoreV1ResourceQuotaStatus;
-}
-
-export function IoK8sApiCoreV1ResourceQuotaFromJSON(json: any): IoK8sApiCoreV1ResourceQuota {
-  return IoK8sApiCoreV1ResourceQuotaFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ResourceQuotaFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ResourceQuota {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec') ? undefined : IoK8sApiCoreV1ResourceQuotaSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiCoreV1ResourceQuotaStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiCoreV1ResourceQuotaToJSON(value?: IoK8sApiCoreV1ResourceQuota | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiCoreV1ResourceQuotaSpecToJSON(value.spec),
-    status: IoK8sApiCoreV1ResourceQuotaStatusToJSON(value.status),
-  };
 }

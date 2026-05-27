@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ServiceBackendPort is the service port being referenced.
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiNetworkingV1ServiceBackendPort {
    * @memberof IoK8sApiNetworkingV1ServiceBackendPort
    */
   number?: number;
-}
-
-export function IoK8sApiNetworkingV1ServiceBackendPortFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1ServiceBackendPort {
-  return IoK8sApiNetworkingV1ServiceBackendPortFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1ServiceBackendPortFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1ServiceBackendPort {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: !exists(json, 'name') ? undefined : json['name'],
-    number: !exists(json, 'number') ? undefined : json['number'],
-  };
-}
-
-export function IoK8sApiNetworkingV1ServiceBackendPortToJSON(
-  value?: IoK8sApiNetworkingV1ServiceBackendPort | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    number: value.number,
-  };
 }

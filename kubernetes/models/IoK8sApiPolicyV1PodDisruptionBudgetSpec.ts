@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -57,46 +54,4 @@ export interface IoK8sApiPolicyV1PodDisruptionBudgetSpec {
    * @memberof IoK8sApiPolicyV1PodDisruptionBudgetSpec
    */
   unhealthyPodEvictionPolicy?: string;
-}
-
-export function IoK8sApiPolicyV1PodDisruptionBudgetSpecFromJSON(
-  json: any,
-): IoK8sApiPolicyV1PodDisruptionBudgetSpec {
-  return IoK8sApiPolicyV1PodDisruptionBudgetSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiPolicyV1PodDisruptionBudgetSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiPolicyV1PodDisruptionBudgetSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    maxUnavailable: !exists(json, 'maxUnavailable') ? undefined : json['maxUnavailable'],
-    minAvailable: !exists(json, 'minAvailable') ? undefined : json['minAvailable'],
-    selector: !exists(json, 'selector')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
-    unhealthyPodEvictionPolicy: !exists(json, 'unhealthyPodEvictionPolicy')
-      ? undefined
-      : json['unhealthyPodEvictionPolicy'],
-  };
-}
-
-export function IoK8sApiPolicyV1PodDisruptionBudgetSpecToJSON(
-  value?: IoK8sApiPolicyV1PodDisruptionBudgetSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    maxUnavailable: value.maxUnavailable,
-    minAvailable: value.minAvailable,
-    selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
-    unhealthyPodEvictionPolicy: value.unhealthyPodEvictionPolicy,
-  };
 }

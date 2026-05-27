@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ExecAction describes a "run in container" action.
  * @export
@@ -25,32 +24,4 @@ export interface IoK8sApiCoreV1ExecAction {
    * @memberof IoK8sApiCoreV1ExecAction
    */
   command?: Array<string>;
-}
-
-export function IoK8sApiCoreV1ExecActionFromJSON(json: any): IoK8sApiCoreV1ExecAction {
-  return IoK8sApiCoreV1ExecActionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ExecActionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ExecAction {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    command: !exists(json, 'command') ? undefined : json['command'],
-  };
-}
-
-export function IoK8sApiCoreV1ExecActionToJSON(value?: IoK8sApiCoreV1ExecAction | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    command: value.command,
-  };
 }

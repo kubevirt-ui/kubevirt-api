@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ScopedResourceSelectorRequirement,
-  IoK8sApiCoreV1ScopedResourceSelectorRequirementFromJSON,
-  IoK8sApiCoreV1ScopedResourceSelectorRequirementToJSON,
 } from './';
 
 /**
@@ -31,41 +28,4 @@ export interface IoK8sApiCoreV1ScopeSelector {
    * @memberof IoK8sApiCoreV1ScopeSelector
    */
   matchExpressions?: Array<IoK8sApiCoreV1ScopedResourceSelectorRequirement>;
-}
-
-export function IoK8sApiCoreV1ScopeSelectorFromJSON(json: any): IoK8sApiCoreV1ScopeSelector {
-  return IoK8sApiCoreV1ScopeSelectorFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ScopeSelectorFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ScopeSelector {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    matchExpressions: !exists(json, 'matchExpressions')
-      ? undefined
-      : (json['matchExpressions'] as Array<any>).map(
-          IoK8sApiCoreV1ScopedResourceSelectorRequirementFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiCoreV1ScopeSelectorToJSON(value?: IoK8sApiCoreV1ScopeSelector | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    matchExpressions:
-      value.matchExpressions === undefined
-        ? undefined
-        : (value.matchExpressions as Array<any>).map(
-            IoK8sApiCoreV1ScopedResourceSelectorRequirementToJSON,
-          ),
-  };
 }

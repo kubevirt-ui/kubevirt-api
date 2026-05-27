@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1Affinity,
-  V1AffinityFromJSON,
-  V1AffinityToJSON,
   V1Toleration,
-  V1TolerationFromJSON,
-  V1TolerationToJSON,
 } from './';
 
 /**
@@ -64,51 +59,4 @@ export interface V1beta1ComponentConfig {
    * @memberof V1beta1ComponentConfig
    */
   uploadProxyReplicas?: number;
-}
-
-export function V1beta1ComponentConfigFromJSON(json: any): V1beta1ComponentConfig {
-  return V1beta1ComponentConfigFromJSONTyped(json, false);
-}
-
-export function V1beta1ComponentConfigFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1ComponentConfig {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    affinity: !exists(json, 'affinity') ? undefined : V1AffinityFromJSON(json['affinity']),
-    apiServerReplicas: !exists(json, 'apiServerReplicas') ? undefined : json['apiServerReplicas'],
-    deploymentReplicas: !exists(json, 'deploymentReplicas')
-      ? undefined
-      : json['deploymentReplicas'],
-    nodeSelector: !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
-    tolerations: !exists(json, 'tolerations')
-      ? undefined
-      : (json['tolerations'] as Array<any>).map(V1TolerationFromJSON),
-    uploadProxyReplicas: !exists(json, 'uploadProxyReplicas')
-      ? undefined
-      : json['uploadProxyReplicas'],
-  };
-}
-
-export function V1beta1ComponentConfigToJSON(value?: V1beta1ComponentConfig | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    affinity: V1AffinityToJSON(value.affinity),
-    apiServerReplicas: value.apiServerReplicas,
-    deploymentReplicas: value.deploymentReplicas,
-    nodeSelector: value.nodeSelector,
-    tolerations:
-      value.tolerations === undefined
-        ? undefined
-        : (value.tolerations as Array<any>).map(V1TolerationToJSON),
-    uploadProxyReplicas: value.uploadProxyReplicas,
-  };
 }

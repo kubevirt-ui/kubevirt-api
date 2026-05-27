@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * current status of a horizontal pod autoscaler
  * @export
@@ -49,48 +48,4 @@ export interface IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatus {
    * @memberof IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatus
    */
   observedGeneration?: number;
-}
-
-export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatusFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatus {
-  return IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    currentCPUUtilizationPercentage: !exists(json, 'currentCPUUtilizationPercentage')
-      ? undefined
-      : json['currentCPUUtilizationPercentage'],
-    currentReplicas: json['currentReplicas'],
-    desiredReplicas: json['desiredReplicas'],
-    lastScaleTime: !exists(json, 'lastScaleTime') ? undefined : json['lastScaleTime'],
-    observedGeneration: !exists(json, 'observedGeneration')
-      ? undefined
-      : json['observedGeneration'],
-  };
-}
-
-export function IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatusToJSON(
-  value?: IoK8sApiAutoscalingV1HorizontalPodAutoscalerStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    currentCPUUtilizationPercentage: value.currentCPUUtilizationPercentage,
-    currentReplicas: value.currentReplicas,
-    desiredReplicas: value.desiredReplicas,
-    lastScaleTime: value.lastScaleTime === undefined ? undefined : value.lastScaleTime,
-    observedGeneration: value.observedGeneration,
-  };
 }

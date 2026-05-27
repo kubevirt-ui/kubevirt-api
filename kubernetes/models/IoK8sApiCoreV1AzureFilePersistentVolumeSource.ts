@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
  * @export
@@ -43,42 +42,4 @@ export interface IoK8sApiCoreV1AzureFilePersistentVolumeSource {
    * @memberof IoK8sApiCoreV1AzureFilePersistentVolumeSource
    */
   shareName: string;
-}
-
-export function IoK8sApiCoreV1AzureFilePersistentVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1AzureFilePersistentVolumeSource {
-  return IoK8sApiCoreV1AzureFilePersistentVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1AzureFilePersistentVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1AzureFilePersistentVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    secretName: json['secretName'],
-    secretNamespace: !exists(json, 'secretNamespace') ? undefined : json['secretNamespace'],
-    shareName: json['shareName'],
-  };
-}
-
-export function IoK8sApiCoreV1AzureFilePersistentVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1AzureFilePersistentVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    readOnly: value.readOnly,
-    secretName: value.secretName,
-    secretNamespace: value.secretNamespace,
-    shareName: value.shareName,
-  };
 }

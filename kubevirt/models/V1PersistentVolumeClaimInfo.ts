@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * PersistentVolumeClaimInfo contains the relavant information virt-handler needs cached about a PVC
  * @export
@@ -68,7 +67,6 @@ export interface V1PersistentVolumeClaimInfo {
     volumeMode?: V1PersistentVolumeClaimInfoVolumeModeEnum;
 }
 
-
 /**
  * @export
  */
@@ -89,53 +87,3 @@ export const V1PersistentVolumeClaimInfoVolumeModeEnum = {
     FromStorageProfile: 'FromStorageProfile'
 } as const;
 export type V1PersistentVolumeClaimInfoVolumeModeEnum = typeof V1PersistentVolumeClaimInfoVolumeModeEnum[keyof typeof V1PersistentVolumeClaimInfoVolumeModeEnum];
-
-
-/**
- * Check if a given object implements the V1PersistentVolumeClaimInfo interface.
- */
-export function instanceOfV1PersistentVolumeClaimInfo(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1PersistentVolumeClaimInfoFromJSON(json: any): V1PersistentVolumeClaimInfo {
-    return V1PersistentVolumeClaimInfoFromJSONTyped(json, false);
-}
-
-export function V1PersistentVolumeClaimInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PersistentVolumeClaimInfo {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'accessModes': !exists(json, 'accessModes') ? undefined : json['accessModes'],
-        'capacity': !exists(json, 'capacity') ? undefined : json['capacity'],
-        'claimName': !exists(json, 'claimName') ? undefined : json['claimName'],
-        'filesystemOverhead': !exists(json, 'filesystemOverhead') ? undefined : json['filesystemOverhead'],
-        'preallocated': !exists(json, 'preallocated') ? undefined : json['preallocated'],
-        'requests': !exists(json, 'requests') ? undefined : json['requests'],
-        'volumeMode': !exists(json, 'volumeMode') ? undefined : json['volumeMode'],
-    };
-}
-
-export function V1PersistentVolumeClaimInfoToJSON(value?: V1PersistentVolumeClaimInfo | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'accessModes': value.accessModes,
-        'capacity': value.capacity,
-        'claimName': value.claimName,
-        'filesystemOverhead': value.filesystemOverhead,
-        'preallocated': value.preallocated,
-        'requests': value.requests,
-        'volumeMode': value.volumeMode,
-    };
-}
-

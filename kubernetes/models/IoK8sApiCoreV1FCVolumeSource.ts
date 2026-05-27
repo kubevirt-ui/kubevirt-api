@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Represents a Fibre Channel volume. Fibre Channel volumes can only be mounted as read/write once. Fibre Channel volumes support ownership management and SELinux relabeling.
  * @export
@@ -49,42 +48,4 @@ export interface IoK8sApiCoreV1FCVolumeSource {
    * @memberof IoK8sApiCoreV1FCVolumeSource
    */
   wwids?: Array<string>;
-}
-
-export function IoK8sApiCoreV1FCVolumeSourceFromJSON(json: any): IoK8sApiCoreV1FCVolumeSource {
-  return IoK8sApiCoreV1FCVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1FCVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1FCVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    lun: !exists(json, 'lun') ? undefined : json['lun'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    targetWWNs: !exists(json, 'targetWWNs') ? undefined : json['targetWWNs'],
-    wwids: !exists(json, 'wwids') ? undefined : json['wwids'],
-  };
-}
-
-export function IoK8sApiCoreV1FCVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1FCVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fsType: value.fsType,
-    lun: value.lun,
-    readOnly: value.readOnly,
-    targetWWNs: value.targetWWNs,
-    wwids: value.wwids,
-  };
 }

@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1KeyToPath,
-  IoK8sApiCoreV1KeyToPathFromJSON,
-  IoK8sApiCoreV1KeyToPathToJSON,
 } from './';
 
 /**
@@ -51,47 +48,4 @@ export interface IoK8sApiCoreV1ConfigMapVolumeSource {
    * @memberof IoK8sApiCoreV1ConfigMapVolumeSource
    */
   optional?: boolean;
-}
-
-export function IoK8sApiCoreV1ConfigMapVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1ConfigMapVolumeSource {
-  return IoK8sApiCoreV1ConfigMapVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ConfigMapVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ConfigMapVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    defaultMode: !exists(json, 'defaultMode') ? undefined : json['defaultMode'],
-    items: !exists(json, 'items')
-      ? undefined
-      : (json['items'] as Array<any>).map(IoK8sApiCoreV1KeyToPathFromJSON),
-    name: !exists(json, 'name') ? undefined : json['name'],
-    optional: !exists(json, 'optional') ? undefined : json['optional'],
-  };
-}
-
-export function IoK8sApiCoreV1ConfigMapVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1ConfigMapVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    defaultMode: value.defaultMode,
-    items:
-      value.items === undefined
-        ? undefined
-        : (value.items as Array<any>).map(IoK8sApiCoreV1KeyToPathToJSON),
-    name: value.name,
-    optional: value.optional,
-  };
 }

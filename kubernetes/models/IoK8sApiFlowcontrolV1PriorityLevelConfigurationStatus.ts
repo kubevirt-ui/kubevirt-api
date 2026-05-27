@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiFlowcontrolV1PriorityLevelConfigurationCondition,
-  IoK8sApiFlowcontrolV1PriorityLevelConfigurationConditionFromJSON,
-  IoK8sApiFlowcontrolV1PriorityLevelConfigurationConditionToJSON,
 } from './';
 
 /**
@@ -31,45 +28,4 @@ export interface IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatus {
    * @memberof IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatus
    */
   conditions?: Array<IoK8sApiFlowcontrolV1PriorityLevelConfigurationCondition>;
-}
-
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatusFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatus {
-  return IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(
-          IoK8sApiFlowcontrolV1PriorityLevelConfigurationConditionFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatusToJSON(
-  value?: IoK8sApiFlowcontrolV1PriorityLevelConfigurationStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(
-            IoK8sApiFlowcontrolV1PriorityLevelConfigurationConditionToJSON,
-          ),
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * SeccompProfile defines a pod/container's seccomp profile settings. Only one profile source may be set.
  * @export
@@ -33,36 +32,4 @@ export interface IoK8sApiCoreV1SeccompProfile {
    * @memberof IoK8sApiCoreV1SeccompProfile
    */
   type: string;
-}
-
-export function IoK8sApiCoreV1SeccompProfileFromJSON(json: any): IoK8sApiCoreV1SeccompProfile {
-  return IoK8sApiCoreV1SeccompProfileFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1SeccompProfileFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1SeccompProfile {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    localhostProfile: !exists(json, 'localhostProfile') ? undefined : json['localhostProfile'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiCoreV1SeccompProfileToJSON(
-  value?: IoK8sApiCoreV1SeccompProfile | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    localhostProfile: value.localhostProfile,
-    type: value.type,
-  };
 }

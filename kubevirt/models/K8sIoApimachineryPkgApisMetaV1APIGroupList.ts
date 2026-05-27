@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1APIGroup } from './K8sIoApimachineryPkgApisMetaV1APIGroup';
-import {
-    K8sIoApimachineryPkgApisMetaV1APIGroupFromJSON,
-    K8sIoApimachineryPkgApisMetaV1APIGroupFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1APIGroupToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1APIGroup';
 
 /**
  * APIGroupList is a list of APIGroup, to allow clients to discover the API at /apis.
@@ -45,45 +39,3 @@ export interface K8sIoApimachineryPkgApisMetaV1APIGroupList {
      */
     kind?: string;
 }
-
-/**
- * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1APIGroupList interface.
- */
-export function instanceOfK8sIoApimachineryPkgApisMetaV1APIGroupList(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "groups" in value;
-
-    return isInstance;
-}
-
-export function K8sIoApimachineryPkgApisMetaV1APIGroupListFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1APIGroupList {
-    return K8sIoApimachineryPkgApisMetaV1APIGroupListFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1APIGroupListFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1APIGroupList {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'groups': ((json['groups'] as Array<any>).map(K8sIoApimachineryPkgApisMetaV1APIGroupFromJSON)),
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-    };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1APIGroupListToJSON(value?: K8sIoApimachineryPkgApisMetaV1APIGroupList | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'groups': ((value.groups as Array<any>).map(K8sIoApimachineryPkgApisMetaV1APIGroupToJSON)),
-        'kind': value.kind,
-    };
-}
-

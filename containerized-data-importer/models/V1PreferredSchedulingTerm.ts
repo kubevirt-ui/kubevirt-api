@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { V1NodeSelectorTerm, V1NodeSelectorTermFromJSON, V1NodeSelectorTermToJSON } from './';
+import { V1NodeSelectorTerm } from './';
 
 /**
  * An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
@@ -32,34 +32,4 @@ export interface V1PreferredSchedulingTerm {
    * @memberof V1PreferredSchedulingTerm
    */
   weight: number;
-}
-
-export function V1PreferredSchedulingTermFromJSON(json: any): V1PreferredSchedulingTerm {
-  return V1PreferredSchedulingTermFromJSONTyped(json, false);
-}
-
-export function V1PreferredSchedulingTermFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1PreferredSchedulingTerm {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    preference: V1NodeSelectorTermFromJSON(json['preference']),
-    weight: json['weight'],
-  };
-}
-
-export function V1PreferredSchedulingTermToJSON(value?: V1PreferredSchedulingTerm | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    preference: V1NodeSelectorTermToJSON(value.preference),
-    weight: value.weight,
-  };
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1PodSpec,
-  IoK8sApiCoreV1PodSpecFromJSON,
-  IoK8sApiCoreV1PodSpecToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -40,38 +35,4 @@ export interface IoK8sApiCoreV1PodTemplateSpec {
    * @memberof IoK8sApiCoreV1PodTemplateSpec
    */
   spec?: IoK8sApiCoreV1PodSpec;
-}
-
-export function IoK8sApiCoreV1PodTemplateSpecFromJSON(json: any): IoK8sApiCoreV1PodTemplateSpec {
-  return IoK8sApiCoreV1PodTemplateSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodTemplateSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodTemplateSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: !exists(json, 'spec') ? undefined : IoK8sApiCoreV1PodSpecFromJSON(json['spec']),
-  };
-}
-
-export function IoK8sApiCoreV1PodTemplateSpecToJSON(
-  value?: IoK8sApiCoreV1PodTemplateSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiCoreV1PodSpecToJSON(value.spec),
-  };
 }

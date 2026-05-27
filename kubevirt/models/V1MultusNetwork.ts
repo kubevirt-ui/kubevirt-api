@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * Represents the multus cni network.
  * @export
@@ -32,43 +31,3 @@ export interface V1MultusNetwork {
      */
     networkName: string;
 }
-
-/**
- * Check if a given object implements the V1MultusNetwork interface.
- */
-export function instanceOfV1MultusNetwork(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "networkName" in value;
-
-    return isInstance;
-}
-
-export function V1MultusNetworkFromJSON(json: any): V1MultusNetwork {
-    return V1MultusNetworkFromJSONTyped(json, false);
-}
-
-export function V1MultusNetworkFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1MultusNetwork {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        '_default': !exists(json, 'default') ? undefined : json['default'],
-        'networkName': json['networkName'],
-    };
-}
-
-export function V1MultusNetworkToJSON(value?: V1MultusNetwork | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'default': value._default,
-        'networkName': value.networkName,
-    };
-}
-

@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
-import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import type { V1VirtualMachineInstancePresetSpec } from './V1VirtualMachineInstancePresetSpec';
-import {
-    V1VirtualMachineInstancePresetSpecFromJSON,
-    V1VirtualMachineInstancePresetSpecFromJSONTyped,
-    V1VirtualMachineInstancePresetSpecToJSON,
-} from './V1VirtualMachineInstancePresetSpec';
 
 /**
  * Deprecated for removal in v2, please use VirtualMachineInstanceType and VirtualMachinePreference instead.
@@ -59,46 +48,3 @@ export interface V1VirtualMachineInstancePreset {
      */
     spec?: V1VirtualMachineInstancePresetSpec;
 }
-
-/**
- * Check if a given object implements the V1VirtualMachineInstancePreset interface.
- */
-export function instanceOfV1VirtualMachineInstancePreset(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1VirtualMachineInstancePresetFromJSON(json: any): V1VirtualMachineInstancePreset {
-    return V1VirtualMachineInstancePresetFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstancePresetFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstancePreset {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-        'spec': !exists(json, 'spec') ? undefined : V1VirtualMachineInstancePresetSpecFromJSON(json['spec']),
-    };
-}
-
-export function V1VirtualMachineInstancePresetToJSON(value?: V1VirtualMachineInstancePreset | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'kind': value.kind,
-        'metadata': K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-        'spec': V1VirtualMachineInstancePresetSpecToJSON(value.spec),
-    };
-}
-

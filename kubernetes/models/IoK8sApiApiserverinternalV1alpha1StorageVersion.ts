@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiApiserverinternalV1alpha1StorageVersionStatus,
-  IoK8sApiApiserverinternalV1alpha1StorageVersionStatusFromJSON,
-  IoK8sApiApiserverinternalV1alpha1StorageVersionStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -58,46 +53,4 @@ export interface IoK8sApiApiserverinternalV1alpha1StorageVersion {
    * @memberof IoK8sApiApiserverinternalV1alpha1StorageVersion
    */
   status: IoK8sApiApiserverinternalV1alpha1StorageVersionStatus;
-}
-
-export function IoK8sApiApiserverinternalV1alpha1StorageVersionFromJSON(
-  json: any,
-): IoK8sApiApiserverinternalV1alpha1StorageVersion {
-  return IoK8sApiApiserverinternalV1alpha1StorageVersionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiApiserverinternalV1alpha1StorageVersionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiApiserverinternalV1alpha1StorageVersion {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: json['spec'],
-    status: IoK8sApiApiserverinternalV1alpha1StorageVersionStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiApiserverinternalV1alpha1StorageVersionToJSON(
-  value?: IoK8sApiApiserverinternalV1alpha1StorageVersion | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: value.spec,
-    status: IoK8sApiApiserverinternalV1alpha1StorageVersionStatusToJSON(value.status),
-  };
 }

@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApimachineryPkgApisMetaV1APIResource,
-  IoK8sApimachineryPkgApisMetaV1APIResourceFromJSON,
-  IoK8sApimachineryPkgApisMetaV1APIResourceToJSON,
 } from './';
 
 /**
@@ -49,44 +46,4 @@ export interface IoK8sApimachineryPkgApisMetaV1APIResourceList {
    * @memberof IoK8sApimachineryPkgApisMetaV1APIResourceList
    */
   resources: Array<IoK8sApimachineryPkgApisMetaV1APIResource>;
-}
-
-export function IoK8sApimachineryPkgApisMetaV1APIResourceListFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1APIResourceList {
-  return IoK8sApimachineryPkgApisMetaV1APIResourceListFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1APIResourceListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1APIResourceList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    groupVersion: json['groupVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    resources: (json['resources'] as Array<any>).map(
-      IoK8sApimachineryPkgApisMetaV1APIResourceFromJSON,
-    ),
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1APIResourceListToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1APIResourceList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    groupVersion: value.groupVersion,
-    kind: value.kind,
-    resources: (value.resources as Array<any>).map(IoK8sApimachineryPkgApisMetaV1APIResourceToJSON),
-  };
 }

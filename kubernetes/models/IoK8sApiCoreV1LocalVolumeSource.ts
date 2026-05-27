@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Local represents directly-attached storage with node affinity
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiCoreV1LocalVolumeSource {
    * @memberof IoK8sApiCoreV1LocalVolumeSource
    */
   path: string;
-}
-
-export function IoK8sApiCoreV1LocalVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1LocalVolumeSource {
-  return IoK8sApiCoreV1LocalVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1LocalVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1LocalVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    path: json['path'],
-  };
-}
-
-export function IoK8sApiCoreV1LocalVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1LocalVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fsType: value.fsType,
-    path: value.path,
-  };
 }

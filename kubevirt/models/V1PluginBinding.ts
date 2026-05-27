@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * PluginBinding represents a binding implemented in a plugin.
  * @export
@@ -26,41 +25,3 @@ export interface V1PluginBinding {
      */
     name: string;
 }
-
-/**
- * Check if a given object implements the V1PluginBinding interface.
- */
-export function instanceOfV1PluginBinding(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "name" in value;
-
-    return isInstance;
-}
-
-export function V1PluginBindingFromJSON(json: any): V1PluginBinding {
-    return V1PluginBindingFromJSONTyped(json, false);
-}
-
-export function V1PluginBindingFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1PluginBinding {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'name': json['name'],
-    };
-}
-
-export function V1PluginBindingToJSON(value?: V1PluginBinding | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'name': value.name,
-    };
-}
-

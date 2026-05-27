@@ -31,33 +31,3 @@ export interface IoK8sApiCoreV1HTTPHeader {
    */
   value: string;
 }
-
-export function IoK8sApiCoreV1HTTPHeaderFromJSON(json: any): IoK8sApiCoreV1HTTPHeader {
-  return IoK8sApiCoreV1HTTPHeaderFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1HTTPHeaderFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1HTTPHeader {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    value: json['value'],
-  };
-}
-
-export function IoK8sApiCoreV1HTTPHeaderToJSON(value?: IoK8sApiCoreV1HTTPHeader | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    value: value.value,
-  };
-}

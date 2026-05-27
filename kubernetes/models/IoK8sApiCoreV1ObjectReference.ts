@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ObjectReference contains enough information to let you inspect or modify the referred object.
  * @export
@@ -61,46 +60,4 @@ export interface IoK8sApiCoreV1ObjectReference {
    * @memberof IoK8sApiCoreV1ObjectReference
    */
   uid?: string;
-}
-
-export function IoK8sApiCoreV1ObjectReferenceFromJSON(json: any): IoK8sApiCoreV1ObjectReference {
-  return IoK8sApiCoreV1ObjectReferenceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ObjectReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ObjectReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    fieldPath: !exists(json, 'fieldPath') ? undefined : json['fieldPath'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    name: !exists(json, 'name') ? undefined : json['name'],
-    namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
-    resourceVersion: !exists(json, 'resourceVersion') ? undefined : json['resourceVersion'],
-    uid: !exists(json, 'uid') ? undefined : json['uid'],
-  };
-}
-
-export function IoK8sApiCoreV1ObjectReferenceToJSON(
-  value?: IoK8sApiCoreV1ObjectReference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    fieldPath: value.fieldPath,
-    kind: value.kind,
-    name: value.name,
-    namespace: value.namespace,
-    resourceVersion: value.resourceVersion,
-    uid: value.uid,
-  };
 }

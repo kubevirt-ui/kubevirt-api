@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1alpha3AllocatedDeviceStatus,
-  IoK8sApiResourceV1alpha3AllocatedDeviceStatusFromJSON,
-  IoK8sApiResourceV1alpha3AllocatedDeviceStatusToJSON,
   IoK8sApiResourceV1alpha3AllocationResult,
-  IoK8sApiResourceV1alpha3AllocationResultFromJSON,
-  IoK8sApiResourceV1alpha3AllocationResultToJSON,
   IoK8sApiResourceV1alpha3ResourceClaimConsumerReference,
-  IoK8sApiResourceV1alpha3ResourceClaimConsumerReferenceFromJSON,
-  IoK8sApiResourceV1alpha3ResourceClaimConsumerReferenceToJSON,
 } from './';
 
 /**
@@ -55,56 +48,4 @@ export interface IoK8sApiResourceV1alpha3ResourceClaimStatus {
    * @memberof IoK8sApiResourceV1alpha3ResourceClaimStatus
    */
   reservedFor?: Array<IoK8sApiResourceV1alpha3ResourceClaimConsumerReference>;
-}
-
-export function IoK8sApiResourceV1alpha3ResourceClaimStatusFromJSON(
-  json: any,
-): IoK8sApiResourceV1alpha3ResourceClaimStatus {
-  return IoK8sApiResourceV1alpha3ResourceClaimStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3ResourceClaimStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3ResourceClaimStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    allocation: !exists(json, 'allocation')
-      ? undefined
-      : IoK8sApiResourceV1alpha3AllocationResultFromJSON(json['allocation']),
-    devices: !exists(json, 'devices')
-      ? undefined
-      : (json['devices'] as Array<any>).map(IoK8sApiResourceV1alpha3AllocatedDeviceStatusFromJSON),
-    reservedFor: !exists(json, 'reservedFor')
-      ? undefined
-      : (json['reservedFor'] as Array<any>).map(
-          IoK8sApiResourceV1alpha3ResourceClaimConsumerReferenceFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiResourceV1alpha3ResourceClaimStatusToJSON(
-  value?: IoK8sApiResourceV1alpha3ResourceClaimStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    allocation: IoK8sApiResourceV1alpha3AllocationResultToJSON(value.allocation),
-    devices:
-      value.devices === undefined
-        ? undefined
-        : (value.devices as Array<any>).map(IoK8sApiResourceV1alpha3AllocatedDeviceStatusToJSON),
-    reservedFor:
-      value.reservedFor === undefined
-        ? undefined
-        : (value.reservedFor as Array<any>).map(
-            IoK8sApiResourceV1alpha3ResourceClaimConsumerReferenceToJSON,
-          ),
-  };
 }

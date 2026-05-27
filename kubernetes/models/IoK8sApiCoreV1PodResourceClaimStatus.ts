@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PodResourceClaimStatus is stored in the PodStatus for each PodResourceClaim which references a ResourceClaimTemplate. It stores the generated name for the corresponding ResourceClaim.
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiCoreV1PodResourceClaimStatus {
    * @memberof IoK8sApiCoreV1PodResourceClaimStatus
    */
   resourceClaimName?: string;
-}
-
-export function IoK8sApiCoreV1PodResourceClaimStatusFromJSON(
-  json: any,
-): IoK8sApiCoreV1PodResourceClaimStatus {
-  return IoK8sApiCoreV1PodResourceClaimStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PodResourceClaimStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PodResourceClaimStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    resourceClaimName: !exists(json, 'resourceClaimName') ? undefined : json['resourceClaimName'],
-  };
-}
-
-export function IoK8sApiCoreV1PodResourceClaimStatusToJSON(
-  value?: IoK8sApiCoreV1PodResourceClaimStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    resourceClaimName: value.resourceClaimName,
-  };
 }

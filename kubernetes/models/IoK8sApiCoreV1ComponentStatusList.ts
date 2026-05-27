@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ComponentStatus,
-  IoK8sApiCoreV1ComponentStatusFromJSON,
-  IoK8sApiCoreV1ComponentStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -52,44 +47,4 @@ export interface IoK8sApiCoreV1ComponentStatusList {
    * @memberof IoK8sApiCoreV1ComponentStatusList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiCoreV1ComponentStatusListFromJSON(
-  json: any,
-): IoK8sApiCoreV1ComponentStatusList {
-  return IoK8sApiCoreV1ComponentStatusListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ComponentStatusListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ComponentStatusList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(IoK8sApiCoreV1ComponentStatusFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiCoreV1ComponentStatusListToJSON(
-  value?: IoK8sApiCoreV1ComponentStatusList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(IoK8sApiCoreV1ComponentStatusToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

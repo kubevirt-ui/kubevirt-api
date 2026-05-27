@@ -12,8 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1beta1CertConfig, V1beta1CertConfigFromJSON, V1beta1CertConfigToJSON } from './';
+import { V1beta1CertConfig } from './';
 
 /**
  * CDICertConfig has the CertConfigs for CDI
@@ -39,36 +38,4 @@ export interface V1beta1CDICertConfig {
    * @memberof V1beta1CDICertConfig
    */
   server?: V1beta1CertConfig;
-}
-
-export function V1beta1CDICertConfigFromJSON(json: any): V1beta1CDICertConfig {
-  return V1beta1CDICertConfigFromJSONTyped(json, false);
-}
-
-export function V1beta1CDICertConfigFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1CDICertConfig {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    ca: !exists(json, 'ca') ? undefined : V1beta1CertConfigFromJSON(json['ca']),
-    client: !exists(json, 'client') ? undefined : V1beta1CertConfigFromJSON(json['client']),
-    server: !exists(json, 'server') ? undefined : V1beta1CertConfigFromJSON(json['server']),
-  };
-}
-
-export function V1beta1CDICertConfigToJSON(value?: V1beta1CDICertConfig | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    ca: V1beta1CertConfigToJSON(value.ca),
-    client: V1beta1CertConfigToJSON(value.client),
-    server: V1beta1CertConfigToJSON(value.server),
-  };
 }

@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiStoragemigrationV1alpha1MigrationCondition,
-  IoK8sApiStoragemigrationV1alpha1MigrationConditionFromJSON,
-  IoK8sApiStoragemigrationV1alpha1MigrationConditionToJSON,
 } from './';
 
 /**
@@ -37,47 +34,4 @@ export interface IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationStatus {
    * @memberof IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationStatus
    */
   resourceVersion?: string;
-}
-
-export function IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationStatusFromJSON(
-  json: any,
-): IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationStatus {
-  return IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(
-          IoK8sApiStoragemigrationV1alpha1MigrationConditionFromJSON,
-        ),
-    resourceVersion: !exists(json, 'resourceVersion') ? undefined : json['resourceVersion'],
-  };
-}
-
-export function IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationStatusToJSON(
-  value?: IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(
-            IoK8sApiStoragemigrationV1alpha1MigrationConditionToJSON,
-          ),
-    resourceVersion: value.resourceVersion,
-  };
 }

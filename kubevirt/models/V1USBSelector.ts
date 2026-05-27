@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -32,44 +31,3 @@ export interface V1USBSelector {
      */
     vendor: string;
 }
-
-/**
- * Check if a given object implements the V1USBSelector interface.
- */
-export function instanceOfV1USBSelector(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "product" in value;
-    isInstance = isInstance && "vendor" in value;
-
-    return isInstance;
-}
-
-export function V1USBSelectorFromJSON(json: any): V1USBSelector {
-    return V1USBSelectorFromJSONTyped(json, false);
-}
-
-export function V1USBSelectorFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1USBSelector {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'product': json['product'],
-        'vendor': json['vendor'],
-    };
-}
-
-export function V1USBSelectorToJSON(value?: V1USBSelector | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'product': value.product,
-        'vendor': value.vendor,
-    };
-}
-

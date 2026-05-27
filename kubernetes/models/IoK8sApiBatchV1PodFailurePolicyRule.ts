@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirement,
-  IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirementFromJSON,
-  IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirementToJSON,
   IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPattern,
-  IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternFromJSON,
-  IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternToJSON,
 } from './';
 
 /**
@@ -56,51 +51,4 @@ export interface IoK8sApiBatchV1PodFailurePolicyRule {
    * @memberof IoK8sApiBatchV1PodFailurePolicyRule
    */
   onPodConditions?: Array<IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPattern>;
-}
-
-export function IoK8sApiBatchV1PodFailurePolicyRuleFromJSON(
-  json: any,
-): IoK8sApiBatchV1PodFailurePolicyRule {
-  return IoK8sApiBatchV1PodFailurePolicyRuleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiBatchV1PodFailurePolicyRuleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiBatchV1PodFailurePolicyRule {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    action: json['action'],
-    onExitCodes: !exists(json, 'onExitCodes')
-      ? undefined
-      : IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirementFromJSON(json['onExitCodes']),
-    onPodConditions: !exists(json, 'onPodConditions')
-      ? undefined
-      : (json['onPodConditions'] as Array<any>).map(
-          IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternFromJSON,
-        ),
-  };
-}
-
-export function IoK8sApiBatchV1PodFailurePolicyRuleToJSON(
-  value?: IoK8sApiBatchV1PodFailurePolicyRule | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    action: value.action,
-    onExitCodes: IoK8sApiBatchV1PodFailurePolicyOnExitCodesRequirementToJSON(value.onExitCodes),
-    onPodConditions:
-      value.onPodConditions === undefined
-        ? undefined
-        : (value.onPodConditions as Array<any>).map(
-            IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternToJSON,
-          ),
-  };
 }

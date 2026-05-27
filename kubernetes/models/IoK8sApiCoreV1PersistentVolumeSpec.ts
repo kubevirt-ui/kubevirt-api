@@ -12,80 +12,31 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1AWSElasticBlockStoreVolumeSource,
-  IoK8sApiCoreV1AWSElasticBlockStoreVolumeSourceFromJSON,
-  IoK8sApiCoreV1AWSElasticBlockStoreVolumeSourceToJSON,
   IoK8sApiCoreV1AzureDiskVolumeSource,
-  IoK8sApiCoreV1AzureDiskVolumeSourceFromJSON,
-  IoK8sApiCoreV1AzureDiskVolumeSourceToJSON,
   IoK8sApiCoreV1AzureFilePersistentVolumeSource,
-  IoK8sApiCoreV1AzureFilePersistentVolumeSourceFromJSON,
-  IoK8sApiCoreV1AzureFilePersistentVolumeSourceToJSON,
   IoK8sApiCoreV1CSIPersistentVolumeSource,
-  IoK8sApiCoreV1CSIPersistentVolumeSourceFromJSON,
-  IoK8sApiCoreV1CSIPersistentVolumeSourceToJSON,
   IoK8sApiCoreV1CephFSPersistentVolumeSource,
-  IoK8sApiCoreV1CephFSPersistentVolumeSourceFromJSON,
-  IoK8sApiCoreV1CephFSPersistentVolumeSourceToJSON,
   IoK8sApiCoreV1CinderPersistentVolumeSource,
-  IoK8sApiCoreV1CinderPersistentVolumeSourceFromJSON,
-  IoK8sApiCoreV1CinderPersistentVolumeSourceToJSON,
   IoK8sApiCoreV1FCVolumeSource,
-  IoK8sApiCoreV1FCVolumeSourceFromJSON,
-  IoK8sApiCoreV1FCVolumeSourceToJSON,
   IoK8sApiCoreV1FlexPersistentVolumeSource,
-  IoK8sApiCoreV1FlexPersistentVolumeSourceFromJSON,
-  IoK8sApiCoreV1FlexPersistentVolumeSourceToJSON,
   IoK8sApiCoreV1FlockerVolumeSource,
-  IoK8sApiCoreV1FlockerVolumeSourceFromJSON,
-  IoK8sApiCoreV1FlockerVolumeSourceToJSON,
   IoK8sApiCoreV1GCEPersistentDiskVolumeSource,
-  IoK8sApiCoreV1GCEPersistentDiskVolumeSourceFromJSON,
-  IoK8sApiCoreV1GCEPersistentDiskVolumeSourceToJSON,
   IoK8sApiCoreV1GlusterfsPersistentVolumeSource,
-  IoK8sApiCoreV1GlusterfsPersistentVolumeSourceFromJSON,
-  IoK8sApiCoreV1GlusterfsPersistentVolumeSourceToJSON,
   IoK8sApiCoreV1HostPathVolumeSource,
-  IoK8sApiCoreV1HostPathVolumeSourceFromJSON,
-  IoK8sApiCoreV1HostPathVolumeSourceToJSON,
   IoK8sApiCoreV1ISCSIPersistentVolumeSource,
-  IoK8sApiCoreV1ISCSIPersistentVolumeSourceFromJSON,
-  IoK8sApiCoreV1ISCSIPersistentVolumeSourceToJSON,
   IoK8sApiCoreV1LocalVolumeSource,
-  IoK8sApiCoreV1LocalVolumeSourceFromJSON,
-  IoK8sApiCoreV1LocalVolumeSourceToJSON,
   IoK8sApiCoreV1NFSVolumeSource,
-  IoK8sApiCoreV1NFSVolumeSourceFromJSON,
-  IoK8sApiCoreV1NFSVolumeSourceToJSON,
   IoK8sApiCoreV1ObjectReference,
-  IoK8sApiCoreV1ObjectReferenceFromJSON,
-  IoK8sApiCoreV1ObjectReferenceToJSON,
   IoK8sApiCoreV1PhotonPersistentDiskVolumeSource,
-  IoK8sApiCoreV1PhotonPersistentDiskVolumeSourceFromJSON,
-  IoK8sApiCoreV1PhotonPersistentDiskVolumeSourceToJSON,
   IoK8sApiCoreV1PortworxVolumeSource,
-  IoK8sApiCoreV1PortworxVolumeSourceFromJSON,
-  IoK8sApiCoreV1PortworxVolumeSourceToJSON,
   IoK8sApiCoreV1QuobyteVolumeSource,
-  IoK8sApiCoreV1QuobyteVolumeSourceFromJSON,
-  IoK8sApiCoreV1QuobyteVolumeSourceToJSON,
   IoK8sApiCoreV1RBDPersistentVolumeSource,
-  IoK8sApiCoreV1RBDPersistentVolumeSourceFromJSON,
-  IoK8sApiCoreV1RBDPersistentVolumeSourceToJSON,
   IoK8sApiCoreV1ScaleIOPersistentVolumeSource,
-  IoK8sApiCoreV1ScaleIOPersistentVolumeSourceFromJSON,
-  IoK8sApiCoreV1ScaleIOPersistentVolumeSourceToJSON,
   IoK8sApiCoreV1StorageOSPersistentVolumeSource,
-  IoK8sApiCoreV1StorageOSPersistentVolumeSourceFromJSON,
-  IoK8sApiCoreV1StorageOSPersistentVolumeSourceToJSON,
   IoK8sApiCoreV1VolumeNodeAffinity,
-  IoK8sApiCoreV1VolumeNodeAffinityFromJSON,
-  IoK8sApiCoreV1VolumeNodeAffinityToJSON,
   IoK8sApiCoreV1VsphereVirtualDiskVolumeSource,
-  IoK8sApiCoreV1VsphereVirtualDiskVolumeSourceFromJSON,
-  IoK8sApiCoreV1VsphereVirtualDiskVolumeSourceToJSON,
 } from './';
 
 /**
@@ -280,148 +231,4 @@ export interface IoK8sApiCoreV1PersistentVolumeSpec {
    * @memberof IoK8sApiCoreV1PersistentVolumeSpec
    */
   vsphereVolume?: IoK8sApiCoreV1VsphereVirtualDiskVolumeSource;
-}
-
-export function IoK8sApiCoreV1PersistentVolumeSpecFromJSON(
-  json: any,
-): IoK8sApiCoreV1PersistentVolumeSpec {
-  return IoK8sApiCoreV1PersistentVolumeSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PersistentVolumeSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PersistentVolumeSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    accessModes: !exists(json, 'accessModes') ? undefined : json['accessModes'],
-    awsElasticBlockStore: !exists(json, 'awsElasticBlockStore')
-      ? undefined
-      : IoK8sApiCoreV1AWSElasticBlockStoreVolumeSourceFromJSON(json['awsElasticBlockStore']),
-    azureDisk: !exists(json, 'azureDisk')
-      ? undefined
-      : IoK8sApiCoreV1AzureDiskVolumeSourceFromJSON(json['azureDisk']),
-    azureFile: !exists(json, 'azureFile')
-      ? undefined
-      : IoK8sApiCoreV1AzureFilePersistentVolumeSourceFromJSON(json['azureFile']),
-    capacity: !exists(json, 'capacity') ? undefined : json['capacity'],
-    cephfs: !exists(json, 'cephfs')
-      ? undefined
-      : IoK8sApiCoreV1CephFSPersistentVolumeSourceFromJSON(json['cephfs']),
-    cinder: !exists(json, 'cinder')
-      ? undefined
-      : IoK8sApiCoreV1CinderPersistentVolumeSourceFromJSON(json['cinder']),
-    claimRef: !exists(json, 'claimRef')
-      ? undefined
-      : IoK8sApiCoreV1ObjectReferenceFromJSON(json['claimRef']),
-    csi: !exists(json, 'csi')
-      ? undefined
-      : IoK8sApiCoreV1CSIPersistentVolumeSourceFromJSON(json['csi']),
-    fc: !exists(json, 'fc') ? undefined : IoK8sApiCoreV1FCVolumeSourceFromJSON(json['fc']),
-    flexVolume: !exists(json, 'flexVolume')
-      ? undefined
-      : IoK8sApiCoreV1FlexPersistentVolumeSourceFromJSON(json['flexVolume']),
-    flocker: !exists(json, 'flocker')
-      ? undefined
-      : IoK8sApiCoreV1FlockerVolumeSourceFromJSON(json['flocker']),
-    gcePersistentDisk: !exists(json, 'gcePersistentDisk')
-      ? undefined
-      : IoK8sApiCoreV1GCEPersistentDiskVolumeSourceFromJSON(json['gcePersistentDisk']),
-    glusterfs: !exists(json, 'glusterfs')
-      ? undefined
-      : IoK8sApiCoreV1GlusterfsPersistentVolumeSourceFromJSON(json['glusterfs']),
-    hostPath: !exists(json, 'hostPath')
-      ? undefined
-      : IoK8sApiCoreV1HostPathVolumeSourceFromJSON(json['hostPath']),
-    iscsi: !exists(json, 'iscsi')
-      ? undefined
-      : IoK8sApiCoreV1ISCSIPersistentVolumeSourceFromJSON(json['iscsi']),
-    local: !exists(json, 'local')
-      ? undefined
-      : IoK8sApiCoreV1LocalVolumeSourceFromJSON(json['local']),
-    mountOptions: !exists(json, 'mountOptions') ? undefined : json['mountOptions'],
-    nfs: !exists(json, 'nfs') ? undefined : IoK8sApiCoreV1NFSVolumeSourceFromJSON(json['nfs']),
-    nodeAffinity: !exists(json, 'nodeAffinity')
-      ? undefined
-      : IoK8sApiCoreV1VolumeNodeAffinityFromJSON(json['nodeAffinity']),
-    persistentVolumeReclaimPolicy: !exists(json, 'persistentVolumeReclaimPolicy')
-      ? undefined
-      : json['persistentVolumeReclaimPolicy'],
-    photonPersistentDisk: !exists(json, 'photonPersistentDisk')
-      ? undefined
-      : IoK8sApiCoreV1PhotonPersistentDiskVolumeSourceFromJSON(json['photonPersistentDisk']),
-    portworxVolume: !exists(json, 'portworxVolume')
-      ? undefined
-      : IoK8sApiCoreV1PortworxVolumeSourceFromJSON(json['portworxVolume']),
-    quobyte: !exists(json, 'quobyte')
-      ? undefined
-      : IoK8sApiCoreV1QuobyteVolumeSourceFromJSON(json['quobyte']),
-    rbd: !exists(json, 'rbd')
-      ? undefined
-      : IoK8sApiCoreV1RBDPersistentVolumeSourceFromJSON(json['rbd']),
-    scaleIO: !exists(json, 'scaleIO')
-      ? undefined
-      : IoK8sApiCoreV1ScaleIOPersistentVolumeSourceFromJSON(json['scaleIO']),
-    storageClassName: !exists(json, 'storageClassName') ? undefined : json['storageClassName'],
-    storageos: !exists(json, 'storageos')
-      ? undefined
-      : IoK8sApiCoreV1StorageOSPersistentVolumeSourceFromJSON(json['storageos']),
-    volumeAttributesClassName: !exists(json, 'volumeAttributesClassName')
-      ? undefined
-      : json['volumeAttributesClassName'],
-    volumeMode: !exists(json, 'volumeMode') ? undefined : json['volumeMode'],
-    vsphereVolume: !exists(json, 'vsphereVolume')
-      ? undefined
-      : IoK8sApiCoreV1VsphereVirtualDiskVolumeSourceFromJSON(json['vsphereVolume']),
-  };
-}
-
-export function IoK8sApiCoreV1PersistentVolumeSpecToJSON(
-  value?: IoK8sApiCoreV1PersistentVolumeSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    accessModes: value.accessModes,
-    awsElasticBlockStore: IoK8sApiCoreV1AWSElasticBlockStoreVolumeSourceToJSON(
-      value.awsElasticBlockStore,
-    ),
-    azureDisk: IoK8sApiCoreV1AzureDiskVolumeSourceToJSON(value.azureDisk),
-    azureFile: IoK8sApiCoreV1AzureFilePersistentVolumeSourceToJSON(value.azureFile),
-    capacity: value.capacity,
-    cephfs: IoK8sApiCoreV1CephFSPersistentVolumeSourceToJSON(value.cephfs),
-    cinder: IoK8sApiCoreV1CinderPersistentVolumeSourceToJSON(value.cinder),
-    claimRef: IoK8sApiCoreV1ObjectReferenceToJSON(value.claimRef),
-    csi: IoK8sApiCoreV1CSIPersistentVolumeSourceToJSON(value.csi),
-    fc: IoK8sApiCoreV1FCVolumeSourceToJSON(value.fc),
-    flexVolume: IoK8sApiCoreV1FlexPersistentVolumeSourceToJSON(value.flexVolume),
-    flocker: IoK8sApiCoreV1FlockerVolumeSourceToJSON(value.flocker),
-    gcePersistentDisk: IoK8sApiCoreV1GCEPersistentDiskVolumeSourceToJSON(value.gcePersistentDisk),
-    glusterfs: IoK8sApiCoreV1GlusterfsPersistentVolumeSourceToJSON(value.glusterfs),
-    hostPath: IoK8sApiCoreV1HostPathVolumeSourceToJSON(value.hostPath),
-    iscsi: IoK8sApiCoreV1ISCSIPersistentVolumeSourceToJSON(value.iscsi),
-    local: IoK8sApiCoreV1LocalVolumeSourceToJSON(value.local),
-    mountOptions: value.mountOptions,
-    nfs: IoK8sApiCoreV1NFSVolumeSourceToJSON(value.nfs),
-    nodeAffinity: IoK8sApiCoreV1VolumeNodeAffinityToJSON(value.nodeAffinity),
-    persistentVolumeReclaimPolicy: value.persistentVolumeReclaimPolicy,
-    photonPersistentDisk: IoK8sApiCoreV1PhotonPersistentDiskVolumeSourceToJSON(
-      value.photonPersistentDisk,
-    ),
-    portworxVolume: IoK8sApiCoreV1PortworxVolumeSourceToJSON(value.portworxVolume),
-    quobyte: IoK8sApiCoreV1QuobyteVolumeSourceToJSON(value.quobyte),
-    rbd: IoK8sApiCoreV1RBDPersistentVolumeSourceToJSON(value.rbd),
-    scaleIO: IoK8sApiCoreV1ScaleIOPersistentVolumeSourceToJSON(value.scaleIO),
-    storageClassName: value.storageClassName,
-    storageos: IoK8sApiCoreV1StorageOSPersistentVolumeSourceToJSON(value.storageos),
-    volumeAttributesClassName: value.volumeAttributesClassName,
-    volumeMode: value.volumeMode,
-    vsphereVolume: IoK8sApiCoreV1VsphereVirtualDiskVolumeSourceToJSON(value.vsphereVolume),
-  };
 }

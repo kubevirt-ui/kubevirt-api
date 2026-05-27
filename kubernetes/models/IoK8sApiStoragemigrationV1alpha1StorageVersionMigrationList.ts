@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiStoragemigrationV1alpha1StorageVersionMigration,
-  IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationFromJSON,
-  IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -52,48 +47,4 @@ export interface IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationList {
    * @memberof IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationListFromJSON(
-  json: any,
-): IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationList {
-  return IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(
-      IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationFromJSON,
-    ),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationListToJSON(
-  value?: IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(
-      IoK8sApiStoragemigrationV1alpha1StorageVersionMigrationToJSON,
-    ),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

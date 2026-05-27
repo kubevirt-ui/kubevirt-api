@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1NamespaceCondition,
-  IoK8sApiCoreV1NamespaceConditionFromJSON,
-  IoK8sApiCoreV1NamespaceConditionToJSON,
 } from './';
 
 /**
@@ -37,41 +34,4 @@ export interface IoK8sApiCoreV1NamespaceStatus {
    * @memberof IoK8sApiCoreV1NamespaceStatus
    */
   phase?: string;
-}
-
-export function IoK8sApiCoreV1NamespaceStatusFromJSON(json: any): IoK8sApiCoreV1NamespaceStatus {
-  return IoK8sApiCoreV1NamespaceStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NamespaceStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NamespaceStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(IoK8sApiCoreV1NamespaceConditionFromJSON),
-    phase: !exists(json, 'phase') ? undefined : json['phase'],
-  };
-}
-
-export function IoK8sApiCoreV1NamespaceStatusToJSON(
-  value?: IoK8sApiCoreV1NamespaceStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApiCoreV1NamespaceConditionToJSON),
-    phase: value.phase,
-  };
 }

@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1beta2ResourceClaimSpec,
-  IoK8sApiResourceV1beta2ResourceClaimSpecFromJSON,
-  IoK8sApiResourceV1beta2ResourceClaimSpecToJSON,
   IoK8sApiResourceV1beta2ResourceClaimStatus,
-  IoK8sApiResourceV1beta2ResourceClaimStatusFromJSON,
-  IoK8sApiResourceV1beta2ResourceClaimStatusToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -63,48 +56,4 @@ export interface IoK8sApiResourceV1beta2ResourceClaim {
    * @memberof IoK8sApiResourceV1beta2ResourceClaim
    */
   status?: IoK8sApiResourceV1beta2ResourceClaimStatus;
-}
-
-export function IoK8sApiResourceV1beta2ResourceClaimFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta2ResourceClaim {
-  return IoK8sApiResourceV1beta2ResourceClaimFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta2ResourceClaimFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta2ResourceClaim {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: IoK8sApiResourceV1beta2ResourceClaimSpecFromJSON(json['spec']),
-    status: !exists(json, 'status')
-      ? undefined
-      : IoK8sApiResourceV1beta2ResourceClaimStatusFromJSON(json['status']),
-  };
-}
-
-export function IoK8sApiResourceV1beta2ResourceClaimToJSON(
-  value?: IoK8sApiResourceV1beta2ResourceClaim | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiResourceV1beta2ResourceClaimSpecToJSON(value.spec),
-    status: IoK8sApiResourceV1beta2ResourceClaimStatusToJSON(value.status),
-  };
 }

@@ -12,20 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1LabelSelector,
-  V1LabelSelectorFromJSON,
-  V1LabelSelectorToJSON,
   V1TypedLocalObjectReference,
-  V1TypedLocalObjectReferenceFromJSON,
-  V1TypedLocalObjectReferenceToJSON,
   V1TypedObjectReference,
-  V1TypedObjectReferenceFromJSON,
-  V1TypedObjectReferenceToJSON,
   V1VolumeResourceRequirements,
-  V1VolumeResourceRequirementsFromJSON,
-  V1VolumeResourceRequirementsToJSON,
 } from './';
 
 /**
@@ -113,56 +104,4 @@ export enum V1PersistentVolumeClaimSpecVolumeModeEnum {
   Block = 'Block',
   Filesystem = 'Filesystem',
   FromStorageProfile = 'FromStorageProfile',
-}
-
-export function V1PersistentVolumeClaimSpecFromJSON(json: any): V1PersistentVolumeClaimSpec {
-  return V1PersistentVolumeClaimSpecFromJSONTyped(json, false);
-}
-
-export function V1PersistentVolumeClaimSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1PersistentVolumeClaimSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    accessModes: !exists(json, 'accessModes') ? undefined : json['accessModes'],
-    dataSource: !exists(json, 'dataSource')
-      ? undefined
-      : V1TypedLocalObjectReferenceFromJSON(json['dataSource']),
-    dataSourceRef: !exists(json, 'dataSourceRef')
-      ? undefined
-      : V1TypedObjectReferenceFromJSON(json['dataSourceRef']),
-    resources: !exists(json, 'resources')
-      ? undefined
-      : V1VolumeResourceRequirementsFromJSON(json['resources']),
-    selector: !exists(json, 'selector') ? undefined : V1LabelSelectorFromJSON(json['selector']),
-    storageClassName: !exists(json, 'storageClassName') ? undefined : json['storageClassName'],
-    volumeAttributesClassName: !exists(json, 'volumeAttributesClassName')
-      ? undefined
-      : json['volumeAttributesClassName'],
-    volumeMode: !exists(json, 'volumeMode') ? undefined : json['volumeMode'],
-    volumeName: !exists(json, 'volumeName') ? undefined : json['volumeName'],
-  };
-}
-
-export function V1PersistentVolumeClaimSpecToJSON(value?: V1PersistentVolumeClaimSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    accessModes: value.accessModes,
-    dataSource: V1TypedLocalObjectReferenceToJSON(value.dataSource),
-    dataSourceRef: V1TypedObjectReferenceToJSON(value.dataSourceRef),
-    resources: V1VolumeResourceRequirementsToJSON(value.resources),
-    selector: V1LabelSelectorToJSON(value.selector),
-    storageClassName: value.storageClassName,
-    volumeAttributesClassName: value.volumeAttributesClassName,
-    volumeMode: value.volumeMode,
-    volumeName: value.volumeName,
-  };
 }

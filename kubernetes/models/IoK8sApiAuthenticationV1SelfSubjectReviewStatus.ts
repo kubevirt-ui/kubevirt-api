@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAuthenticationV1UserInfo,
-  IoK8sApiAuthenticationV1UserInfoFromJSON,
-  IoK8sApiAuthenticationV1UserInfoToJSON,
 } from './';
 
 /**
@@ -31,38 +28,4 @@ export interface IoK8sApiAuthenticationV1SelfSubjectReviewStatus {
    * @memberof IoK8sApiAuthenticationV1SelfSubjectReviewStatus
    */
   userInfo?: IoK8sApiAuthenticationV1UserInfo;
-}
-
-export function IoK8sApiAuthenticationV1SelfSubjectReviewStatusFromJSON(
-  json: any,
-): IoK8sApiAuthenticationV1SelfSubjectReviewStatus {
-  return IoK8sApiAuthenticationV1SelfSubjectReviewStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAuthenticationV1SelfSubjectReviewStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAuthenticationV1SelfSubjectReviewStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    userInfo: !exists(json, 'userInfo')
-      ? undefined
-      : IoK8sApiAuthenticationV1UserInfoFromJSON(json['userInfo']),
-  };
-}
-
-export function IoK8sApiAuthenticationV1SelfSubjectReviewStatusToJSON(
-  value?: IoK8sApiAuthenticationV1SelfSubjectReviewStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    userInfo: IoK8sApiAuthenticationV1UserInfoToJSON(value.userInfo),
-  };
 }

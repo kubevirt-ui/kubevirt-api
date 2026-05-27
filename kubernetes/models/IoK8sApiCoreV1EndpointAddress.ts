@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ObjectReference,
-  IoK8sApiCoreV1ObjectReferenceFromJSON,
-  IoK8sApiCoreV1ObjectReferenceToJSON,
 } from './';
 
 /**
@@ -49,42 +46,4 @@ export interface IoK8sApiCoreV1EndpointAddress {
    * @memberof IoK8sApiCoreV1EndpointAddress
    */
   targetRef?: IoK8sApiCoreV1ObjectReference;
-}
-
-export function IoK8sApiCoreV1EndpointAddressFromJSON(json: any): IoK8sApiCoreV1EndpointAddress {
-  return IoK8sApiCoreV1EndpointAddressFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1EndpointAddressFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1EndpointAddress {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    hostname: !exists(json, 'hostname') ? undefined : json['hostname'],
-    ip: json['ip'],
-    nodeName: !exists(json, 'nodeName') ? undefined : json['nodeName'],
-    targetRef: !exists(json, 'targetRef')
-      ? undefined
-      : IoK8sApiCoreV1ObjectReferenceFromJSON(json['targetRef']),
-  };
-}
-
-export function IoK8sApiCoreV1EndpointAddressToJSON(
-  value?: IoK8sApiCoreV1EndpointAddress | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    hostname: value.hostname,
-    ip: value.ip,
-    nodeName: value.nodeName,
-    targetRef: IoK8sApiCoreV1ObjectReferenceToJSON(value.targetRef),
-  };
 }

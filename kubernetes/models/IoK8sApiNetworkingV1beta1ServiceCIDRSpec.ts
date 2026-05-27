@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ServiceCIDRSpec define the CIDRs the user wants to use for allocating ClusterIPs for Services.
  * @export
@@ -25,36 +24,4 @@ export interface IoK8sApiNetworkingV1beta1ServiceCIDRSpec {
    * @memberof IoK8sApiNetworkingV1beta1ServiceCIDRSpec
    */
   cidrs?: Array<string>;
-}
-
-export function IoK8sApiNetworkingV1beta1ServiceCIDRSpecFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1beta1ServiceCIDRSpec {
-  return IoK8sApiNetworkingV1beta1ServiceCIDRSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1beta1ServiceCIDRSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1beta1ServiceCIDRSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    cidrs: !exists(json, 'cidrs') ? undefined : json['cidrs'],
-  };
-}
-
-export function IoK8sApiNetworkingV1beta1ServiceCIDRSpecToJSON(
-  value?: IoK8sApiNetworkingV1beta1ServiceCIDRSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    cidrs: value.cidrs,
-  };
 }

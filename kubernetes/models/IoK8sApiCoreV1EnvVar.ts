@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1EnvVarSource,
-  IoK8sApiCoreV1EnvVarSourceFromJSON,
-  IoK8sApiCoreV1EnvVarSourceToJSON,
 } from './';
 
 /**
@@ -43,38 +40,4 @@ export interface IoK8sApiCoreV1EnvVar {
    * @memberof IoK8sApiCoreV1EnvVar
    */
   valueFrom?: IoK8sApiCoreV1EnvVarSource;
-}
-
-export function IoK8sApiCoreV1EnvVarFromJSON(json: any): IoK8sApiCoreV1EnvVar {
-  return IoK8sApiCoreV1EnvVarFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1EnvVarFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1EnvVar {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    value: !exists(json, 'value') ? undefined : json['value'],
-    valueFrom: !exists(json, 'valueFrom')
-      ? undefined
-      : IoK8sApiCoreV1EnvVarSourceFromJSON(json['valueFrom']),
-  };
-}
-
-export function IoK8sApiCoreV1EnvVarToJSON(value?: IoK8sApiCoreV1EnvVar | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    value: value.value,
-    valueFrom: IoK8sApiCoreV1EnvVarSourceToJSON(value.valueFrom),
-  };
 }

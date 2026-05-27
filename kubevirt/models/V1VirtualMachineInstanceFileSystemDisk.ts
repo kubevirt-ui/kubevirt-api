@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * VirtualMachineInstanceFileSystemDisk represents the guest os FS disks
  * @export
@@ -32,43 +31,3 @@ export interface V1VirtualMachineInstanceFileSystemDisk {
      */
     serial?: string;
 }
-
-/**
- * Check if a given object implements the V1VirtualMachineInstanceFileSystemDisk interface.
- */
-export function instanceOfV1VirtualMachineInstanceFileSystemDisk(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "busType" in value;
-
-    return isInstance;
-}
-
-export function V1VirtualMachineInstanceFileSystemDiskFromJSON(json: any): V1VirtualMachineInstanceFileSystemDisk {
-    return V1VirtualMachineInstanceFileSystemDiskFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceFileSystemDiskFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceFileSystemDisk {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'busType': json['busType'],
-        'serial': !exists(json, 'serial') ? undefined : json['serial'],
-    };
-}
-
-export function V1VirtualMachineInstanceFileSystemDiskToJSON(value?: V1VirtualMachineInstanceFileSystemDisk | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'busType': value.busType,
-        'serial': value.serial,
-    };
-}
-

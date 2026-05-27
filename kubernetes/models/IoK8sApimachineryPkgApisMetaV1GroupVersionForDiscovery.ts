@@ -31,37 +31,3 @@ export interface IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscovery {
    */
   version: string;
 }
-
-export function IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSON(
-  json: any,
-): IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscovery {
-  return IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSONTyped(json, false);
-}
-
-export function IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscoveryFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscovery {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    groupVersion: json['groupVersion'],
-    version: json['version'],
-  };
-}
-
-export function IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscoveryToJSON(
-  value?: IoK8sApimachineryPkgApisMetaV1GroupVersionForDiscovery | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    groupVersion: value.groupVersion,
-    version: value.version,
-  };
-}

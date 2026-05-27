@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1ArchSpecificConfiguration } from './V1ArchSpecificConfiguration';
-import {
-    V1ArchSpecificConfigurationFromJSON,
-    V1ArchSpecificConfigurationFromJSONTyped,
-    V1ArchSpecificConfigurationToJSON,
-} from './V1ArchSpecificConfiguration';
 
 /**
  * 
@@ -57,48 +51,3 @@ export interface V1ArchConfiguration {
      */
     s390x?: V1ArchSpecificConfiguration;
 }
-
-/**
- * Check if a given object implements the V1ArchConfiguration interface.
- */
-export function instanceOfV1ArchConfiguration(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1ArchConfigurationFromJSON(json: any): V1ArchConfiguration {
-    return V1ArchConfigurationFromJSONTyped(json, false);
-}
-
-export function V1ArchConfigurationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ArchConfiguration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'amd64': !exists(json, 'amd64') ? undefined : V1ArchSpecificConfigurationFromJSON(json['amd64']),
-        'arm64': !exists(json, 'arm64') ? undefined : V1ArchSpecificConfigurationFromJSON(json['arm64']),
-        'defaultArchitecture': !exists(json, 'defaultArchitecture') ? undefined : json['defaultArchitecture'],
-        'ppc64le': !exists(json, 'ppc64le') ? undefined : V1ArchSpecificConfigurationFromJSON(json['ppc64le']),
-        's390x': !exists(json, 's390x') ? undefined : V1ArchSpecificConfigurationFromJSON(json['s390x']),
-    };
-}
-
-export function V1ArchConfigurationToJSON(value?: V1ArchConfiguration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'amd64': V1ArchSpecificConfigurationToJSON(value.amd64),
-        'arm64': V1ArchSpecificConfigurationToJSON(value.arm64),
-        'defaultArchitecture': value.defaultArchitecture,
-        'ppc64le': V1ArchSpecificConfigurationToJSON(value.ppc64le),
-        's390x': V1ArchSpecificConfigurationToJSON(value.s390x),
-    };
-}
-

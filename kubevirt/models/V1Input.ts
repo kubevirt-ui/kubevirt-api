@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -38,46 +37,3 @@ export interface V1Input {
      */
     type: string;
 }
-
-/**
- * Check if a given object implements the V1Input interface.
- */
-export function instanceOfV1Input(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "name" in value;
-    isInstance = isInstance && "type" in value;
-
-    return isInstance;
-}
-
-export function V1InputFromJSON(json: any): V1Input {
-    return V1InputFromJSONTyped(json, false);
-}
-
-export function V1InputFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Input {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'bus': !exists(json, 'bus') ? undefined : json['bus'],
-        'name': json['name'],
-        'type': json['type'],
-    };
-}
-
-export function V1InputToJSON(value?: V1Input | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'bus': value.bus,
-        'name': value.name,
-        'type': value.type,
-    };
-}
-

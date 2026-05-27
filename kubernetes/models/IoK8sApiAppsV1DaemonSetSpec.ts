@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAppsV1DaemonSetUpdateStrategy,
-  IoK8sApiAppsV1DaemonSetUpdateStrategyFromJSON,
-  IoK8sApiAppsV1DaemonSetUpdateStrategyToJSON,
   IoK8sApiCoreV1PodTemplateSpec,
-  IoK8sApiCoreV1PodTemplateSpecFromJSON,
-  IoK8sApiCoreV1PodTemplateSpecToJSON,
   IoK8sApimachineryPkgApisMetaV1LabelSelector,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-  IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON,
 } from './';
 
 /**
@@ -61,44 +54,4 @@ export interface IoK8sApiAppsV1DaemonSetSpec {
    * @memberof IoK8sApiAppsV1DaemonSetSpec
    */
   updateStrategy?: IoK8sApiAppsV1DaemonSetUpdateStrategy;
-}
-
-export function IoK8sApiAppsV1DaemonSetSpecFromJSON(json: any): IoK8sApiAppsV1DaemonSetSpec {
-  return IoK8sApiAppsV1DaemonSetSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAppsV1DaemonSetSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAppsV1DaemonSetSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    minReadySeconds: !exists(json, 'minReadySeconds') ? undefined : json['minReadySeconds'],
-    revisionHistoryLimit: !exists(json, 'revisionHistoryLimit')
-      ? undefined
-      : json['revisionHistoryLimit'],
-    selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
-    template: IoK8sApiCoreV1PodTemplateSpecFromJSON(json['template']),
-    updateStrategy: !exists(json, 'updateStrategy')
-      ? undefined
-      : IoK8sApiAppsV1DaemonSetUpdateStrategyFromJSON(json['updateStrategy']),
-  };
-}
-
-export function IoK8sApiAppsV1DaemonSetSpecToJSON(value?: IoK8sApiAppsV1DaemonSetSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    minReadySeconds: value.minReadySeconds,
-    revisionHistoryLimit: value.revisionHistoryLimit,
-    selector: IoK8sApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
-    template: IoK8sApiCoreV1PodTemplateSpecToJSON(value.template),
-    updateStrategy: IoK8sApiAppsV1DaemonSetUpdateStrategyToJSON(value.updateStrategy),
-  };
 }

@@ -12,38 +12,17 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ContainerPort,
-  IoK8sApiCoreV1ContainerPortFromJSON,
-  IoK8sApiCoreV1ContainerPortToJSON,
   IoK8sApiCoreV1ContainerResizePolicy,
-  IoK8sApiCoreV1ContainerResizePolicyFromJSON,
-  IoK8sApiCoreV1ContainerResizePolicyToJSON,
   IoK8sApiCoreV1EnvFromSource,
-  IoK8sApiCoreV1EnvFromSourceFromJSON,
-  IoK8sApiCoreV1EnvFromSourceToJSON,
   IoK8sApiCoreV1EnvVar,
-  IoK8sApiCoreV1EnvVarFromJSON,
-  IoK8sApiCoreV1EnvVarToJSON,
   IoK8sApiCoreV1Lifecycle,
-  IoK8sApiCoreV1LifecycleFromJSON,
-  IoK8sApiCoreV1LifecycleToJSON,
   IoK8sApiCoreV1Probe,
-  IoK8sApiCoreV1ProbeFromJSON,
-  IoK8sApiCoreV1ProbeToJSON,
   IoK8sApiCoreV1ResourceRequirements,
-  IoK8sApiCoreV1ResourceRequirementsFromJSON,
-  IoK8sApiCoreV1ResourceRequirementsToJSON,
   IoK8sApiCoreV1SecurityContext,
-  IoK8sApiCoreV1SecurityContextFromJSON,
-  IoK8sApiCoreV1SecurityContextToJSON,
   IoK8sApiCoreV1VolumeDevice,
-  IoK8sApiCoreV1VolumeDeviceFromJSON,
-  IoK8sApiCoreV1VolumeDeviceToJSON,
   IoK8sApiCoreV1VolumeMount,
-  IoK8sApiCoreV1VolumeMountFromJSON,
-  IoK8sApiCoreV1VolumeMountToJSON,
 } from './';
 
 /**
@@ -206,132 +185,4 @@ export interface IoK8sApiCoreV1EphemeralContainer {
    * @memberof IoK8sApiCoreV1EphemeralContainer
    */
   workingDir?: string;
-}
-
-export function IoK8sApiCoreV1EphemeralContainerFromJSON(
-  json: any,
-): IoK8sApiCoreV1EphemeralContainer {
-  return IoK8sApiCoreV1EphemeralContainerFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1EphemeralContainerFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1EphemeralContainer {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    args: !exists(json, 'args') ? undefined : json['args'],
-    command: !exists(json, 'command') ? undefined : json['command'],
-    env: !exists(json, 'env')
-      ? undefined
-      : (json['env'] as Array<any>).map(IoK8sApiCoreV1EnvVarFromJSON),
-    envFrom: !exists(json, 'envFrom')
-      ? undefined
-      : (json['envFrom'] as Array<any>).map(IoK8sApiCoreV1EnvFromSourceFromJSON),
-    image: !exists(json, 'image') ? undefined : json['image'],
-    imagePullPolicy: !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
-    lifecycle: !exists(json, 'lifecycle')
-      ? undefined
-      : IoK8sApiCoreV1LifecycleFromJSON(json['lifecycle']),
-    livenessProbe: !exists(json, 'livenessProbe')
-      ? undefined
-      : IoK8sApiCoreV1ProbeFromJSON(json['livenessProbe']),
-    name: json['name'],
-    ports: !exists(json, 'ports')
-      ? undefined
-      : (json['ports'] as Array<any>).map(IoK8sApiCoreV1ContainerPortFromJSON),
-    readinessProbe: !exists(json, 'readinessProbe')
-      ? undefined
-      : IoK8sApiCoreV1ProbeFromJSON(json['readinessProbe']),
-    resizePolicy: !exists(json, 'resizePolicy')
-      ? undefined
-      : (json['resizePolicy'] as Array<any>).map(IoK8sApiCoreV1ContainerResizePolicyFromJSON),
-    resources: !exists(json, 'resources')
-      ? undefined
-      : IoK8sApiCoreV1ResourceRequirementsFromJSON(json['resources']),
-    restartPolicy: !exists(json, 'restartPolicy') ? undefined : json['restartPolicy'],
-    securityContext: !exists(json, 'securityContext')
-      ? undefined
-      : IoK8sApiCoreV1SecurityContextFromJSON(json['securityContext']),
-    startupProbe: !exists(json, 'startupProbe')
-      ? undefined
-      : IoK8sApiCoreV1ProbeFromJSON(json['startupProbe']),
-    stdin: !exists(json, 'stdin') ? undefined : json['stdin'],
-    stdinOnce: !exists(json, 'stdinOnce') ? undefined : json['stdinOnce'],
-    targetContainerName: !exists(json, 'targetContainerName')
-      ? undefined
-      : json['targetContainerName'],
-    terminationMessagePath: !exists(json, 'terminationMessagePath')
-      ? undefined
-      : json['terminationMessagePath'],
-    terminationMessagePolicy: !exists(json, 'terminationMessagePolicy')
-      ? undefined
-      : json['terminationMessagePolicy'],
-    tty: !exists(json, 'tty') ? undefined : json['tty'],
-    volumeDevices: !exists(json, 'volumeDevices')
-      ? undefined
-      : (json['volumeDevices'] as Array<any>).map(IoK8sApiCoreV1VolumeDeviceFromJSON),
-    volumeMounts: !exists(json, 'volumeMounts')
-      ? undefined
-      : (json['volumeMounts'] as Array<any>).map(IoK8sApiCoreV1VolumeMountFromJSON),
-    workingDir: !exists(json, 'workingDir') ? undefined : json['workingDir'],
-  };
-}
-
-export function IoK8sApiCoreV1EphemeralContainerToJSON(
-  value?: IoK8sApiCoreV1EphemeralContainer | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    args: value.args,
-    command: value.command,
-    env:
-      value.env === undefined
-        ? undefined
-        : (value.env as Array<any>).map(IoK8sApiCoreV1EnvVarToJSON),
-    envFrom:
-      value.envFrom === undefined
-        ? undefined
-        : (value.envFrom as Array<any>).map(IoK8sApiCoreV1EnvFromSourceToJSON),
-    image: value.image,
-    imagePullPolicy: value.imagePullPolicy,
-    lifecycle: IoK8sApiCoreV1LifecycleToJSON(value.lifecycle),
-    livenessProbe: IoK8sApiCoreV1ProbeToJSON(value.livenessProbe),
-    name: value.name,
-    ports:
-      value.ports === undefined
-        ? undefined
-        : (value.ports as Array<any>).map(IoK8sApiCoreV1ContainerPortToJSON),
-    readinessProbe: IoK8sApiCoreV1ProbeToJSON(value.readinessProbe),
-    resizePolicy:
-      value.resizePolicy === undefined
-        ? undefined
-        : (value.resizePolicy as Array<any>).map(IoK8sApiCoreV1ContainerResizePolicyToJSON),
-    resources: IoK8sApiCoreV1ResourceRequirementsToJSON(value.resources),
-    restartPolicy: value.restartPolicy,
-    securityContext: IoK8sApiCoreV1SecurityContextToJSON(value.securityContext),
-    startupProbe: IoK8sApiCoreV1ProbeToJSON(value.startupProbe),
-    stdin: value.stdin,
-    stdinOnce: value.stdinOnce,
-    targetContainerName: value.targetContainerName,
-    terminationMessagePath: value.terminationMessagePath,
-    terminationMessagePolicy: value.terminationMessagePolicy,
-    tty: value.tty,
-    volumeDevices:
-      value.volumeDevices === undefined
-        ? undefined
-        : (value.volumeDevices as Array<any>).map(IoK8sApiCoreV1VolumeDeviceToJSON),
-    volumeMounts:
-      value.volumeMounts === undefined
-        ? undefined
-        : (value.volumeMounts as Array<any>).map(IoK8sApiCoreV1VolumeMountToJSON),
-    workingDir: value.workingDir,
-  };
 }

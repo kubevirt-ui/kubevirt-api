@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * EndpointConditions represents the current condition of an endpoint.
  * @export
@@ -37,40 +36,4 @@ export interface IoK8sApiDiscoveryV1EndpointConditions {
    * @memberof IoK8sApiDiscoveryV1EndpointConditions
    */
   terminating?: boolean;
-}
-
-export function IoK8sApiDiscoveryV1EndpointConditionsFromJSON(
-  json: any,
-): IoK8sApiDiscoveryV1EndpointConditions {
-  return IoK8sApiDiscoveryV1EndpointConditionsFromJSONTyped(json, false);
-}
-
-export function IoK8sApiDiscoveryV1EndpointConditionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiDiscoveryV1EndpointConditions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    ready: !exists(json, 'ready') ? undefined : json['ready'],
-    serving: !exists(json, 'serving') ? undefined : json['serving'],
-    terminating: !exists(json, 'terminating') ? undefined : json['terminating'],
-  };
-}
-
-export function IoK8sApiDiscoveryV1EndpointConditionsToJSON(
-  value?: IoK8sApiDiscoveryV1EndpointConditions | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    ready: value.ready,
-    serving: value.serving,
-    terminating: value.terminating,
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * BackupOptions are options used to configure virtual machine backup job
  * @export
@@ -92,62 +91,3 @@ export interface V1alpha1BackupOptions {
      */
     targetPath?: string;
 }
-
-/**
- * Check if a given object implements the V1alpha1BackupOptions interface.
- */
-export function instanceOfV1alpha1BackupOptions(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1alpha1BackupOptionsFromJSON(json: any): V1alpha1BackupOptions {
-    return V1alpha1BackupOptionsFromJSONTyped(json, false);
-}
-
-export function V1alpha1BackupOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1BackupOptions {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'backupCert': !exists(json, 'backupCert') ? undefined : json['backupCert'],
-        'backupKey': !exists(json, 'backupKey') ? undefined : json['backupKey'],
-        'backupName': !exists(json, 'backupName') ? undefined : json['backupName'],
-        'backupStartTime': !exists(json, 'backupStartTime') ? undefined : json['backupStartTime'],
-        'caCert': !exists(json, 'caCert') ? undefined : json['caCert'],
-        'cmd': !exists(json, 'cmd') ? undefined : json['cmd'],
-        'exportServerAddr': !exists(json, 'exportServerAddr') ? undefined : json['exportServerAddr'],
-        'exportServerName': !exists(json, 'exportServerName') ? undefined : json['exportServerName'],
-        'incremental': !exists(json, 'incremental') ? undefined : json['incremental'],
-        'mode': !exists(json, 'mode') ? undefined : json['mode'],
-        'skipQuiesce': !exists(json, 'skipQuiesce') ? undefined : json['skipQuiesce'],
-        'targetPath': !exists(json, 'targetPath') ? undefined : json['targetPath'],
-    };
-}
-
-export function V1alpha1BackupOptionsToJSON(value?: V1alpha1BackupOptions | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'backupCert': value.backupCert,
-        'backupKey': value.backupKey,
-        'backupName': value.backupName,
-        'backupStartTime': value.backupStartTime,
-        'caCert': value.caCert,
-        'cmd': value.cmd,
-        'exportServerAddr': value.exportServerAddr,
-        'exportServerName': value.exportServerName,
-        'incremental': value.incremental,
-        'mode': value.mode,
-        'skipQuiesce': value.skipQuiesce,
-        'targetPath': value.targetPath,
-    };
-}
-

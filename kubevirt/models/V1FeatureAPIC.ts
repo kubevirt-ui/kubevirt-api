@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -32,42 +31,3 @@ export interface V1FeatureAPIC {
      */
     endOfInterrupt?: boolean;
 }
-
-/**
- * Check if a given object implements the V1FeatureAPIC interface.
- */
-export function instanceOfV1FeatureAPIC(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1FeatureAPICFromJSON(json: any): V1FeatureAPIC {
-    return V1FeatureAPICFromJSONTyped(json, false);
-}
-
-export function V1FeatureAPICFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1FeatureAPIC {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
-        'endOfInterrupt': !exists(json, 'endOfInterrupt') ? undefined : json['endOfInterrupt'],
-    };
-}
-
-export function V1FeatureAPICToJSON(value?: V1FeatureAPIC | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'enabled': value.enabled,
-        'endOfInterrupt': value.endOfInterrupt,
-    };
-}
-

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ServiceReference holds a reference to Service.legacy.k8s.io
  * @export
@@ -43,42 +42,4 @@ export interface IoK8sApiAdmissionregistrationV1ServiceReference {
    * @memberof IoK8sApiAdmissionregistrationV1ServiceReference
    */
   port?: number;
-}
-
-export function IoK8sApiAdmissionregistrationV1ServiceReferenceFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1ServiceReference {
-  return IoK8sApiAdmissionregistrationV1ServiceReferenceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1ServiceReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1ServiceReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    name: json['name'],
-    namespace: json['namespace'],
-    path: !exists(json, 'path') ? undefined : json['path'],
-    port: !exists(json, 'port') ? undefined : json['port'],
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1ServiceReferenceToJSON(
-  value?: IoK8sApiAdmissionregistrationV1ServiceReference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    name: value.name,
-    namespace: value.namespace,
-    path: value.path,
-    port: value.port,
-  };
 }

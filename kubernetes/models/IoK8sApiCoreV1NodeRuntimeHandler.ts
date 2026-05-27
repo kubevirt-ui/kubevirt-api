@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1NodeRuntimeHandlerFeatures,
-  IoK8sApiCoreV1NodeRuntimeHandlerFeaturesFromJSON,
-  IoK8sApiCoreV1NodeRuntimeHandlerFeaturesToJSON,
 } from './';
 
 /**
@@ -37,40 +34,4 @@ export interface IoK8sApiCoreV1NodeRuntimeHandler {
    * @memberof IoK8sApiCoreV1NodeRuntimeHandler
    */
   name?: string;
-}
-
-export function IoK8sApiCoreV1NodeRuntimeHandlerFromJSON(
-  json: any,
-): IoK8sApiCoreV1NodeRuntimeHandler {
-  return IoK8sApiCoreV1NodeRuntimeHandlerFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NodeRuntimeHandlerFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NodeRuntimeHandler {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    features: !exists(json, 'features')
-      ? undefined
-      : IoK8sApiCoreV1NodeRuntimeHandlerFeaturesFromJSON(json['features']),
-    name: !exists(json, 'name') ? undefined : json['name'],
-  };
-}
-
-export function IoK8sApiCoreV1NodeRuntimeHandlerToJSON(
-  value?: IoK8sApiCoreV1NodeRuntimeHandler | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    features: IoK8sApiCoreV1NodeRuntimeHandlerFeaturesToJSON(value.features),
-    name: value.name,
-  };
 }

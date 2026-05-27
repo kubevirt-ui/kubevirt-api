@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1beta1VirtualMachinePoolOpportunisticScaleInStrategy } from './V1beta1VirtualMachinePoolOpportunisticScaleInStrategy';
-import {
-    V1beta1VirtualMachinePoolOpportunisticScaleInStrategyFromJSON,
-    V1beta1VirtualMachinePoolOpportunisticScaleInStrategyFromJSONTyped,
-    V1beta1VirtualMachinePoolOpportunisticScaleInStrategyToJSON,
-} from './V1beta1VirtualMachinePoolOpportunisticScaleInStrategy';
 import type { V1beta1VirtualMachinePoolProactiveScaleInStrategy } from './V1beta1VirtualMachinePoolProactiveScaleInStrategy';
-import {
-    V1beta1VirtualMachinePoolProactiveScaleInStrategyFromJSON,
-    V1beta1VirtualMachinePoolProactiveScaleInStrategyFromJSONTyped,
-    V1beta1VirtualMachinePoolProactiveScaleInStrategyToJSON,
-} from './V1beta1VirtualMachinePoolProactiveScaleInStrategy';
 
 /**
  * VirtualMachinePoolScaleInStrategy specifies how the VMPool controller manages scaling in VMs within a VMPool
@@ -51,44 +40,3 @@ export interface V1beta1VirtualMachinePoolScaleInStrategy {
      */
     unmanaged?: object;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachinePoolScaleInStrategy interface.
- */
-export function instanceOfV1beta1VirtualMachinePoolScaleInStrategy(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachinePoolScaleInStrategyFromJSON(json: any): V1beta1VirtualMachinePoolScaleInStrategy {
-    return V1beta1VirtualMachinePoolScaleInStrategyFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachinePoolScaleInStrategyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachinePoolScaleInStrategy {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'opportunistic': !exists(json, 'opportunistic') ? undefined : V1beta1VirtualMachinePoolOpportunisticScaleInStrategyFromJSON(json['opportunistic']),
-        'proactive': !exists(json, 'proactive') ? undefined : V1beta1VirtualMachinePoolProactiveScaleInStrategyFromJSON(json['proactive']),
-        'unmanaged': !exists(json, 'unmanaged') ? undefined : json['unmanaged'],
-    };
-}
-
-export function V1beta1VirtualMachinePoolScaleInStrategyToJSON(value?: V1beta1VirtualMachinePoolScaleInStrategy | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'opportunistic': V1beta1VirtualMachinePoolOpportunisticScaleInStrategyToJSON(value.opportunistic),
-        'proactive': V1beta1VirtualMachinePoolProactiveScaleInStrategyToJSON(value.proactive),
-        'unmanaged': value.unmanaged,
-    };
-}
-

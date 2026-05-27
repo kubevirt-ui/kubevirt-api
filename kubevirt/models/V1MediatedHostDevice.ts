@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * MediatedHostDevice represents a host mediated device allowed for passthrough
  * @export
@@ -38,46 +37,3 @@ export interface V1MediatedHostDevice {
      */
     resourceName: string;
 }
-
-/**
- * Check if a given object implements the V1MediatedHostDevice interface.
- */
-export function instanceOfV1MediatedHostDevice(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "mdevNameSelector" in value;
-    isInstance = isInstance && "resourceName" in value;
-
-    return isInstance;
-}
-
-export function V1MediatedHostDeviceFromJSON(json: any): V1MediatedHostDevice {
-    return V1MediatedHostDeviceFromJSONTyped(json, false);
-}
-
-export function V1MediatedHostDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1MediatedHostDevice {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'externalResourceProvider': !exists(json, 'externalResourceProvider') ? undefined : json['externalResourceProvider'],
-        'mdevNameSelector': json['mdevNameSelector'],
-        'resourceName': json['resourceName'],
-    };
-}
-
-export function V1MediatedHostDeviceToJSON(value?: V1MediatedHostDevice | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'externalResourceProvider': value.externalResourceProvider,
-        'mdevNameSelector': value.mdevNameSelector,
-        'resourceName': value.resourceName,
-    };
-}
-

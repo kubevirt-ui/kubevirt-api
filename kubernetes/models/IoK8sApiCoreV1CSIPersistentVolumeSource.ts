@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1SecretReference,
-  IoK8sApiCoreV1SecretReferenceFromJSON,
-  IoK8sApiCoreV1SecretReferenceToJSON,
 } from './';
 
 /**
@@ -85,66 +82,4 @@ export interface IoK8sApiCoreV1CSIPersistentVolumeSource {
    * @memberof IoK8sApiCoreV1CSIPersistentVolumeSource
    */
   volumeHandle: string;
-}
-
-export function IoK8sApiCoreV1CSIPersistentVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1CSIPersistentVolumeSource {
-  return IoK8sApiCoreV1CSIPersistentVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1CSIPersistentVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1CSIPersistentVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    controllerExpandSecretRef: !exists(json, 'controllerExpandSecretRef')
-      ? undefined
-      : IoK8sApiCoreV1SecretReferenceFromJSON(json['controllerExpandSecretRef']),
-    controllerPublishSecretRef: !exists(json, 'controllerPublishSecretRef')
-      ? undefined
-      : IoK8sApiCoreV1SecretReferenceFromJSON(json['controllerPublishSecretRef']),
-    driver: json['driver'],
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    nodeExpandSecretRef: !exists(json, 'nodeExpandSecretRef')
-      ? undefined
-      : IoK8sApiCoreV1SecretReferenceFromJSON(json['nodeExpandSecretRef']),
-    nodePublishSecretRef: !exists(json, 'nodePublishSecretRef')
-      ? undefined
-      : IoK8sApiCoreV1SecretReferenceFromJSON(json['nodePublishSecretRef']),
-    nodeStageSecretRef: !exists(json, 'nodeStageSecretRef')
-      ? undefined
-      : IoK8sApiCoreV1SecretReferenceFromJSON(json['nodeStageSecretRef']),
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    volumeAttributes: !exists(json, 'volumeAttributes') ? undefined : json['volumeAttributes'],
-    volumeHandle: json['volumeHandle'],
-  };
-}
-
-export function IoK8sApiCoreV1CSIPersistentVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1CSIPersistentVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    controllerExpandSecretRef: IoK8sApiCoreV1SecretReferenceToJSON(value.controllerExpandSecretRef),
-    controllerPublishSecretRef: IoK8sApiCoreV1SecretReferenceToJSON(
-      value.controllerPublishSecretRef,
-    ),
-    driver: value.driver,
-    fsType: value.fsType,
-    nodeExpandSecretRef: IoK8sApiCoreV1SecretReferenceToJSON(value.nodeExpandSecretRef),
-    nodePublishSecretRef: IoK8sApiCoreV1SecretReferenceToJSON(value.nodePublishSecretRef),
-    nodeStageSecretRef: IoK8sApiCoreV1SecretReferenceToJSON(value.nodeStageSecretRef),
-    readOnly: value.readOnly,
-    volumeAttributes: value.volumeAttributes,
-    volumeHandle: value.volumeHandle,
-  };
 }

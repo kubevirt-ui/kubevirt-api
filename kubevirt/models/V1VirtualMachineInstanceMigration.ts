@@ -12,25 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1ObjectMeta } from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
-import {
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1ObjectMeta';
 import type { V1VirtualMachineInstanceMigrationSpec } from './V1VirtualMachineInstanceMigrationSpec';
-import {
-    V1VirtualMachineInstanceMigrationSpecFromJSON,
-    V1VirtualMachineInstanceMigrationSpecFromJSONTyped,
-    V1VirtualMachineInstanceMigrationSpecToJSON,
-} from './V1VirtualMachineInstanceMigrationSpec';
 import type { V1VirtualMachineInstanceMigrationStatus } from './V1VirtualMachineInstanceMigrationStatus';
-import {
-    V1VirtualMachineInstanceMigrationStatusFromJSON,
-    V1VirtualMachineInstanceMigrationStatusFromJSONTyped,
-    V1VirtualMachineInstanceMigrationStatusToJSON,
-} from './V1VirtualMachineInstanceMigrationStatus';
 
 /**
  * VirtualMachineInstanceMigration represents the object tracking a VMI's migration to another host in the cluster
@@ -69,49 +53,3 @@ export interface V1VirtualMachineInstanceMigration {
      */
     status?: V1VirtualMachineInstanceMigrationStatus;
 }
-
-/**
- * Check if a given object implements the V1VirtualMachineInstanceMigration interface.
- */
-export function instanceOfV1VirtualMachineInstanceMigration(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "spec" in value;
-
-    return isInstance;
-}
-
-export function V1VirtualMachineInstanceMigrationFromJSON(json: any): V1VirtualMachineInstanceMigration {
-    return V1VirtualMachineInstanceMigrationFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstanceMigrationFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstanceMigration {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'metadata': !exists(json, 'metadata') ? undefined : K8sIoApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-        'spec': V1VirtualMachineInstanceMigrationSpecFromJSON(json['spec']),
-        'status': !exists(json, 'status') ? undefined : V1VirtualMachineInstanceMigrationStatusFromJSON(json['status']),
-    };
-}
-
-export function V1VirtualMachineInstanceMigrationToJSON(value?: V1VirtualMachineInstanceMigration | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'kind': value.kind,
-        'metadata': K8sIoApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-        'spec': V1VirtualMachineInstanceMigrationSpecToJSON(value.spec),
-        'status': V1VirtualMachineInstanceMigrationStatusToJSON(value.status),
-    };
-}
-

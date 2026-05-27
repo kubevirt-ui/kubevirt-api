@@ -12,61 +12,15 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1ChangedBlockTrackingStatus } from './V1ChangedBlockTrackingStatus';
-import {
-    V1ChangedBlockTrackingStatusFromJSON,
-    V1ChangedBlockTrackingStatusFromJSONTyped,
-    V1ChangedBlockTrackingStatusToJSON,
-} from './V1ChangedBlockTrackingStatus';
 import type { V1InstancetypeStatusRef } from './V1InstancetypeStatusRef';
-import {
-    V1InstancetypeStatusRefFromJSON,
-    V1InstancetypeStatusRefFromJSONTyped,
-    V1InstancetypeStatusRefToJSON,
-} from './V1InstancetypeStatusRef';
 import type { V1VirtualMachineCondition } from './V1VirtualMachineCondition';
-import {
-    V1VirtualMachineConditionFromJSON,
-    V1VirtualMachineConditionFromJSONTyped,
-    V1VirtualMachineConditionToJSON,
-} from './V1VirtualMachineCondition';
 import type { V1VirtualMachineMemoryDumpRequest } from './V1VirtualMachineMemoryDumpRequest';
-import {
-    V1VirtualMachineMemoryDumpRequestFromJSON,
-    V1VirtualMachineMemoryDumpRequestFromJSONTyped,
-    V1VirtualMachineMemoryDumpRequestToJSON,
-} from './V1VirtualMachineMemoryDumpRequest';
 import type { V1VirtualMachineStartFailure } from './V1VirtualMachineStartFailure';
-import {
-    V1VirtualMachineStartFailureFromJSON,
-    V1VirtualMachineStartFailureFromJSONTyped,
-    V1VirtualMachineStartFailureToJSON,
-} from './V1VirtualMachineStartFailure';
 import type { V1VirtualMachineStateChangeRequest } from './V1VirtualMachineStateChangeRequest';
-import {
-    V1VirtualMachineStateChangeRequestFromJSON,
-    V1VirtualMachineStateChangeRequestFromJSONTyped,
-    V1VirtualMachineStateChangeRequestToJSON,
-} from './V1VirtualMachineStateChangeRequest';
 import type { V1VirtualMachineVolumeRequest } from './V1VirtualMachineVolumeRequest';
-import {
-    V1VirtualMachineVolumeRequestFromJSON,
-    V1VirtualMachineVolumeRequestFromJSONTyped,
-    V1VirtualMachineVolumeRequestToJSON,
-} from './V1VirtualMachineVolumeRequest';
 import type { V1VolumeSnapshotStatus } from './V1VolumeSnapshotStatus';
-import {
-    V1VolumeSnapshotStatusFromJSON,
-    V1VolumeSnapshotStatusFromJSONTyped,
-    V1VolumeSnapshotStatusToJSON,
-} from './V1VolumeSnapshotStatus';
 import type { V1VolumeUpdateState } from './V1VolumeUpdateState';
-import {
-    V1VolumeUpdateStateFromJSON,
-    V1VolumeUpdateStateFromJSONTyped,
-    V1VolumeUpdateStateToJSON,
-} from './V1VolumeUpdateState';
 
 /**
  * VirtualMachineStatus represents the status returned by the controller to describe how the VirtualMachine is doing
@@ -183,74 +137,3 @@ export interface V1VirtualMachineStatus {
      */
     volumeUpdateState?: V1VolumeUpdateState;
 }
-
-/**
- * Check if a given object implements the V1VirtualMachineStatus interface.
- */
-export function instanceOfV1VirtualMachineStatus(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1VirtualMachineStatusFromJSON(json: any): V1VirtualMachineStatus {
-    return V1VirtualMachineStatusFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineStatus {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'changedBlockTracking': !exists(json, 'changedBlockTracking') ? undefined : V1ChangedBlockTrackingStatusFromJSON(json['changedBlockTracking']),
-        'conditions': !exists(json, 'conditions') ? undefined : ((json['conditions'] as Array<any>).map(V1VirtualMachineConditionFromJSON)),
-        'created': !exists(json, 'created') ? undefined : json['created'],
-        'desiredGeneration': !exists(json, 'desiredGeneration') ? undefined : json['desiredGeneration'],
-        'instancetypeRef': !exists(json, 'instancetypeRef') ? undefined : V1InstancetypeStatusRefFromJSON(json['instancetypeRef']),
-        'memoryDumpRequest': !exists(json, 'memoryDumpRequest') ? undefined : V1VirtualMachineMemoryDumpRequestFromJSON(json['memoryDumpRequest']),
-        'observedGeneration': !exists(json, 'observedGeneration') ? undefined : json['observedGeneration'],
-        'preferenceRef': !exists(json, 'preferenceRef') ? undefined : V1InstancetypeStatusRefFromJSON(json['preferenceRef']),
-        'printableStatus': !exists(json, 'printableStatus') ? undefined : json['printableStatus'],
-        'ready': !exists(json, 'ready') ? undefined : json['ready'],
-        'restoreInProgress': !exists(json, 'restoreInProgress') ? undefined : json['restoreInProgress'],
-        'runStrategy': !exists(json, 'runStrategy') ? undefined : json['runStrategy'],
-        'snapshotInProgress': !exists(json, 'snapshotInProgress') ? undefined : json['snapshotInProgress'],
-        'startFailure': !exists(json, 'startFailure') ? undefined : V1VirtualMachineStartFailureFromJSON(json['startFailure']),
-        'stateChangeRequests': !exists(json, 'stateChangeRequests') ? undefined : ((json['stateChangeRequests'] as Array<any>).map(V1VirtualMachineStateChangeRequestFromJSON)),
-        'volumeRequests': !exists(json, 'volumeRequests') ? undefined : ((json['volumeRequests'] as Array<any>).map(V1VirtualMachineVolumeRequestFromJSON)),
-        'volumeSnapshotStatuses': !exists(json, 'volumeSnapshotStatuses') ? undefined : ((json['volumeSnapshotStatuses'] as Array<any>).map(V1VolumeSnapshotStatusFromJSON)),
-        'volumeUpdateState': !exists(json, 'volumeUpdateState') ? undefined : V1VolumeUpdateStateFromJSON(json['volumeUpdateState']),
-    };
-}
-
-export function V1VirtualMachineStatusToJSON(value?: V1VirtualMachineStatus | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'changedBlockTracking': V1ChangedBlockTrackingStatusToJSON(value.changedBlockTracking),
-        'conditions': value.conditions === undefined ? undefined : ((value.conditions as Array<any>).map(V1VirtualMachineConditionToJSON)),
-        'created': value.created,
-        'desiredGeneration': value.desiredGeneration,
-        'instancetypeRef': V1InstancetypeStatusRefToJSON(value.instancetypeRef),
-        'memoryDumpRequest': V1VirtualMachineMemoryDumpRequestToJSON(value.memoryDumpRequest),
-        'observedGeneration': value.observedGeneration,
-        'preferenceRef': V1InstancetypeStatusRefToJSON(value.preferenceRef),
-        'printableStatus': value.printableStatus,
-        'ready': value.ready,
-        'restoreInProgress': value.restoreInProgress,
-        'runStrategy': value.runStrategy,
-        'snapshotInProgress': value.snapshotInProgress,
-        'startFailure': V1VirtualMachineStartFailureToJSON(value.startFailure),
-        'stateChangeRequests': value.stateChangeRequests === undefined ? undefined : ((value.stateChangeRequests as Array<any>).map(V1VirtualMachineStateChangeRequestToJSON)),
-        'volumeRequests': value.volumeRequests === undefined ? undefined : ((value.volumeRequests as Array<any>).map(V1VirtualMachineVolumeRequestToJSON)),
-        'volumeSnapshotStatuses': value.volumeSnapshotStatuses === undefined ? undefined : ((value.volumeSnapshotStatuses as Array<any>).map(V1VolumeSnapshotStatusToJSON)),
-        'volumeUpdateState': V1VolumeUpdateStateToJSON(value.volumeUpdateState),
-    };
-}
-

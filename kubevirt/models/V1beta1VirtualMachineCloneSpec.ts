@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApiCoreV1TypedLocalObjectReference } from './K8sIoApiCoreV1TypedLocalObjectReference';
-import {
-    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON,
-    K8sIoApiCoreV1TypedLocalObjectReferenceFromJSONTyped,
-    K8sIoApiCoreV1TypedLocalObjectReferenceToJSON,
-} from './K8sIoApiCoreV1TypedLocalObjectReference';
 import type { V1beta1VirtualMachineCloneTemplateFilters } from './V1beta1VirtualMachineCloneTemplateFilters';
-import {
-    V1beta1VirtualMachineCloneTemplateFiltersFromJSON,
-    V1beta1VirtualMachineCloneTemplateFiltersFromJSONTyped,
-    V1beta1VirtualMachineCloneTemplateFiltersToJSON,
-} from './V1beta1VirtualMachineCloneTemplateFilters';
 
 /**
  * 
@@ -87,57 +76,3 @@ export interface V1beta1VirtualMachineCloneSpec {
      */
     volumeNamePolicy?: string;
 }
-
-/**
- * Check if a given object implements the V1beta1VirtualMachineCloneSpec interface.
- */
-export function instanceOfV1beta1VirtualMachineCloneSpec(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "source" in value;
-
-    return isInstance;
-}
-
-export function V1beta1VirtualMachineCloneSpecFromJSON(json: any): V1beta1VirtualMachineCloneSpec {
-    return V1beta1VirtualMachineCloneSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1VirtualMachineCloneSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1beta1VirtualMachineCloneSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'annotationFilters': !exists(json, 'annotationFilters') ? undefined : json['annotationFilters'],
-        'labelFilters': !exists(json, 'labelFilters') ? undefined : json['labelFilters'],
-        'newMacAddresses': !exists(json, 'newMacAddresses') ? undefined : json['newMacAddresses'],
-        'newSMBiosSerial': !exists(json, 'newSMBiosSerial') ? undefined : json['newSMBiosSerial'],
-        'patches': !exists(json, 'patches') ? undefined : json['patches'],
-        'source': K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['source']),
-        'target': !exists(json, 'target') ? undefined : K8sIoApiCoreV1TypedLocalObjectReferenceFromJSON(json['target']),
-        'template': !exists(json, 'template') ? undefined : V1beta1VirtualMachineCloneTemplateFiltersFromJSON(json['template']),
-        'volumeNamePolicy': !exists(json, 'volumeNamePolicy') ? undefined : json['volumeNamePolicy'],
-    };
-}
-
-export function V1beta1VirtualMachineCloneSpecToJSON(value?: V1beta1VirtualMachineCloneSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'annotationFilters': value.annotationFilters,
-        'labelFilters': value.labelFilters,
-        'newMacAddresses': value.newMacAddresses,
-        'newSMBiosSerial': value.newSMBiosSerial,
-        'patches': value.patches,
-        'source': K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.source),
-        'target': K8sIoApiCoreV1TypedLocalObjectReferenceToJSON(value.target),
-        'template': V1beta1VirtualMachineCloneTemplateFiltersToJSON(value.template),
-        'volumeNamePolicy': value.volumeNamePolicy,
-    };
-}
-

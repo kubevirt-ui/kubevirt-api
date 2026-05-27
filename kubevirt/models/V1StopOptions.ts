@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * StopOptions may be provided when deleting an API object.
  * @export
@@ -44,46 +43,3 @@ export interface V1StopOptions {
      */
     kind?: string;
 }
-
-/**
- * Check if a given object implements the V1StopOptions interface.
- */
-export function instanceOfV1StopOptions(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1StopOptionsFromJSON(json: any): V1StopOptions {
-    return V1StopOptionsFromJSONTyped(json, false);
-}
-
-export function V1StopOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1StopOptions {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'dryRun': !exists(json, 'dryRun') ? undefined : json['dryRun'],
-        'gracePeriod': !exists(json, 'gracePeriod') ? undefined : json['gracePeriod'],
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-    };
-}
-
-export function V1StopOptionsToJSON(value?: V1StopOptions | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'dryRun': value.dryRun,
-        'gracePeriod': value.gracePeriod,
-        'kind': value.kind,
-    };
-}
-

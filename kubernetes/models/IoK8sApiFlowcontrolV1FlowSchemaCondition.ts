@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * FlowSchemaCondition describes conditions for a FlowSchema.
  * @export
@@ -49,47 +48,4 @@ export interface IoK8sApiFlowcontrolV1FlowSchemaCondition {
    * @memberof IoK8sApiFlowcontrolV1FlowSchemaCondition
    */
   type?: string;
-}
-
-export function IoK8sApiFlowcontrolV1FlowSchemaConditionFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1FlowSchemaCondition {
-  return IoK8sApiFlowcontrolV1FlowSchemaConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1FlowSchemaConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1FlowSchemaCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: !exists(json, 'status') ? undefined : json['status'],
-    type: !exists(json, 'type') ? undefined : json['type'],
-  };
-}
-
-export function IoK8sApiFlowcontrolV1FlowSchemaConditionToJSON(
-  value?: IoK8sApiFlowcontrolV1FlowSchemaCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

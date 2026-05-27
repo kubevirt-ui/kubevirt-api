@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1EndpointSubset,
-  IoK8sApiCoreV1EndpointSubsetFromJSON,
-  IoK8sApiCoreV1EndpointSubsetToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -68,45 +63,4 @@ export interface IoK8sApiCoreV1Endpoints {
    * @memberof IoK8sApiCoreV1Endpoints
    */
   subsets?: Array<IoK8sApiCoreV1EndpointSubset>;
-}
-
-export function IoK8sApiCoreV1EndpointsFromJSON(json: any): IoK8sApiCoreV1Endpoints {
-  return IoK8sApiCoreV1EndpointsFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1EndpointsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1Endpoints {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    subsets: !exists(json, 'subsets')
-      ? undefined
-      : (json['subsets'] as Array<any>).map(IoK8sApiCoreV1EndpointSubsetFromJSON),
-  };
-}
-
-export function IoK8sApiCoreV1EndpointsToJSON(value?: IoK8sApiCoreV1Endpoints | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    subsets:
-      value.subsets === undefined
-        ? undefined
-        : (value.subsets as Array<any>).map(IoK8sApiCoreV1EndpointSubsetToJSON),
-  };
 }

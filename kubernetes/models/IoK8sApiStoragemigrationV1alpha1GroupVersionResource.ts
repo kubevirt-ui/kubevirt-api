@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * The names of the group, the version, and the resource.
  * @export
@@ -37,40 +36,4 @@ export interface IoK8sApiStoragemigrationV1alpha1GroupVersionResource {
    * @memberof IoK8sApiStoragemigrationV1alpha1GroupVersionResource
    */
   version?: string;
-}
-
-export function IoK8sApiStoragemigrationV1alpha1GroupVersionResourceFromJSON(
-  json: any,
-): IoK8sApiStoragemigrationV1alpha1GroupVersionResource {
-  return IoK8sApiStoragemigrationV1alpha1GroupVersionResourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStoragemigrationV1alpha1GroupVersionResourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStoragemigrationV1alpha1GroupVersionResource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    group: !exists(json, 'group') ? undefined : json['group'],
-    resource: !exists(json, 'resource') ? undefined : json['resource'],
-    version: !exists(json, 'version') ? undefined : json['version'],
-  };
-}
-
-export function IoK8sApiStoragemigrationV1alpha1GroupVersionResourceToJSON(
-  value?: IoK8sApiStoragemigrationV1alpha1GroupVersionResource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    group: value.group,
-    resource: value.resource,
-    version: value.version,
-  };
 }

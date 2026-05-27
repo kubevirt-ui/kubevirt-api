@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Represents a volume that is populated with the contents of a git repository. Git repo volumes do not support ownership management. Git repo volumes support SELinux relabeling.
  *
@@ -39,40 +38,4 @@ export interface IoK8sApiCoreV1GitRepoVolumeSource {
    * @memberof IoK8sApiCoreV1GitRepoVolumeSource
    */
   revision?: string;
-}
-
-export function IoK8sApiCoreV1GitRepoVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1GitRepoVolumeSource {
-  return IoK8sApiCoreV1GitRepoVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1GitRepoVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1GitRepoVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    directory: !exists(json, 'directory') ? undefined : json['directory'],
-    repository: json['repository'],
-    revision: !exists(json, 'revision') ? undefined : json['revision'],
-  };
-}
-
-export function IoK8sApiCoreV1GitRepoVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1GitRepoVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    directory: value.directory,
-    repository: value.repository,
-    revision: value.revision,
-  };
 }

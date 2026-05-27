@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1ClockOffsetUTC } from './V1ClockOffsetUTC';
-import {
-    V1ClockOffsetUTCFromJSON,
-    V1ClockOffsetUTCFromJSONTyped,
-    V1ClockOffsetUTCToJSON,
-} from './V1ClockOffsetUTC';
 import type { V1Timer } from './V1Timer';
-import {
-    V1TimerFromJSON,
-    V1TimerFromJSONTyped,
-    V1TimerToJSON,
-} from './V1Timer';
 
 /**
  * Represents the clock and timers of a vmi.
@@ -51,44 +40,3 @@ export interface V1Clock {
      */
     utc?: V1ClockOffsetUTC;
 }
-
-/**
- * Check if a given object implements the V1Clock interface.
- */
-export function instanceOfV1Clock(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1ClockFromJSON(json: any): V1Clock {
-    return V1ClockFromJSONTyped(json, false);
-}
-
-export function V1ClockFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Clock {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'timer': !exists(json, 'timer') ? undefined : V1TimerFromJSON(json['timer']),
-        'timezone': !exists(json, 'timezone') ? undefined : json['timezone'],
-        'utc': !exists(json, 'utc') ? undefined : V1ClockOffsetUTCFromJSON(json['utc']),
-    };
-}
-
-export function V1ClockToJSON(value?: V1Clock | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'timer': V1TimerToJSON(value.timer),
-        'timezone': value.timezone,
-        'utc': V1ClockOffsetUTCToJSON(value.utc),
-    };
-}
-

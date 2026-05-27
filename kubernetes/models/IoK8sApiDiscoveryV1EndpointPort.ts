@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * EndpointPort represents a Port used by an EndpointSlice
  * @export
@@ -52,42 +51,4 @@ export interface IoK8sApiDiscoveryV1EndpointPort {
    * @memberof IoK8sApiDiscoveryV1EndpointPort
    */
   protocol?: string;
-}
-
-export function IoK8sApiDiscoveryV1EndpointPortFromJSON(
-  json: any,
-): IoK8sApiDiscoveryV1EndpointPort {
-  return IoK8sApiDiscoveryV1EndpointPortFromJSONTyped(json, false);
-}
-
-export function IoK8sApiDiscoveryV1EndpointPortFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiDiscoveryV1EndpointPort {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    appProtocol: !exists(json, 'appProtocol') ? undefined : json['appProtocol'],
-    name: !exists(json, 'name') ? undefined : json['name'],
-    port: !exists(json, 'port') ? undefined : json['port'],
-    protocol: !exists(json, 'protocol') ? undefined : json['protocol'],
-  };
-}
-
-export function IoK8sApiDiscoveryV1EndpointPortToJSON(
-  value?: IoK8sApiDiscoveryV1EndpointPort | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    appProtocol: value.appProtocol,
-    name: value.name,
-    port: value.port,
-    protocol: value.protocol,
-  };
 }

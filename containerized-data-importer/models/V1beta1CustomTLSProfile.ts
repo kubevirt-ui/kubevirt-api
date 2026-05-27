@@ -38,33 +38,3 @@ export interface V1beta1CustomTLSProfile {
    */
   minTLSVersion: string;
 }
-
-export function V1beta1CustomTLSProfileFromJSON(json: any): V1beta1CustomTLSProfile {
-  return V1beta1CustomTLSProfileFromJSONTyped(json, false);
-}
-
-export function V1beta1CustomTLSProfileFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1CustomTLSProfile {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    ciphers: json['ciphers'],
-    minTLSVersion: json['minTLSVersion'],
-  };
-}
-
-export function V1beta1CustomTLSProfileToJSON(value?: V1beta1CustomTLSProfile | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    ciphers: value.ciphers,
-    minTLSVersion: value.minTLSVersion,
-  };
-}

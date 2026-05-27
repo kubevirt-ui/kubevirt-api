@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1TypeChecking,
-  IoK8sApiAdmissionregistrationV1TypeCheckingFromJSON,
-  IoK8sApiAdmissionregistrationV1TypeCheckingToJSON,
   IoK8sApimachineryPkgApisMetaV1Condition,
-  IoK8sApimachineryPkgApisMetaV1ConditionFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ConditionToJSON,
 } from './';
 
 /**
@@ -46,49 +41,4 @@ export interface IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyStatus 
    * @memberof IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyStatus
    */
   typeChecking?: IoK8sApiAdmissionregistrationV1TypeChecking;
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyStatusFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyStatus {
-  return IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyStatusFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyStatusFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyStatus {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : (json['conditions'] as Array<any>).map(IoK8sApimachineryPkgApisMetaV1ConditionFromJSON),
-    observedGeneration: !exists(json, 'observedGeneration')
-      ? undefined
-      : json['observedGeneration'],
-    typeChecking: !exists(json, 'typeChecking')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1TypeCheckingFromJSON(json['typeChecking']),
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyStatusToJSON(
-  value?: IoK8sApiAdmissionregistrationV1ValidatingAdmissionPolicyStatus | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    conditions:
-      value.conditions === undefined
-        ? undefined
-        : (value.conditions as Array<any>).map(IoK8sApimachineryPkgApisMetaV1ConditionToJSON),
-    observedGeneration: value.observedGeneration,
-    typeChecking: IoK8sApiAdmissionregistrationV1TypeCheckingToJSON(value.typeChecking),
-  };
 }

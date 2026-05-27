@@ -12,8 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
-import { V1Preconditions, V1PreconditionsFromJSON, V1PreconditionsToJSON } from './';
+import { V1Preconditions } from './';
 
 /**
  * DeleteOptions may be provided when deleting an API object.
@@ -63,48 +62,4 @@ export interface V1DeleteOptions {
    * @memberof V1DeleteOptions
    */
   propagationPolicy?: string;
-}
-
-export function V1DeleteOptionsFromJSON(json: any): V1DeleteOptions {
-  return V1DeleteOptionsFromJSONTyped(json, false);
-}
-
-export function V1DeleteOptionsFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1DeleteOptions {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    dryRun: !exists(json, 'dryRun') ? undefined : json['dryRun'],
-    gracePeriodSeconds: !exists(json, 'gracePeriodSeconds')
-      ? undefined
-      : json['gracePeriodSeconds'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    orphanDependents: !exists(json, 'orphanDependents') ? undefined : json['orphanDependents'],
-    preconditions: !exists(json, 'preconditions')
-      ? undefined
-      : V1PreconditionsFromJSON(json['preconditions']),
-    propagationPolicy: !exists(json, 'propagationPolicy') ? undefined : json['propagationPolicy'],
-  };
-}
-
-export function V1DeleteOptionsToJSON(value?: V1DeleteOptions | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    dryRun: value.dryRun,
-    gracePeriodSeconds: value.gracePeriodSeconds,
-    kind: value.kind,
-    orphanDependents: value.orphanDependents,
-    preconditions: V1PreconditionsToJSON(value.preconditions),
-    propagationPolicy: value.propagationPolicy,
-  };
 }

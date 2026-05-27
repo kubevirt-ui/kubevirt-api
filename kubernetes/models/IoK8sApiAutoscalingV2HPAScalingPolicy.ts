@@ -37,39 +37,3 @@ export interface IoK8sApiAutoscalingV2HPAScalingPolicy {
    */
   value: number;
 }
-
-export function IoK8sApiAutoscalingV2HPAScalingPolicyFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV2HPAScalingPolicy {
-  return IoK8sApiAutoscalingV2HPAScalingPolicyFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV2HPAScalingPolicyFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV2HPAScalingPolicy {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    periodSeconds: json['periodSeconds'],
-    type: json['type'],
-    value: json['value'],
-  };
-}
-
-export function IoK8sApiAutoscalingV2HPAScalingPolicyToJSON(
-  value?: IoK8sApiAutoscalingV2HPAScalingPolicy | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    periodSeconds: value.periodSeconds,
-    type: value.type,
-    value: value.value,
-  };
-}

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -38,44 +37,3 @@ export interface V1CDRomTarget {
      */
     tray?: string;
 }
-
-/**
- * Check if a given object implements the V1CDRomTarget interface.
- */
-export function instanceOfV1CDRomTarget(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function V1CDRomTargetFromJSON(json: any): V1CDRomTarget {
-    return V1CDRomTargetFromJSONTyped(json, false);
-}
-
-export function V1CDRomTargetFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1CDRomTarget {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'bus': !exists(json, 'bus') ? undefined : json['bus'],
-        'readonly': !exists(json, 'readonly') ? undefined : json['readonly'],
-        'tray': !exists(json, 'tray') ? undefined : json['tray'],
-    };
-}
-
-export function V1CDRomTargetToJSON(value?: V1CDRomTarget | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'bus': value.bus,
-        'readonly': value.readonly,
-        'tray': value.tray,
-    };
-}
-

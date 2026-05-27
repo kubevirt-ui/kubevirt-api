@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiFlowcontrolV1QueuingConfiguration,
-  IoK8sApiFlowcontrolV1QueuingConfigurationFromJSON,
-  IoK8sApiFlowcontrolV1QueuingConfigurationToJSON,
 } from './';
 
 /**
@@ -37,40 +34,4 @@ export interface IoK8sApiFlowcontrolV1LimitResponse {
    * @memberof IoK8sApiFlowcontrolV1LimitResponse
    */
   type: string;
-}
-
-export function IoK8sApiFlowcontrolV1LimitResponseFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1LimitResponse {
-  return IoK8sApiFlowcontrolV1LimitResponseFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1LimitResponseFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1LimitResponse {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    queuing: !exists(json, 'queuing')
-      ? undefined
-      : IoK8sApiFlowcontrolV1QueuingConfigurationFromJSON(json['queuing']),
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiFlowcontrolV1LimitResponseToJSON(
-  value?: IoK8sApiFlowcontrolV1LimitResponse | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    queuing: IoK8sApiFlowcontrolV1QueuingConfigurationToJSON(value.queuing),
-    type: value.type,
-  };
 }

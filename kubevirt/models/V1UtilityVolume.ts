@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -44,48 +43,3 @@ export interface V1UtilityVolume {
      */
     type?: string;
 }
-
-/**
- * Check if a given object implements the V1UtilityVolume interface.
- */
-export function instanceOfV1UtilityVolume(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "claimName" in value;
-    isInstance = isInstance && "name" in value;
-
-    return isInstance;
-}
-
-export function V1UtilityVolumeFromJSON(json: any): V1UtilityVolume {
-    return V1UtilityVolumeFromJSONTyped(json, false);
-}
-
-export function V1UtilityVolumeFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1UtilityVolume {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'claimName': json['claimName'],
-        'name': json['name'],
-        'readOnly': !exists(json, 'readOnly') ? undefined : json['readOnly'],
-        'type': !exists(json, 'type') ? undefined : json['type'],
-    };
-}
-
-export function V1UtilityVolumeToJSON(value?: V1UtilityVolume | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'claimName': value.claimName,
-        'name': value.name,
-        'readOnly': value.readOnly,
-        'type': value.type,
-    };
-}
-

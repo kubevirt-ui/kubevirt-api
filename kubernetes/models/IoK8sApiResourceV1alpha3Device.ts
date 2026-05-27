@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1alpha3BasicDevice,
-  IoK8sApiResourceV1alpha3BasicDeviceFromJSON,
-  IoK8sApiResourceV1alpha3BasicDeviceToJSON,
 } from './';
 
 /**
@@ -37,38 +34,4 @@ export interface IoK8sApiResourceV1alpha3Device {
    * @memberof IoK8sApiResourceV1alpha3Device
    */
   name: string;
-}
-
-export function IoK8sApiResourceV1alpha3DeviceFromJSON(json: any): IoK8sApiResourceV1alpha3Device {
-  return IoK8sApiResourceV1alpha3DeviceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3DeviceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3Device {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    basic: !exists(json, 'basic')
-      ? undefined
-      : IoK8sApiResourceV1alpha3BasicDeviceFromJSON(json['basic']),
-    name: json['name'],
-  };
-}
-
-export function IoK8sApiResourceV1alpha3DeviceToJSON(
-  value?: IoK8sApiResourceV1alpha3Device | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    basic: IoK8sApiResourceV1alpha3BasicDeviceToJSON(value.basic),
-    name: value.name,
-  };
 }

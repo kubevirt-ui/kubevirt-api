@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1LabelSelector } from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
-import {
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1LabelSelector';
 import type { V1DomainSpec } from './V1DomainSpec';
-import {
-    V1DomainSpecFromJSON,
-    V1DomainSpecFromJSONTyped,
-    V1DomainSpecToJSON,
-} from './V1DomainSpec';
 
 /**
  * 
@@ -45,43 +34,3 @@ export interface V1VirtualMachineInstancePresetSpec {
      */
     selector: K8sIoApimachineryPkgApisMetaV1LabelSelector;
 }
-
-/**
- * Check if a given object implements the V1VirtualMachineInstancePresetSpec interface.
- */
-export function instanceOfV1VirtualMachineInstancePresetSpec(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "selector" in value;
-
-    return isInstance;
-}
-
-export function V1VirtualMachineInstancePresetSpecFromJSON(json: any): V1VirtualMachineInstancePresetSpec {
-    return V1VirtualMachineInstancePresetSpecFromJSONTyped(json, false);
-}
-
-export function V1VirtualMachineInstancePresetSpecFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1VirtualMachineInstancePresetSpec {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'domain': !exists(json, 'domain') ? undefined : V1DomainSpecFromJSON(json['domain']),
-        'selector': K8sIoApimachineryPkgApisMetaV1LabelSelectorFromJSON(json['selector']),
-    };
-}
-
-export function V1VirtualMachineInstancePresetSpecToJSON(value?: V1VirtualMachineInstancePresetSpec | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'domain': V1DomainSpecToJSON(value.domain),
-        'selector': K8sIoApimachineryPkgApisMetaV1LabelSelectorToJSON(value.selector),
-    };
-}
-

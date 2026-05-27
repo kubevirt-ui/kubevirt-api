@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1ListMeta } from './K8sIoApimachineryPkgApisMetaV1ListMeta';
-import {
-    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON,
-    K8sIoApimachineryPkgApisMetaV1ListMetaFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1ListMetaToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1ListMeta';
 import type { V1alpha1VirtualMachineBackup } from './V1alpha1VirtualMachineBackup';
-import {
-    V1alpha1VirtualMachineBackupFromJSON,
-    V1alpha1VirtualMachineBackupFromJSONTyped,
-    V1alpha1VirtualMachineBackupToJSON,
-} from './V1alpha1VirtualMachineBackup';
 
 /**
  * VirtualMachineBackupList is a list of VirtualMachineBackup resources
@@ -57,48 +46,3 @@ export interface V1alpha1VirtualMachineBackupList {
      */
     metadata: K8sIoApimachineryPkgApisMetaV1ListMeta;
 }
-
-/**
- * Check if a given object implements the V1alpha1VirtualMachineBackupList interface.
- */
-export function instanceOfV1alpha1VirtualMachineBackupList(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "items" in value;
-    isInstance = isInstance && "metadata" in value;
-
-    return isInstance;
-}
-
-export function V1alpha1VirtualMachineBackupListFromJSON(json: any): V1alpha1VirtualMachineBackupList {
-    return V1alpha1VirtualMachineBackupListFromJSONTyped(json, false);
-}
-
-export function V1alpha1VirtualMachineBackupListFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachineBackupList {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'apiVersion': !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-        'items': ((json['items'] as Array<any>).map(V1alpha1VirtualMachineBackupFromJSON)),
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'metadata': K8sIoApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-    };
-}
-
-export function V1alpha1VirtualMachineBackupListToJSON(value?: V1alpha1VirtualMachineBackupList | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'apiVersion': value.apiVersion,
-        'items': ((value.items as Array<any>).map(V1alpha1VirtualMachineBackupToJSON)),
-        'kind': value.kind,
-        'metadata': K8sIoApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-    };
-}
-

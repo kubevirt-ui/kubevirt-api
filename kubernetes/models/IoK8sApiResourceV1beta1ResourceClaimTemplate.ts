@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1beta1ResourceClaimTemplateSpec,
-  IoK8sApiResourceV1beta1ResourceClaimTemplateSpecFromJSON,
-  IoK8sApiResourceV1beta1ResourceClaimTemplateSpecToJSON,
   IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON,
 } from './';
 
 /**
@@ -54,44 +49,4 @@ export interface IoK8sApiResourceV1beta1ResourceClaimTemplate {
    * @memberof IoK8sApiResourceV1beta1ResourceClaimTemplate
    */
   spec: IoK8sApiResourceV1beta1ResourceClaimTemplateSpec;
-}
-
-export function IoK8sApiResourceV1beta1ResourceClaimTemplateFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta1ResourceClaimTemplate {
-  return IoK8sApiResourceV1beta1ResourceClaimTemplateFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta1ResourceClaimTemplateFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta1ResourceClaimTemplate {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ObjectMetaFromJSON(json['metadata']),
-    spec: IoK8sApiResourceV1beta1ResourceClaimTemplateSpecFromJSON(json['spec']),
-  };
-}
-
-export function IoK8sApiResourceV1beta1ResourceClaimTemplateToJSON(
-  value?: IoK8sApiResourceV1beta1ResourceClaimTemplate | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ObjectMetaToJSON(value.metadata),
-    spec: IoK8sApiResourceV1beta1ResourceClaimTemplateSpecToJSON(value.spec),
-  };
 }

@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ObjectReference,
-  IoK8sApiCoreV1ObjectReferenceFromJSON,
-  IoK8sApiCoreV1ObjectReferenceToJSON,
   IoK8sApiDiscoveryV1EndpointConditions,
-  IoK8sApiDiscoveryV1EndpointConditionsFromJSON,
-  IoK8sApiDiscoveryV1EndpointConditionsToJSON,
   IoK8sApiDiscoveryV1EndpointHints,
-  IoK8sApiDiscoveryV1EndpointHintsFromJSON,
-  IoK8sApiDiscoveryV1EndpointHintsToJSON,
 } from './';
 
 /**
@@ -79,54 +72,4 @@ export interface IoK8sApiDiscoveryV1Endpoint {
    * @memberof IoK8sApiDiscoveryV1Endpoint
    */
   zone?: string;
-}
-
-export function IoK8sApiDiscoveryV1EndpointFromJSON(json: any): IoK8sApiDiscoveryV1Endpoint {
-  return IoK8sApiDiscoveryV1EndpointFromJSONTyped(json, false);
-}
-
-export function IoK8sApiDiscoveryV1EndpointFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiDiscoveryV1Endpoint {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    addresses: json['addresses'],
-    conditions: !exists(json, 'conditions')
-      ? undefined
-      : IoK8sApiDiscoveryV1EndpointConditionsFromJSON(json['conditions']),
-    deprecatedTopology: !exists(json, 'deprecatedTopology')
-      ? undefined
-      : json['deprecatedTopology'],
-    hints: !exists(json, 'hints')
-      ? undefined
-      : IoK8sApiDiscoveryV1EndpointHintsFromJSON(json['hints']),
-    hostname: !exists(json, 'hostname') ? undefined : json['hostname'],
-    nodeName: !exists(json, 'nodeName') ? undefined : json['nodeName'],
-    targetRef: !exists(json, 'targetRef')
-      ? undefined
-      : IoK8sApiCoreV1ObjectReferenceFromJSON(json['targetRef']),
-    zone: !exists(json, 'zone') ? undefined : json['zone'],
-  };
-}
-
-export function IoK8sApiDiscoveryV1EndpointToJSON(value?: IoK8sApiDiscoveryV1Endpoint | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    addresses: value.addresses,
-    conditions: IoK8sApiDiscoveryV1EndpointConditionsToJSON(value.conditions),
-    deprecatedTopology: value.deprecatedTopology,
-    hints: IoK8sApiDiscoveryV1EndpointHintsToJSON(value.hints),
-    hostname: value.hostname,
-    nodeName: value.nodeName,
-    targetRef: IoK8sApiCoreV1ObjectReferenceToJSON(value.targetRef),
-    zone: value.zone,
-  };
 }

@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiFlowcontrolV1FlowSchema,
-  IoK8sApiFlowcontrolV1FlowSchemaFromJSON,
-  IoK8sApiFlowcontrolV1FlowSchemaToJSON,
   IoK8sApimachineryPkgApisMetaV1ListMeta,
-  IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON,
-  IoK8sApimachineryPkgApisMetaV1ListMetaToJSON,
 } from './';
 
 /**
@@ -52,44 +47,4 @@ export interface IoK8sApiFlowcontrolV1FlowSchemaList {
    * @memberof IoK8sApiFlowcontrolV1FlowSchemaList
    */
   metadata?: IoK8sApimachineryPkgApisMetaV1ListMeta;
-}
-
-export function IoK8sApiFlowcontrolV1FlowSchemaListFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1FlowSchemaList {
-  return IoK8sApiFlowcontrolV1FlowSchemaListFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1FlowSchemaListFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1FlowSchemaList {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    items: (json['items'] as Array<any>).map(IoK8sApiFlowcontrolV1FlowSchemaFromJSON),
-    kind: !exists(json, 'kind') ? undefined : json['kind'],
-    metadata: !exists(json, 'metadata')
-      ? undefined
-      : IoK8sApimachineryPkgApisMetaV1ListMetaFromJSON(json['metadata']),
-  };
-}
-
-export function IoK8sApiFlowcontrolV1FlowSchemaListToJSON(
-  value?: IoK8sApiFlowcontrolV1FlowSchemaList | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    items: (value.items as Array<any>).map(IoK8sApiFlowcontrolV1FlowSchemaToJSON),
-    kind: value.kind,
-    metadata: IoK8sApimachineryPkgApisMetaV1ListMetaToJSON(value.metadata),
-  };
 }

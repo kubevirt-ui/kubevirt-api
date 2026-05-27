@@ -12,27 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import type { V1NMStateSpecAffinity } from './V1NMStateSpecAffinity';
-import {
-  V1NMStateSpecAffinityFromJSON,
-  V1NMStateSpecAffinityToJSON,
-} from './V1NMStateSpecAffinity';
 import type { V1NMStateSpecInfraAffinity } from './V1NMStateSpecInfraAffinity';
-import {
-  V1NMStateSpecInfraAffinityFromJSON,
-  V1NMStateSpecInfraAffinityToJSON,
-} from './V1NMStateSpecInfraAffinity';
 import type { V1NMStateSpecProbeConfiguration } from './V1NMStateSpecProbeConfiguration';
-import {
-  V1NMStateSpecProbeConfigurationFromJSON,
-  V1NMStateSpecProbeConfigurationToJSON,
-} from './V1NMStateSpecProbeConfiguration';
 import type { V1NMStateSpecSelfSignConfiguration } from './V1NMStateSpecSelfSignConfiguration';
-import {
-  V1NMStateSpecSelfSignConfigurationFromJSON,
-  V1NMStateSpecSelfSignConfigurationToJSON,
-} from './V1NMStateSpecSelfSignConfiguration';
 
 /**
  * NMStateSpec defines the desired state of NMState
@@ -96,63 +79,4 @@ export interface V1NMStateSpec {
    * @memberof V1NMStateSpec
    */
   tolerations?: any | null;
-}
-
-/**
- * Check if a given object implements the V1NMStateSpec interface.
- */
-export function instanceOfV1NMStateSpec(_value: object): boolean {
-  const isInstance = true;
-
-  return isInstance;
-}
-
-export function V1NMStateSpecFromJSON(json: any): V1NMStateSpec {
-  return V1NMStateSpecFromJSONTyped(json, false);
-}
-
-export function V1NMStateSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1NMStateSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    affinity: !exists(json, 'affinity')
-      ? undefined
-      : V1NMStateSpecAffinityFromJSON(json['affinity']),
-    infraAffinity: !exists(json, 'infraAffinity')
-      ? undefined
-      : V1NMStateSpecInfraAffinityFromJSON(json['infraAffinity']),
-    infraNodeSelector: !exists(json, 'infraNodeSelector') ? undefined : json['infraNodeSelector'],
-    infraTolerations: !exists(json, 'infraTolerations') ? undefined : json['infraTolerations'],
-    nodeSelector: !exists(json, 'nodeSelector') ? undefined : json['nodeSelector'],
-    probeConfiguration: !exists(json, 'probeConfiguration')
-      ? undefined
-      : V1NMStateSpecProbeConfigurationFromJSON(json['probeConfiguration']),
-    selfSignConfiguration: !exists(json, 'selfSignConfiguration')
-      ? undefined
-      : V1NMStateSpecSelfSignConfigurationFromJSON(json['selfSignConfiguration']),
-    tolerations: !exists(json, 'tolerations') ? undefined : json['tolerations'],
-  };
-}
-
-export function V1NMStateSpecToJSON(value?: V1NMStateSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    affinity: V1NMStateSpecAffinityToJSON(value.affinity),
-    infraAffinity: V1NMStateSpecInfraAffinityToJSON(value.infraAffinity),
-    infraNodeSelector: value.infraNodeSelector,
-    infraTolerations: value.infraTolerations,
-    nodeSelector: value.nodeSelector,
-    probeConfiguration: V1NMStateSpecProbeConfigurationToJSON(value.probeConfiguration),
-    selfSignConfiguration: V1NMStateSpecSelfSignConfigurationToJSON(value.selfSignConfiguration),
-    tolerations: value.tolerations,
-  };
 }

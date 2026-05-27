@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1beta1DeviceToleration,
-  IoK8sApiResourceV1beta1DeviceTolerationFromJSON,
-  IoK8sApiResourceV1beta1DeviceTolerationToJSON,
 } from './';
 
 /**
@@ -73,51 +70,4 @@ export interface IoK8sApiResourceV1beta1DeviceRequestAllocationResult {
    * @memberof IoK8sApiResourceV1beta1DeviceRequestAllocationResult
    */
   tolerations?: Array<IoK8sApiResourceV1beta1DeviceToleration>;
-}
-
-export function IoK8sApiResourceV1beta1DeviceRequestAllocationResultFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta1DeviceRequestAllocationResult {
-  return IoK8sApiResourceV1beta1DeviceRequestAllocationResultFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta1DeviceRequestAllocationResultFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta1DeviceRequestAllocationResult {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    adminAccess: !exists(json, 'adminAccess') ? undefined : json['adminAccess'],
-    device: json['device'],
-    driver: json['driver'],
-    pool: json['pool'],
-    request: json['request'],
-    tolerations: !exists(json, 'tolerations')
-      ? undefined
-      : (json['tolerations'] as Array<any>).map(IoK8sApiResourceV1beta1DeviceTolerationFromJSON),
-  };
-}
-
-export function IoK8sApiResourceV1beta1DeviceRequestAllocationResultToJSON(
-  value?: IoK8sApiResourceV1beta1DeviceRequestAllocationResult | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    adminAccess: value.adminAccess,
-    device: value.device,
-    driver: value.driver,
-    pool: value.pool,
-    request: value.request,
-    tolerations:
-      value.tolerations === undefined
-        ? undefined
-        : (value.tolerations as Array<any>).map(IoK8sApiResourceV1beta1DeviceTolerationToJSON),
-  };
 }

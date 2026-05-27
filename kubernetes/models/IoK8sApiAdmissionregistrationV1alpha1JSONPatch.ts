@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * JSONPatch defines a JSON Patch.
  * @export
@@ -78,36 +77,4 @@ export interface IoK8sApiAdmissionregistrationV1alpha1JSONPatch {
    * @memberof IoK8sApiAdmissionregistrationV1alpha1JSONPatch
    */
   expression?: string;
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1JSONPatchFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1alpha1JSONPatch {
-  return IoK8sApiAdmissionregistrationV1alpha1JSONPatchFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1JSONPatchFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1alpha1JSONPatch {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    expression: !exists(json, 'expression') ? undefined : json['expression'],
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1JSONPatchToJSON(
-  value?: IoK8sApiAdmissionregistrationV1alpha1JSONPatch | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    expression: value.expression,
-  };
 }

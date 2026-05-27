@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiAdmissionregistrationV1alpha1MatchResources,
-  IoK8sApiAdmissionregistrationV1alpha1MatchResourcesFromJSON,
-  IoK8sApiAdmissionregistrationV1alpha1MatchResourcesToJSON,
   IoK8sApiAdmissionregistrationV1alpha1ParamRef,
-  IoK8sApiAdmissionregistrationV1alpha1ParamRefFromJSON,
-  IoK8sApiAdmissionregistrationV1alpha1ParamRefToJSON,
 } from './';
 
 /**
@@ -46,47 +41,4 @@ export interface IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBin
    * @memberof IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingSpec
    */
   policyName?: string;
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingSpecFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingSpec {
-  return IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingSpecFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    matchResources: !exists(json, 'matchResources')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1alpha1MatchResourcesFromJSON(json['matchResources']),
-    paramRef: !exists(json, 'paramRef')
-      ? undefined
-      : IoK8sApiAdmissionregistrationV1alpha1ParamRefFromJSON(json['paramRef']),
-    policyName: !exists(json, 'policyName') ? undefined : json['policyName'],
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingSpecToJSON(
-  value?: IoK8sApiAdmissionregistrationV1alpha1MutatingAdmissionPolicyBindingSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    matchResources: IoK8sApiAdmissionregistrationV1alpha1MatchResourcesToJSON(value.matchResources),
-    paramRef: IoK8sApiAdmissionregistrationV1alpha1ParamRefToJSON(value.paramRef),
-    policyName: value.policyName,
-  };
 }

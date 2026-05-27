@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -20,7 +19,7 @@ import { exists, mapValues } from '../runtime';
  */
 export interface V1HostDevice {
     /**
-     * ClaimName needs to be provided from the list vmi.spec.resourceClaims[].name where this device is allocated
+     * ClaimName references the name of an entry in the VMI's spec.resourceClaims[] array. The referenced entry may use either resourceClaimName or resourceClaimTemplateName.
      * @type {string}
      * @memberof V1HostDevice
      */
@@ -38,7 +37,7 @@ export interface V1HostDevice {
      */
     name: string;
     /**
-     * RequestName needs to be provided from resourceClaim.spec.devices.requests[].name where this device is requested
+     * RequestName specifies which request from the ResourceClaim/ResourceClaimTemplate spec.devices.requests array this claim request corresponds to.
      * @type {string}
      * @memberof V1HostDevice
      */
@@ -50,49 +49,3 @@ export interface V1HostDevice {
      */
     tag?: string;
 }
-
-/**
- * Check if a given object implements the V1HostDevice interface.
- */
-export function instanceOfV1HostDevice(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "name" in value;
-
-    return isInstance;
-}
-
-export function V1HostDeviceFromJSON(json: any): V1HostDevice {
-    return V1HostDeviceFromJSONTyped(json, false);
-}
-
-export function V1HostDeviceFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1HostDevice {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'claimName': !exists(json, 'claimName') ? undefined : json['claimName'],
-        'deviceName': !exists(json, 'deviceName') ? undefined : json['deviceName'],
-        'name': json['name'],
-        'requestName': !exists(json, 'requestName') ? undefined : json['requestName'],
-        'tag': !exists(json, 'tag') ? undefined : json['tag'],
-    };
-}
-
-export function V1HostDeviceToJSON(value?: V1HostDevice | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'claimName': value.claimName,
-        'deviceName': value.deviceName,
-        'name': value.name,
-        'requestName': value.requestName,
-        'tag': value.tag,
-    };
-}
-

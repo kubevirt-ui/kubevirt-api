@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * IngressClassParametersReference identifies an API object. This can be used to specify a cluster or namespace-scoped resource.
  * @export
@@ -49,44 +48,4 @@ export interface IoK8sApiNetworkingV1IngressClassParametersReference {
    * @memberof IoK8sApiNetworkingV1IngressClassParametersReference
    */
   scope?: string;
-}
-
-export function IoK8sApiNetworkingV1IngressClassParametersReferenceFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1IngressClassParametersReference {
-  return IoK8sApiNetworkingV1IngressClassParametersReferenceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1IngressClassParametersReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1IngressClassParametersReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiGroup: !exists(json, 'apiGroup') ? undefined : json['apiGroup'],
-    kind: json['kind'],
-    name: json['name'],
-    namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
-    scope: !exists(json, 'scope') ? undefined : json['scope'],
-  };
-}
-
-export function IoK8sApiNetworkingV1IngressClassParametersReferenceToJSON(
-  value?: IoK8sApiNetworkingV1IngressClassParametersReference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiGroup: value.apiGroup,
-    kind: value.kind,
-    name: value.name,
-    namespace: value.namespace,
-    scope: value.scope,
-  };
 }

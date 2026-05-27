@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * DataVolumeCondition represents the state of a data volume condition.
  * @export
@@ -55,45 +54,4 @@ export interface V1beta1DataVolumeCondition {
    * @memberof V1beta1DataVolumeCondition
    */
   type: string;
-}
-
-export function V1beta1DataVolumeConditionFromJSON(json: any): V1beta1DataVolumeCondition {
-  return V1beta1DataVolumeConditionFromJSONTyped(json, false);
-}
-
-export function V1beta1DataVolumeConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1DataVolumeCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastHeartbeatTime: !exists(json, 'lastHeartbeatTime') ? undefined : json['lastHeartbeatTime'],
-    lastTransitionTime: !exists(json, 'lastTransitionTime')
-      ? undefined
-      : json['lastTransitionTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function V1beta1DataVolumeConditionToJSON(value?: V1beta1DataVolumeCondition | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastHeartbeatTime: value.lastHeartbeatTime === undefined ? undefined : value.lastHeartbeatTime,
-    lastTransitionTime:
-      value.lastTransitionTime === undefined ? undefined : value.lastTransitionTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

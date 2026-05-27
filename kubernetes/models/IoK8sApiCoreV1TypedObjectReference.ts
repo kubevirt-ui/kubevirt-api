@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * TypedObjectReference contains enough information to let you locate the typed referenced object
  * @export
@@ -43,42 +42,4 @@ export interface IoK8sApiCoreV1TypedObjectReference {
    * @memberof IoK8sApiCoreV1TypedObjectReference
    */
   namespace?: string;
-}
-
-export function IoK8sApiCoreV1TypedObjectReferenceFromJSON(
-  json: any,
-): IoK8sApiCoreV1TypedObjectReference {
-  return IoK8sApiCoreV1TypedObjectReferenceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1TypedObjectReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1TypedObjectReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiGroup: !exists(json, 'apiGroup') ? undefined : json['apiGroup'],
-    kind: json['kind'],
-    name: json['name'],
-    namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
-  };
-}
-
-export function IoK8sApiCoreV1TypedObjectReferenceToJSON(
-  value?: IoK8sApiCoreV1TypedObjectReference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiGroup: value.apiGroup,
-    kind: value.kind,
-    name: value.name,
-    namespace: value.namespace,
-  };
 }

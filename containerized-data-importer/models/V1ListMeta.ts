@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.
  * @export
@@ -43,37 +42,4 @@ export interface V1ListMeta {
    * @memberof V1ListMeta
    */
   selfLink?: string;
-}
-
-export function V1ListMetaFromJSON(json: any): V1ListMeta {
-  return V1ListMetaFromJSONTyped(json, false);
-}
-
-export function V1ListMetaFromJSONTyped(json: any, _ignoreDiscriminator: boolean): V1ListMeta {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    _continue: !exists(json, 'continue') ? undefined : json['continue'],
-    remainingItemCount: !exists(json, 'remainingItemCount')
-      ? undefined
-      : json['remainingItemCount'],
-    resourceVersion: !exists(json, 'resourceVersion') ? undefined : json['resourceVersion'],
-    selfLink: !exists(json, 'selfLink') ? undefined : json['selfLink'],
-  };
-}
-
-export function V1ListMetaToJSON(value?: V1ListMeta | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    continue: value._continue,
-    remainingItemCount: value.remainingItemCount,
-    resourceVersion: value.resourceVersion,
-    selfLink: value.selfLink,
-  };
 }

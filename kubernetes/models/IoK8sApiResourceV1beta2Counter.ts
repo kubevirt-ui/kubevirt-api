@@ -61,33 +61,3 @@ export interface IoK8sApiResourceV1beta2Counter {
    */
   value: string;
 }
-
-export function IoK8sApiResourceV1beta2CounterFromJSON(json: any): IoK8sApiResourceV1beta2Counter {
-  return IoK8sApiResourceV1beta2CounterFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta2CounterFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta2Counter {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    value: json['value'],
-  };
-}
-
-export function IoK8sApiResourceV1beta2CounterToJSON(
-  value?: IoK8sApiResourceV1beta2Counter | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    value: value.value,
-  };
-}

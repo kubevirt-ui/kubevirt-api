@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.
  * @export
@@ -42,44 +41,3 @@ export interface K8sIoApimachineryPkgApisMetaV1StatusCause {
      */
     reason?: string;
 }
-
-/**
- * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1StatusCause interface.
- */
-export function instanceOfK8sIoApimachineryPkgApisMetaV1StatusCause(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function K8sIoApimachineryPkgApisMetaV1StatusCauseFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1StatusCause {
-    return K8sIoApimachineryPkgApisMetaV1StatusCauseFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1StatusCauseFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1StatusCause {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'field': !exists(json, 'field') ? undefined : json['field'],
-        'message': !exists(json, 'message') ? undefined : json['message'],
-        'reason': !exists(json, 'reason') ? undefined : json['reason'],
-    };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1StatusCauseToJSON(value?: K8sIoApimachineryPkgApisMetaV1StatusCause | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'field': value.field,
-        'message': value.message,
-        'reason': value.reason,
-    };
-}
-

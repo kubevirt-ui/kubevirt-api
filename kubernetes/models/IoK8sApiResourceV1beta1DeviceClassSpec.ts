@@ -12,14 +12,9 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiResourceV1beta1DeviceClassConfiguration,
-  IoK8sApiResourceV1beta1DeviceClassConfigurationFromJSON,
-  IoK8sApiResourceV1beta1DeviceClassConfigurationToJSON,
   IoK8sApiResourceV1beta1DeviceSelector,
-  IoK8sApiResourceV1beta1DeviceSelectorFromJSON,
-  IoK8sApiResourceV1beta1DeviceSelectorToJSON,
 } from './';
 
 /**
@@ -42,48 +37,4 @@ export interface IoK8sApiResourceV1beta1DeviceClassSpec {
    * @memberof IoK8sApiResourceV1beta1DeviceClassSpec
    */
   selectors?: Array<IoK8sApiResourceV1beta1DeviceSelector>;
-}
-
-export function IoK8sApiResourceV1beta1DeviceClassSpecFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta1DeviceClassSpec {
-  return IoK8sApiResourceV1beta1DeviceClassSpecFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta1DeviceClassSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta1DeviceClassSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    config: !exists(json, 'config')
-      ? undefined
-      : (json['config'] as Array<any>).map(IoK8sApiResourceV1beta1DeviceClassConfigurationFromJSON),
-    selectors: !exists(json, 'selectors')
-      ? undefined
-      : (json['selectors'] as Array<any>).map(IoK8sApiResourceV1beta1DeviceSelectorFromJSON),
-  };
-}
-
-export function IoK8sApiResourceV1beta1DeviceClassSpecToJSON(
-  value?: IoK8sApiResourceV1beta1DeviceClassSpec | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    config:
-      value.config === undefined
-        ? undefined
-        : (value.config as Array<any>).map(IoK8sApiResourceV1beta1DeviceClassConfigurationToJSON),
-    selectors:
-      value.selectors === undefined
-        ? undefined
-        : (value.selectors as Array<any>).map(IoK8sApiResourceV1beta1DeviceSelectorToJSON),
-  };
 }

@@ -41,37 +41,3 @@ export interface IoK8sApiAdmissionregistrationV1beta1AuditAnnotation {
    */
   valueExpression: string;
 }
-
-export function IoK8sApiAdmissionregistrationV1beta1AuditAnnotationFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1beta1AuditAnnotation {
-  return IoK8sApiAdmissionregistrationV1beta1AuditAnnotationFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1AuditAnnotationFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1beta1AuditAnnotation {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    key: json['key'],
-    valueExpression: json['valueExpression'],
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1AuditAnnotationToJSON(
-  value?: IoK8sApiAdmissionregistrationV1beta1AuditAnnotation | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    key: value.key,
-    valueExpression: value.valueExpression,
-  };
-}

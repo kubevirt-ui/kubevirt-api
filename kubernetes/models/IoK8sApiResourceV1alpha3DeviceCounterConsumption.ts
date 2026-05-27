@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
 import {
   IoK8sApiResourceV1alpha3Counter,
-  IoK8sApiResourceV1alpha3CounterFromJSON,
-  IoK8sApiResourceV1alpha3CounterToJSON,
 } from './';
 
 /**
@@ -39,38 +36,4 @@ export interface IoK8sApiResourceV1alpha3DeviceCounterConsumption {
    * @memberof IoK8sApiResourceV1alpha3DeviceCounterConsumption
    */
   counters: { [key: string]: IoK8sApiResourceV1alpha3Counter };
-}
-
-export function IoK8sApiResourceV1alpha3DeviceCounterConsumptionFromJSON(
-  json: any,
-): IoK8sApiResourceV1alpha3DeviceCounterConsumption {
-  return IoK8sApiResourceV1alpha3DeviceCounterConsumptionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3DeviceCounterConsumptionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3DeviceCounterConsumption {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    counterSet: json['counterSet'],
-    counters: mapValues(json['counters'], IoK8sApiResourceV1alpha3CounterFromJSON),
-  };
-}
-
-export function IoK8sApiResourceV1alpha3DeviceCounterConsumptionToJSON(
-  value?: IoK8sApiResourceV1alpha3DeviceCounterConsumption | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    counterSet: value.counterSet,
-    counters: mapValues(value.counters, IoK8sApiResourceV1alpha3CounterToJSON),
-  };
 }

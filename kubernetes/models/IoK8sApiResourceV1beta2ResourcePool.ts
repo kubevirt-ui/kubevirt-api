@@ -43,39 +43,3 @@ export interface IoK8sApiResourceV1beta2ResourcePool {
    */
   resourceSliceCount: number;
 }
-
-export function IoK8sApiResourceV1beta2ResourcePoolFromJSON(
-  json: any,
-): IoK8sApiResourceV1beta2ResourcePool {
-  return IoK8sApiResourceV1beta2ResourcePoolFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1beta2ResourcePoolFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1beta2ResourcePool {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    generation: json['generation'],
-    name: json['name'],
-    resourceSliceCount: json['resourceSliceCount'],
-  };
-}
-
-export function IoK8sApiResourceV1beta2ResourcePoolToJSON(
-  value?: IoK8sApiResourceV1beta2ResourcePool | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    generation: value.generation,
-    name: value.name,
-    resourceSliceCount: value.resourceSliceCount,
-  };
-}

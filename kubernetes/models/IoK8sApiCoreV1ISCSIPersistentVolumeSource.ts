@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1SecretReference,
-  IoK8sApiCoreV1SecretReferenceFromJSON,
-  IoK8sApiCoreV1SecretReferenceToJSON,
 } from './';
 
 /**
@@ -91,58 +88,4 @@ export interface IoK8sApiCoreV1ISCSIPersistentVolumeSource {
    * @memberof IoK8sApiCoreV1ISCSIPersistentVolumeSource
    */
   targetPortal: string;
-}
-
-export function IoK8sApiCoreV1ISCSIPersistentVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1ISCSIPersistentVolumeSource {
-  return IoK8sApiCoreV1ISCSIPersistentVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ISCSIPersistentVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ISCSIPersistentVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    chapAuthDiscovery: !exists(json, 'chapAuthDiscovery') ? undefined : json['chapAuthDiscovery'],
-    chapAuthSession: !exists(json, 'chapAuthSession') ? undefined : json['chapAuthSession'],
-    fsType: !exists(json, 'fsType') ? undefined : json['fsType'],
-    initiatorName: !exists(json, 'initiatorName') ? undefined : json['initiatorName'],
-    iqn: json['iqn'],
-    iscsiInterface: !exists(json, 'iscsiInterface') ? undefined : json['iscsiInterface'],
-    lun: json['lun'],
-    portals: !exists(json, 'portals') ? undefined : json['portals'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-    secretRef: !exists(json, 'secretRef')
-      ? undefined
-      : IoK8sApiCoreV1SecretReferenceFromJSON(json['secretRef']),
-    targetPortal: json['targetPortal'],
-  };
-}
-
-export function IoK8sApiCoreV1ISCSIPersistentVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1ISCSIPersistentVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    chapAuthDiscovery: value.chapAuthDiscovery,
-    chapAuthSession: value.chapAuthSession,
-    fsType: value.fsType,
-    initiatorName: value.initiatorName,
-    iqn: value.iqn,
-    iscsiInterface: value.iscsiInterface,
-    lun: value.lun,
-    portals: value.portals,
-    readOnly: value.readOnly,
-    secretRef: IoK8sApiCoreV1SecretReferenceToJSON(value.secretRef),
-    targetPortal: value.targetPortal,
-  };
 }

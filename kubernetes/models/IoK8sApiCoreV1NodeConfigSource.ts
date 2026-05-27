@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ConfigMapNodeConfigSource,
-  IoK8sApiCoreV1ConfigMapNodeConfigSourceFromJSON,
-  IoK8sApiCoreV1ConfigMapNodeConfigSourceToJSON,
 } from './';
 
 /**
@@ -31,36 +28,4 @@ export interface IoK8sApiCoreV1NodeConfigSource {
    * @memberof IoK8sApiCoreV1NodeConfigSource
    */
   configMap?: IoK8sApiCoreV1ConfigMapNodeConfigSource;
-}
-
-export function IoK8sApiCoreV1NodeConfigSourceFromJSON(json: any): IoK8sApiCoreV1NodeConfigSource {
-  return IoK8sApiCoreV1NodeConfigSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1NodeConfigSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1NodeConfigSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    configMap: !exists(json, 'configMap')
-      ? undefined
-      : IoK8sApiCoreV1ConfigMapNodeConfigSourceFromJSON(json['configMap']),
-  };
-}
-
-export function IoK8sApiCoreV1NodeConfigSourceToJSON(
-  value?: IoK8sApiCoreV1NodeConfigSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    configMap: IoK8sApiCoreV1ConfigMapNodeConfigSourceToJSON(value.configMap),
-  };
 }

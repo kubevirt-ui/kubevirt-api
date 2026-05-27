@@ -12,11 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfig,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfigFromJSON,
-  IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfigToJSON,
 } from './';
 
 /**
@@ -37,47 +34,4 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookConvers
    * @memberof IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookConversion
    */
   conversionReviewVersions: Array<string>;
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookConversionFromJSON(
-  json: any,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookConversion {
-  return IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookConversionFromJSONTyped(
-    json,
-    false,
-  );
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookConversionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookConversion {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    clientConfig: !exists(json, 'clientConfig')
-      ? undefined
-      : IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfigFromJSON(
-          json['clientConfig'],
-        ),
-    conversionReviewVersions: json['conversionReviewVersions'],
-  };
-}
-
-export function IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookConversionToJSON(
-  value?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookConversion | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    clientConfig: IoK8sApiextensionsApiserverPkgApisApiextensionsV1WebhookClientConfigToJSON(
-      value.clientConfig,
-    ),
-    conversionReviewVersions: value.conversionReviewVersions,
-  };
 }

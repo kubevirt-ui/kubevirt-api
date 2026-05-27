@@ -12,17 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   IoK8sApiCoreV1ContainerStateRunning,
-  IoK8sApiCoreV1ContainerStateRunningFromJSON,
-  IoK8sApiCoreV1ContainerStateRunningToJSON,
   IoK8sApiCoreV1ContainerStateTerminated,
-  IoK8sApiCoreV1ContainerStateTerminatedFromJSON,
-  IoK8sApiCoreV1ContainerStateTerminatedToJSON,
   IoK8sApiCoreV1ContainerStateWaiting,
-  IoK8sApiCoreV1ContainerStateWaitingFromJSON,
-  IoK8sApiCoreV1ContainerStateWaitingToJSON,
 } from './';
 
 /**
@@ -49,44 +42,4 @@ export interface IoK8sApiCoreV1ContainerState {
    * @memberof IoK8sApiCoreV1ContainerState
    */
   waiting?: IoK8sApiCoreV1ContainerStateWaiting;
-}
-
-export function IoK8sApiCoreV1ContainerStateFromJSON(json: any): IoK8sApiCoreV1ContainerState {
-  return IoK8sApiCoreV1ContainerStateFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1ContainerStateFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1ContainerState {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    running: !exists(json, 'running')
-      ? undefined
-      : IoK8sApiCoreV1ContainerStateRunningFromJSON(json['running']),
-    terminated: !exists(json, 'terminated')
-      ? undefined
-      : IoK8sApiCoreV1ContainerStateTerminatedFromJSON(json['terminated']),
-    waiting: !exists(json, 'waiting')
-      ? undefined
-      : IoK8sApiCoreV1ContainerStateWaitingFromJSON(json['waiting']),
-  };
-}
-
-export function IoK8sApiCoreV1ContainerStateToJSON(
-  value?: IoK8sApiCoreV1ContainerState | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    running: IoK8sApiCoreV1ContainerStateRunningToJSON(value.running),
-    terminated: IoK8sApiCoreV1ContainerStateTerminatedToJSON(value.terminated),
-    waiting: IoK8sApiCoreV1ContainerStateWaitingToJSON(value.waiting),
-  };
 }

@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { V1PersistentVolumeClaimInfo } from './V1PersistentVolumeClaimInfo';
-import {
-    V1PersistentVolumeClaimInfoFromJSON,
-    V1PersistentVolumeClaimInfoFromJSONTyped,
-    V1PersistentVolumeClaimInfoToJSON,
-} from './V1PersistentVolumeClaimInfo';
 
 /**
  * StorageMigratedVolumeInfo tracks the information about the source and destination volumes during the volume migration
@@ -45,45 +39,3 @@ export interface V1StorageMigratedVolumeInfo {
      */
     volumeName: string;
 }
-
-/**
- * Check if a given object implements the V1StorageMigratedVolumeInfo interface.
- */
-export function instanceOfV1StorageMigratedVolumeInfo(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "volumeName" in value;
-
-    return isInstance;
-}
-
-export function V1StorageMigratedVolumeInfoFromJSON(json: any): V1StorageMigratedVolumeInfo {
-    return V1StorageMigratedVolumeInfoFromJSONTyped(json, false);
-}
-
-export function V1StorageMigratedVolumeInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1StorageMigratedVolumeInfo {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'destinationPVCInfo': !exists(json, 'destinationPVCInfo') ? undefined : V1PersistentVolumeClaimInfoFromJSON(json['destinationPVCInfo']),
-        'sourcePVCInfo': !exists(json, 'sourcePVCInfo') ? undefined : V1PersistentVolumeClaimInfoFromJSON(json['sourcePVCInfo']),
-        'volumeName': json['volumeName'],
-    };
-}
-
-export function V1StorageMigratedVolumeInfoToJSON(value?: V1StorageMigratedVolumeInfo | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'destinationPVCInfo': V1PersistentVolumeClaimInfoToJSON(value.destinationPVCInfo),
-        'sourcePVCInfo': V1PersistentVolumeClaimInfoToJSON(value.sourcePVCInfo),
-        'volumeName': value.volumeName,
-    };
-}
-

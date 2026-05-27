@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * CrossVersionObjectReference contains enough information to let you identify the referred resource.
  * @export
@@ -37,40 +36,4 @@ export interface IoK8sApiAutoscalingV1CrossVersionObjectReference {
    * @memberof IoK8sApiAutoscalingV1CrossVersionObjectReference
    */
   name: string;
-}
-
-export function IoK8sApiAutoscalingV1CrossVersionObjectReferenceFromJSON(
-  json: any,
-): IoK8sApiAutoscalingV1CrossVersionObjectReference {
-  return IoK8sApiAutoscalingV1CrossVersionObjectReferenceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAutoscalingV1CrossVersionObjectReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAutoscalingV1CrossVersionObjectReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    apiVersion: !exists(json, 'apiVersion') ? undefined : json['apiVersion'],
-    kind: json['kind'],
-    name: json['name'],
-  };
-}
-
-export function IoK8sApiAutoscalingV1CrossVersionObjectReferenceToJSON(
-  value?: IoK8sApiAutoscalingV1CrossVersionObjectReference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    apiVersion: value.apiVersion,
-    kind: value.kind,
-    name: value.name,
-  };
 }

@@ -53,35 +53,3 @@ export interface IoK8sApiResourceV1alpha3CELDeviceSelector {
    */
   expression: string;
 }
-
-export function IoK8sApiResourceV1alpha3CELDeviceSelectorFromJSON(
-  json: any,
-): IoK8sApiResourceV1alpha3CELDeviceSelector {
-  return IoK8sApiResourceV1alpha3CELDeviceSelectorFromJSONTyped(json, false);
-}
-
-export function IoK8sApiResourceV1alpha3CELDeviceSelectorFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiResourceV1alpha3CELDeviceSelector {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    expression: json['expression'],
-  };
-}
-
-export function IoK8sApiResourceV1alpha3CELDeviceSelectorToJSON(
-  value?: IoK8sApiResourceV1alpha3CELDeviceSelector | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    expression: value.expression,
-  };
-}

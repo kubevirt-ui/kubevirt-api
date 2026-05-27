@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * Describes the state of a migration at a certain point.
  * @export
@@ -49,44 +48,4 @@ export interface IoK8sApiStoragemigrationV1alpha1MigrationCondition {
    * @memberof IoK8sApiStoragemigrationV1alpha1MigrationCondition
    */
   type: string;
-}
-
-export function IoK8sApiStoragemigrationV1alpha1MigrationConditionFromJSON(
-  json: any,
-): IoK8sApiStoragemigrationV1alpha1MigrationCondition {
-  return IoK8sApiStoragemigrationV1alpha1MigrationConditionFromJSONTyped(json, false);
-}
-
-export function IoK8sApiStoragemigrationV1alpha1MigrationConditionFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiStoragemigrationV1alpha1MigrationCondition {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    lastUpdateTime: !exists(json, 'lastUpdateTime') ? undefined : json['lastUpdateTime'],
-    message: !exists(json, 'message') ? undefined : json['message'],
-    reason: !exists(json, 'reason') ? undefined : json['reason'],
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiStoragemigrationV1alpha1MigrationConditionToJSON(
-  value?: IoK8sApiStoragemigrationV1alpha1MigrationCondition | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    lastUpdateTime: value.lastUpdateTime === undefined ? undefined : value.lastUpdateTime,
-    message: value.message,
-    reason: value.reason,
-    status: value.status,
-    type: value.type,
-  };
 }

@@ -31,37 +31,3 @@ export interface IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPattern {
    */
   type: string;
 }
-
-export function IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternFromJSON(
-  json: any,
-): IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPattern {
-  return IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternFromJSONTyped(json, false);
-}
-
-export function IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPattern {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    status: json['status'],
-    type: json['type'],
-  };
-}
-
-export function IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPatternToJSON(
-  value?: IoK8sApiBatchV1PodFailurePolicyOnPodConditionsPattern | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    status: value.status,
-    type: value.type,
-  };
-}

@@ -31,37 +31,3 @@ export interface IoK8sApiAdmissionregistrationV1beta1ExpressionWarning {
    */
   warning: string;
 }
-
-export function IoK8sApiAdmissionregistrationV1beta1ExpressionWarningFromJSON(
-  json: any,
-): IoK8sApiAdmissionregistrationV1beta1ExpressionWarning {
-  return IoK8sApiAdmissionregistrationV1beta1ExpressionWarningFromJSONTyped(json, false);
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1ExpressionWarningFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiAdmissionregistrationV1beta1ExpressionWarning {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    fieldRef: json['fieldRef'],
-    warning: json['warning'],
-  };
-}
-
-export function IoK8sApiAdmissionregistrationV1beta1ExpressionWarningToJSON(
-  value?: IoK8sApiAdmissionregistrationV1beta1ExpressionWarning | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    fieldRef: value.fieldRef,
-    warning: value.warning,
-  };
-}

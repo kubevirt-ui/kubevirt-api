@@ -12,13 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApimachineryPkgApisMetaV1StatusCause } from './K8sIoApimachineryPkgApisMetaV1StatusCause';
-import {
-    K8sIoApimachineryPkgApisMetaV1StatusCauseFromJSON,
-    K8sIoApimachineryPkgApisMetaV1StatusCauseFromJSONTyped,
-    K8sIoApimachineryPkgApisMetaV1StatusCauseToJSON,
-} from './K8sIoApimachineryPkgApisMetaV1StatusCause';
 
 /**
  * StatusDetails is a set of additional properties that MAY be set by the server to provide additional information about a response. The Reason field of a Status object defines what attributes will be set. Clients must ignore fields that do not match the defined type of each attribute, and should assume that any attribute may be empty, invalid, or under defined.
@@ -63,50 +57,3 @@ export interface K8sIoApimachineryPkgApisMetaV1StatusDetails {
      */
     uid?: string;
 }
-
-/**
- * Check if a given object implements the K8sIoApimachineryPkgApisMetaV1StatusDetails interface.
- */
-export function instanceOfK8sIoApimachineryPkgApisMetaV1StatusDetails(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function K8sIoApimachineryPkgApisMetaV1StatusDetailsFromJSON(json: any): K8sIoApimachineryPkgApisMetaV1StatusDetails {
-    return K8sIoApimachineryPkgApisMetaV1StatusDetailsFromJSONTyped(json, false);
-}
-
-export function K8sIoApimachineryPkgApisMetaV1StatusDetailsFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApimachineryPkgApisMetaV1StatusDetails {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'causes': !exists(json, 'causes') ? undefined : ((json['causes'] as Array<any>).map(K8sIoApimachineryPkgApisMetaV1StatusCauseFromJSON)),
-        'group': !exists(json, 'group') ? undefined : json['group'],
-        'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'name': !exists(json, 'name') ? undefined : json['name'],
-        'retryAfterSeconds': !exists(json, 'retryAfterSeconds') ? undefined : json['retryAfterSeconds'],
-        'uid': !exists(json, 'uid') ? undefined : json['uid'],
-    };
-}
-
-export function K8sIoApimachineryPkgApisMetaV1StatusDetailsToJSON(value?: K8sIoApimachineryPkgApisMetaV1StatusDetails | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'causes': value.causes === undefined ? undefined : ((value.causes as Array<any>).map(K8sIoApimachineryPkgApisMetaV1StatusCauseToJSON)),
-        'group': value.group,
-        'kind': value.kind,
-        'name': value.name,
-        'retryAfterSeconds': value.retryAfterSeconds,
-        'uid': value.uid,
-    };
-}
-

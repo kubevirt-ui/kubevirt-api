@@ -12,19 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 import type { K8sIoApiCoreV1PodAffinityTerm } from './K8sIoApiCoreV1PodAffinityTerm';
-import {
-    K8sIoApiCoreV1PodAffinityTermFromJSON,
-    K8sIoApiCoreV1PodAffinityTermFromJSONTyped,
-    K8sIoApiCoreV1PodAffinityTermToJSON,
-} from './K8sIoApiCoreV1PodAffinityTerm';
 import type { K8sIoApiCoreV1WeightedPodAffinityTerm } from './K8sIoApiCoreV1WeightedPodAffinityTerm';
-import {
-    K8sIoApiCoreV1WeightedPodAffinityTermFromJSON,
-    K8sIoApiCoreV1WeightedPodAffinityTermFromJSONTyped,
-    K8sIoApiCoreV1WeightedPodAffinityTermToJSON,
-} from './K8sIoApiCoreV1WeightedPodAffinityTerm';
 
 /**
  * Pod anti affinity is a group of inter pod anti affinity scheduling rules.
@@ -45,42 +34,3 @@ export interface K8sIoApiCoreV1PodAntiAffinity {
      */
     requiredDuringSchedulingIgnoredDuringExecution?: Array<K8sIoApiCoreV1PodAffinityTerm>;
 }
-
-/**
- * Check if a given object implements the K8sIoApiCoreV1PodAntiAffinity interface.
- */
-export function instanceOfK8sIoApiCoreV1PodAntiAffinity(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
-}
-
-export function K8sIoApiCoreV1PodAntiAffinityFromJSON(json: any): K8sIoApiCoreV1PodAntiAffinity {
-    return K8sIoApiCoreV1PodAntiAffinityFromJSONTyped(json, false);
-}
-
-export function K8sIoApiCoreV1PodAntiAffinityFromJSONTyped(json: any, ignoreDiscriminator: boolean): K8sIoApiCoreV1PodAntiAffinity {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'preferredDuringSchedulingIgnoredDuringExecution': !exists(json, 'preferredDuringSchedulingIgnoredDuringExecution') ? undefined : ((json['preferredDuringSchedulingIgnoredDuringExecution'] as Array<any>).map(K8sIoApiCoreV1WeightedPodAffinityTermFromJSON)),
-        'requiredDuringSchedulingIgnoredDuringExecution': !exists(json, 'requiredDuringSchedulingIgnoredDuringExecution') ? undefined : ((json['requiredDuringSchedulingIgnoredDuringExecution'] as Array<any>).map(K8sIoApiCoreV1PodAffinityTermFromJSON)),
-    };
-}
-
-export function K8sIoApiCoreV1PodAntiAffinityToJSON(value?: K8sIoApiCoreV1PodAntiAffinity | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'preferredDuringSchedulingIgnoredDuringExecution': value.preferredDuringSchedulingIgnoredDuringExecution === undefined ? undefined : ((value.preferredDuringSchedulingIgnoredDuringExecution as Array<any>).map(K8sIoApiCoreV1WeightedPodAffinityTermToJSON)),
-        'requiredDuringSchedulingIgnoredDuringExecution': value.requiredDuringSchedulingIgnoredDuringExecution === undefined ? undefined : ((value.requiredDuringSchedulingIgnoredDuringExecution as Array<any>).map(K8sIoApiCoreV1PodAffinityTermToJSON)),
-    };
-}
-

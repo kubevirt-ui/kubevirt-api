@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * ParentReference describes a reference to a parent object.
  * @export
@@ -43,42 +42,4 @@ export interface IoK8sApiNetworkingV1beta1ParentReference {
    * @memberof IoK8sApiNetworkingV1beta1ParentReference
    */
   resource: string;
-}
-
-export function IoK8sApiNetworkingV1beta1ParentReferenceFromJSON(
-  json: any,
-): IoK8sApiNetworkingV1beta1ParentReference {
-  return IoK8sApiNetworkingV1beta1ParentReferenceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiNetworkingV1beta1ParentReferenceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiNetworkingV1beta1ParentReference {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    group: !exists(json, 'group') ? undefined : json['group'],
-    name: json['name'],
-    namespace: !exists(json, 'namespace') ? undefined : json['namespace'],
-    resource: json['resource'],
-  };
-}
-
-export function IoK8sApiNetworkingV1beta1ParentReferenceToJSON(
-  value?: IoK8sApiNetworkingV1beta1ParentReference | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    group: value.group,
-    name: value.name,
-    namespace: value.namespace,
-    resource: value.resource,
-  };
 }

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 /**
  * PersistentVolumeClaimVolumeSource references the user's PVC in the same namespace. This volume finds the bound PV and mounts that volume for the pod. A PersistentVolumeClaimVolumeSource is, essentially, a wrapper around another type of volume that is owned by someone else (the system).
  * @export
@@ -31,38 +30,4 @@ export interface IoK8sApiCoreV1PersistentVolumeClaimVolumeSource {
    * @memberof IoK8sApiCoreV1PersistentVolumeClaimVolumeSource
    */
   readOnly?: boolean;
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimVolumeSourceFromJSON(
-  json: any,
-): IoK8sApiCoreV1PersistentVolumeClaimVolumeSource {
-  return IoK8sApiCoreV1PersistentVolumeClaimVolumeSourceFromJSONTyped(json, false);
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimVolumeSourceFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiCoreV1PersistentVolumeClaimVolumeSource {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    claimName: json['claimName'],
-    readOnly: !exists(json, 'readOnly') ? undefined : json['readOnly'],
-  };
-}
-
-export function IoK8sApiCoreV1PersistentVolumeClaimVolumeSourceToJSON(
-  value?: IoK8sApiCoreV1PersistentVolumeClaimVolumeSource | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    claimName: value.claimName,
-    readOnly: value.readOnly,
-  };
 }

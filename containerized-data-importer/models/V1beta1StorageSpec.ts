@@ -12,20 +12,11 @@
  * Do not edit the class manually.
  */
 
-import { exists } from '../runtime';
 import {
   V1LabelSelector,
-  V1LabelSelectorFromJSON,
-  V1LabelSelectorToJSON,
   V1TypedLocalObjectReference,
-  V1TypedLocalObjectReferenceFromJSON,
-  V1TypedLocalObjectReferenceToJSON,
   V1TypedObjectReference,
-  V1TypedObjectReferenceFromJSON,
-  V1TypedObjectReferenceToJSON,
   V1VolumeResourceRequirements,
-  V1VolumeResourceRequirementsFromJSON,
-  V1VolumeResourceRequirementsToJSON,
 } from './';
 
 /**
@@ -107,52 +98,4 @@ export enum V1beta1StorageSpecVolumeModeEnum {
   Block = 'Block',
   Filesystem = 'Filesystem',
   FromStorageProfile = 'FromStorageProfile',
-}
-
-export function V1beta1StorageSpecFromJSON(json: any): V1beta1StorageSpec {
-  return V1beta1StorageSpecFromJSONTyped(json, false);
-}
-
-export function V1beta1StorageSpecFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): V1beta1StorageSpec {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    accessModes: !exists(json, 'accessModes') ? undefined : json['accessModes'],
-    dataSource: !exists(json, 'dataSource')
-      ? undefined
-      : V1TypedLocalObjectReferenceFromJSON(json['dataSource']),
-    dataSourceRef: !exists(json, 'dataSourceRef')
-      ? undefined
-      : V1TypedObjectReferenceFromJSON(json['dataSourceRef']),
-    resources: !exists(json, 'resources')
-      ? undefined
-      : V1VolumeResourceRequirementsFromJSON(json['resources']),
-    selector: !exists(json, 'selector') ? undefined : V1LabelSelectorFromJSON(json['selector']),
-    storageClassName: !exists(json, 'storageClassName') ? undefined : json['storageClassName'],
-    volumeMode: !exists(json, 'volumeMode') ? undefined : json['volumeMode'],
-    volumeName: !exists(json, 'volumeName') ? undefined : json['volumeName'],
-  };
-}
-
-export function V1beta1StorageSpecToJSON(value?: V1beta1StorageSpec | null): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    accessModes: value.accessModes,
-    dataSource: V1TypedLocalObjectReferenceToJSON(value.dataSource),
-    dataSourceRef: V1TypedObjectReferenceToJSON(value.dataSourceRef),
-    resources: V1VolumeResourceRequirementsToJSON(value.resources),
-    selector: V1LabelSelectorToJSON(value.selector),
-    storageClassName: value.storageClassName,
-    volumeMode: value.volumeMode,
-    volumeName: value.volumeName,
-  };
 }

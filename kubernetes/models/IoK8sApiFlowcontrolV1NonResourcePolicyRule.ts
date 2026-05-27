@@ -37,37 +37,3 @@ export interface IoK8sApiFlowcontrolV1NonResourcePolicyRule {
    */
   verbs: Array<string>;
 }
-
-export function IoK8sApiFlowcontrolV1NonResourcePolicyRuleFromJSON(
-  json: any,
-): IoK8sApiFlowcontrolV1NonResourcePolicyRule {
-  return IoK8sApiFlowcontrolV1NonResourcePolicyRuleFromJSONTyped(json, false);
-}
-
-export function IoK8sApiFlowcontrolV1NonResourcePolicyRuleFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiFlowcontrolV1NonResourcePolicyRule {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    nonResourceURLs: json['nonResourceURLs'],
-    verbs: json['verbs'],
-  };
-}
-
-export function IoK8sApiFlowcontrolV1NonResourcePolicyRuleToJSON(
-  value?: IoK8sApiFlowcontrolV1NonResourcePolicyRule | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    nonResourceURLs: value.nonResourceURLs,
-    verbs: value.verbs,
-  };
-}

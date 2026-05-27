@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
  * VirtualMachinePoolSelectionPolicy defines the priority in which VM instances are selected for scale-in
  * @export
@@ -26,31 +25,3 @@ export interface V1alpha1VirtualMachinePoolSelectionPolicy {
      */
     basePolicy?: string;
 }
-
-export function V1alpha1VirtualMachinePoolSelectionPolicyFromJSON(json: any): V1alpha1VirtualMachinePoolSelectionPolicy {
-    return V1alpha1VirtualMachinePoolSelectionPolicyFromJSONTyped(json, false);
-}
-
-export function V1alpha1VirtualMachinePoolSelectionPolicyFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1alpha1VirtualMachinePoolSelectionPolicy {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'basePolicy': !exists(json, 'basePolicy') ? undefined : json['basePolicy'],
-    };
-}
-
-export function V1alpha1VirtualMachinePoolSelectionPolicyToJSON(value?: V1alpha1VirtualMachinePoolSelectionPolicy | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'basePolicy': value.basePolicy,
-    };
-}
-

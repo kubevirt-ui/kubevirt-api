@@ -14,8 +14,6 @@
 
 import {
   IoK8sApiBatchV1SuccessPolicyRule,
-  IoK8sApiBatchV1SuccessPolicyRuleFromJSON,
-  IoK8sApiBatchV1SuccessPolicyRuleToJSON,
 } from './';
 
 /**
@@ -30,34 +28,4 @@ export interface IoK8sApiBatchV1SuccessPolicy {
    * @memberof IoK8sApiBatchV1SuccessPolicy
    */
   rules: Array<IoK8sApiBatchV1SuccessPolicyRule>;
-}
-
-export function IoK8sApiBatchV1SuccessPolicyFromJSON(json: any): IoK8sApiBatchV1SuccessPolicy {
-  return IoK8sApiBatchV1SuccessPolicyFromJSONTyped(json, false);
-}
-
-export function IoK8sApiBatchV1SuccessPolicyFromJSONTyped(
-  json: any,
-  _ignoreDiscriminator: boolean,
-): IoK8sApiBatchV1SuccessPolicy {
-  if (json === undefined || json === null) {
-    return json;
-  }
-  return {
-    rules: (json['rules'] as Array<any>).map(IoK8sApiBatchV1SuccessPolicyRuleFromJSON),
-  };
-}
-
-export function IoK8sApiBatchV1SuccessPolicyToJSON(
-  value?: IoK8sApiBatchV1SuccessPolicy | null,
-): any {
-  if (value === undefined) {
-    return undefined;
-  }
-  if (value === null) {
-    return null;
-  }
-  return {
-    rules: (value.rules as Array<any>).map(IoK8sApiBatchV1SuccessPolicyRuleToJSON),
-  };
 }

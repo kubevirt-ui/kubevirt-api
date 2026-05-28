@@ -9,7 +9,7 @@ export const VirtualMachineInstancetypeModel: K8sModel = {
   apiGroup: 'instancetype.kubevirt.io',
   plural: 'virtualmachineinstancetypes',
   abbr: 'VMCI',
-  namespaced: false,
+  namespaced: true,
   kind: 'VirtualMachineInstancetype',
   id: 'virtualmachineinstancetype',
   crd: true,

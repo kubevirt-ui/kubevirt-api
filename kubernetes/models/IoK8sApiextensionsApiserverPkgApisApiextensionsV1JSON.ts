@@ -1,0 +1,1 @@
+export type IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSON = any;

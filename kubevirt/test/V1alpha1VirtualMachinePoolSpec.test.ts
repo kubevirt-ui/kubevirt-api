@@ -1,6 +1,6 @@
-import { V1alpha1VirtualMachinePoolSpec } from '../models/V1alpha1VirtualMachinePoolSpec';
+import { V1beta1VirtualMachinePoolSpec } from '../models/V1beta1VirtualMachinePoolSpec';
 
-export const testObject: V1alpha1VirtualMachinePoolSpec = {
+export const testObject: V1beta1VirtualMachinePoolSpec = {
   maxUnavailable: '25%',
   nameGeneration: {
     appendIndexToConfigMapRefs: true,
@@ -11,7 +11,7 @@ export const testObject: V1alpha1VirtualMachinePoolSpec = {
   scaleInStrategy: {
     proactive: {
       selectionPolicy: {
-        basePolicy: 'Random',
+        sortPolicy: 'Random',
       },
     },
   },

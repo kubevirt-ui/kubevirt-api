@@ -1,6 +1,6 @@
 {
   "name": "@kubevirt-ui/kubevirt-api",
-  "version": "1.8.1",
+  "version": "2.0.0",
   "description": "kubevirt OpenAPI automation for TypeScript",
   "type": "module",
   "exports": {
@@ -69,14 +69,9 @@
     "./dist"
   ],
   "scripts": {
-    "generate": "bash ./scripts/generate.sh",
-    "generate:nmstate": "bash ./scripts/generate-nmstate.sh",
-    "generate:virt-template": "bash ./scripts/generate-virt-template.sh",
-    "generate:fix-console": "bash ./scripts/fix-console-models.sh",
-    "generate:fix": "bash ./scripts/fix-generate-errors.sh",
+    "generate": "bash ./scripts/generate-types.sh",
     "generate:docs": "typedoc --out docs/  --gitRevision main --gitRemote upstream --readme none --entryPoints \"kubevirt/models/index.ts\" \"kubernetes/models/index.ts\" \"nmstate/models/index.ts\" \"virt-template/models/index.ts\" \"containerized-data-importer/models/index.ts\" \"console/index.ts\"  --plugin typedoc-plugin-reference-excluder --excludedFunctionOrMethod \".*\" ",
-    "clean": "rimraf ./generated",
-    "clean:all": "rimraf ./docs ./generated ./kubevirt ./containerized-data-importer ./console/core/index.ts ./console-core-models.ts ./kubernetes ./nmstate/models ./nmstate/index.ts ./nmstate/runtime.ts ./virt-template swagger-*.json",
+    "clean:all": "rimraf ./docs ./kubevirt/models ./kubevirt/index.ts ./kubevirt/runtime.ts ./kubevirt/apis ./containerized-data-importer ./console/core/index.ts ./console-core-models.ts ./kubernetes ./nmstate/models ./nmstate/index.ts ./nmstate/runtime.ts ./nmstate/.crds ./nmstate/.openapi.yaml ./virt-template/models ./virt-template/index.ts ./virt-template/.crds ./virt-template/.openapi.yaml swagger-*.json",
     "lint": "eslint console kubevirt kubernetes containerized-data-importer nmstate virt-template --color --no-inline-config",
     "lint:fix": "yarn lint --fix",
     "build": "yarn test && tsup",
@@ -87,7 +82,6 @@
     "url": "git+https://github.com/kubevirt-ui/kubevirt-api.git"
   },
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "^2.20.2",
     "@openshift-console/dynamic-plugin-sdk": "^0.0.5",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.10.2",
@@ -101,6 +95,7 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "prettier": "^2.5.1",
     "rimraf": "6.1.2",
+    "swagger-typescript-api": "^13.2.7",
     "tslint": "^6.1.3",
     "tslint-etc": "^1.13.10",
     "tsup": "^8.5.0",

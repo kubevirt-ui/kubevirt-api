@@ -1,0 +1,2 @@
+export type IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsOrBool =
+  any;

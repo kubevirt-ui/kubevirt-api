@@ -1,0 +1,1 @@
+export type IoK8sApiApiserverinternalV1alpha1StorageVersionSpec = object;

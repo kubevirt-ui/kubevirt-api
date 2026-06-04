@@ -20,7 +20,7 @@ export const testObject: K8sIoApimachineryPkgApisMetaV1Status = {
   kind: 'Status',
   message: 'VirtualMachine "test-vm" not found',
   metadata: {
-    _continue: 'test-continue',
+    continue: 'test-continue',
     remainingItemCount: 0,
     resourceVersion: '12345',
   },

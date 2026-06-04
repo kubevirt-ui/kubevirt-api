@@ -1,11 +1,7 @@
-import {
-  V1beta1StorageSpec,
-  V1beta1StorageSpecAccessModesEnum,
-  V1beta1StorageSpecVolumeModeEnum,
-} from '../models/V1beta1StorageSpec';
+import { V1beta1StorageSpec } from '../models/V1beta1StorageSpec';
 
 export const testObject: V1beta1StorageSpec = {
-  accessModes: [V1beta1StorageSpecAccessModesEnum.ReadWriteOnce],
+  accessModes: ['ReadWriteOnce'],
   dataSource: {
     apiGroup: 'snapshot.storage.k8s.io',
     kind: 'VolumeSnapshot',
@@ -25,6 +21,6 @@ export const testObject: V1beta1StorageSpec = {
     matchLabels: { app: 'test-app' },
   },
   storageClassName: 'standard',
-  volumeMode: V1beta1StorageSpecVolumeModeEnum.Filesystem,
+  volumeMode: 'Filesystem',
   volumeName: 'test-volume',
 };

@@ -1,6 +1,5 @@
 import { V1Probe } from '../models/V1Probe';
 
-
 export const testObject: V1Probe = {
   exec: { command: ['cat', '/tmp/healthy'] },
   failureThreshold: 3,

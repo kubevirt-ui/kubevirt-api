@@ -5,4 +5,5 @@ export const V1VirtualMachineInstanceSpecDnsPolicyEnum = {
   None: 'None',
 } as const;
 
-export type V1VirtualMachineInstanceSpecDnsPolicyEnum = typeof V1VirtualMachineInstanceSpecDnsPolicyEnum[keyof typeof V1VirtualMachineInstanceSpecDnsPolicyEnum];
+export type V1VirtualMachineInstanceSpecDnsPolicyEnum =
+  typeof V1VirtualMachineInstanceSpecDnsPolicyEnum[keyof typeof V1VirtualMachineInstanceSpecDnsPolicyEnum];

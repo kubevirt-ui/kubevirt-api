@@ -1,6 +1,5 @@
 import { K8sIoApiCoreV1NodeSelector } from '../models/K8sIoApiCoreV1NodeSelector';
 
-
 export const testObject: K8sIoApiCoreV1NodeSelector = {
   nodeSelectorTerms: [
     {

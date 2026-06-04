@@ -1,6 +1,5 @@
 import { V1VolumeStatus } from '../models/V1VolumeStatus';
 
-
 export const testObject: V1VolumeStatus = {
   containerDiskVolume: {
     checksum: 123456789,

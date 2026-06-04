@@ -1204,4 +1204,3 @@ export const AuthenticationModel: K8sModel = {
   plural: 'authentications',
   abbr: 'AU',
 };
-

@@ -1,6 +1,5 @@
 import { V1beta1PersistentVolumeClaim } from '../models/V1beta1PersistentVolumeClaim';
 
-
 export const testObject: V1beta1PersistentVolumeClaim = {
   metadata: {
     name: 'test-pvc',

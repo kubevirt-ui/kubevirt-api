@@ -1,7 +1,5 @@
 import { V1NodePlacement } from '../models/V1NodePlacement';
 
-
-
 export const testObject: V1NodePlacement = {
   affinity: {
     nodeAffinity: {

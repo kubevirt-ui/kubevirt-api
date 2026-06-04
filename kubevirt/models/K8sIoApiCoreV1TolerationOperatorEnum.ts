@@ -3,4 +3,5 @@ export const K8sIoApiCoreV1TolerationOperatorEnum = {
   Exists: 'Exists',
 } as const;
 
-export type K8sIoApiCoreV1TolerationOperatorEnum = typeof K8sIoApiCoreV1TolerationOperatorEnum[keyof typeof K8sIoApiCoreV1TolerationOperatorEnum];
+export type K8sIoApiCoreV1TolerationOperatorEnum =
+  typeof K8sIoApiCoreV1TolerationOperatorEnum[keyof typeof K8sIoApiCoreV1TolerationOperatorEnum];

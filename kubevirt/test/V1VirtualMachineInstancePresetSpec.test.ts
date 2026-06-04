@@ -2,7 +2,7 @@ import { V1VirtualMachineInstancePresetSpec } from '../models/V1VirtualMachineIn
 
 export const testObject: V1VirtualMachineInstancePresetSpec = {
   selector: {
-    matchLabels: { 'preset': 'my-preset' },
+    matchLabels: { preset: 'my-preset' },
   },
   domain: {
     devices: {},

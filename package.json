@@ -69,7 +69,7 @@
     "./dist"
   ],
   "scripts": {
-    "generate": "bash ./scripts/generate-types.sh",
+    "generate": "bash ./scripts/generate-types.sh && yarn lint:fix",
     "generate:docs": "typedoc --out docs/  --gitRevision main --gitRemote upstream --readme none --entryPoints \"kubevirt/models/index.ts\" \"kubernetes/models/index.ts\" \"nmstate/models/index.ts\" \"virt-template/models/index.ts\" \"containerized-data-importer/models/index.ts\" \"console/index.ts\"  --plugin typedoc-plugin-reference-excluder --excludedFunctionOrMethod \".*\" ",
     "clean:all": "rimraf ./docs ./kubevirt/models ./kubevirt/index.ts ./kubevirt/runtime.ts ./kubevirt/apis ./containerized-data-importer ./console/core/index.ts ./console-core-models.ts ./kubernetes ./nmstate/models ./nmstate/index.ts ./nmstate/runtime.ts ./nmstate/.crds ./nmstate/.openapi.yaml ./virt-template/models ./virt-template/index.ts ./virt-template/.crds ./virt-template/.openapi.yaml swagger-*.json",
     "lint": "eslint console kubevirt kubernetes containerized-data-importer nmstate virt-template --color --no-inline-config",

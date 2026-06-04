@@ -4,4 +4,5 @@ export const V1KubeVirtConfigurationImagePullPolicyEnum = {
   Never: 'Never',
 } as const;
 
-export type V1KubeVirtConfigurationImagePullPolicyEnum = typeof V1KubeVirtConfigurationImagePullPolicyEnum[keyof typeof V1KubeVirtConfigurationImagePullPolicyEnum];
+export type V1KubeVirtConfigurationImagePullPolicyEnum =
+  typeof V1KubeVirtConfigurationImagePullPolicyEnum[keyof typeof V1KubeVirtConfigurationImagePullPolicyEnum];

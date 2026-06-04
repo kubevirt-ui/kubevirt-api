@@ -1,7 +1,5 @@
 import { V1beta1DataVolumeSpec } from '../models/V1beta1DataVolumeSpec';
 
-
-
 export const testObject: V1beta1DataVolumeSpec = {
   checkpoints: [
     {

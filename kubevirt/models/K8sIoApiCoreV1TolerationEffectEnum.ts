@@ -4,4 +4,5 @@ export const K8sIoApiCoreV1TolerationEffectEnum = {
   PreferNoSchedule: 'PreferNoSchedule',
 } as const;
 
-export type K8sIoApiCoreV1TolerationEffectEnum = typeof K8sIoApiCoreV1TolerationEffectEnum[keyof typeof K8sIoApiCoreV1TolerationEffectEnum];
+export type K8sIoApiCoreV1TolerationEffectEnum =
+  typeof K8sIoApiCoreV1TolerationEffectEnum[keyof typeof K8sIoApiCoreV1TolerationEffectEnum];

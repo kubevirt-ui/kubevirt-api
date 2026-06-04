@@ -3,4 +3,5 @@ export const V1TolerationOperatorEnum = {
   Exists: 'Exists',
 } as const;
 
-export type V1TolerationOperatorEnum = typeof V1TolerationOperatorEnum[keyof typeof V1TolerationOperatorEnum];
+export type V1TolerationOperatorEnum =
+  typeof V1TolerationOperatorEnum[keyof typeof V1TolerationOperatorEnum];

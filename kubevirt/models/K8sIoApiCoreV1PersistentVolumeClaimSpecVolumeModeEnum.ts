@@ -4,4 +4,5 @@ export const K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum = {
   FromStorageProfile: 'FromStorageProfile',
 } as const;
 
-export type K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum = typeof K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum[keyof typeof K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum];
+export type K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum =
+  typeof K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum[keyof typeof K8sIoApiCoreV1PersistentVolumeClaimSpecVolumeModeEnum];

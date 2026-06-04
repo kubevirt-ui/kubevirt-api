@@ -68,7 +68,7 @@ export type V1VirtualMachineInstanceStatus = {
    *  - `"Burstable"` is the Burstable qos class.
    *  - `"Guaranteed"` is the Guaranteed qos class.
    */
-  qosClass?: "BestEffort" | "Burstable" | "Guaranteed";
+  qosClass?: 'BestEffort' | 'Burstable' | 'Guaranteed';
   /** A brief CamelCase message indicating details about why the VMI is in this state. e.g. 'NodeUnresponsive' */
   reason?: string;
   /**

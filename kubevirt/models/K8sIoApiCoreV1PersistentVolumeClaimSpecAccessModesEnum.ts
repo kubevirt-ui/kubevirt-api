@@ -5,4 +5,5 @@ export const K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum = {
   ReadWriteOncePod: 'ReadWriteOncePod',
 } as const;
 
-export type K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum = typeof K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum[keyof typeof K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum];
+export type K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum =
+  typeof K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum[keyof typeof K8sIoApiCoreV1PersistentVolumeClaimSpecAccessModesEnum];

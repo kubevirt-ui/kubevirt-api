@@ -5,4 +5,5 @@ export const V1beta1StorageSpecAccessModesEnum = {
   ReadWriteOncePod: 'ReadWriteOncePod',
 } as const;
 
-export type V1beta1StorageSpecAccessModesEnum = typeof V1beta1StorageSpecAccessModesEnum[keyof typeof V1beta1StorageSpecAccessModesEnum];
+export type V1beta1StorageSpecAccessModesEnum =
+  typeof V1beta1StorageSpecAccessModesEnum[keyof typeof V1beta1StorageSpecAccessModesEnum];

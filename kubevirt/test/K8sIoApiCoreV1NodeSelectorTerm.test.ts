@@ -1,6 +1,5 @@
 import { K8sIoApiCoreV1NodeSelectorTerm } from '../models/K8sIoApiCoreV1NodeSelectorTerm';
 
-
 export const testObject: K8sIoApiCoreV1NodeSelectorTerm = {
   matchExpressions: [
     {

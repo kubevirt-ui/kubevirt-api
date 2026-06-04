@@ -7,4 +7,5 @@ export const K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum = {
   NotIn: 'NotIn',
 } as const;
 
-export type K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum = typeof K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum[keyof typeof K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum];
+export type K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum =
+  typeof K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum[keyof typeof K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum];

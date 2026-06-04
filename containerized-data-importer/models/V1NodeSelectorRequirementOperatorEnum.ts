@@ -7,4 +7,5 @@ export const V1NodeSelectorRequirementOperatorEnum = {
   NotIn: 'NotIn',
 } as const;
 
-export type V1NodeSelectorRequirementOperatorEnum = typeof V1NodeSelectorRequirementOperatorEnum[keyof typeof V1NodeSelectorRequirementOperatorEnum];
+export type V1NodeSelectorRequirementOperatorEnum =
+  typeof V1NodeSelectorRequirementOperatorEnum[keyof typeof V1NodeSelectorRequirementOperatorEnum];

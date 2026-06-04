@@ -18,7 +18,10 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProp
   /** default is a default value for undefined object fields. Defaulting is a beta feature under the CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false. */
   default?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSON;
   definitions?: Record<string, IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProps>;
-  dependencies?: Record<string, IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsOrStringArray>;
+  dependencies?: Record<
+    string,
+    IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaPropsOrStringArray
+  >;
   description?: string;
   enum?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSON[];
   /** JSON represents any valid JSON value. These types are supported: bool, int64, float64, string, []interface{}, map[string]interface{} and nil. */
@@ -59,14 +62,17 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProp
   nullable?: boolean;
   oneOf?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProps[];
   pattern?: string;
-  patternProperties?: Record<string, IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProps>;
+  patternProperties?: Record<
+    string,
+    IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProps
+  >;
   properties?: Record<string, IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProps>;
   required?: string[];
   title?: string;
   type?: string;
   uniqueItems?: boolean;
   /** x-kubernetes-embedded-resource defines that the value is an embedded Kubernetes runtime.Object, with TypeMeta and ObjectMeta. The type must be object. It is allowed to further restrict the embedded object. kind, apiVersion and metadata are validated automatically. x-kubernetes-preserve-unknown-fields is allowed to be true, but does not have to be if the object is fully specified (up to kind, apiVersion, metadata). */
-  "x-kubernetes-embedded-resource"?: boolean;
+  'x-kubernetes-embedded-resource'?: boolean;
   /**
    * x-kubernetes-int-or-string specifies that this value is either an integer or a string. If this is true, an empty type is allowed and type as child of anyOf is permitted if following one of the following patterns:
    *
@@ -79,7 +85,7 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProp
    *      - type: string
    *    - ... zero or more
    */
-  "x-kubernetes-int-or-string"?: boolean;
+  'x-kubernetes-int-or-string'?: boolean;
   /**
    * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used as the index of the map.
    *
@@ -87,7 +93,7 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProp
    *
    * The properties specified must either be required or have a default value, to ensure those properties are present for all list items.
    */
-  "x-kubernetes-list-map-keys"?: string[];
+  'x-kubernetes-list-map-keys'?: string[];
   /**
    * x-kubernetes-list-type annotates an array to further describe its topology. This extension must only be used on lists and may have 3 possible values:
    *
@@ -104,7 +110,7 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProp
    *      must only be used on a list with elements of type object.
    * Defaults to atomic for arrays.
    */
-  "x-kubernetes-list-type"?: string;
+  'x-kubernetes-list-type'?: string;
   /**
    * x-kubernetes-map-type annotates an object to further describe its topology. This extension must only be used when type is object and may have 2 possible values:
    *
@@ -115,9 +121,9 @@ export interface IoK8sApiextensionsApiserverPkgApisApiextensionsV1JSONSchemaProp
    * 2) `atomic`: the list is treated as a single entity, like a scalar.
    *      Atomic maps will be entirely replaced when updated.
    */
-  "x-kubernetes-map-type"?: string;
+  'x-kubernetes-map-type'?: string;
   /** x-kubernetes-preserve-unknown-fields stops the API server decoding step from pruning fields which are not specified in the validation schema. This affects fields recursively, but switches back to normal pruning behaviour if nested properties or additionalProperties are specified in the schema. This can either be true or undefined. False is forbidden. */
-  "x-kubernetes-preserve-unknown-fields"?: boolean;
+  'x-kubernetes-preserve-unknown-fields'?: boolean;
   /** x-kubernetes-validations describes a list of validation rules written in the CEL expression language. */
-  "x-kubernetes-validations"?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule[];
+  'x-kubernetes-validations'?: IoK8sApiextensionsApiserverPkgApisApiextensionsV1ValidationRule[];
 }

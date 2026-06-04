@@ -4,4 +4,5 @@ export const V1ContainerDiskSourceImagePullPolicyEnum = {
   Never: 'Never',
 } as const;
 
-export type V1ContainerDiskSourceImagePullPolicyEnum = typeof V1ContainerDiskSourceImagePullPolicyEnum[keyof typeof V1ContainerDiskSourceImagePullPolicyEnum];
+export type V1ContainerDiskSourceImagePullPolicyEnum =
+  typeof V1ContainerDiskSourceImagePullPolicyEnum[keyof typeof V1ContainerDiskSourceImagePullPolicyEnum];

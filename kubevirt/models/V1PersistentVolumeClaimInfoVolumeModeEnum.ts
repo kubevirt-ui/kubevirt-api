@@ -4,4 +4,5 @@ export const V1PersistentVolumeClaimInfoVolumeModeEnum = {
   FromStorageProfile: 'FromStorageProfile',
 } as const;
 
-export type V1PersistentVolumeClaimInfoVolumeModeEnum = typeof V1PersistentVolumeClaimInfoVolumeModeEnum[keyof typeof V1PersistentVolumeClaimInfoVolumeModeEnum];
+export type V1PersistentVolumeClaimInfoVolumeModeEnum =
+  typeof V1PersistentVolumeClaimInfoVolumeModeEnum[keyof typeof V1PersistentVolumeClaimInfoVolumeModeEnum];

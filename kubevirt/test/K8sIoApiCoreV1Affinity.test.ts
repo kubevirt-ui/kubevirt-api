@@ -1,6 +1,5 @@
 import { K8sIoApiCoreV1Affinity } from '../models/K8sIoApiCoreV1Affinity';
 
-
 export const testObject: K8sIoApiCoreV1Affinity = {
   nodeAffinity: {
     preferredDuringSchedulingIgnoredDuringExecution: [

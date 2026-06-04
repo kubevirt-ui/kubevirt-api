@@ -5,4 +5,5 @@ export const V1PersistentVolumeClaimInfoAccessModesEnum = {
   ReadWriteOncePod: 'ReadWriteOncePod',
 } as const;
 
-export type V1PersistentVolumeClaimInfoAccessModesEnum = typeof V1PersistentVolumeClaimInfoAccessModesEnum[keyof typeof V1PersistentVolumeClaimInfoAccessModesEnum];
+export type V1PersistentVolumeClaimInfoAccessModesEnum =
+  typeof V1PersistentVolumeClaimInfoAccessModesEnum[keyof typeof V1PersistentVolumeClaimInfoAccessModesEnum];

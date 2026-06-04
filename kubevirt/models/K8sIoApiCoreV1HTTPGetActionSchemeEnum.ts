@@ -3,4 +3,5 @@ export const K8sIoApiCoreV1HTTPGetActionSchemeEnum = {
   HTTPS: 'HTTPS',
 } as const;
 
-export type K8sIoApiCoreV1HTTPGetActionSchemeEnum = typeof K8sIoApiCoreV1HTTPGetActionSchemeEnum[keyof typeof K8sIoApiCoreV1HTTPGetActionSchemeEnum];
+export type K8sIoApiCoreV1HTTPGetActionSchemeEnum =
+  typeof K8sIoApiCoreV1HTTPGetActionSchemeEnum[keyof typeof K8sIoApiCoreV1HTTPGetActionSchemeEnum];

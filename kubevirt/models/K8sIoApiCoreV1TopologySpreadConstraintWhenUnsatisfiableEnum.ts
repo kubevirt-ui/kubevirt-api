@@ -3,4 +3,5 @@ export const K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum = {
   ScheduleAnyway: 'ScheduleAnyway',
 } as const;
 
-export type K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum = typeof K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum[keyof typeof K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum];
+export type K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum =
+  typeof K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum[keyof typeof K8sIoApiCoreV1TopologySpreadConstraintWhenUnsatisfiableEnum];

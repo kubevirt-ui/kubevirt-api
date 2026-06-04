@@ -4,4 +4,5 @@ export const V1TolerationEffectEnum = {
   PreferNoSchedule: 'PreferNoSchedule',
 } as const;
 
-export type V1TolerationEffectEnum = typeof V1TolerationEffectEnum[keyof typeof V1TolerationEffectEnum];
+export type V1TolerationEffectEnum =
+  typeof V1TolerationEffectEnum[keyof typeof V1TolerationEffectEnum];

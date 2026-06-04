@@ -1,10 +1,7 @@
 import { K8sIoApiCoreV1PersistentVolumeClaimSpec } from '../models/K8sIoApiCoreV1PersistentVolumeClaimSpec';
 
 export const testObject: K8sIoApiCoreV1PersistentVolumeClaimSpec = {
-  accessModes: [
-    'ReadWriteOnce',
-    'ReadOnlyMany',
-  ],
+  accessModes: ['ReadWriteOnce', 'ReadOnlyMany'],
   dataSource: {
     apiGroup: 'snapshot.storage.k8s.io',
     kind: 'VolumeSnapshot',

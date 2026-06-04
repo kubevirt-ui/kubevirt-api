@@ -1,6 +1,5 @@
 import { V1KernelBoot } from '../models/V1KernelBoot';
 
-
 export const testObject: V1KernelBoot = {
   container: {
     image: 'quay.io/kubevirt/kernel-boot:latest',

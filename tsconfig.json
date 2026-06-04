@@ -12,6 +12,13 @@
     "experimentalDecorators": true,
     "sourceMap": true,
   },
-  "include": ["./kubevirt", "./console", "./kubernetes", "./containerized-data-importer"],
-  "exclude": ["**/node_modules", "**/dist"]
+  "include": [
+    "./kubevirt",
+    "./console",
+    "./kubernetes",
+    "./containerized-data-importer",
+    "./nmstate",
+    "./virt-template"
+  ],
+  "exclude": ["**/node_modules", "**/dist", "./kubevirt/test/orphaned"]
 }

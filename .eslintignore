@@ -1,3 +1,6 @@
 # Ignore artifacts:
 dist/
 node_modules/
+**/.crds/
+**/.openapi.yaml
+swagger-*.json

@@ -131,5 +131,3 @@ This generation refactor removes runtime exports that were previously produced b
 - No `runtime.ts`
 - No `apis/` clients
 - No `*FromJSON` / `*ToJSON` helpers
-
-Some embedded Kubernetes type names changed (for example `K8sIo*` → `K8SIo*` in swagger-generated packages). Import the resource types you need directly from each package export.

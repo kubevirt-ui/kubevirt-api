@@ -34,7 +34,6 @@ instead of the parameter's name. Optional.
    * From is used as input for the generator specified in Generate. Optional.
    *
    * @required {false}
-   * @pattern {\[([a-zA-Z0-9\-\\]+)\](\{(\w+)\})}
    */
   from?: string;
   /** generate

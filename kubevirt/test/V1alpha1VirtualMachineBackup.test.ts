@@ -19,6 +19,8 @@ export const testObject: V1alpha1VirtualMachineBackup = {
     checkpointName: 'checkpoint-001',
     conditions: [
       {
+        message: 'Backup is ready',
+        reason: 'Ready',
         status: 'True',
         type: 'Ready',
       },

@@ -1,5 +1,4 @@
 import { V1Probe } from '../models/V1Probe';
-import { K8sIoApiCoreV1HTTPGetActionSchemeEnum } from '../models/K8sIoApiCoreV1HTTPGetAction';
 
 export const testObject: V1Probe = {
   exec: { command: ['cat', '/tmp/healthy'] },
@@ -8,11 +7,12 @@ export const testObject: V1Probe = {
   httpGet: {
     path: '/healthz',
     host: '127.0.0.1',
-    scheme: K8sIoApiCoreV1HTTPGetActionSchemeEnum.Http,
+    port: 8080,
+    scheme: 'HTTP',
   },
   initialDelaySeconds: 30,
   periodSeconds: 10,
   successThreshold: 1,
-  tcpSocket: { host: '127.0.0.1' },
+  tcpSocket: { host: '127.0.0.1', port: 8080 },
   timeoutSeconds: 5,
 };

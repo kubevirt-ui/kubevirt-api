@@ -1,8 +1,4 @@
 import { V1VolumeStatus } from '../models/V1VolumeStatus';
-import {
-  V1PersistentVolumeClaimInfoAccessModesEnum,
-  V1PersistentVolumeClaimInfoVolumeModeEnum,
-} from '../models/V1PersistentVolumeClaimInfo';
 
 export const testObject: V1VolumeStatus = {
   containerDiskVolume: {
@@ -19,9 +15,9 @@ export const testObject: V1VolumeStatus = {
   message: 'Volume attached successfully',
   name: 'rootdisk',
   persistentVolumeClaimInfo: {
-    accessModes: [V1PersistentVolumeClaimInfoAccessModesEnum.ReadWriteOnce],
+    accessModes: ['ReadWriteOnce'],
     capacity: { storage: '10Gi' },
-    volumeMode: V1PersistentVolumeClaimInfoVolumeModeEnum.Filesystem,
+    volumeMode: 'Filesystem',
   },
   phase: 'Ready',
   reason: 'VolumeReady',

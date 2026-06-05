@@ -2,5 +2,5 @@ import { V1NodeMediatedDeviceTypesConfig } from '../models/V1NodeMediatedDeviceT
 
 export const testObject: V1NodeMediatedDeviceTypesConfig = {
   mediatedDeviceTypes: ['nvidia-222', 'nvidia-223'],
-  nodeSelector: { 'gpu': 'true' },
+  nodeSelector: { gpu: 'true' },
 };

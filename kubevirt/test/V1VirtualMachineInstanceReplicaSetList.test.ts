@@ -7,7 +7,7 @@ export const testObject: V1VirtualMachineInstanceReplicaSetList = {
     {
       spec: {
         selector: {
-          matchLabels: { 'app': 'my-vmi' },
+          matchLabels: { app: 'my-vmi' },
         },
         template: {
           spec: {

@@ -1,9 +1,4 @@
 import { V1NodePlacement } from '../models/V1NodePlacement';
-import { K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum } from '../models/K8sIoApiCoreV1NodeSelectorRequirement';
-import {
-  K8sIoApiCoreV1TolerationEffectEnum,
-  K8sIoApiCoreV1TolerationOperatorEnum,
-} from '../models/K8sIoApiCoreV1Toleration';
 
 export const testObject: V1NodePlacement = {
   affinity: {
@@ -14,7 +9,7 @@ export const testObject: V1NodePlacement = {
             matchExpressions: [
               {
                 key: 'kubernetes.io/arch',
-                operator: K8sIoApiCoreV1NodeSelectorRequirementOperatorEnum.In,
+                operator: 'In',
                 values: ['amd64'],
               },
             ],
@@ -29,9 +24,9 @@ export const testObject: V1NodePlacement = {
   tolerations: [
     {
       key: 'dedicated',
-      operator: K8sIoApiCoreV1TolerationOperatorEnum.Equal,
+      operator: 'Equal',
       value: 'kubevirt',
-      effect: K8sIoApiCoreV1TolerationEffectEnum.NoSchedule,
+      effect: 'NoSchedule',
     },
   ],
 };

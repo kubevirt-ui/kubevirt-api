@@ -1,6 +1,7 @@
-import { K8sModel as K8sKind } from '@console/dynamic-plugin-sdk/src/api/common-types';
+/* eslint-disable no-barrel-files/no-barrel-files */
+import { K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/common-types';
 
-export const PrometheusModel: K8sKind = {
+export const PrometheusModel: K8sModel = {
   kind: 'Prometheus',
   label: 'Prometheus',
   // t('public~Prometheus')
@@ -17,7 +18,7 @@ export const PrometheusModel: K8sKind = {
   propagationPolicy: 'Foreground',
 };
 
-export const ServiceMonitorModel: K8sKind = {
+export const ServiceMonitorModel: K8sModel = {
   kind: 'ServiceMonitor',
   label: 'ServiceMonitor',
   // t('public~ServiceMonitor')
@@ -34,24 +35,7 @@ export const ServiceMonitorModel: K8sKind = {
   propagationPolicy: 'Foreground',
 };
 
-export const PodMonitorModel: K8sKind = {
-  kind: 'PodMonitor',
-  label: 'PodMonitor',
-  // t('public~PodMonitor')
-  labelKey: 'public~PodMonitor',
-  labelPlural: 'PodMonitors',
-  // t('public~PodMonitors')
-  labelPluralKey: 'public~PodMonitors',
-  apiGroup: 'monitoring.coreos.com',
-  apiVersion: 'v1',
-  abbr: 'PM',
-  namespaced: true,
-  crd: true,
-  plural: 'podmonitors',
-  propagationPolicy: 'Foreground',
-};
-
-export const AlertmanagerModel: K8sKind = {
+export const AlertmanagerModel: K8sModel = {
   kind: 'Alertmanager',
   label: 'Alertmanager',
   // t('public~Alertmanager')
@@ -68,7 +52,7 @@ export const AlertmanagerModel: K8sKind = {
   propagationPolicy: 'Foreground',
 };
 
-export const ServiceModel: K8sKind = {
+export const ServiceModel: K8sModel = {
   apiVersion: 'v1',
   label: 'Service',
   // t('public~Service')
@@ -83,7 +67,7 @@ export const ServiceModel: K8sKind = {
   labelPluralKey: 'public~Services',
 };
 
-export const PodModel: K8sKind = {
+export const PodModel: K8sModel = {
   apiVersion: 'v1',
   label: 'Pod',
   // t('public~Pod')
@@ -98,7 +82,7 @@ export const PodModel: K8sKind = {
   labelPluralKey: 'public~Pods',
 };
 
-export const ContainerModel: K8sKind = {
+export const ContainerModel: K8sModel = {
   apiVersion: 'v1',
   label: 'Container',
   // t('public~Container')
@@ -112,7 +96,7 @@ export const ContainerModel: K8sKind = {
   labelPluralKey: 'public~Containers',
 };
 
-export const DaemonSetModel: K8sKind = {
+export const DaemonSetModel: K8sModel = {
   label: 'DaemonSet',
   // t('public~DaemonSet')
   labelKey: 'public~DaemonSet',
@@ -129,7 +113,7 @@ export const DaemonSetModel: K8sKind = {
   labelPluralKey: 'public~DaemonSets',
 };
 
-export const ReplicationControllerModel: K8sKind = {
+export const ReplicationControllerModel: K8sModel = {
   apiVersion: 'v1',
   label: 'ReplicationController',
   // t('public~ReplicationController')
@@ -145,7 +129,7 @@ export const ReplicationControllerModel: K8sKind = {
   labelPluralKey: 'public~ReplicationControllers',
 };
 
-export const HorizontalPodAutoscalerModel: K8sKind = {
+export const HorizontalPodAutoscalerModel: K8sModel = {
   label: 'HorizontalPodAutoscaler',
   // t('public~HorizontalPodAutoscaler')
   labelKey: 'public~HorizontalPodAutoscaler',
@@ -161,7 +145,7 @@ export const HorizontalPodAutoscalerModel: K8sKind = {
   labelPluralKey: 'public~HorizontalPodAutoscalers',
 };
 
-export const ServiceAccountModel: K8sKind = {
+export const ServiceAccountModel: K8sModel = {
   apiVersion: 'v1',
   label: 'ServiceAccount',
   // t('public~ServiceAccount')
@@ -176,7 +160,7 @@ export const ServiceAccountModel: K8sKind = {
   labelPluralKey: 'public~ServiceAccounts',
 };
 
-export const ReplicaSetModel: K8sKind = {
+export const ReplicaSetModel: K8sModel = {
   label: 'ReplicaSet',
   // t('public~ReplicaSet')
   labelKey: 'public~ReplicaSet',
@@ -193,7 +177,7 @@ export const ReplicaSetModel: K8sKind = {
   labelPluralKey: 'public~ReplicaSets',
 };
 
-export const DeploymentModel: K8sKind = {
+export const DeploymentModel: K8sModel = {
   label: 'Deployment',
   // t('public~Deployment')
   labelKey: 'public~Deployment',
@@ -210,7 +194,7 @@ export const DeploymentModel: K8sKind = {
   labelPluralKey: 'public~Deployments',
 };
 
-export const DeploymentConfigModel: K8sKind = {
+export const DeploymentConfigModel: K8sModel = {
   label: 'DeploymentConfig',
   // t('public~DeploymentConfig')
   labelKey: 'public~DeploymentConfig',
@@ -227,7 +211,7 @@ export const DeploymentConfigModel: K8sKind = {
   labelPluralKey: 'public~DeploymentConfigs',
 };
 
-export const BuildConfigModel: K8sKind = {
+export const BuildConfigModel: K8sModel = {
   label: 'BuildConfig',
   // t('public~BuildConfig')
   labelKey: 'public~BuildConfig',
@@ -244,7 +228,7 @@ export const BuildConfigModel: K8sKind = {
   labelPluralKey: 'public~BuildConfigs',
 };
 
-export const BuildModel: K8sKind = {
+export const BuildModel: K8sModel = {
   label: 'Build',
   // t('public~Build')
   labelKey: 'public~Build',
@@ -261,7 +245,7 @@ export const BuildModel: K8sKind = {
   labelPluralKey: 'public~Builds',
 };
 
-export const TemplateModel: K8sKind = {
+export const TemplateModel: K8sModel = {
   label: 'Template',
   // t('public~Template')
   labelKey: 'public~Template',
@@ -278,7 +262,7 @@ export const TemplateModel: K8sKind = {
   labelPluralKey: 'public~Templates',
 };
 
-export const TemplateInstanceModel: K8sKind = {
+export const TemplateInstanceModel: K8sModel = {
   label: 'Template Instance',
   apiVersion: 'v1',
   apiGroup: 'template.openshift.io',
@@ -290,7 +274,7 @@ export const TemplateInstanceModel: K8sKind = {
   labelPlural: 'Template Instances',
 };
 
-export const ImageStreamModel: K8sKind = {
+export const ImageStreamModel: K8sModel = {
   label: 'ImageStream',
   // t('public~ImageStream')
   labelKey: 'public~ImageStream',
@@ -307,7 +291,7 @@ export const ImageStreamModel: K8sKind = {
   labelPluralKey: 'public~ImageStreams',
 };
 
-export const ImageStreamTagModel: K8sKind = {
+export const ImageStreamTagModel: K8sModel = {
   label: 'ImageStreamTag',
   // t('public~ImageStreamTag')
   labelKey: 'public~ImageStreamTag',
@@ -324,7 +308,7 @@ export const ImageStreamTagModel: K8sKind = {
   labelPluralKey: 'public~ImageStreamTags',
 };
 
-export const ImageStreamImportsModel: K8sKind = {
+export const ImageStreamImportsModel: K8sModel = {
   label: 'ImageStreamImport',
   // t('public~ImageStreamImport')
   labelKey: 'public~ImageStreamImport',
@@ -340,7 +324,7 @@ export const ImageStreamImportsModel: K8sKind = {
   labelPluralKey: 'ImageStreamImports',
 };
 
-export const JobModel: K8sKind = {
+export const JobModel: K8sModel = {
   label: 'Job',
   // t('public~Job')
   labelKey: 'public~Job',
@@ -357,7 +341,7 @@ export const JobModel: K8sKind = {
   labelPluralKey: 'public~Jobs',
 };
 
-export const NodeModel: K8sKind = {
+export const NodeModel: K8sModel = {
   apiVersion: 'v1',
   label: 'Node',
   // t('public~Node')
@@ -371,7 +355,7 @@ export const NodeModel: K8sKind = {
   labelPluralKey: 'public~Nodes',
 };
 
-export const CertificateSigningRequestModel: K8sKind = {
+export const CertificateSigningRequestModel: K8sModel = {
   apiVersion: 'v1',
   apiGroup: 'certificates.k8s.io',
   label: 'CertificateSigningRequest',
@@ -386,7 +370,7 @@ export const CertificateSigningRequestModel: K8sKind = {
   labelPluralKey: 'public~CertificateSigningRequests',
 };
 
-export const EventModel: K8sKind = {
+export const EventModel: K8sModel = {
   apiVersion: 'v1',
   label: 'Event',
   // t('public~Event')
@@ -401,21 +385,7 @@ export const EventModel: K8sKind = {
   labelPluralKey: 'public~Events',
 };
 
-export const ComponentStatusModel: K8sKind = {
-  apiVersion: 'v1',
-  label: 'ComponentStatus',
-  // t('public~ComponentStatus')
-  labelKey: 'public~ComponentStatus',
-  labelPlural: 'ComponentStatuses',
-  // t('public~ComponentStatuses')
-  labelPluralKey: 'public~ComponentStatuses',
-  plural: 'componentstatuses',
-  abbr: 'CS',
-  kind: 'ComponentStatus',
-  id: 'componentstatus',
-};
-
-export const NamespaceModel: K8sKind = {
+export const NamespaceModel: K8sModel = {
   apiVersion: 'v1',
   label: 'Namespace',
   // t('public~Namespace')
@@ -429,7 +399,7 @@ export const NamespaceModel: K8sKind = {
   labelPluralKey: 'public~Namespaces',
 };
 
-export const ProjectModel: K8sKind = {
+export const ProjectModel: K8sModel = {
   apiVersion: 'v1',
   apiGroup: 'project.openshift.io',
   label: 'Project',
@@ -444,7 +414,7 @@ export const ProjectModel: K8sKind = {
   labelPluralKey: 'public~Projects',
 };
 
-export const ProjectRequestModel: K8sKind = {
+export const ProjectRequestModel: K8sModel = {
   apiVersion: 'v1',
   apiGroup: 'project.openshift.io',
   label: 'ProjectRequest',
@@ -459,23 +429,7 @@ export const ProjectRequestModel: K8sKind = {
   labelPluralKey: 'public~ProjectRequests',
 };
 
-export const IngressModel: K8sKind = {
-  label: 'Ingress',
-  // t('public~Ingress')
-  labelKey: 'public~Ingress',
-  labelPlural: 'Ingresses',
-  // t('public~Ingresses')
-  labelPluralKey: 'public~Ingresses',
-  apiGroup: 'networking.k8s.io',
-  apiVersion: 'v1',
-  plural: 'ingresses',
-  abbr: 'I',
-  namespaced: true,
-  kind: 'Ingress',
-  id: 'ingress',
-};
-
-export const RouteModel: K8sKind = {
+export const RouteModel: K8sModel = {
   label: 'Route',
   // t('public~Route')
   labelKey: 'public~Route',
@@ -491,7 +445,7 @@ export const RouteModel: K8sKind = {
   id: 'route',
 };
 
-export const ConfigMapModel: K8sKind = {
+export const ConfigMapModel: K8sModel = {
   apiVersion: 'v1',
   label: 'ConfigMap',
   // t('public~ConfigMap')
@@ -506,7 +460,7 @@ export const ConfigMapModel: K8sKind = {
   labelPluralKey: 'public~ConfigMaps',
 };
 
-export const SecretModel: K8sKind = {
+export const SecretModel: K8sModel = {
   apiVersion: 'v1',
   label: 'Secret',
   // t('public~Secret')
@@ -521,7 +475,7 @@ export const SecretModel: K8sKind = {
   labelPluralKey: 'public~Secrets',
 };
 
-export const ClusterRoleBindingModel: K8sKind = {
+export const ClusterRoleBindingModel: K8sModel = {
   label: 'ClusterRoleBinding',
   // t('public~ClusterRoleBinding')
   labelKey: 'public~ClusterRoleBinding',
@@ -536,7 +490,7 @@ export const ClusterRoleBindingModel: K8sKind = {
   labelPluralKey: 'public~ClusterRoleBindings',
 };
 
-export const ClusterRoleModel: K8sKind = {
+export const ClusterRoleModel: K8sModel = {
   label: 'ClusterRole',
   // t('public~ClusterRole')
   labelKey: 'public~ClusterRole',
@@ -551,7 +505,7 @@ export const ClusterRoleModel: K8sKind = {
   labelPluralKey: 'public~ClusterRoles',
 };
 
-export const RoleBindingModel: K8sKind = {
+export const RoleBindingModel: K8sModel = {
   label: 'RoleBinding',
   // t('public~RoleBinding')
   labelKey: 'public~RoleBinding',
@@ -567,7 +521,7 @@ export const RoleBindingModel: K8sKind = {
   labelPluralKey: 'public~RoleBindings',
 };
 
-export const RoleModel: K8sKind = {
+export const RoleModel: K8sModel = {
   label: 'Role',
   // t('public~Role')
   labelKey: 'public~Role',
@@ -583,39 +537,7 @@ export const RoleModel: K8sKind = {
   labelPluralKey: 'public~Roles',
 };
 
-export const SelfSubjectAccessReviewModel: K8sKind = {
-  label: 'SelfSubjectAccessReview',
-  // t('public~SelfSubjectAccessReview')
-  labelKey: 'public~SelfSubjectAccessReview',
-  apiGroup: 'authorization.k8s.io',
-  apiVersion: 'v1',
-  plural: 'selfsubjectaccessreviews',
-  abbr: 'SSAR',
-  namespaced: true,
-  kind: 'SelfSubjectAccessReview',
-  id: 'selfsubjectaccessreview',
-  labelPlural: 'SelfSubjectAccessReviews',
-  // t('public~SelfSubjectAccessReviews')
-  labelPluralKey: 'public~SelfSubjectAccessReviews',
-};
-
-export const SelfSubjectReviewModel: K8sKind = {
-  label: 'SelfSubjectReview',
-  // t('public~SelfSubjectReview')
-  labelKey: 'public~SelfSubjectReview',
-  apiGroup: 'authorization.k8s.io',
-  apiVersion: 'v1',
-  plural: 'selfsubjectreviews',
-  abbr: 'SSR',
-  namespaced: true,
-  kind: 'SelfSubjectReview',
-  id: 'selfsubjectreview',
-  labelPlural: 'SelfSubjectReviews',
-  // t('public~SelfSubjectReviews')
-  labelPluralKey: 'public~SelfSubjectReviews',
-};
-
-export const ResourceAccessReviewsModel: K8sKind = {
+export const ResourceAccessReviewsModel: K8sModel = {
   label: 'ResourceAccessReview',
   // t('public~ResourceAccessReview')
   labelKey: 'public~ResourceAccessReview',
@@ -631,7 +553,7 @@ export const ResourceAccessReviewsModel: K8sKind = {
   labelPluralKey: 'public~ResourceAccessReviews',
 };
 
-export const LocalResourceAccessReviewsModel: K8sKind = {
+export const LocalResourceAccessReviewsModel: K8sModel = {
   label: 'LocalResourceAccessReview',
   // t('public~LocalResourceAccessReview')
   labelKey: 'public~LocalResourceAccessReview',
@@ -647,7 +569,7 @@ export const LocalResourceAccessReviewsModel: K8sKind = {
   labelPluralKey: 'public~LocalResourceAccessReviews',
 };
 
-export const PersistentVolumeModel: K8sKind = {
+export const PersistentVolumeModel: K8sModel = {
   label: 'PersistentVolume',
   // t('public~PersistentVolume')
   labelKey: 'public~PersistentVolume',
@@ -661,7 +583,7 @@ export const PersistentVolumeModel: K8sKind = {
   labelPluralKey: 'public~PersistentVolumes',
 };
 
-export const PersistentVolumeClaimModel: K8sKind = {
+export const PersistentVolumeClaimModel: K8sModel = {
   label: 'PersistentVolumeClaim',
   // t('public~PersistentVolumeClaim')
   labelKey: 'public~PersistentVolumeClaim',
@@ -676,7 +598,7 @@ export const PersistentVolumeClaimModel: K8sKind = {
   labelPluralKey: 'public~PersistentVolumeClaims',
 };
 
-export const StatefulSetModel: K8sKind = {
+export const StatefulSetModel: K8sModel = {
   label: 'StatefulSet',
   // t('public~StatefulSet')
   labelKey: 'public~StatefulSet',
@@ -693,7 +615,7 @@ export const StatefulSetModel: K8sKind = {
   labelPluralKey: 'public~StatefulSets',
 };
 
-export const ResourceQuotaModel: K8sKind = {
+export const ResourceQuotaModel: K8sModel = {
   label: 'ResourceQuota',
   // t('public~ResourceQuota')
   labelKey: 'public~ResourceQuota',
@@ -708,7 +630,7 @@ export const ResourceQuotaModel: K8sKind = {
   labelPluralKey: 'public~ResourceQuotas',
 };
 
-export const ClusterResourceQuotaModel: K8sKind = {
+export const ClusterResourceQuotaModel: K8sModel = {
   label: 'ClusterResourceQuota',
   // t('public~ClusterResourceQuota')
   labelKey: 'public~ClusterResourceQuota',
@@ -725,7 +647,7 @@ export const ClusterResourceQuotaModel: K8sKind = {
   crd: true,
 };
 
-export const AppliedClusterResourceQuotaModel: K8sKind = {
+export const AppliedClusterResourceQuotaModel: K8sModel = {
   label: 'AppliedClusterResourceQuota',
   // t('public~AppliedClusterResourceQuota')
   labelKey: 'public~AppliedClusterResourceQuota',
@@ -742,7 +664,7 @@ export const AppliedClusterResourceQuotaModel: K8sKind = {
   crd: true,
 };
 
-export const NetworkPolicyModel: K8sKind = {
+export const NetworkPolicyModel: K8sModel = {
   label: 'NetworkPolicy',
   // t('public~NetworkPolicy')
   labelKey: 'public~NetworkPolicy',
@@ -758,7 +680,7 @@ export const NetworkPolicyModel: K8sKind = {
   id: 'networkpolicy',
 };
 
-export const CustomResourceDefinitionModel: K8sKind = {
+export const CustomResourceDefinitionModel: K8sModel = {
   label: 'CustomResourceDefinition',
   // t('public~CustomResourceDefinition')
   labelKey: 'public~CustomResourceDefinition',
@@ -774,7 +696,7 @@ export const CustomResourceDefinitionModel: K8sKind = {
   labelPluralKey: 'public~CustomResourceDefinitions',
 };
 
-export const CronJobModel: K8sKind = {
+export const CronJobModel: K8sModel = {
   label: 'CronJob',
   // t('public~CronJob')
   labelKey: 'public~CronJob',
@@ -791,7 +713,7 @@ export const CronJobModel: K8sKind = {
   propagationPolicy: 'Foreground',
 };
 
-export const StorageClassModel: K8sKind = {
+export const StorageClassModel: K8sModel = {
   label: 'StorageClass',
   // t('public~StorageClass')
   labelKey: 'public~StorageClass',
@@ -807,7 +729,7 @@ export const StorageClassModel: K8sKind = {
   id: 'storageclass',
 };
 
-export const VolumeAttributesClassModel: K8sKind = {
+export const VolumeAttributesClassModel: K8sModel = {
   label: 'VolumeAttributesClass',
   // t('public~VolumeAttributesClass')
   labelKey: 'public~VolumeAttributesClass',
@@ -823,7 +745,7 @@ export const VolumeAttributesClassModel: K8sKind = {
   id: 'volumeattributesclass',
 };
 
-export const LimitRangeModel: K8sKind = {
+export const LimitRangeModel: K8sModel = {
   label: 'LimitRange',
   // t('public~LimitRange')
   labelKey: 'public~LimitRange',
@@ -838,24 +760,7 @@ export const LimitRangeModel: K8sKind = {
   labelPluralKey: 'public~LimitRanges',
 };
 
-export const APIServiceModel: K8sKind = {
-  label: 'APIService',
-  // t('public~APIService')
-  labelKey: 'public~APIService',
-  labelPlural: 'APIServices',
-  // t('public~APIServices')
-  labelPluralKey: 'APIServices',
-  apiVersion: 'v1',
-  apiGroup: 'apiregistration.k8s.io',
-  plural: 'apiservices',
-  abbr: 'APIS',
-  namespaced: false,
-  kind: 'APIService',
-  id: 'apiservice',
-  crd: true,
-};
-
-export const UserModel: K8sKind = {
+export const UserModel: K8sModel = {
   label: 'User',
   // t('public~User')
   labelKey: 'public~User',
@@ -872,7 +777,7 @@ export const UserModel: K8sKind = {
   crd: true,
 };
 
-export const GroupModel: K8sKind = {
+export const GroupModel: K8sModel = {
   label: 'Group',
   // t('public~Group')
   labelKey: 'public~Group',
@@ -891,7 +796,7 @@ export const GroupModel: K8sKind = {
 
 // Cluster API resources
 // https://github.com/openshift/cluster-api
-export const MachineModel: K8sKind = {
+export const MachineModel: K8sModel = {
   label: 'Machine',
   // t('public~Machine')
   labelKey: 'public~Machine',
@@ -908,7 +813,7 @@ export const MachineModel: K8sKind = {
   crd: true,
 };
 
-export const MachineSetModel: K8sKind = {
+export const MachineSetModel: K8sModel = {
   label: 'MachineSet',
   // t('public~MachineSet')
   labelKey: 'public~MachineSet',
@@ -925,7 +830,7 @@ export const MachineSetModel: K8sKind = {
   crd: true,
 };
 
-export const ControlPlaneMachineSetModel: K8sKind = {
+export const ControlPlaneMachineSetModel: K8sModel = {
   label: 'ControlPlaneMachineSet',
   // t('public~ControlPlaneMachineSet')
   labelKey: 'public~ControlPlaneMachineSet',
@@ -942,7 +847,7 @@ export const ControlPlaneMachineSetModel: K8sKind = {
   crd: true,
 };
 
-export const MachineDeploymentModel: K8sKind = {
+export const MachineDeploymentModel: K8sModel = {
   label: 'MachineDeployment',
   // t('public~MachineDeployment')
   labelKey: 'public~MachineDeployment',
@@ -959,7 +864,7 @@ export const MachineDeploymentModel: K8sKind = {
   crd: true,
 };
 
-export const MachineConfigPoolModel: K8sKind = {
+export const MachineConfigPoolModel: K8sModel = {
   label: 'MachineConfigPool',
   // t('public~MachineConfigPool')
   labelKey: 'public~MachineConfigPool',
@@ -976,7 +881,7 @@ export const MachineConfigPoolModel: K8sKind = {
   crd: true,
 };
 
-export const MachineConfigModel: K8sKind = {
+export const MachineConfigModel: K8sModel = {
   label: 'MachineConfig',
   // t('public~MachineConfig')
   labelKey: 'public~MachineConfig',
@@ -993,7 +898,7 @@ export const MachineConfigModel: K8sKind = {
   crd: true,
 };
 
-export const MachineAutoscalerModel: K8sKind = {
+export const MachineAutoscalerModel: K8sModel = {
   label: 'MachineAutoscaler',
   // t('public~MachineAutoscaler')
   labelKey: 'public~MachineAutoscaler',
@@ -1010,7 +915,7 @@ export const MachineAutoscalerModel: K8sKind = {
   crd: true,
 };
 
-export const MachineHealthCheckModel: K8sKind = {
+export const MachineHealthCheckModel: K8sModel = {
   label: 'MachineHealthCheck',
   // t('public~MachineHealthCheck')
   labelKey: 'public~MachineHealthCheck',
@@ -1028,7 +933,7 @@ export const MachineHealthCheckModel: K8sKind = {
 };
 
 // Openshift cluster resources
-export const ClusterOperatorModel: K8sKind = {
+export const ClusterOperatorModel: K8sModel = {
   label: 'ClusterOperator',
   // t('public~ClusterOperator')
   labelKey: 'public~ClusterOperator',
@@ -1045,7 +950,7 @@ export const ClusterOperatorModel: K8sKind = {
   crd: true,
 };
 
-export const ClusterVersionModel: K8sKind = {
+export const ClusterVersionModel: K8sModel = {
   label: 'ClusterVersion',
   // t('public~ClusterVersion')
   labelKey: 'public~ClusterVersion',
@@ -1062,7 +967,7 @@ export const ClusterVersionModel: K8sKind = {
   crd: true,
 };
 
-export const CSIDriverModel: K8sKind = {
+export const CSIDriverModel: K8sModel = {
   label: 'CSIDriver',
   // t('public~CSIDriver')
   labelKey: 'public~CSIDriver',
@@ -1079,7 +984,7 @@ export const CSIDriverModel: K8sKind = {
   crd: true,
 };
 
-export const ClusterAutoscalerModel: K8sKind = {
+export const ClusterAutoscalerModel: K8sModel = {
   label: 'ClusterAutoscaler',
   // t('public~ClusterAutoscaler')
   labelKey: 'public~ClusterAutoscaler',
@@ -1097,7 +1002,7 @@ export const ClusterAutoscalerModel: K8sKind = {
 };
 
 // OpenShift global configuration
-export const OAuthModel: K8sKind = {
+export const OAuthModel: K8sModel = {
   label: 'OAuth',
   // t('public~OAuth')
   labelKey: 'public~OAuth',
@@ -1114,7 +1019,7 @@ export const OAuthModel: K8sKind = {
   crd: true,
 };
 
-export const InfrastructureModel: K8sKind = {
+export const InfrastructureModel: K8sModel = {
   label: 'Infrastructure',
   // t('public~Infrastructure')
   labelKey: 'public~Infrastructure',
@@ -1131,20 +1036,7 @@ export const InfrastructureModel: K8sKind = {
   crd: true,
 };
 
-export const NetworkOperatorConfigModel: K8sKind = {
-  label: 'Network',
-  labelPlural: 'Networks',
-  apiVersion: 'v1',
-  apiGroup: 'config.openshift.io',
-  plural: 'networks',
-  abbr: 'NO',
-  namespaced: false,
-  kind: 'Network',
-  id: 'network',
-  crd: true,
-};
-
-export const ConsoleOperatorConfigModel: K8sKind = {
+export const ConsoleOperatorConfigModel: K8sModel = {
   label: 'Console',
   labelPlural: 'Consoles',
   apiVersion: 'v1',
@@ -1157,7 +1049,7 @@ export const ConsoleOperatorConfigModel: K8sKind = {
   crd: true,
 };
 
-export const ConsoleLinkModel: K8sKind = {
+export const ConsoleLinkModel: K8sModel = {
   label: 'ConsoleLink',
   // t('public~ConsoleLink')
   labelKey: 'public~ConsoleLink',
@@ -1174,24 +1066,7 @@ export const ConsoleLinkModel: K8sKind = {
   crd: true,
 };
 
-export const ConsoleCLIDownloadModel: K8sKind = {
-  label: 'ConsoleCLIDownload',
-  // t('public~ConsoleCLIDownload')
-  labelKey: 'public~ConsoleCLIDownload',
-  labelPlural: 'ConsoleCLIDownloads',
-  // t('public~ConsoleCLIDownloads')
-  labelPluralKey: 'public~ConsoleCLIDownloads',
-  apiVersion: 'v1',
-  apiGroup: 'console.openshift.io',
-  plural: 'consoleclidownloads',
-  abbr: 'CCD',
-  namespaced: false,
-  kind: 'ConsoleCLIDownload',
-  id: 'consoleclidownload',
-  crd: true,
-};
-
-export const ConsoleNotificationModel: K8sKind = {
+export const ConsoleNotificationModel: K8sModel = {
   label: 'ConsoleNotification',
   // t('public~ConsoleNotification')
   labelKey: 'public~ConsoleNotification',
@@ -1208,7 +1083,7 @@ export const ConsoleNotificationModel: K8sKind = {
   crd: true,
 };
 
-export const ConsoleExternalLogLinkModel: K8sKind = {
+export const ConsoleExternalLogLinkModel: K8sModel = {
   label: 'ConsoleExternalLogLink',
   // t('public~ConsoleExternalLogLink')
   labelKey: 'public~ConsoleExternalLogLink',
@@ -1225,7 +1100,7 @@ export const ConsoleExternalLogLinkModel: K8sKind = {
   crd: true,
 };
 
-export const ConsoleYAMLSampleModel: K8sKind = {
+export const ConsoleYAMLSampleModel: K8sModel = {
   label: 'ConsoleYAMLSample',
   // t('public~ConsoleYAMLSample')
   labelKey: 'public~ConsoleYAMLSample',
@@ -1242,7 +1117,7 @@ export const ConsoleYAMLSampleModel: K8sKind = {
   crd: true,
 };
 
-export const VolumeSnapshotModel: K8sKind = {
+export const VolumeSnapshotModel: K8sModel = {
   label: 'VolumeSnapshot',
   // t('public~VolumeSnapshot')
   labelKey: 'public~VolumeSnapshot',
@@ -1259,7 +1134,7 @@ export const VolumeSnapshotModel: K8sKind = {
   crd: true,
 };
 
-export const VolumeSnapshotClassModel: K8sKind = {
+export const VolumeSnapshotClassModel: K8sModel = {
   label: 'VolumeSnapshotClass',
   // t('public~VolumeSnapshotClass')
   labelKey: 'public~VolumeSnapshotClass',
@@ -1276,7 +1151,7 @@ export const VolumeSnapshotClassModel: K8sKind = {
   crd: true,
 };
 
-export const VolumeSnapshotContentModel: K8sKind = {
+export const VolumeSnapshotContentModel: K8sModel = {
   label: 'VolumeSnapshotContent',
   // t('public~VolumeSnapshotContent')
   labelKey: 'public~VolumeSnapshotContent',
@@ -1293,7 +1168,7 @@ export const VolumeSnapshotContentModel: K8sKind = {
   crd: true,
 };
 
-export const ConsolePluginModel: K8sKind = {
+export const ConsolePluginModel: K8sModel = {
   label: 'ConsolePlugin',
   // t('public~ConsolePlugin')
   labelKey: 'public~ConsolePlugin',
@@ -1310,7 +1185,7 @@ export const ConsolePluginModel: K8sKind = {
   crd: true,
 };
 
-export const CloudCredentialModel: K8sKind = {
+export const CloudCredentialModel: K8sModel = {
   kind: 'CloudCredential',
   label: 'CloudCredential',
   labelPlural: 'CloudCredentials',
@@ -1320,7 +1195,7 @@ export const CloudCredentialModel: K8sKind = {
   plural: 'cloudcredentials',
 };
 
-export const AuthenticationModel: K8sKind = {
+export const AuthenticationModel: K8sModel = {
   kind: 'Authentication',
   label: 'Authentication',
   labelPlural: 'Authentications',
@@ -1330,29 +1205,3 @@ export const AuthenticationModel: K8sKind = {
   abbr: 'AU',
 };
 
-export const MultiNetworkPolicyModel: K8sKind = {
-  abbr: 'MNP',
-  apiGroup: 'k8s.cni.cncf.io',
-  apiVersion: 'v1beta1',
-  id: 'multinetworkpolicy',
-  kind: 'MultiNetworkPolicy',
-  label: 'multi-networkpolicy',
-  // t('public~MultiNetworkPolicy')
-  labelKey: 'public~MultiNetworkPolicy',
-  labelPlural: 'MultiNetworkPolicies',
-  // t('MultiNetworkPolicies')
-  labelPluralKey: 'public~MultiNetworkPolicies',
-  namespaced: true,
-  plural: 'multi-networkpolicies',
-  crd: true,
-};
-
-// Export models which have legacy plural URLs that need to be maintained.
-// This is imported by `../module/k8s/k8s-models.ts` and thus `connectToPlural`.
-export {
-  ClusterServiceVersionModel,
-  InstallPlanModel,
-  SubscriptionModel,
-} from '@console/operator-lifecycle-manager/src/models';
-
-export { PodDisruptionBudgetModel, EndPointSliceModel } from '@console/app/src/models/index';

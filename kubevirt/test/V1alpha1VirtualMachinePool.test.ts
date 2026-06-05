@@ -1,6 +1,6 @@
-import { V1alpha1VirtualMachinePool } from '../models/V1alpha1VirtualMachinePool';
+import { V1beta1VirtualMachinePool } from '../models/V1beta1VirtualMachinePool';
 
-export const testObject: V1alpha1VirtualMachinePool = {
+export const testObject: V1beta1VirtualMachinePool = {
   apiVersion: 'pool.kubevirt.io/v1alpha1',
   kind: 'VirtualMachinePool',
   metadata: {

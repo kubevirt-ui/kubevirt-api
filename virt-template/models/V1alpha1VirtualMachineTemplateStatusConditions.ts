@@ -49,7 +49,6 @@ The value should be a CamelCase string.
 This field may not be empty.
    *
    * @required {true}
-   * @pattern {^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$}
    */
   reason: string;
   /** status

@@ -35,6 +35,32 @@ const BUILTIN_TYPES = new Set([
 
 const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
 
+const FIELDS_V1_TYPE_ALIASES = new Set([
+  'K8sIoApimachineryPkgApisMetaV1FieldsV1',
+  'IoK8sApimachineryPkgApisMetaV1FieldsV1',
+  'V1FieldsV1',
+]);
+
+function applyFieldsV1TypeOverride(declaration) {
+  if (
+    !ts.isTypeAliasDeclaration(declaration) ||
+    !FIELDS_V1_TYPE_ALIASES.has(declaration.name.text)
+  ) {
+    return declaration;
+  }
+
+  return ts.factory.updateTypeAliasDeclaration(
+    declaration,
+    declaration.modifiers,
+    declaration.name,
+    declaration.typeParameters,
+    ts.factory.createTypeReferenceNode('Record', [
+      ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
+      ts.factory.createKeywordTypeNode(ts.SyntaxKind.UnknownKeyword),
+    ]),
+  );
+}
+
 function getLeadingCommentText(sourceFile, node) {
   const start = node.getStart(sourceFile, false);
   const ranges = ts.getLeadingCommentRanges(sourceFile.text, start);
@@ -304,7 +330,7 @@ function splitDataContracts(inputPath, outputDir) {
       declaration,
       sourceFile,
     );
-    processedDeclarations.push(updatedDeclaration);
+    processedDeclarations.push(applyFieldsV1TypeOverride(updatedDeclaration));
 
     for (const enumType of enumTypes) {
       extractedEnumTypes.set(enumType.name, enumType);

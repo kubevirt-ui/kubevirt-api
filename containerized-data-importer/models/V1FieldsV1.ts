@@ -5,4 +5,6 @@
  *
  * The exact format is defined in sigs.k8s.io/structured-merge-diff
  */
-export type V1FieldsV1 = Record<string, unknown>;
+export interface V1FieldsV1 {
+  [field: string]: V1FieldsV1 | Record<string, never>;
+}

@@ -5,4 +5,6 @@
  *
  * The exact format is defined in sigs.k8s.io/structured-merge-diff
  */
-export type K8sIoApimachineryPkgApisMetaV1FieldsV1 = Record<string, unknown>;
+export interface K8sIoApimachineryPkgApisMetaV1FieldsV1 {
+  [field: string]: K8sIoApimachineryPkgApisMetaV1FieldsV1 | Record<string, never>;
+}

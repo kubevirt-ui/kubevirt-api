@@ -49,15 +49,34 @@ function applyFieldsV1TypeOverride(declaration) {
     return declaration;
   }
 
-  return ts.factory.updateTypeAliasDeclaration(
-    declaration,
+  const typeName = declaration.name.text;
+
+  return ts.factory.createInterfaceDeclaration(
     declaration.modifiers,
     declaration.name,
-    declaration.typeParameters,
-    ts.factory.createTypeReferenceNode('Record', [
-      ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
-      ts.factory.createKeywordTypeNode(ts.SyntaxKind.UnknownKeyword),
-    ]),
+    undefined,
+    undefined,
+    [
+      ts.factory.createIndexSignature(
+        undefined,
+        [
+          ts.factory.createParameterDeclaration(
+            undefined,
+            undefined,
+            'field',
+            undefined,
+            ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
+          ),
+        ],
+        ts.factory.createUnionTypeNode([
+          ts.factory.createTypeReferenceNode(typeName),
+          ts.factory.createTypeReferenceNode('Record', [
+            ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
+            ts.factory.createKeywordTypeNode(ts.SyntaxKind.NeverKeyword),
+          ]),
+        ]),
+      ),
+    ],
   );
 }
 

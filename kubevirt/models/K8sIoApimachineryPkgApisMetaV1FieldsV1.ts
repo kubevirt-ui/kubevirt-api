@@ -5,4 +5,4 @@
  *
  * The exact format is defined in sigs.k8s.io/structured-merge-diff
  */
-export type K8sIoApimachineryPkgApisMetaV1FieldsV1 = object;
+export type K8sIoApimachineryPkgApisMetaV1FieldsV1 = Record<string, unknown>;

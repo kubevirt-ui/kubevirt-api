@@ -5,6 +5,6 @@
     "kubernetes": "v1.33.0",
     "openshiftConsole": "main",
     "nmstate": "v0.84.0",
-    "virtTemplate": "v0.1.7"
+    "virtTemplate": "v0.2.2"
   }
 }

@@ -81,6 +81,10 @@ function applyFieldsV1TypeOverride(declaration) {
 }
 
 function getLeadingCommentText(sourceFile, node) {
+  if (node.pos < 0) {
+    return '';
+  }
+
   const start = node.getStart(sourceFile, false);
   const ranges = ts.getLeadingCommentRanges(sourceFile.text, start);
   if (!ranges?.length) {
@@ -343,13 +347,16 @@ function splitDataContracts(inputPath, outputDir) {
 
   const processedDeclarations = [];
   const extractedEnumTypes = new Map();
+  const originalDeclarationsByName = new Map();
 
   for (const declaration of exportedDeclarations) {
     const { declaration: updatedDeclaration, enumTypes } = extractEnumTypes(
       declaration,
       sourceFile,
     );
-    processedDeclarations.push(applyFieldsV1TypeOverride(updatedDeclaration));
+    const finalDeclaration = applyFieldsV1TypeOverride(updatedDeclaration);
+    processedDeclarations.push(finalDeclaration);
+    originalDeclarationsByName.set(finalDeclaration.name.text, declaration);
 
     for (const enumType of enumTypes) {
       extractedEnumTypes.set(enumType.name, enumType);
@@ -369,7 +376,10 @@ function splitDataContracts(inputPath, outputDir) {
 
   for (const declaration of processedDeclarations) {
     const name = declaration.name.text;
-    const comment = getLeadingCommentText(sourceFile, declaration);
+    const comment = getLeadingCommentText(
+      sourceFile,
+      originalDeclarationsByName.get(name) ?? declaration,
+    );
     const body = printNode(declaration, sourceFile);
     const refs = [...collectTypeReferences(declaration)]
       .filter((ref) => exportedNames.has(ref) && ref !== name && !BUILTIN_TYPES.has(ref))

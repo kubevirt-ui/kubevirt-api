@@ -10,20 +10,20 @@
  * https://github.com/yaacov/crdtoapi/README.crdtotypes
  */
 
-import { V1alpha1VirtualMachineTemplateRequestSpecVirtualMachineRef } from './V1alpha1VirtualMachineTemplateRequestSpecVirtualMachineRef';
+import { V1beta1VirtualMachineTemplateRequestSpecVirtualMachineRef } from './V1beta1VirtualMachineTemplateRequestSpecVirtualMachineRef';
 
 /**
  * Spec defines the desired state of the template requests
  *
  * @export
  */
-export interface V1alpha1VirtualMachineTemplateRequestSpec {
+export interface V1beta1VirtualMachineTemplateRequestSpec {
   /** templateLabels
    * TemplateLabels holds optional labels to apply to the created VirtualMachineTemplate.
 Labels with the "template.kubevirt.io/" prefix are reserved for system use and are not allowed.
    *
    * @required {false}
-   * @originalType {V1alpha1VirtualMachineTemplateRequestSpecTemplateLabels}
+   * @originalType {V1beta1VirtualMachineTemplateRequestSpecTemplateLabels}
    */
   templateLabels?: { [key: string]: string };
   /** templateName
@@ -52,5 +52,5 @@ becomes eligible to be deleted immediately after it finishes.
    *
    * @required {true}
    */
-  virtualMachineRef: V1alpha1VirtualMachineTemplateRequestSpecVirtualMachineRef;
+  virtualMachineRef: V1beta1VirtualMachineTemplateRequestSpecVirtualMachineRef;
 }

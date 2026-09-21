@@ -17,8 +17,10 @@ function normalizeKubeTypeName(name) {
  * K8s OpenAPI uses type: string + format: byte for base64 payloads in JSON
  * (Secret.data, ConfigMap.binaryData, etc.). swagger-typescript-api defaults
  * those to Blob; map them to string to match API JSON and the prior generator.
+ *
+ * format: int-or-string (Kubernetes IntOrString) accepts JSON numbers or strings.
  */
-function kubeByteFormatsAsString(defaults) {
+function kubeStringFormats(defaults) {
   const stringConstructs =
     typeof defaults.string === 'object' && defaults.string !== null
       ? defaults.string
@@ -30,6 +32,7 @@ function kubeByteFormatsAsString(defaults) {
       ...stringConstructs,
       byte: 'string',
       binary: 'string',
+      'int-or-string': 'string | number',
     },
   };
 }
@@ -38,5 +41,5 @@ module.exports = {
   hooks: {
     onFormatTypeName: (formattedName) => normalizeKubeTypeName(formattedName),
   },
-  primitiveTypeConstructs: kubeByteFormatsAsString,
+  primitiveTypeConstructs: kubeStringFormats,
 };

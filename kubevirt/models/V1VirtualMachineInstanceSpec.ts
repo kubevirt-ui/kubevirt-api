@@ -60,6 +60,8 @@ export interface V1VirtualMachineInstanceSpec {
   resourceClaims?: K8sIoApiCoreV1PodResourceClaim[];
   /** If specified, the VMI will be dispatched by specified scheduler. If not specified, the VMI will be dispatched by default scheduler. */
   schedulerName?: string;
+  /** ServiceAccountName is the name of the ServiceAccount to use to run the virt-launcher pod. This sets pod.spec.serviceAccountName but does NOT automatically expose the service account token to the VM guest. To expose the token to the VM, use a serviceAccount volume. */
+  serviceAccountName?: string;
   /** StartStrategy can be set to "Paused" if Virtual Machine should be started in paused state. */
   startStrategy?: string;
   /** If specified, the fully qualified vmi hostname will be "<hostname>.<subdomain>.<pod namespace>.svc.<cluster domain>". If not specified, the vmi will not have a domainname at all. The DNS entry will resolve to the vmi, no matter if the vmi itself can pick up a hostname. */
